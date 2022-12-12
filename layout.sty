@@ -415,13 +415,14 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 
 \newcommand{\sidebox}[2][23]{
 	\iftoggle{verbose}{
+    \needspace{4em}
 		\begin{wrapfigure}{R}{.#1\textwidth} 
 		#2
-		\end{wrapfigure}
+		\end{wrapfigure}%
 	}{
 		#2
 		
-	}
+	}%
 }
 
 % Chapter Heading Color
@@ -478,7 +479,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
     };
 }%
 }
-\titleformat{\section}{\large\needspace{10em}}{\titlebar}{0.1cm}{\textcolor{white}}
+\titleformat{\section}{\large\needspace{12em}}{\titlebar}{0.1cm}{\textcolor{white}}
 \renewcommand*{\thesection}{\arabic{section}}
 
 \titleformat{\subsection}
