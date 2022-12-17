@@ -870,7 +870,8 @@ Roll & Result \\
 \newcommand{\shortline}{\line(1,0){22}}	
 \newcommand{\weeline}{\line(1,0){30} \hspace{.6cm}}
 \newcommand{\vlongline}{\line(1,0){100}\hspace{0.8cm}}
-\newcommand{\writeline}{\line(1,0){59}}
+\newcommand{\writeline}{\hrulefill}
+\newcommand{\fiveBoxesRow}{\ding{111} & \ding{111} & \ding{111} & \ding{111} & \ding{111}}
 \newcommand{\fiveboxes}{\ding{111}\ding{111}\ding{111}\ding{111}\ding{111}}
 \newcommand{\threeboxes}{\ding{111}\ding{111}\ding{111}}
 \newcommand{\threecircles}{\ding{109}\ding{109}\ding{109}}
@@ -881,7 +882,7 @@ Roll & Result \\
 	\line(1,0){120}
 
 	}
-\newcommand{\skill}[1]{#1 & \ding{109} & \ding{109} & \ding{109} \\
+\newcommand{\skill}[1]{#1 \hrulefill & \ding{109} & \ding{109} & \ding{109} \\
 }
 
 \newcommand{\longline}{\line(1,0){320}\par\vspace{.2cm}}
