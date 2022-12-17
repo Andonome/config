@@ -49,6 +49,7 @@
 
 
 \newtoggle{mind}
+\newtoggle{bling}
 \newtoggle{examplecharacter}
 \settoggle{examplecharacter}{false}
 \newtoggle{debug}\settoggle{debug}{false}
@@ -271,6 +272,7 @@
 %%%%%%%%%%% Person
 %
 \newcommand{\person}[9]{
+  \settoggle{bling}{true}
 	\settoggle{mind}{true}
 	\setcounter{str}{#1}
 	\setcounter{dex}{#2}
@@ -287,12 +289,14 @@
 	\renewcommand{\armourtype}{P}
 	\gdef\armourtype{P}
 
-	\begin{tcolorbox}[title={\name},
+	\begin{tcolorbox}[
+    title={\name},
 		before upper={\parindent0pt},
 		halign=flush left,
 		left=10pt,
 		right=15pt,
-		watermark text=\npcsymbol]
+    top=0pt,
+		]
 
 	\iftoggle{personality}{
 
@@ -312,10 +316,12 @@
 	\end{tcolorbox}
 		\settoggle{debug}{false}
 		\settoggle{examplecharacter}{false}
+    \settoggle{bling}{false}
 
 }
 
 \newcommand{\animal}[9]{
+  \settoggle{bling}{true}
 	\settoggle{mind}{false}
 	\setcounter{str}{#1}
 	\setcounter{dex}{#2}
@@ -336,7 +342,7 @@
 		halign=flush left,
 		left=10pt,
 		right=15pt,
-		watermark text=\npcsymbol]
+		]
 
 	\iftoggle{personality}{
 
@@ -353,6 +359,7 @@
 	\derivedstats
 
 	\end{tcolorbox}
+  \settoggle{bling}{false}
 
 }
 

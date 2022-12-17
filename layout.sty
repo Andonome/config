@@ -275,6 +275,30 @@ bookmarks=true]%
 	\end{figure*}
 }
 
+% sidebling
+% This command automatically adds little decorations to boxes.
+
+\newcounter{blingNo}
+\setcounter{blingNo}{0}
+
+\newcommand\sidebling{
+    \ifnum\value{mp}>1
+      \addtocounter{mp}{7}
+      \includesvg[width=\themp pt]{config/config/images/b1}
+      \hspace{-20pt}
+    \fi
+    \ifnum\value{dr}>2
+    \addtocounter{dr}{-2}
+      \includesvg[width=\thedr ex]{config/images/l1}
+      \hspace{-30pt}
+    \fi
+    \ifnum\value{attb}>8
+      \addtocounter{attb}{-7}
+      \includesvg[angle=55,width=\theattb ex]{config/images/s1}
+      \hspace{-30pt}
+    \fi
+}
+
 % Define the 'ornamentedbox' environment
 
 % Wiggly Borders
@@ -361,11 +385,8 @@ bookmarks=true]%
     \draw[ornamented frame inner, use path=ornament 1];
     \draw[ornamented frame inner, use path=ornament 2];
     %
-    \foreach \xoffset/\point in {34pt/north west, -34pt/north east,
-                                 34pt/south west, -34pt/south east} {
-      \fill[color=black]
-        ([xshift=\xoffset]\point) circle[radius=3pt];
-    }
+    \node at ([xshift=20pt,yshift=\thedr-5pt] north west)
+      {\iftoggle{bling}{\sidebling}{}};
   }
 }
 
