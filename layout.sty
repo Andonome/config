@@ -284,7 +284,7 @@ bookmarks=true]%
 \newcommand\sidebling{
     \ifnum\value{mp}>1
       \addtocounter{mp}{7}
-      \includesvg[width=\themp pt]{config/config/images/b1}
+      \includesvg[angle=-20,width=\themp pt]{config/config/images/b1}
       \hspace{-20pt}
     \fi
     \ifnum\value{dr}>2
@@ -385,7 +385,7 @@ bookmarks=true]%
     \draw[ornamented frame inner, use path=ornament 1];
     \draw[ornamented frame inner, use path=ornament 2];
     %
-    \node at ([xshift=20pt,yshift=\thedr-5pt] north west)
+    \node at ([xshift=20pt,yshift=\thedr-10pt] north west)
       {\iftoggle{bling}{\sidebling}{}};
   }
 }
