@@ -385,8 +385,13 @@ bookmarks=true]%
     \draw[ornamented frame inner, use path=ornament 1];
     \draw[ornamented frame inner, use path=ornament 2];
     %
-    \node at ([xshift=20pt,yshift=\thedr-10pt] north west)
-      {\iftoggle{bling}{\sidebling}{}};
+    \ifodd\thepage
+      \node at ([xshift=-20pt,yshift=\thedr-10pt] north east)
+        {\iftoggle{bling}{\sidebling}{}};
+    \else
+      \node at ([xshift=20pt,yshift=\thedr-10pt] north west)
+        {\iftoggle{bling}{\sidebling}{}};
+      \fi
   }
 }
 
