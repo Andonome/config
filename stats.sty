@@ -421,7 +421,6 @@
 	\setcounter{hp}{\value{str}}
 \end{tabularx}
 
-\hrule
 	\addtocounter{hp}{6}
 
 	\iftoggle{examplecharacter}{}{
@@ -429,10 +428,11 @@
 }
 \vspace{.1cm}
 \raggedright
-\noindent\begin{tabular}{p{.3\textwidth}>{\raggedright\arraybackslash}p{.65\textwidth}}
+\noindent
+\begin{tabularx}{\linewidth}{p{0.2\linewidth}X}
 
-	\ent{Skills:} & \ifnumcomp{\value{att}}{=}{0}{}{\iftoggle{mind}{Combat \arabic{att}, }{Aggression \arabic{att}, }} \skills \\
-	\iftoggle{mind}{\ent{Equipment:} & \equipment \\}{\ent{Abilities:} & \abilities \\}
+	\ent{Skills} & \ifnumcomp{\value{att}}{=}{0}{}{\iftoggle{mind}{Combat \arabic{att}, }{Aggression \arabic{att}, }} \skills \\
+	\iftoggle{mind}{\ent{Equipment} & \equipment \\}{\ent{Abilities} & \abilities \\}
 
 	\addtocounter{strb}{\value{str}}
 	\addtocounter{dexb}{\value{dex}}
@@ -442,7 +442,7 @@
 
 	\mods
 
-\end{tabular}
+\end{tabularx}
 
 	\weaponknackone
 	\weaponknacktwo
@@ -620,5 +620,5 @@
 
 %%%%%%%%%%%%%%%%%%%%% Magic Path
 \newcommand{\Path}[2]{ \\
-	\raggedright \ent{Path of #1:} & #2
+	\raggedright \ent{Path of #1} & #2
 	}
