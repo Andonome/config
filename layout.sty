@@ -437,7 +437,13 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 }
 
 
-\newtcolorbox{boxtext}[1][]{ornamented,colback=white,fonttitle=\scshape, #1}
+\newtcolorbox{boxtext}[1][]{
+  ornamented,
+  top=2em,
+  bottom=2em,
+  colback=white,
+  fonttitle=\scshape, #1
+  }
 
 \newcommand{\sidebox}[2][23]{
   \iftoggle{verbose}{
