@@ -765,6 +765,13 @@ Roll & Result \\
   \index{Antagonists!#2}
 }
 
+\newcommand{\startingCondition}[1]{
+  \ifnum\value{list}<95
+    \item
+    #1
+  \fi
+}
+
 \newcounter{random}
 \setcounter{random}{1}
 \newcounter{increment}
