@@ -287,15 +287,15 @@ bookmarks=true]%
 \setcounter{blingNo}{0}
 
 \newcommand\sidebling{
-    \ifnum\value{mp}>1
-      \addtocounter{mp}{7}
-      \includesvg[angle=-20,width=\themp pt]{config/config/images/b1}
-      \hspace{-20pt}
-    \fi
     \ifnum\value{dr}>2
     \addtocounter{dr}{-2}
       \includesvg[width=\thedr ex]{config/images/l1}
       \hspace{-30pt}
+    \fi
+    \ifnum\value{mp}>1
+      \addtocounter{mp}{7}
+      \includesvg[angle=-20,width=\themp pt]{config/config/images/b1}
+      \hspace{-20pt}
     \fi
     \ifnum\value{attb}>8
       \addtocounter{attb}{-7}
@@ -390,13 +390,8 @@ bookmarks=true]%
     \draw[ornamented frame inner, use path=ornament 1];
     \draw[ornamented frame inner, use path=ornament 2];
     %
-    \ifodd\thepage
-      \node at ([xshift=-20pt,yshift=\thedr-10pt] north east)
-        {\iftoggle{bling}{\sidebling}{}};
-    \else
-      \node at ([xshift=20pt,yshift=\thedr-10pt] north west)
-        {\iftoggle{bling}{\sidebling}{}};
-      \fi
+    \node at ([xshift=-20pt,yshift=\thedr-5pt] north east)
+      {\iftoggle{bling}{\sidebling}{}};
   }
 }
 
