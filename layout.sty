@@ -689,13 +689,21 @@ Roll & Result \\
 {\end{tabular}}
 
 
-\newenvironment{exampletext}{\needspace{2em}\vspace{.3cm}
+\newenvironment{exampletext}{
+  \iftoggle{verbose}{
+    \needspace{2em}\vspace{.3cm}
 
-\rule{.9\linewidth}{0.2pt}
+    \rule{.9\linewidth}{0.2pt}
 
-\vspace{.3cm}
+    \vspace{.3cm}
 
-\it}{\normalfont\vspace{2em}}
+    \it
+  }{}
+}{
+  \iftoggle{verbose}{
+    \normalfont\vspace{2em}
+  }{}
+}
 
 \newtcolorbox{xpchart}[1]{tabularx={l|X},adjusted title=XP Rewards for #1,
   bottom=10pt,
@@ -755,7 +763,6 @@ Roll & Result \\
   code={\rowcolors{2}{}{gray!10}},
   equal height group=#1
   }
-
 
 %%%%%%%%%%%%%%%%%%% COMMANDS %%%%%%%%%%%%%%%%%%%%
 
