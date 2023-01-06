@@ -137,6 +137,7 @@
 
 
 % magic
+\newcommand{\magicPath}{}
 \newcommand{\mana}[1]{\setcounter{mp}{#1}}
 \newcommand{\aldaron}{\addtocounter{mp}{3}Aldaron}
 \newcommand{\conjuration}{\addtocounter{mp}{3}Conjuration}
@@ -163,10 +164,6 @@
 \newcommand{\furiousblows}{Furious Blows\addtocounter{knacks}{1}}
 \newcommand{\firststrike}{First Strike\addtocounter{spd}{1}\addtocounter{spdb}{2}\addtocounter{knacks}{1}}
 \newcommand{\specialist}[1]{Specialist (#1)\addtocounter{knacks}{1}}
-\newcommand{\bloodcaster}{Blood Caster\addtocounter{knacks}{1}}
-\newcommand{\combatcaster}{Combat Caster\addtocounter{knacks}{1}}
-\newcommand{\snapcaster}{Snap Caster\addtocounter{knacks}{1}}
-\newcommand{\extremefocus}{Extreme Focus\addtocounter{knacks}{1}}
 \newcommand{\backtothewall}{Back to the Wall\addtocounter{knacks}{1}}
 \newcommand{\laststand}{Last Stand\addtocounter{knacks}{1}}
 \newcommand{\perfectsneakattack}{Perfect Sneak Attack\addtocounter{knacks}{1}\addtocounter{strb}{\value{knacks}}\addtocounter{strb}{2}}
@@ -181,6 +178,16 @@
 \newcommand{\mightydraw}{Mighty Draw\addtocounter{knacks}{1}}
 \newcommand{\finishingblow}{Finishing Blow\addtocounter{knacks}{1}}
 \newcommand{\unstoppable}{Unstoppable\addtocounter{hp}{2}\addtocounter{knacks}{1}}
+\newcommand{\vengeful}{Vengeful\addtocounter{knacks}{1}}
+\newcommand{\snapcaster}{Snap Caster\addtocounter{knacks}{1}}
+\newcommand{\extremefocus}{Extreme Focus\addtocounter{knacks}{1}}
+\newcommand{\alchemist}{Alchemist\addtocounter{knacks}{1}\renewcommand{\magicPath}{Alchemist}}
+\newcommand{\bloodCaster}{Blood Caster\addtocounter{knacks}{1}\renewcommand{\magicPath}{Blood}}
+\newcommand{\divineCaster}{Divine Caster\addtocounter{knacks}{1}\renewcommand{\magicPath}{Divinity}}
+\newcommand{\nuraCaster}{Nura Caster\addtocounter{knacks}{1}\renewcommand{\magicPath}{Nura}}
+\newcommand{\runeCaster}{Rune Caster\addtocounter{knacks}{1}\renewcommand{\magicPath}{Runes}}
+\newcommand{\songCaster}{Song Caster\addtocounter{knacks}{1}\renewcommand{\magicPath}{Song}}
+\newcommand{\combatcaster}{Combat Caster\addtocounter{knacks}{1}}
 
 %%%%% Weapons
 
@@ -619,6 +626,6 @@
 
 
 %%%%%%%%%%%%%%%%%%%%% Magic Path
-\newcommand{\Path}[2]{ \\
-	\raggedright \ent{Path of #1} & #2
+\newcommand{\Path}[1]{ \\
+	\raggedright \ent{Spheres:} & #1
 	}
