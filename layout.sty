@@ -123,17 +123,19 @@ bookmarks=true]%
 
 \newcommand*{\externalReferent}[1]{
   \newtoggle{#1}
-  \IfFileExists{../#1/main.aux}{
-    \makeatletter
-    \@addtofilelist{../#1/main.tex}
-    \@addtofilelist{../#1/main.aux}%
-    \makeatother
-    \externaldocument{../#1/main}%
-    \settoggle{#1}{true}
-  }%
-  {\typeout{No file #1.}
-  \settoggle{#1}{false}
-  }
+  \iftoggle{verbose}{
+    \IfFileExists{../#1/main.aux}{
+      \makeatletter
+      \@addtofilelist{../#1/main.tex}
+      \@addtofilelist{../#1/main.aux}%
+      \makeatother
+      \externaldocument{../#1/main}%
+      \settoggle{#1}{true}
+    }%
+    {\typeout{No file #1.}
+    \settoggle{#1}{false}
+    }
+  }{}
 }
 
 
