@@ -125,7 +125,7 @@
 \newcounter{xp}
 \newcounter{xpbonus}
 \newcounter{attackXPtotal}
-\newcounter{defenceXPtotal}
+\newcounter{defenceXPtotal} %rem
 
 %                                                _
 %   ___ ___  _ __ ___  _ __ ___   __ _ _ __   __| |___
@@ -188,72 +188,6 @@
 \newcommand{\runeCaster}{Rune Caster\addtocounter{knacks}{1}\renewcommand{\magicPath}{Runes}}
 \newcommand{\songCaster}{Song Caster\addtocounter{knacks}{1}\renewcommand{\magicPath}{Song}}
 \newcommand{\combatcaster}{Combat Caster\addtocounter{knacks}{1}}
-
-%%%%% Weapons
-
-\newcommand{\javelin}{Javelin\addtocounter{str}{1}\addtocounter{spd}{2}}
-\newcommand{\Dagger}{Dagger\addtocounter{str}{1}}
-\newcommand{\shortsword}{Shortsword\addtocounter{str}{1}\addtocounter{spd}{1}\addtocounter{dex}{2}}
-\newcommand{\club}{Club\addtocounter{str}{2}\addtocounter{spd}{1}\addtocounter{dex}{1}}
-\newcommand{\rapier}{Rapier\addtocounter{str}{1}\addtocounter{spd}{2}\addtocounter{dex}{1}}
-\newcommand{\longsword}{Longsword\addtocounter{str}{1}\addtocounter{spd}{1}\addtocounter{dex}{3}}
-\newcommand{\greatsword}{Greatsword\addtocounter{str}{2}\addtocounter{spd}{1}\addtocounter{dex}{2}}
-\newcommand{\spear}{Spear\addtocounter{str}{1}\addtocounter{spd}{1}\addtocounter{dex}{2}\addtocounter{spdb}{2}}
-\newcommand{\quarterstaff}{Quarterstaff\addtocounter{spd}{1}\addtocounter{dex}{2}\addtocounter{spdb}{2}}
-\newcommand{\greataxe}{Greataxe\addtocounter{str}{3}\addtocounter{spd}{1}\addtocounter{dex}{1}}
-\newcommand{\woodaxe}{Wood axe\addtocounter{str}{2}\addtocounter{dex}{1}}
-\newcommand{\greatclub}{Greatclub\addtocounter{str}{4}\addtocounter{spd}{1}\addtocounter{dex}{1}}
-\newcommand{\longbow}{Longbow}
-\newcommand{\shield}{\addtocounter{dex}{1}shield}
-\newcommand{\bucklar}{\addtocounter{dex}{1}bucklar shield}
-
-% ARMOUR
-
-%% For perfect armour, stick \perfectArmour in the additional notes category of a \person (#9).
-
-\newcommand{\perfectArmour}{\gdef\armourtype{(Perfect)}}
-
-\newcommand{\partialelvish}{partial leather armour%
-	\ifnumcomp{\value{dr}}{>}{2}%
-	{\addtocounter{dr}{1}}%
-	{\divide\value{dr} by 2 \addtocounter{dr}{2}}%
-}
-
-\newcommand{\partialleather}{partial leather armour%
-	\ifnumcomp{\value{dr}}{>}{3}%
-	{\addtocounter{dr}{2}}%
-	{\divide\value{dr} by 2 \addtocounter{dr}{3}}%
-}
-
-\newcommand{\completeleather}{full leather armour\gdef\armourtype{C}%
-	\ifnumcomp{\value{dr}}{>}{3}%
-	{\addtocounter{dr}{2}}%
-	{\divide\value{dr} by 2 \addtocounter{dr}{3}}%
-}
-
-\newcommand{\partialchain}{partial chainmail%
-	\ifnumcomp{\value{dr}}{>}{4}%
-	{\addtocounter{dr}{2}}%
-	{\divide\value{dr} by 2 \addtocounter{dr}{4}}%
-}
-
-\newcommand{\completechain}{complete chain armour\gdef\armourtype{C}%
-	\ifnumcomp{\value{dr}}{>}{4}%
-	{\addtocounter{dr}{2}}%
-	{\divide\value{dr} by 2 \addtocounter{dr}{4}}%
-}
-
-\newcommand{\partialplate}{partial plate armour%
-	\ifnumcomp{\value{dr}}{>}{5}%
-	{\addtocounter{dr}{3}}%
-	{\divide\value{dr} by 2 \addtocounter{dr}{5}}%
-}
-
-\newcommand{\completeplate}{complete plate armour\gdef\armourtype{C}%
-	\ifnumcomp{\value{dr}}{>}{5}%
-	{\addtocounter{dr}{3}}%
-	{\divide\value{dr} by 2 \addtocounter{dr}{5}}%
-}
 
 % 
 % _ __   ___ _ __ ___  ___  _ __  
@@ -375,6 +309,8 @@
 \newcommand{\clean}{
 	\setcounter{fp}{5}
 	\setcounter{sp}{0}
+	\setcounter{heft}{4}
+	\setcounter{damage}{0}
 	\setcounter{knacks}{0}
 	\renewcommand{\armourtype}{N}
 	\renewcommand{\weaponknackone}{}
@@ -430,9 +366,6 @@
 
 	\addtocounter{hp}{6}
 
-	\iftoggle{examplecharacter}{}{
-		\addtocounter{dex}{7}
-}
 \vspace{.1cm}
 \raggedright
 \noindent
@@ -486,20 +419,13 @@
 
 	\vspace{.1cm}
 
+\addtocounter{att}{\value{dex}}
+\addtocounter{attb}{\value{dexb}}
 \noindent Attack \arabic{att}\ifnumcomp{\value{att}}{=}{\value{attb}}{}{ (\arabic{attb})},
 	Initiative \arabic{spd}\ifnumcomp{\value{spd}}{=}{\value{spdb}}{}{ (\arabic{spdb})},
-	Damage \calculatedamage{\value{str}}\ifnumcomp{\value{str}}{=}{\value{strb}}{}{ (\calculatedamage{\value{strb}})}, 
-	\iftoggle{examplecharacter}{\mbox{Defence \arabic{dex},} }{%
-	TN \arabic{dex}%
-	\ifnumcomp{\value{dr}}{>}{0}{
-		\ifnum\pdfstrcmp{\armourtype}{P}=0%
-			\addtocounter{dexb}{3} (\arabic{dexb})%
-		\fi
-		\ifnum\pdfstrcmp{\armourtype}{C}=0%
-			\addtocounter{dexb}{5}~(\arabic{dexb})%
-		\fi%
-	}{}, 
-	}%
+  Heft \arabic{heft}, 
+  \addtocounter{damage}{\value{str}}
+	\mbox{Damage \calculatedamage{\value{damage}}\ifnumcomp{\value{str}}{=}{\value{strb}}{}{\addtocounter{damage}{\value{strb}}\addtocounter{damage}{-\value{str}} (\calculatedamage{\value{damage}})},} 
 	\ifnumcomp{\value{dr}}{>}{0}{DR \arabic{dr}~\armourtype, }{}%
 	\ifnum\value{mp}>0%
 		\addtocounter{mp}{\value{wts}}%
@@ -570,8 +496,6 @@
 	\setcounter{defenceXPtotal}{\value{dex}}
 	\multiply\value{defenceXPtotal} by \value{dr}
 	\multiply\value{defenceXPtotal} by \value{hp}
-
-\iftoggle{debug}{Defence total: \arabic{defenceXPtotal}}{}
 
 % XP = attackXPtotal + defenceXPtotal
 	\setcounter{xp}{\value{attackXPtotal}}

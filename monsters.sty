@@ -75,7 +75,7 @@
 {\arabic{r4}}% WITS
 {\arabic{r2}}% DR
 {\ifodd\value{r3} 3\else 4\fi}% AGGRESSION
-{Athletics~\arabic{r3b}, \ifodd\value{r4} Vigilance~\arabic{r3b}\fi, Wyldcrafting~\arabic{r3}}% SKILLS
+{Athletics~\arabic{r3b}, \ifodd\value{r4} Vigilance~\arabic{r3b}, \fi Wyldcrafting~\arabic{r3}}% SKILLS
 {\web}% ABILITIES
 {}
 }
@@ -190,7 +190,7 @@
 	{4}%DR
 	{\arabic{age}}% COMBAT
 	{Aggression~\arabic{enc}, Projectiles~\arabic{r3b}, Academics~\arabic{r3}, Athletics~\arabic{r2b}, Deceit~\arabic{r2c}, Tactics~2, Vigilance~3
-	\knacks{\bloodCaster\ifodd\value{page}\combatcaster\else\backtothewall\fi, \ifnumcomp{\value{r3}}{>}{2}{\laststand}{\adrenalinesurge}}
+	\knacks{\bloodCaster, \ifodd\value{page}\combatcaster\else\backtothewall\fi, \ifnumcomp{\value{r3}}{>}{2}{\laststand}{\adrenalinesurge}}
 	\Path{\ifodd\value{r4}\aldaron\else \enchantment\fi~\arabic{r4}, \invocation~\arabic{enc}, \ifodd\value{r2}\force~\arabic{r3b}\else \polymorph~\arabic{r3}\fi }}{%
 	\iftoggle{bestiarychapter}{$3D6\times 100$gp, sitting in a lair.}{%
 		{\setcounter{gold}{\thepage}\addtocounter{gold}{-50}\multiply\value{gold} by \value{list}\multiply\value{gold} by \thechapter \ifnumcomp{\value{gold}}{>}{0}{\arabic{gold}gp in lair in assorted change}{None}}}}%
@@ -235,7 +235,7 @@
 	{2}% COMBAT
 	{Caving \arabic{r2}, Crafts~1, Tactics~1}% SKILLS
 	{\ifodd\value{r2}\woodaxe, \partialchain\else\shortsword, \partialplate\fi, \lootMedium}% EQUIPMENT
-	{\knacks{Chosen Enemy: Goblinoids}\ifodd\value{r2b}, \defender\fi}% SKILLS
+	{\knacks{Chosen Enemy: Goblinoids\ifodd\value{r2b}, \defender\fi}}% SKILLS
 }
 
 \newcommand{\dwarvenrunemaster}[1][\npc{\M}{Dwarven Runemaster}]{

@@ -1,0 +1,142 @@
+\ProvidesPackage{config/arms}
+%%%%% Weapons
+
+\newtoggle{chart}
+\settoggle{chart}{false}
+\newcounter{initiative}
+\newcounter{damage}
+\newcounter{cost}
+\newcounter{heft}% used to see how many Init points to swing a weapon
+
+% Weapon entries do two things.
+% When used in creatures, they raise stats.
+% When used in the  weapons chart, they display stats.
+
+\newcommand\weapon[6][]{
+  \setcounter{initiative}{#5}
+  \addtocounter{initiative}{3}
+  % If the weight is better than the Damage, use the Weight *as* the Damage, then add 1.
+  \setcounter{heft}{4}
+  \ifnum#5>#3
+    \addtocounter{heft}{#5}
+  \else
+    \addtocounter{heft}{#3}
+  \fi
+  \ifnum#4>#5
+    \setcounter{damage}{#4}
+  \else
+    \setcounter{damage}{#5}
+  \fi
+  \setcounter{cost}{#6}
+
+  #1
+  \iftoggle{bling}{
+    \addtocounter{att}{#3}
+    #2
+  }{
+    #2 &
+    \ifnum#3>0 +\fi
+    #3 &
+    \ifnum\value{damage}>0 +\fi\arabic{damage}
+    & \arabic{initiative} &
+    #5 &
+    \ifnum#6<1\else
+      \ifnum#6>200
+        \divide\value{cost} by 100
+        \arabic{cost} sp
+      \else
+        \arabic{cost} sp
+      \fi
+    \fi
+    \\
+  }
+}
+
+% Use this 'weapon entry' command to place items in the weapons table, like this:
+%\weapon{Name}%
+%{Bonus}
+%{Dam}
+%{Wt.} + Init
+%{Cost}
+%{Knacks}
+
+\newcommand{\boulder}{\weapon{Boulder}{-2}{0}{6}{0}}
+\newcommand{\chair}{\weapon{Chair}{1}{0}{1}{100}}
+\newcommand{\club}{\weapon{Club}{1}{0}{2}{8}}
+\newcommand{\cudgel}{\weapon{Cudgel}{0}{0}{1}{6}}
+\newcommand{\Dagger}{\weapon{Dagger}{0}{2}{-5}{0}}
+\newcommand{\firepoker}{\weapon{Firepoker}{1}{0}{1}{90}}
+\newcommand{\giantsword}{\weapon{Giant Sword}{3}{1}{4}{3200}}
+\newcommand{\greataxe}{\weapon{Great Axe}{2}{1}{4}{1600}}
+\newcommand{\greatsword}{\weapon{Great Sword}{2}{2}{3}{2200}}
+\newcommand{\greatclub}{\weapon[\addtocounter{damage}{-1}]{Great Club}{3}{0}{5}{10}}
+\newcommand{\javelin}{\weapon{Javelin}{2}{1}{0}{880}}
+\newcommand{\knife}{\weapon{Knife}{0}{1}{-2}{50}}
+\newcommand{\Log}{\weapon{Log}{-1}{0}{0}{1}}
+\newcommand{\rapier}{\weapon{Rapier}{2}{2}{-1}{2500}}
+\newcommand{\largerock}{\weapon{Rock (large)}{0}{0}{3}{0}}
+\newcommand{\longsword}{\weapon{Long Sword}{2}{2}{2}{2200}}
+\newcommand{\maul}{\weapon{Maul}{1}{0}{4}{2200}}
+\newcommand{\poleaxe}{\weapon{Pole Axe}{4}{1}{4}{2400}}
+\newcommand{\quarterstaff}{\weapon[\addtocounter{damage}{-1}]{Quarterstaff}{3}{0}{2}{30}}
+\newcommand{\rock}{\weapon{Rock}{-1}{0}{1}{0}}
+\newcommand{\shortsword}{\weapon{Short Sword}{1}{2}{0}{1500}}
+\newcommand{\skillet}{\weapon{Cast Iron Skillet}{1}{0}{1}{80}}
+\newcommand{\spear}{\weapon{Spear}{3}{1}{1}{300}}
+\newcommand{\stick}{\weapon{Stick}{1}{0}{-1}{1}}
+\newcommand{\whip}{\weapon{Whip}{1}{0}{0}{30}}
+\newcommand{\warhammer}{\weapon{Warhammer}{2}{0}{3}{30}}
+\newcommand{\woodaxe}{\weapon{Wood Axe}{2}{1}{2}{300}}
+
+% SHIELDS
+\newcommand{\longbow}{Longbow}
+\newcommand{\shield}{\addtocounter{dex}{1}shield}
+\newcommand{\bucklar}{\addtocounter{dex}{1}bucklar shield}
+
+% ARMOUR
+
+%% For perfect armour, stick \perfect Armour in the additional notes category of a \person (#9).
+
+\newcommand{\perfectArmour}{\gdef\armourtype{(Perfect)}}
+
+\newcommand{\partialelvish}{partial leather armour%
+	\ifnumcomp{\value{dr}}{>}{2}%
+	{\addtocounter{dr}{1}}%
+	{\divide\value{dr} by 2 \addtocounter{dr}{2}}%
+}
+
+\newcommand{\partialleather}{partial leather armour%
+	\ifnumcomp{\value{dr}}{>}{3}%
+	{\addtocounter{dr}{2}}%
+	{\divide\value{dr} by 2 \addtocounter{dr}{3}}%
+}
+
+\newcommand{\completeleather}{full leather armour\gdef\armourtype{C}%
+	\ifnumcomp{\value{dr}}{>}{3}%
+	{\addtocounter{dr}{2}}%
+	{\divide\value{dr} by 2 \addtocounter{dr}{3}}%
+}
+
+\newcommand{\partialchain}{partial chainmail%
+	\ifnumcomp{\value{dr}}{>}{4}%
+	{\addtocounter{dr}{2}}%
+	{\divide\value{dr} by 2 \addtocounter{dr}{4}}%
+}
+
+\newcommand{\completechain}{complete chain armour\gdef\armourtype{C}%
+	\ifnumcomp{\value{dr}}{>}{4}%
+	{\addtocounter{dr}{2}}%
+	{\divide\value{dr} by 2 \addtocounter{dr}{4}}%
+}
+
+\newcommand{\partialplate}{partial plate armour%
+	\ifnumcomp{\value{dr}}{>}{5}%
+	{\addtocounter{dr}{3}}%
+	{\divide\value{dr} by 2 \addtocounter{dr}{5}}%
+}
+
+\newcommand{\completeplate}{complete plate armour\gdef\armourtype{C}%
+	\ifnumcomp{\value{dr}}{>}{5}%
+	{\addtocounter{dr}{3}}%
+	{\divide\value{dr} by 2 \addtocounter{dr}{5}}%
+}
