@@ -4,7 +4,11 @@
 \newtoggle{chart}
 \settoggle{chart}{false}
 \newcounter{initiative}
+\newcounter{weight}
 \newcounter{damage}
+\newcounter{shieldBonus}
+\newcounter{shieldWeight}
+\newcounter{shieldInit}
 \newcounter{cost}
 \newcounter{heft}% used to see how many Init points to swing a weapon
 
@@ -45,8 +49,38 @@
         \divide\value{cost} by 100
         \arabic{cost} sp
       \else
-        \arabic{cost} sp
+        \arabic{cost} cp
       \fi
+    \fi
+    \\
+  }
+}
+
+% Shields work much like weapons, except that their Bonus is high, their initiative cost is low, but their attack is poor.
+
+\newcommand\shield[3][]{
+  \setcounter{shieldBonus}{#3}
+  \addtocounter{shieldBonus}{2}
+  \setcounter{shieldWeight}{#3}
+  \setcounter{shieldInit}{#3}
+  \addtocounter{shieldInit}{2}
+  \setcounter{cost}{87}
+  #1 
+  \iftoggle{bling}{
+    #2 shield (+\arabic{shieldBonus}/ \arabic{shieldInit})
+  }{
+    #2 &
+    +\arabic{shieldBonus} &
+    \arabic{shieldInit} &
+    \arabic{shieldWeight} &
+
+    \multiply\value{cost} by 8
+    \multiply\value{cost} by \value{shieldBonus}
+    \ifnum\value{cost}>200
+      \divide\value{cost} by 100
+      \arabic{cost} sp
+    \else
+      \arabic{cost} cp
     \fi
     \\
   }
@@ -90,8 +124,9 @@
 
 % SHIELDS
 \newcommand{\longbow}{Longbow}
-\newcommand{\shield}{\addtocounter{dex}{1}shield}
-\newcommand{\bucklar}{\addtocounter{dex}{1}bucklar shield}
+\newcommand{\bucklar}{\shield{Bucklar}{0}}
+\newcommand{\roundshield}{\shield{Round}{1}}
+\newcommand{\kiteshield}{\shield{Kite}{2}}
 
 % ARMOUR
 
