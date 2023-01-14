@@ -349,9 +349,11 @@
 \newcommand{\gnome}[1][\npc{\M}{Wandering Gnome}]{
 	#1
 	\randomtwo
+	\randomtwoC
 	\addtocounter{enc}{-2}
 	\randomtwoB
 	\randomthreeB
+	\randomthreeC
 \person{-2}% STRENGTH
 {\arabic{r2}}% DEXTERITY 
 {\arabic{enc}}% SPEED
@@ -360,7 +362,8 @@
 {\arabic{r2}}}% CHARISMA
 {0}% DR
 {0}% COMBAT
-{Academics~\arabic{r3}, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Empathy~\arabic{r2b}, \ifodd\value{page} \else Larceny~1, Stealth~1 \fi 
+{Academics~\arabic{r3}, Caving \arabic{r3c}, \ifodd\value{page} Crafts~\arabic{r2}, \else Deceit \arabic{age}, \fi Empathy~\arabic{r2b}, \ifodd\value{page} \else Larceny~1, Stealth~1 \fi 
+\ifodd\value{r12} Vigilance~\arabic{r2c}\fi
 \ifodd\value{page}
   \knacks{\alchemist}
 	\Path{\illusion~\arabic{r2}}
