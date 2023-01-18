@@ -1,8 +1,6 @@
 \ProvidesPackage{config/arms}
 %%%%% Weapons
 
-\newtoggle{chart}
-\settoggle{chart}{false}
 \newcounter{initiative}
 \newcounter{weight}
 \newcounter{damage}
@@ -17,8 +15,12 @@
 % When used in the  weapons chart, they display stats.
 
 \newcommand\weapon[6][]{
-  \setcounter{initiative}{#5}
-  \addtocounter{initiative}{3}
+  \ifnum#5>0
+    \setcounter{initiative}{#5}
+    \addtocounter{initiative}{1}
+  \else
+    \setcounter{initiative}{1}
+  \fi
   % If the weight is better than the Damage, use the Weight *as* the Damage, then add 1.
   \setcounter{heft}{4}
   \ifnum#5>#3
@@ -63,7 +65,7 @@
   \addtocounter{shieldBonus}{2}
   \setcounter{shieldWeight}{#3}
   \setcounter{shieldInit}{#3}
-  \addtocounter{shieldInit}{2}
+  \addtocounter{shieldInit}{1}
   \setcounter{cost}{87}
   #1 
   \iftoggle{bling}{
@@ -114,7 +116,7 @@
 \newcommand{\poleaxe}{\weapon{Pole Axe}{4}{1}{4}{2400}}
 \newcommand{\quarterstaff}{\weapon[\addtocounter{damage}{-1}]{Quarterstaff}{3}{0}{2}{30}}
 \newcommand{\rock}{\weapon{Rock}{-1}{0}{1}{0}}
-\newcommand{\shortsword}{\weapon{Short Sword}{1}{2}{0}{1500}}
+\newcommand{\shortsword}{\weapon{Short Sword}{1}{2}{1}{1500}}
 \newcommand{\skillet}{\weapon{Frying Pan}{1}{0}{1}{80}}
 \newcommand{\spear}{\weapon{Spear}{3}{1}{1}{300}}
 \newcommand{\stick}{\weapon{Stick}{1}{0}{-1}{1}}
