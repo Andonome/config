@@ -172,6 +172,13 @@ bookmarks=true]%
   \expandafter\@Repeat\expandafter{\the\numexpr #1\relax}%
 }
 
+\newcommand\roundUp[1]{
+  \ifodd\value{#1}
+    \stepcounter{#1}
+  \fi
+  \divide\value{#1} by 2
+}
+
 \def\@Repeat#1{%
     \ifnum#1>0
         \expandafter\@@Repeat\expandafter{\the\numexpr #1-1\expandafter\relax\expandafter}%

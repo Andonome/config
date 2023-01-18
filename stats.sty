@@ -127,6 +127,18 @@
 \newcounter{attackXPtotal}
 \newcounter{defenceXPtotal} %rem
 
+\newcounter{initiative}
+\newcounter{weight}
+\newcounter{damage}
+\newcounter{shieldBonus}
+\newcounter{shieldWeight}
+\newcounter{shieldInit}
+\newcounter{cost}
+\newcounter{heft}% used to see how many AP points to swing a weapon
+\newcounter{encumbrance}
+  \setcounter{encumbrance}{0}
+
+
 %                                                _
 %   ___ ___  _ __ ___  _ __ ___   __ _ _ __   __| |___
 %  / __/ _ \| '_ ` _ \| '_ ` _ \ / _` | '_ \ / _` / __|
@@ -272,6 +284,7 @@
 	\setcounter{wts}{#4}
 	\setcounter{dr}{#5}
 	\setcounter{att}{#6}
+  \setcounter{encumbrance}{0}
 	\renewcommand{\skills}{#7}
 	\renewcommand{\abilities}{#8}
 	\renewcommand{\mods}{#9}
@@ -309,7 +322,7 @@
 \newcommand{\clean}{
 	\setcounter{fp}{5}
 	\setcounter{sp}{0}
-	\setcounter{heft}{4}
+	\setcounter{heft}{1}
 	\setcounter{damage}{0}
 	\setcounter{knacks}{0}
 	\renewcommand{\armourtype}{N}
@@ -388,8 +401,8 @@
 	\weaponknacktwo
 
 \iftoggle{examplecharacter}{}{
-	\addtocounter{att}{8}
-	\addtocounter{attb}{8}
+	\addtocounter{att}{7}
+	\addtocounter{attb}{7}
 }
 
 \vspace{.1cm}
@@ -421,9 +434,16 @@
 
 \addtocounter{att}{\value{dex}}
 \addtocounter{attb}{\value{dexb}}
+\addtocounter{spd}{3}
+\addtocounter{spdb}{3}
+\ifnum\value{weight}>\value{str}% now to compute encumbrance
+  \addtocounter{spd}{\value{weight}}
+  \addtocounter{spdb}{\value{weight}}
+  \addtocounter{spd}{-\value{str}}
+  \addtocounter{spdb}{-\value{str}}
+\fi
 \noindent Attack \arabic{att}\ifnumcomp{\value{att}}{=}{\value{attb}}{}{ (\arabic{attb})},
-	Initiative \arabic{spd}\ifnumcomp{\value{spd}}{=}{\value{spdb}}{}{ (\arabic{spdb})},
-  Heft \arabic{heft}, 
+	AP \arabic{spd}\ifnumcomp{\value{spd}}{=}{\value{spdb}}{}{ (\arabic{spdb})}\ifnumcomp{\value{heft}}{>}{1}{: \arabic{heft}}{},
   \addtocounter{damage}{\value{str}}
 	\mbox{Damage \calculatedamage{\value{damage}}\ifnumcomp{\value{str}}{=}{\value{strb}}{}{\addtocounter{damage}{\value{strb}}\addtocounter{damage}{-\value{str}} (\calculatedamage{\value{damage}})},} 
 	\ifnumcomp{\value{dr}}{>}{0}{DR \arabic{dr}~\armourtype, }{}%

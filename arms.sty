@@ -1,33 +1,21 @@
 \ProvidesPackage{config/arms}
 %%%%% Weapons
 
-\newcounter{initiative}
-\newcounter{weight}
-\newcounter{damage}
-\newcounter{shieldBonus}
-\newcounter{shieldWeight}
-\newcounter{shieldInit}
-\newcounter{cost}
-\newcounter{heft}% used to see how many Init points to swing a weapon
-
 % Weapon entries do two things.
 % When used in creatures, they raise stats.
 % When used in the  weapons chart, they display stats.
 
 \newcommand\weapon[6][]{
-  \ifnum#5>0
-    \setcounter{initiative}{#5}
-    \addtocounter{initiative}{1}
-  \else
-    \setcounter{initiative}{1}
-  \fi
   % If the weight is better than the Damage, use the Weight *as* the Damage, then add 1.
-  \setcounter{heft}{4}
-  \ifnum#5>#3
-    \addtocounter{heft}{#5}
+  \setcounter{weight}{#5}
+  \ifnum#5>0
+    \setcounter{heft}{#5}
   \else
-    \addtocounter{heft}{#3}
+    \setcounter{heft}{1}
   \fi
+  \setcounter{cost}{#3}
+  \divide\value{cost} by 2
+  \addtocounter{heft}{\value{cost}}
   \ifnum#4>#5
     \setcounter{damage}{#4}
   \else
@@ -38,7 +26,7 @@
   #1
   \iftoggle{bling}{
     \addtocounter{att}{#3}
-    #2
+    #2\ignorespaces%
   }{
     #2 &
     \ifnum#3>0 +\fi
@@ -116,7 +104,7 @@
 \newcommand{\poleaxe}{\weapon{Pole Axe}{4}{1}{4}{2400}}
 \newcommand{\quarterstaff}{\weapon[\addtocounter{damage}{-1}]{Quarterstaff}{3}{0}{2}{30}}
 \newcommand{\rock}{\weapon{Rock}{-1}{0}{1}{0}}
-\newcommand{\shortsword}{\weapon{Short Sword}{1}{2}{1}{1500}}
+\newcommand{\shortsword}{\weapon{Short Sword}{1}{2}{0}{1500}}
 \newcommand{\skillet}{\weapon{Frying Pan}{1}{0}{1}{80}}
 \newcommand{\spear}{\weapon{Spear}{3}{1}{1}{300}}
 \newcommand{\stick}{\weapon{Stick}{1}{0}{-1}{1}}
