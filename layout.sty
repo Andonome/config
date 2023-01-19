@@ -861,9 +861,10 @@ Roll & Result \\
 
 \newcommand{\mapentry}[1]{
   \needspace{2em}
-  \addtocounter{list}{1}
+  \refstepcounter{list}
   \subsubsection[#1]{
-    \arabic{list}: #1}
+    \arabic{list}: #1
+  }
   }
 
 %%%%% Side Quests
