@@ -341,7 +341,8 @@
 	{0}% DR
 	{\ifodd\value{mp} 1\else 0\fi}% COMBAT
 	{Projectiles~\arabic{r2b}, Academics~3, Empathy~3, Deceit~\arabic{enc}, Performance~\arabic{r2}, \ifodd\value{r2}Stealth~\else Tactics~\fi \arabic{r2b}, Vigilance~2%
-	\Path{Blood}{\aldaron~\arabic{r3}, \enchantment~5, \fate~\arabic{r3}, \force~\arabic{r4}, \invocation~1, \polymorph~2}}% SKILLS
+  \knacks{\bloodCaster}
+	\Path{\aldaron~\arabic{r3}, \enchantment~5, \fate~\arabic{r3}, \force~\arabic{r4}, \invocation~1, \polymorph~2}}% SKILLS
 	{\Dagger, \lootJewellery\ifodd\thepage, \randomtwo\lootJewellery\ifodd\value{r4}, \lootMagic\fi\fi}% EQUIPMENT
 	{}
 }
