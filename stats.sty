@@ -39,7 +39,7 @@
 % The \person command takes various stats, and
 % inside that 'SKILLS' variable (variable no. 8),
 % we can add additional things, like
-% \knacks{\firststrike}, or
+% \knacks{\adrenalinesurge}, or
 % \Path{Blood}{\invocation{2}}, which gives your
 % wizzard 'invocation 2'.
 % 
@@ -103,8 +103,6 @@
 \newcounter{dam}
 \newcounter{dr}
 \newcounter{knacks}
-\newcounter{foxhop}% set to '1' if the character has fox hop
-\setcounter{foxhop}{0}
 
 
 \newcounter{strb}
@@ -173,20 +171,15 @@
 \newcommand{\adrenalinesurge}{Adrenaline Surge\addtocounter{strb}{1}\addtocounter{knacks}{1}}
 \newcommand{\disarm}{Disarm\addtocounter{knacks}{1}\addtocounter{xpbonus}{1}}
 \newcommand{\guardian}{Guardian\addtocounter{knacks}{1}}
-\newcommand{\furiousblows}{Furious Blows\addtocounter{knacks}{1}}
-\newcommand{\firststrike}{First Strike\addtocounter{spd}{1}\addtocounter{spdb}{2}\addtocounter{knacks}{1}}
 \newcommand{\specialist}[1]{Specialist (#1)\addtocounter{knacks}{1}}
 \newcommand{\backtothewall}{Back to the Wall\addtocounter{knacks}{1}}
 \newcommand{\laststand}{Last Stand\addtocounter{knacks}{1}}
 \newcommand{\perfectsneakattack}{Perfect Sneak Attack\addtocounter{knacks}{1}\addtocounter{strb}{\value{knacks}}\addtocounter{strb}{2}}
 \newcommand{\precisestrike}{Precise Strike\addtocounter{knacks}{1}}
-\newcommand{\quickshot}{Quick Shot\addtocounter{knacks}{1}}
 \newcommand{\stunningstrike}{Stunning Strike\addtocounter{knacks}{1}\addtocounter{xpbonus}{1}}
 \newcommand{\charge}{\addtocounter{knacks}{1}\setcounter{track}{\value{knacks}}\addtocounter{track}{1}\divide\value{track} by 2\addtocounter{attb}{\value{track}}\addtocounter{strb}{\value{track}}\addtocounter{spdb}{\value{track}}Extreme Charge}
 \newcommand{\snapshot}{Snap Shot\addtocounter{knacks}{1}\addtocounter{strb}{2}}
-\newcommand{\defender}{Defender\addtocounter{knacks}{1}\addtocounter{xpbonus}{1}}
 \newcommand{\dodger}{Dodger\addtocounter{knacks}{1}}
-\newcommand{\foxhop}{Fox Hop\addtocounter{knacks}{1}\setcounter{foxhop}{1}}
 \newcommand{\mightydraw}{Mighty Draw\addtocounter{knacks}{1}}
 \newcommand{\finishingblow}{Finishing Blow\addtocounter{knacks}{1}}
 \newcommand{\unstoppable}{Unstoppable\addtocounter{hp}{2}\addtocounter{knacks}{1}}

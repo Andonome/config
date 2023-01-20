@@ -106,7 +106,7 @@
 {0}% WITS
 {2}% DR
 {2}% AGGRESSION
-{Stealth~\arabic{enc}, Tactics~\arabic{r2b}, \knacks{\firststrike , \adrenalinesurge , \perfectsneakattack}}% SKILLS
+{Stealth~\arabic{enc}, Tactics~\arabic{r2b}, \knacks{\adrenalinesurge , \perfectsneakattack}}% SKILLS
 {None}% ABILITIES
 {}
 }
@@ -234,8 +234,8 @@
 	{0}% DR
 	{2}% COMBAT
 	{Caving \arabic{r2}, Crafts~1, Tactics~1}% SKILLS
-	{\ifodd\value{r2}\woodaxe, \partialchain\else\shortsword, \partialplate\fi, \lootMedium}% EQUIPMENT
-	{\knacks{Chosen Enemy: Goblinoids\ifodd\value{r2b}, \defender\fi}}% SKILLS
+	{\ifodd\value{r2}\spear, \partialchain\else\shortsword, \partialplate\fi, \lootMedium}% EQUIPMENT
+	{\knacks{Chosen Enemy: Goblins}}% SKILLS
 }
 
 \newcommand{\dwarvenrunemaster}[1][\npc{\M}{Dwarven Runemaster}]{
@@ -314,7 +314,7 @@
 		\ifodd\value{r2}%
 			\laststand%
 		\else%
-			\firststrike\ifnumcomp{\value{age}}{<}{3}{, \bloodCaster}{}%
+			\precisestrike\ifnumcomp{\value{age}}{<}{3}{, \bloodCaster}{}%
 		\fi}\fi
 	}% SKILLS
 	{\ifnumcomp{\value{r4}}{=}{2}{\Dagger, shortbow, }{\rapier, dagger, }%
@@ -691,13 +691,6 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {0}% DR
 {\arabic{r2}}% COMBAT
 {\ifodd\value{r4}Projectiles~\arabic{r2b}, \fi Athletics~\arabic{r2}, Deceit~\arabic{r2b}, Larceny~\arabic{r3}, \ifodd\value{r4}Stealth~\arabic{r2b}, \fi\ifodd\value{r3}Tactics~1\fi
-\knacks{\ifodd\value{r3}\dodger\else \foxhop\fi, \ifodd\value{r4} \perfectsneakattack\fi}}% SKILLS
-{\ifodd\value{gold}%
-	{\shortsword, dagger, }
-	\else\ifodd\value{r2b}%
-		{\rapier, dagger, }%
-		\else{\shortsword, }%
-	\fi\fi%
 	\ifnum\value{r4}=1%
 		\partialleather, %
 	\fi%
