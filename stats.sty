@@ -246,25 +246,25 @@
     top=0pt,
 		]
 
-	\iftoggle{personality}{
-
-	\textbf{Archetype:} \archetype
-
-	\textbf{Personality:} \personality
-
-	\textbf{Mannerism:} \mannerism
-
-	\vspace{1em}
-
-	\settoggle{personality}{false}}%
-	{}
 	\creaturestats
 
 	\derivedstats
 	\end{tcolorbox}
-		\settoggle{debug}{false}
-		\settoggle{examplecharacter}{false}
-    \settoggle{bling}{false}
+
+	\iftoggle{personality}{
+
+    \textbf{Archetype:} \archetype, 
+    \textbf{Personality:} \personality
+
+    \textbf{Mannerism:} \mannerism
+
+    \vspace{1em}
+
+    \settoggle{personality}{false}}%
+	{}
+  \settoggle{debug}{false}
+  \settoggle{examplecharacter}{false}
+  \settoggle{bling}{false}
 
 }
 

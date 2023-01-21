@@ -341,7 +341,8 @@
 	{0}% DR
 	{\ifodd\value{mp} 1\else 0\fi}% COMBAT
 	{Projectiles~\arabic{r2b}, Academics~3, Empathy~3, Deceit~\arabic{enc}, Performance~\arabic{r2}, \ifodd\value{r2}Stealth~\else Tactics~\fi \arabic{r2b}, Vigilance~2%
-	\Path{Blood}{\aldaron~\arabic{r3}, \enchantment~5, \fate~\arabic{r3}, \force~\arabic{r4}, \invocation~1, \polymorph~2}}% SKILLS
+  \knacks{\bloodCaster}
+	\Path{\aldaron~\arabic{r3}, \enchantment~5, \fate~\arabic{r3}, \force~\arabic{r4}, \invocation~1, \polymorph~2}}% SKILLS
 	{\Dagger, \lootJewellery\ifodd\thepage, \randomtwo\lootJewellery\ifodd\value{r4}, \lootMagic\fi\fi}% EQUIPMENT
 	{}
 }
@@ -449,8 +450,8 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {-1}% WITS
 {\ifodd \value{page} -1\else1\fi}}% CHARISMA
 {0}% DR
-{\ifodd\value{r2} 0\else 1\fi}% AGGRESSION
-{Crafts~\arabic{r2b}, \ifodd\value{r4} Empathy~1, Wyldcrafting~\arabic{r2}\fi
+{\ifodd\value{r2} 0\else 1\fi}% COMBAT
+{\ifodd\value{r3c}\else Projectiles 1, \fi Crafts~\arabic{r2b}, \ifodd\value{r4} Empathy~1, Wyldcrafting~\arabic{r2}\fi
 \knacks{\specialist{animal husbandry}}
 }% SKILLS
 {\Dagger, \lootSmall}% EQUIPMENT
@@ -512,7 +513,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {0}% DR
 {\arabic{enc}}% COMBAT
 {Academics~\arabic{r3}, Deceit~\arabic{r3}, \ifodd\value{gold} Empathy~\arabic{r3}, \fi Vigilance~\arabic{r2}}% SKILLS
-{\Dagger, \lootSmall, \lootBig~ hidden nearby}% EQUIPMENT
+{\ifodd\value{enc}\rapier\else\Dagger\fi, \ifodd\value{r3c}\lootSmall\else\lootJewellery\fi}% EQUIPMENT
 {}
 }
 
