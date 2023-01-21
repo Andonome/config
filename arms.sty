@@ -28,12 +28,13 @@
     \addtocounter{att}{#3}
     #2\ignorespaces%
   }{
+    #1
     #2 &
     \ifnum#3>0 +\fi
     #3 &
     \ifnum\value{damage}>0 +\fi\arabic{damage}
-    & \arabic{initiative} &
-    #5 &
+    & \arabic{heft} &
+    \arabic{weight} &
     \ifnum#6<1\else
       \ifnum#6>200
         \divide\value{cost} by 100
@@ -85,32 +86,32 @@
 %{Knacks}
 
 \newcommand{\boulder}{\weapon{Boulder}{-2}{0}{6}{0}}
-\newcommand{\chair}{\weapon{Chair}{1}{0}{1}{250}}
-\newcommand{\club}{\weapon{Club}{1}{0}{2}{8}}
-\newcommand{\cudgel}{\weapon{Cudgel}{0}{0}{1}{6}}
+\newcommand{\chair}{\weapon{Chair}{1}{0}{2}{250}}
+\newcommand{\club}{\weapon[\addtocounter{damage}{-1}]{Club}{1}{0}{2}{8}}
+\newcommand{\cudgel}{\weapon[\addtocounter{damage}{-1}]{Cudgel}{0}{0}{1}{6}}
 \newcommand{\Dagger}{\weapon{Dagger}{0}{2}{-5}{0}}
-\newcommand{\firepoker}{\weapon{Firepoker}{1}{0}{1}{90}}
+\newcommand{\firepoker}{\weapon[\addtocounter{damage}{-1}]{Firepoker}{1}{0}{1}{90}}
 \newcommand{\giantsword}{\weapon{Giant Sword}{3}{1}{4}{3200}}
 \newcommand{\greataxe}{\weapon{Great Axe}{2}{1}{4}{1600}}
 \newcommand{\greatsword}{\weapon{Great Sword}{2}{2}{3}{2200}}
-\newcommand{\greatclub}{\weapon[\addtocounter{damage}{-1}]{Great Club}{3}{0}{5}{10}}
+\newcommand{\greatclub}{\weapon[\addtocounter{damage}{-2}]{Great Club}{3}{0}{5}{10}}
 \newcommand{\javelin}{\weapon{Javelin}{2}{1}{0}{880}}
 \newcommand{\knife}{\weapon{Knife}{0}{1}{-2}{50}}
-\newcommand{\Log}{\weapon{Log}{-1}{0}{0}{1}}
+\newcommand{\Log}{\weapon[\addtocounter{damage}{-3}]{Log}{-1}{0}{0}{2}}
 \newcommand{\rapier}{\weapon{Rapier}{2}{2}{-1}{2500}}
-\newcommand{\largerock}{\weapon{Rock (large)}{0}{0}{3}{0}}
-\newcommand{\longsword}{\weapon{Long Sword}{2}{2}{2}{2200}}
-\newcommand{\maul}{\weapon{Maul}{1}{0}{4}{2200}}
+\newcommand{\largerock}{\weapon[\addtocounter{weight}{3}]{Rock (large)}{0}{0}{3}{0}}
+\newcommand{\longsword}{\weapon{Long Sword}{2}{2}{1}{2200}}
+\newcommand{\maul}{\weapon{Maul}{1}{0}{3}{2200}}
 \newcommand{\poleaxe}{\weapon{Pole Axe}{4}{1}{4}{2400}}
-\newcommand{\quarterstaff}{\weapon[\addtocounter{damage}{-1}]{Quarterstaff}{3}{0}{2}{30}}
-\newcommand{\rock}{\weapon{Rock}{-1}{0}{1}{0}}
+\newcommand{\quarterstaff}{\weapon{Quarterstaff}{3}{0}{1}{30}}
+\newcommand{\rock}{\weapon[\addtocounter{heft}{1}]{Rock}{-1}{0}{1}{0}}
 \newcommand{\shortsword}{\weapon{Short Sword}{1}{2}{0}{1500}}
-\newcommand{\skillet}{\weapon{Frying Pan}{1}{0}{1}{80}}
+\newcommand{\skillet}{\weapon[\addtocounter{heft}{2}]{Frying Pan}{1}{0}{1}{80}}
 \newcommand{\spear}{\weapon{Spear}{3}{1}{1}{300}}
 \newcommand{\stick}{\weapon{Stick}{1}{0}{-1}{1}}
-\newcommand{\whip}{\weapon{Whip}{1}{0}{0}{30}}
+\newcommand{\whip}{\weapon[\addtocounter{damage}{-1}]{Whip}{1}{0}{0}{30}}
 \newcommand{\warhammer}{\weapon{Warhammer}{2}{0}{3}{30}}
-\newcommand{\woodaxe}{\weapon{Wood Axe}{2}{1}{2}{300}}
+\newcommand{\woodaxe}{\weapon[\addtocounter{heft}{1}]{Wood Axe}{2}{1}{2}{300}}
 
 % SHIELDS
 \newcommand{\longbow}{Longbow}
