@@ -3,6 +3,7 @@
 
 \date{\today}
 
+
 \begin{document}
 
 \chapter{How to Make Monsters}
@@ -27,7 +28,7 @@ The next one might look like this:
 
 \dragon
 
-If you find it hard to tell the difference between all the dragons, you can give them names in square brackets with the {\tt\textbackslash NPC command}, like this:
+If you find it hard to tell the difference between all the dragons, you can give them names in square brackets with the {\tt\textbackslash npc command}, like this:
 
 {\tt\textbackslash dragon[\textbackslash npc\{\textbackslash M\}\{Bob the dragon\}] }
 
@@ -35,9 +36,8 @@ Which then makes a male dragon called ``Bob'':
 
 \dragon[\npc{\M}{Bob the Dragon}]
 
-The first field can also indicate a female with an {\tt\textbackslash F} (\F), a team of people with a {\tt\textbackslash T} (\T), or undead with \textbackslash D (\D).
-
-With a little study, you can summon dozens of monsters, including {\tt\textbackslash humansoldier}, {\tt\textbackslash basilisk}, and {\tt \textbackslash ghoul}.
+You can summon dozens of monsters, including {\tt\textbackslash humansoldier}, {\tt\textbackslash basilisk}, and {\tt \textbackslash ghoul}
+(see {\tt monsters.tex} for all the examples).
 
 \subsection{Individual NPCs}
 
@@ -74,6 +74,25 @@ Individual characters can be created by using the {\tt\textbackslash npc} comman
 {\longsword, adventuring equipment}% EQUIPMENT
 {}
 
+\subsubsection{Bestiary}
+
+Statblocks in a bestiary chapter (or any space for examples).
+You can set an example chapter by writing {\tt\textbackslash settoggle\{bestiarychapter\}\{true\}}
+
+Then the {\tt \textbackslash humansoldier} command turns from this:
+
+\humansoldier
+
+\settoggle{bestiarychapter}{true}
+
+\ldots into this:
+
+\humansoldier
+
+This second soldier is still partly random.
+
+\subsection{Boxes}
+
 You can add things for these people to say with a {\tt\textbackslash begin\{speechtext\}} command:
 
 \begin{speechtext}
@@ -84,7 +103,7 @@ You can add things for these people to say with a {\tt\textbackslash begin\{spee
 
 \end{speechtext}
 
-\subsection{And now for something completely different}
+\subsection{Magical items}
 
 This is a magical item.
 
@@ -167,6 +186,46 @@ And charts about roll successes like this:
   11 & Failure \\
 
 \end{rollchart}
+
+\subsection{Symbols}
+
+
+\begin{tabularx}{\linewidth}{Xcc}
+
+  Meaning & Typed & Symbol \\\hline
+
+  Nura & {\tt \textbackslash{N}} & \gls{N} \\
+
+  Undead & {\tt \textbackslash{D}} & \gls{D} \\
+  \hline
+  Teams & {\tt \textbackslash{T}} & \gls{T} \\
+
+  Animal & {\tt \textbackslash{M}} & \gls{A} \\
+
+  Sentient & {\tt \textbackslash{E}} & \gls{E} \\
+
+  Female & {\tt \textbackslash{F}} & \gls{F} \\
+
+  Male & {\tt \textbackslash{M}} & \gls{M} \\
+
+  \hline
+  Gnoll & {\tt \textbackslash{Nl}} & \gls{Nl} \\
+
+  Dwarves & {\tt \textbackslash{Dw}} & \gls{Dw} \\
+
+  Humans & {\tt \textbackslash{Hu}} & \gls{Hu} \\
+
+  Elves & {\tt \textbackslash{El}} & \gls{El} \\
+
+  Gnome & {\tt \textbackslash{Gn}} & \gls{Gn} \\
+  \hline
+  Squash & {\tt \textbackslash{squash}} & \gls{squash} \\
+
+  Side Quest ready & {\tt \textbackslash{sqr}} & \gls{sqr} \\
+
+  Side Quest not ready & {\tt \textbackslash{sqn}} & \gls{sqn} \\
+
+\end{tabularx}
 
 \end{multicols}
 
