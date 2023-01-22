@@ -70,13 +70,13 @@
 		\addtocounter{damagebonus}%
 		{-4}\addtocounter{numberofdice}{1}%
 	}%
-	{$\arabic{numberofdice}D6%
+	{\arabic{numberofdice}D6%
 	\ifnumcomp{\value{damagebonus}}{>}{0}%
-		{+\arabic{damagebonus}$}%
+		{+\arabic{damagebonus}}%
 		{%
 		\ifnumcomp{\value{damagebonus}}{<}{0}{%
-		\arabic{damagebonus}$}%
-		{$}%
+		\arabic{damagebonus}}%
+		{}%
 		}%
 	}%
 }
@@ -411,8 +411,9 @@
 %%
 %
 \newcommand{\derivedstats}{
+  \setlength\topsep{0pt}
+  \setlength\parskip{0pt}
 	\iftoggle{debug}{str is \arabic{str}, strb is \arabic{strb}.}{}
-	\hrulefill
 	\hrulefill
 
 \addtocounter{att}{\value{dex}}
@@ -425,14 +426,15 @@
   \addtocounter{spd}{-\value{str}}
   \addtocounter{spdb}{-\value{str}}
 \fi
-\noindent Attack \arabic{att}\ifnumcomp{\value{att}}{=}{\value{attb}}{}{ (\arabic{attb})},
-	AP \arabic{spd}\ifnumcomp{\value{spd}}{=}{\value{spdb}}{}{ (\arabic{spdb})}\ifnumcomp{\value{heft}}{>}{1}{: \arabic{heft}}{},
+\begin{center}
+  \scshape Att \arabic{att}\ifnumcomp{\value{att}}{=}{\value{attb}}{}{ (\arabic{attb})},
+  AP \arabic{spd}\ifnumcomp{\value{spd}}{=}{\value{spdb}}{}{ (\arabic{spdb})}\ifnumcomp{\value{heft}}{>}{1}{: \arabic{heft}}{},
   \addtocounter{damage}{\value{str}}
-	\mbox{Damage \calculatedamage{\value{damage}}\ifnumcomp{\value{str}}{=}{\value{strb}}{}{\addtocounter{damage}{\value{strb}}\addtocounter{damage}{-\value{str}} (\calculatedamage{\value{damage}})},} 
-	\ifnumcomp{\value{dr}}{>}{0}{DR \arabic{dr}~\armourtype, }{}%
+  \mbox{Dam \calculatedamage{\value{damage}}\ifnumcomp{\value{str}}{=}{\value{strb}}{}{\addtocounter{damage}{\value{strb}}\addtocounter{damage}{-\value{str}} (\calculatedamage{\value{damage}})},}
+    \ifnumcomp{\value{dr}}{>}{0}{DR \arabic{dr}~\armourtype, }{}
 	\ifnum\value{mp}>0%
 		\addtocounter{mp}{\value{wts}}%
-		\mbox{
+		\noindent\mbox{
 		\ifnum\value{mpb}=0%
 			\arabic{mp}~MP%
 		\else%
@@ -445,7 +447,7 @@
 		}
 	\fi
 	\addtocounter{hp}{6}
-	\mbox{\arabic{hp} HP \iftoggle{bestiarychapter}{}{%
+	\noindent\mbox{\arabic{hp} HP \iftoggle{bestiarychapter}{}{%
 	\ \Repeat{\value{hp}}{\ding{111}}%
 		}%
 	}%
@@ -456,7 +458,7 @@
 		}%
 		}%
 	{}%
-\iftoggle{examplecharacter}{\addtocounter{fp}{\value{cha}}, \arabic{fp} FP}{}
+\iftoggle{examplecharacter}{\addtocounter{fp}{\value{cha}}, \raggedleft\arabic{fp} FP}{}
 
 
 
@@ -464,7 +466,8 @@
 	\iftoggle{examplecharacter}{}{
 		\calculateXP
 	}
-	}
+\end{center}%
+}
 %
 %
 %% __  ______  
