@@ -247,7 +247,7 @@
 		]
 
 	\creaturestats
-
+  \vspace{-1em}
 	\derivedstats
 	\end{tcolorbox}
 
@@ -341,7 +341,6 @@
 %% print the equipment
 %
 \newcommand{\creaturestats}{
-	\vspace{.1cm}
 
 % Reference versions (which always are non-verbose) don't
 % have the space for full-sized stats.
@@ -370,12 +369,7 @@
 	\setcounter{hp}{\value{str}}
 \end{tabularx}
 
-	\addtocounter{hp}{6}
-
-\vspace{.1cm}
-\raggedright
-\noindent
-\begin{tabularx}{\linewidth}{p{0.2\linewidth}X}
+\begin{tabularx}{\linewidth}{lX}
 
 	\ent{Skills} & \ifnumcomp{\value{att}}{=}{0}{}{\iftoggle{mind}{Combat \arabic{att}, }{Aggression \arabic{att}, }} \skills \\
 	\iftoggle{mind}{\ent{Equipment} & \equipment \\}{\ent{Abilities} & \abilities \\}
@@ -398,8 +392,6 @@
 	\addtocounter{attb}{7}
 }
 
-\vspace{.1cm}
-
 \iftoggle{verbose}{%
 	\end{small}%
 }{%
@@ -420,10 +412,8 @@
 %
 \newcommand{\derivedstats}{
 	\iftoggle{debug}{str is \arabic{str}, strb is \arabic{strb}.}{}
-
-	\hrule
-
-	\vspace{.1cm}
+	\hrulefill
+	\hrulefill
 
 \addtocounter{att}{\value{dex}}
 \addtocounter{attb}{\value{dexb}}
@@ -454,6 +444,7 @@
 			{ \Repeat{\value{mp}}{\ding{111}}, }%
 		}
 	\fi
+	\addtocounter{hp}{6}
 	\mbox{\arabic{hp} HP \iftoggle{bestiarychapter}{}{%
 	\ \Repeat{\value{hp}}{\ding{111}}%
 		}%
@@ -494,8 +485,6 @@
 % attackXPtotal= strb x spdb x damb
 \vspace{.1cm}
 
-\hrule
-\vspace{.1cm}
 	\setcounter{attackXPtotal}{\value{attb}}
 
 	\multiply\value{attackXPtotal} by \value{spdb}

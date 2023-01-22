@@ -1217,12 +1217,13 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {-2}% WITS
 {2}% DR
 {2}% AGGRESSION
-{}% SKILLS
+{
+  \ifnumcomp{\value{r3b}}{=}{1}%
+    {\\ \ent{Equipment:} & \lootSmall \\}%
+    {}
+}% SKILLS
 {Undead}% ABILITIES
 {
-\ifnumcomp{\value{r3b}}{=}{1}%
-	{\textbf{Equipment:} & \lootSmall \\}%
-	{}
 }%
 }
 
