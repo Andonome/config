@@ -698,13 +698,11 @@ Roll & Result \\
 \newcommand\sideBySide[2]{
   \end{multicols}
   \vspace{-1em}
-  \hrulefill
-  \begin{multicols}{2}
-  {\it #2}
-  \vfill\null
-  \columnbreak
+  \begin{tcolorbox}[sidebyside,bicolor,colback=white,colbacklower=black!5!white]
   {#1}
-  \end{multicols}
+  \tcblower
+  {\it #2}
+  \end{tcolorbox}
   \begin{multicols}{2}
 }
 
