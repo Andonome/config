@@ -706,6 +706,17 @@ Roll & Result \\
   \begin{multicols}{2}
 }
 
+\newcommand\boxPair[3][b]{
+  \begin{figure*}[#1!]
+    \begin{multicols}{2}
+    #2
+    \vfill\null
+    \columnbreak
+    #3
+    \end{multicols}
+  \end{figure*}
+}
+
 \newtcolorbox{xpchart}[1]{tabularx={l|X},adjusted title=XP Rewards for #1,
   bottom=10pt,
   left=3pt,
