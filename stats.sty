@@ -536,25 +536,37 @@
 	\ent{Abilities:} & #1 
 	}
 
+\newcommand{\amphibious}{
+	amphibious%
+}
+
 \newcommand{\claws}{
-	Claws (grapple inflicts standard damage)%
+	claws (grapple inflicts standard damage)%
+}
+
+\newcommand{\flight}{%
+	flight%
 }
 
 \newcommand{\quadraped}{%
-	Quadraped (double movement)%
+	quadraped (double movement)%
 }
 
 \newcommand{\teeth}{%
-	Teeth (grapple inflicts standard damage)%
+	teeth (grapple inflicts standard damage)%
 }
 
-	\newcommand{\web}{
-		\setcounter{track}{6}\addtocounter{track}{\value{str}}
-		Web (Strength + Athletics, TN \arabic{track} to break free as a movement action)
-		}
+\newcommand{\venom}{%
+	venom (grappling inflicts 1D6 Fatigue)%
+}
+
+\newcommand{\web}{%
+  \setcounter{track}{6}\addtocounter{track}{\value{str}}%
+  web (Strength + Athletics, TN \arabic{track} to break free as a movement action)%
+}
 
 
 %%%%%%%%%%%%%%%%%%%%% Magic Path
 \newcommand{\Path}[1]{ \\
 	\raggedright \ent{Spheres:} & #1
-	}
+}
