@@ -17,7 +17,7 @@
 \begin{boxtext}
 
 As you embark upon your first adventure, you summon your first monster with a simple backstroke.
-You write down {\tt\textbackslash dragon}, and behold!
+You write down \verb"\dragon", and behold!
 
 \end{boxtext}
 
@@ -28,20 +28,20 @@ The next one might look like this:
 
 \dragon
 
-If you find it hard to tell the difference between all the dragons, you can give them names in square brackets with the {\tt\textbackslash npc command}, like this:
+If you find it hard to tell the difference between all the dragons, you can give them names in square brackets with the \verb"npc command", like this:
 
-{\tt\textbackslash dragon[\textbackslash npc\{\textbackslash M\}\{Bob the dragon\}] }
+\verb"dragon[\npc{\M}{Bob the dragon}]"
 
 Which then makes a male dragon called ``Bob'':
 
 \dragon[\npc{\M}{Bob the Dragon}]
 
-You can summon dozens of monsters, including {\tt\textbackslash humansoldier}, {\tt\textbackslash basilisk}, and {\tt \textbackslash ghoul}
-(see {\tt monsters.tex} for all the examples).
+You can summon dozens of monsters, including \verb"humansoldier", \verb"basilisk", and \verb"\ghoul"
+(see \verb"monsters.tex" for all the examples).
 
 \subsection{Individual NPCs}
 
-Individual characters can be created by using the {\tt\textbackslash npc} command then the \textbackslash person command, with its nine arguments:
+Individual characters can be created by using the \verb"\npc" command then the \verb"person" command, with its nine arguments:
 
 \begin{verbatim}
 
@@ -77,15 +77,15 @@ Individual characters can be created by using the {\tt\textbackslash npc} comman
 \subsubsection{Bestiary}
 
 Statblocks in a bestiary chapter (or any space for examples).
-You can set an example chapter by writing {\tt\textbackslash settoggle\{bestiarychapter\}\{true\}}
+You can set an example chapter by writing \verb"\settoggle{bestiarychapter}{true}"
 
-Then the {\tt \textbackslash humansoldier} command turns from this:
+Then the \verb"\humansoldier" command turns from this:
 
 \humansoldier
 
-\settoggle{bestiarychapter}{true}
-
 \ldots into this:
+
+\settoggle{bestiarychapter}{true}
 
 \humansoldier
 
@@ -93,7 +93,7 @@ This second soldier is still partly random.
 
 \subsection{Boxes}
 
-You can add things for these people to say with a {\tt\textbackslash begin\{speechtext\}} command:
+You can add things for these people to say with a \verb"\begin{speechtext}" command:
 
 \begin{speechtext}
 
@@ -231,7 +231,7 @@ And charts about roll successes like this:
 
 \section{Weapon Commands}
 
-The {\tt\textbackslash weapon{Name}{1}{2}{3}{80}} command works in 2 ways.
+The \verb"weapon{Name}{1}{2}{3}{80}" command works in 2 ways.
 When defining a weapon, it adjusts the current creature's stats.
 When used in a weapons chart, it shows the weapon's stats.
 
