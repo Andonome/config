@@ -693,10 +693,19 @@ Roll & Result \\
 
     \it
   }{}
-}{
-  \iftoggle{verbose}{
-    \normalfont\vspace{2em}
-  }{}
+}
+
+\newcommand\sideBySide[2]{
+  \end{multicols}
+  \vspace{-1em}
+  \hrulefill
+  \begin{multicols}{2}
+  {\it #2}
+  \vfill\null
+  \columnbreak
+  {#1}
+  \end{multicols}
+  \begin{multicols}{2}
 }
 
 \newtcolorbox{xpchart}[1]{tabularx={l|X},adjusted title=XP Rewards for #1,
