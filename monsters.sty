@@ -692,7 +692,11 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {0}% DR
 {\arabic{r2}}% COMBAT
 {\ifodd\value{r4}Projectiles~\arabic{r2b}, \fi Athletics~\arabic{r2}, Deceit~\arabic{r2b}, Larceny~\arabic{r3}, \ifodd\value{r4}Stealth~\arabic{r2b}, \fi\ifodd\value{r3}Tactics~1\fi
-	\ifnum\value{r4}=1%
+}{\ifodd\value{r3c}%
+  \Dagger,
+\else
+  \shortsword,
+\fi\ifnum\value{r4}=1%
 		\partialleather, %
 	\fi%
 \lootSmall}% EQUIPMENT
