@@ -476,57 +476,52 @@
 %%  /  \|  __/ 
 %% /_/\_\_|    
 %%  
-\newcommand{\calculateXP}{%
-%% Sanitize: init+5, dam+5, 
-	\addtocounter{spdb}{5}
-	\addtocounter{strb}{5}
-	\addtocounter{dex}{5}
-	\addtocounter{dr}{2}
+\newcommand{\calculateXP}{
+  %% Sanitize: init+5, dam+5, 
+    \addtocounter{spdb}{5}
+    \addtocounter{strb}{5}
+    \addtocounter{dex}{5}
+    \addtocounter{dr}{2}
+  % Sanitize: dex+5, dr+1,  
+  % attackXPtotal= strb x spdb x damb
+  \vspace{.1cm}
 
+    \setcounter{attackXPtotal}{\value{attb}}
 
-% Sanitize: dex+5, dr+1,  
-% attackXPtotal= strb x spdb x damb
-\vspace{.1cm}
+    \multiply\value{attackXPtotal} by \value{spdb}
 
-	\setcounter{attackXPtotal}{\value{attb}}
+    
+    \multiply\value{attackXPtotal} by \value{strb}
 
-	\multiply\value{attackXPtotal} by \value{spdb}
+    \iftoggle{debug}{Attack total: \arabic{attackXPtotal}}{}
+   
+  % defenceXPtotal= dex x dr x hp
+    \setcounter{defenceXPtotal}{\value{dex}}
+    \multiply\value{defenceXPtotal} by \value{dr}
+    \multiply\value{defenceXPtotal} by \value{hp}
 
-	
-	\multiply\value{attackXPtotal} by \value{strb}
+  % XP = attackXPtotal + defenceXPtotal
+    \setcounter{xp}{\value{attackXPtotal}}
+    \addtocounter{xp}{\value{defenceXPtotal}}
+    \addtocounter{xp}{-350}
+    \multiply\value{mp} by 100
+    \addtocounter{xp}{\value{mp}}
+  \ifnumcomp{\value{xp}}{<}{120}{\ifnumcomp{\value{xp}}{>}{100}{$1/2$ XP}{$1/3$}}{%
+    \divide\value{xp} by 120%
+    \addtocounter{xp}{\value{xpbonus}}%
+  \arabic{xp} XP}%
+  % if {mind} print fate points.
+  %
+  \iftoggle{examplecharacter}{}{
+      \iftoggle{mind}%
+        {\addtocounter{fp}{\value{cha}} \arabic{fp} FP %
+        \iftoggle{bestiarychapter}%
+          {}%
+          {\Repeat{\value{fp}}{\ding{111}}}
+    }{}
+  }
 
-	\iftoggle{debug}{Attack total: \arabic{attackXPtotal}}{}
- 
-% defenceXPtotal= dex x dr x hp
-	\setcounter{defenceXPtotal}{\value{dex}}
-	\multiply\value{defenceXPtotal} by \value{dr}
-	\multiply\value{defenceXPtotal} by \value{hp}
-
-% XP = attackXPtotal + defenceXPtotal
-	\setcounter{xp}{\value{attackXPtotal}}
-	\addtocounter{xp}{\value{defenceXPtotal}}
-	\addtocounter{xp}{-350}
-	\multiply\value{mp} by 100
-	\addtocounter{xp}{\value{mp}}
-\ifnumcomp{\value{xp}}{<}{120}{\ifnumcomp{\value{xp}}{>}{100}{$1/2$ XP}{$1/3$}}{%
-	\divide\value{xp} by 120%
-	\addtocounter{xp}{\value{xpbonus}}%
-\arabic{xp} XP}%
-% if {mind} print fate points.
-%
-\iftoggle{examplecharacter}{%
-}{
-	\iftoggle{mind}%
-		{\addtocounter{fp}{\value{cha}} \arabic{fp} FP %
-		\iftoggle{bestiarychapter}%
-			{}%
-			{\Repeat{\value{fp}}{\ding{111}}}
-}{}
-	\vspace{.1cm}
-	\hrule
-}
-
-	\vspace{.1cm}
+    \vspace{.1cm}
 
 }
 %

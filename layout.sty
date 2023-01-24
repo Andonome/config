@@ -252,30 +252,9 @@ bookmarks=true]%
   \end{figure*}
 }
 
-
-% sidebling
-% This command automatically adds little decorations to boxes.
-
 \newcounter{blingNo}
 \setcounter{blingNo}{0}
 
-\newcommand\sidebling{
-    \ifnum\value{dr}>2
-    \addtocounter{dr}{-2}
-      \includesvg[width=\thedr ex]{config/images/l1}
-      \hspace{-30pt}
-    \fi
-    \ifnum\value{mp}>1
-      \addtocounter{mp}{7}
-      \includesvg[angle=-20,width=\themp pt]{config/images/b1}
-      \hspace{-20pt}
-    \fi
-    \ifnum\value{attb}>10
-      \addtocounter{attb}{-9}
-      \includesvg[angle=55,width=\theattb ex]{config/images/s1}
-      \hspace{-30pt}
-    \fi
-}
 
 % Define the 'ornamentedbox' environment
 
@@ -363,8 +342,30 @@ bookmarks=true]%
     \draw[ornamented frame inner, use path=ornament 1];
     \draw[ornamented frame inner, use path=ornament 2];
     %
-    \node at ([xshift=-20pt,yshift=\thedr-5pt] north east)
-      {\iftoggle{bling}{\sidebling}{}};
+    \iftoggle{bling}{
+      \node at ([xshift=-25pt,yshift=\thedr+5pt] south east)
+        {\ifnum\value{dr}>2
+          \addtocounter{dr}{7}\multiply\value{dr} by 2\includesvg[width=\thedr pt]{config/images/l1}
+          \hspace{-30pt}
+        \fi
+     };
+    \node at ([xshift=-20pt,yshift=-\themp] north east)
+      {\ifnum\value{mp}>1
+        \addtocounter{mp}{2}
+        \multiply\value{mp} by 2
+        \includesvg[angle=270,width=\themp pt]{config/images/b1}
+        \hspace{-20pt}
+      \fi
+      };
+    \node at ([xshift=-5pt,yshift=35pt] south west)
+      {\ifnum\value{attb}>7
+        \addtocounter{attb}{-4}
+        \multiply\value{attb} by 2
+        \includesvg[angle=340,width=\theattb pt]{config/images/s1}
+        \hspace{-30pt}
+      \fi
+    };
+    }{}
   }
 }
 
