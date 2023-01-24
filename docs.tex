@@ -187,6 +187,21 @@ And charts about roll successes like this:
 
 \end{rollchart}
 
+\subsection{Pictures}
+
+All images should go into the images directory.
+
+Writing \verb"pic{b1}" places the image under \verb"images/b1.svg".
+The file extension can be either `svg' or `jpg' (but never `jpeg').
+
+\pic{b1}
+
+For svg files to work, the document must be compile for the first run with \verb"pdflatex -shell-escape main.tex".
+
+Wider pictures should be placed with \verb"\widePic{s1}", and they will appear on the next page, at the bottom, or with \verb"\widePic[t]{s1}" to see the picture at the top of the next page.
+
+\widePic{s1}
+
 \subsection{Symbols}
 
 
