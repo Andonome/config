@@ -124,10 +124,8 @@ bookmarks=true]%
   \newtoggle{#1}
   \iftoggle{verbose}{
     \IfFileExists{../#1/main.aux}{
-      \makeatletter
       \@addtofilelist{../#1/main.tex}
       \@addtofilelist{../#1/main.aux}%
-      \makeatother
       \externaldocument{../#1/main}%
       \settoggle{#1}{true}
     }%
@@ -141,12 +139,10 @@ bookmarks=true]%
 %%%%%%%%%% Section Headers %%%%%%%%%%
 
 %%% Allow quotes under part headers
-\makeatletter
 \let\old@endpart\@endpart
 \renewcommand\@endpart[1][]{%
 \begin{quote}#1\end{quote}%
 \old@endpart}
-\makeatother
 
 %%%%%%%%%% Give higher penalty to ~
 % The ~ character usually functions as a space with a high penalty for line breaks.
@@ -159,7 +155,6 @@ bookmarks=true]%
 
 %%%%% Make table of contents two column
 
-\makeatletter
 \renewcommand\tableofcontents{%
 \begin{multicols}{2}
 
@@ -188,7 +183,6 @@ bookmarks=true]%
 \def\@@Repeat#1#2{%
     \@Repeat{#1}{#2}#2%
 }
-\makeatother
 
 
 \newcommand{\chapnumfont}{
@@ -259,7 +253,6 @@ bookmarks=true]%
 % Define the 'ornamentedbox' environment
 
 % Wiggly Borders
-\makeatletter
 \tikzset{
   use path for main/.code={%
     \tikz@addmode{%
@@ -274,7 +267,6 @@ bookmarks=true]%
     use path for actions=#1,
   }
 }
-\makeatother
 
 \colorlet{ornamentedFrameInner}{white}
 \colorlet{ornamentedFrameOuter}{gray}
