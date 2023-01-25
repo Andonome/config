@@ -80,7 +80,7 @@
 {}
 }
 %
-\newcommand{\griffin}[1][\npc{\A}{\arabic{r3} Griffins}]{
+\newcommand{\griffin}[1][\npc{\A}{\randomthree\stepcounter{r3}\arabic{r3} Griffins}]{
 	#1
 	\randomtwo
 	\addtocounter{enc}{1}
@@ -974,6 +974,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 	\randomtwoB
 	\addtocounter{r2b}{-2}
 	\addtocounter{enc}{1}
+  \randomthree
 	\randomdozen
 	\randomfourB
 \person{\arabic{r2b}}% STRENGTH
