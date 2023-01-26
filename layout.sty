@@ -549,7 +549,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \setcounter{r3b}{\value{r4}}
   \addtocounter{r3b}{-1}
 \newcounter{r3c}
-  \setcounter{r3c}{0}
+  \setcounter{r3c}{1}
 \newcounter{r4b}
   \setcounter{r4b}{\day}
 \newcounter{r12}
@@ -827,9 +827,12 @@ Roll & Result \\
 }
 
 \newcommand{\randomdozen}{%
-  \ifnum\value{r12}>12\setcounter{r12}{2}\fi%
-  \ifnum\value{r12}<4\setcounter{r12}{2}\fi%
-  \ifnum\value{age}>0\addtocounter{r12}{\value{age}}\else\ifnum\value{r4}>0\addtocounter{r12}{\value{r4}}\else\addtocounter{r12}{3}\fi\fi%
+  \randomfourB%
+  \setcounter{r12}{0}%
+  \addtocounter{r12}{\value{r4b}}%
+  \addtocounter{r12}{\value{r3c}}%
+  \addtocounter{r12}{\value{r3}}%
+  \addtocounter{r12}{\value{r4}}%
 }
 
 \newcommand{\mapentry}[1]{
