@@ -166,6 +166,7 @@ bookmarks=true]%
   \expandafter\@Repeat\expandafter{\the\numexpr #1\relax}%
 }
 
+% This function divides a number by two, and rounds it up.
 \newcommand\roundUp[1]{
   \ifodd\value{#1}
     \stepcounter{#1}

@@ -110,7 +110,9 @@ Then we have \verb"\begin{exampletext}" for example:
   Typically, they get used to assault players with massive amounts of introductory text.
 \end{exampletext}
 
-\subsection{Magical Items}
+\subsection{Magic}
+
+\subsubsection{Magical Items}
 
 This is a magical item.
 
@@ -134,7 +136,7 @@ This is a magical item.
   {2}% Potency
   {5}% MP
 
-\subsection{Spheres}
+\subsubsection{Spheres}
 
 Each sphere is produced with a sphere command, so this -- \verb"\sphere{Mirrors}" -- would produce the `Mirrors' sphere.
 
@@ -162,6 +164,7 @@ Writing \verb"\pic{b1}" shows the image under \verb"images/b1.svg".
 The file extension can be either `svg' or `jpg' (but never `jpeg').
 
 Use \verb"\sidepic{l1}" to show that image at the side of the text.
+It doesn't work well and messed up text if it doesn't have enough text around it.
 
 \pic{b1}
 
