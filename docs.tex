@@ -103,7 +103,14 @@ You can add things for these people to say with a \verb"\begin{speechtext}" comm
 
 \end{speechtext}
 
-\subsection{Magical items}
+Then we have \verb"\begin{exampletext}" for example:
+
+\begin{exampletext}
+  You can use the \verb"\boxtext" environment for general boxes.
+  Typically, they get used to assault players with massive amounts of introductory text.
+\end{exampletext}
+
+\subsection{Magical Items}
 
 This is a magical item.
 
@@ -127,65 +134,24 @@ This is a magical item.
   {2}% Potency
   {5}% MP
 
-\subsection{Encounters}
+\subsection{Spheres}
 
-Make encounter tables like this:
+Each sphere is produced with a sphere command, so this -- \verb"\sphere{Mirrors}" -- would produce the `Mirrors' sphere.
 
-\begin{verbatim}
+After that, each level is produced with \verb"\spelllevel".
 
-  \begin{encounters}{Wonderland}
+These commands handle numbering, indexing, et c.
 
-    Fields & Gardens & Results \\\hline
+Finally, individual spells are laid out with \verb"\spell{Fireball}{Instant}{Projectiles}{goes burr}"
 
-    \li & Doormouse \\
-    \li & Dodo \\
-    \li \lii Unicorn \\
-    \li \lii Red Queen \\
-    & \lii Black Queen \\
-    & \lii Green Queen \\
+The first argument gives a name, the second the type (`instant' or `continuous'), the third is the Skill casters can roll when using it, and the fourth is the spell's description.
 
-\end{verbatim}
+The spell's description can be referenced from other books as a summary (if you have set \verb"\label{fireball}"), e.g. `\verb"\nameref{fireball}"' produces `\textit{Fireball -- goes burr}'.
 
-\begin{encounters}{Wonderland}
+\subsubsection{Enhancements}
+A different command is used for enhancements: \verb"\enhancement{Blue}{1}{makes spells blue}".
 
-  Fields & Gardens & Results \\\hline
-
-  \li & Doormouse \\
-  \li & Dodo \\
-  \li \lii Unicorn \\
-  \li \lii Red Queen \\
-  & \lii Black Queen \\
-  & \lii Green Queen \\
-
-
-\end{encounters}
-
-And charts about roll successes like this:
-
-\begin{verbatim}
-
-
-  \begin{rollchart}
-
-    Roll & Result \\\hline
-
-    12 & Success \\
-
-    11 & Failure \\
-
-  \end{rollchart}
-
-\end{verbatim}
-
-\begin{rollchart}
-
-  Roll & Result \\\hline
-
-  12 & Success \\
-
-  11 & Failure \\
-
-\end{rollchart}
+The first argument gives a name, the second gives how many levels it adds to the spell, and the last is the spell's description.
 
 \subsection{Pictures}
 
