@@ -277,4 +277,82 @@ Available commands:
 
 \end{multicols}
 
+\section{Modules \& Areas}
+
+\begin{multicols}{2}
+
+\subsection{Encounters}
+
+Make encounter tables like this:
+
+\begin{verbatim}
+
+  \begin{encounters}{Wonderland}
+
+    Fields & Gardens & Results \\\hline
+
+    \li & Doormouse \\
+    \li & Dodo \\
+    \li \lii Unicorn \\
+    \li \lii Red Queen \\
+    & \lii Black Queen \\
+    & \lii Green Queen \\
+
+\end{verbatim}
+
+\begin{encounters}{Wonderland}
+
+  Fields & Gardens & Results \\\hline
+
+  \li & Doormouse \\
+  \li & Dodo \\
+  \li \lii Unicorn \\
+  \li \lii Red Queen \\
+  & \lii Black Queen \\
+  & \lii Green Queen \\
+
+
+\end{encounters}
+
+And charts about roll successes like this:
+
+\begin{verbatim}
+
+
+  \begin{rollchart}
+
+    Roll & Result \\\hline
+
+    12 & Success \\
+
+    11 & Failure \\
+
+  \end{rollchart}
+
+\end{verbatim}
+
+\begin{rollchart}
+
+  Roll & Result \\\hline
+
+  12 & Success \\
+
+  11 & Failure \\
+
+\end{rollchart}
+
+
+\end{multicols}
+
+\begin{multicols}{2}
+
+\section{Others}
+
+Other commands are typically produced for just a single location in the book.
+
+The functions which produce the creature boxes is a tangled mess of rotten spaghetti-logic, which is so inefficient it somehow taxes a modern computer just to add some numbers.
+It's best not to think about how creatures are made.
+
+\end{multicols}
+
 \end{document}
