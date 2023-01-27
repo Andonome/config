@@ -189,21 +189,23 @@ And charts about roll successes like this:
 
 \subsection{Pictures}
 
+\sidepic{l1}
 All images should go into the images directory.
 
-Writing \verb"pic{b1}" places the image under \verb"images/b1.svg".
+Writing \verb"\pic{b1}" shows the image under \verb"images/b1.svg".
 The file extension can be either `svg' or `jpg' (but never `jpeg').
+
+Use \verb"\sidepic{l1}" to show that image at the side of the text.
 
 \pic{b1}
 
-For svg files to work, the document must be compile for the first run with \verb"pdflatex -shell-escape main.tex".
+For svg files to work, the document must be compiled with \verb"pdflatex -shell-escape main.tex" on the first run (the Makefile generally takes care of this).
 
 Wider pictures should be placed with \verb"\widePic{s1}", and they will appear on the next page, at the bottom, or with \verb"\widePic[t]{s1}" to see the picture at the top of the next page.
 
 \widePic{s1}
 
 \subsection{Symbols}
-
 
 \begin{tabularx}{\linewidth}{Xcc}
 
@@ -244,7 +246,11 @@ Wider pictures should be placed with \verb"\widePic{s1}", and they will appear o
 
 \end{multicols}
 
-\section{Weapon Commands}
+\section{Creature Commands}
+
+\begin{multicols}{2}
+
+\subsection{Weapon Commands}
 
 The \verb"weapon{Name}{1}{2}{3}{80}" command works in 2 ways.
 When defining a weapon, it adjusts the current creature's stats.
