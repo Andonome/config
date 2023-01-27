@@ -1,0 +1,13 @@
+compile_pdf:
+  image: ctornau/latex
+  script:
+    - apt-get update -y
+    - apt-get install -y inkscape make
+    - make test
+    - make docs
+  only:
+    - master
+    - run
+  artifacts:
+    paths:
+      - docs.pdf
