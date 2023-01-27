@@ -271,12 +271,12 @@ The damage comes from the weapon's sharpness or weight (whichever is higher).
 The initiative cost to swing the weapon comes from its weight as well.
 Finally, the weight is the same as the minimum Strength bonus required to wield the weapon properly.
 
-When that weapon command appears in a table, it shows the Attack, Damage, and Minimum Strength required to lift it.
+When that weapon command appears in a table, it shows the Attack, Damage, AP required, and Weight (the minimum Strength required to use it).
 When when a creature wields the weapon, those stats raise the creature's stats.
 
   \begin{nametable}[XXXXXX]{M\^{e}l\'{e}e Weapons}
 
-  \textbf{Standard Weapons} & \textbf{Bonus} & \textbf{Dam.} & \textbf{Initiative} & \textbf{Min. Str.} & Cost \\\hline
+  \textbf{Name} & \textbf{Bonus} & \textbf{Dam.} & \textbf{AP} & \textbf{Weight} & Cost \\\hline
 
   \Dagger
 
@@ -284,8 +284,31 @@ When when a creature wields the weapon, those stats raise the creature's stats.
 
   \spear
 
-  \quarterstaff
-
   \end{nametable}
+
+\subsection{Loot}
+
+You can use the various `loot' commands to give loot to creatures or rooms,a little like A,D\&D's `treasure type C'.
+
+So writing \verb"In this room sits \lootBig." might produce `in this room sits 12gp'.
+
+Available commands:
+
+\begin{itemize}
+
+  \item
+  \verb"\lootSmall"
+  \item
+  \verb"\lootMedium"
+  \item
+  \verb"\lootBig"
+  \item
+  \verb"\lootMagic"
+  \item
+  \verb"\lootJewellery"
+
+\end{itemize}
+
+\end{multicols}
 
 \end{document}
