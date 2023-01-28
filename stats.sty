@@ -49,7 +49,7 @@
 
 
 \newtoggle{mind}
-\newtoggle{bling}
+\newtoggle{creatureBox}
 \newtoggle{examplecharacter}
 \settoggle{examplecharacter}{false}
 \newtoggle{debug}\settoggle{debug}{false}
@@ -224,7 +224,7 @@
 %%%%%%%%%%% Person
 %
 \newcommand{\person}[9]{
-  \settoggle{bling}{true}
+  \settoggle{creatureBox}{true}
 	\settoggle{mind}{true}
 	\setcounter{str}{#1}
 	\setcounter{dex}{#2}
@@ -268,12 +268,12 @@
 	{}
   \settoggle{debug}{false}
   \settoggle{examplecharacter}{false}
-  \settoggle{bling}{false}
+  \settoggle{creatureBox}{false}
 
 }
 
 \newcommand{\animal}[9]{
-  \settoggle{bling}{true}
+  \settoggle{creatureBox}{true}
 	\settoggle{mind}{false}
 	\setcounter{str}{#1}
 	\setcounter{dex}{#2}
@@ -312,7 +312,7 @@
 	\derivedstats
 
 	\end{tcolorbox}
-  \settoggle{bling}{false}
+  \settoggle{creatureBox}{false}
 
 }
 

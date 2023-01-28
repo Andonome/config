@@ -348,7 +348,7 @@ bookmarks=true]%
     \draw[ornamented frame inner, use path=ornament 1];
     \draw[ornamented frame inner, use path=ornament 2];
     %
-    \iftoggle{bling}{
+    \iftoggle{creatureBox}{
       \node at ([xshift=-25pt,yshift=\thedr+5pt] south east)
         {\ifnum\value{dr}>2
           \addtocounter{dr}{7}\multiply\value{dr} by 2\includesvg[width=\thedr pt]{config/images/l1}

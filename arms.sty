@@ -24,7 +24,7 @@
   \setcounter{cost}{#6}
 
   #1
-  \iftoggle{bling}{
+  \iftoggle{creatureBox}{
     \addtocounter{att}{#3}
     #2\ignorespaces%
   }{
@@ -57,7 +57,7 @@
   \addtocounter{shieldInit}{1}
   \setcounter{cost}{87}
   #1 
-  \iftoggle{bling}%
+  \iftoggle{creatureBox}%
     {#2 shield (+\arabic{shieldBonus}/ \arabic{shieldInit})}{
       #2 Shield &
       +\arabic{shieldBonus} &
