@@ -100,7 +100,6 @@
 \newcounter{wts}
 \newcounter{cha}
 \newcounter{att}
-\newcounter{dam}
 \newcounter{dr}
 \newcounter{knacks}
 
@@ -109,7 +108,6 @@
 \newcounter{dexb}
 \newcounter{spdb}
 \newcounter{attb}
-\newcounter{damb}
 % 
 % Extras: MP hp fp
 % Derived: dicenumber, dicebonus,
@@ -378,10 +376,8 @@
 	\ent{Skills} & \ifnumcomp{\value{att}}{=}{0}{}{\iftoggle{mind}{Combat \arabic{att}, }{Aggression \arabic{att}, }} \skills \\
 	\iftoggle{mind}{\ent{Equipment} & \equipment \\}{\ent{Abilities} & \abilities \\}
 
-	\addtocounter{strb}{\value{str}}
 	\addtocounter{dexb}{\value{dex}}
 	\addtocounter{spdb}{\value{spd}}
-	\setcounter{damb}{\value{dam}}
 	\setcounter{attb}{\value{att}}
 
 	\mods
@@ -434,7 +430,11 @@
   \scshape Att \arabic{att}\ifnumcomp{\value{att}}{=}{\value{attb}}{}{ (\arabic{attb})},
   AP \arabic{spd}\ifnumcomp{\value{spd}}{=}{\value{spdb}}{}{ (\arabic{spdb})}\ifnumcomp{\value{heft}}{>}{1}{: \arabic{heft}}{},
   \addtocounter{damage}{\value{str}}
-  \mbox{Dam \calculatedamage{\value{damage}}\ifnumcomp{\value{str}}{=}{\value{strb}}{}{\addtocounter{damage}{\value{strb}}\addtocounter{damage}{-\value{str}} (\calculatedamage{\value{damage}})},}
+  \mbox{Dam \calculatedamage{\value{damage}}%
+  \ifnumcomp{\value{strb}}{>}{0}%
+    {
+      \addtocounter{damage}{\value{strb}} (\calculatedamage{\value{damage}})}{},
+    }
     \ifnumcomp{\value{dr}}{>}{0}{DR \arabic{dr}~\armourtype, }{}
 	\ifnum\value{mp}>0%
 		\addtocounter{mp}{\value{wts}}%
@@ -462,8 +462,6 @@
 		}%
 		}%
 	{}%
-
-
 
 
 	\iftoggle{examplecharacter}{}{
