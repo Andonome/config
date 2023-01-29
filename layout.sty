@@ -220,7 +220,6 @@ bookmarks=true]%
 \newcommand{\headingtype}{CHAPTER}
 
 \newcommand{\pic}[1]{
-  \needspace{4cm}
   \noindent%
   \IfFileExists{images/#1.svg}{%
     \noindent\includesvg[width=\linewidth]{images/#1}
@@ -583,6 +582,9 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 %%%%%%%%%%%%%%%%%%%% LAYOUT %%%%%%%%%%%%%%%%%%%%
 \makeindex
 \raggedbottom
+
+% Make floats hug the text.
+\setlength\intextsep{0em}
 
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
 
