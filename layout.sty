@@ -265,7 +265,7 @@ bookmarks=true]%
 }
 
 \newcommand\mapLegend[4]{
-  \node [black, font=\bfseries] at (#1,#2) {#4 #3};
+  \node [black, font=\bfseries] at (0.#2,0.#3) {#4 #1};
 }
 
 \newcommand\mapPic[3][\Huge]{
@@ -280,8 +280,8 @@ bookmarks=true]%
           x={(image.south east)},
           y={(image.north west)}
       ]
-          \foreach \mX/\mY/\mNum in {#3}{
-            \mapLegend{\mX}{\mY}{\mNum}{#1}
+          \foreach \mNum/\mX/\mY in {#3}{
+            \mapLegend{\outline{\mNum}}{\mX}{\mY}{#1}
           }
       \end{scope}
   \end{tikzpicture}
