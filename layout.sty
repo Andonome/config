@@ -289,6 +289,22 @@ bookmarks=true]%
   \end{figure*}
 }
 
+\newcommand\smolMapPic[3][\Huge]{
+  \begin{tikzpicture}
+      \node[anchor=south west,inner sep=0] (image) at (0,0) {\pic{#2}};
+      \begin{scope}[
+          x={(image.south east)},
+          y={(image.north west)}
+      ]
+          \foreach \mNum/\mX/\mY in {#3}{
+            \mapLegend{\outline{\mNum}}{\mX}{\mY}{#1}
+          }
+      \end{scope}
+  \end{tikzpicture}
+  \label{#2}
+}
+
+
 \newcounter{blingNo}
 \setcounter{blingNo}{0}
 
