@@ -275,7 +275,7 @@ bookmarks=true]%
       shadow xshift=-1pt,
       shadow yshift=-3pt
   }]
-      \node[anchor=south west,inner sep=0] (image) at (0,0) {\includesvg[width=\textwidth]{images/#2}};
+      \node[anchor=south west,inner sep=0] (image) at (0,0) {\pic{#2}};
       \begin{scope}[
           x={(image.south east)},
           y={(image.north west)}
