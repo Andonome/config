@@ -1,6 +1,7 @@
 \ProvidesPackage{config/layout}
 
 \RequirePackage[table]{xcolor}
+\RequirePackage[copies]{contour}
 \RequirePackage[acronym,symbols]{glossaries}
 \setacronymstyle{short-long-desc}
 \RequirePackage{glossary-mcols}
@@ -219,6 +220,9 @@ bookmarks=true]%
 \newcommand{\sqarea}{town}
 
 \newcommand{\headingtype}{CHAPTER}
+
+\newcommand\outline[1]{\contour[5]{white}{\textcolor{black}{#1}}}
+\contourlength{0.2eml}
 
 \newcommand{\pic}[1]{
   \noindent%
