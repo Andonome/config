@@ -505,9 +505,9 @@
     
   \iftoggle{examplecharacter}{}
   {
-    \ifnumcomp{\value{xp}}{<}{120}%
-      {\ifnumcomp{\value{xp}}{>}{90}%
-        {$1/2$ XP}{}}%
+    \ifnumcomp{\value{xp}}{<}{160}%
+      {\ifnumcomp{\value{xp}}{<}{100}%
+        {$1/2$ XP}{1 XP}}%
         {
           \divide\value{xp} by 160%
           \addtocounter{xp}{\value{xpbonus}}%
