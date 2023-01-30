@@ -107,8 +107,7 @@
 \newcounter{strb}
 \newcounter{dexb}
 \newcounter{spdb}
-\newcounter{attb}
-% 
+ 
 % Extras: MP hp fp
 % Derived: dicenumber, dicebonus,
 \newcounter{mp}
@@ -157,6 +156,7 @@
 \newcommand{\necromancy}{\addtocounter{mp}{3}Necromancy}
 \newcommand{\polymorph}{\addtocounter{mp}{3}Polymorph}
 \newcommand{\saurecanta}{\addtocounter{mp}{3}Saurecanta}
+
 \newcommand{\lockedmana}[1]{\setcounter{mpb}{-#1}}
 \newcommand{\armourtype}{N}
 
@@ -167,7 +167,7 @@
 %%%%%%%%%%%%%%%%%%%%% Knacks
 %
 \newcommand{\adrenalinesurge}{Adrenaline Surge\addtocounter{strb}{1}\addtocounter{knacks}{1}}
-\newcommand{\brawler}{Brawler\addtocounter{attb}{2}\addtocounter{knacks}{1}}
+\newcommand{\brawler}{Brawler\addtocounter{dexb}{2}\addtocounter{knacks}{1}}
 \newcommand{\berserker}{Berserker\addtocounter{spdb}{1}\addtocounter{strb}{1}\addtocounter{knacks}{1}}
 \newcommand{\disarm}{Disarm\addtocounter{knacks}{1}\addtocounter{xpbonus}{1}}
 \newcommand{\guardian}{Guardian\addtocounter{knacks}{1}}
@@ -177,7 +177,7 @@
 \newcommand{\perfectsneakattack}{Perfect Sneak Attack\addtocounter{knacks}{1}\addtocounter{strb}{\value{knacks}}\addtocounter{strb}{2}}
 \newcommand{\precisestrike}{Precise Strike\addtocounter{knacks}{1}}
 \newcommand{\stunningstrike}{Stunning Strike\addtocounter{knacks}{1}\addtocounter{xpbonus}{1}}
-\newcommand{\charge}{\addtocounter{knacks}{1}\setcounter{track}{\value{knacks}}\addtocounter{track}{1}\divide\value{track} by 2\addtocounter{attb}{\value{track}}\addtocounter{strb}{\value{track}}\addtocounter{spdb}{\value{track}}Extreme Charge}
+\newcommand{\charge}{\addtocounter{knacks}{1}\setcounter{track}{\value{knacks}}\addtocounter{track}{1}\divide\value{track} by 2\addtocounter{dexb}{\value{track}}\addtocounter{strb}{\value{track}}\addtocounter{spdb}{\value{track}}Extreme Charge}
 \newcommand{\snapshot}{Snap Shot\addtocounter{knacks}{1}\addtocounter{strb}{2}}
 \newcommand{\dodger}{Dodger\addtocounter{knacks}{1}}
 \newcommand{\mightydraw}{Mighty Draw\addtocounter{knacks}{1}}
@@ -249,7 +249,7 @@
 		]
 
 	\creaturestats
-  \vspace{-1em}
+
 	\derivedstats
 	\end{tcolorbox}
 
@@ -264,7 +264,6 @@
 
     \settoggle{personality}{false}}%
 	{}
-  \settoggle{debug}{false}
   \settoggle{examplecharacter}{false}
   \settoggle{creatureBox}{false}
 
@@ -316,6 +315,9 @@
 
 \newcommand{\clean}{
 	\setcounter{fp}{5}
+	\setcounter{strb}{0}
+	\setcounter{dexb}{0}
+	\setcounter{spdb}{0}
 	\setcounter{sp}{0}
 	\setcounter{heft}{1}
 	\setcounter{damage}{0}
@@ -353,10 +355,6 @@
 	\begin{footnotesize}
 }
 
-\setcounter{strb}{0}
-\setcounter{spdb}{0}
-\setcounter{dexb}{0}
-
 \begin{tabularx}{\textwidth}{lr|lr|lr}
 
 % the tcolorbox has coloured rows (xcolor package)
@@ -376,10 +374,6 @@
 	\ent{Skills} & \ifnumcomp{\value{att}}{=}{0}{}{\iftoggle{mind}{Combat \arabic{att}, }{Aggression \arabic{att}, }} \skills \\
 	\iftoggle{mind}{\ent{Equipment} & \equipment \\}{\ent{Abilities} & \abilities \\}
 
-	\addtocounter{dexb}{\value{dex}}
-	\addtocounter{spdb}{\value{spd}}
-	\setcounter{attb}{\value{att}}
-
 	\mods
 
 \end{tabularx}
@@ -387,10 +381,6 @@
 	\weaponknackone
 	\weaponknacktwo
 
-\iftoggle{examplecharacter}{}{
-	\addtocounter{att}{7}
-	\addtocounter{attb}{7}
-}
 
 \iftoggle{verbose}{%
 	\end{small}%
@@ -411,24 +401,29 @@
 %%
 %
 \newcommand{\derivedstats}{
+  \hrulefill
   \setlength\topsep{0pt}
   \setlength\parskip{0pt}
-	\iftoggle{debug}{str is \arabic{str}, strb is \arabic{strb}.}{}
-	\hrulefill
+	\iftoggle{debug}{str: \arabic{str}, strb: \arabic{strb}, dex: \arabic{dex}, dexb: \arabic{dexb}, spd: \arabic{spd}, spdb: \arabic{spdb},att: \arabic{att}, damage: \arabic{damage}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}}{}
+	
 
+\iftoggle{examplecharacter}%
+  {}%
+  {\addtocounter{att}{7}}
 \addtocounter{att}{\value{dex}}
-\addtocounter{attb}{\value{dexb}}
 \addtocounter{spd}{3}
-\addtocounter{spdb}{3}
 \ifnum\value{weight}>\value{str}% now to compute encumbrance
-  \addtocounter{spd}{\value{weight}}
-  \addtocounter{spdb}{\value{weight}}
-  \addtocounter{spd}{-\value{str}}
-  \addtocounter{spdb}{-\value{str}}
+  \addtocounter{str}{5}% we can't have negative values affecting results
+  \addtocounter{weight}{5}
+  \addtocounter{spd}{-\value{weight}}
+  \addtocounter{spd}{\value{str}}
+  \addtocounter{str}{-5}% now we return str and weight to the original values
+  \addtocounter{weight}{-5}
 \fi
 \begin{center}
-  \scshape Att \arabic{att}\ifnumcomp{\value{att}}{=}{\value{attb}}{}{ (\arabic{attb})},
-  AP \arabic{spd}\ifnumcomp{\value{spd}}{=}{\value{spdb}}{}{ (\arabic{spdb})}\ifnumcomp{\value{heft}}{>}{1}{: \arabic{heft}}{},
+  \scshape Att \arabic{att}\ifnumcomp{\value{dexb}}{>}{0}{\addtocounter{att}{\value{dexb}} (\arabic{att})}{},
+  AP \arabic{spd}\ifnumcomp{\value{spdb}}{>}{0}%
+  {\addtocounter{spd}{\value{spdb}} (\arabic{spd})}{}\ifnumcomp{\value{heft}}{>}{1}{: \arabic{heft}}{},
   \addtocounter{damage}{\value{str}}
   \mbox{Dam \calculatedamage{\value{damage}}%
   \ifnumcomp{\value{strb}}{>}{0}%
@@ -478,52 +473,55 @@
 %% /_/\_\_|    
 %%  
 \newcommand{\calculateXP}{
-  %% Sanitize: init+5, dam+5, 
-    \addtocounter{spdb}{5}
-    \addtocounter{strb}{5}
-    \addtocounter{dex}{5}
-    \addtocounter{dr}{2}
-  % Sanitize: dex+5, dr+1,  
-  % attackXPtotal= strb x spdb x damb
   \vspace{.1cm}
+  % Sanitize numbers to avoid zeros, and ensure bonuses don't change things drastically.
+  \addtocounter{damage}{3}
+  \addtocounter{dr}{3}
+  % spd already received a +3 bonus to make it AP
 
-    \setcounter{attackXPtotal}{\value{attb}}
+  \setcounter{attackXPtotal}{\value{damage}}
 
-    \multiply\value{attackXPtotal} by \value{spdb}
-
-    
-    \multiply\value{attackXPtotal} by \value{strb}
-
-    \iftoggle{debug}{Attack total: \arabic{attackXPtotal}}{}
+  \multiply\value{attackXPtotal} by \value{spd}
+  \addtocounter{spd}{-\value{heft}}
+  \ifnum\value{spd}>0
+    \multiply\value{attackXPtotal} by \value{spd}
+  \fi
    
-  % defenceXPtotal= dex x dr x hp
-    \setcounter{defenceXPtotal}{\value{dex}}
+    \setcounter{defenceXPtotal}{\value{hp}}
     \multiply\value{defenceXPtotal} by \value{dr}
-    \multiply\value{defenceXPtotal} by \value{hp}
 
   % XP = attackXPtotal + defenceXPtotal
     \setcounter{xp}{\value{attackXPtotal}}
     \addtocounter{xp}{\value{defenceXPtotal}}
-    \addtocounter{xp}{-350}
-    \multiply\value{mp} by 100
+    \addtocounter{att}{-4}
+    \multiply\value{xp} by \value{att}
+    \addtocounter{xp}{-100}
+    % MP time
+    \addtocounter{mp}{\value{wts}}
+    \divide\value{mp} by 3
     \addtocounter{xp}{\value{mp}}
-  \ifnumcomp{\value{xp}}{<}{120}%
-    {\ifnumcomp{\value{xp}}{>}{100}%
-      {$1/2$ XP}{$1/3$ XP}}%
-      {
-        \divide\value{xp} by 120%
-        \addtocounter{xp}{\value{xpbonus}}%
-        \arabic{xp} XP
-      }%
-  % if {mind} print fate points.
-  %
+
+	\iftoggle{debug}{str: \arabic{str}, strb: \arabic{strb}, dex: \arabic{dex}, dexb: \arabic{dexb}, spd: \arabic{spd}, spdb: \arabic{spdb}, att: \arabic{att}, damage: \arabic{damage}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}, mp: \arabic{mp} Grand Total: \arabic{xp}}{\hrulefill}
+    
   \iftoggle{examplecharacter}{}
-    {\iftoggle{mind}%
-     {\addtocounter{fp}{\value{cha}}%
-       \ignorespaces, \arabic{fp}~FP %
-       \iftoggle{bestiarychapter}%
-         {}%
-         {\Repeat{\value{fp}}{\ding{111}}}%
+  {
+    \ifnumcomp{\value{xp}}{<}{120}%
+      {\ifnumcomp{\value{xp}}{>}{90}%
+        {$1/2$ XP}{}}%
+        {
+          \divide\value{xp} by 160%
+          \addtocounter{xp}{\value{xpbonus}}%
+          \arabic{xp} XP%
+        }%
+    % if {mind} print fate points.
+    %
+    \iftoggle{mind}%
+      {\addtocounter{fp}{\value{cha}}%
+        \ifnum\value{fp}>2\ignorespaces, \arabic{fp}~FP %
+        \iftoggle{bestiarychapter}%
+          {}%
+          {\Repeat{\value{fp}}{\ding{111}}}%
+        \fi
     }{}%
   }
 }
