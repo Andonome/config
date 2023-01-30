@@ -260,24 +260,24 @@ bookmarks=true]%
   \end{figure*}
 }
 
-\newcommand\mapLegend[3]{
-  \node [black, font=\bfseries] at (#1,#2) {\huge #3};
+\newcommand\mapLegend[4]{
+  \node [black, font=\bfseries] at (#1,#2) {#4 #3};
 }
 
-\newcommand\mapPic[2]{
+\newcommand\mapPic[3][\Huge]{
   \begin{figure*}[t!]
   \begin{tikzpicture}[every shadow/.style={
       shadow blur invert,
       shadow xshift=-1pt,
       shadow yshift=-3pt
   }]
-      \node[anchor=south west,inner sep=0] (image) at (0,0) {\includesvg[width=\textwidth]{images/#1}};
+      \node[anchor=south west,inner sep=0] (image) at (0,0) {\includesvg[width=\textwidth]{images/#2}};
       \begin{scope}[
           x={(image.south east)},
           y={(image.north west)}
       ]
-          \foreach \mX/\mY/\mNum in {#2}{
-            \mapLegend{\mX}{\mY}{\mNum}
+          \foreach \mX/\mY/\mNum in {#3}{
+            \mapLegend{\mX}{\mY}{\mNum}{#1}
           }
       \end{scope}
   \end{tikzpicture}

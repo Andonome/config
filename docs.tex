@@ -182,7 +182,7 @@ Wider pictures should be placed with \verb"\widePic{s1}", and they will appear o
 The map function works like \verb"\widePic", but for maps.
 You can add a list of coordinates, and the names or number-labels to place on those coordinates.
 
-\mapPic{../config/images/l1}{0.8/0.8/Toptown, 0.2/0.75/Leftown,0.8/0.6/2}
+\mapPic[\large]{../config/images/l1}{0.8/0.8/\Huge Toptown, 0.2/0.75/Leftown,0.8/0.6/2}
 
 Imagine the shield image is a map to be labelled.
 We can start by putting `Toptown' at the top.
@@ -198,6 +198,12 @@ We can even add commands, such as \verb"\ref{basement}" to get some number assoc
 
 \begin{verbatim}
   \mapPic{../config/images/l1}{0.8/0.8/Toptown, 0.2/0.75/Leftown,0.8/0.6/2}
+\end{verbatim}
+
+An optional argument allows default size changes for the words, and as usual words can change their sizes individually.
+
+\begin{verbatim}
+  \mapPic[\small]{../config/images/l1}{0.8/0.8/\large Toptown, 0.2/0.75/Leftown,0.8/0.6/\ref{basement}}
 \end{verbatim}
 
 \subsection{Symbols}
