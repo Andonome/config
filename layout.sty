@@ -268,19 +268,19 @@ bookmarks=true]%
   \node [black, font=\bfseries] at (0.#2,0.#3) {#4 #1};
 }
 
-\newcommand\mapPic[3][\Huge]{
-  \begin{figure*}[t!]
+\newcommand\mapPic[4][\Huge]{
+  \begin{figure*}[#2!]
   \begin{tikzpicture}[every shadow/.style={
       shadow blur invert,
       shadow xshift=-1pt,
       shadow yshift=-3pt
   }]
-      \node[anchor=south west,inner sep=0] (image) at (0,0) {\pic{#2}};
+      \node[anchor=south west,inner sep=0] (image) at (0,0) {\pic{#3}};
       \begin{scope}[
           x={(image.south east)},
           y={(image.north west)}
       ]
-          \foreach \mNum/\mX/\mY in {#3}{
+          \foreach \mNum/\mX/\mY in {#4}{
             \mapLegend{\outline{\mNum}}{\mX}{\mY}{#1}
           }
       \end{scope}

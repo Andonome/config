@@ -182,28 +182,29 @@ Wider pictures should be placed with \verb"\widePic{s1}", and they will appear o
 The map function works like \verb"\widePic", but for maps.
 You can add a list of coordinates, and the names or number-labels to place on those coordinates.
 
-\mapPic[\large]{../config/images/l1}{\Huge Toptown/8/8,Leftown/2/75,2/8/6}
+\mapPic[\large]{t}{../config/images/l1}{\Huge Toptown/8/8,Leftown/2/75,2/8/6}
 
 Imagine the shield image is a map to be labelled.
 We can start by putting `Toptown' at the top.
 
 \begin{verbatim}
-  \mapPic{../config/images/l1}{8/8/Toptown}
+  \mapPic{t}{../config/images/l1}{8/8/Toptown}
 \end{verbatim}
 
+If the map needs to go at the bottom, replace the first argument with a `b'.
 The Cartesian coordinates are `8/8', meaning `80\% along, 80\% up'.
 We can add more to the list with commas.
 
 We can even add commands, such as \verb"\ref{basement}" to get some number associated with a basement, and automatically place that number on the map.
 
 \begin{verbatim}
-  \mapPic{../config/images/l1}{8/8/Toptown, 2/75/Leftown,8/6/2}
+  \mapPic{t}{../config/images/l1}{8/8/Toptown, 2/75/Leftown,8/6/2}
 \end{verbatim}
 
 An optional argument allows default size changes for the words, and as usual words can change their sizes individually.
 
 \begin{verbatim}
-  \mapPic[\small]{../config/images/l1}{8/8/\large Toptown, 2/75/Leftown,8/6/\ref{basement}}
+  \mapPic[\small]{t}{../config/images/l1}{8/8/\large Toptown, 2/75/Leftown,8/6/\ref{basement}}
 \end{verbatim}
 
 \subsection{Symbols}
