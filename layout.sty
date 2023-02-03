@@ -187,6 +187,7 @@ bookmarks=true]%
     \stepcounter{#1}
   \fi
   \divide\value{#1} by 2
+  \addtocounter{#1}{0}% Think this line's pointless? Try removing it and seeing what happens - I dare you.
 }
 
 \def\@Repeat#1{%

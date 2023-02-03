@@ -5,33 +5,38 @@
 % When used in creatures, they raise stats.
 % When used in the  weapons chart, they display stats.
 
+\newcounter{weaponBonus}
+
 \newcommand\weapon[6][]{
-  % If the weight is better than the Damage, use the Weight *as* the Damage, then add 1.
-  \setcounter{weight}{#5}
+  % The weapon's bonus to hit is equal to its length + weight / 2.
+  \setcounter{weaponBonus}{#3}%
+  \ifnum#5>0%
+    \addtocounter{weaponBonus}{#5}%
+  \fi
+  \roundUp{weaponBonus}
+  \setcounter{damage}{#4}
   \ifnum#5>0
-    \setcounter{heft}{#5}
-  \else
+    \addtocounter{damage}{#5}
+  \fi
+  \roundUp{damage}
+  \setcounter{heft}{#3}
+  \addtocounter{heft}{#5}
+  \roundUp{heft}
+  \ifnum\value{heft}<1
     \setcounter{heft}{1}
   \fi
-  \setcounter{cost}{#3}
-  \divide\value{cost} by 2
-  \addtocounter{heft}{\value{cost}}
-  \ifnum#4>#5
-    \setcounter{damage}{#4}
-  \else
-    \setcounter{damage}{#5}
-  \fi
+  \setcounter{weight}{#5}
   \setcounter{cost}{#6}
 
   #1
   \iftoggle{creatureBox}{
-    \addtocounter{att}{#3}
+    \addtocounter{att}{\value{weaponBonus}}
     #2\ignorespaces%
   }{
     #1
     #2 &
-    \ifnum#3>0 +\fi
-    #3 &
+    \ifnum\value{weaponBonus}>0 +\fi
+    \arabic{weaponBonus} &
     \ifnum\value{damage}>0 +\fi\arabic{damage}
     & \arabic{heft} &
     \arabic{weight} &
