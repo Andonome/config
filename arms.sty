@@ -59,7 +59,7 @@
   \addtocounter{shieldBonus}{2}
   \setcounter{shieldWeight}{#3}
   \setcounter{shieldInit}{#3}
-  \addtocounter{shieldInit}{1}
+  \stepcounter{shieldInit}
   \setcounter{cost}{87}
   #1 
   \iftoggle{creatureBox}%
