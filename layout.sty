@@ -41,11 +41,17 @@
   \usetikzlibrary{calc,mindmap,trees}% calc for fancy borders
   \usetikzlibrary{intersections}% for very fancy borders with intersecting lines
   \usetikzlibrary{shapes.misc}% for very fancy \section
+  \usetikzlibrary{patterns}% for the pattern 'gridspecks'
 \RequirePackage{pifont}
 \RequirePackage{colortbl}
 \RequirePackage[poster]{tcolorbox}
 \tcbuselibrary{breakable,raster,vignette}
 \tcbuselibrary{skins} % used for wiggly-border boxes
+  \pgfdeclarepatternformonly{gridspecks}{\pgfqpoint{-1pt}{-1pt}}{\pgfqpoint{1pt}{1pt}}{\pgfqpoint{26pt}{26pt}}
+  {%
+    \pgfpathcircle{\pgfqpoint{0pt}{0pt}}{.5pt}%
+    \pgfusepath{fill}%
+  }%
 
 %%%%% Add fancy page chapter sides %%%%%
 
