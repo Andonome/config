@@ -588,6 +588,9 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \setcounter{secnumdepth}{1}
 }
 
+
+%%%%%%%%%%%%%%%%%%%% RANDOM NUMBERS %%%%%%%%%%%%%%%%%%%%
+
 \newcounter{r4}
 \setcounter{r4}{\day}
 \addtocounter{r4}{1}
@@ -625,6 +628,68 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 \newcounter{gold}
 \setcounter{gold}{\day}
 \setcounter{enc}{0}
+
+\newcommand{\randomtwo}{%
+  \ifnumcomp{\value{r2}}{>}{1}{\setcounter{r2}{1}}{\addtocounter{r2}{1}}%
+\setcounter{enc}{\value{r2}}%
+}
+
+\newcommand{\randomtwoB}{
+  \ifodd\value{r3b}\setcounter{r2b}{1}\else\setcounter{r2b}{2}\fi%
+}
+
+\newcommand{\randomtwoC}{
+  \ifnum\value{r2c}>1%
+  \setcounter{r2c}{1}\else%
+  \addtocounter{r2c}{1}%
+  \fi%
+}
+
+\newcommand{\randomthree}{%
+  \ifnumcomp{\value{r3}}{>}{2}{\setcounter{r3}{1}}{\addtocounter{r3}{1}}%
+  \setcounter{age}{\value{r3}}%
+  \ifnum\value{r3}<1\setcounter{r3}{2}\fi%
+}
+
+\newcommand{\randomthreeB}{%
+  \ifnum\value{r3b}>2%
+    \setcounter{r3b}{1}%
+  \else%
+    \addtocounter{r3b}{1}%
+  \fi%
+  \ifnum\value{r3b}<1%
+    \setcounter{r3b}{3}
+  \fi%
+}
+
+\newcommand{\randomthreeC}{
+  \ifnum\value{r3c}>2%
+  \setcounter{r3c}{1}\else%
+  \addtocounter{r3c}{1}%
+  \fi%
+}
+
+\newcommand{\randomfour}{%
+  \ifnumcomp{\value{r4}}{>}{3}{\setcounter{r4}{1}}{\addtocounter{r4}{1}}%
+  \ifnumcomp{\value{r4}}{<}{1}{\setcounter{r4}{1}}{}
+  \setcounter{track}{\value{r4}}%
+}
+
+\newcommand{\randomfourB}{%
+  \ifnum\value{r4b}>3\setcounter{r4b}{1}%
+  \else%
+  \addtocounter{r4b}{1}%
+  \fi%
+}
+
+\newcommand{\randomdozen}{%
+  \randomfourB%
+  \setcounter{r12}{0}%
+  \addtocounter{r12}{\value{r4b}}%
+  \addtocounter{r12}{\value{r3c}}%
+  \addtocounter{r12}{\value{r3}}%
+  \addtocounter{r12}{\value{r4}}%
+}
 
 
 %%%%%%%%%%%%%%%%%%%% LAYOUT %%%%%%%%%%%%%%%%%%%%
@@ -807,7 +872,7 @@ Roll & Result \\
   Cost: #1\par\noindent
 }
 
-\newcommand{\best}[2][\C]{
+\newcommand{\best}[2][\E]{
   \npc{#1}{#2}
   \subsubsection{#2}
   \index{Antagonists!#2}
@@ -820,75 +885,14 @@ Roll & Result \\
   \fi
 }
 
-\newcommand{\randomtwo}{%
-  \ifnumcomp{\value{r2}}{>}{1}{\setcounter{r2}{1}}{\addtocounter{r2}{1}}%
-\setcounter{enc}{\value{r2}}%
-}
-
-\newcommand{\randomtwoB}{
-  \ifodd\value{r3b}\setcounter{r2b}{1}\else\setcounter{r2b}{2}\fi%
-}
-
-\newcommand{\randomtwoC}{
-  \ifnum\value{r2c}>1%
-  \setcounter{r2c}{1}\else%
-  \addtocounter{r2c}{1}%
-  \fi%
-}
-
-\newcommand{\randomthree}{%
-  \ifnumcomp{\value{r3}}{>}{2}{\setcounter{r3}{1}}{\addtocounter{r3}{1}}%
-  \setcounter{age}{\value{r3}}%
-  \ifnum\value{r3}<1\setcounter{r3}{2}\fi%
-}
-
-\newcommand{\randomthreeB}{%
-  \ifnum\value{r3b}>2%
-    \setcounter{r3b}{1}%
-  \else%
-    \addtocounter{r3b}{1}%
-  \fi%
-  \ifnum\value{r3b}<1%
-    \setcounter{r3b}{3}
-  \fi%
-}
-
-\newcommand{\randomthreeC}{
-  \ifnum\value{r3c}>2%
-  \setcounter{r3c}{1}\else%
-  \addtocounter{r3c}{1}%
-  \fi%
-}
-
-\newcommand{\randomfour}{%
-  \ifnumcomp{\value{r4}}{>}{3}{\setcounter{r4}{1}}{\addtocounter{r4}{1}}%
-  \ifnumcomp{\value{r4}}{<}{1}{\setcounter{r4}{1}}{}
-  \setcounter{track}{\value{r4}}%
-}
-
-\newcommand{\randomfourB}{%
-  \ifnum\value{r4b}>3\setcounter{r4b}{1}%
-  \else%
-  \addtocounter{r4b}{1}%
-  \fi%
-}
-
-\newcommand{\randomdozen}{%
-  \randomfourB%
-  \setcounter{r12}{0}%
-  \addtocounter{r12}{\value{r4b}}%
-  \addtocounter{r12}{\value{r3c}}%
-  \addtocounter{r12}{\value{r3}}%
-  \addtocounter{r12}{\value{r4}}%
-}
-
-\newcommand{\mapentry}[1]{
+\newcommand{\mapentry}[2][]{
   \needspace{2em}
   \refstepcounter{list}
-  \subsubsection[#1]{
-    \arabic{list}: #1
+  \subsubsection[#2]{
+    \arabic{list}: #2
   }
-  }
+  \label{#1}
+}
 
 %%%%% Side Quests
 
