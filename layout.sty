@@ -924,6 +924,7 @@ Roll & Result \\
   \end{figure*}
 }
 
+\newcounter{sqNo}
 \newcommand{\sqName}{}
 
 \newcommand{\sidequest}[1]{%
@@ -932,9 +933,19 @@ Roll & Result \\
   \subsection{\sqName}
   \stopcontents[\sqarea]
   \settoggle{firstsq}{true}
+  \setcounter{sqNo}{0}
 }
 
-\newcommand{\sqpart}[3]{\resumecontents[#1]\subsubsection[\iftoggle{firstsq}{\sqr}{\sqn} #2 -- #3]{(#1) #2}\stopcontents[#1]\settoggle{firstsq}{false}}
+\newcommand{\sqpart}[3]{
+  \refstepcounter{sqNo}
+  \resumecontents[#1]
+  \subsubsection[%
+    \arabic{sqNo} -- %
+    \iftoggle{firstsq}{\sqr}{\sqn}%
+    #2 -- #3]%
+    {(#1) #2}
+  \stopcontents[#1]\settoggle{firstsq}{false}
+}
 
 %%%%% Character Sheet Commands
 
