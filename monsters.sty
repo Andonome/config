@@ -1139,16 +1139,16 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 
 \newcommand{\ogre}[1][\npc{\T\N}{\addtocounter{r4b}{1}\arabic{r4b} Ogres}]{
 	#1
-	\randomthree\addtocounter{age}{3}
-	\randomtwo\addtocounter{enc}{2}
+	\randomthree\addtocounter{age}{2}
+	\randomtwo
 	\randomtwoB
 	\randomfourB
 \person{\arabic{age}}% STRENGTH
 {0}% DEXTERITY 
-{\arabic{enc}}% SPEED
-{{-3}% INTELLIGENCE
+{\arabic{r2}}% SPEED
+{{-\arabic{age}}% INTELLIGENCE
 {-1}% WITS
-{-4}}% CHARISMA
+{-\arabic{age}}}% CHARISMA
 {0}% DR
 {\arabic{r2b}}% AGGRESSION
 {\ifodd\value{r2}Crafts\else Tactics\fi~\arabic{r2}, Wyldcrafting~\arabic{r2}}% SKILLS
@@ -1168,16 +1168,16 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 \newcommand{\deepogre}[1][\npc{\T\N}{\addtocounter{r4b}{1}\arabic{r4b} Ogres}]{
 	#1
 	\randomthree\addtocounter{age}{3}
-	\randomtwo\addtocounter{enc}{2}
+	\randomtwo
 	\randomtwoB
 	\randomthreeC
 	\randomfourB
 \person{\arabic{age}}% STRENGTH
 {0}% DEXTERITY 
 {\arabic{enc}}% SPEED
-{{-3}% INTELLIGENCE
+{{-\arabic{age}}% INTELLIGENCE
 {-1}% WITS
-{-4}}% CHARISMA
+{-\arabic{age}}}% CHARISMA
 {0}% DR
 {\arabic{r2b}}% COMBAT
 {\ifodd\value{r2c}%
@@ -1199,8 +1199,8 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 	\randomtwo
 	\addtocounter{enc}{4}
 	\animal{\arabic{enc}}% STRENGTH
-	{-2}% DEXTERITY
-	{0}% SPEED
+	{0}% DEXTERITY
+	{-1}% SPEED
 	{-4}% WITS
 	{2}% DR
 	{2}% AGGRESSION
