@@ -1082,8 +1082,8 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {-4}}% CHARISMA
 {0}% DR
 {2}% COMBAT
-{Crafts 1, Tactics \arabic{r2}}% SKILLS
-{\shortsword, \partialchain}% EQUIPMENT
+{\ifodd\value{r3b} Athletics~1, Crafts~1, Tactics~\arabic{r2}}% SKILLS
+{\ifodd\value{r2b}\shortsword\else\maul\fi, \partialchain}% EQUIPMENT
 {}
 }
 
