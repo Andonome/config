@@ -496,15 +496,20 @@
     \addtocounter{att}{-4}
     \multiply\value{xp} by \value{att}
     \addtocounter{xp}{-100}
-    % MP time
-    \addtocounter{mp}{\value{wts}}
-    \divide\value{mp} by 3
-    \addtocounter{xp}{\value{mp}}
-
 	\iftoggle{debug}{str: \arabic{str}, strb: \arabic{strb}, dex: \arabic{dex}, dexb: \arabic{dexb}, spd: \arabic{spd}, spdb: \arabic{spdb}, att: \arabic{att}, damage: \arabic{damage}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}, mp: \arabic{mp} Grand Total: \arabic{xp}}{\hrulefill}
     
-  \iftoggle{examplecharacter}{}
+  \iftoggle{examplecharacter}%
+  {}%
   {
+    % MP time
+    \addtocounter{mp}{\value{wts}}
+    \stepcounter{int}
+    \multiply\value{mp} by \value{int}
+    \multiply\value{mp} by 20
+    \ifnum\value{mp}>0
+      \addtocounter{xp}{\value{mp}}
+    \fi
+
     \ifnumcomp{\value{xp}}{<}{160}%
       {\ifnumcomp{\value{xp}}{<}{100}%
         {$1/2$ XP}{1 XP}}%
