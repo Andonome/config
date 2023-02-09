@@ -39,12 +39,18 @@
 	{\ifodd\value{r3}%
 		\ifodd\value{r4}%
 			\ifodd\value{r3b}%
-				Sorcerer's Eye%
-			\else%
-		three Spider Arrows\fi\else Wild Seeds\fi\else\ifodd\value{r2b}Bag of Holding%
-		\else%
-			Defensive Heart%
-		\fi%
+          Sorcerer's Eye%
+        \else%
+          quiver with \arabic{r12} Spider Arrows%
+        \fi%
+      \else%
+        pouch of Wild Seeds\fi%
+      \else%
+        \ifodd\value{r2b}%
+          Bag of Holding%
+      \else%
+        Defensive Heart%
+      \fi%
 	\fi}%
 	{\ifodd\value{r3}%
 		\ifodd\value{r4}%
