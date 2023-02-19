@@ -537,6 +537,19 @@
 	\ent{Abilities:} & #1 
 	}
 
+\newcommand{\acidSpray}{
+	\addtocounter{str}{-2}Acidic spray (spray for \calculatedamage{str} Damage per turn)%
+  \addtocounter{str}{2}%
+}
+
+\newcommand{\acidBody}{%
+	Acidic Body (inflict \calculatedamage{str} Damage each turn)%
+}
+
+\newcommand{\gelRegen}{%
+	Regeneration (1 HP/ round, max. \setcounter{hp}{\value{str}}\addtocounter{hp}{6}\roundUp{hp} \arabic{hp})%
+}
+
 \newcommand{\amphibious}{
 	amphibious%
 }

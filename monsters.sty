@@ -1386,7 +1386,7 @@ mana stone with \arabic{track} mana, \lootJewellery, \randomtwo\lootJewellery, \
 {\arabic{track}}% DR
 {\arabic{r4}}% AGGRESSION
 {\ifnum\value{gold}>0 Athletics \arabic{gold}, Stealth~\arabic{gold}\else Projectiles~\arabic{r3}\fi, \knacks{\ifnum\value{r4}>3\disarm, \fi \unstoppable}}% SKILLS
-{Acidic damage, gelatinous (DR does not apply to fire-based attacks)}% ABILITIES
+{\acidBody, \ifnum\value{gold}<1\acidSpray\fi\ifnum\value{gold}<0, \gelRegen\addtocounter{xpbonus}{1}\fi}% ABILITIES
 {}
 }
 
