@@ -64,7 +64,7 @@
 
 % we calculate damage here because we can't display 1d6+6 damage - it has to turn into 2d6+2 damage.
 \newcommand{\calculatedamage}[1]{%
-		\setcounter{damagebonus}{#1}%
+		\setcounter{damagebonus}{\value{#1}}%
 		\setcounter{numberofdice}{1}%
 	\whileboolexpr{test {\ifnumcomp{\value{damagebonus}}{>}{3}}}{%
 		\addtocounter{damagebonus}%
@@ -425,10 +425,10 @@
   AP \arabic{spd}\ifnumcomp{\value{spdb}}{>}{0}%
   {\addtocounter{spd}{\value{spdb}} (\arabic{spd})}{}\ifnumcomp{\value{heft}}{>}{1}{: \arabic{heft}}{},
   \addtocounter{damage}{\value{str}}
-  \mbox{Dam \calculatedamage{\value{damage}}%
+  \mbox{Dam \calculatedamage{damage}%
   \ifnumcomp{\value{strb}}{>}{0}%
     {
-      \addtocounter{damage}{\value{strb}} (\calculatedamage{\value{damage}})}{},
+      \addtocounter{damage}{\value{strb}} (\calculatedamage{damage})}{},
     }
     \ifnumcomp{\value{dr}}{>}{0}{DR \arabic{dr}~\armourtype, }{}
 	\ifnum\value{mp}>0%
