@@ -969,19 +969,11 @@ Roll & Result \\
 
 %%%%% Character Sheet Commands
 
-\newcommand{\trait}[1]{
-\vspace{.2cm} #1 \line(1,0){30}
-
-  \begin{tabular}{p{0em}p{0em}p{0em}p{0em}p{0em}p{0em}p{0em}p{0em}p{0em}}
-
-    \ding{108} & \ding{109} & \ding{109} & \ding{109} & \ding{109} & \ding{109} & \ding{109} & \ding{109} & \ding{109}  \\
-    \ding{111} & \ding{111} & \ding{111} & \ding{111} & \ding{111} & \ding{111} & \ding{111} & \ding{111} & \ding{111}  \\
-  \end{tabular}
-
-}
-
+\newcommand\statCircle{\ding{109}}
 \newcommand{\weeline}{\line(1,0){30} \hspace{.6cm}}
-\newcommand{\attributecircles}{\ding{175}\ding{174}\ding{173}\ding{172}{\Large\ding{109}}\ding{172}\ding{173}\ding{174}\ding{175}}
-\newcommand{\skill}[1]{#1 \dotfill & \Repeat{3}{\ding{109}}\\
+\newcommand{\attributecircles}{\raisebox{0pt}{--} \Repeat{4}{\statCircle}\raisebox{-2pt}{\Large\statCircle}\Repeat{4}{\statCircle}\raisebox{0pt}{ +}}
+\newcommand{\skill}[1]{#1 \dotfill & \Repeat{3}{\statCircle}\\
 }
+
+\newcommand\hint[1]{\small\textcolor{gray}{(#1)}}
 
