@@ -39,15 +39,18 @@
     \arabic{weaponBonus} &
     \ifnum\value{damage}>0 +\fi\arabic{damage}
     & \arabic{heft} &
-    \arabic{weight} &
-    \ifnum#6<1\else
-      \ifnum#6>200
-        \divide\value{cost} by 100
-        \arabic{cost} sp
-      \else
-        \arabic{cost} cp
+    \arabic{weight}
+    \iftoggle{examplecharacter}{}{% Example characters have all the weapon stats except cost, so we only need cost for the weapon charts in the core book.
+      &
+      \ifnum#6<1\else
+        \ifnum#6>200
+          \divide\value{cost} by 100
+          \arabic{cost} sp
+        \else
+          \arabic{cost} cp
+        \fi
       \fi
-    \fi
+    }
     \\
   }
 }
