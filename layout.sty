@@ -556,7 +556,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 
     \newcounter{track}
     \setcounter{track}{18}
-    \newcommand{\tracker}{\center\noindent\iftoggle{examplecharacter}{\ifnum\value{track}=\value{spd}$\Rightarrow$ \fi}{}\arabic{track}\addtocounter{track}{-1}\vspace{.54cm}
+    \newcommand{\tracker}{\center\noindent\iftoggle{examplecharacter}{\iftoggle{bestiarychapter}{}{\ifnum\value{track}=\value{spd}$\Rightarrow$ \fi}}{}\arabic{track}\addtocounter{track}{-1}\vspace{.54cm}
 
     }
 
