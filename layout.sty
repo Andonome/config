@@ -4,6 +4,7 @@
 \RequirePackage[copies]{contour}
 \RequirePackage[acronym,symbols]{glossaries}
 \setacronymstyle{short-long-desc}
+\RequirePackage{imakeidx}% for spell summaries
 \RequirePackage{glossary-mcols}
 \RequirePackage{glossaries-extra}
   \setabbreviationstyle[acronym]{long-short-sc-desc}
@@ -718,6 +719,8 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 
 %%%%%%%%%%%%%%%%%%%% LAYOUT %%%%%%%%%%%%%%%%%%%%
 \makeindex
+\makeindex[name=spells,title={Spell Summaries},columns=2]
+
 \raggedbottom
 
 % Make floats hug the text.
@@ -770,7 +773,8 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 }
 
 \newcommand{\spell}[4]{
-  \subsubsection[#1: #4]{#1}
+  \index[spells]{#1: #4}
+  \subsubsection{#1}
 
   {\it Type: #2, Skill: #3}
 }
