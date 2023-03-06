@@ -723,6 +723,17 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 
 \raggedbottom
 
+ \newif\ifafterpar
+ \newcommand\afterparnoindent{%
+   \afterpartrue
+   \everypar{%
+     \ifafterpar
+       \afterparfalse
+       {\setbox\z@\lastbox}%
+     \else
+       \everypar{}%
+     \fi}}
+
 % Make floats hug the text.
 \setlength\intextsep{0em}
 
@@ -774,9 +785,10 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 
 \newcommand{\spell}[4]{
   \index[spells]{#1: #4}
-  \subsubsection{#1}
+  \subsubsection[#1: #4]{#1}
 
   {\it Type: #2, Skill: #3}
+  \afterparnoindent
 }
 
 % Toggles for knacks
@@ -880,6 +892,7 @@ Roll & Result \\
   bottom=10pt,
   left=3pt,
   right=3pt,
+  after={\afterparnoindent},
   code={\rowcolors{2}{}{gray!10}\needspace{2em}}
   }
 
@@ -897,7 +910,9 @@ Roll & Result \\
 
 \newcommand{\story}[2]{%
   \subsubsection{#2}
-  Cost: #1\par\noindent
+  \textbf{Cost:} #1
+  \\
+  \afterparnoindent
 }
 
 \newcommand{\best}[2][\E]{
