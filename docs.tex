@@ -313,40 +313,68 @@ Available commands:
 
 \section{Modules \& Areas}
 
-\begin{multicols}{2}
-
 \subsection{Encounters}
 
 Make encounter tables like this:
 
 \begin{verbatim}
 
-  \begin{encounters}{Wonderland}
-
-    Fields & Gardens & Results \\\hline
-
-    \li & Doormouse \\
-    \li & Dodo \\
-    \li \lii Unicorn \\
-    \li \lii Red Queen \\
-    & \lii Black Queen \\
-    & \lii Green Queen \\
+\begin{figure*}[t]
+\begin{nametable}[c|LLLLLLLL,fontupper=\small,]{Enc}
+Rolls & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+\hline
+8 & Villagers & Sulphur Winds & Lightning Storm & Earthquake & Hurricane &
+  Mouthdigger 1 & Woodspy 1 & Forest Fire \\
+7 & Flood & Heatwave & High Humidity & Woodspy 2 & Chitincrawler 1 &
+  Chitincrawler 2 & Bear 1 & Basilisk 1 \\
+6   Guards 1 & Rain & Guard 2 & Rain & Elves 1 & Woodspy 4 &
+  Woodspy 2 & Chitincrawler 3 \\
+5 & Noble & Traders 1 & Bandits 1 & Wolves 1 & Lightning Storm &
+  Gnolls 1 & Deer & Mana Lake \\
+4 & Villagers & Traders 2 & Wind & Bear 2 & Wolves 2 &
+  Mouthdigger 2 & Basilisk 2 & Griffins 1 \\
+3 & Trader 3 & Guards 3 & Traders 4 & Refugees & Gnomes 1 &
+  Gnolls 2 & Brigands & Elves 2 \\
+2 & Traders 5 & Pilgrims & Breeze & Bandits 2 & Mouthdigger 3 &
+  Griffins 2 & boar & Wild Horses \\
+1 & Bard & Dwarves 1 & Dwarves 2 & Griffin 3 & Bandits 3 &
+  Gnomes 2 & Griffins 4 & Aurochs \\
+0 & Begging Villagers & Bandits 4 & Snowfall & Hail & Wolves 3 &
+  Snowstorm & Wolves 4 & Hibernating Chitincrawler 4 \\
+\end{nametable}
+\end{figure*}
 
 \end{verbatim}
 
-\begin{encounters}{Wonderland}
+(Check below for the results)
 
-  Fields & Gardens & Results \\\hline
+\begin{multicols}{2}
 
-  \li & Doormouse \\
-  \li & Dodo \\
-  \li \lii Unicorn \\
-  \li \lii Red Queen \\
-  & \lii Black Queen \\
-  & \lii Green Queen \\
+\begin{figure*}[t]
+\begin{nametable}[c||L|L|LLLL|L|L,fontupper=\footnotesize,]{Enc}
 
-
-\end{encounters}
+  & \textbf{Villages} & \textbf{Villages, Edge} & \textbf{Villages, Edge, Forest} & \textbf{Villages, Edge, Forest}  & \textbf{Villages, Edge, Forest} & \textbf{Villages, Edge, Forest} & \textbf{Edge, Forest} & \textbf{Forest} \\
+\hline
+\textbf{Rolls} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
+\hline
+\hline
+\textbf{8} & Villagers & Sulphur Winds & Lightning Storm & Earthquake & Hurricane & Mouthdigger 1 & Woodspy 1 & Forest Fire \\
+\hline
+\textbf{7} & Flood & Heatwave & High Humidity & Woodspy 2 & Chitincrawler 1 & Chitincrawler 2 & Bear 1 & Basilisk 1 \\
+\hline
+\textbf{6} & Guards 1 & Rain & Guard 2 & Rain & Elves 1 & Woodspy 4 & Woodspy 2 & Chitincrawler 3 \\
+\hline
+\textbf{5} & Noble & Traders 1 & Bandits 1 & Wolves 1 & Lightning Storm & Gnolls 1 & Deer & Mana Lake \\
+\textbf{4} & Villagers & Traders 2 & Wind & Bear 2 & Wolves 2 & Mouthdigger 2 & Basilisk 2 & Griffins 1 \\
+\textbf{3} & Trader 3 & Traders 4 & Guards 3 & Refugees & Gnomes 1 & Gnolls 2 & Brigands & Elves 2 \\
+\hline
+\textbf{2} & Traders 5 & Pilgrims & Breeze & Bandits 2 & Mouthdigger 3 & Griffins 2 & Boar & Wild Horses \\
+\hline
+\textbf{1} & Bard & Dwarves 1 & Dwarves 2 & Griffin 3 & Bandits 3 & Gnomes 2 & Griffins 4 & Aurochs \\
+\hline
+\textbf{0} & Begging Villagers & Bandits 4 & Snowfall & Hail & Wolves 3 & Snowstorm & Wolves 4 & Hibernating Chitincrawler 4 \\
+\end{nametable}
+\end{figure*}
 
 And charts about roll successes like this:
 
@@ -389,9 +417,9 @@ You can refer to it with \verb"\nameref{docGift}", such as ``see room number \re
 
 \end{multicols}
 
-\begin{multicols}{2}
-
 \section{Others}
+
+\begin{multicols}{2}
 
 Other commands are typically produced for just a single location in the book.
 
