@@ -166,25 +166,34 @@
 
 %%%%%%%%%%%%%%%%%%%%% Knacks
 %
-\newcommand{\adrenalinesurge}{Adrenaline Surge\addtocounter{strb}{1}\addtocounter{knacks}{1}}
+\newcommand{\adrenalinesurge}{Adrenaline Surge\addtocounter{strb}{1}\addtocounter{knacks}{1}%
+\iftoggle{examplecharacter}{ (+1 Str. once per \ifnum\value{knacks}>2 combat\else round, \arabic{knacks} uses per combat\fi)}{}}
 \newcommand{\backtothewall}{Back to the Wall\addtocounter{knacks}{1}}
 \newcommand{\berserker}{Berserker\addtocounter{spdb}{1}\addtocounter{strb}{1}\addtocounter{knacks}{1}%
 \iftoggle{examplecharacter}{ (+1 Str. on round 2 of combat, +1 Spd. on round 3)}{}}
 \newcommand{\brawler}{Brawler\addtocounter{dexb}{2}\addtocounter{knacks}{1}}
-\newcommand{\charge}{\addtocounter{knacks}{1}\setcounter{track}{\value{knacks}}\addtocounter{track}{1}\divide\value{track} by 2\addtocounter{dexb}{\value{track}}\addtocounter{strb}{\value{track}}\addtocounter{spdb}{\value{track}}Extreme Charge}
+\newcommand{\charge}{\addtocounter{knacks}{1}\setcounter{track}{\value{knacks}}\addtocounter{track}{1}\divide\value{track} by 2\addtocounter{dexb}{\value{track}}\addtocounter{strb}{\value{track}}\addtocounter{spdb}{\value{track}}Extreme Charge%
+\iftoggle{examplecharacter}{\setcounter{enc}{\value{knacks}\roundUp{enc} (+\arabic{enc} to all body Attributes for 1 attack after charging 6 squares)}{}}}
 \newcommand{\disarm}{Disarm\addtocounter{knacks}{1}\addtocounter{xpbonus}{1}}
 \newcommand{\dodger}{Dodger\addtocounter{knacks}{1}}
 \newcommand{\finishingblow}{Finishing Blow\addtocounter{knacks}{1}}
 \newcommand{\guardian}{Guardian\addtocounter{knacks}{1}}
 \newcommand{\laststand}{Last Stand\addtocounter{knacks}{1}%
 \iftoggle{examplecharacter}{ (when losing HP, the character gains \setcounter{enc}{2}\addtocounter{enc}{\value{knacks}}\arabic{enc} AP)}{}}
-\newcommand{\perfectsneakattack}{Perfect Sneak Attack\addtocounter{knacks}{1}\addtocounter{strb}{\value{knacks}}\addtocounter{strb}{2}}
+\newcommand{\perfectsneakattack}{Perfect Sneak Attack\addtocounter{knacks}{1}\addtocounter{strb}{\value{knacks}}\addtocounter{strb}{2}%
+\iftoggle{examplecharacter}{ (+\arabic{knacks} Damage for sneak attacks)}{}}
 \newcommand{\precisestrike}{Precise Strike\addtocounter{knacks}{1}}
 \newcommand{\specialist}[1]{Specialist (#1)\addtocounter{knacks}{1}}
 \newcommand{\stunningstrike}{Stunning Strike\addtocounter{knacks}{1}\addtocounter{xpbonus}{1}}
 \newcommand{\snapshot}{Snap Shot\addtocounter{knacks}{1}\addtocounter{strb}{2}}
 \newcommand{\mightydraw}{Mighty Draw\addtocounter{knacks}{1}}
-\newcommand{\unstoppable}{Unstoppable\addtocounter{hp}{2}\addtocounter{knacks}{1}}
+\newcommand{\unstoppable}{Unstoppable\addtocounter{hp}{2}\addtocounter{knacks}{1}%
+\iftoggle{examplecharacter}{%
+\setcounter{enc}{\value{knacks}}\roundUp{enc}%
+(Gain +2 HP permanently.
+Gain +\arabic{enc} on Vitality check.
+You don't need to fall unconscious when making a Vitality check)%
+}{}}
 \newcommand{\vengeful}{Vengeful\addtocounter{knacks}{1}}
 \newcommand{\weaponmaster}[1]{Weapon Master \addtocounter{att}{1}\addtocounter{knacks}{1}%
 \iftoggle{examplecharacter}{(+1 Bonus to {#1}s)}{(#1)}}
@@ -195,7 +204,8 @@
 \newcommand{\bloodCaster}{Blood Caster\addtocounter{knacks}{1}\renewcommand{\magicPath}{Blood}\iftoggle{examplecharacter}{ (allows the character to learn magic spheres)}{}}
 \newcommand{\divineCaster}{Divine Caster\addtocounter{knacks}{1}\renewcommand{\magicPath}{Divinity}}
 \newcommand{\nuraCaster}{Nura Caster\addtocounter{knacks}{1}\renewcommand{\magicPath}{Nura}}
-\newcommand{\runeCaster}{Rune Caster\addtocounter{knacks}{1}\renewcommand{\magicPath}{Runes}}
+\newcommand{\runeCaster}{Rune Caster\addtocounter{knacks}{1}\renewcommand{\magicPath}{Runes}%
+\iftoggle{examplecharacter}{ (allows the caster to cast spells by slowly painting or carving runes)}{}}
 \newcommand{\songCaster}{Song Caster\addtocounter{knacks}{1}\renewcommand{\magicPath}{Song}}
 \newcommand{\combatcaster}{Combat Caster\addtocounter{knacks}{1}}
 
