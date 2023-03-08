@@ -7,52 +7,51 @@
 
 \newcounter{weaponBonus}
 
-\newcommand\weapon[6][]{
+\newcommand\weapon[6][]{%
   % The weapon's bonus to hit is equal to its length + weight / 2.
   \setcounter{weaponBonus}{#3}%
   \ifnum#5>0%
     \addtocounter{weaponBonus}{#5}%
-  \fi
-  \roundUp{weaponBonus}
-  \setcounter{damage}{#4}
-  \ifnum#5>0
-    \addtocounter{damage}{#5}
-  \fi
-  \roundUp{damage}
-  \setcounter{heft}{#3}
-  \addtocounter{heft}{#5}
-  \roundUp{heft}
-  \ifnum\value{heft}<1
-    \setcounter{heft}{1}
-  \fi
-  \setcounter{weight}{#5}
-  \setcounter{cost}{#6}
-
-  #1
-  \iftoggle{creatureBox}{
-    \addtocounter{att}{\value{weaponBonus}}
+  \fi%
+  \roundUp{weaponBonus}%
+  \setcounter{damage}{#4}%
+  \ifnum#5>0%
+    \addtocounter{damage}{#5}%
+  \fi%
+  \roundUp{damage}%
+  \setcounter{heft}{#3}%
+  \addtocounter{heft}{#5}%
+  \roundUp{heft}%
+  \ifnum\value{heft}<1%
+    \setcounter{heft}{1}%
+  \fi%
+  \setcounter{weight}{#5}%
+  \setcounter{cost}{#6}%
+  #1%
+  \iftoggle{creatureBox}{%
+    \addtocounter{att}{\value{weaponBonus}}%
     #2\ignorespaces%
-  }{
-    #1
-    #2 &
-    \ifnum\value{weaponBonus}>0 +\fi
-    \arabic{weaponBonus} &
-    \ifnum\value{damage}>0 +\fi\arabic{damage}
-    & \arabic{heft} &
-    \arabic{weight}
+  }{%
+    #1%
+    #2 &%
+    \ifnum\value{weaponBonus}>0 +\fi%
+    \arabic{weaponBonus} &%
+    \ifnum\value{damage}>0 +\fi\arabic{damage}%
+    & \arabic{heft} &%
+    \arabic{weight}%
     \iftoggle{examplecharacter}{}{% Example characters have all the weapon stats except cost, so we only need cost for the weapon charts in the core book.
-      &
-      \ifnum#6<1\else
-        \ifnum#6>200
-          \divide\value{cost} by 100
-          \arabic{cost} sp
-        \else
-          \arabic{cost} cp
-        \fi
-      \fi
-    }
-    \\
-  }
+      &%
+      \ifnum#6<1\else%
+        \ifnum#6>200%
+          \divide\value{cost} by 100%
+          \arabic{cost} sp%
+        \else%
+          \arabic{cost} cp%
+        \fi%
+      \fi%
+    }%
+    \\%
+  }%
 }
 
 % Shields work much like weapons, except that their Bonus is high, their initiative cost is low, but their attack is poor.
