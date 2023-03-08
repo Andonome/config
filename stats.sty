@@ -429,9 +429,7 @@ You don't need to fall unconscious when making a Vitality check)%
 	\iftoggle{debug}{str: \arabic{str}, strb: \arabic{strb}, dex: \arabic{dex}, dexb: \arabic{dexb}, spd: \arabic{spd}, spdb: \arabic{spdb},att: \arabic{att}, damage: \arabic{damage}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}}{}
 	
 
-\iftoggle{examplecharacter}%
-  {}%
-  {\addtocounter{att}{7}}
+\addtocounter{att}{7}
 \addtocounter{att}{\value{dex}}
 \addtocounter{spd}{3}
 \ifnum\value{weight}>\value{str}% now to compute encumbrance
