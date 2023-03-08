@@ -168,25 +168,32 @@
 %
 \newcommand{\adrenalinesurge}{Adrenaline Surge\addtocounter{strb}{1}\addtocounter{knacks}{1}%
 \iftoggle{examplecharacter}{ (+1 Str. once per \ifnum\value{knacks}>2 combat\else round, \arabic{knacks} uses per combat\fi)}{}}
-\newcommand{\backtothewall}{Back to the Wall\addtocounter{knacks}{1}}
 \newcommand{\berserker}{Berserker\addtocounter{spdb}{1}\addtocounter{strb}{1}\addtocounter{knacks}{1}%
 \iftoggle{examplecharacter}{ (+1 Str. on round 2 of combat, +1 Spd. on round 3)}{}}
-\newcommand{\brawler}{Brawler\addtocounter{dexb}{2}\addtocounter{knacks}{1}}
+\newcommand{\brawler}{Brawler\addtocounter{dexb}{2}\addtocounter{knacks}{1}%
+\iftoggle{examplecharacter}{ (+2 to unarmed attacks)}{}}
 \newcommand{\charge}{\addtocounter{knacks}{1}\setcounter{track}{\value{knacks}}\addtocounter{track}{1}\divide\value{track} by 2\addtocounter{dexb}{\value{track}}\addtocounter{strb}{\value{track}}\addtocounter{spdb}{\value{track}}Extreme Charge%
 \iftoggle{examplecharacter}{\setcounter{enc}{\value{knacks}\roundUp{enc} (+\arabic{enc} to all body Attributes for 1 attack after charging 6 squares)}{}}}
-\newcommand{\disarm}{Disarm\addtocounter{knacks}{1}\addtocounter{xpbonus}{1}}
+\newcommand{\disarm}{Disarm\addtocounter{knacks}{1}\addtocounter{xpbonus}{1}%
+\iftoggle{examplecharacter}{ (when attacking with more AP than opponent, take a -1 penalty to disarm opponent)}{}}
 \newcommand{\dodger}{Dodger\addtocounter{knacks}{1}}
 \newcommand{\finishingblow}{Finishing Blow\addtocounter{knacks}{1}}
-\newcommand{\guardian}{Guardian\addtocounter{knacks}{1}}
+\newcommand{\guardian}{Guardian\addtocounter{knacks}{1}%
+\iftoggle{examplecharacter}{ (spend only 0 AP to guard someone, and gain +1 while guarding)}{}}
 \newcommand{\laststand}{Last Stand\addtocounter{knacks}{1}%
 \iftoggle{examplecharacter}{ (when losing HP, the character gains \setcounter{enc}{2}\addtocounter{enc}{\value{knacks}}\arabic{enc} AP)}{}}
 \newcommand{\perfectsneakattack}{Perfect Sneak Attack\addtocounter{knacks}{1}\addtocounter{strb}{\value{knacks}}\addtocounter{strb}{2}%
 \iftoggle{examplecharacter}{ (+\arabic{knacks} Damage for sneak attacks)}{}}
-\newcommand{\precisestrike}{Precise Strike\addtocounter{knacks}{1}}
-\newcommand{\specialist}[1]{Specialist (#1)\addtocounter{knacks}{1}}
-\newcommand{\stunningstrike}{Stunning Strike\addtocounter{knacks}{1}\addtocounter{xpbonus}{1}}
-\newcommand{\snapshot}{Snap Shot\addtocounter{knacks}{1}\addtocounter{strb}{2}}
-\newcommand{\mightydraw}{Mighty Draw\addtocounter{knacks}{1}}
+\newcommand{\precisestrike}{Precise Strike\addtocounter{knacks}{1}%
+\iftoggle{examplecharacter}{ (you need 1 less to acheive a Vitals shot)}{}}
+\newcommand{\specialist}[1]{Specialist \addtocounter{knacks}{1}
+\iftoggle{examplecharacter}{ (+2 when using any #1)}{(#1)}}
+\newcommand{\stunningstrike}{Stunning Strike\addtocounter{knacks}{1}\addtocounter{xpbonus}{1}%
+\iftoggle{examplecharacter}{ (take -1 penalty, and opponent's AP reduces by half Damage)}{}}
+\newcommand{\snapshot}{Snap Shot\addtocounter{knacks}{1}\addtocounter{strb}{2}%
+\iftoggle{examplecharacter}{ (Pay 0 AP to reload arrow or draw weapon)}{}}
+\newcommand{\mightydraw}{Mighty Draw\addtocounter{knacks}{1}%
+\iftoggle{examplecharacter}{\setcounter{enc}{knacks}\roundUp{enc} (reduce cost to draw longbow by \arabic{enc} AP)}{}}
 \newcommand{\unstoppable}{Unstoppable\addtocounter{hp}{2}\addtocounter{knacks}{1}%
 \iftoggle{examplecharacter}{%
 \setcounter{enc}{\value{knacks}}\roundUp{enc}%
@@ -194,12 +201,14 @@
 Gain +\arabic{enc} on Vitality check.
 You don't need to fall unconscious when making a Vitality check)%
 }{}}
-\newcommand{\vengeful}{Vengeful\addtocounter{knacks}{1}}
+\newcommand{\vengeful}{Vengeful\addtocounter{knacks}{1}%
+\iftoggle{examplecharacter}{ (+2 Intelligence after losing HP)}{}}
 \newcommand{\weaponmaster}[1]{Weapon Master \addtocounter{att}{1}\addtocounter{knacks}{1}%
 \iftoggle{examplecharacter}{(+1 Bonus to {#1}s)}{(#1)}}
-
-\newcommand{\snapcaster}{Snap Caster\addtocounter{knacks}{1}}
-\newcommand{\extremefocus}{Extreme Focus\addtocounter{knacks}{1}}
+\newcommand{\snapcaster}{Snap Caster\addtocounter{knacks}{1}%
+\iftoggle{examplecharacter}{ (spells cost 1 AP less)}{}}
+\newcommand{\extremefocus}{Extreme Focus\addtocounter{knacks}{1}%
+\iftoggle{examplecharacter}{\setcounter{enc}{knacks}\roundUp{enc} (with time to focus, gain +\arabic{enc} to spells)}{}}
 \newcommand{\alchemist}{Alchemist\addtocounter{knacks}{1}\renewcommand{\magicPath}{Alchemist}}
 \newcommand{\bloodCaster}{Blood Caster\addtocounter{knacks}{1}\renewcommand{\magicPath}{Blood}\iftoggle{examplecharacter}{ (allows the character to learn magic spheres)}{}}
 \newcommand{\divineCaster}{Divine Caster\addtocounter{knacks}{1}\renewcommand{\magicPath}{Divinity}}
@@ -207,7 +216,6 @@ You don't need to fall unconscious when making a Vitality check)%
 \newcommand{\runeCaster}{Rune Caster\addtocounter{knacks}{1}\renewcommand{\magicPath}{Runes}%
 \iftoggle{examplecharacter}{ (allows the caster to cast spells by slowly painting or carving runes)}{}}
 \newcommand{\songCaster}{Song Caster\addtocounter{knacks}{1}\renewcommand{\magicPath}{Song}}
-\newcommand{\combatcaster}{Combat Caster\addtocounter{knacks}{1}}
 
 \newcommand\chosenEnemy[1]{Chosen Enemy (#1)\addtocounter{knacks}{1}}
 
