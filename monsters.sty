@@ -281,7 +281,9 @@
 	{\arabic{r4}}}% CHARISMA
 	{6}% DR
 	{\arabic{r3}}% COMBAT
-	{Academics~3, Athletics~\arabic{r3c}, \ifodd\value{r2}Crafts~2, Performance~\arabic{r3}, \else Empathy~\arabic{r2b}, Seafaring~\arabic{r3}, Vigilance~\arabic{r3b}, Wyldcrafting~3\fi \Path{Blood \& Song}{\polymorph~5, \aldaron~\arabic{enc}, \fate~\arabic{r3b}, \ifodd\value{r3} \enchantment~\arabic{r2b}\fi}}% SKILLS
+	{Academics~3, Athletics~\arabic{r3c}, \ifodd\value{r2}Crafts~2, Performance~\arabic{r3}, \else Empathy~\arabic{r2b}, Seafaring~\arabic{r3}, Vigilance~\arabic{r3b}, Wyldcrafting~3\fi 
+  \knacks{\bloodCaster, \songCaster}
+  \Path{\polymorph~5, \aldaron~\arabic{enc}, \fate~\arabic{r3b}, \ifodd\value{r3} \enchantment~\arabic{r2b}\fi}}% SKILLS
 	{\ifodd\thepage\Dagger, \lootJewellery\else\spear\fi}% EQUIPMENT
 	{\lockedmana{5}\gdef\armourtype{C}}
 	}
@@ -1060,7 +1062,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {\arabic{age}}% AGGRESSION
 {Projectiles~\arabic{r2}, \ifodd\value{r3} Deceit\else Athletics\fi~\arabic{r3}, Medicine~\arabic{r2}, Stealth~1, Tactics~2
 \knacks{\nuraCaster}
-\Path{Nura}{\invocation~\arabic{r3}, \necromancy~\arabic{r3b}, \saurecanta~\arabic{r4}}}% SKILLS
+\Path{\invocation~\arabic{r3}, \necromancy~\arabic{r3b}, \saurecanta~\arabic{r4}}}% SKILLS
 {\Dagger\ifodd\value{r4}, torch\fi%
 \ifnum\value{r4b}=4%
 	, \lootMagic
