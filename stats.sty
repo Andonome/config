@@ -211,11 +211,14 @@ You don't need to fall unconscious when making a Vitality check)%
 \iftoggle{examplecharacter}{\setcounter{enc}{knacks}\roundUp{enc} (with time to focus, gain +\arabic{enc} to spells)}{}}
 \newcommand{\alchemist}{Alchemist\addtocounter{knacks}{1}\renewcommand{\magicPath}{Alchemist}}
 \newcommand{\bloodCaster}{Blood Caster\addtocounter{knacks}{1}\renewcommand{\magicPath}{Blood}\iftoggle{examplecharacter}{ (allows the character to learn magic spheres)}{}}
-\newcommand{\divineCaster}{Divine Caster\addtocounter{knacks}{1}\renewcommand{\magicPath}{Divinity}}
+\newcommand{\divineCaster}{Divine Caster\addtocounter{knacks}{1}\renewcommand{\magicPath}{Divinity}
+\iftoggle{examplecharacter}{ (allows the caster to cast spells through devotion to a god)}{}}
 \newcommand{\nuraCaster}{Nura Caster\addtocounter{knacks}{1}\renewcommand{\magicPath}{Nura}}
 \newcommand{\runeCaster}{Rune Caster\addtocounter{knacks}{1}\renewcommand{\magicPath}{Runes}%
 \iftoggle{examplecharacter}{ (allows the caster to cast spells by slowly painting or carving runes)}{}}
-\newcommand{\songCaster}{Song Caster\addtocounter{knacks}{1}\renewcommand{\magicPath}{Song}}
+\newcommand{\songCaster}{Song Caster\addtocounter{knacks}{1}\renewcommand{\magicPath}{Song}%
+\iftoggle{examplecharacter}{ (allows the caster to cast spells by slowly, through song)}{}}
+\newcommand{\combatcaster}{Combat Caster\addtocounter{knacks}{1}}
 
 \newcommand\chosenEnemy[1]{Chosen Enemy (#1)\addtocounter{knacks}{1}}
 
