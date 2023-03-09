@@ -159,6 +159,12 @@ bookmarks=true]%
   }{}
 }
 
+% Argument 1: The target git directory (e.g. 'core')
+% Argument 2: What to call that directory (e.g. 'the core rules')
+% Argument 3: Which label you're referring to
+\newcommand\exRef[3]{%
+\iftoggle{#1}{\footnote{\nameref{#3}: #2, \autopageref{#3}.}}{See #2 for more information.}%
+}
 
 %%%%%%%%%% Section Headers %%%%%%%%%%
 
