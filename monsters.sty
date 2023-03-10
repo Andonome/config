@@ -472,8 +472,8 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {-1}% WITS
 {0}}% CHARISMA
 {0}% DR
-{\ifnum\value{r12}=7 1\else 1\fi}% AGGRESSION
-{\arabic{r12} Empathy~1, \ifodd\thechapter Deceit~\arabic{r2}\fi}% SKILLS
+{\ifnum\value{r12}=7 1\else 0\fi}% AGGRESSION
+{Empathy~1, \ifodd\thechapter Deceit~\arabic{r2}\fi}% SKILLS
 {\ifodd\thepage \Dagger, \lootSmall\else None\fi}% EQUIPMENT
 {}
 }
