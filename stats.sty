@@ -449,8 +449,8 @@ You don't need to fall unconscious when making a Vitality check)%
   \addtocounter{weight}{-5}
 \fi
 \begin{center}
-  \scshape Att \iftoggle{examplecharacter}{$2D6$}{}%
-  \iftoggle{allyCharacter}{\ifnum\value{att}>-1 +\fi}{}%
+  \scshape Att %
+  \iftoggle{allyCharacter}{$2D6$\ifnum\value{att}>-1 +\fi}{}%
   \arabic{att}\ifnumcomp{\value{dexb}}{>}{0}{\addtocounter{att}{\value{dexb}} (\arabic{att})}{},
   AP \arabic{spd}\ifnumcomp{\value{spdb}}{>}{0}%
   {\addtocounter{spd}{\value{spdb}} (\arabic{spd})}{}\ifnumcomp{\value{heft}}{>}{1}{: \arabic{heft}}{},
@@ -477,7 +477,7 @@ You don't need to fall unconscious when making a Vitality check)%
 	\fi
 	\addtocounter{hp}{6}
 	\noindent\mbox{\arabic{hp} HP \iftoggle{bestiarychapter}{}{%
-	\ \Repeat{\value{hp}}{\ding{111}}%
+	\ {\large\Repeat{\value{hp}}{\sqn}}%
 		}%
 	}%
 	\ifnumcomp{\value{sp}}{>}{0}%
