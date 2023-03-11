@@ -4,6 +4,9 @@
 \newtoggle{bestiarychapter}
 \settoggle{bestiarychapter}{false}
 
+\newtoggle{allyCharacter}
+\settoggle{allyCharacter}{false}
+
 %      _        _   
 %  ___| |_ __ _| |_ 
 % / __| __/ _` | __|
@@ -431,7 +434,10 @@ You don't need to fall unconscious when making a Vitality check)%
 	\iftoggle{debug}{str: \arabic{str}, strb: \arabic{strb}, dex: \arabic{dex}, dexb: \arabic{dexb}, spd: \arabic{spd}, spdb: \arabic{spdb},att: \arabic{att}, damage: \arabic{damage}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}}{}
 	
 
-\addtocounter{att}{7}
+% Stats for allies don't need to show Combat +1 as 'TN 8 to hit', they just need to show '+1'.
+\iftoggle{allyCharacter}{}{
+  \addtocounter{att}{7}
+}
 \addtocounter{att}{\value{dex}}
 \addtocounter{spd}{3}
 \ifnum\value{weight}>\value{str}% now to compute encumbrance
@@ -443,7 +449,9 @@ You don't need to fall unconscious when making a Vitality check)%
   \addtocounter{weight}{-5}
 \fi
 \begin{center}
-  \scshape Att \arabic{att}\ifnumcomp{\value{dexb}}{>}{0}{\addtocounter{att}{\value{dexb}} (\arabic{att})}{},
+  \scshape Att \iftoggle{examplecharacter}{$2D6$}{}%
+  \iftoggle{allyCharacter}{\ifnum\value{att}>0 +\fi}{}%
+  \arabic{att}\ifnumcomp{\value{dexb}}{>}{0}{\addtocounter{att}{\value{dexb}} (\arabic{att})}{},
   AP \arabic{spd}\ifnumcomp{\value{spdb}}{>}{0}%
   {\addtocounter{spd}{\value{spdb}} (\arabic{spd})}{}\ifnumcomp{\value{heft}}{>}{1}{: \arabic{heft}}{},
   \addtocounter{damage}{\value{str}}
@@ -481,7 +489,7 @@ You don't need to fall unconscious when making a Vitality check)%
 	{}%
 
 
-	\iftoggle{examplecharacter}{}{
+	\iftoggle{allyCharacter}{}{
 		\calculateXP
 	}
 \end{center}%
