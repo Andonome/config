@@ -818,16 +818,15 @@ Roll & Result \\
 {\end{tabular}}
 
 
-\newenvironment{exampletext}{
+\newenvironment{exampletext}[1][\needspace{2em}\vspace{.3cm}\rule{.9\linewidth}{0.2pt}]{
   \iftoggle{verbose}{
-    \needspace{2em}\vspace{.3cm}
-
-    \rule{.9\linewidth}{0.2pt}
-
-    \vspace{.3cm}
-
+    #1
     \it
   }{}
+}{
+  \iftoggle{verbose}{%
+    \rule{.9\linewidth}{0.2pt}%
+  }{}%
 }
 
 \newcommand\sideBySide[2]{
