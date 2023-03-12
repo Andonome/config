@@ -313,10 +313,10 @@
 	\ifodd\value{r3}\else \fate~\arabic{r2}, \fi%
 	\ifodd\value{gold} \polymorph~\arabic{r2b}\else \enchantment~\arabic{r4}, \fi}%
 	\ifodd\value{r4} \else\knacks{%
-		\ifodd\value{r2}%
-			\weaponmaster%
+		\ifnum\value{r4}=2%
+			\weaponmaster{rapier}%
 		\else%
-			\precisestrike\ifnumcomp{\value{age}}{<}{3}{, \bloodCaster}{}%
+			\precisestrike%
 		\fi}\fi
 	}% SKILLS
 	{\ifnumcomp{\value{r4}}{=}{2}{\Dagger, shortbow, }{\rapier, dagger, }%
