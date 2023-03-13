@@ -1,0 +1,297 @@
+
+\begin{tcbposter}[
+  coverage = {
+      spread,
+  },
+  poster   = {
+    showframe=false,
+    columns=30,
+    rows=18
+  },
+  boxes    = {
+    enhanced standard jigsaw,
+    boxsep=2pt,
+    left=1pt,
+    right=1pt,
+    boxrule=.6mm,
+    colback=white,
+    drop fuzzy shadow,
+   }
+]
+
+% reset damage so it calculates properly
+\setcounter{damage}{0}
+\setcounter{weaponBonus}{0}
+\setcounter{knacks}{0}
+
+%----
+  \posterbox[
+    remember, blankest, halign=center,valign=center,
+  ]{name=title,column=1,span=29}{
+    \vspace{.8cm}
+    \begin{tabularx}{\linewidth}{lXlXlX}
+      \hiderowcolors
+      \textbf{Name:} & \iftoggle{examplecharacter}{\name}{\hrulefill} &
+      \textbf{Player:} & \hrulefill &
+      \textbf{Code:} & \iftoggle{examplecharacter}{\code}{\hrulefill}
+      \\
+      \\
+
+      \textbf{Concept:} & \iftoggle{examplecharacter}{\concept}{\hrulefill} &
+      \textbf{Race:} & \iftoggle{examplecharacter}{\race}{\hrulefill} &
+      \textbf{Culture:} & \iftoggle{examplecharacter}{\culture}{\hrulefill} \\
+    \end{tabularx}
+}
+
+%----
+  \posterbox[
+    adjusted title=Attributes \hint{ 5 | 10 / 20 / 30 },
+    remember,
+  ]{name=attributes,column=1,row=3,span=10,rowspan=3}{
+  \vspace{-.3cm}
+  \renewcommand{\arraystretch}{1.5}
+  \addtolength{\tabcolsep}{-0.5em}
+  \begin{tabular}{@{}Xlcccccccccccr}
+  \attributeDisplay{Strength}{str}
+  \attributeDisplay{Dexterity}{dex}
+  \attributeDisplay{Speed}{spd}
+  \attributeDisplay{Intelligence}{int}
+  \attributeDisplay{Wits}{wts}
+  \attributeDisplay{Charisma}{cha}
+  \end{tabular}}
+%----
+
+
+%----
+
+  \posterbox[
+    remember, blankest,interior engine=path,valign=center,
+  ]{name=gumption,column=19,row=3,span=8,rowspan=5}{
+
+    \begin{tikzpicture}[
+circle label/.style = {
+        postaction={
+            decoration={
+                text along path,
+                text = {#1},
+                text align=center,
+                reverse path,
+            },
+        decorate,
+    }
+    }
+    ]
+     \path[circle label={HP = 6 + Strength}] (-1,-1.1) arc (-90:360-90:1.1);
+      \draw[dotted] (-1,0) circle (1);
+     \path[circle label={Fatigue Points}] (1.8,-1.1) arc (-90:360-90:1.1);
+      \draw[dotted] (1.8,0) circle (1);
+     \path[circle label={FP = Base + Charisma}] (-1,-4.1) arc (-90:360-90:1.1);
+      \draw[dotted] (-1,-3) circle (1) node [align=left,text width=3.5em] {};
+     \path[circle label={MP = 3 x spheres + Intelligence}] (1.8,-4.1) arc (-90:315-45:1.1);
+      \draw[dotted] (1.8,-3) circle (1) node [align=left] {};
+    \end{tikzpicture}
+
+    \vspace{1em}
+    \textbf{\Glsentrytext{fp} Base:}
+    \iftoggle{examplecharacter}{\arabic{fp}}{\rule{2em}{0.5pt}}
+    \hint{ 10/15/20 }
+  }
+%----
+  \posterbox[adjusted title={M\^{e}l\'ee \hint{ 10 / 20 / 40 }},
+  remember,
+  ]{name=melee,column=11,row=8,span=8,rowspan=1.6}{
+    \begin{tabularx}{\linewidth}{Xr@{}}
+
+      \hiderowcolors
+      \skill{Combat}
+      \skill{Projectiles}
+    \end{tabularx}
+  }
+
+%----
+
+  \posterbox[
+  adjusted title=Armoury,
+  remember,
+  ]{name=armoury,column=1,row=10,span=18,rowspan=4}{
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabularx}{\linewidth}{p{.3\textwidth}YYYY}
+      \hiderowcolors
+      \setlength{\parskip}{3mm}
+      \textbf{Weapon} & \textbf{Bonus} & \textbf{Damage} & \textbf{\Glsentrytext{ap} Cost} & \textbf{Weight} \\
+      
+    \iftoggle{examplecharacter}{
+      \hline
+      \characterWeapons
+      \\
+      \\
+    }{}
+    \end{tabularx}
+
+    \iftoggle{examplecharacter}{}{
+      \lineDots[3]
+    }
+
+    \begin{tabularx}{\linewidth}{p{.3\textwidth}YYY}
+      \hiderowcolors
+      \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{Type} & \textbf{Weight} \\
+      \iftoggle{examplecharacter}{
+        \hline
+        \characterArmour
+      }{}
+    \end{tabularx}
+
+    \iftoggle{examplecharacter}{}{\lineDots}
+  }
+
+%-----
+  \posterbox[
+    blankest,interior engine=path, halign=center,valign=center,
+    opacityback=0,
+    remember,
+  ]
+  {name=Derived,column=1,row=5,span=10,rowspan=4}{
+    \begin{tabularx}{\linewidth}{YYY}
+      \hiderowcolors
+      \textbf{Bonus} & \textbf{Damage} & \textbf{\Glsentrytext{ap}} \\
+      \\
+      2D6%
+      \iftoggle{examplecharacter}% Bonus
+      {%
+      \addtocounter{Combat}{\value{dex}}%
+      \addtocounter{Combat}{\value{weaponBonus}}%
+      \ifnum\value{Combat}>-1+\else-\fi%
+      \arabic{Combat}
+      }%
+      {\underline{\hspace{2em}}} &
+      \iftoggle{examplecharacter}% Damage
+      {
+        \addtocounter{damage}{\value{str}}
+        \calculatedamage{damage}%
+      }%
+      {
+        \underline{\hspace{1em}} D6+\underline{\hspace{1.5em}}
+      } &
+      \iftoggle{examplecharacter}%
+      {%
+        \addtocounter{spd}{3}%
+        \arabic{spd}%
+      }%
+      {\underline{\hspace{2em}}}
+      \\
+      \tiny Dexterity + Combat + Weapon Bonus & \tiny Strength + Weapon & \tiny 3 + Speed \\
+    \end{tabularx}
+  
+}
+
+%----
+
+    \setcounter{track}{7}
+    \posterbox[
+    blankest,
+    remember,
+    ]{name=track,column=27,row=3,span=2.8,rowspan=15.8}{ 
+      {\large
+
+        \vspace{1em}
+        \Repeat{15}{\tracker}
+      }
+      }
+
+
+%-----
+  \posterbox[
+  adjusted title={Skills \hint{ 5 / 10 / 15 }},
+  remember,
+  ]
+  {name=skills,column=11,row=3,span=8,rowspan=5}{
+    \begin{tabularx}{\linewidth}{Xr@{}}
+
+      \hiderowcolors
+      \skill{Academics}
+      \skill{Athletics}
+      \skill{Caving}
+      \skill{Crafts}
+      \skill{Deceit}
+      \skill{Empathy}
+      \skill{Medicine}
+      \skill{Performance}
+      \skill{Larceny}
+      \skill{Seafaring}
+      \skill{Stealth}
+      \skill{Tactics}
+      \skill{Vigilance}
+      \skill{Wyldcrafting}
+
+    \end{tabularx}
+  }
+
+%-----
+  \posterbox[adjusted title=Spheres \hint{ 10 / 15 / 25 }]{name=spheres,column=19,row=8,span=8,rowspan=3}
+  {
+  \setlength{\parskip}{3mm}
+  \vspace{.2cm}
+
+  \iftoggle{examplecharacter}{
+    \sphereOne
+
+    \sphereTwo
+
+    \sphereSkill{}{0}
+
+    \sphereSkill{}{0}
+
+  }{
+    \sphereSkill{}{0}
+
+    \sphereSkill{}{0}
+
+    \sphereSkill{}{0}
+
+    \sphereSkill{}{0}
+
+  }
+
+  }
+
+%----
+  \posterbox[
+    adjusted title=Equipment \hint{1 per Skill},
+    remember,
+  ]
+  {name=equipment,
+    column=1,
+    row=14,
+    span=26,
+    rowspan=3.5,
+  }{
+
+  \iftoggle{examplecharacter}{\characterEquipment\vspace{14em}}{\lineDots[5]\vspace{8mm}}
+
+  
+  \Glsentrytext{cp} \iftoggle{bestiarychapter}{\arabic{gold} }{\weeline} \Glsentrytext{sp}\weeline \Glsentrytext{gp}\weeline \hspace{3cm} Total \Glsentrytext{xp} \weeline Spent \Glsentrytext{xp} \weeline
+  }
+
+%---
+
+  \posterbox[
+    adjusted title=Knacks \hint{ 5 / 10 / 15 },
+    remember,
+  ]
+  {name=knacks,column=19,row=11,span=8,rowspan=3}{
+
+  \setlength{\parskip}{0mm}
+
+    \iftoggle{examplecharacter}{
+      \knackOne
+
+      \knackTwo
+    }{
+      \lineDots[4]
+    }
+  }
+
+%------
+
+
+\end{tcbposter}
