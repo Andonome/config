@@ -818,14 +818,16 @@ Roll & Result \\
 {\end{tabular}}
 
 
-\newenvironment{exampletext}[1][\needspace{2em}\vspace{.3cm}\rule{.9\linewidth}{0.2pt}]{
+\newenvironment{exampletext}[1][\needspace{2em}\vspace{.3cm}\rule{.9\linewidth}{0.2pt}\vspace{.3em}]{
   \iftoggle{verbose}{
     #1
     \it
   }{}
-}{
+}{%
   \iftoggle{verbose}{%
+
     \rule{.9\linewidth}{0.2pt}%
+
   }{}%
 }
 
