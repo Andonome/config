@@ -4,8 +4,10 @@
 
 
 \iftoggle{examplecharacter}{
-  \charSpellList
-  \renewcommand\charSpellList{}
+  \iftoggle{core}{
+    \charSpellList
+    \renewcommand\charSpellList{}
+  }{}
 
   \vspace{5em}
 
