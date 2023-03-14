@@ -198,15 +198,6 @@ bookmarks=true]%
   \expandafter\@Repeat\expandafter{\the\numexpr #1\relax}%
 }
 
-% This function divides a number by two, and rounds it up.
-\newcommand\roundUp[1]{
-  \ifodd\value{#1}
-    \stepcounter{#1}
-  \fi
-  \divide\value{#1} by 2
-  \addtocounter{#1}{0}% Think this line's pointless? Try removing it and seeing what happens - I dare you.
-}
-
 \def\@Repeat#1{%
     \ifnum#1>0
         \expandafter\@@Repeat\expandafter{\the\numexpr #1-1\expandafter\relax\expandafter}%
@@ -218,6 +209,22 @@ bookmarks=true]%
     \@Repeat{#1}{#2}#2%
 }
 
+% This allows us to compare two strings. What other wonders will LaTeX bring in the future?  Perhaps subtraction syntax one day.
+\ExplSyntaxOn
+\NewExpandableDocumentCommand{\ifStrSame}{mmmm}
+ {
+  \str_if_eq:eeTF { #1 } { #2 } { #3 } { #4 }
+ }
+\ExplSyntaxOff
+
+% This function divides a number by two, and rounds it up.
+\newcommand\roundUp[1]{
+  \ifodd\value{#1}
+    \stepcounter{#1}
+  \fi
+  \divide\value{#1} by 2
+  \addtocounter{#1}{0}% Think this line's pointless? Try removing it and seeing what happens - I dare you.
+}
 
 \newcommand{\chapnumfont}{
   \fontsize{50}{0}
