@@ -426,6 +426,23 @@ Other commands are typically produced for just a single location in the book.
 The functions which produce the creature boxes is a tangled mess of rotten spaghetti-logic, which is so inefficient it somehow taxes a modern computer just to add some numbers.
 It's best not to think about how creatures are made.
 
+\subsection{Rules References with a Dirty Hack}
+
+Rules are often written as:
+
+\begin{verbatim}
+
+\subsection[Keeping Watch: Roll Strength +
+Vigilance]{Keeping Watch}
+\label{keepingWatch}
+
+\end{verbatim}
+
+This first argument in the square brackets is used as the subsection header when referenced, or in tables of contents.
+Since the subsection is never used in a table of contents, we can misused it to contain rules, and then reference the rule.
+
+Specifically, you can use \verb"\footnote{\nameref{keepingWatch}.}", which then produces a footnote with a summary of that rule, which will automatically update if the rule ever changes.
+
 \end{multicols}
 
 \end{document}
