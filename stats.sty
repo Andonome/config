@@ -396,7 +396,7 @@ You don't need to fall unconscious when making a Vitality check)%
 	\setcounter{hp}{\value{str}}
 \end{tabularx}
 
-\begin{tabularx}{\linewidth}{lX}
+\begin{tabularx}{\linewidth}{p{.20\textwidth}>{\raggedright\arraybackslash}p{.70\textwidth}}
 
 	\ent{Skills} & \ifnumcomp{\value{att}}{=}{0}{}{\iftoggle{mind}{Combat \arabic{att}, }{Aggression \arabic{att}, }} \skills \\
 	\iftoggle{mind}{\ent{Equipment} & \equipment \\}{\ent{Abilities} & \abilities \\}

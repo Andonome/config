@@ -42,8 +42,8 @@
     \iftoggle{examplecharacter}{}{% Example characters have all the weapon stats except cost, so we only need cost for the weapon charts in the core book.
       &%
       \ifnum#6<1\else%
-        \ifnum#6>200%
-          \divide\value{cost} by 100%
+        \ifnum\value{cost}>200%
+          \divide\value{cost} by 50\addtocounter{cost}{0}%
           \arabic{cost} sp%
         \else%
           \arabic{cost} cp%
