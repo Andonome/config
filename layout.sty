@@ -36,6 +36,7 @@
   \raggedcolumns
 \RequirePackage{graphicx}
 \RequirePackage{etoolbox}
+\RequirePackage{xparse}
 \RequirePackage{titlesec,titletoc}
 \RequirePackage{fancyhdr}
 \RequirePackage{needspace}
@@ -828,18 +829,18 @@ Roll & Result \\
 {\end{tabular}}
 
 
-\newenvironment{exampletext}[1][\needspace{2em}\vspace{.3cm}\rule{.9\linewidth}{0.2pt}\vspace{.3em}]{
-  \iftoggle{verbose}{
-    #1
-    \it
-  }{}
-}{%
-  \iftoggle{verbose}{%
+\NewDocumentEnvironment{exampletext}%
+  { O{\needspace{2em}\vspace{.3cm}\rule{.9\linewidth}{0.2pt}\vspace{.3em}} +b }%
+  {\iftoggle{verbose}{#1
 
-    \rule{.9\linewidth}{0.2pt}%
+  #2}{}}
+  {
+    \iftoggle{verbose}{
 
-  }{}%
-}
+    \rule{.9\linewidth}{0.2pt}
+
+    }{}%
+  }
 
 \newcommand\sideBySide[2]{
   \end{multicols}
