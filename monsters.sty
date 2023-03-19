@@ -799,7 +799,10 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {-1}}% CHARISMA
 {0}% DR
 {\arabic{r2}}% COMBAT
-{Aggression~2, Projectiles~\arabic{r2c}, Wyldcrafting~\arabic{enc}\knacks{\ifodd\value{enc}\adrenalinesurge\else\charge\fi}}% SKILLS
+{
+  Aggression~2, Projectiles~\arabic{r2c}, Wyldcrafting~\arabic{enc}
+  \knacks{\ifodd\value{enc}\adrenalinesurge\else\ifodd\value{r3}\charge\else\chosenEnemy{Human}\fi\fi}
+}% SKILLS
 {\spear}% EQUIPMENT
 {}
 }
