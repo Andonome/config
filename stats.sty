@@ -462,7 +462,7 @@ You don't need to fall unconscious when making a Vitality check)%
     }
     \ifnumcomp{\value{dr}}{>}{0}{DR \arabic{dr}~\armourtype, }{}
 	\ifnum\value{mp}>0%
-		\addtocounter{mp}{\value{wts}}%
+		\addtocounter{mp}{\value{int}}%
 		\noindent\mbox{
 		\ifnum\value{mpb}=0%
 			\arabic{mp}~MP%
@@ -476,6 +476,7 @@ You don't need to fall unconscious when making a Vitality check)%
 		}
 	\fi
 	\addtocounter{hp}{6}
+  \addtocounter{damage}{4}
 	\noindent\mbox{\arabic{hp} HP \iftoggle{bestiarychapter}{}{%
 	\ {\large\Repeat{\value{hp}}{\sqn}}%
 		}%
@@ -504,52 +505,49 @@ You don't need to fall unconscious when making a Vitality check)%
 %%  
 \newcommand{\calculateXP}{
   \vspace{.1cm}
-  % Sanitize numbers to avoid zeros, and ensure bonuses don't change things drastically.
-  \addtocounter{damage}{3}
-  \addtocounter{dr}{3}
-  % spd already received a +3 bonus to make it AP
 
-  \setcounter{attackXPtotal}{\value{damage}}
-
-  \multiply\value{attackXPtotal} by \value{spd}
-  \addtocounter{spd}{-\value{heft}}
-  \ifnum\value{spd}>0
-    \multiply\value{attackXPtotal} by \value{spd}
-  \fi
-   
-    \setcounter{defenceXPtotal}{\value{hp}}
-    \multiply\value{defenceXPtotal} by \value{dr}
+  %%% Now to get the XP value of the creature's attack ability.
+  %%% = Attack (TN) * Dam + max((spd-hef),mp)^2
+  \setcounter{attackXPtotal}{\value{att}}%
+  \multiply\value{attackXPtotal} by \value{damage}%
+  \addtocounter{spd}{-\value{heft}}%
+  \ifnum\value{spd}>\value{mp}%
+    \setcounter{enc}{\value{spd}}
+  \else%
+    \setcounter{enc}{\value{mp}}
+  \fi%
+    \multiply\value{enc} by\value{enc}%
+    \addtocounter{attackXPtotal}{\value{enc}}%
+    %%% And now the XP defence total.
+    %%% = (att - 7 + dr) x hp
+    \ifnum\value{att}>7%
+      \setcounter{defenceXPtotal}{\value{att}}%
+      \addtocounter{defenceXPtotal}{-7}
+    \else
+      \setcounter{defenceXPtotal}{0}
+    \fi
+    \addtocounter{defenceXPtotal}{\value{dr}}%
+    \multiply\value{defenceXPtotal} by\value{hp}\addtocounter{defenceXPtotal}{0}%
 
   % XP = attackXPtotal + defenceXPtotal
-    \setcounter{xp}{\value{attackXPtotal}}
-    \addtocounter{xp}{\value{defenceXPtotal}}
-    \addtocounter{att}{-4}
-    \multiply\value{xp} by \value{att}
-    \addtocounter{xp}{-100}
-	\iftoggle{debug}{str: \arabic{str}, strb: \arabic{strb}, dex: \arabic{dex}, dexb: \arabic{dexb}, spd: \arabic{spd}, spdb: \arabic{spdb}, att: \arabic{att}, damage: \arabic{damage}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}, mp: \arabic{mp} Grand Total: \arabic{xp}}{\hrulefill}
+    \setcounter{xp}{\value{attackXPtotal}}%
+    \addtocounter{xp}{\value{defenceXPtotal}}%
+
+	\iftoggle{debug}{str: \arabic{str}, strb: \arabic{strb}, dex: \arabic{dex}, dexb: \arabic{dexb}, spd: \arabic{spd}, spdb: \arabic{spdb}, att: \arabic{att}, damage: \arabic{damage}, XP Bonus: \arabic{xpbonus}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}, mp: \arabic{mp} Grand Total: \arabic{xp}}{\hrulefill}
     
   \iftoggle{examplecharacter}%
   {}%
   {
-    % MP time
-    \addtocounter{mp}{\value{wts}}
-    \stepcounter{int}
-    \multiply\value{mp} by \value{int}
-    \multiply\value{mp} by 20
-    \ifnum\value{mp}>0
-      \addtocounter{xp}{\value{mp}}
-    \fi
-
-    \ifnumcomp{\value{xp}}{<}{160}%
-      {\ifnumcomp{\value{xp}}{<}{100}%
-        {$1/2$ XP}{1 XP}}%
+    \ifnumcomp{\value{xp}}{<}{60}%
+      {\ifnumcomp{\value{xp}}{<}{30}%
+        {$\frac{1}{3}$ XP}{$\frac{1}{2}$ XP}}%
         {
-          \divide\value{xp} by 160%
-          \addtocounter{xp}{\value{xpbonus}}%
-          \arabic{xp} XP%
+            \addtocounter{xp}{-60}%
+            \divide\value{xp} by 13%
+            \addtocounter{xp}{\value{xpbonus}}%
+            \arabic{xp} XP%
         }%
-    % if {mind} print fate points.
-    %
+    % if the creature has a mind, print fate points (if any).
     \iftoggle{mind}%
       {\addtocounter{fp}{\value{cha}}%
         \ifnum\value{fp}>2\ignorespaces, \arabic{fp}~FP %
