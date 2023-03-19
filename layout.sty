@@ -2,13 +2,16 @@
 
 \RequirePackage[table]{xcolor}
 \RequirePackage[copies]{contour}
-\RequirePackage[acronym,symbols]{glossaries}
-\setacronymstyle{short-long-desc}
 \RequirePackage{imakeidx}% for spell summaries
-\RequirePackage{glossary-mcols}
-\RequirePackage{glossaries-extra}
-  \setabbreviationstyle[acronym]{long-short-sc-desc}
-  \glssetcategoryattribute{acronym}{indexonlyfirst}{true}
+\RequirePackage[
+  acronyms,
+  prefix,
+  symbols,
+  stylemods=mcols,
+  style=mcoltree,
+]{glossaries-extra}
+  \setabbreviationstyle[acronym]{short-sc-long-desc}
+
 \RequirePackage{gfsartemisia-euler} % fancy fonts
 \RequirePackage[T1]{fontenc} % 
 \RequirePackage{starfont} % for creature symbols
