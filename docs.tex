@@ -283,7 +283,7 @@ When when a creature wields the weapon, those stats raise the creature's stats.
 
   \begin{nametable}[XXXXXX]{M\^{e}l\'{e}e Weapons}
 
-  \textbf{Name} & \textbf{Bonus} & \textbf{Dam.} & \textbf{AP} & \textbf{Weight} & Cost \\\hline
+  \textbf{Name} & \textbf{Attack Bonus} & \textbf{Dam.} & \textbf{\Glsentrytext{ap} Cost} & \textbf{Weight} & Cost \\\hline
 
   \Dagger
 
@@ -292,6 +292,23 @@ When when a creature wields the weapon, those stats raise the creature's stats.
   \spear
 
   \end{nametable}
+
+Alternatively, just write \verb"\sword" and the sword gets written.
+Just set \verb"\toggletrue{examplecharacter}".
+
+\toggletrue{examplecharacter}
+  \begin{nametable}[lYYYY]{M\^{e}l\'{e}e Weapons}
+
+  \textbf{Name} & \textbf{Attack Bonus} & \textbf{Dam.} & \textbf{\Glsentrytext{ap} Cost} & \textbf{Weight} \\\hline
+
+  \Dagger
+
+  \greataxe
+
+  \spear
+
+  \end{nametable}
+
 
 \subsection{Loot}
 
