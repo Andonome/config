@@ -16,11 +16,14 @@
     drop fuzzy shadow,
    },
 ]
-  \posterbox[adjusted title=Campaign,]{name=campaign,below=top,column=1,row=1,span=10,rowspan=2,}{
+  \posterbox[
+    adjusted title=Campaign,
+    right=0pt,
+    ]{name=campaign,below=top,column=1,row=1,span=10,rowspan=2,}{
       
 
     \large
-    Premise:
+    Campaign:
 
     Area:
     
@@ -28,8 +31,18 @@
 
     Day:
 
-    \iftoggle{aif}{Nura Rating:}{}
-
+    \iftoggle{aif}{
+      \mbox{Nura~Rating:~}
+      \hspace{-.5em}\setcounter{enc}{1}%
+      \begin{minipage}{.55\textwidth}
+      \normalsize
+      \begin{tabularx}{\textwidth}{X@{}X@{}X@{}X@{}X@{}X@{}X@{}X@{}X@{}X@{}X}
+        \sqn\Repeat{10}{ & \sqn} \\[0em]
+        \arabic{enc}\Repeat{10}{&\stepcounter{enc}\ifodd\value{enc}\small\arabic{enc}\else{\tiny\textbullet}\fi}\\[0em]
+      \end{tabularx}
+      \end{minipage}
+    }{}
+}{
     }
 
   \posterbox[adjusted title=Situation,]{name=situation,column=11,row=1,span=16,rowspan=2}{
@@ -41,10 +54,10 @@
 
   \posterbox[adjusted title=\Glsentrylongpl{pc}]{name=pcs,below=campaign,column=1,span=26,rowspan=4}{
 
-    \begin{tabularx}{\linewidth}{Y|Y|Y|l|Y}
+    \begin{tabularx}{\linewidth}{b{.19\linewidth}|b{.18\linewidth}|b{.2\linewidth}|X|b{.22\linewidth}}
     \hiderowcolors
 
-      Player & Character & Concept & Wits + Vigilance & Notes \\\hline
+      Player & Character & Concept & {\normalsize Wits + Vig.} & Notes \\\hline
 
     \end{tabularx}
     
