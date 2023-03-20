@@ -6,8 +6,8 @@
 	\iftoggle{bestiarychapter}{%
 		\ifodd\value{r2}%
 			$3D6$\else$2D6$%
-		\fi cp}{
-		\randomdozen\arabic{r12} cp}%
+		\fi \glspl{cp}}{%
+		\randomdozen\arabic{r12} \glspl{cp}}%
 }
 
 \newcommand{\lootMedium}{%
@@ -16,19 +16,19 @@
 			$3D6$%
 		\else%
 			$2D6$%
-		\fi~sp}{%
+		\fi~\glspl{sp}}{%
 		\addtocounter{gold}{\thepage}%
 		\divide\value{gold} by \value{r4}%
 		\ifnum\value{gold}<4%
 			\setcounter{gold}{7}%
 		\fi%
-		\arabic{gold}~sp}%
+		\arabic{gold}~\glspl{sp}}%
 }
 
 \newcommand{\lootBig}{%
 \iftoggle{bestiarychapter}{%
-	\ifodd\thepage $3D6-2$\else$2D6+4$\fi gp}{%
-	\randomdozen\addtocounter{r12}{8}\arabic{r12}gp%
+	\ifodd\thepage $3D6-2$\else$2D6+4$\fi \glspl{gp}}{%
+	\randomdozen\addtocounter{r12}{8}\arabic{r12}\glspl{gp}%
 	}%
 }
 
@@ -73,15 +73,15 @@
 }}}
 
 \newcommand{\lootJewellery}{%
-\iftoggle{bestiarychapter}{jewellery worth \ifodd\value{r2}$3D6$sp\else$1D6+2$gp\fi}%
+\iftoggle{bestiarychapter}{jewellery worth \ifodd\value{r2}$3D6$sp\else$1D6+2$\glspl{gp}\fi}%
 	{\ifnumcomp{\value{r2}}{>}{1}{\ifodd\value{r3}%
 		\ifodd\value{r4}%
-			golden necklace worth \arabic{r12}~sp\else%
-			golden ring worth \thechapter~sp\fi\else%
-		jewel encrusted dagger worth \thepage~sp\fi}%
+			golden necklace worth \arabic{r12}~\glspl{sp}\else%
+			golden ring worth \thechapter~\glspl{sp}\fi\else%
+		jewel encrusted dagger worth \thepage~\glspl{sp}\fi}%
 	{\ifodd\value{r3}%
 		\ifodd\value{r4}%
-			ornate silver earrings worth 1 gp\else
-			gem encrusted broach worth \thechapter gp\fi\else%
-		\randomthreeB saphire pendant worth \arabic{r3b}gp\fi}}}
+			ornate silver earrings worth 1 \glspl{gp}\else
+			gem encrusted broach worth \thechapter \glspl{gp}\fi\else%
+		\randomthreeB saphire pendant worth \arabic{r3b}\glspl{gp}\fi}}}
 
