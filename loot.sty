@@ -7,7 +7,7 @@
 		\ifodd\value{r2}%
 			$3D6$\else$2D6$%
 		\fi \glspl{cp}}{%
-		\randomdozen\arabic{r12} \glspl{cp}}%
+		\randomdozen\multiply\value{r12} by \value{r4}\arabic{r12} \glspl{cp}}%
 }
 
 \newcommand{\lootMedium}{%
