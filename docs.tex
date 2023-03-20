@@ -193,7 +193,8 @@ Imagine the shield image is a map to be labelled.
 We can start by putting `Toptown' at the top.
 
 \begin{verbatim}
-  \mapPic{t}{../config/images/l1}{8/8/Toptown}
+  \mapPic{t}{../config/images/l1}%
+    {8/8/Toptown}
 \end{verbatim}
 
 If the map needs to go at the bottom, replace the first argument with a `b'.
@@ -203,7 +204,8 @@ We can add more to the list with commas.
 We can even add commands, such as \verb"\ref{basement}" to get some number associated with a basement, and automatically place that number on the map.
 
 \begin{verbatim}
-  \mapPic{t}{../config/images/l1}{8/8/Toptown, 2/75/Leftown,8/6/2}
+  \mapPic{t}{../config/images/l1}%
+    {8/8/Toptown, 2/75/Leftown,8/6/2}
 \end{verbatim}
 
 An optional argument allows default size changes for the words, and as usual words can change their sizes individually.
