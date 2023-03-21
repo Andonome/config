@@ -20,7 +20,7 @@
 {1}% AGGRESSION
 {Athletics~1}% SKILLS
 {Stampede}% ABILITIES
-{\addtocounter{xpbonus}{-4}}
+{}
 }
 
 \newcommand{\bear}[1][\npc{\A}{Bear}]{
@@ -1589,7 +1589,7 @@ mana stone with \arabic{track} mana, \lootJewellery, \randomtwo\lootJewellery, \
 \Path{\addtocounter{age}{2} \force~\arabic{age}, \illusion~\arabic{r3}, \invocation~\arabic{r4}, \conjuration~\arabic{enc}}}% SKILLS
 {None}% ABILITIES
 {\setcounter{gold}{\value{age}}\multiply\value{gold} by 3\addtocounter{gold}{\value{int}}\setcounter{sp}{\value{gold}}%
-\lockedmana{\value{age}}\addtocounter{xpbonus}{4}}
+\lockedmana{\value{age}}}
 }
 
 \newcommand{\watcher}[1][\npc{\A}{Watcher}]{

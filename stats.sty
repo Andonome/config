@@ -538,9 +538,9 @@ You don't need to fall unconscious when making a Vitality check)%
   \iftoggle{examplecharacter}%
   {}%
   {
-    \ifnumcomp{\value{xp}}{<}{60}%
-      {\ifnumcomp{\value{xp}}{<}{30}%
-        {$\frac{1}{3}$ XP}{$\frac{1}{2}$ XP}}%
+    \ifnumcomp{\value{xp}}{<}{73}%
+      {\ifnumcomp{\value{xp}}{<}{40}%
+        {\arabic{xpbonus} XP}{$\frac{1}{2}$ XP}}%
         {
             \addtocounter{xp}{-60}%
             \divide\value{xp} by 13%
