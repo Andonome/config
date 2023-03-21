@@ -1232,13 +1232,15 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {-5}}% CHARISMA
 {2}% DR
 {2}% COMBAT
-{Aggression~\arabic{enc}, \ifodd\thepage Caving\else Deceit\fi~\arabic{r3}, Tactics~\arabic{r2}, Vigilance~1}% SKILLS
+{Aggression~\arabic{enc}, \ifodd\thepage Caving\else Deceit\fi~\arabic{r3}, Tactics~\arabic{r2}, Vigilance~1, Xenomology~\arabic{r2b}}% SKILLS
 {\ifodd\value{r2}%
 	\greatclub%
 \else%
 	\greatsword, dagger%
 \fi%
-\ifodd\thepage, \lootJewellery\fi}% EQUIPMENT
+\iftoggle{bestiarychapter}{}%
+  {\ifodd\thepage, \lootJewellery\fi}%
+}% EQUIPMENT
 {}
 }
 
@@ -1555,9 +1557,9 @@ mana stone with \arabic{track} mana, \lootJewellery, \randomtwo\lootJewellery, \
 \person{\arabic{age}}% STRENGTH
 {-1}% DEXTERITY 
 {\arabic{r2b}}% SPEED
-{{-3}% INTELLIGENCE
+{{-4}% INTELLIGENCE
 {-5}% WITS
-{\arabic{r2b}}}% CHARISMA
+{-4}}% CHARISMA
 {\arabic{age}}% DR
 {\arabic{r4}}% AGGRESSION
 {Crafts~\arabic{r2}, Deceit~\arabic{r3}, Xenomology~1}% SKILLS
