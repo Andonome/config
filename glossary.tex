@@ -1,11 +1,18 @@
 \makeglossaries
 
 % We only want to show full descriptions (e.g. 'GM (Games Master)') in some books. These books make the file '.switch-gls', but most use nothing.
+
 \IfFileExists{.switch-gls}{
   \setabbreviationstyle[acronym]{long-short-sc-desc}
 }{
   \setabbreviationstyle[acronym]{nolong-short-sc}
 }
+
+\newacronym[
+  description={The spell's current level (including Enhancements)},
+  text={spell level},
+  nonumberlist,
+]{lv}{Lv}{Spell Level}
 
 \newacronym[
   description={The smallest unit of currency},
