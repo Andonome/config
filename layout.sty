@@ -769,7 +769,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 }%
 
 \newcommand{\spelllevel}{%
-  \needspace{12em}
+  \needspace{15em}
   \refstepcounter{spelllevel}%
   \subsection{\currentsphere~ Level \arabic{spelllevel}}%
 }
@@ -806,8 +806,8 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \subsubsection[\textbf{#1}: #4. (\textit{#3})]{#1}
   \index[spells]{\textbf{#1}: #4. (\currentsphere\ Level \arabic{spelllevel}, Type: #2, Skill: #3)}
 
-  {\it Type: #2, Skill: #3}
-  \afterparnoindent
+  {\small\underline{\it Type: #2, Skill: #3}}
+  \vspace{.5em}\afterparnoindent
 }
 
 % Toggles for knacks
@@ -836,6 +836,7 @@ Roll & Result \\
   { O{\needspace{2em}\vspace{.3cm}\rule{.9\linewidth}{0.2pt}\vspace{.3em}} +b }%
   {\iftoggle{verbose}{#1
 
+  \it
   #2}{}}
   {
     \iftoggle{verbose}{
