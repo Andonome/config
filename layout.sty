@@ -451,8 +451,13 @@ bookmarks=true]%
 % These parameters---especially those related to geometry---are better located
 % here in a style than in the subskin definition (see the Subskins section of
 % the tcolorbox manual).
-\tcbset{ornamented/.style={skin=ornamented, toptitle=14.5pt, top=15pt, bottom=9.5pt,
-                           coltitle=black}
+\tcbset{ornamented/.style={skin=ornamented,
+  toptitle=14.5pt,
+  top=15pt,
+  bottom=9.5pt,
+  fontupper={\iftoggle{verbose}{\normalsize}{\footnotesize}},
+  coltitle=black,
+  }
 }
 
 % Convenient style to use with a tcolorbox preceded by text (or anything),
@@ -806,7 +811,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \subsubsection[\textbf{#1}: #4. (\textit{#3})]{#1}
   \index[spells]{\textbf{#1}: #4. (\currentsphere\ Level \arabic{spelllevel}, Type: #2, Skill: #3)}
 
-  {\small\underline{\it Type: #2, Skill: #3}}
+  {\small\underline{\it Type: #2}, \iftoggle{verbose}{}{\\ }\underline{Skill: #3}}
   \vspace{.5em}\afterparnoindent
 }
 
@@ -868,7 +873,10 @@ Roll & Result \\
   \end{figure*}
 }
 
-\newtcolorbox{xpchart}[1]{tabularx={l|X},adjusted title=XP Rewards for #1,
+\newtcolorbox{xpchart}[1]{
+  tabularx={l|X},
+  fonttitle=\small,
+  adjusted title=XP Rewards for #1,
   bottom=10pt,
   left=3pt,
   right=3pt,
