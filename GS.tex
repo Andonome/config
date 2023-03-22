@@ -37,8 +37,10 @@
       \begin{minipage}{.55\textwidth}
       \normalsize
       \begin{tabularx}{\textwidth}{X@{}X@{}X@{}X@{}X@{}X@{}X@{}X@{}X@{}X@{}X}
-        \sqn\Repeat{10}{ & \sqn} \\[0em]
+      \hiderowcolors
         \arabic{enc}\Repeat{10}{&\stepcounter{enc}\ifodd\value{enc}\small\arabic{enc}\else{\tiny\textbullet}\fi}\\[0em]
+        \small\sqn\Repeat{10}{ & \small\sqn} \\[0em]
+
       \end{tabularx}
       \end{minipage}
     }{}
