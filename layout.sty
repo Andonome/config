@@ -19,12 +19,6 @@
 \RequirePackage{appendix}
 \RequirePackage{geometry} % changes page borders
   \geometry{margin=50pt}
-\RequirePackage[
-  scale=1,
-  angle=0,
-  opacity=1,
-  contents={}
-]{background}% for fancy borders
 \RequirePackage{svg}
 \RequirePackage{alltt}
   \svgsetup{width=\textwidth}
@@ -80,65 +74,52 @@
 
 \newcounter{pageDarkness}
 \setcounter{pageDarkness}{20}
+\newcounter{pageAlt}
+\setcounter{pageAlt}{100}
 
-\newcommand\pageSideColor{%
-  black!\arabic{pageDarkness}%
-}
+\newcommand\pageSideColor{black!\arabic{pageDarkness}!white}
+\newcommand\pageOppositeColor{black!\arabic{pageAlt}}
 
-\newtoggle{sideTab}
-\settoggle{sideTab}{true}
+\newif\ifsidetab
+\sidetabtrue
 
-\newcommand\ChapFrame{%
-  \AddEverypageHook{%
-    \iftoggle{sideTab}%
-    {
+\AddToHook{shipout/background}{%
+  \if@mainmatter
+    \pgfmathsetmacro{\BGvadjust}{ -2 * (\value{chapter} - 1)}
     \ifodd\value{page}
-      \backgroundsetup{contents={%
-        \begin{tikzpicture}[overlay,remember picture]
-          \node[
-            fill=\pageSideColor,
-            inner sep=5pt,
-            rectangle,
-            text width=1.2cm,
-            text height=4.33cm,
-            align=center,
-            anchor=north east
-          ]
-           at ($ (current page.north east) + (-0cm,-2*\thechapshift cm) $)
-           {\rotatebox{90}{\hspace*{.3cm}\parbox[c][1.5cm][t]{3.4cm}{%
-           \raggedright\vspace*{0.2cm}\textcolor{white}{\scshape\rightmark}}}};
-        \end{tikzpicture}%
-      }%
-    }
+      \def\BGpageanchor{current page.north east}
+      \def\BGanchor{north west}
+      \def\BGmark{\rightmark}
+      \def\BGrotate{-90}
     \else
-      \backgroundsetup{contents={%
-        \begin{tikzpicture}[overlay,remember picture]
-        \node[
-          fill=\pageSideColor,
-          inner sep=5pt,
-          rectangle,
-          text width=1.2cm,
-          text height=4.33cm,
-          align=center,
-          anchor=north west
-        ]
-        at ($ (current page.north west) + (-0cm,-2*\thechapshift cm) $)
-        {\rotatebox{90}{\hspace*{.3cm}\parbox[c][1.5cm][t]{3.4cm}{%
-          \raggedright\flushright\textcolor{white}{\scshape\leftmark}}}};
-        \end{tikzpicture}%
-      }%
-    }
+      \def\BGpageanchor{current page.north west}
+      \def\BGanchor{north east}
+      \def\BGmark{\leftmark}
+      \def\BGrotate{90}
     \fi
-    }
-    {}%
-  \BgMaterial
-  }%
-  \stepcounter{chapshift}%
-}
+    \begin{tikzpicture}[overlay,remember picture]
+      \path 
+        ++(\BGpageanchor)
+        +(0cm, \BGvadjust cm)
+        node[
+          text centered,
+          inner sep=4pt,
+          text width=4ex,
+          text height=4ex,
+          text depth=3ex,
+          text width=14em,
+          text=white,
+          fill=\pageSideColor,
+          anchor=\BGanchor,
+          rotate=\BGrotate,
+          font=\scshape\bfseries,
+        ] {\BGmark};
+    \end{tikzpicture}%
+  \fi
+}%
 
 % redefinition of \chaptermark to contain only the number and title (no 'Chapter 1: Pogs', just '1: Pogs')
 \renewcommand\chaptermark[1]{\markboth{\thechapter.~#1}{}}
-
 
 \RequirePackage{xr-hyper}
 \RequirePackage[
@@ -355,12 +336,9 @@ bookmarks=true]%
   }
 }
 
-\colorlet{ornamentedFrameInner}{white}
-\colorlet{ornamentedFrameOuter}{gray}
-
-\tikzset{ornamented frame inner/.style={color=ornamentedFrameInner,
+\tikzset{ornamented frame inner/.style={color=\pageSideColor,
                                         line width=2pt},
-         ornamented frame outer/.style={color=ornamentedFrameOuter,
+         ornamented frame outer/.style={color=black,
                                         line width=3pt}}
 
 \tcbsubskin{ornamented}{empty}{
@@ -377,7 +355,7 @@ bookmarks=true]%
     %
     \foreach \xoffset/\point in {34pt/north west, -34pt/north east,
                                   34pt/south west, -34pt/south east} {
-      \fill[color=ornamentedFrameOuter]
+      \fill[color=\pageOppositeColor]
         ([xshift=\xoffset]\point) circle[radius=2.5pt];
     }
     %
@@ -535,18 +513,25 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   }{}
 }
 
+\newcommand\shiftColours{
+  \ifnum\value{pageDarkness}<80
+    \addtocounter{pageDarkness}{7}
+    \ifnum\value{pageDarkness}>30
+      \setcounter{pageAlt}{0}
+    \fi
+  \else
+    \addtocounter{pageDarkness}{-60}
+    \setcounter{pageAlt}{100}
+  \fi
+}
+
 \titleformat{\chapter}[display]
 {\bfseries}
 {%
-  \ChapFrame
-  \ifnum\value{pageDarkness}<80
-    \addtocounter{pageDarkness}{7}
-  \else
-    \colorlet{chapnumcol}{black!40}
-  \fi
+  \shiftColours
   \hspace*{-1.5em}
 \begin{tikzpicture}
-  \node[minimum width=\linewidth+3em, text=white, fill=\pageSideColor, inner sep=1, outer sep=0, anchor=south] (rectinit) {\Huge \headingtype};
+  \node[minimum width=\linewidth+3em, text=\pageOppositeColor, fill=\pageSideColor, inner sep=1, outer sep=0, anchor=south] (rectinit) {\Huge \headingtype};
  \node[minimum width=.75\textwidth, text=white, inner sep=3, outer sep=0, anchor=south west, text width=.75\textwidth, align=right] at (rectinit.south west) (chapname) {};
   \node[minimum width=.25\textwidth, inner sep=-5, outer sep=0, anchor=south west, text width=.25\textwidth, align=left] at (chapname.south east) {\chapnumfont\textcolor{chapnumcol}{\Roman{chapter}}};
 \end{tikzpicture}}
@@ -555,19 +540,24 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 
 
 \newcommand\titlebar{%
-\tikz[baseline,trim left=1em,trim right=3cm] {
-    \fill [\pageSideColor] (2.5cm,-1ex) rectangle (\linewidth+1.5em,2.5ex);
+\tikz[baseline,trim left=1em,trim right=8em] {
+    \fill [\pageSideColor] (6.6em,1.03em) rectangle (\linewidth+1.8em,-.38em);
     \node [
-        fill=white,
-  text= \pageSideColor,
+        fill=\pageSideColor,
+  text= \pageOppositeColor,
         anchor= base east,
         rounded rectangle,
-        minimum height=3.5ex] at (2.9cm,0) {
+        minimum height=1.5em] at (7.3em,-0.05em) {
         \textbf{\arabic{section}}
     };
 }%
 }
-\titleformat{\section}{\large\needspace{12em}}{\titlebar}{0.1cm}{\textcolor{white}}
+\titleformat{\section}%
+  {\large\needspace{12em}}%
+  {\titlebar}%
+  {0.1cm}%
+  {\textcolor{\pageOppositeColor}}
+
 \renewcommand*{\thesection}{\arabic{section}}
 
 \titleformat{\subsection}
