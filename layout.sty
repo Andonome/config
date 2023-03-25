@@ -89,12 +89,12 @@
     \ifodd\value{page}
       \def\BGpageanchor{current page.north east}
       \def\BGanchor{north west}
-      \def\BGmark{\rightmark}
+      \def\BGmark{\textcolor{\pageOppositeColor}{\rightmark}}
       \def\BGrotate{-90}
     \else
       \def\BGpageanchor{current page.north west}
       \def\BGanchor{north east}
-      \def\BGmark{\leftmark}
+      \def\BGmark{\textcolor{\pageOppositeColor}{\leftmark}}
       \def\BGrotate{90}
     \fi
     \begin{tikzpicture}[overlay,remember picture]
