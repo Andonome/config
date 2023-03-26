@@ -14,7 +14,7 @@ Edit 'main.tex', and input your tex files by writing `\include{my_file.tex}`.
 
 # Docs
 
-You can create the documentation with
+You can create the [documentation][docs] with
 
 > make docs
 
@@ -31,3 +31,4 @@ And when pulling, remember to do:
 
 > git pull --recurse-submodules
 
+[docs]: https://gitlab.com/bindrpg/config/-/jobs/artifacts/master/raw/docs.pdf?job=compile_pdf
