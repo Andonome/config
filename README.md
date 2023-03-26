@@ -10,7 +10,7 @@ To make a book, start a git, then do:
 
 > cp config/main.tex config/.gitignore .
 
-Edit 'main.tex', and input your tex files by writing `\include{my_file.tex}.
+Edit 'main.tex', and input your tex files by writing `\include{my_file.tex}`.
 
 # Docs
 
@@ -24,7 +24,7 @@ Test your changes before committing with
 
 # TeXnical Details
 
-This thing's handled as a submodule in the other documments, so changing it will change all BIND books.
+This thing's handled as a submodule in the other documents, so changing it will change all BIND books.
 Any changes to the master branch should be tested in the `core` and `aif` projects first.
 
 And when pulling, remember to do:
