@@ -503,7 +503,9 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
     \vspace{2cm}
     {\scshape\Huge\bfseries #1\par}
     \vspace{1cm}
-    \includegraphics[width=0.6\textwidth]{#3}\par\vspace{1cm}
+    \IfFileExists{images/#3.jpg}{
+      \includegraphics[width=0.6\textwidth]{images/#3.jpg}\par\vspace{1cm}
+    }{}
     {\Large #2\par}
     \vspace{1.5cm}
     {\large This edition bound on \today\par}
