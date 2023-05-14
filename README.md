@@ -1,5 +1,13 @@
 These config files make the BIND RPG books look and act the way they do.
 
+# Dependencies
+
+- `inkscape`
+- `make`
+- `texlive-most`
+- `git-lfs`
+- (optional) `imagemagick`
+
 # Usage
 
 To make a book, start a git, then do:
