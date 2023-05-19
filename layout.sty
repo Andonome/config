@@ -36,6 +36,7 @@
 \RequirePackage{xparse}
 \RequirePackage{titlesec,titletoc}
 \RequirePackage{fancyhdr}
+  \RequirePackage{fourier-orns}% for fancy headrules
 \RequirePackage{needspace}
 \RequirePackage{tikz}
   \usetikzlibrary{calc,mindmap,trees}% calc for fancy borders
@@ -61,6 +62,16 @@
 \addtocounter{chapshift}{-1}
 
 %% Redefine plain page style, and use it for every page.
+
+\renewcommand\headrule{%
+  \iftoggle{verbose}{
+  \vspace{-6pt}
+  \hrulefill
+  \raisebox{-2.1pt}
+    {\textcolor{\pageSideColor}{\quad\decofourleft\decotwo\decofourright\quad}}%
+  \hrulefill
+  }{}
+}
 
 \fancypagestyle{plain}{
   \fancyhf{}% clear all header and footer fields
@@ -563,7 +574,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 \renewcommand*{\thesection}{\arabic{section}}
 
 \titleformat{\subsection}
-{\needspace{10em}\normalfont\center\large\bfseries}{\thesubsection}{1em}{}[\titlerule\vspace{1ex}\setcounter{list}{0}]
+{\needspace{10em}\normalfont\center\large\bfseries}{\thesubsection}{1em}{}[\textcolor{\pageSideColor}{\titlerule}\vspace{1ex}\setcounter{list}{0}]
 
 %
 \titleformat{\subsubsection}
