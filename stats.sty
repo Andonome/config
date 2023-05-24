@@ -472,7 +472,7 @@ You don't need to fall unconscious when making a Vitality check)%
 		\fi
 		\iftoggle{bestiarychapter}%
 			{, }%
-			{ \Repeat{\value{mp}}{\ding{111}}, }%
+			{ \Repeat{\value{mp}}{\sqn}, }%
 		}
 	\fi
 	\addtocounter{hp}{6}
@@ -484,7 +484,7 @@ You don't need to fall unconscious when making a Vitality check)%
 	\ifnumcomp{\value{sp}}{>}{0}%
 		{, \mbox{%
 			\arabic{sp} SP %
-			\iftoggle{bestiarychapter}{}{\Repeat{\value{sp}}{\ding{111}}}%
+			\iftoggle{bestiarychapter}{}{\Repeat{\value{sp}}{\sqn}}%
 		}%
 		}%
 	{}%
@@ -553,7 +553,7 @@ You don't need to fall unconscious when making a Vitality check)%
         \ifnum\value{fp}>2\ignorespaces, \arabic{fp}~FP %
         \iftoggle{bestiarychapter}%
           {}%
-          {\Repeat{\value{fp}}{\ding{111}}}%
+          {\Repeat{\value{fp}}{\sqn}}%
         \fi
     }{}%
   }
