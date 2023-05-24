@@ -2,7 +2,7 @@ compile_pdf:
   image: ctornau/latex
   script:
     - apt-get update -y
-    - apt-get install -y inkscape make
+    - apt-get install -y inkscape make imagemagick
     - make test
     - make docs
   only:
