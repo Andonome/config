@@ -451,7 +451,14 @@ You don't need to fall unconscious when making a Vitality check)%
 \begin{center}
   \scshape Att %
   \iftoggle{allyCharacter}{$2D6$\ifnum\value{att}>-1 +\fi}{}%
-  \arabic{att}\ifnumcomp{\value{dexb}}{>}{0}{\addtocounter{att}{\value{dexb}} (\arabic{att})}{},
+  \arabic{att}%
+  \setcounter{enc}{\value{att}}%
+  \ifdefstring{\armourtype}{C}{%
+    \addtocounter{enc}{5} (\arabic{enc}!)%
+  }{%
+    \ifdefstring{\armourtype}{P}{\addtocounter{enc}{3} (\arabic{enc}!)}{}%
+  },
+  \ifnumcomp{\value{dexb}}{>}{0}{\addtocounter{att}{\value{dexb}} (\arabic{att}) }{}
   AP \arabic{spd}\ifnumcomp{\value{spdb}}{>}{0}%
   {\addtocounter{spd}{\value{spdb}} (\arabic{spd})}{}\ifnumcomp{\value{heft}}{>}{1}{: \arabic{heft}}{},
   \addtocounter{damage}{\value{str}}
