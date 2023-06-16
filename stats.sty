@@ -87,7 +87,7 @@
 \newcommand\showBoxes{
 
   \ifnum\value{mp}<1
-    \ifnum\value{hp}>12
+    \ifnum\value{hp}>11
       \HPboxes
     \else
       \ifnum\value{hp}>5
@@ -135,8 +135,10 @@
       \addtocounter{noAppearing}{-1}
       &
       \ifnum\value{noAppearing}>0\boxStat{hp}\fi
+      \addtocounter{noAppearing}{-1}
       &
       \ifnum\value{noAppearing}>0\boxStat{hp}\fi
+      \addtocounter{noAppearing}{-1}
       \\
     }
   \end{tabular}
