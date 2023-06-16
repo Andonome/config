@@ -84,19 +84,125 @@
 	}%
 }
 
-\newcommand\manyBoxes[1]{
-    \setcounter{enc}{\value{noAppearing}}
-    \whileboolexpr{test {\ifnumcomp{\value{enc}}{>}{0}}}{%
-    \ifnum\value{#1}>10%
-      \Repeat{\value{#1}}{\sqn} \\
-    \else%
-      \ifnumodd{\value{enc}}%
-      {& \Repeat{\value{#1}}{\sqn} \\}%
-      {\Repeat{\value{#1}}{\sqn} }%
-    \fi%
-    \addtocounter{enc}{-1}
-    }%
-    \ifnumodd{\value{noAppearing}}{}{\\}
+\newcommand\showBoxes{
+
+  \ifnum\value{mp}<1
+    \ifnum\value{hp}>12
+      \HPboxes
+    \else
+      \ifnum\value{hp}>5
+        \HPHPboxes
+      \else
+        \HPHPHPboxes
+      \fi
+    \fi
+  \else
+    \ifnum\value{sp}<1
+      \HPMPboxes
+    \else
+      \HPMPSPboxes
+    \fi
+  \fi
+
+}
+
+\newcommand\boxStat[1]{\Repeat{\value{#1}}{\sqn}}
+
+\newcommand\HPboxes{
+  \begin{tabular}{r}
+    HP \arabic{hp}
+    \Repeat{\value{noAppearing}}{
+    \boxStat{hp} \\
+    }
+  \end{tabular}
+}
+
+\newcommand\HPHPboxes{
+  \begin{tabular}{rr}
+    HP \arabic{hp}
+    \whileboolexpr{test {\ifnumcomp{\value{noAppearing}}{>}{0}}}{%
+      \ifnumodd{\value{noAppearing}}{ & \boxStat{hp} \\}{\boxStat{hp}}%
+      \addtocounter{noAppearing}{-1}
+    }
+  \end{tabular}
+}
+
+\newcommand\HPHPHPboxes{
+  \begin{tabular}{rrr}
+    HP \arabic{hp}
+    \whileboolexpr{test {\ifnumcomp{\value{noAppearing}}{>}{0}}}{%
+      \boxStat{hp}
+      \addtocounter{noAppearing}{-1}
+      &
+      \ifnum\value{noAppearing}>0\boxStat{hp}\fi
+      &
+      \ifnum\value{noAppearing}>0\boxStat{hp}\fi
+      \\
+    }
+  \end{tabular}
+}
+
+\newcommand\HPMPboxes{
+  \setcounter{enc}{\value{hp}}
+  \addtocounter{enc}{\value{mp}}
+  \ifnum\value{enc}<20
+    \begin{tabular}{rr}
+      \Repeat{\value{noAppearing}}{
+      HP \arabic{hp}
+      \boxStat{hp}
+      &
+      MP \arabic{mp}
+      \boxStat{mp}
+      \\
+      }
+    \end{tabular}
+  \else
+    \begin{tabular}{r}
+      \Repeat{\value{noAppearing}}{
+      HP \arabic{hp} \boxStat{hp} \\
+      MP \arabic{mp} \boxStat{mp} \\
+      }
+    \end{tabular}
+  \fi
+}
+
+\newcommand\HPMPSPboxes{
+  \setcounter{enc}{\value{hp}}
+  \addtocounter{enc}{\value{mp}}
+  \addtocounter{enc}{\value{sp}}
+  \ifnum\value{enc}<20
+    \begin{tabular}{rrr}
+      \Repeat{\value{noAppearing}}{
+      HP \arabic{hp}
+      \boxStat{hp}
+      &
+      MP \arabic{mp}
+      \boxStat{mp}
+      &
+      SP \arabic{sp}
+      \boxStat{sp}
+      \\
+      }
+    \end{tabular}
+  \else
+    \ifnum\value{enc}<10
+      \begin{tabular}{rr}
+        \Repeat{\value{noAppearing}}{
+          HP \arabic{hp} \boxStat{hp} &
+          MP \arabic{mp} \boxStat{mp} \\
+          & SP \arabic{sp} \boxStat{sp} \\
+        }
+      \end{tabular}
+    \else
+      \begin{tabular}{r}
+        \Repeat{\value{noAppearing}}{
+          HP \arabic{hp} \boxStat{hp} \\
+          MP \arabic{mp} \boxStat{mp} \\
+          SP \arabic{sp} \boxStat{sp} \\
+        }
+      \end{tabular}
+    \fi
+  \fi
 }
 
 
@@ -152,6 +258,7 @@
 \newcounter{encumbrance}
   \setcounter{encumbrance}{0}
 
+\newcounter{boxCols}
 
 %                                                _
 %   ___ ___  _ __ ___  _ __ ___   __ _ _ __   __| |___
@@ -493,28 +600,17 @@ You don't need to fall unconscious when making a Vitality check)%
     \addtocounter{mpFree}{-\value{mpLocked}}%
   \fi%
   \iftoggle{bestiarychapter}{%
-  HP \arabic{hp},
-  \ifnum\value{mp}>0%
-      \addtocounter{mpLocked}{\value{mp}}%
-      MP \arabic{mpLocked} / \arabic{mp},
-  \fi%
-  \ifnum\value{sp}>0%
-  SP \arabic{sp},
-  \fi%
-  }{%
+    HP \arabic{hp},
+    \ifnum\value{mp}>0%
+        \addtocounter{mpLocked}{\value{mp}}%
+        MP \arabic{mpLocked} / \arabic{mp},
+    \fi%
+    \ifnum\value{sp}>0%
+    SP \arabic{sp},
+    \fi%
+  }{
 
-  \noindent\begin{tabular}{rr}
-    HP \arabic{hp}
-    \manyBoxes{hp}
-    \ifnum\value{mp}>0
-      MP \arabic{mp}
-      \manyBoxes{mp}
-    \fi
-    \ifnum\value{sp}>0
-      SP \arabic{sp}
-      \manyBoxes{sp}
-    \fi
-  \end{tabular}
+    \showBoxes
   }
 
   \iftoggle{allyCharacter}{}{
