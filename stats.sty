@@ -84,6 +84,17 @@
 	}%
 }
 
+\newcommand\manyBoxes[1]{
+    \setcounter{enc}{\value{noAppearing}}
+    \whileboolexpr{test {\ifnumcomp{\value{enc}}{>}{0}}}{%
+    \ifnumodd{\value{enc}}%
+    {& \Repeat{\value{#1}}{\sqn} \\}%
+    {\Repeat{\value{#1}}{\sqn} }%
+    \addtocounter{enc}{-1}
+    }%
+    \ifnumodd{\value{noAppearing}}{}{\\}
+}
+
 
 %%%%%%%%%%%%%%%%%%%% Character Generation %%%%%%%%%%%%%%%%%%%%
 %
@@ -487,12 +498,15 @@ You don't need to fall unconscious when making a Vitality check)%
   }{%
 
   \noindent\begin{tabular}{ll}
-    HP \arabic{hp} \Repeat{\value{noAppearing}}{& \Repeat{\value{hp}}{\sqn} \\}
+    HP \arabic{hp}
+    \manyBoxes{hp}
     \ifnum\value{mp}>0
-      MP \arabic{mp} \Repeat{\value{noAppearing}}{& \Repeat{\value{mp}}{\sqn} \\}
+      MP \arabic{mp}
+      \manyBoxes{mp}
     \fi
     \ifnum\value{sp}>0
-      SP \arabic{sp} \Repeat{\value{noAppearing}}{& \Repeat{\value{sp}}{\sqn} \\}
+      SP \arabic{sp}
+      \manyBoxes{sp}
     \fi
   \end{tabular}
   }
