@@ -87,9 +87,13 @@
 \newcommand\manyBoxes[1]{
     \setcounter{enc}{\value{noAppearing}}
     \whileboolexpr{test {\ifnumcomp{\value{enc}}{>}{0}}}{%
-    \ifnumodd{\value{enc}}%
-    {& \Repeat{\value{#1}}{\sqn} \\}%
-    {\Repeat{\value{#1}}{\sqn} }%
+    \ifnum\value{#1}>10%
+      \Repeat{\value{#1}}{\sqn} \\
+    \else%
+      \ifnumodd{\value{enc}}%
+      {& \Repeat{\value{#1}}{\sqn} \\}%
+      {\Repeat{\value{#1}}{\sqn} }%
+    \fi%
     \addtocounter{enc}{-1}
     }%
     \ifnumodd{\value{noAppearing}}{}{\\}
@@ -125,7 +129,8 @@
 % Extras: MP hp fp
 % Derived: dicenumber, dicebonus,
 \newcounter{mp}
-\newcounter{mpb}
+\newcounter{mpLocked}
+\newcounter{mpFree}
 \newcounter{sp}
 \newcounter{hp}
 \newcounter{fp}
@@ -171,7 +176,7 @@
 \newcommand{\polymorph}{\addtocounter{mp}{3}Polymorph}
 \newcommand{\saurecanta}{\addtocounter{mp}{3}Saurecanta}
 
-\newcommand{\lockedmana}[1]{\setcounter{mpb}{-#1}}
+\newcommand{\lockedmana}[1]{\setcounter{mpLocked}{#1}}
 \newcommand{\armourtype}{N}
 
 \newcommand{\knacks}[1]{ \\
@@ -367,7 +372,7 @@ You don't need to fall unconscious when making a Vitality check)%
 	\renewcommand{\weaponknackone}{}
 	\renewcommand{\weaponknacktwo}{}
 	\setcounter{mp}{0}
-	\setcounter{mpb}{0}
+	\setcounter{mpLocked}{0}
 	\setcounter{xpbonus}{0}
 }
 
@@ -484,13 +489,14 @@ You don't need to fall unconscious when making a Vitality check)%
   \addtocounter{damage}{4}%
   \ifnum\value{mp}>0%
     \addtocounter{mp}{\value{int}}%
-    \addtocounter{mp}{\value{mpb}}%
+    \setcounter{mpFree}{\value{mp}}
+    \addtocounter{mpFree}{-\value{mpLocked}}%
   \fi%
   \iftoggle{bestiarychapter}{%
   HP \arabic{hp},
   \ifnum\value{mp}>0%
-      \addtocounter{mpb}{\value{mp}}%
-      MP \arabic{mpb} / \arabic{mp},
+      \addtocounter{mpLocked}{\value{mp}}%
+      MP \arabic{mpLocked} / \arabic{mp},
   \fi%
   \ifnum\value{sp}>0%
   SP \arabic{sp},

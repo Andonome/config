@@ -20,7 +20,7 @@ You write down \verb"\dragon", and behold!
 
 \end{boxtext}
 
-\dragon
+\dragon[\npc{\T[4]\E}{\arabic{noAppearing} Dragons}]
 
 Each time you conjure the dragon, it will look a little different.
 The next one might look like this:
@@ -38,7 +38,7 @@ Which then makes a male dragon called ``Bob'':
 You can summon dozens of monsters, including \verb"humansoldier", \verb"basilisk", and \verb"\ghoul"
 (see \verb"monsters.tex" for all the examples).
 
-Placing a number after the \verb"\T" symbol changes the number of rows of boxes to track stats.
+Placing a number after the `T' symbol, e.g. \verb"\T[5]" to change the number of rows of boxes to track stats.
 
 \ghoul[\npc{\T[5]\D}{5 Ghouls}]
 
@@ -90,7 +90,7 @@ Then the \verb"\humansoldier" command turns from this:
 
 \ldots into this:
 
-\settoggle{bestiarychapter}{true}
+%\settoggle{bestiarychapter}{true}
 
 \humansoldier
 
