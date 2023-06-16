@@ -35,8 +35,10 @@
 }
 
 \newcommand{\lootMagic}{%
-	\iftoggle{team}{Mana stone holding 2 MP}%
-  {\iftoggle{bestiarychapter}{}%
+  \ifnum\value{noAppearing}>1%
+  Mana stone holding 2 MP%
+  \else%
+  \iftoggle{bestiarychapter}{}%
     {%
       \stepcounter{treasure}%
       \ifnum\value{treasure}>10\setcounter{treasure}{0}\fi%
@@ -66,7 +68,7 @@
         Mana Stone with 4 \glspl{mp}%
       \fi%
     }%
-  }%
+  \fi%
 }
 
 \newcommand{\lootJewellery}{%

@@ -252,23 +252,23 @@ You don't need to fall unconscious when making a Vitality check)%
 %
 \newcommand{\person}[9]{
   \settoggle{creatureBox}{true}
-	\settoggle{mind}{true}
-	\setcounter{str}{#1}
-	\setcounter{dex}{#2}
-	\setcounter{spd}{#3}
-	\mind#4
-	\setcounter{dr}{#5}
-	\setcounter{att}{#6}
-	\renewcommand{\skills}{#7}
-	\renewcommand{\equipment}{#8}
-	\renewcommand{\mods}{#9}
+  \settoggle{mind}{true}
+  \setcounter{str}{#1}
+  \setcounter{dex}{#2}
+  \setcounter{spd}{#3}
+  \mind#4
+  \setcounter{dr}{#5}
+  \setcounter{att}{#6}
+  \renewcommand{\skills}{#7}
+  \renewcommand{\equipment}{#8}
+  \renewcommand{\mods}{#9}
 
-	\clean
+  \clean
 
-	\renewcommand{\armourtype}{P}
-	\gdef\armourtype{P}
+  \renewcommand{\armourtype}{P}
+  \gdef\armourtype{P}
 
-	\begin{tcolorbox}[
+  \begin{tcolorbox}[
     title={\name},
 		before upper={\parindent0pt},
 		halign=flush left,
@@ -277,12 +277,12 @@ You don't need to fall unconscious when making a Vitality check)%
     top=0pt,
 		]
 
-	\creaturestats
+  \creaturestats
 
-	\derivedstats
-	\end{tcolorbox}
+  \derivedstats
+  \end{tcolorbox}
 
-	\iftoggle{personality}{
+  \iftoggle{personality}{
 
     \textbf{Archetype:} \archetype, 
     \textbf{Description:} \NPCdescription
@@ -294,7 +294,7 @@ You don't need to fall unconscious when making a Vitality check)%
     \settoggle{personality}{false}}%
 	{}
   \settoggle{creatureBox}{false}
-  \settoggle{team}{false}
+  \setcounter{noAppearing}{1}
   \afterparnoindent
 }
 
@@ -339,6 +339,7 @@ You don't need to fall unconscious when making a Vitality check)%
 
 	\end{tcolorbox}
   \settoggle{creatureBox}{false}
+  \setcounter{noAppearing}{1}
   \afterparnoindent
 }
 
@@ -467,39 +468,38 @@ You don't need to fall unconscious when making a Vitality check)%
     {
       \addtocounter{damage}{\value{strb}} (\calculatedamage{damage})}{},
     }
-    \ifnumcomp{\value{dr}}{>}{0}{DR \arabic{dr}~\armourtype, }{}
-	\ifnum\value{mp}>0%
-		\addtocounter{mp}{\value{int}}%
-		\noindent\mbox{
-		\ifnum\value{mpb}=0%
-			\arabic{mp}~MP%
-		\else%
-			\addtocounter{mpb}{\value{mp}}%
-			\arabic{mpb} / \arabic{mp} MP%
-		\fi
-		\iftoggle{bestiarychapter}%
-			{, }%
-			{ \Repeat{\value{mp}}{\sqn}, }%
-		}
-	\fi
-	\addtocounter{hp}{6}
-  \addtocounter{damage}{4}
-	\noindent\mbox{\arabic{hp} HP \iftoggle{bestiarychapter}{}{%
-	\ {\large\Repeat{\value{hp}}{\sqn}}%
-		}%
-	}%
-	\ifnumcomp{\value{sp}}{>}{0}%
-		{, \mbox{%
-			\arabic{sp} SP %
-			\iftoggle{bestiarychapter}{}{\Repeat{\value{sp}}{\sqn}}%
-		}%
-		}%
-	{}%
+    \ifnumcomp{\value{dr}}{>}{0}{\mbox{DR \arabic{dr}~\armourtype,} }{}%
+  \addtocounter{hp}{6}%
+  \addtocounter{damage}{4}%
+  \ifnum\value{mp}>0%
+    \addtocounter{mp}{\value{int}}%
+    \addtocounter{mp}{\value{mpb}}%
+  \fi%
+  \iftoggle{bestiarychapter}{%
+  HP \arabic{hp},
+  \ifnum\value{mp}>0%
+      \addtocounter{mpb}{\value{mp}}%
+      MP \arabic{mpb} / \arabic{mp},
+  \fi%
+  \ifnum\value{sp}>0%
+  SP \arabic{sp},
+  \fi%
+  }{%
 
+  \noindent\begin{tabular}{ll}
+    HP \arabic{hp} \Repeat{\value{noAppearing}}{& \Repeat{\value{hp}}{\sqn} \\}
+    \ifnum\value{mp}>0
+      MP \arabic{mp} \Repeat{\value{noAppearing}}{& \Repeat{\value{mp}}{\sqn} \\}
+    \fi
+    \ifnum\value{sp}>0
+      SP \arabic{sp} \Repeat{\value{noAppearing}}{& \Repeat{\value{sp}}{\sqn} \\}
+    \fi
+  \end{tabular}
+  }
 
-	\iftoggle{allyCharacter}{}{
-		\calculateXP
-	}
+  \iftoggle{allyCharacter}{}{
+    \calculateXP
+  }
 \end{center}%
 }
 %
@@ -540,7 +540,7 @@ You don't need to fall unconscious when making a Vitality check)%
     \setcounter{xp}{\value{attackXPtotal}}%
     \addtocounter{xp}{\value{defenceXPtotal}}%
 
-	\iftoggle{debug}{str: \arabic{str}, strb: \arabic{strb}, dex: \arabic{dex}, dexb: \arabic{dexb}, spd: \arabic{spd}, spdb: \arabic{spdb}, att: \arabic{att}, damage: \arabic{damage}, XP Bonus: \arabic{xpbonus}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}, mp: \arabic{mp} Grand Total: \arabic{xp}}{\hrulefill}
+  \iftoggle{debug}{str: \arabic{str}, strb: \arabic{strb}, dex: \arabic{dex}, dexb: \arabic{dexb}, spd: \arabic{spd}, spdb: \arabic{spdb}, att: \arabic{att}, damage: \arabic{damage}, XP Bonus: \arabic{xpbonus}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}, mp: \arabic{mp} Grand Total: \arabic{xp}}{\hrulefill}
     
   \iftoggle{examplecharacter}%
   {}%
@@ -569,11 +569,11 @@ You don't need to fall unconscious when making a Vitality check)%
 %%%%%%%%%%%%%%%%%%%% Creature Abilities
 
 \newcommand{\abilities}[1]{ \\
-	\ent{Abilities:} & #1 
-	}
+  \ent{Abilities:} & #1 
+  }
 
 \newcommand{\acidSpray}{
-	\addtocounter{str}{-2}Acidic spray (spray for \calculatedamage{str} Damage per turn)%
+  \addtocounter{str}{-2}Acidic spray (spray for \calculatedamage{str} Damage per turn)%
   \addtocounter{str}{2}%
 }
 

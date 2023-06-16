@@ -616,7 +616,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 \newcommand{\mannerism}{}
 \newcommand{\archetype}{}
 \newcommand{\npcsymbol}{}
-\newcommand{\npc}[2]{\settoggle{personality}{false}\renewcommand{\name}{#1 #2}\renewcommand{\npcsymbol}{#1}}
+\newcommand{\npc}[3][1]{\settoggle{personality}{false}\renewcommand{\name}{#2 #3}\renewcommand{\npcsymbol}{#2}}
 \newcommand{\NPC}[5]{\renewcommand{\name}{#1 #2}
 \renewcommand{\npcsymbol}{#1}
 \settoggle{personality}{true}
@@ -633,8 +633,6 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 \settoggle{personality}{false}
 
 % This toggle tells you if this is just one creature or a team.
-\newtoggle{team}
-\settoggle{team}{false}
 
 \iftoggle{verbose}{
   \setcounter{tocdepth}{1}
@@ -681,6 +679,8 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 \newcounter{gold}
 \setcounter{gold}{\day}
 \setcounter{enc}{0}
+\newcounter{noAppearing}
+  \setcounter{noAppearing}{1}
 
 \newcommand{\randomtwo}{%
   \ifnum\value{r2}>1%

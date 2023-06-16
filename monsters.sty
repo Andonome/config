@@ -670,11 +670,8 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 	\knacks{\mightydraw}
 \fi}% SKILLS
 {\longbow, dagger\ifodd\value{r2}, \partialleather, \lootMedium\fi%
-\iftoggle{team}{}%
-	{%
-		\iftoggle{team}{%
-			, \arabic{r12} Spider arrows}.%
-	}%
+\ifnum\value{noAppearing}=1%
+, \arabic{r12} Spider arrows.%
 }% EQUIPMENT
 {}
 }
@@ -729,8 +726,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {\arabic{age}}% COMBAT
 {Academics~\ifodd\thepage\arabic{r2}\else\arabic{r3b}\fi, Empathy~\arabic{enc}, Deceit~\ifodd\thepage 2\else 1\fi, Performance~\ifodd\thechapter 2\else 1\fi%
 
-\iftoggle{team}{}%
-{%
+\ifnum\value{noAppearing}=1
 	\ifnum\value{r3}>2
 		\ifnum\value{r12}>6
       \knacks{\songCaster}
@@ -751,7 +747,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 		\fi
 	\else
 	\fi
-}%
+\fi%
 }% SKILLS
 {\ifodd\value{r3}\rapier%
 	\else%
@@ -1008,9 +1004,9 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 	\fi%
 \fi%
 \ifodd\value{r3b}%
-	\iftoggle{team}{}{%
+	\ifnum\value{noAppearing}=1
 		, tinder box%
-	}%
+	\fi%
 \fi%
 .}% EQUIPMENT
 {}
