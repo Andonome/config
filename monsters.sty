@@ -113,7 +113,7 @@
 {}
 }
 %
-\newcommand{\wolf}[1][\npc{\A\T}{\randomdozen \arabic{r12} Wolves}]{
+\newcommand{\wolf}[1][\randomdozen\npc{\A\T[\arabic{r12}]}{\arabic{r12} Wolves}]{
 	#1
 	\randomdozen
 	\addtocounter{enc}{2}
@@ -207,9 +207,9 @@
 	\gdef\armourtype{C}}
 	}
 
-\newcommand{\dwarventrader}[1][\npc{\Dw\M}{\arabic{r12} Dwarven Traders}]{
-	#1
+\newcommand{\dwarventrader}[1][\npc{\T[\arabic{r12}]\Dw\M}{\arabic{r12} Dwarven Traders}]{
 	\randomdozen
+	#1
 	\randomtwoB
 	\randomthree\randomtwo\addtocounter{enc}{-1}
 	\person{\arabic{enc}}% STRENGTH
@@ -225,9 +225,9 @@
 	{}
 	}
 %
-\newcommand{\dwarvensoldier}[1][\npc{\T\Dw\M}{\arabic{r12} Dwarven Soldiers}]{
-	#1
+\newcommand{\dwarvensoldier}[1][\npc{\T[\arabic{r12}]\Dw\M}{\arabic{r12} Dwarven Soldiers}]{
 	\randomdozen
+	#1
 	\randomtwo
 	\person{\arabic{r2}}% STRENGTH
 	{\arabic{enc}}% DEXTERITY
@@ -292,7 +292,9 @@
 	{\lockedmana{5}\gdef\armourtype{C}}
 	}
 
-\newcommand{\elf}[1][\npc{\El\F}{Elf}]{
+\newcommand{\elf}[1][\npc{\T[\arabic{r2c}]\El\F}{\arabic{r2c} Elves}]{
+  \randomtwoC
+  \stepcounter{r2c}
 	#1
 	\randomtwo
 	\randomtwoB
@@ -385,7 +387,8 @@
 {}
 }
 
-\newcommand{\gnomishsoldier}[1][\npc{\Gn\M}{Gnomish Soldier}]{
+\newcommand{\gnomishsoldier}[1][\npc{\T[\arabic{r12}]\Gn\M}{Gnomish Soldiers}]{
+  \randomdozen
 	#1
 	\randomtwo
 	\addtocounter{enc}{-2}
@@ -482,7 +485,8 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {}
 }
 
-\newcommand{\humantrader}[1][\npc{\Hu\M}{\arabic{r12} Traders}]{
+\newcommand{\humantrader}[1][\npc{\T[\arabic{r12}]\Hu\M}{\arabic{r12} Traders}]{
+  \randomdozen
 	#1
 	\randomtwo
 	\randomtwoB
@@ -555,7 +559,8 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {}
 }
 
-\newcommand{\humansoldier}[1][\npc{\T\Hu}{\arabic{r12} Soldiers}]{
+\newcommand{\humansoldier}[1][\npc{\T[\arabic{r12}]\Hu}{\arabic{r12} Soldiers}]{
+  \randomdozen
 	#1
 	\randomtwo
 	\addtocounter{enc}{1}
@@ -605,7 +610,8 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {}
 }
 
-\newcommand{\royalguard}[1][\npc{\T}{\arabic{r12} Guards}]{
+\newcommand{\royalguard}[1][\npc{\T[\arabic{r12}]\Hu}{\arabic{r12} Guards}]{
+  \randomdozen
 	#1
 	\randomtwo
 	\addtocounter{enc}{1}
@@ -651,7 +657,8 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {}
 }
 
-\newcommand{\humanarcher}[1][\npc{\T\Hu}{\arabic{r12} Archers}]{
+\newcommand{\humanarcher}[1][\npc{\T[\arabic{r12}]\Hu}{\arabic{r12} Archers}]{
+  \randomdozen
 	#1
 	\randomtwo
 	\randomtwoB
@@ -783,7 +790,8 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {\lockedmana{\value{r2}}}
 }
 
-\newcommand{\gnollhunter}[1][\npc{\T\Nl}{\arabic{r12} Gnoll Hunters}]{
+\newcommand{\gnollhunter}[1][\npc{\T[\arabic{r12}]\Nl}{\arabic{r12} Gnoll Hunters}]{
+  \randomdozen
 	#1
 	\randomtwo\addtocounter{enc}{1}
 	\randomtwoB
@@ -851,7 +859,8 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 	{\claws}{}
 	}
 
-\newcommand{\nuracrab}[1][\npc{\A\N}{\randomdozen\arabic{r12} Nura Crabs}]{
+\newcommand{\nuracrab}[1][\npc{\T[\arabic{r12}]\A\N}{\arabic{r12} Nura Crabs}]{
+  \randomdozen
 	#1
 	\randomthree
 	\randomtwo
@@ -868,7 +877,8 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {}
 }
 
-\newcommand{\nurahorse}[1][\npc{\A\N}{Nura Horse}]{
+\newcommand{\nurahorse}[1][\npc{\T[\arabic{r3c}]\A\N}{Nura Horse}]{
+  \randomthreeC
 	#1
 	\randomtwo
 	\randomtwoB
@@ -884,7 +894,10 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {}
 }
 
-\newcommand{\nuraslug}[1][\npc{\T\A\N}{\multiply\value{r12} by \value{r2b}\arabic{r12} Nura Slugs}]{
+\newcommand{\nuraslug}[1][\npc{\T[\arabic{r12}]\A\N}{\arabic{r12} Nura Slugs}]{
+  \randomdozen
+  \randomtwoB
+  \multiply\value{r12} by \value{r2b}
 	#1
 	\randomtwo
 	\addtocounter{enc}{-3}
@@ -937,11 +950,13 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {}
 }
 
-\newcommand{\nurarat}[1][\npc{\A\N}{\arabic{r12} Nura Rats}]{
+\newcommand{\nurarat}[1][\npc{\T[\arabic{r12}]\A\N}{\arabic{r12} Nura Rats}]{
+  \randomdozen
+	\randomtwoB
+  \multiply\value{r12} by \value{r2b}
 	#1
 	\randomtwo
 	\addtocounter{enc}{-1}
-	\randomtwoB
 	\randomthree
 	\randomthreeB
 \animal{\arabic{enc}}% STRENGTH
@@ -955,7 +970,8 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {}
 }
 
-\newcommand{\nurawolf}[1][\npc{\A\N}{\arabic{r12} Nura Wolves}]{
+\newcommand{\nurawolf}[1][\npc{\T[\arabic{r12}]\A\N}{\arabic{r12} Nura Wolves}]{
+  \randomdozen
 	#1
 	\randomtwo
 	\addtocounter{enc}{2}
@@ -974,14 +990,14 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 
 %%%%%%%%%% NURA %%%%%%%%%%
 
-\newcommand{\goblin}[1][\npc{\T\N}{\arabic{r12} Goblins}]{
+\newcommand{\goblin}[1][\npc{\T[\arabic{r12}]\N}{\arabic{r12} Goblins}]{
+  \randomdozen
 	#1
 	\randomtwo
 	\randomtwoB
 	\addtocounter{r2b}{-2}
 	\addtocounter{enc}{1}
   \randomthree
-	\randomdozen
 	\randomfourB
 \person{\arabic{r2b}}% STRENGTH
 {\arabic{r2}}% DEXTERITY 
@@ -1012,7 +1028,8 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {}
 }
 
-\newcommand{\undeadgoblin}[1][\npc{\T\D}{\arabic{r12} Undead Hobgoblins}]{
+\newcommand{\undeadgoblin}[1][\npc{\T[\arabic{r12}]\D}{\arabic{r12} Undead Hobgoblins}]{
+  \randomdozen
 	#1
 	\randomtwo\addtocounter{enc}{-2}
 	\randomtwoB
@@ -1028,7 +1045,8 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {}
 }
 
-\newcommand{\deepgoblin}[1][\npc{\T\N}{\arabic{r12} Goblins}]{
+\newcommand{\deepgoblin}[1][\npc{\T[\arabic{r12}]\N}{\arabic{r12} Goblins}]{
+  \randomdozen
 	#1
 	\randomtwo\addtocounter{enc}{-2}
 	\randomtwoB
@@ -1075,7 +1093,8 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {}
 }
 
-\newcommand{\hobgoblin}[1][\npc{\T\N}{\arabic{r12} Hobgoblins}]{
+\newcommand{\hobgoblin}[1][\npc{\T[\arabic{r12}]\N}{\arabic{r12} Hobgoblins}]{
+  \randomdozen
 	#1
 	\randomtwo
 	\randomtwoB
@@ -1094,12 +1113,12 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {}
 }
 
-\newcommand{\deephobgoblin}[1][\npc{\T\N}{\arabic{r12} Hobgoblins}]{
+\newcommand{\deephobgoblin}[1][\npc{\T[\arabic{r12}]\N}{\arabic{r12} Hobgoblins}]{
+	\randomdozen
 	#1
 	\randomtwo
 	\randomtwoB
 	\randomthree
-	\randomdozen
 \person{\arabic{r2}}% STRENGTH
 {1}% DEXTERITY 
 {\arabic{r3}}% SPEED
@@ -1113,7 +1132,8 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {}
 }
 
-\newcommand{\undeadhobgoblin}[1][\npc{\T\D}{\arabic{r12} Undead Hobgoblins}]{
+\newcommand{\undeadhobgoblin}[1][\npc{\T[\arabic{r12}]\D}{\arabic{r12} Undead Hobgoblins}]{
+  \randomdozen
 	#1
 	\randomtwo
 \animal{\arabic{r2}}% STRENGTH
@@ -1127,7 +1147,8 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {}
 }
 
-\newcommand{\sentientundeadhobgoblin}[1][\npc{\T\D}{\arabic{r12} Sentient Undead Hobgoblins}]{
+\newcommand{\sentientundeadhobgoblin}[1][\npc{\T[\arabic{r12}]\D}{\arabic{r12} Sentient Undead Hobgoblins}]{
+  \randomdozen
 	#1
 	\randomtwo
 	\randomtwoB
@@ -1144,7 +1165,9 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {}
 }
 
-\newcommand{\ogre}[1][\npc{\T\N}{\addtocounter{r4b}{1}\arabic{r4b} Ogres}]{
+\newcommand{\ogre}[1][\npc{\T[\arabic{r4b}]\N}{\arabic{r4b} Ogres}]{
+  \randomfourB
+  \addtocounter{r4b}{1}
 	#1
 	\randomthree\addtocounter{age}{2}
 	\randomtwo
@@ -1172,13 +1195,14 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {}
 }
 
-\newcommand{\deepogre}[1][\npc{\T\N}{\addtocounter{r4b}{1}\arabic{r4b} Ogres}]{
+\newcommand{\deepogre}[1][\npc{\T[\arabic{r4b}]\N}{\arabic{r4b} Ogres}]{
+	\randomfourB
+  \addtocounter{r4b}{1}
 	#1
 	\randomthree\addtocounter{age}{3}
 	\randomtwo
 	\randomtwoB
 	\randomthreeC
-	\randomfourB
 \person{\arabic{age}}% STRENGTH
 {0}% DEXTERITY 
 {\arabic{enc}}% SPEED
@@ -1242,13 +1266,13 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {}
 }
 
-\newcommand{\ghoul}[1][\npc{\T\D}{\arabic{r12} Ghouls}]{
+\newcommand{\ghoul}[1][\npc{\T[\arabic{r12}]\D}{\arabic{r12} Ghouls}]{
+	\randomdozen
 	#1
 	\randomtwo
 	\randomtwoB
 	\addtocounter{enc}{-3}
 	\randomthreeB
-	\randomdozen
 \animal{\arabic{r2b}}% STRENGTH
 {-2}% DEXTERITY 
 {\arabic{enc}}% SPEED
@@ -1503,7 +1527,9 @@ mana stone with \arabic{track} mana, \lootJewellery, \randomtwo\lootJewellery, \
 {}%
 }
 
-\newcommand{\huntingdog}[1][\npc{\A\T}{\randomfour\addtocounter{track}{2}\arabic{track} Hunting Dogs}]{
+\newcommand{\huntingdog}[1][\npc{\T[\arabic{r4b}]\A}{\arabic{r4b} Hunting Dogs}]{
+  \randomfourB
+  \addtocounter{r4b}{2}
 	#1
 	\randomtwo
 	\randomtwoB
