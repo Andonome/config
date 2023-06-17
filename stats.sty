@@ -106,7 +106,11 @@
 
 }
 
-\newcommand\boxStat[1]{\Repeat{\value{#1}}{\sqn}}
+\newcommand\boxStat[2][0]{%
+  \addtocounter{#2}{-#1}%
+  \Repeat{#1}{\sqr}%
+  \Repeat{\value{#2}}{\sqn}%
+}
 
 \newcommand\HPboxes{
   \begin{tabular}{r}
@@ -198,7 +202,7 @@
     \else
       \begin{tabular}{r}
         \Repeat{\value{noAppearing}}{
-          HP \arabic{hp} \boxStat{hp} \\
+          HP \arabic{hp} \boxStat[2]{hp} \\
           MP \arabic{mp} \boxStat{mp} \\
           SP \arabic{sp} \boxStat{sp} \\
         }
@@ -571,7 +575,7 @@ You don't need to fall unconscious when making a Vitality check)%
   \addtocounter{weight}{5}
   \addtocounter{spd}{-\value{weight}}
   \addtocounter{spd}{\value{str}}
-  \addtocounter{str}{-5}% now we return str and weight to the original values
+  \addtocounter{str}{-5}% now we return strand weight to the original values
   \addtocounter{weight}{-5}
 \fi
 \begin{center}
@@ -604,8 +608,12 @@ You don't need to fall unconscious when making a Vitality check)%
   \iftoggle{bestiarychapter}{%
     HP \arabic{hp},
     \ifnum\value{mp}>0%
-        \addtocounter{mpLocked}{\value{mp}}%
-        MP \arabic{mpLocked} / \arabic{mp},
+      MP
+      \ifnum\value{mpLocked}>0%
+        \arabic{mpFree} / \arabic{mp},
+      \else%
+        \arabic{mp},
+      \fi%
     \fi%
     \ifnum\value{sp}>0%
     SP \arabic{sp},
