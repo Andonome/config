@@ -12,9 +12,13 @@
 ]{glossaries-extra}
   \setabbreviationstyle[acronym]{short-sc-long-desc}
 
+\RequirePackage{titlesec,titletoc}
+\RequirePackage{fancyhdr}
+  \RequirePackage{fourier-orns}% for fancy headrules
 \RequirePackage{gfsartemisia-euler} % fancy fonts
 \RequirePackage[T1]{fontenc} % 
 \RequirePackage{starfont} % for creature symbols
+\RequirePackage{epsdice} % for dice
 \RequirePackage{wasysym} % for sq checkboxes
 \RequirePackage{appendix}
 \RequirePackage{geometry} % changes page borders
@@ -34,9 +38,6 @@
 \RequirePackage{graphicx}
 \RequirePackage{etoolbox}
 \RequirePackage{xparse}
-\RequirePackage{titlesec,titletoc}
-\RequirePackage{fancyhdr}
-  \RequirePackage{fourier-orns}% for fancy headrules
 \RequirePackage{needspace}
 \RequirePackage{tikz}
   \usetikzlibrary{calc,mindmap,trees}% calc for fancy borders
@@ -45,7 +46,6 @@
   \usetikzlibrary{shapes.misc}% for very fancy \section
   \usetikzlibrary{shapes.callouts}% for labels on the cs
   \usetikzlibrary{patterns}% for the pattern 'gridspecks'
-\RequirePackage{pifont}
 \RequirePackage{colortbl}
 \RequirePackage[poster]{tcolorbox}
 \tcbuselibrary{breakable,raster,vignette}
