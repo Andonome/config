@@ -10,11 +10,13 @@ docs: docs.aux
 test:
 	pdflatex --shell-escape test.tex
 
+resources.pdf: config/bind.sty
+	pdflatex resources.tex
 images:
 	mkdir images
 images/wide.jpg: images
 	convert -size 100x60 xc:skyblue -fill white -stroke black  -draw "ellipse 50,30 40,20 45,270" images/wide.jpg
-all: docs test
+all: docs test resources.pdf
 clean:
 	rm -rf *pdf *.aux *.toc *.acn *.acr *.log *.ptc *.out *.idx *.ist *.alg *.glo \
 	*.slo \
