@@ -1,6 +1,6 @@
 \makeglossaries
 
-% We only want to show full descriptions (e.g. 'GM (Games Master)') in some books. These books make the file '.switch-gls', but most use nothing.
+% We only want to show full descriptions (e.g. 'PC (Player Character)') in some books. These books make the file '.switch-gls', but most use nothing.
 
 \IfFileExists{.switch-gls}{
   \setabbreviationstyle[acronym]{long-short-sc-desc}
@@ -35,9 +35,11 @@
   text={gold piece},
 ]{gp}{gp}{Gold Piece}
 
-\newacronym[
-  description={-- the person running the game, interpreting the rules, and forgetting to bring enough pencils}
-  ]{gm}{GM}{Games Master}
+\newglossaryentry{gm}{
+  nonumberlist,
+  name={Judge},
+  description={The person running the game, interpreting the rules, and forgetting to bring enough pencils}
+}
 
 \newacronym[
   description={A measure of how much luck the character has left, used solely to avoid Damage},
