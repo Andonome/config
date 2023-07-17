@@ -1,31 +1,32 @@
 \ProvidesPackage{config/arms}
 %%%%% Weapons
-
+%
 % Weapon entries do two things.
 % When used in creatures, they raise stats.
 % When used in the  weapons chart, they display stats.
+%
+% Use this 'weapon entry' command to place items in the weapons table, like this:
+%\weapon[optional arguments]{Name}%
+%{Bonus}
+%{Dam}
+%
+% The AP cost ('heft') = ( Att + Dam ) / 2
+% The Weight Rating = ( Att + Dam ) - 3
 
 \newcounter{weaponBonus}
 
 \newcommand\weapon[6][]{%
-  % The weapon's bonus to hit is equal to its length + weight / 2.
   \setcounter{weaponBonus}{#3}%
-  \ifnum#5>0%
-    \addtocounter{weaponBonus}{#5}%
-  \fi%
-  \roundUp{weaponBonus}%
   \setcounter{damage}{#4}%
-  \ifnum#5>0%
-    \addtocounter{damage}{#5}%
+  \setcounter{heft}{#4}%
+  \setcounter{weight}{#4}%
+  \ifnum#3>-1% If the weapon's attack bonus is positive,
+    \addtocounter{heft}{#3}% add it to the AP cost and 
+    \addtocounter{weight}{#3}% weight rating,
+    \roundUp{heft}% then the AP cost by 2.
+    \addtocounter{weight}{-3}% And reduce the weight by 3.
   \fi%
-  \roundUp{damage}%
-  \setcounter{heft}{#3}%
-  \addtocounter{heft}{#5}%
-  \roundUp{heft}%
-  \ifnum\value{heft}<1%
-    \setcounter{heft}{1}%
-  \fi%
-  \setcounter{weight}{#5}%
+  %%%
   \setcounter{cost}{#6}%
   #1%
   \iftoggle{creatureBox}{%
@@ -83,14 +84,6 @@
     }%
 }
 
-% Use this 'weapon entry' command to place items in the weapons table, like this:
-%\weapon{Name}%
-%{Bonus}
-%{Dam}
-%{Wt.} + Init
-%{Cost}
-%{Knacks}
-
 \newcommand{\boulder}{\weapon[\addtocounter{heft}{2}]{Boulder}{0}{0}{6}{0}}
 \newcommand{\chair}{\weapon[\addtocounter{weaponBonus}{-1}]{Chair}{1}{0}{2}{250}}
 \newcommand{\club}{\weapon[\addtocounter{damage}{-1}]{Club}{1}{0}{2}{8}}
@@ -98,7 +91,7 @@
 \newcommand{\Dagger}{\weapon{Dagger}{0}{2}{-3}{70}}
 \newcommand{\firepoker}{\weapon[\addtocounter{damage}{-1}]{Firepoker}{1}{0}{1}{90}}
 \newcommand{\giantsword}{\weapon{Giant Sword}{3}{2}{4}{3200}}
-\newcommand{\greataxe}{\weapon{Great Axe}{2}{2}{4}{1600}}
+\newcommand{\greataxe}{\weapon{Great Axe}{2}{3}{4}{1600}}
 \newcommand{\greatsword}{\weapon{Greatsword}{2}{3}{3}{2200}}
 \newcommand{\greatclub}{\weapon[\addtocounter{damage}{-1}]{Great Club}{4}{0}{5}{10}}
 \newcommand{\javelin}{\weapon{Javelin}{2}{1}{0}{880}}
@@ -113,7 +106,7 @@
 \newcommand{\rock}{\weapon[\addtocounter{heft}{1}]{Rock}{-1}{0}{1}{0}}
 \newcommand{\shortsword}{\weapon{Shortsword}{1}{3}{0}{1500}}
 \newcommand{\skillet}{\weapon[\addtocounter{heft}{1}]{Frying Pan}{1}{0}{1}{80}}
-\newcommand{\spear}{\weapon{Spear}{4}{1}{1}{300}}
+\newcommand{\spear}{\weapon{Spear}{3}{1}{1}{300}}
 \newcommand{\stick}{\weapon{Stick}{1}{0}{-1}{1}}
 \newcommand{\whip}{\weapon[\addtocounter{damage}{-1}]{Whip}{1}{0}{0}{30}}
 \newcommand{\warhammer}{\weapon{Warhammer}{2}{0}{3}{30}}
