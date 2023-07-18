@@ -144,17 +144,15 @@ bookmarks=true]%
 
 \newcommand*{\externalReferent}[1]{
   \newtoggle{#1}
-  \iftoggle{verbose}{
-    \IfFileExists{../#1/main.aux}{
-      \@addtofilelist{../#1/main.tex}
-      \@addtofilelist{../#1/main.aux}%
-      \externaldocument{../#1/main}%
+    \IfFileExists{../#1/#1.aux}{
+      \@addtofilelist{../#1/#1.tex}
+      \@addtofilelist{../#1/#1.aux}%
+      \externaldocument{../#1/#1}%
       \settoggle{#1}{true}
     }%
     {\typeout{No file #1.}
     \settoggle{#1}{false}
     }
-  }{}
 }
 
 % Argument 1: The target git directory (e.g. 'core')
