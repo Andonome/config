@@ -11,8 +11,10 @@ test.pdf:
 	pdflatex -shell-escape test.tex
 resources.pdf:
 	pdflatex -shell-escape resources.tex
+rules.pdf:
+	pdflatex -shell-escape rules.tex
 
-all: docs.pdf test.pdf resources.pdf
+all: docs.pdf test.pdf resources.pdf rules.pdf
 clean:
 	rm -rf *pdf *.aux *.toc *.acn *.acr *.log *.ptc *.out *.idx *.ist *.alg *.glo \
 	*.slo \
