@@ -7,15 +7,29 @@ At the end of each scene, a number of things happen:
   \item
   Characters who rested for the scene regenerate a number of Fatigue Points equal to half their current \glspl{hp} (rounded up).
   \item
-  Characters regenerate 3 \glspl{mp} from the surrounding air.
+  The \gls{gm} divides a number of \glspl{mp} between everything in the area which can hold \glspl{mp} (round up).
   \begin{itemize}
     \item
-    +1 \gls{mp} in stormy weather.
+    \Glspl{mp} come in the wind, so windy locations allow faster regeneration.
+
+    \begin{tabularx}{\linewidth}{Xc}
+    \hline
+    Underground & 1 \\
+    Indoors     & 2 \\
+    Outdoors    & 3 \\
+    Storm       & 4 \\
+    \hline
+    \end{tabularx}
     \item
-    -1 \gls{mp} for wearing partial armour or equivalent covering.
+    Anything with \glspl{mp} then receive penalties for shielding their bodies against the air.
+
+    \begin{tabularx}{\linewidth}{Xc}
+    \hline
+    Partial armour  & -1 \\
+    Complete armour & -2 \\
+    \hline
+    \end{tabularx}
     \item
-    -2 \glspl{mp} for wearing complete armour or equivalent covering.
-    \item
-    -1 \gls{mp} for staying indoors or underground.
+    Equivalent heavy clothing provides the same penalties.
   \end{itemize}
 \end{itemize}
