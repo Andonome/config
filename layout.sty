@@ -586,8 +586,8 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 }%
 }
 \titleformat{\section}%
-  {\large\needspace{12em}}%
-  {\titlebar}%
+  {\scshape\needspace{12em}}%
+  {}%
   {0.1cm}%
   {\textcolor{\pageOppositeColor}}
 
@@ -787,26 +787,6 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
 
-\newcommand{\currentsphere}{magic}
-
-\newcommand{\sphere}[1]{%
-  \setcounter{spelllevel}{0}%
-  \renewcommand{\currentsphere}{#1}%
-  \index{#1}%
-  \section{\currentsphere}
-}%
-
-\newcommand{\spelllevel}{%
-  \needspace{15em}
-  \refstepcounter{spelllevel}%
-  \subsection{\currentsphere~ Level \arabic{spelllevel}}%
-}
-
-\newcommand{\enhancement}[3]{%
-  \paragraph[(#1) #2: #3]{(#1) Enhancement -- #2:}%
-  \index{Enhancement!#2}%
-}
-
 \newcommand{\magicitem}[7]{%
   \vspace{1em}\needspace{1em}\noindent\textbf{#1}%
   \index{Magical Item!#1}
@@ -830,13 +810,6 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \vspace{.3em}
 }
 
-\newcommand{\spell}[4]{
-  \subsubsection[\textbf{#1}: #4. (\textit{#3})]{#1}
-  \index[spells]{\textbf{#1}: #4. (\currentsphere\ Level \arabic{spelllevel}, Type: #2, Skill: #3)}
-
-  {\small\underline{\it Type: #2}, \iftoggle{verbose}{}{\\ }\underline{Skill: #3}}
-  \vspace{.5em}\afterparnoindent
-}
 
 % Toggles for knacks
 
