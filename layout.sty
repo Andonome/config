@@ -43,7 +43,6 @@
   \usetikzlibrary{calc,mindmap,trees}% calc for fancy borders
   \usetikzlibrary{intersections}% for very fancy borders with intersecting lines
   \usetikzlibrary{decorations.text}% for text along circle paths in cs
-  \usetikzlibrary{shapes.misc}% for very fancy \section
   \usetikzlibrary{shapes.callouts}% for labels on the cs
   \usetikzlibrary{patterns}% for the pattern 'gridspecks'
 \RequirePackage{pifont}
@@ -65,13 +64,11 @@
 %% Redefine plain page style, and use it for every page.
 
 \renewcommand\headrule{%
-  \iftoggle{verbose}{
-  \vspace{-6pt}
-  \hrulefill
-  \raisebox{-2.1pt}
+  \vspace{-6pt}%
+  \textcolor{\pageSideColor}{\hrulefill}%
+  \raisebox{-2.1pt}%
     {\textcolor{\pageSideColor}{\quad\decofourleft\decotwo\decofourright\quad}}%
-  \hrulefill
-  }{}
+  \textcolor{\pageSideColor}{\hrulefill}%
 }
 
 \fancypagestyle{plain}{
@@ -572,24 +569,16 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 {\Huge}
 
 
-\newcommand\titlebar{%
-\tikz[baseline,trim left=1em,trim right=8em] {
-    \fill [\pageSideColor] (6.6em,1.03em) rectangle (\linewidth+1.8em,-.38em);
-    \node [
-        fill=\pageSideColor,
-  text= \pageOppositeColor,
-        anchor= base east,
-        rounded rectangle,
-        minimum height=1.5em] at (7.3em,-0.05em) {
-        \textbf{\arabic{section}}
-    };
-}%
-}
 \titleformat{\section}%
-  {\scshape\needspace{12em}}%
+  {\needspace{12em}%
+  \textcolor{\pageOppositeColor}{\titlerule}%
+  \center%
+  \LARGE%
+  \scshape}%
+  {\Roman{section}}%
+  {1pc}%
   {}%
-  {0.1cm}%
-  {\textcolor{\pageOppositeColor}}
+  [\textcolor{\pageOppositeColor}{\titlerule}]%
 
 \renewcommand*{\thesection}{\arabic{section}}
 
