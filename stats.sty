@@ -400,6 +400,7 @@ You don't need to fall unconscious when making a Vitality check)%
   \begin{tcolorbox}[
     title={\name},
 		before upper={\parindent0pt},
+    fontupper=\small,
 		halign=flush left,
 		left=10pt,
 		right=15pt,
@@ -512,6 +513,7 @@ You don't need to fall unconscious when making a Vitality check)%
 	\begin{footnotesize}
 }
 
+\footnotesize
 \begin{tabularx}{\textwidth}{lr|lr|lr}
 
 % the tcolorbox has coloured rows (xcolor package)
@@ -524,6 +526,7 @@ You don't need to fall unconscious when making a Vitality check)%
 	&& \iftoggle{verbose}{Wits}{WTS} & \arabic{wts} \\
 	}
 	\setcounter{hp}{\value{str}}
+
 \end{tabularx}
 
 \begin{tabularx}{\linewidth}{p{.20\textwidth}>{\raggedright\arraybackslash}p{.70\textwidth}}
