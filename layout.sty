@@ -586,8 +586,15 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 {\needspace{10em}\normalfont\center\large\bfseries}{\thesubsection}{1em}{}[\textcolor{\pageSideColor}{\titlerule}\vspace{1ex}\setcounter{list}{0}]
 
 %
-\titleformat{\subsubsection}
-{\needspace{4em}\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+%\titleformat{\subsubsection}
+%{\needspace{4em}\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+\titleformat{\subsubsection}[wrap]
+{\filright\scshape\large}
+{}{.5em}{}
+
+\titlespacing{\subsubsection}
+{10pc}{1.5ex plus .1ex minus .2ex}{1pc}
 
 %%%%% Character Sheet Tracker
 
