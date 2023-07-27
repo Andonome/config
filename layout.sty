@@ -481,8 +481,8 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 
 
 \newtcolorbox{boxtext}[1][]{
-  ornamented,
   colback=white,
+  before={\paragraph*{}\noindent},
   fonttitle=\scshape, #1
   }
 
@@ -1002,6 +1002,7 @@ Roll & Result \\
     #2 -- #3]%
     {(#1) #2}
   \stopcontents[#1]\settoggle{firstsq}{false}
+  \vspace{3em}
 }
 
 %%%%% Character Sheet Commands
