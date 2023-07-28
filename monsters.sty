@@ -191,7 +191,7 @@
 	{\arabic{track}}}% CHARISMA
 	{4}%DR
 	{\arabic{age}}% COMBAT
-	{Aggression~\arabic{enc}, Projectiles~\arabic{r3b}, Academics~\arabic{r3}, Athletics~\arabic{r2b}, Deceit~\arabic{r2c}, Tactics~2, Vigilance~3\ifnum\value{r3}<3,
+	{Brawl~\arabic{enc}, Projectiles~\arabic{r3b}, Academics~\arabic{r3}, Athletics~\arabic{r2b}, Deceit~\arabic{r2c}, Tactics~2, Vigilance~3\ifnum\value{r3}<3,
   \setcounter{gold}{3}\addtocounter{gold}{-\value{r3}}%
   Xenomology~\arabic{gold}\fi
 	\knacks{\bloodCaster, \ifodd\value{page}\chosenEnemy{Dwarves}\else\charge\fi, \ifnumcomp{\value{r3}}{>}{2}{\laststand}{\adrenalinesurge}}
@@ -807,7 +807,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {0}% DR
 {\arabic{r2}}% COMBAT
 {
-  Aggression~2, Projectiles~\arabic{r2c}, Wyldcrafting~\arabic{enc}
+  Brawl~2, Projectiles~\arabic{r2c}, Wyldcrafting~\arabic{enc}
   \knacks{\ifodd\value{enc}\adrenalinesurge\else\ifodd\value{r3}\charge\else\chosenEnemy{Human}\fi\fi}
 }% SKILLS
 {\spear}% EQUIPMENT
@@ -832,7 +832,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {-2}}% CHARISMA
 {0}% DR
 {1}% COMBAT
-{Aggression~2, Projectiles~\arabic{r2b}, Academics~\arabic{r2}, \ifodd\value{r3b}\else Deceit~\arabic{r3b}, \fi Stealth~\arabic{r3}, Wyldcrafting~\arabic{r2b}, 
+{Brawl~2, Projectiles~\arabic{r2b}, Academics~\arabic{r2}, \ifodd\value{r3b}\else Deceit~\arabic{r3b}, \fi Stealth~\arabic{r3}, Wyldcrafting~\arabic{r2b}, 
 \ifnum\value{r4}>1%
 	{Vigilance~\arabic{enc}, Wyldcrafting~\arabic{enc}}%
 	\fi%
@@ -1161,7 +1161,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {-5}}% CHARISMA
 {2}% DR
 {\arabic{r2}}% COMBAT
-{Aggression 2, Crafts 2, Tactics~\arabic{r3}}% SKILLS
+{Brawl 2, Crafts 2, Tactics~\arabic{r3}}% SKILLS
 {None}% EQUIPMENT
 {}
 }
@@ -1255,7 +1255,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {-5}}% CHARISMA
 {2}% DR
 {2}% COMBAT
-{Aggression~\arabic{enc}, \ifodd\thepage Caving\else Deceit\fi~\arabic{r3}, Tactics~\arabic{r2}, Vigilance~1, Xenomology~\arabic{r2b}}% SKILLS
+{Brawl~\arabic{enc}, \ifodd\thepage Caving\else Deceit\fi~\arabic{r3}, Tactics~\arabic{r2}, Vigilance~1, Xenomology~\arabic{r2b}}% SKILLS
 {\ifodd\value{r2}%
 	\greatclub%
 \else%
@@ -1303,7 +1303,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {-5}}% CHARISMA
 {2}% DR
 {2}% COMBAT
-{Aggression~\arabic{enc}, \ifodd\thepage Caving\else Deceit\fi~\arabic{r3}, Tactics~\arabic{r2}, Vigilance~1}% SKILLS
+{Brawl~\arabic{enc}, \ifodd\thepage Caving\else Deceit\fi~\arabic{r3}, Tactics~\arabic{r2}, Vigilance~1}% SKILLS
 {\ifodd\value{r2}%
 	\longsword%
 	\ifodd\value{r4}%
@@ -1338,7 +1338,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {-5}}% CHARISMA
 {2}% DR
 {\arabic{r2}}% COMBAT
-{Aggression~2, Projectiles~\arabic{r2c}, Academics~\arabic{r3}, Deceit~1, Medicine~\arabic{r2c}, Vigilance~\arabic{r2}
+{Brawl~2, Projectiles~\arabic{r2c}, Academics~\arabic{r3}, Deceit~1, Medicine~\arabic{r2c}, Vigilance~\arabic{r2}
 \knacks{\divineCaster\ (Qualm\"e)}
 \Path{\ifodd\value{r4} \aldaron~\arabic{enc}, \fi \fate~\arabic{enc}, \ifodd\value{r2} \enchantment~\arabic{r3c}, \fi \necromancy~4}}% SKILLS
 {\ifodd\thepage%
@@ -1371,7 +1371,7 @@ mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIP
 {-5}}% CHARISMA
 {2}% DR
 {\arabic{r2}}% AGGRESSION
-{Aggression 2, Projectiles~\arabic{r2}, Academics~\arabic{r3}, Deceit~1, Medicine~\arabic{r3c}, Vigilance~\arabic{r2}
+{Brawl 2, Projectiles~\arabic{r2}, Academics~\arabic{r3}, Deceit~1, Medicine~\arabic{r3c}, Vigilance~\arabic{r2}
 \knacks{\divineCaster\ (Qualm\"e)}
 \Path{\ifodd\value{r3}\aldaron~\arabic{enc}, \fi \fate~\arabic{enc}, \ifodd\value{r4} \enchantment~\arabic{r3}, \fi \necromancy~5}}% SKILLS
 {\ifodd\thechapter%
@@ -1408,7 +1408,7 @@ mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIP
 {-5}}% CHARISMA
 {2}% DR
 {\arabic{r3b}}% COMBAT
-{Aggression 2, \ifodd\thechapter Projectiles~\arabic{r3}, \fi Academics~3, Caving \arabic{r3c}, \ifodd\value{gold}Crafts~\arabic{r3}, \fi Deceit~\arabic{r2b}, Medicine~\arabic{r2b}, Vigilance~\arabic{r3b}
+{Brawl 2, \ifodd\thechapter Projectiles~\arabic{r3}, \fi Academics~3, Caving \arabic{r3c}, \ifodd\value{gold}Crafts~\arabic{r3}, \fi Deceit~\arabic{r2b}, Medicine~\arabic{r2b}, Vigilance~\arabic{r3b}
 \knacks{\alchemist, \divineCaster\ (Qualm\"e)}
 \Path{\ifodd\value{page}\aldaron \else \conjuration~\arabic{age}, \fate \fi~\arabic{r3}, \enchantment~\arabic{r4}, \ifodd\thechapter \invocation~\arabic{r2b}, \fi \necromancy~5}}% SKILLS
 {\ifnum\value{r3b}>2%
