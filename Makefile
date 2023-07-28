@@ -9,7 +9,7 @@ docs.pdf: images/wide.jpg $(wildcard *.sty)
 	pdflatex -shell-escape docs.tex
 test.pdf: test.tex $(wildcard *.sty)
 	pdflatex -shell-escape test.tex
-resources.pdf:
+resources.pdf: resources.tex CS.tex backpage.tex commands.tex
 	pdflatex -shell-escape resources.tex
 rules.pdf: rules.tex $(wildcard *.sty)
 	pdflatex -shell-escape rules.tex
