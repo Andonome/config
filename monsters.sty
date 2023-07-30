@@ -1467,13 +1467,14 @@ mana stone with \arabic{track} mana, \lootJewellery, \randomtwo\lootJewellery, \
 \newcommand{\horse}[1][\npc{\A}{Horse}]{
 	#1
 	\randomtwo
+	\randomtwoB
 	\addtocounter{enc}{1}
 \animal{\arabic{enc}}% STRENGTH
 {0}% DEXTERITY 
 {\arabic{r2b}}% SPEED
 {\arabic{r2}}% WITS
 {1}% DR
-{\ifodd\value{r2}1\fi}% AGGRESSION
+{\ifodd\value{r2}1\else 0\fi}% AGGRESSION
 {Athletics~2, Vigilance~2}% SKILLS
 {\quadraped}% ABILITIES
 {}
