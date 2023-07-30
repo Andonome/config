@@ -1009,19 +1009,19 @@ Roll & Result \\
 \newcounter{statCircles}
 \newcounter{statDots}
 
-\newcommand\statCircle{\textbf{\Circle}}
-\newcommand\statDot{\textbf{\CIRCLE}}
+\newcommand\statCircle[1][\large]{#1\textbf{\Circle}}
+\newcommand\statDot[1][\large]{#1\textbf{\CIRCLE}}
 \newcommand\currentCircle{}
 \newcommand{\weeline}{\line(1,0){30} \hspace{.6cm}}
 
 \newcommand\attributeDisplay[2]{
 \setcounter{enc}{-5}
 \setcounter{statDots}{\value{#2}}
-#1 &
+\large #1 &
 \raisebox{2pt}{--}
 \Repeat{9}{&
-\ifnum\value{enc}<\value{statDots}\renewcommand\currentCircle{\statDot}\else\renewcommand\currentCircle{\statCircle}\fi% This decides to use either a statDot (showing a stat value) or an empty statCircle (showing a potential dot)
-\ifnum\value{enc}=-1\Large\currentCircle\else\raisebox{2pt}{\currentCircle}\fi% Most circles need a raisebox to appear nicely on a line. The dot representing '0' is large, and doesn't need raised.
+\large\ifnum\value{enc}<\value{statDots}\renewcommand\currentCircle{\statDot}\else\renewcommand\currentCircle{\statCircle}\fi% This decides to use either a statDot (showing a stat value) or an empty statCircle (showing a potential dot)
+\ifnum\value{enc}=-1\currentCircle\else\raisebox{2pt}{\currentCircle}\fi% Most circles need a raisebox to appear nicely on a line. The dot representing '0' is large, and doesn't need raised.
 \stepcounter{enc}
 }%
 &\raisebox{2pt}{+}
@@ -1042,7 +1042,14 @@ Roll & Result \\
 \newcommand{\skill}[1]{
   \setcounter{statCircles}{3}
   \addtocounter{statCircles}{-\value{#1}}
-  #1 \dotfill & \Repeat{\value{#1}}{\statDot}\Repeat{\value{statCircles}}{\statCircle}\\
+  #1 \dotfill &
+  \Repeat{\value{#1}}{\statDot}\Repeat{\value{statCircles}}{\statCircle}\\
+}
+
+\newcommand\emptySkill{%
+  \dotfill & %
+  \Repeat{3}{\statCircle}%
+  \\%
 }
 
 \newcommand{\sphereSkill}[2]{
