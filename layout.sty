@@ -827,20 +827,12 @@ Roll & Result \\
 }%
 {\end{tabular}}
 
-
-\NewDocumentEnvironment{exampletext}%
-  { O{\needspace{2em}\vspace{.3cm}\rule{.9\linewidth}{0.2pt}\vspace{.3em}} +b }%
-  {\iftoggle{verbose}{#1
-
+\newenvironment{exampletext}
+  {\needspace{2em}%
   \it
-  #2}{}}
-  {
-    \iftoggle{verbose}{
-
-    \rule{.9\linewidth}{0.2pt}
-
-    }{}%
+  %\rule{.4\linewidth}{0.2pt}%
   }
+  {\hrulefill}
 
 \newcommand\sideBySide[2]{
   \end{multicols}
