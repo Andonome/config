@@ -11,7 +11,7 @@ test.pdf: test.tex $(wildcard *.sty)
 	pdflatex -shell-escape test.tex
 resources.pdf: resources.tex CS.tex backpage.tex commands.tex
 	pdflatex -shell-escape resources.tex
-rules.pdf: rules.tex $(wildcard *.sty)
+rules.pdf: rules.tex rules $(wildcard *.sty)
 	pdflatex -shell-escape rules.tex
 
 all: docs.pdf test.pdf resources.pdf rules.pdf
