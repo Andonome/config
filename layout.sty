@@ -180,11 +180,12 @@ bookmarks=true]%
 %%%%% Make table of contents two column
 
 \renewcommand\tableofcontents{%
-\begin{multicols}{2}
-
-    \@starttoc{toc}%
-\end{multicols}
+    {\sffamily
+    \LARGE
+    \@starttoc{toc}
+    }
 }
+
 % and make repeating function
 \newcommand{\Repeat}[1]{%
   \expandafter\@Repeat\expandafter{\the\numexpr #1\relax}%
