@@ -408,7 +408,11 @@ You don't need to fall unconscious when making a Vitality check)%
     top=0pt,
 		]
 
-  \creaturestats
+  \iftoggle{verbose}{
+    \creaturestats
+  }{
+    \hphantom{\creaturestats}
+  }
 
   \derivedstats
   \end{tcolorbox}
@@ -465,9 +469,12 @@ You don't need to fall unconscious when making a Vitality check)%
 	\vspace{1em}
 
 	\settoggle{personality}{false}}%
-	{}
-	\creaturestats
-
+  
+  \iftoggle{verbose}{
+    \creaturestats
+  }{
+    \hphantom{\creaturestats}
+  }
 	\derivedstats
 
 	\end{tcolorbox}
@@ -564,7 +571,7 @@ You don't need to fall unconscious when making a Vitality check)%
 %%
 %
 \newcommand{\derivedstats}{
-  \hrulefill
+  \iftoggle{verbose}{\hrulefill}{\vspace{-2em}}
   \setlength\topsep{0pt}
   \setlength\parskip{0pt}
 	\iftoggle{debug}{str: \arabic{str}, strb: \arabic{strb}, dex: \arabic{dex}, dexb: \arabic{dexb}, spd: \arabic{spd}, spdb: \arabic{spdb},att: \arabic{att}, damage: \arabic{damage}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}}{}
@@ -585,6 +592,7 @@ You don't need to fall unconscious when making a Vitality check)%
   \addtocounter{weight}{-5}
 \fi
 \begin{center}
+  \iftoggle{verbose}{}{\normalsize}%
   \scshape AP \arabic{spd}\ifnumcomp{\value{spdb}}{>}{0}%
   {\addtocounter{spd}{\value{spdb}} (\arabic{spd})}{}\ifnumcomp{\value{heft}}{>}{1}{ (AP Cost: \arabic{heft})}{},
   Att %
@@ -625,14 +633,18 @@ You don't need to fall unconscious when making a Vitality check)%
     \ifnum\value{sp}>0%
     SP \arabic{sp},
     \fi%
-  }{
-
+  }{%
     \showBoxes
-  }
-
+  }%
   \iftoggle{allyCharacter}{}{
-    \calculateXP
-  }
+    \iftoggle{verbose}{%
+      \calculateXP%
+    }{
+    \iftoggle{mind}%
+      {Equipment: \equipment}%
+      {}%
+    }%
+  }%
 \end{center}%
 }
 %
@@ -673,7 +685,7 @@ You don't need to fall unconscious when making a Vitality check)%
     \setcounter{xp}{\value{attackXPtotal}}%
     \addtocounter{xp}{\value{defenceXPtotal}}%
 
-  \iftoggle{debug}{str: \arabic{str}, strb: \arabic{strb}, dex: \arabic{dex}, dexb: \arabic{dexb}, spd: \arabic{spd}, spdb: \arabic{spdb}, att: \arabic{att}, damage: \arabic{damage}, XP Bonus: \arabic{xpbonus}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}, mp: \arabic{mp} Grand Total: \arabic{xp}}{\hrulefill}
+  \iftoggle{debug}{str: \arabic{str}, strb: \arabic{strb}, dex: \arabic{dex}, dexb: \arabic{dexb}, spd: \arabic{spd}, spdb: \arabic{spdb}, att: \arabic{att}, damage: \arabic{damage}, XP Bonus: \arabic{xpbonus}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}, mp: \arabic{mp} Grand Total: \arabic{xp}}{\iftoggle{verbose}{\hrulefill}}
     
   \iftoggle{examplecharacter}%
   {}%
