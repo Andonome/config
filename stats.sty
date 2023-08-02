@@ -42,9 +42,7 @@
 % The \person command takes various stats, and
 % inside that 'SKILLS' variable (variable no. 8),
 % we can add additional things, like
-% \knacks{\adrenalinesurge}, or
-% \Path{Blood}{\invocation{2}}, which gives your
-% wizzard 'invocation 2'.
+% \knacks{\adrenalinesurge}.
 % 
 % Most of the rest of the commands deal with
 % properly calculating derived stats, like the TN
@@ -120,6 +118,7 @@
 
 \newcommand\HPHPboxes{
   \begin{tabular}{rr}
+  \hiderowcolors
     HP \arabic{hp}
     \whileboolexpr{test {\ifnumcomp{\value{noAppearing}}{>}{0}}}{%
       \ifnumodd{\value{noAppearing}}{ & \boxStat{hp} \\}{\boxStat{hp}}%
@@ -380,6 +379,7 @@ You don't need to fall unconscious when making a Vitality check)%
   \settoggle{creatureBox}{true}
   \settoggle{mind}{true}
   \setcounter{str}{#1}
+	\setcounter{hp}{#1}
   \setcounter{dex}{#2}
   \setcounter{spd}{#3}
   \mind#4
@@ -394,25 +394,41 @@ You don't need to fall unconscious when making a Vitality check)%
   \renewcommand{\armourtype}{P}
   \gdef\armourtype{P}
 
-  \begin{tcolorbox}[
-    title={\name},
-		before upper={\parindent0pt},
-    ornamented,
-    fontupper=\small,
-		halign=flush left,
-		left=10pt,
-		right=15pt,
-    top=0pt,
-		]
-
   \iftoggle{verbose}{
+    \begin{tcolorbox}[
+      title={\name},
+      before upper={\parindent0pt},
+      ornamented,
+      fontupper=\small,
+      halign=flush left,
+      left=10pt,
+      right=15pt,
+      top=0pt,
+      ]
+
     \creaturestats
+
+    \derivedstats
+
+    \end{tcolorbox}
+
   }{
-    \hphantom{\creaturestats}
+    \vspace{2em}
+    \noindent
+    \begin{minipage}{\linewidth}
+    \hrulefill
+
+    \begin{center}\textbf{\large\name}\end{center}
+    \mods
+    \hphantom{\equipment}
+    \derivedstats
+
+    Equipment: \equipment
+
+    \hrulefill
+    \end{minipage}
   }
 
-  \derivedstats
-  \end{tcolorbox}
 
   \iftoggle{personality}{
 
@@ -434,6 +450,7 @@ You don't need to fall unconscious when making a Vitality check)%
   \settoggle{creatureBox}{true}
 	\settoggle{mind}{false}
 	\setcounter{str}{#1}
+	\setcounter{hp}{#1}
 	\setcounter{dex}{#2}
 	\setcounter{spd}{#3}
 	\setcounter{wts}{#4}
@@ -449,32 +466,47 @@ You don't need to fall unconscious when making a Vitality check)%
   \renewcommand{\armourtype}{C}
   \gdef\armourtype{C}
 
-	\begin{tcolorbox}[title={\name},
-		before upper={\parindent0pt},
-    ornamented,
-		halign=flush left,
-		left=10pt,
-		right=15pt,
-		]
-
-	\iftoggle{personality}{
-
-	\textbf{Description:} \NPCdescription
-
-	\textbf{Mannerism:} \mannerism
-
-	\vspace{1em}
-
-	\settoggle{personality}{false}}%
-  
   \iftoggle{verbose}{
-    \creaturestats
-  }{
-    \hphantom{\creaturestats}
-  }
-	\derivedstats
+    \begin{tcolorbox}[title={\name},
+      before upper={\parindent0pt},
+      ornamented,
+      halign=flush left,
+      left=10pt,
+      right=15pt,
+      ]
 
-	\end{tcolorbox}
+    \iftoggle{personality}{
+
+    \textbf{Description:} \NPCdescription
+
+    \textbf{Mannerism:} \mannerism
+
+    \vspace{1em}
+
+    \settoggle{personality}{false}}%
+    
+    \creaturestats
+
+    \derivedstats
+
+    \end{tcolorbox}
+
+  }{
+    \vspace{2em}
+    \noindent
+    \begin{minipage}[c]{\linewidth}
+    \hrulefill
+
+    \begin{center}\textbf{\large\name}\end{center}
+    \hphantom{\abilities}
+    \derivedstats
+
+    Abilities: \abilities
+
+    \hrulefill
+    \end{minipage}
+  }
+
   \settoggle{creatureBox}{false}
   \setcounter{noAppearing}{1}
   \afterparnoindent
@@ -524,7 +556,6 @@ You don't need to fall unconscious when making a Vitality check)%
 	Intelligence & \arabic{int}  & Wits & \arabic{wts} & Charisma & \arabic{cha}  \\}{%
 	&& Wits & \arabic{wts} \\
 	}
-	\setcounter{hp}{\value{str}}
 
 \end{tabularx}
 
@@ -551,11 +582,11 @@ You don't need to fall unconscious when making a Vitality check)%
 %%
 %
 \newcommand{\derivedstats}{
-  \iftoggle{verbose}{\hrulefill}{\vspace{-2em}}
+  \iftoggle{verbose}{\hrulefill}{}
   \setlength\topsep{0pt}
   \setlength\parskip{0pt}
-	\iftoggle{debug}{str: \arabic{str}, strb: \arabic{strb}, dex: \arabic{dex}, dexb: \arabic{dexb}, spd: \arabic{spd}, spdb: \arabic{spdb},att: \arabic{att}, damage: \arabic{damage}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}}{}
-	
+  \iftoggle{debug}{str: \arabic{str}, strb: \arabic{strb}, dex: \arabic{dex}, dexb: \arabic{dexb}, spd: \arabic{spd}, spdb: \arabic{spdb},att: \arabic{att}, damage: \arabic{damage}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}}{}
+
 
 % Stats for allies don't need to show Combat +1 as 'TN 8 to hit', they just need to show '+1'.
 \iftoggle{allyCharacter}{}{
@@ -617,13 +648,7 @@ You don't need to fall unconscious when making a Vitality check)%
     \showBoxes
   }%
   \iftoggle{allyCharacter}{}{
-    \iftoggle{verbose}{%
-      \calculateXP%
-    }{
-    \iftoggle{mind}%
-      {Equipment: \equipment}%
-      {}%
-    }%
+    \calculateXP%
   }%
 \end{center}%
 }
