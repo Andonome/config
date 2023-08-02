@@ -61,9 +61,6 @@
 \newcommand{\skills}{}
 \newcommand{\equipment}{}
 \newcommand{\mods}{}
-\newcommand{\printknacks}{}
-\newcommand{\weaponknackone}{}
-\newcommand{\weaponknacktwo}{}
 
 % we calculate damage here because we can't display 1d6+6 damage - it has to turn into 2d6+2 damage.
 \newcommand{\calculatedamage}[1]{%
@@ -493,8 +490,6 @@ You don't need to fall unconscious when making a Vitality check)%
 	\setcounter{damage}{0}
 	\setcounter{knacks}{0}
 	\renewcommand{\armourtype}{N}
-	\renewcommand{\weaponknackone}{}
-	\renewcommand{\weaponknacktwo}{}
 	\setcounter{mp}{0}
 	\setcounter{mpLocked}{0}
 	\setcounter{xpbonus}{0}
@@ -542,8 +537,6 @@ You don't need to fall unconscious when making a Vitality check)%
 
 \end{tabularx}
 
-	\weaponknackone
-	\weaponknacktwo
 }
 
 %%     _               _        _
