@@ -80,12 +80,11 @@
 }
 
 \newcommand\showBoxes{
-
   \ifnum\value{mp}<1
     \ifnum\value{hp}>11
       \HPboxes
     \else
-      \ifnum\value{hp}>7
+      \ifnum\value{hp}>6
         \HPHPboxes
       \else
         \HPHPHPboxes
@@ -603,7 +602,7 @@ You don't need to fall unconscious when making a Vitality check)%
   \addtocounter{weight}{-5}
 \fi
 \begin{center}
-  \iftoggle{verbose}{}{\normalsize}%
+  \iftoggle{verbose}{\normalsize}{\large}%
   \scshape AP \arabic{spd}\ifnumcomp{\value{spdb}}{>}{0}%
   {\addtocounter{spd}{\value{spdb}} (\arabic{spd})}{}\ifnumcomp{\value{heft}}{>}{1}{ (AP Cost: \arabic{heft})}{},
   Att %
