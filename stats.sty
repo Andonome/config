@@ -445,7 +445,8 @@ You don't need to fall unconscious when making a Vitality check)%
 
 	\clean
 
-	\renewcommand{\armourtype}{C}
+  \renewcommand{\armourtype}{C}
+  \gdef\armourtype{C}
 
 	\begin{tcolorbox}[title={\name},
 		before upper={\parindent0pt},
@@ -587,12 +588,7 @@ You don't need to fall unconscious when making a Vitality check)%
   \scshape Att %
   \iftoggle{allyCharacter}{$2D6$\ifnum\value{att}>-1 +\fi}{}%
   \arabic{att}%
-  \setcounter{enc}{\value{att}}%
-  \ifdefstring{\armourtype}{C}{%
-    \addtocounter{enc}{5} (\arabic{enc}!)%
-  }{%
-    \ifdefstring{\armourtype}{P}{\addtocounter{enc}{3} (\arabic{enc}!)}{}%
-  },
+  \setcounter{enc}{\value{att}},%
   \ifnumcomp{\value{dexb}}{>}{0}{\addtocounter{att}{\value{dexb}} (\arabic{att}) }{}
   AP \arabic{spd}\ifnumcomp{\value{spdb}}{>}{0}%
   {\addtocounter{spd}{\value{spdb}} (\arabic{spd})}{}\ifnumcomp{\value{heft}}{>}{1}{: \arabic{heft}}{},
@@ -602,7 +598,13 @@ You don't need to fall unconscious when making a Vitality check)%
     {
       \addtocounter{damage}{\value{strb}} (\calculatedamage{damage})}{},
     }
-    \ifnumcomp{\value{dr}}{>}{0}{\mbox{DR \arabic{dr}~\armourtype,} }{}%
+    \ifnumcomp{\value{dr}}{>}{0}{\mbox{DR \arabic{dr}~\armourtype} 
+      \ifdefstring{\armourtype}{C}{%
+        \addtocounter{enc}{5} (\arabic{enc}!)%
+      }{%
+        \ifdefstring{\armourtype}{P}{\addtocounter{enc}{3} (\arabic{enc}!)}{}%
+      }%
+    \ignorespaces,}{}%
   \addtocounter{hp}{6}%
   \addtocounter{damage}{4}%
   \ifnum\value{mp}>0%
