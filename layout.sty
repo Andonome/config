@@ -441,7 +441,7 @@ bookmarks=true]%
   toptitle=14.5pt,
   top=15pt,
   bottom=9.5pt,
-  fontupper={\iftoggle{verbose}{\normalsize}{\footnotesize}},
+  fontupper={\normalsize},
   coltitle=black,
   }
 }
@@ -484,18 +484,13 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   colback=white,
   before={\paragraph*{}\noindent},
   fonttitle=\scshape, #1
-  }
+}
 
 \newcommand{\sidebox}[2][23]{
-  \iftoggle{verbose}{
     \needspace{4em}
     \begin{wrapfigure}{R}{.#1\textwidth} 
     #2
     \end{wrapfigure}%
-  }{
-    #2
-    
-  }%
 }
 
 % Chapter Heading Color
@@ -504,7 +499,6 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 %%%%% Section Formatting %%%%%
 
 \newcommand{\frontpage}[3]{
-  \iftoggle{verbose}{
   \begin{titlepage}
     \centering
     \vspace{2cm}
@@ -519,7 +513,6 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   
   \end{titlepage}
   \cleardoublepage
-  }{}
 }
 
 \newcommand\startappendix{
@@ -623,12 +616,8 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 \newtoggle{personality}
 \settoggle{personality}{false}
 
-% This toggle tells you if this is just one creature or a team.
-
-\iftoggle{verbose}{
-  \setcounter{tocdepth}{1}
-  \setcounter{secnumdepth}{1}
-}
+\setcounter{tocdepth}{1}
+\setcounter{secnumdepth}{1}
 
 
 %%%%%%%%%%%%%%%%%%%% RANDOM NUMBERS %%%%%%%%%%%%%%%%%%%%

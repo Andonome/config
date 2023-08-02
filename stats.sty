@@ -517,12 +517,6 @@ You don't need to fall unconscious when making a Vitality check)%
 % Reference versions (which always are non-verbose) don't
 % have the space for full-sized stats.
 
-\iftoggle{verbose}{
-	\begin{small}%
-}{%
-	\begin{footnotesize}
-}
-
 \footnotesize
 \begin{tabularx}{\textwidth}{lr|lr|lr}
 
@@ -530,10 +524,10 @@ You don't need to fall unconscious when making a Vitality check)%
 % but that doesn't work with creature stats, so we suppress it here
 \hiderowcolors
 
-	\iftoggle{verbose}{Strength}{STR} & \arabic{str} & \iftoggle{verbose}{Dexterity}{DEX} & \arabic{dex} & \iftoggle{verbose}{Speed}{SPD} & \arabic{spd} \\
+	Strength & \arabic{str} & Dexterity & \arabic{dex} & Speed & \arabic{spd} \\
 \iftoggle{mind}{
-	\iftoggle{verbose}{Intelligence}{INT} & \arabic{int}  & \iftoggle{verbose}{Wits}{WTS} & \arabic{wts} & \iftoggle{verbose}{Charisma}{CHA} & \arabic{cha}  \\}{%
-	&& \iftoggle{verbose}{Wits}{WTS} & \arabic{wts} \\
+	Intelligence & \arabic{int}  & Wits & \arabic{wts} & Charisma & \arabic{cha}  \\}{%
+	&& Wits & \arabic{wts} \\
 	}
 	\setcounter{hp}{\value{str}}
 
@@ -550,13 +544,6 @@ You don't need to fall unconscious when making a Vitality check)%
 
 	\weaponknackone
 	\weaponknacktwo
-
-
-\iftoggle{verbose}{%
-	\end{small}%
-}{%
-	\end{footnotesize}%
-}%
 }
 
 %%     _               _        _
