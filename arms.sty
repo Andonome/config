@@ -23,16 +23,14 @@
   \ifnum#3>-1% If the weapon's attack bonus is positive,
     \addtocounter{heft}{#3}% add it to the AP cost and 
     \addtocounter{weight}{#3}% weight rating,
-    \roundUp{heft}% then the AP cost by 2.
-    \addtocounter{weight}{-3}% And reduce the weight by 3.
+  \roundUp{heft}% then the AP cost by 2.
+  \addtocounter{weight}{-2}% And reduce the weight by 3.
   \fi%
-  %%%
-  #1%
+  \ignorespaces #1%
   \iftoggle{creatureBox}{%
     \addtocounter{att}{\value{weaponBonus}}%
-    #2\ignorespaces%
+    #2%
   }{%
-    #1%
     #2 &%
     \ifnum\value{weaponBonus}>0 +\fi%
     \arabic{weaponBonus} &%

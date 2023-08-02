@@ -211,11 +211,11 @@ bookmarks=true]%
 \ExplSyntaxOff
 
 % This function divides a number by two, and rounds it up.
-\newcommand\roundUp[1]{
-  \ifodd\value{#1}
-    \stepcounter{#1}
-  \fi
-  \divide\value{#1} by 2
+\newcommand\roundUp[1]{%
+  \ifodd\value{#1}%
+    \stepcounter{#1}%
+  \fi%
+  \divide\value{#1} by 2%
   \addtocounter{#1}{0}% Think this line's pointless? Try removing it and seeing what happens - I dare you.
 }
 
