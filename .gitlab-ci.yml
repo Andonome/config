@@ -3,11 +3,11 @@ compile_pdf:
   script:
     - apt-get update -y
     - apt-get install -y inkscape make imagemagick
-    - make test
-    - make docs
+    - make all
   only:
     - master
     - run
   artifacts:
     paths:
       - docs.pdf
+      - rules.pdf
