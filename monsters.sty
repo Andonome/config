@@ -237,9 +237,11 @@
 	{-1}}% CHARISMA
 	{0}% DR
 	{2}% COMBAT
-	{Caving \arabic{r2}, Crafts~1, Tactics~1}% SKILLS
+	{Caving \arabic{r2}, Crafts~1, Tactics~1%
+    \knacks{Chosen Enemy: Goblins}%
+  }% SKILLS
 	{\ifodd\value{r2}\spear, \partialchain\else\shortsword, \partialplate\fi, \lootMedium}% EQUIPMENT
-	{\knacks{Chosen Enemy: Goblins}}% SKILLS
+	{}% SKILLS
 }
 
 \newcommand{\dwarvenrunemaster}[1][\npc{\Dw\M}{Dwarven Runemaster}]{
@@ -765,7 +767,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {}
 }
 
-\newcommand{\humanalchemist}[1][\npc{\M}{The Alchemist}]{
+\newcommand{\humanalchemist}[1][\npc{\M}{Alchemist}]{
 	#1
 	\randomtwo
 	\addtocounter{enc}{1}
@@ -1319,7 +1321,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {}
 }
 
-\newcommand{\necromancer}[1][\npc{\M}{The Necromancer}]{
+\newcommand{\necromancer}[1][\npc{\M}{Necromancer}]{
 	#1
 	\randomtwo
 	\addtocounter{enc}{1}
