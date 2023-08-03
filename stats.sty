@@ -108,6 +108,7 @@
 
 \newcommand\HPboxes{
   \begin{tabular}{r}
+  \hiderowcolors
     HP \arabic{hp}
     \Repeat{\value{noAppearing}}{
     \boxStat{hp} \\
@@ -128,6 +129,7 @@
 
 \newcommand\HPHPHPboxes{
   \begin{tabular}{rrr}
+    \hiderowcolors
     HP \arabic{hp}
     \whileboolexpr{test {\ifnumcomp{\value{noAppearing}}{>}{0}}}{%
       \boxStat{hp}
@@ -148,6 +150,7 @@
   \addtocounter{enc}{\value{mp}}
   \ifnum\value{enc}<20
     \begin{tabular}{rr}
+      \hiderowcolors
       \Repeat{\value{noAppearing}}{
       HP \arabic{hp}
       \boxStat{hp}
@@ -159,6 +162,7 @@
     \end{tabular}
   \else
     \begin{tabular}{r}
+      \hiderowcolors
       \Repeat{\value{noAppearing}}{
       HP \arabic{hp} \boxStat{hp} \\
       MP \arabic{mp} \boxStat{mp} \\
@@ -173,6 +177,7 @@
   \addtocounter{enc}{\value{sp}}
   \ifnum\value{enc}<20
     \begin{tabular}{rrr}
+      \hiderowcolors
       \Repeat{\value{noAppearing}}{
       HP \arabic{hp}
       \boxStat{hp}
@@ -188,6 +193,7 @@
   \else
     \ifnum\value{enc}<10
       \begin{tabular}{rr}
+        \hiderowcolors
         \Repeat{\value{noAppearing}}{
           HP \arabic{hp} \boxStat{hp} &
           MP \arabic{mp} \boxStat{mp} \\
@@ -196,6 +202,7 @@
       \end{tabular}
     \else
       \begin{tabular}{r}
+        \hiderowcolors
         \Repeat{\value{noAppearing}}{
           HP \arabic{hp} \boxStat[2]{hp} \\
           MP \arabic{mp} \boxStat{mp} \\
