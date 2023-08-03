@@ -306,39 +306,76 @@
 \newcommand{\brawler}{Brawler\addtocounter{knacks}{1}%
 \iftoggle{examplecharacter}{ (+2 to unarmed attacks)}{}}
 \newcommand{\charge}{%
-  Extreme Charge%
+  Fast Charge%
   (+1 \gls{ap}, Attack, and Damage after charging 6 steps)%
   \addtocounter{knacks}{1}%
 }
-\newcommand{\dodger}{Dodger\addtocounter{knacks}{1}}
-\newcommand{\finishingblow}{Finishing Blow\addtocounter{knacks}{1}}
-\newcommand{\guardian}{Guardian\addtocounter{knacks}{1}%
-\iftoggle{examplecharacter}{ (spend only 0 AP to guard someone, and gain +1 while guarding)}{}}
-\newcommand{\laststand}{Last Stand\addtocounter{knacks}{1}%
-\iftoggle{examplecharacter}{ (when losing HP, the character gains \setcounter{enc}{2}\addtocounter{enc}{\value{knacks}}\arabic{enc} AP)}{}}
-\newcommand{\perfectsneakattack}{Perfect Sneak Attack\addtocounter{knacks}{1}%
-\iftoggle{examplecharacter}{ (+\arabic{knacks} Damage for sneak attacks)}{}}
-\newcommand{\precisestrike}{Precise Strike\addtocounter{knacks}{1}%
-\iftoggle{examplecharacter}{ (you need 1 less to acheive a Vitals shot)}{}}
+\newcommand{\cuttingswing}{%
+  Cutting Swing%
+  (when an opponent hits 0 \glspl{hp}, damage transfers to the next opponent)%
+  \addtocounter{knacks}{1}%
+}
+\newcommand{\dodger}{%
+  \addtocounter{knacks}{1}%
+  Dodger%
+  (+\arabic{knacks} to dodge projectiles)%
+}
+\newcommand{\guardian}{%
+  \addtocounter{knacks}{1}%
+  Guardian
+  (spend 0 AP to guard someone, and gain +1 to guarding against attacks)%
+}
+\newcommand{\laststand}{%
+  \addtocounter{knacks}{1}%
+  Last Stand
+  (when losing \glspl{hp}, the character gains \setcounter{enc}{2}\addtocounter{enc}{\value{knacks}}\arabic{enc} AP)%
+}
+\newcommand{\lucky}{%
+  \addtocounter{knacks}{1}%
+  \addtocounter{fp}{4}%
+  Lucky
+}
+
+\newcommand{\mightydraw}{%
+  \addtocounter{knacks}{1}%
+  Mighty Draw
+  \setcounter{enc}{knacks}\roundUp{enc} (reduce cost to draw longbow by \arabic{enc} AP)
+}
+\newcommand{\perfectsneakattack}{%
+  \addtocounter{knacks}{1}%
+  Perfect Sneak Attack
+  (+\arabic{knacks} Damage for sneak attacks)
+}
+\newcommand{\precisestrike}{%
+  \addtocounter{knacks}{1}%
+  Precise Strike
+  (+1 Attack when calculating Vitals shot)
+}
 \newcommand{\specialist}[1]{Specialist \addtocounter{knacks}{1}
 \iftoggle{examplecharacter}{ (+2 when using any #1)}{(#1)}}
-\newcommand{\stunningstrike}{Stunning Strike\addtocounter{knacks}{1}\addtocounter{xpbonus}{1}%
-\iftoggle{examplecharacter}{ (take -1 penalty, and opponent's AP reduces by half Damage)}{}}
-\newcommand{\snapshot}{Snap Shot\addtocounter{knacks}{1}%
-\iftoggle{examplecharacter}{ (Pay 0 AP to reload arrow or draw weapon)}{}}
-\newcommand{\mightydraw}{Mighty Draw\addtocounter{knacks}{1}%
-\iftoggle{examplecharacter}{\setcounter{enc}{knacks}\roundUp{enc} (reduce cost to draw longbow by \arabic{enc} AP)}{}}
-\newcommand{\unstoppable}{Unstoppable\addtocounter{hp}{2}\addtocounter{knacks}{1}%
-\iftoggle{examplecharacter}{%
-\setcounter{enc}{\value{knacks}}\roundUp{enc}%
-(Gain +2 HP permanently.
-Gain +\arabic{enc} on Vitality check.
-You don't need to fall unconscious when making a Vitality check)%
-}{}}
+\newcommand{\stunningstrike}{%
+  \addtocounter{knacks}{1}%
+  Stunning Strike
+  (take -1 penalty, and opponent's AP reduces by half Damage)%
+}
+\newcommand{\snapshot}{%
+  \addtocounter{knacks}{1}%
+  Snap Shot
+  (Pay 0 AP to reload arrow or draw weapon)%
+}
+\newcommand{\unstoppable}{%
+  \addtocounter{knacks}{1}%
+  \addtocounter{hp}{2}%
+  Unstoppable
+}
 \newcommand{\vengeful}{Vengeful\addtocounter{knacks}{1}%
 \iftoggle{examplecharacter}{ (+2 Intelligence after losing HP)}{}}
-\newcommand{\weaponmaster}[1]{Weapon Master \addtocounter{att}{1}\addtocounter{knacks}{1}%
-\iftoggle{examplecharacter}{(+1 Bonus to {#1}s)}{(#1)}}
+  \newcommand{\weaponmaster}[1]{%
+  \addtocounter{att}{1}%
+  \addtocounter{knacks}{1}%
+  Weapon Master
+  (+1 Attack when using a {#1})
+}
 \newcommand{\snapcaster}{Snap Caster\addtocounter{knacks}{1}%
 \iftoggle{examplecharacter}{ (spells cost 1 AP less)}{}}
 \newcommand{\extremefocus}{Extreme Focus\addtocounter{knacks}{1}%
