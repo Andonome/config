@@ -339,7 +339,7 @@
 \newcommand{\mightydraw}{%
   \addtocounter{knacks}{1}%
   Mighty Draw
-  \setcounter{enc}{knacks}\roundUp{enc} (reduce cost to draw longbow by \arabic{enc} AP)
+  \setcounter{enc}{\value{knacks}}\roundUp{enc} (reduce cost to draw longbow by \arabic{enc} AP)
 }
 \newcommand{\perfectsneakattack}{%
   \addtocounter{knacks}{1}%
