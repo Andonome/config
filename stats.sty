@@ -236,8 +236,6 @@
 \newcounter{knacks}
 
 
-\newcounter{spdb}
- 
 % Extras: MP hp fp
 % Derived: dicenumber, dicebonus,
 \newcounter{mp}
@@ -303,14 +301,15 @@
 }
 \newcommand{\berserker}{%
   Berserker (+1 \gls{ap}. on round 2 of combat, +1 Damage. on round 3)%
-  \addtocounter{spdb}{1}\addtocounter{knacks}{1}%
+  \addtocounter{knacks}{1}%
 }
 \newcommand{\brawler}{Brawler\addtocounter{knacks}{1}%
 \iftoggle{examplecharacter}{ (+2 to unarmed attacks)}{}}
-\newcommand{\charge}{\addtocounter{knacks}{1}\setcounter{track}{\value{knacks}}\addtocounter{track}{1}\divide\value{track} by 2\addtocounter{spdb}{\value{track}}Extreme Charge%
-\iftoggle{examplecharacter}{\setcounter{enc}{\value{knacks}\roundUp{enc} (+\arabic{enc} to all body Attributes for 1 attack after charging 6 squares)}{}}}
-\newcommand{\disarm}{Disarm\addtocounter{knacks}{1}\addtocounter{xpbonus}{1}%
-\iftoggle{examplecharacter}{ (when attacking with more AP than opponent, take a -1 penalty to disarm opponent)}{}}
+\newcommand{\charge}{%
+  Extreme Charge%
+  (+1 \gls{ap}, Attack, and Damage after charging 6 steps)%
+  \addtocounter{knacks}{1}%
+}
 \newcommand{\dodger}{Dodger\addtocounter{knacks}{1}}
 \newcommand{\finishingblow}{Finishing Blow\addtocounter{knacks}{1}}
 \newcommand{\guardian}{Guardian\addtocounter{knacks}{1}%
@@ -521,7 +520,6 @@ You don't need to fall unconscious when making a Vitality check)%
 
 \newcommand{\clean}{
 	\setcounter{fp}{5}
-	\setcounter{spdb}{0}
 	\setcounter{sp}{0}
 	\setcounter{heft}{1}
 	\setcounter{damage}{0}
@@ -590,7 +588,7 @@ You don't need to fall unconscious when making a Vitality check)%
   \iftoggle{verbose}{\hrulefill}{}
   \setlength\topsep{0pt}
   \setlength\parskip{0pt}
-  \iftoggle{debug}{str: \arabic{str}, dex: \arabic{dex}, spd: \arabic{spd}, spdb: \arabic{spdb},att: \arabic{att}, damage: \arabic{damage}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}}{}
+  \iftoggle{debug}{str: \arabic{str}, dex: \arabic{dex}, spd: \arabic{spd}, att: \arabic{att}, damage: \arabic{damage}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}}{}
 
 
 % Stats for allies don't need to show Combat +1 as 'TN 8 to hit', they just need to show '+1'.
@@ -609,8 +607,8 @@ You don't need to fall unconscious when making a Vitality check)%
 \fi
 \begin{center}
   \iftoggle{verbose}{\normalsize}{\large}%
-  \scshape AP \arabic{spd}\ifnumcomp{\value{spdb}}{>}{0}%
-  {\addtocounter{spd}{\value{spdb}} (\arabic{spd})}{}\ifnumcomp{\value{heft}}{>}{1}{ (AP Cost: \arabic{heft})}{},
+  \scshape AP \arabic{spd}%
+  \ifnumcomp{\value{heft}}{>}{1}{ (AP Cost: \arabic{heft})}{},
   Att %
   \iftoggle{allyCharacter}{$2D6$\ifnum\value{att}>-1 +\fi}{}%
   \arabic{att}%
@@ -690,7 +688,7 @@ You don't need to fall unconscious when making a Vitality check)%
     \setcounter{xp}{\value{attackXPtotal}}%
     \addtocounter{xp}{\value{defenceXPtotal}}%
 
-  \iftoggle{debug}{str: \arabic{str}, dex: \arabic{dex}, spd: \arabic{spd}, spdb: \arabic{spdb}, att: \arabic{att}, damage: \arabic{damage}, XP Bonus: \arabic{xpbonus}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}, mp: \arabic{mp} Grand Total: \arabic{xp}}{\iftoggle{verbose}{\hrulefill}}
+  \iftoggle{debug}{str: \arabic{str}, dex: \arabic{dex}, spd: \arabic{spd}, att: \arabic{att}, damage: \arabic{damage}, XP Bonus: \arabic{xpbonus}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}, mp: \arabic{mp} Grand Total: \arabic{xp}}{\iftoggle{verbose}{\hrulefill}}
     
   \iftoggle{examplecharacter}%
   {}%
