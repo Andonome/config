@@ -73,13 +73,17 @@
 
 \newcommand{\lootJewellery}{%
 \iftoggle{bestiarychapter}{jewellery worth \ifodd\value{r2}$3D6$sp\else$1D6+2$\glspl{gp}\fi}%
-	{\ifnumcomp{\value{r2}}{>}{1}{\ifodd\value{r3}%
+	{\ifnumcomp{\value{r2}}{>}{1}{\randomtwo\ifodd\value{r3}%
+    \randomthree%
 		\ifodd\value{r4}%
+      \randomfour%
 			golden necklace worth \arabic{r12}~\glspl{sp}\else%
 			golden ring worth \thechapter~\glspl{sp}\fi\else%
 		jewel encrusted dagger worth \thepage~\glspl{sp}\fi}%
 	{\ifodd\value{r3}%
+    \randomthree%
 		\ifodd\value{r4}%
+      \randomfour%
 			ornate silver earrings worth 1 \glspl{gp}\else
 			gem encrusted broach worth \thechapter \glspl{gp}\fi\else%
 		\randomthreeB saphire pendant worth \arabic{r3b}\glspl{gp}\fi}}}
