@@ -333,7 +333,7 @@
 \newcommand{\lucky}{%
   \addtocounter{knacks}{1}%
   \addtocounter{fp}{4}%
-  Lucky
+  Lucky (add 4 \glsentryshortpl{fp})
 }
 
 \newcommand{\mightydraw}{%
@@ -367,6 +367,7 @@
   \addtocounter{knacks}{1}%
   \addtocounter{hp}{2}%
   Unstoppable
+  (+2 \glsentryshortpl{hp}, and +\arabic{knacks} to any Medicine rolls to save them when dying)
 }
 \newcommand{\vengeful}{Vengeful\addtocounter{knacks}{1}%
 \iftoggle{examplecharacter}{ (+2 Intelligence after losing HP)}{}}
@@ -376,13 +377,21 @@
   Weapon Master
   (+1 Attack when using a {#1})
 }
+
 \newcommand{\snapcaster}{%
   \addtocounter{knacks}{1}%
   Snap Caster
   (spells cost 1 \gls{ap} less)
 }
+
+\newcommand{\fasthealer}{%
+  \addtocounter{knacks}{1}%
+  Fast Healer
+  (resting heals 2 additional \glspl{fatigue} and 1 \gls{mp})
+}
+
 \newcommand{\combatcaster}{Combat Caster\addtocounter{knacks}{1}}
-\newcommand\chosenEnemy[1]{Chosen Enemy (#1)\addtocounter{knacks}{1}}
+\newcommand\chosenEnemy[1]{Chosen Enemy (+1 against #1, -2 when trying to be friendly)\addtocounter{knacks}{1}}
 
 % _ __   ___ _ __ ___  ___  _ __  
 %| '_ \ / _ \ '__/ __|/ _ \| '_ \ 
