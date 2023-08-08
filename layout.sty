@@ -932,7 +932,7 @@ Roll & Result \\
 
 \newcommand{\sqtoc}{\printcontents[\sqarea]{l}{2}{\section*{Summaries}\setcounter{tocdepth}{3}}}
 
-% Change the tocdepth from 2 to 3 in order to output a miniature table of contents on all side quests
+% Change the to depth from 2 to 3 in order to output a miniature table of contents on all side quests
 \newcommand{\sqminitoc}{
 
   \begin{figure*}[t]
@@ -980,18 +980,44 @@ Roll & Result \\
 \newcommand\currentCircle{}
 \newcommand{\weeline}{\line(1,0){30} \hspace{.6cm}}
 
+\newcommand\showAttribute[2]{
+  \setcounter{track}{-4}%
+  {#1}%
+  \whileboolexpr{%
+    test {\ifnumcomp{\value{track}}{<}{5}}%
+  }%
+  {%
+    &%
+    \ifnum\value{track}>0%
+      \ifnum\value{track}>\value{#2}%
+        \statCircle%
+      \else%
+        \statDot%
+      \fi%
+    \else%
+      \ifnum\value{track}>\value{#2}%
+        {\Large\Square}%
+      \else%
+        {\Large\XBox}%
+      \fi%
+    \fi%
+    \stepcounter{track}%
+  }%
+  \\%
+}
+
 \newcommand\attributeDisplay[2]{
-\setcounter{enc}{-5}
-\setcounter{statDots}{\value{#2}}
-\large #1 &
-\raisebox{2pt}{--}
-\Repeat{9}{&
-\large\ifnum\value{enc}<\value{statDots}\renewcommand\currentCircle{\statDot}\else\renewcommand\currentCircle{\statCircle}\fi% This decides to use either a statDot (showing a stat value) or an empty statCircle (showing a potential dot)
-\ifnum\value{enc}=-1\currentCircle\else\raisebox{2pt}{\currentCircle}\fi% Most circles need a raisebox to appear nicely on a line. The dot representing '0' is large, and doesn't need raised.
-\stepcounter{enc}
-}%
-&\raisebox{2pt}{+}
-\\
+  \setcounter{enc}{-5}
+  \setcounter{statDots}{\value{#2}}
+  \large #1 &
+  \raisebox{2pt}{--}
+  \Repeat{9}{&
+  \large\ifnum\value{enc}<\value{statDots}\renewcommand\currentCircle{\statDot}\else\renewcommand\currentCircle{\statCircle}\fi% This decides to use either a statDot (showing a stat value) or an empty statCircle (showing a potential dot)
+  \ifnum\value{enc}=-1\currentCircle\else\raisebox{2pt}{\currentCircle}\fi% Most circles need a raisebox to appear nicely on a line. The dot representing '0' is large, and doesn't need raised.
+  \stepcounter{enc}
+  }%
+  &\raisebox{2pt}{+}
+  \\
 }
 \newcommand{\attributecircles}[1][-5]{\raisebox{0pt}{--}%
 \setcounter{statDots}{#1}
