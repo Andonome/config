@@ -297,7 +297,8 @@
 %%%%%%%%%%%%%%%%%%%%% Knacks
 %
 \newcommand{\adrenalinesurge}{%
-  Adrenaline Surge (+1 Damage. once per \ifnum\value{knacks}>2 combat\else round, \arabic{knacks} uses per combat\fi)\addtocounter{knacks}{1}%
+  \addtocounter{knacks}{1}%
+  Adrenaline Surge (+1 Damage. once per \ifnum\value{knacks}<2 combat\else round, \arabic{knacks} uses per combat\fi)%
 }
 \newcommand{\berserker}{%
   Berserker (+1 \gls{ap}. on round 2 of combat, +1 Damage. on round 3)%
