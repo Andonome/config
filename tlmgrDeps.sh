@@ -1,39 +1,36 @@
 #!/bin/sh
 # This file has the recommended LaTeX packages.
 # First install tlmgr (likely in the package 
-# texlive or texlive-bin).
+# texlive or texlive-bin) and texlive2023-bin.
+#
+# Some of these packages might not be necessary, but after so long messing with the tlmgr search tool I got bored.
 
-tlmgr install latex-bin
+TLMGR=$(which tlmgr) 2>/dev/null || TLMGR=$(find /opt/ -name tlmgr) 2>/dev/null || (echo Cannot find tlmgr. You must install it. Try searching for texlive && exit 1)
 
-tlmgr install \
+$TLMGR install \
+tools \
 xcolor \
 gfsartemisia \
 epsdice \
-fontenc \
 starfont \
 appendix \
 geometry \
 svg \
-alltt \
-tabularx \
 wrapfig \
 epigraph \
 microtype \
 float \
 microtype \
-makeidx \
-babel \
 colortbl \
 contour \
-amssymb \
 amsmath \
 amsfonts \
 etoolbox \
 hyperref \
-pdftexcmds.sty \
-infwarerr.sty \
 glossaries \
 glossaries-extra \
+imakeidx \
+infwarerr \
 euler \
 koma-script \
 trimspaces \
@@ -60,4 +57,4 @@ tikzfill \
 pdfcol \
 epstopdf-pkg \
 environ \
-collection-fontrecommended
+collection-fontsrecommended
