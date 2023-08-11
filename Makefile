@@ -5,7 +5,7 @@ images:
 images/wide.jpg: images
 	convert -size 100x60 xc:skyblue -fill white -stroke black  -draw "ellipse 50,30 40,20 45,270" images/wide.jpg
 
-docs.pdf: images/wide.jpg $(wildcard *.sty)
+docs.pdf: images/wide.jpg $(wildcard *.sty) docs.tex
 	pdflatex -shell-escape docs.tex
 test.pdf: test.tex $(wildcard *.sty)
 	pdflatex -shell-escape test.tex
