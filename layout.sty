@@ -599,6 +599,10 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 
     }
 
+\newcommand\bigLine{%
+  \textcolor{\pageSideColor}{\ifodd\value{page}\raisebox{-3pt}{\Large\hspace{0.1em}\decothreeright}\fi\hrulefill\ifodd\value{page}\else\raisebox{-3pt}{\Large\hspace{-0.1em}\decothreeleft}\fi}%
+}
+
 %%%%% NPC Names
 
 \newcommand{\name}{}
@@ -839,12 +843,18 @@ Roll & Result \\
 
 \newcommand\boxPair[3][b]{
   \begin{figure*}[#1!]
+    \ifstrequal{#1}{b}{%
+      \bigLine
+    }{}
     \begin{multicols}{2}
     #2
     \vfill\null
     \columnbreak
     #3
     \end{multicols}
+    \ifstrequal{#1}{t}{%
+      \bigLine
+    }{}
   \end{figure*}
 }
 
