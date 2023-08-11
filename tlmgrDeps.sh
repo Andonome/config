@@ -9,6 +9,7 @@ TLMGR=$(which tlmgr) 2>/dev/null || TLMGR=$(find /opt/ -name tlmgr) 2>/dev/null 
 
 $TLMGR install \
 tools \
+lipsum \
 xcolor \
 gfsartemisia \
 epsdice \
