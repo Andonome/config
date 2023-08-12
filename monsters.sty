@@ -38,7 +38,7 @@
 {2}% DR
 {\arabic{r3b}}% AGGRESSION
 {Athletics \arabic{r2}, Stealth~2, Vigilance~2}% SKILLS
-{None}% ABILITIES
+{\claws, \quadraped}% ABILITIES
 {}
 }
 %
@@ -56,7 +56,7 @@
 {2}% AGGRESSION
 {Athletics~\arabic{r2}, Vigilance~\arabic{r3}}% SKILLS
 {None}% ABILITIES
-{}
+{\quadraped}
 }
 
 \newcommand{\chitincrawler}[1][\npc{\A}{Chitincrawler}]{
@@ -93,7 +93,7 @@
 {0}% DEXTERITY 
 {2}% AGGRESSION
 {Athletics~\arabic{enc}\knacks{\charge}}% SKILLS
-{Flight}% ABILITIES
+{\flight}% ABILITIES
 {}
 }
 
@@ -109,7 +109,7 @@
 {2}% DR
 {2}% AGGRESSION
 {Stealth~\arabic{enc}, Tactics~\arabic{r2b}, \knacks{\adrenalinesurge , \perfectsneakattack}}% SKILLS
-{None}% ABILITIES
+{\teeth}% ABILITIES
 {}
 }
 %
@@ -195,6 +195,7 @@
   \setcounter{gold}{3}\addtocounter{gold}{-\value{r3}}%
   Xenomology~\arabic{gold}\fi
 	\knacks{\ifodd\value{page}\chosenEnemy{Dwarves}\else\charge\fi, \ifnumcomp{\value{r3}}{>}{2}{\laststand}{\adrenalinesurge}}
+  \showAbilities{\flight}
 	\Path{\ifodd\value{r4}\aldaron\else \enchantment\fi~\arabic{r4}, \invocation~\arabic{enc}, \ifodd\value{r2}\force~\arabic{r3b}\else \polymorph~\arabic{r3}\fi }}{%
 	\iftoggle{bestiarychapter}{$3D6\times 100$gp, sitting in a lair.}{%
 		{\setcounter{gold}{\thepage}\addtocounter{gold}{-50}\multiply\value{gold} by \value{list}\multiply\value{gold} by \thechapter \ifnumcomp{\value{gold}}{>}{0}{\arabic{gold}gp in lair in assorted change}{None}}}}%
@@ -1447,7 +1448,7 @@ mana stone with \arabic{track} mana, \lootJewellery, \randomtwo\lootJewellery, \
 {\arabic{enc}}% DR
 {2}% AGGRESSION
 {Caving~\arabic{r3}, Stealth~\arabic{r2}, Vigilance~\arabic{r2b}}% SKILLS
-{}% ABILITIES
+{\quadraped}% ABILITIES
 {}
 }
 
@@ -1512,7 +1513,7 @@ mana stone with \arabic{track} mana, \lootJewellery, \randomtwo\lootJewellery, \
 {0}% DR
 {\arabic{r2}}% AGGRESSION
 {Vigilance~2, Wyldcrafting~2}% SKILLS
-{\quadraped}% ABILITIES
+{\quadraped, \claws}% ABILITIES
 {}%
 }
 
@@ -1612,11 +1613,11 @@ mana stone with \arabic{track} mana, \lootJewellery, \randomtwo\lootJewellery, \
 \animal{\arabic{age}}% STRENGTH
 {-2}% DEXTERITY 
 {-2}% SPEED
-{\arabic{r3}}% WITS
-{3}% DR
+{\arabic{age}}% WITS
+{7}% DR
 {0}% AGGRESSION
-{Stealth~3, Vigilance~2}% SKILLS
-{Gas}% ABILITIES
+{Stealth~3}% SKILLS
+{\crazyGas}% ABILITIES
 {\addtocounter{xpbonus}{3}}
 }
 

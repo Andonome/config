@@ -294,6 +294,10 @@
 	\ent{Knacks:} & #1 
 }
 
+\newcommand{\showAbilities}[1]{ \\
+	\ent{Abilities:} & #1 
+}
+
 %%%%%%%%%%%%%%%%%%%%% Knacks
 %
 \newcommand{\adrenalinesurge}{%
@@ -757,13 +761,21 @@
   \ent{Abilities:} & #1 
   }
 
-\newcommand{\acidSpray}{
-  \addtocounter{str}{-2}Acidic spray (spray for \calculatedamage{str} Damage per turn)%
-  \addtocounter{str}{2}%
+\newcommand{\acidSpray}{%
+  Acidic spray
+  \setcounter{track}{4}%
+  \addtocounter{track}{\value{spd}}%
+  (\calculatedamage{track} Damage,
+  \setcounter{track}{\value{dex}}%
+  \addtocounter{dex}{8}%
+  \gls{tn} \arabic{track} to dodge)%
 }
 
 \newcommand{\acidBody}{%
-	Acidic Body (inflict \calculatedamage{str} Damage each turn)%
+	Acidic Body (inflict
+  \setcounter{track}{3}%
+  \addtocounter{track}{\value{str}}%
+  \calculatedamage{track} Damage each turn of grappling)%
 }
 
 \newcommand{\gelRegen}{%
@@ -775,19 +787,43 @@
 }
 
 \newcommand{\claws}{
-	claws (grapple inflicts standard damage)%
+	claws%
 }
 
 \newcommand{\flight}{%
-	Flight%
+	Flight %
+  \ifnum\value{str}>\value{spd}%
+    (can glide down gently, but cannot fly)
+  \else%
+    \ifnum\value{str}=\value{spd}%
+      (can fly after long run)%
+    \else%
+      \ignorespaces(can fly at x8 normal movement)%
+    \fi%
+  \fi%
+}
+
+\newcommand{\stench}{%
+	Stench (breathing in demands Str + Wyldcrafting check, \gls{tn}%
+  \setcounter{track}{10}%
+  \addtocounter{track}{-\value{spd}}%
+  \arabic{track}%
+  )
+}
+
+\newcommand{\crazyGas}{%
+  Gas (hallucinations and
+  \setcounter{track}{4}%
+  \addtocounter{track}{\value{str}}%
+  \arabic{track} \glspl{fatigue} per round)%
 }
 
 \newcommand{\quadraped}{%
-	Quadraped (double movement)%
+  Quadraped (double movement)%
 }
 
 \newcommand{\teeth}{%
-	Teeth (grapple inflicts standard damage)%
+	Teeth%
 }
 
 \newcommand{\venom}{%
