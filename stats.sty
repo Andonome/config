@@ -790,21 +790,29 @@
 	claws%
 }
 
+% To fly, creatures should have Speed
+% + Dexterity greater than Strength +
+% DR.
+
 \newcommand{\flight}{%
-	Flight %
-  \ifnum\value{str}>\value{spd}%
-    (can glide down gently, but cannot fly)
+  flight %
+  \setcounter{enc}{\value{dr}}%
+  \addtocounter{enc}{\value{str}}%
+  \setcounter{track}{\value{dex}}%
+  \addtocounter{track}{\value{spd}}%
+  \ifnum\value{enc}>\value{track}%
+    (can glide, but not fly)
   \else%
-    \ifnum\value{str}=\value{spd}%
-      (can fly after long run)%
+    \ifnum\value{enc}=\value{track}%
+      (moves at x8 speed, must run before takeoff)%
     \else%
-      \ignorespaces(can fly at x8 normal movement)%
+      \ignorespaces(moves at x8 speed)%
     \fi%
   \fi%
 }
 
 \newcommand{\stench}{%
-	Stench (breathing in demands Str + Wyldcrafting check, \gls{tn}%
+	stench (breathing in demands Str + Wyldcrafting check, \gls{tn}%
   \setcounter{track}{10}%
   \addtocounter{track}{-\value{spd}}%
   \arabic{track}%
