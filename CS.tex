@@ -87,7 +87,7 @@ circle label/.style = {
       \draw[dotted] (-1,1.7) circle (1);
      \path[circle label={Fatigue Points}] (-1,-2) arc (-90:360-90:1.1);
       \draw[dotted] (-1,-0.9) circle (1);
-     \path[circle label={MP = 3 x spheres + Intelligence}] (-1,-4.6) arc (-90:315-45:1.1);
+     \path[circle label={MP = 3 x spheres}] (-1,-4.6) arc (-90:315-45:1.1);
       \draw[dotted] (-1,-3.5) circle (1) node [align=left] {};
     \end{tikzpicture}
 
@@ -99,14 +99,36 @@ circle label/.style = {
     \renewcommand{\arraystretch}{1.4}
     \begin{tabularx}{\linewidth}{Xr@{}}
       \hiderowcolors
-      \skill{Brawl}
-      \skill{Combat}
-      \skill{Projectiles}
-      \emptySkill
-      \emptySkill
-      \emptySkill
-      \emptySkill
-      \emptySkill
+      \ifnum\value{Brawl}>0
+        \skill{Brawl}
+      \else
+        \emptySkill
+      \fi
+      \ifnum\value{Combat}>0
+        \skill{Combat}
+      \else
+        \emptySkill
+      \fi
+      \ifnum\value{Projectiles}>0
+        \skill{Projectiles}
+      \else
+        \emptySkill
+      \fi
+      \ifnum\value{Air}>0
+        \skill{Air}
+      \else
+        \emptySkill
+      \fi
+      \ifnum\value{Earth}>0
+        \skill{Earth}
+      \else
+        \emptySkill
+      \fi
+      \ifnum\value{Water}>0
+        \skill{Water}
+      \else
+        \emptySkill
+      \fi
     \end{tabularx}
   }
 
@@ -286,8 +308,8 @@ circle label/.style = {
   {name=xp,column=1,row=17,span=5,rowspan=2}{
 
   \setlength{\parskip}{0mm}
-    \iftoggle{examplecharacter}{ 50 }{ }
     \small Total:
+    \iftoggle{examplecharacter}{ 50 }{ }
     \tcblower
     \small Unspent:
   }

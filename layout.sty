@@ -1017,10 +1017,10 @@ Roll & Result \\
       \ifnum\value{track}=0%
         \raisebox{2pt}{\statDot[\footnotesize]}%
       \else%
-        \ifnum\value{track}>\value{#2}%
-          {\Large\XBox}%
-        \else%
+        \ifnum\value{#2}>\value{track}%
           {\Large\Square}%
+        \else%
+          {\Large\XBox}%
         \fi%
       \fi%
     \fi%
@@ -1035,12 +1035,13 @@ Roll & Result \\
   \addtocounter{statCircles}{-\value{#1}}
   #1 \dotfill &
   \Repeat{\value{#1}}{\statDot}\Repeat{\value{statCircles}}{\statCircle}\\
+  \stepcounter{track}
 }
 
 \newcommand\emptySkill{%
-  \dotfill & %
-  \Repeat{3}{\statCircle}%
-  \\%
+    \dotfill & %
+    \Repeat{3}{\statCircle}%
+    \\%
 }
 
 \newcommand{\sphereSkill}[2]{
