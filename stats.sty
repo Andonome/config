@@ -61,7 +61,7 @@
 \newcommand{\mods}{}
 
 % we calculate damage here because we can't display 1d6+6 damage - it has to turn into 2d6+2 damage.
-\newcommand{\calculatedamage}[1]{%
+\newcommand{\dmg}[1]{%
 		\setcounter{damagebonus}{\value{#1}}%
 		\setcounter{numberofdice}{1}%
 	\whileboolexpr{test {\ifnumcomp{\value{damagebonus}}{>}{3}}}{%
@@ -655,7 +655,7 @@
   \arabic{att}%
   \setcounter{enc}{\value{att}},%
   \addtocounter{damage}{\value{str}}
-  \mbox{Dam \calculatedamage{damage}, }%
+  \mbox{Dam \dmg{damage}, }%
     \ifnumcomp{\value{dr}}{>}{0}{\mbox{DR \arabic{dr}~\armourtype} 
       \ifdefstring{\armourtype}{C}{%
         \addtocounter{enc}{5} (\arabic{enc}!)%
@@ -765,7 +765,7 @@
   acidic spray
   \setcounter{track}{4}%
   \addtocounter{track}{\value{spd}}%
-  (\calculatedamage{track} Damage,
+  (\dmg{track} Damage,
   \setcounter{track}{\value{dex}}%
   \addtocounter{dex}{8}%
   \glsentrytext{tn} \arabic{track} to dodge)%
@@ -775,7 +775,7 @@
 	acidic body (inflict
   \setcounter{track}{3}%
   \addtocounter{track}{\value{str}}%
-  \calculatedamage{track} Damage each turn of grappling)%
+  \dmg{track} Damage each turn of grappling)%
 }
 
 \newcommand{\gelRegen}{%
