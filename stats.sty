@@ -305,14 +305,14 @@
   Adrenaline Surge (+1 Damage. once per \ifnum\value{knacks}<2 combat\else round, \arabic{knacks} uses per combat\fi)%
 }
 \newcommand{\berserker}{%
-  Berserker (+1 \gls{ap}. on round 2 of combat, +1 Damage. on round 3)%
+  Berserker (+1 \glsentrytext{ap}. on round 2 of combat, +1 Damage. on round 3)%
   \addtocounter{knacks}{1}%
 }
 \newcommand{\brawler}{Brawler\addtocounter{knacks}{1}%
 \iftoggle{examplecharacter}{ (+2 to unarmed attacks)}{}}
 \newcommand{\charge}{%
   Fast Charge
-  (+1 \gls{ap}, Attack, and Damage after charging 6 steps)%
+  (+1 \glsentrytext{ap}, Attack, and Damage after charging 6 steps)%
   \addtocounter{knacks}{1}%
 }
 \newcommand{\cuttingswing}{%
@@ -386,7 +386,7 @@
 \newcommand{\snapcaster}{%
   \addtocounter{knacks}{1}%
   Snap Caster
-  (spells use Wits and cost 1 less \gls{ap})
+  (spells use Wits and cost 1 less \glsentrytext{ap})
 }
 
 \newcommand{\fasthealer}{%
@@ -768,7 +768,7 @@
   (\calculatedamage{track} Damage,
   \setcounter{track}{\value{dex}}%
   \addtocounter{dex}{8}%
-  \gls{tn} \arabic{track} to dodge)%
+  \glsentrytext{tn} \arabic{track} to dodge)%
 }
 
 \newcommand{\acidBody}{%
@@ -812,7 +812,7 @@
 }
 
 \newcommand{\stench}{%
-	stench (breathing in demands Str + Wyldcrafting check, \gls{tn}%
+	stench (breathing in demands Str + Wyldcrafting check, \glsentrytext{tn}%
   \setcounter{track}{10}%
   \addtocounter{track}{-\value{spd}}%
   \arabic{track}%
