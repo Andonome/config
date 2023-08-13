@@ -14,6 +14,9 @@
 % The Weight Rating = ( Att + Dam ) - 3
 
 \newcounter{weaponBonus}
+\newcounter{covering}
+\newcounter{armourDR}
+
 
 \newcommand\weapon[4][]{%
   \setcounter{weaponBonus}{#3}%
@@ -61,6 +64,27 @@
     }%
 }
 
+\newcommand\armour[4][]{
+  #2% Name
+  \setcounter{armourDR}{#3}%
+  \setcounter{covering}{#4}%
+  \setcounter{weight}{#4}%
+  \roundUp{weight}%
+  \addtocounter{weight}{\value{armourDR}}%
+  \addtocounter{weight}{-4}%
+  #1% <- for adjustments.
+  \iftoggle{creatureBox}{%
+    \ifnumcomp{\value{dr}}{>}{\value{armourDR}}%
+    {%
+      \divide\value{armourDR} by 2%
+      \addtocounter{dr}{\value{armourDR}}%
+    }{%
+      \divide\value{dr} by 2%
+      \addtocounter{dr}{\value{armourDR}}%
+    }%
+  }{}%
+}
+
 \newcommand{\boulder}{\weapon[\addtocounter{weight}{3}]{Boulder}{-3}{5}}
 \newcommand{\chair}{\weapon[\addtocounter{weaponBonus}{-1}]{Chair}{2}{1}}
 \newcommand{\club}{\weapon[\addtocounter{damage}{-1}]{Club}{1}{1}}
@@ -98,6 +122,9 @@
 
 % ARMOUR
 
+
+%%%%%%%%% Old Armour, Delete Later
+
 %% For perfect armour, stick \perfect Armour in the additional notes category of a \person (#9).
 
 \newcommand{\perfectArmour}{\gdef\armourtype{(Perfect)}}
@@ -108,10 +135,8 @@
 	{\divide\value{dr} by 2 \addtocounter{dr}{2}}%
 }
 
-\newcommand{\partialleather}{partial leather armour%
-	\ifnumcomp{\value{dr}}{>}{3}%
-	{\addtocounter{dr}{2}}%
-	{\divide\value{dr} by 2 \addtocounter{dr}{3}}%
+\newcommand{\partialleather}{%
+  \armour{partial leather}{3}{2}%
 }
 
 \newcommand{\completeleather}{full leather armour\gdef\armourtype{C}%
