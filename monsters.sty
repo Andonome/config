@@ -269,19 +269,22 @@
 \newcommand{\dwarvenrunemaster}[1][\npc{\Dw\M}{Dwarven Runemaster}]{
 	#1
 	\randomtwo
+	\randomtwoD
 	\addtocounter{enc}{1}
 	\randomthree
+    \addtocounter{age}{-2}
 	\randomthreeB
 	\randomfour
 	\person{0}% STRENGTH
 	{1}% DEXTERITY
 	{0}% SPEED
-	{{\ifodd\value{page}2\else1\fi}% INTELLIGENCE
-	{\ifodd\value{chapter}1\else0\fi}% WITS
+	{{\value{r2d}}% INTELLIGENCE
+	{\value{age}}% WITS
 	{0}}%  CHARISMA
 	{0}% DR
 	{1}% COMBAT
 	{Academics~\arabic{enc}, Caving \arabic{r2}, Crafts~1, Tactics~2
+    \knacks{\ritualcaster}%
     \Path{
       Fate~\arabic{enc}, \ifodd\value{r2d}Fire\else Air\fi ~\arabic{r3b}
     }
