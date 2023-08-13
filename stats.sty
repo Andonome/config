@@ -288,7 +288,6 @@
 \newcommand{\saurecanta}{\addtocounter{mp}{3}Saurecanta}
 
 \newcommand{\lockedmana}[1]{\setcounter{mpLocked}{#1}}
-\newcommand{\armourtype}{N}
 
 \newcommand{\knacks}[1]{ \\
 	\ent{Knacks:} & #1 
@@ -450,9 +449,6 @@
 
   \clean
 
-  \renewcommand{\armourtype}{P}
-  \gdef\armourtype{P}
-
   \iftoggle{verbose}{
     \begin{tcolorbox}[
       title={\name},
@@ -519,11 +515,9 @@
 	\renewcommand{\skills}{#7}
 	\renewcommand{\abilities}{#8}
 	\renewcommand{\mods}{#9}
+  \setcounter{covering}{4}
 
 	\clean
-
-  \renewcommand{\armourtype}{C}
-  \gdef\armourtype{C}
 
   \iftoggle{verbose}{
     \begin{tcolorbox}[title={\name},
@@ -577,7 +571,6 @@
 	\setcounter{heft}{1}
 	\setcounter{damage}{0}
 	\setcounter{knacks}{0}
-	\renewcommand{\armourtype}{N}
 	\setcounter{mp}{0}
 	\setcounter{mpLocked}{0}
 	\setcounter{xpbonus}{0}
@@ -668,13 +661,12 @@
   \setcounter{enc}{\value{att}},%
   \addtocounter{damage}{\value{str}}
   \mbox{Dam \dmg{damage}, }%
-    \ifnumcomp{\value{dr}}{>}{0}{\mbox{DR \arabic{dr}~\armourtype} 
-      \ifdefstring{\armourtype}{C}{%
-        \addtocounter{enc}{5} (\arabic{enc}!)%
-      }{%
-        \ifdefstring{\armourtype}{P}{\addtocounter{enc}{3} (\arabic{enc}!)}{}%
-      }%
-    \ignorespaces,}{}%
+    \ifnumcomp{\value{dr}}{>}{0}{%
+      \setcounter{enc}{\value{att}}%
+      \addtocounter{enc}{\value{covering}}%
+      \stepcounter{enc}%
+      \mbox{DR \arabic{dr} (\arabic{enc}!)}%
+    }{}%
   \addtocounter{hp}{6}%
   \addtocounter{damage}{4}%
   \ifnum\value{mp}>0%

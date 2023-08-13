@@ -127,7 +127,7 @@
 
 %% For perfect armour, stick \perfect Armour in the additional notes category of a \person (#9).
 
-\newcommand{\perfectArmour}{\gdef\armourtype{(Perfect)}}
+\newcommand{\perfectArmour}{\setcounter{covering}{8}}
 
 \newcommand{\partialelvish}{partial leather armour%
 	\ifnumcomp{\value{dr}}{>}{2}%
@@ -139,32 +139,22 @@
   \armour{partial leather}{3}{2}%
 }
 
-\newcommand{\completeleather}{full leather armour\gdef\armourtype{C}%
-	\ifnumcomp{\value{dr}}{>}{3}%
-	{\addtocounter{dr}{2}}%
-	{\divide\value{dr} by 2 \addtocounter{dr}{3}}%
+\newcommand{\completeleather}{
+  \armour{complete leather}{3}{4}%
 }
 
-\newcommand{\partialchain}{partial chainmail%
-	\ifnumcomp{\value{dr}}{>}{4}%
-	{\addtocounter{dr}{2}}%
-	{\divide\value{dr} by 2 \addtocounter{dr}{4}}%
+\newcommand{\partialchain}{
+  \armour{partial chain}{4}{2}%
 }
 
-\newcommand{\completechain}{complete chain armour\gdef\armourtype{C}%
-	\ifnumcomp{\value{dr}}{>}{4}%
-	{\addtocounter{dr}{2}}%
-	{\divide\value{dr} by 2 \addtocounter{dr}{4}}%
+\newcommand{\completechain}{
+  \armour{complete chain}{4}{4}%
 }
 
-\newcommand{\partialplate}{partial plate armour%
-	\ifnumcomp{\value{dr}}{>}{5}%
-	{\addtocounter{dr}{3}}%
-	{\divide\value{dr} by 2 \addtocounter{dr}{5}}%
+\newcommand{\partialplate}{
+  \armour{partial plate}{5}{2}%
 }
 
-\newcommand{\completeplate}{complete plate armour\gdef\armourtype{C}%
-	\ifnumcomp{\value{dr}}{>}{5}%
-	{\addtocounter{dr}{3}}%
-	{\divide\value{dr} by 2 \addtocounter{dr}{5}}%
+\newcommand{\completeplate}{
+  \armour{complete plate}{5}{4}%
 }
