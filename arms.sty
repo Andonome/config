@@ -84,6 +84,10 @@
   }{}%
 }
 
+\newcommand\showArmour[1]{%
+  #1 & \arabic{armourDR} & \arabic{covering} &  \arabic{weight}
+}
+
 \newcommand{\boulder}{\weapon[\addtocounter{weight}{3}]{Boulder}{-3}{5}}
 \newcommand{\chair}{\weapon[\addtocounter{weaponBonus}{-1}]{Chair}{2}{1}}
 \newcommand{\club}{\weapon[\addtocounter{damage}{-1}]{Club}{1}{1}}
