@@ -36,6 +36,14 @@
     #2%
 }
 
+%% Use this to show weapons in tables.
+%% Remember to close it with '\\' after.
+%% It remains unterminated so you can add Costs.
+
+\newcommand\showWeapon[1]{%
+  #1 & \arabic{weaponBonus} & \arabic{damage} & \arabic{heft} & \arabic{weight}
+}
+
 % Shields work much like weapons, except that their Bonus is high, their initiative cost is low, but their attack is poor.
 
 \newcommand\shield[3][]{
