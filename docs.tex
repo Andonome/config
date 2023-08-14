@@ -209,13 +209,17 @@ We can even add commands, such as \verb"\ref{basement}" to get some number assoc
 
 \begin{verbatim}
   \mapPic{t}{../config/images/l1}%
-    {8/8/Toptown, 2/75/Leftown,8/6/2}
+    {8/8/Toptown,
+    2/75/Leftown,8/6/2}
 \end{verbatim}
 
 An optional argument allows default size changes for the words, and as usual words can change their sizes individually.
 
 \begin{verbatim}
-  \mapPic[\small]{t}{../config/images/l1}{8/8/\large Toptown, 2/75/Leftown,8/6/\ref{basement}}
+  \mapPic[\small]{t}{../config/images/l1}%
+    {8/8/\large Toptown,
+    2/75/Leftown,
+    8/6/\ref{basement}}
 \end{verbatim}
 
 \subsection{Symbols}
