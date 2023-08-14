@@ -1045,12 +1045,6 @@ Roll & Result \\
     \\%
 }
 
-\newcommand{\sphereSkill}[2]{
-  \setcounter{statCircles}{5}
-  \addtocounter{statCircles}{-#2}
-  #1 \dotfill \Repeat{#2}{\statDot}\Repeat{\value{statCircles}}{\statCircle}
-}
-
 \newcommand\hint[1]{%
   \iftoggle{examplecharacter}{}%
   {\small\textcolor{gray}{(#1)}}
