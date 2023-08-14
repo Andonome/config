@@ -159,10 +159,10 @@ circle label/.style = {
 
     \begin{tabularx}{\linewidth}{p{.4\textwidth}YYY}
       \hiderowcolors
-      \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{Type} & \textbf{Weight} \\
+      \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{Covering} & \textbf{Weight} \\
       \iftoggle{examplecharacter}{
         \hline
-        \characterArmour
+        \characterArmour & \arabic{armourDR} & \arabic{covering} & \arabic{weight} \\
       }{}
     \end{tabularx}
 
@@ -184,7 +184,7 @@ circle label/.style = {
       \\
       \\
       \\
-      \iftoggle{examplecharacter}{\arabic{dr}}{\underline{\hspace{2em}}}
+      \iftoggle{examplecharacter}{\arabic{dr}}{\underline{\hspace{2em}/\hspace{2em}}}
       &
       \iftoggle{examplecharacter}%
       {%
