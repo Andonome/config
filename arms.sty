@@ -31,18 +31,9 @@
   \roundUp{heft}% then the AP cost by 2.
   \addtocounter{weight}{-2}% And reduce the weight by 2.
   \fi%
-  \ignorespaces #1%
-  \iftoggle{creatureBox}{%
+  #1%
     \addtocounter{att}{\value{weaponBonus}}%
     #2%
-  }{%
-    #2 &%
-    \ifnum\value{weaponBonus}>0 +\fi%
-    \arabic{weaponBonus} &%
-    \ifnum\value{damage}>0 +\fi\arabic{damage}%
-    & \arabic{heft} &%
-    \arabic{weight}%
-  }%
 }
 
 % Shields work much like weapons, except that their Bonus is high, their initiative cost is low, but their attack is poor.

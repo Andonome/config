@@ -282,12 +282,14 @@ This section is non-verbose, so only basic stats are shown.
 \end{multicols}
 
 
-  \setcounter{str}{0}
-  \setcounter{dex}{-1}
-  \setcounter{spd}{0}
-  \setcounter{int}{1}
-  \setcounter{wts}{0}
-  \setcounter{cha}{1}
+%%%%% Test Character Sheet
+
+\setcounter{str}{0}
+\setcounter{dex}{-1}
+\setcounter{spd}{0}
+\setcounter{int}{1}
+\setcounter{wts}{0}
+\setcounter{cha}{1}
 
 \renewcommand\concept{Loner}
 \renewcommand\race{Human}
@@ -316,15 +318,13 @@ This section is non-verbose, so only basic stats are shown.
 
 \setcounter{fp}{5}
 
-\renewcommand\characterWeapons{}
+\renewcommand\characterWeapon{\shortsword}
 \renewcommand\characterArmour{}
 \renewcommand\characterEquipment{Bag of flour, bag of chalk, dagger, unopened letter}
 \setcounter{gold}{0}
 
 \settoggle{examplecharacter}{true}
-\settoggle{bestiarychapter}{true}
 \input{config/CS.tex}
-\settoggle{bestiarychapter}{false}
 \settoggle{examplecharacter}{false}
 \renewcommand\csComments{}
 \clearpage

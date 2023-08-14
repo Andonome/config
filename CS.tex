@@ -147,11 +147,11 @@ circle label/.style = {
       
     \iftoggle{examplecharacter}{
       \hline
-        \ifdefempty{\characterWeapons}{
+        \ifdefempty{\characterWeapon}{
           \\
           \\
         }{
-          \characterWeapons 
+          \characterWeapon & \arabic{weaponBonus} & \arabic{damage} & \arabic{heft} & \arabic{weight} \\
         }
     }{}
     \end{tabularx}
