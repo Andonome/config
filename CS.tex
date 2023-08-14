@@ -147,9 +147,12 @@ circle label/.style = {
       
     \iftoggle{examplecharacter}{
       \hline
-      \characterWeapons
-      \\
-      \\
+        \ifdefempty{\characterWeapons}{
+          \\
+          \\
+        }{
+          \characterWeapons 
+        }
     }{}
     \end{tabularx}
 
@@ -162,7 +165,9 @@ circle label/.style = {
       \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{Covering} & \textbf{Weight} \\
       \iftoggle{examplecharacter}{
         \hline
-        \characterArmour & \arabic{armourDR} & \arabic{covering} & \arabic{weight} \\
+        \ifdefempty{\characterArmour}{}{
+          \characterArmour & \arabic{armourDR} & \arabic{covering} & \arabic{weight} \\
+        }
       }{}
     \end{tabularx}
 
