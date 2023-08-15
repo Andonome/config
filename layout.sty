@@ -322,6 +322,24 @@ bookmarks=true]%
   \label{#2}
 }
 
+\newcommand\dicef[1]{%
+  \setcounter{track}{#1}%
+  \ifnum\value{track}>0%
+    \whileboolexpr{%
+      test {\ifnumcomp{\value{track}}{>}{6}}%
+      }{%
+        \addtocounter{track}{-5}%
+        \epsdice{5}%
+      }%
+    \epsdice{\value{track}}
+  \else%
+    \arabic{track}%
+  \fi%
+}
+
+\newenvironment{dlist}%
+  {\begin{list}{\Large\dicef{\value{list}}}{\usecounter{list}}}%
+  {\end{list}}%
 
 \newcounter{blingNo}
 \setcounter{blingNo}{0}
