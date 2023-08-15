@@ -322,18 +322,20 @@ bookmarks=true]%
   \label{#2}
 }
 
-\newcommand\dicef[1]{%
-  \setcounter{track}{#1}%
-  \ifnum\value{track}>0%
+\newcounter{diceNo}
+\newcommand\dicef[2][]{%
+  #1
+  \setcounter{diceNo}{#2}%
+  \ifnum\value{diceNo}>0%
     \whileboolexpr{%
-      test {\ifnumcomp{\value{track}}{>}{6}}%
+      test {\ifnumcomp{\value{diceNo}}{>}{6}}%
       }{%
-        \addtocounter{track}{-5}%
+        \addtocounter{diceNo}{-5}%
         \epsdice{5}%
       }%
-    \epsdice{\value{track}}
+    \epsdice{\value{diceNo}}
   \else%
-    \arabic{track}%
+    \arabic{diceNo}%
   \fi%
 }
 
