@@ -322,6 +322,15 @@ bookmarks=true]%
   \label{#2}
 }
 
+%%% \tn shows a tie number.
+
+\newcommand\tn[1]{%
+  \gls{tn}~#1%
+}
+
+%%% The dice-face (\dicef) command shows an actual die, or multiple
+%%% dice, equal to a number.  The optional argument lets it show
+%%% as \large or similar.
 \newcounter{diceNo}
 \newcommand\dicef[2][]{%
   #1
