@@ -835,11 +835,19 @@
 }
 
 \newcommand{\teeth}{%
-	teeth%
+  teeth%
+}
+
+\newcommand{\tentacles}{%
+  \addtocounter{track}{3}%
+  \divide\value{track} by 2%
+  tentacles \ifnum\value{track}>2%
+    (grapple up to \arabic{track} opponents without becoming prone)%
+  \fi%
 }
 
 \newcommand{\venom}{%
-	venom (grappling inflicts 1D6 Fatigue)%
+  venom (grappling inflicts 1D6 Fatigue)%
 }
 
 \newcommand{\web}{%
