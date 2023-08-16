@@ -339,13 +339,13 @@ bookmarks=true]%
   \fi%
 }
 
+\newcounter{dlist}
 \newenvironment{dlist}%
-  {\begin{list}{\Large\dicef{\value{list}}}{\usecounter{list}}}%
+  {\begin{list}{\Large\dicef{\value{dlist}}}{\usecounter{dlist}}}%
   {\end{list}}%
 
 \newcounter{blingNo}
 \setcounter{blingNo}{0}
-
 
 % Define the 'ornamentedbox' environment
 
