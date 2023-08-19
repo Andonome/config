@@ -798,7 +798,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {\arabic{r3}}}% CHARISMA
 {0}% DR
 {\arabic{age}}% COMBAT
-{Academics~\ifodd\thepage\arabic{r2}\else\arabic{r3b}\fi, Empathy~\arabic{enc}, Deceit~\ifodd\thepage 2\else 1\fi, Performance~\ifodd\thechapter 2\else 1\fi%
+{Academics~\ifodd\value{r3b}\arabic{r2}\else\arabic{r3b}\fi, Empathy~\arabic{enc}, Deceit~\ifodd\thepage 2\else 1\fi, Performance~\ifodd\thechapter 2\else 1\fi%
 \ifnum\value{noAppearing}=1
 	\ifnum\value{r3}>2
     \Path{
