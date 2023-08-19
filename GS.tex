@@ -31,19 +31,6 @@
 
     Day:
 
-    \iftoggle{aif}{
-      \mbox{Nura~Rating:~}
-      \hspace{-.5em}\setcounter{enc}{1}%
-      \begin{minipage}{.55\textwidth}
-      \normalsize
-      \begin{tabularx}{\textwidth}{X@{}X@{}X@{}X@{}X@{}X@{}X@{}X@{}X@{}X@{}X}
-      \hiderowcolors
-        \arabic{enc}\Repeat{10}{&\stepcounter{enc}\ifodd\value{enc}\small\arabic{enc}\else{\tiny\textbullet}\fi}\\[0em]
-        \small\Square\Repeat{10}{ & \small\Square} \\[0em]
-
-      \end{tabularx}
-      \end{minipage}
-    }{}
 }{
     }
 
