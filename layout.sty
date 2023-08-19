@@ -333,7 +333,7 @@ bookmarks=true]%
 %%% as \large or similar.
 \newcounter{diceNo}
 \newcommand\dicef[2][]{%
-  #1
+  #1%
   \setcounter{diceNo}{#2}%
   \ifnum\value{diceNo}>0%
     \whileboolexpr{%
@@ -342,7 +342,7 @@ bookmarks=true]%
         \addtocounter{diceNo}{-5}%
         \epsdice{5}%
       }%
-    \epsdice{\value{diceNo}}
+    \epsdice{\value{diceNo}}%
   \else%
     \arabic{diceNo}%
   \fi%
