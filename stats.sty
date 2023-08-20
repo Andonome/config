@@ -62,23 +62,26 @@
 
 % we calculate damage here because we can't display 1d6+6 damage - it has to turn into 2d6+2 damage.
 \newcommand{\dmg}[1]{%
-		\setcounter{damagebonus}{\value{#1}}%
-		\setcounter{numberofdice}{1}%
-	\whileboolexpr{%
-    test {\ifnumcomp{\value{damagebonus}}{>}{3}}%
-  }{%
-		\addtocounter{damagebonus}{-4}%
-    \addtocounter{numberofdice}{1}%
-	}%
-	{\arabic{numberofdice}D6%
-	\ifnumcomp{\value{damagebonus}}{>}{0}%
-		{+\arabic{damagebonus}}%
-		{%
-		\ifnumcomp{\value{damagebonus}}{<}{0}{%
-      \arabic{damagebonus}%
-    }{}%
-		}%
-	}%
+  \ifnum\value{#1}<1 0\else%
+    \setcounter{damagebonus}{\value{#1}}%
+    \setcounter{numberofdice}{1}%
+    \addtocounter{damagebonus}{-4}%
+    \whileboolexpr{%
+      test {\ifnumcomp{\value{damagebonus}}{>}{3}}%
+    }{%
+      \addtocounter{damagebonus}{-4}%
+      \addtocounter{numberofdice}{1}%
+    }%
+    {\arabic{numberofdice}D6%
+    \ifnumcomp{\value{damagebonus}}{>}{0}%
+      {+\arabic{damagebonus}}%
+      {%
+      \ifnumcomp{\value{damagebonus}}{<}{0}{%
+        \arabic{damagebonus}%
+      }{}%
+      }%
+    }%
+  \fi%
 }
 
 \newcommand\showBoxes{
@@ -255,6 +258,7 @@
 
 \newcounter{initiative}
 \newcounter{weight}
+\newcounter{ap}
 \newcounter{damage}
 \newcounter{shieldBonus}
 \newcounter{shieldWeight}
@@ -573,6 +577,7 @@
 	\setcounter{fp}{0}
 	\setcounter{sp}{0}
 	\setcounter{heft}{1}
+	\setcounter{weight}{-5}
 	\setcounter{damage}{0}
 	\setcounter{knacks}{0}
 	\setcounter{mp}{0}
@@ -646,7 +651,6 @@
   \addtocounter{att}{7}
 }
 \addtocounter{att}{\value{dex}}
-\addtocounter{spd}{3}
 \ifnum\value{weight}>\value{str}% now to compute encumbrance
   \addtocounter{str}{5}% we can't have negative values affecting results
   \addtocounter{weight}{5}
@@ -657,13 +661,16 @@
 \fi
 \begin{center}
   \iftoggle{verbose}{\normalsize}{\large}%
-  \scshape AP \arabic{spd}%
+  \setcounter{ap}{\value{spd}}
+  \addtocounter{ap}{3}
+  \scshape AP \ifnum\value{ap}<1 $\frac{1}{2}$ \else \arabic{ap}\fi%
   \ifnumcomp{\value{heft}}{>}{1}{ (AP Cost: \arabic{heft})}{},
   Att %
   \iftoggle{allyCharacter}{$2D6$\ifnum\value{att}>-1 +\fi}{}%
   \arabic{att}%
   \setcounter{enc}{\value{att}},%
   \addtocounter{damage}{\value{str}}
+  \addtocounter{damage}{4}%
   \mbox{Dam \dmg{damage}, }%
     \ifnumcomp{\value{dr}}{>}{0}{%
       \setcounter{enc}{\value{att}}%
@@ -672,7 +679,6 @@
       \mbox{DR \arabic{dr} (\arabic{enc}!)}, %
     }{}%
   \addtocounter{hp}{6}%
-  \addtocounter{damage}{4}%
   \ifnum\value{mp}>0%
     \addtocounter{mp}{\value{int}}%
     \setcounter{mpFree}{\value{mp}}
@@ -737,7 +743,7 @@
     \setcounter{xp}{\value{attackXPtotal}}%
     \addtocounter{xp}{\value{defenceXPtotal}}%
 
-  \iftoggle{debug}{str: \arabic{str}, dex: \arabic{dex}, spd: \arabic{spd}, att: \arabic{att}, damage: \arabic{damage}, XP Bonus: \arabic{xpbonus}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}, mp: \arabic{mp} Grand Total: \arabic{xp}}{\iftoggle{verbose}{\hrulefill}}
+  \iftoggle{debug}{str: \arabic{str}, dex: \arabic{dex}, spd: \arabic{spd}, att: \arabic{att}, damage: \arabic{damage}, weight: \arabic{weight}, XP Bonus: \arabic{xpbonus}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}, mp: \arabic{mp} Grand Total: \arabic{xp}}{\iftoggle{verbose}{\hrulefill}}
     
   \iftoggle{examplecharacter}%
   {}%
@@ -775,7 +781,7 @@
   \addtocounter{track}{\value{spd}}%
   (\dmg{track} Damage,
   \setcounter{track}{\value{dex}}%
-  \addtocounter{dex}{8}%
+  \addtocounter{track}{8}%
   \glsentrytext{tn} \arabic{track} to dodge)%
 }
 

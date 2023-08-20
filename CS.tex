@@ -204,13 +204,16 @@ circle label/.style = {
       {%
       \addtocounter{Combat}{\value{dex}}%
       \addtocounter{Combat}{\value{weaponBonus}}%
-      \ifnum\value{Combat}>-1+\else-\fi%
-      \arabic{Combat}
+      \ifnum\value{Combat}=0\else%
+        \ifnum\value{Combat}>0+\else-\fi%
+        \arabic{Combat}%
+      \fi%
       }%
       {\underline{\hspace{2em}}} &
       \iftoggle{examplecharacter}% Damage
-      {
-        \addtocounter{damage}{\value{str}}
+      {%
+        \addtocounter{damage}{\value{str}}%
+        \addtocounter{damage}{4}%
         \dmg{damage}%
       }%
       {
