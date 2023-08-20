@@ -823,16 +823,61 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 % 4 = Skill
 % 5 = Description
 
+
 \newcommand{\spell}[5]{
   \setcounter{spelllevel}{1}
   \foreach \s in {#3}{
     \stepcounter{spelllevel}
   }
   \subsubsection[\textbf{#1}: #5. (\textit{#4})]{#1}
-  \index[spells]{\textbf{#1}: #5. (Cost: \arabic{spelllevel}, Spheres: #2, Skill: #4)}
 
-  {\small\it Spheres: #2, \glsentrytext{mp} Cost: \arabic{spelllevel}, Enhancements: #3, \underline{Skill: #4}}
+  Spheres: #2,
+  Enhancements: #3,
+  \glsentrytext{mp} Cost: \arabic{spelllevel}, 
+  \showRange,
+  \underline{Skill: #4}
   \vspace{.5em}\afterparnoindent
+  \index[spells]{\textbf{#1}: #5. (Cost: \arabic{spelllevel}, Spheres: #2, Skill: #4, \showRange)}
+  \settoggle{ranged}{false}%
+}
+
+\newcounter{spellRange}
+
+\newcommand\showRange{%
+  Range:
+  \iftoggle{ranged}%
+    {%
+      \ifcase\value{spelllevel}\relax%
+      Error%
+      \or%
+      Error%
+      \or%
+        throwing distance%
+      \or%
+        shouting distance%
+      \or%
+        horizon%
+      \else%
+        line of sight%
+      \fi%
+    }%
+    {%
+      \setcounter{track}{6}%
+      \addtocounter{track}{-\value{spelllevel}}%
+      \ifnum\value{track}<1%
+        touch%
+      \else%
+        \arabic{track} steps%
+      \fi%
+    }%
+}
+
+\newtoggle{ranged}
+\settoggle{ranged}{false}
+
+\newcommand\ranged{%
+  Ranged%
+  \settoggle{ranged}{true}%
 }
 
 \newcommand{\magicitem}[7]{%

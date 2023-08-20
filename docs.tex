@@ -3,6 +3,8 @@
 
 \date{\today}
 
+\makeindex[name=spells,title={Spell Summaries},columns=2]
+
 \begin{document}
 
 \chapter{How to Make Monsters}
@@ -138,12 +140,29 @@ And you can list dice, with results, with the `\texttt{dlist}' environment.
 \subsubsection{Spells}
 
 Spells automatically calculate everything they can.
+They also compile an optional index (this requires one spell index command).
+
+\begin{verbatim}
+\makeindex[name=spells,
+title={Spell Summaries},columns=2]
+
 
 \spell{Quake}% Name
   {Earth}% Spheres
-  {Large, Twisted, Ranged}% Enhancements
+  {\ranged, Twisted}% Enhancements
   {Caving}% Skill
-  {GrrrrrrrrglllllllllllbrrrrrrrrrrrrrrBBBBBBB}% Description
+  {Ground shakes}% Description
+
+\printindex[spells]
+\end{verbatim}
+
+After inputting that, you can get the spell, and the `printindex' command will create a spell-list by using a special index, just for spells.
+
+\spell{Quake}% Name
+  {Earth}% Spheres
+  {\ranged, Twisted}% Enhancements
+  {Caving}% Skill
+  {Ground shakes}% Description
 
 
 \subsubsection{Magical Items}
