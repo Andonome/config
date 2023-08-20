@@ -817,6 +817,14 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
 
+%%%%% Magic %%%%%
+
+\newcommand\mFate{Fate\settoggle{insubstantial}{true}}
+\newcommand\mEarth{Earth}
+\newcommand\mAir{Air\settoggle{insubstantial}{true}}
+\newcommand\mFire{Fire}
+\newcommand\mWater{Water}
+
 % 1 = Name
 % 2 = Spheres
 % 3 = Action
@@ -827,6 +835,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 
 \newcommand{\spell}[6]{
   \settoggle{distant}{false}%
+  \settoggle{insubstantial}{false}
   \setcounter{spelllevel}{1}%
   \foreach \s in {#4}{%
     \stepcounter{spelllevel}%
@@ -880,13 +889,16 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 
 \newcommand\showArea[1]{%
   \setcounter{spellArea}{\value{spelllevel}}%
-  \multiply\value{spellArea} by \value{spellArea}%
-  \ifcsstrequal{#1}{Air}{%
-    \multiply\value{spellArea} by \value{spellArea}%
+  \multiply\value{spellArea} by \value{spelllevel}%
+  \iftoggle{insubstantial}{%
+    \multiply\value{spellArea} by \value{spelllevel}%
+    \addtocounter{spellArea}{0}%
   }{}%
   Targets: \arabic{spellArea}, %
 }
 
+\newtoggle{insubstantial}
+  \settoggle{insubstantial}{false}
 \newtoggle{distant}
   \settoggle{distant}{false}
 \newtoggle{duplicated}
