@@ -836,41 +836,42 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   #3
   #4
   #2,
-  \glsentrytext{mp} Cost: \arabic{spelllevel},
-  \showRange,
+  \glsentrytext{mp} Cost:~\arabic{spelllevel},
+  \setRange%
+  Range:~\spellRange,
   \iftoggle{duplicated}{\showArea{#2}}{}%
-  \underline{Skill: #5}
+  \underline{Skill:~#5}
   \vspace{.5em}\afterparnoindent
-  \index[spells]{\textbf{#1}: #6. (Cost: \arabic{spelllevel}, Spheres: #2, Skill: #5, \showRange)}
+  \index[spells]{\textbf{#1}: #6. (Cost:~\arabic{spelllevel}, Spheres:~#2, Skill:~#5, \mbox{Range: \spellRange})}
 }
 
 \newcounter{spellRange}
+\newcommand\spellRange{}
 
-\newcommand\showRange{%
-  Range:
+\newcommand\setRange{%
   \iftoggle{distant}%
     {%
       \ifcase\value{spelllevel}\relax%
-      Error%
+      \renewcommand\spellRange{Error}%
       \or%
-      Error%
+      \renewcommand\spellRange{Error}%
       \or%
-        throwing distance%
+        \renewcommand\spellRange{throwing distance}%
       \or%
-        shouting distance%
+        \renewcommand\spellRange{shouting distance}%
       \or%
-        horizon%
+        \renewcommand\spellRange{horizon}%
       \else%
-        line of sight%
+        \renewcommand\spellRange{line of sight}%
       \fi%
     }%
     {%
       \setcounter{track}{6}%
       \addtocounter{track}{-\value{spelllevel}}%
       \ifnum\value{track}<1%
-        touch%
+        \renewcommand\spellRange{touch}%
       \else%
-        \arabic{track} steps%
+        \renewcommand\spellRange{\arabic{track} steps}%
       \fi%
     }%
 }
