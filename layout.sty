@@ -819,33 +819,36 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 
 % 1 = Name
 % 2 = Spheres
-% 3 = Enhancements
-% 4 = Skill
-% 5 = Description
+% 3 = Action
+% 4 = Enhancements
+% 5 = Skill
+% 6 = Description
 
 
-\newcommand{\spell}[5]{
-  \setcounter{spelllevel}{1}
-  \foreach \s in {#3}{
-    \stepcounter{spelllevel}
-  }
-  \subsubsection[\textbf{#1}: #5. (\textit{#4})]{#1}
+\newcommand{\spell}[6]{
+  \settoggle{distant}{false}%
+  \setcounter{spelllevel}{1}%
+  \foreach \s in {#4}{%
+    \stepcounter{spelllevel}%
+  }%
+  \subsubsection[\textbf{#1}: #6. (\textit{#5})]{#1}%
 
-  Spheres: #2,
-  Enhancements: #3,
-  \glsentrytext{mp} Cost: \arabic{spelllevel}, 
+  #3
+  #4
+  #2,
+  \glsentrytext{mp} Cost: \arabic{spelllevel},
   \showRange,
-  \underline{Skill: #4}
+  \iftoggle{duplicated}{\showArea{#2}}{}%
+  \underline{Skill: #5}
   \vspace{.5em}\afterparnoindent
-  \index[spells]{\textbf{#1}: #5. (Cost: \arabic{spelllevel}, Spheres: #2, Skill: #4, \showRange)}
-  \settoggle{ranged}{false}%
+  \index[spells]{\textbf{#1}: #6. (Cost: \arabic{spelllevel}, Spheres: #2, Skill: #5, \showRange)}
 }
 
 \newcounter{spellRange}
 
 \newcommand\showRange{%
   Range:
-  \iftoggle{ranged}%
+  \iftoggle{distant}%
     {%
       \ifcase\value{spelllevel}\relax%
       Error%
@@ -872,12 +875,34 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
     }%
 }
 
-\newtoggle{ranged}
-\settoggle{ranged}{false}
+\newcounter{spellArea}
 
-\newcommand\ranged{%
-  Ranged%
-  \settoggle{ranged}{true}%
+\newcommand\showArea[1]{%
+  \setcounter{spellArea}{\value{spelllevel}}%
+  \multiply\value{spellArea} by \value{spellArea}%
+  \ifcsstrequal{#1}{Air}{%
+    \multiply\value{spellArea} by \value{spellArea}%
+  }{}%
+  Targets: \arabic{spellArea}, %
+}
+
+\newtoggle{distant}
+  \settoggle{distant}{false}
+\newtoggle{duplicated}
+  \settoggle{duplicated}{false}
+
+\newcommand\detailed{Detailed}
+
+\newcommand\duplicated{%
+  \settoggle{duplicated}{true}%
+  Duplicated%
+}
+
+\newcommand\divergent{Divergent}
+
+\newcommand\distant{%
+  \settoggle{distant}{true}%
+  Distant%
 }
 
 \newcommand{\magicitem}[7]{%
