@@ -64,17 +64,19 @@
 \newcommand{\dmg}[1]{%
 		\setcounter{damagebonus}{\value{#1}}%
 		\setcounter{numberofdice}{1}%
-	\whileboolexpr{test {\ifnumcomp{\value{damagebonus}}{>}{3}}}{%
-		\addtocounter{damagebonus}%
-		{-4}\addtocounter{numberofdice}{1}%
+	\whileboolexpr{%
+    test {\ifnumcomp{\value{damagebonus}}{>}{3}}%
+  }{%
+		\addtocounter{damagebonus}{-4}%
+    \addtocounter{numberofdice}{1}%
 	}%
 	{\arabic{numberofdice}D6%
 	\ifnumcomp{\value{damagebonus}}{>}{0}%
 		{+\arabic{damagebonus}}%
 		{%
 		\ifnumcomp{\value{damagebonus}}{<}{0}{%
-		\arabic{damagebonus}}%
-		{}%
+      \arabic{damagebonus}%
+    }{}%
 		}%
 	}%
 }

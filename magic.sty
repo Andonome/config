@@ -1,0 +1,139 @@
+% 
+%  __  __             _      
+% |  \/  | __ _  __ _(_) ___ 
+% | |\/| |/ _` |/ _` | |/ __|
+% | |  | | (_| | (_| | | (__ 
+% |_|  |_|\__,_|\__, |_|\___|
+%               |___/        
+
+\newcommand\mFate{Fate\settoggle{insubstantial}{true}}
+\newcommand\mEarth{Earth}
+\newcommand\mAir{Air\settoggle{insubstantial}{true}}
+\newcommand\mFire{Fire}
+\newcommand\mWater{Water}
+
+% 1 = Name
+% 2 = Spheres
+% 3 = Action
+% 4 = Enhancements
+% 5 = Skill
+% 6 = Description
+
+
+\newcommand{\spell}[6]{
+  \settoggle{distant}{false}%
+  \settoggle{insubstantial}{false}
+  \setcounter{spelllevel}{1}%
+  \foreach \s in {#4}{%
+    \stepcounter{spelllevel}%
+  }%
+  \subsubsection[\textbf{#1}: #6. (\textit{#5})]{#1}%
+
+  (#3
+  #4
+  #2),
+  \glsentrytext{mp} Cost:~\arabic{spelllevel},
+  \setRange%
+  Range:~\spellRange,
+  \iftoggle{duplicated}{%
+    \setArea%
+    Targets:~\spellArea, %
+  }{}%
+  \underline{Skill:~#5}
+  \vspace{.5em}\afterparnoindent
+  \index[spells]{\textbf{#1}: \iftoggle{duplicated}{\spellArea~targets}{Have target} #6. (Cost:~\arabic{spelllevel}, Spheres:~#2, Skill:~#5, \mbox{Range: \spellRange})}
+}
+
+\newcommand\spellRange{}
+\newcommand\setRange{%
+  \iftoggle{distant}%
+    {%
+      \ifcase\value{spelllevel}\relax%
+      \renewcommand\spellRange{Error}%
+      \or%
+      \renewcommand\spellRange{Error}%
+      \or%
+        \renewcommand\spellRange{throwing distance}%
+      \or%
+        \renewcommand\spellRange{shouting distance}%
+      \or%
+        \renewcommand\spellRange{horizon}%
+      \else%
+        \renewcommand\spellRange{line of sight}%
+      \fi%
+    }%
+    {%
+      \setcounter{track}{6}%
+      \addtocounter{track}{-\value{spelllevel}}%
+      \ifnum\value{track}<1%
+        \renewcommand\spellRange{touch}%
+      \else%
+        \renewcommand\spellRange{\arabic{track} steps}%
+      \fi%
+    }%
+}
+
+
+%%%
+\newcommand\spellArea{}
+\newcounter{spellArea}
+
+\newcommand\setArea{%
+  \setcounter{spellArea}{\value{spelllevel}}%
+  \multiply\value{spellArea} by \value{spelllevel}%
+  \iftoggle{insubstantial}{%
+    \multiply\value{spellArea} by \value{spelllevel}%
+    \addtocounter{spellArea}{0}%
+  }{}%
+  \renewcommand\spellArea{%
+    \arabic{spellArea}%
+  }%
+}
+
+%%%
+
+\newtoggle{insubstantial}
+  \settoggle{insubstantial}{false}
+\newtoggle{distant}
+  \settoggle{distant}{false}
+\newtoggle{duplicated}
+  \settoggle{duplicated}{false}
+
+\newcommand\detailed{Detailed}
+
+\newcommand\duplicated{%
+  \settoggle{duplicated}{true}%
+  Duplicated%
+}
+
+\newcommand\divergent{Divergent}
+
+\newcommand\distant{%
+  \settoggle{distant}{true}%
+  Distant%
+}
+
+\newcommand{\magicitem}[7]{%
+  \vspace{1em}\needspace{1em}\noindent\textbf{#1}%
+  \index{Magical Item!#1}
+
+  \noindent
+  \textit{Spells: #2, }%
+  \textit{Path: #3, }%
+  \textit{Duration: #4, }%
+  \textit{Type: #5, }%
+  \textit{Potency: +#6, }%
+  \textit{MP: #7}%
+  % Type can be 'Pocket Spell', 'Talisman', or 'Artefact'.
+  \needspace{2em}%
+}
+
+\newcommand{\manalake}[8]{
+  \subsection{#1 (Level #8)}
+
+  \textit{Spells: #2, }\textit{Path: #3, }\textit{Duration: #4, }\textit{Type: #5, }\textit{Potence: #6, }\textit{#7 MP}% Type can be 'pocket spell', 'magical item', or 'artefact'.
+  \index{Mana Lakes!#1}
+  \vspace{.3em}
+}
+
+
