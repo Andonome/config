@@ -848,13 +848,16 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \glsentrytext{mp} Cost:~\arabic{spelllevel},
   \setRange%
   Range:~\spellRange,
-  \iftoggle{duplicated}{\showArea{#2}}{}%
+  \iftoggle{duplicated}{%
+    \setArea%
+    Targets:~\spellArea,%
+  }{}%
   \underline{Skill:~#5}
   \vspace{.5em}\afterparnoindent
-  \index[spells]{\textbf{#1}: #6. (Cost:~\arabic{spelllevel}, Spheres:~#2, Skill:~#5, \mbox{Range: \spellRange})}
+  \index[spells]{\textbf{#1}: \iftoggle{duplicated}{\spellArea targets}{Have target} #6. (Cost:~\arabic{spelllevel}, Spheres:~#2, Skill:~#5, \mbox{Range: \spellRange})}
 }
 
-\newcounter{spellRange}
+
 \newcommand\spellRange{}
 
 \newcommand\setRange{%
@@ -885,17 +888,24 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
     }%
 }
 
+
+%%%
+\newcommand\spellArea{}
 \newcounter{spellArea}
 
-\newcommand\showArea[1]{%
+\newcommand\setArea{%
   \setcounter{spellArea}{\value{spelllevel}}%
   \multiply\value{spellArea} by \value{spelllevel}%
   \iftoggle{insubstantial}{%
     \multiply\value{spellArea} by \value{spelllevel}%
     \addtocounter{spellArea}{0}%
   }{}%
-  Targets: \arabic{spellArea}, %
+  \renewcommand\spellArea{%
+    \arabic{spellArea}, %
+  }%
 }
+
+%%%
 
 \newtoggle{insubstantial}
   \settoggle{insubstantial}{false}
