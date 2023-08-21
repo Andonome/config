@@ -18,9 +18,10 @@
 % 4 = Enhancements
 % 5 = Skill
 % 6 = Description
+% 7 = Longer notes
 
 
-\newcommand{\spell}[6]{
+\newcommand{\spell}[7]{
   \settoggle{distant}{false}%
   \settoggle{insubstantial}{false}
   \setcounter{spelllevel}{1}%
@@ -43,6 +44,8 @@
   \underline{Skill:~#5}
   \vspace{.5em}\afterparnoindent
   \index[spells]{\textbf{#1}: \iftoggle{duplicated}{\spellArea~targets}{Have target} #6. (Cost:~\arabic{spelllevel}, Spheres:~#2, Skill:~#5, \mbox{Range: \spellRange})}
+
+  #7
 }
 
 \newcommand\spellRange{}
