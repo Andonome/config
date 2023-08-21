@@ -119,6 +119,11 @@ circle label/.style = {
       \else
         \emptySkill
       \fi
+      \ifnum\value{Fire}>0
+        \skill{Fire}
+      \else
+        \emptySkill
+      \fi
       \ifnum\value{Earth}>0
         \skill{Earth}
       \else
