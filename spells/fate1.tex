@@ -3,11 +3,10 @@
   {Wax}% Action
   {}% Enhancements
   {Empathy}% Skill
-  {gain 1D6 \glspl{fp}}% Description
+  {target gains $1D6$ \glspl{fp}}% Description
   {
-    The mage blesses the target with high hopes for their future, bestowing 1D6 \glspl{fp} immediately.
+    The mage blesses the target with high hopes for their future, bestowing $1D6$ \glspl{fp} immediately.
   }
-
 
 \spell{Curse}% Name
   {\mFate}% Spheres
@@ -16,10 +15,8 @@
   {Deceit}% Skill
   {lose $1D6$ \glspl{fp}}% Description
   {
-
-The caster notes the worst of someone's possible futures -- the most unpleasant thing which is reasonably likely.
+  The caster notes the worst of someone's possible futures -- the most unpleasant thing which is reasonably likely.
   }
-
 
 The target then loses $1D6$~\glspl{fp}.
 
@@ -29,11 +26,24 @@ The target then loses $1D6$~\glspl{fp}.
   {}% Enhancements
   {Tactics}% Skill
   {target gains 1 monster encounter}% Description
+  {
+    The caster hexes the target with death on the road, hoping they will not meet their destination.
+    Within $1D6$ days, the target meets with a monstrous encounter.%
+    \exRef{judgement}{Judgement}{monsterEncounters}
 
-The caster hexes the target with death on the road, hoping they will not meet their destination.
-Within $1D6$ days, the target meets with a monstrous encounter.%
-\exRef{judgement}{Judgement}{monsterEncounters}
+    \Glspl{npc} targeted by this spell will survive if only their \gls{xp} value is greater than the monster they would encounter.
+    Otherwise, they meet a gruesome fate on the road.
+  }
 
-\Glspl{npc} targeted by this spell will survive if only their \gls{xp} value is greater than the monster they would encounter.
-Otherwise, they meet a gruesome fate on the road.
+\spell{Fathom}% Name
+  {\mFate}% Spheres
+  {Witness}% Action
+  {}% Enhancements
+  {Empathy}% Skill
+  {check if target carries \glspl{fp}}% Description
+  {
+    With a short interaction, and some questions about family, the caster discerns if the target has any special fate.
+
+    The spell produces only `yes' (if the target carries \glspl{fp}), or `no' (if they do not), without further details.
+  }
 
