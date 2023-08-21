@@ -27,7 +27,7 @@
   \foreach \s in {#4}{%
     \stepcounter{spelllevel}%
   }%
-  \subsubsection[\textbf{#1}: #6. (\textit{#5})]{#1}%
+  \subsubsection[\textbf{#1}: \iftoggle{duplicated}{\spellArea~targets}{Have target} #6. (Cost:~\arabic{spelllevel}, Spheres:~#2, Skill:~#5, Range: \spellRange)]{#1}%
   \label{#1}%
 
   (#3
