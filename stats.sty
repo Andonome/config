@@ -457,7 +457,7 @@
 
   \iftoggle{verbose}{
     \begin{tcolorbox}[
-      title={\name},
+      title={\npcsymbol\ \name},
       before upper={\parindent0pt},
       ornamented,
       fontupper=\small,
@@ -477,7 +477,7 @@
     \vspace{2em}
     \noindent
     \begin{minipage}{\linewidth}
-    \hrulefill
+    \hrulefill\hspace{-0.15em}\raisebox{-0.2em}{\npcsymbol}
 
     \begin{center}\textbf{\large\name}\end{center}
     \mods
@@ -526,7 +526,7 @@
 	\clean
 
   \iftoggle{verbose}{
-    \begin{tcolorbox}[title={\name},
+    \begin{tcolorbox}[title={\npcsymbol\ \name},
       before upper={\parindent0pt},
       ornamented,
       halign=flush left,

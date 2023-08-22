@@ -640,8 +640,8 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 \newcommand{\mannerism}{}
 \newcommand{\archetype}{}
 \newcommand{\npcsymbol}{}
-\newcommand{\npc}[3][1]{\settoggle{personality}{false}\renewcommand{\name}{#2 #3}\renewcommand{\npcsymbol}{#2}}
-\newcommand{\NPC}[5]{\renewcommand{\name}{#1 #2}
+\newcommand{\npc}[2]{\settoggle{personality}{false}\renewcommand{\name}{#2}\renewcommand{\npcsymbol}{#1}}
+\newcommand{\NPC}[5]{\renewcommand{\name}{#2}
 \renewcommand{\npcsymbol}{#1}
 \settoggle{personality}{true}
 \renewcommand{\NPCdescription}{#3}
