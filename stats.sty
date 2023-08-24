@@ -486,11 +486,7 @@
     \hphantom{\equipment}
     \derivedstats
 
-    \ifdefempty{\abilities}{}{
-      Abilities: \abilities
-    }
-
-    Equipment: \equipment
+    \skillsEtc
 
     \hrulefill
     \end{minipage}
@@ -583,6 +579,7 @@
 }
 
 \newcommand{\clean}{
+  \setcounter{dr}{0}
 	\setcounter{fp}{0}
 	\setcounter{sp}{0}
 	\setcounter{heft}{1}
@@ -632,9 +629,22 @@
 
 \begin{tabularx}{\linewidth}{p{.20\textwidth}>{\raggedright\arraybackslash}p{.70\textwidth}}
 
-	\ent{Skills} & \ifnumcomp{\value{att}}{=}{0}{}{\iftoggle{mind}{Combat \arabic{att}, }{Brawl \arabic{att}, }} \skills \\
-	\iftoggle{mind}{\ent{Equipment} & \equipment \\}{\ent{Abilities} & \abilities \\}
+  \iftoggle{verbose}{
+    \ent{Skills} &
+    \ifnumcomp{\value{att}}{=}{0}{}%
+      {\iftoggle{mind}%
+        {Combat \arabic{att}, }%
+        {Brawl \arabic{att}, }
+      }
+      \skills \\
+  }{}
 
+	\iftoggle{mind}%
+    {\ent{Equipment} & \equipment \\}%
+    {\ent{Abilities} & \abilities \\}
+
+  \ifdefempty{\abilities}{}%
+    {\ent{Abilities:} & \abilities}
 	\mods
 
 \end{tabularx}
