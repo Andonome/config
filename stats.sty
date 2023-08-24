@@ -806,7 +806,7 @@
 \newcommand{\abilities}{}
 
 \newcommand{\acidSpray}{%
-  acidic spray
+  Acidic Spray
   \setcounter{track}{4}%
   \addtocounter{track}{\value{spd}}%
   (\dmg{track} Damage,
@@ -816,22 +816,22 @@
 }
 
 \newcommand{\acidBody}{%
-	acidic body (inflict
+	Acidic Body (inflict
   \setcounter{track}{3}%
   \addtocounter{track}{\value{str}}%
   \dmg{track} Damage each turn of grappling)%
 }
 
 \newcommand{\gelRegen}{%
-	regeneration (1 HP/ round, max. \setcounter{hp}{\value{str}}\addtocounter{hp}{6}\roundUp{hp} \arabic{hp})%
+	Regeneration (1 HP/ round, max. \setcounter{hp}{\value{str}}\addtocounter{hp}{6}\roundUp{hp} \arabic{hp})%
 }
 
 \newcommand{\amphibious}{
-	amphibious%
+	Amphibious%
 }
 
 \newcommand{\claws}{
-	claws%
+	Claws%
 }
 
 % To fly, creatures should have Speed
@@ -839,7 +839,7 @@
 % DR.
 
 \newcommand{\flight}{%
-  flight %
+  Flight %
   \setcounter{enc}{\value{dr}}%
   \addtocounter{enc}{\value{str}}%
   \setcounter{track}{\value{dex}}%
@@ -856,7 +856,7 @@
 }
 
 \newcommand{\stench}{%
-	stench (breathing in demands Str + Wyldcrafting check, \glsentrytext{tn}%
+	Stench (breathing in demands Str + Wyldcrafting check, \glsentrytext{tn}%
   \setcounter{track}{10}%
   \addtocounter{track}{-\value{spd}}%
   \arabic{track}%
@@ -864,35 +864,35 @@
 }
 
 \newcommand{\crazyGas}{%
-  gas (hallucinations and
+  Gas (hallucinations and
   \setcounter{track}{4}%
   \addtocounter{track}{\value{str}}%
   \arabic{track} \glspl{fatigue} per round)%
 }
 
 \newcommand{\quadraped}{%
-  quadraped (double movement)%
+  Quadraped (double movement)%
 }
 
 \newcommand{\teeth}{%
-  teeth%
+  Teeth%
 }
 
 \newcommand{\tentacles}{%
   \addtocounter{track}{3}%
   \divide\value{track} by 2%
-  tentacles \ifnum\value{track}>2%
+  Tentacles \ifnum\value{track}>2%
     (grapple up to \arabic{track} opponents without becoming prone)%
   \fi%
 }
 
 \newcommand{\venom}{%
-  venom (grappling inflicts 1D6 Fatigue)%
+  Venom (grappling inflicts 1D6 Fatigue)%
 }
 
 \newcommand{\web}{%
   \setcounter{track}{6}\addtocounter{track}{\value{str}}%
-  web (Strength + Athletics, TN \arabic{track} to break free as a movement action)%
+  Web (Strength + Athletics, TN \arabic{track} to break free as a movement action)%
 }
 
 
