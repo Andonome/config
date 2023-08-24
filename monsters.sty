@@ -193,6 +193,8 @@
     \addtocounter{gold}{\value{r2}}
 	\randomfour
 	\ifodd\value{r4}\multiply\value{track} by -1\fi
+  \renewcommand\abilities{\flight, \claws}
+
 	\person{\value{age}}% STRENGTH
 	{\value{age}}% DEXTERITY
 	{\arabic{enc}\addtocounter{age}{-4}}% SPEED 4-5
@@ -205,7 +207,6 @@
   \setcounter{gold}{3}\addtocounter{gold}{-\value{r3}}%
   Xenomology~\arabic{gold}\fi
 	\knacks{\ifodd\value{page}\chosenEnemy{Dwarves}\else\charge\fi, \ifnumcomp{\value{r3}}{>}{2}{\laststand}{\adrenalinesurge}}
-  \showAbilities{\flight, \claws}
     \Path{
       \ifodd\value{r4}
         Air \arabic{r3b},

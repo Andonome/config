@@ -300,7 +300,7 @@
 }
 
 \newcommand{\showAbilities}[1]{ \\
-	\ent{Abilities:} & #1 
+	\ent{Abilities:} & \abilities
 }
 
 %%%%%%%%%%%%%%%%%%%%% Knacks
@@ -484,6 +484,10 @@
     \hphantom{\equipment}
     \derivedstats
 
+    \ifdefempty{\abilities}{}{
+      Abilities: \abilities
+    }
+
     Equipment: \equipment
 
     \hrulefill
@@ -504,6 +508,7 @@
 	{}
   \settoggle{creatureBox}{false}
   \setcounter{noAppearing}{1}
+  \renewcommand\abilities{}
   \afterparnoindent
 }
 
@@ -771,9 +776,7 @@
 %
 %%%%%%%%%%%%%%%%%%%% Creature Abilities
 
-\newcommand{\abilities}[1]{ \\
-  \ent{Abilities:} & #1 
-  }
+\newcommand{\abilities}{}
 
 \newcommand{\acidSpray}{%
   acidic spray
