@@ -649,17 +649,9 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {0}}% CHARISMA
 {0}% DR
 {\arabic{r2}}% COMBAT
-{Tactics~\arabic{r2b}, Wyldcrafting~\arabic{r2},%
-	\ifodd\value{r3}%
-		\knacks{\ifodd\value{r2b}
-			\adrenalinesurge, 
-		\else
-			\stunningstrike, 
-		\fi
-		\ifodd\value{r4}
-			\charge
-		\fi}
-	\fi}% SKILLS
+{
+  Tactics~\arabic{r2b}, Wyldcrafting~\arabic{r2},%
+}% SKILLS
 {\ifodd\value{enc}%
 	{\greatsword}%
 \else%
@@ -678,7 +670,18 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 	\roundshield, 
 \fi
 	\ifnum\value{enc}=3\lootMedium\else\lootSmall\fi}% EQUIPMENT
-{}
+{
+  \ifodd\value{r3}%
+  	\knacks{\ifodd\value{r2b}
+  		\adrenalinesurge, 
+  	\else
+  		\stunningstrike, 
+  	\fi
+  	\ifodd\value{r4}
+  		\charge
+  	\fi}
+  \fi
+}
 }
 
 \newcommand{\royalguard}[1][\npc{\T[\arabic{r12}]\Hu}{\arabic{r12} Guards}]{
@@ -701,16 +704,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {0}% DR
 {2}% COMBAT
 {\ifodd\value{r3}Craft~\arabic{r2},\fi Tactics~\arabic{r2b}%
-	\ifodd\value{r3}%
-		\knacks{\ifodd\value{r2b}
-			\adrenalinesurge, 
-		\else
-			\precisestrike, 
-		\fi
-		\ifodd\value{r4}
-			\charge
-		\fi}
-	\fi}% SKILLS
+}% SKILLS
 {\ifodd\value{enc}%
 	{\greatsword}%
 \else%
@@ -725,7 +719,18 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 	\roundshield, 
 \fi
 	\ifnum\value{enc}=3\lootMedium\else\lootSmall\fi}% EQUIPMENT
-{}
+{
+	\ifodd\value{r3}%
+		\knacks{\ifodd\value{r2b}
+			\adrenalinesurge, 
+		\else
+			\precisestrike, 
+		\fi
+		\ifodd\value{r4}
+			\charge
+		\fi}
+	\fi
+}
 }
 
 \newcommand{\humanarcher}[1][\npc{\T[\arabic{r12}]\Hu}{\arabic{r12} Archers}]{
@@ -743,16 +748,18 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {0}% DR
 {\arabic{enc}}% COMBAT
 {Projectiles \arabic{r2b}, Crafts~\arabic{r2b}, \ifodd\value{r4}\else Tactics \fi~\arabic{r2}%
-\ifodd\value{r3}%
-\else%
-	\knacks{\mightydraw}
-\fi}% SKILLS
+}% SKILLS
 {\longbow, dagger\ifodd\value{r2}, \partialleather, \lootMedium\fi%
 \ifnum\value{noAppearing}=1%
 , \arabic{r12} Spider arrows.%
 \fi%
 }% EQUIPMENT
-{}
+{
+  \ifodd\value{r3}%
+  \else%
+    \knacks{\mightydraw}
+  \fi
+}
 }
 
 \newcommand{\humanthief}[1][\npc{\Hu\M}{Thief}]{
@@ -879,10 +886,11 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {\arabic{r2}}% COMBAT
 {
   Brawl~2, Projectiles~\arabic{r2c}, Wyldcrafting~\arabic{enc}
-  \knacks{\ifodd\value{enc}\adrenalinesurge\else\ifodd\value{r3}\charge\else\chosenEnemy{Human}\fi\fi}
 }% SKILLS
 {\spear}% EQUIPMENT
-{}
+{
+  \knacks{\ifodd\value{enc}\adrenalinesurge\else\ifodd\value{r3}\charge\else\chosenEnemy{Human}\fi\fi}
+}
 }
 
 \newcommand{\gnollshaman}[1][\npc{\Nl\F}{Gnoll Shaman}]{
@@ -935,9 +943,19 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 	{0}% DR
 	{\arabic{enc}}% AGGRESSION
 	{Athletics~3, Stealth~\arabic{r2}, Sealth~\arabic{r3}, Vigilance~\arabic{r3b}, Wyldcrafting~\arabic{r3}
-	\knacks{\ifodd\value{r3}\charge\else\perfectsneakattack\fi}}% SKILLS
-	{\claws}{}
-	}
+
+  }% SKILLS
+	{\claws}%
+  {
+    \knacks{
+      \ifodd\value{r3}
+        \charge
+      \else
+        \perfectsneakattack
+      \fi
+    }
+  }
+}
 
 \newcommand{\nuracrab}[1][\npc{\T[\arabic{r12}]\A\N}{\arabic{r12} Nura Crabs}]{
   \randomdozen
@@ -969,9 +987,13 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {2}% DR
 {2}% AGGRESSION
 {Athletics~3, Vigilance~2
-\ifodd\value{r2}\knacks{\charge}\fi}% SKILLS
+}% SKILLS
 {\quadraped}% ABILITIES
-{}
+{
+  \ifodd\value{r2}
+  \knacks{\charge}
+  \fi
+}
 }
 
 \newcommand{\nuraslug}[1][\npc{\T[\arabic{r12}]\A\N}{\arabic{r12} Nura Slugs}]{
@@ -1088,7 +1110,6 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {0}% DR
 {\arabic{r2}}% COMBAT
 {Projectiles~\arabic{r2}, Athletics~1, Deceit~1, Stealth~\arabic{r3}, \ifodd\value{r4}Tactics~\arabic{r2}\fi%
-\ifodd\value{r3} \else\knacks{\perfectsneakattack}\fi%
 }% SKILLS
 {\ifodd\value{r2}%
 	\woodaxe%
@@ -1105,7 +1126,11 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 	\fi%
 \fi%
 .}% EQUIPMENT
-{}
+{
+  \ifodd\value{r3}\else
+    \knacks{\perfectsneakattack}
+  \fi%
+}
 }
 
 \newcommand{\undeadgoblin}[1][\npc{\T[\arabic{r12}]\D}{\arabic{r12} Undead Hobgoblins}]{
@@ -1542,9 +1567,16 @@ mana stone with \arabic{track} mana, \lootJewellery, \randomtwo\lootJewellery, \
 {\arabic{r3}}% WITS
 {\arabic{track}}% DR
 {\arabic{r4}}% AGGRESSION
-{\ifnum\value{gold}>0 Athletics \arabic{gold}, Stealth~\arabic{gold}\else Projectiles~\arabic{r3}\fi, \knacks{\ifnum\value{r4}>3\berserker, \fi \unstoppable}}% SKILLS
+{\ifnum\value{gold}>0 Athletics \arabic{gold}, Stealth~\arabic{gold}\else Projectiles~\arabic{r3}\fi
+}% SKILLS
 {\acidBody, \ifnum\value{gold}<1\acidSpray\fi\ifnum\value{gold}<0, \gelRegen\addtocounter{xpbonus}{1}\fi}% ABILITIES
-{}
+{
+  \knacks{\ifnum\value{r4}>3
+    \berserker,
+  \fi
+  \unstoppable
+  }
+}
 }
 
 \newcommand{\umberhulk}[1][\npc{\A}{Umber Hulk}]{
@@ -1714,7 +1746,6 @@ mana stone with \arabic{track} mana, \lootJewellery, \randomtwo\lootJewellery, \
 {0}% DR
 {0}% AGGRESSION
 {Projectiles~\arabic{r3}, Academics~3, Deceit~\arabic{r2}, Tactics~\arabic{r3b}, Xenomology~\arabic{r2b}
-  \knacks{\snapcaster}
   \Path{
     Air~\arabic{r3}, Fate~\arabic{r3b}, Fire~\arabic{r3c}, %
     \ifodd\value{r4}%
@@ -1724,8 +1755,11 @@ mana stone with \arabic{track} mana, \lootJewellery, \randomtwo\lootJewellery, \
     \fi%
   }}% SKILLS
 {None}% ABILITIES
-{\setcounter{gold}{\value{age}}\multiply\value{gold} by 3\addtocounter{gold}{\value{int}}\setcounter{sp}{\value{gold}}%
-\lockedmana{\value{age}}}
+{
+  \setcounter{gold}{\value{age}}\multiply\value{gold} by 3\addtocounter{gold}{\value{int}}\setcounter{sp}{\value{gold}}%
+  \lockedmana{\value{age}}
+  \knacks{\snapcaster}
+}
 }
 
 \newcommand{\watcher}[1][\npc{\A}{Watcher}]{
