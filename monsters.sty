@@ -97,10 +97,11 @@
 {
   Athletics~\arabic{enc},%
   \addtocounter{r2c}{2} Vigilance \arabic{r2c}
-  \knacks{\charge}
 }% SKILLS
 {\flight}% ABILITIES
-{}
+{
+  \knacks{\charge}
+}
 }
 
 \newcommand{\mouthdigger}[1][\npc{\A}{Mouthdigger}]{
@@ -114,9 +115,11 @@
 {0}% WITS
 {2}% DR
 {2}% AGGRESSION
-{Stealth~\arabic{enc}, Tactics~\arabic{r2b}, \knacks{\adrenalinesurge , \perfectsneakattack}}% SKILLS
+{Stealth~\arabic{enc}, Tactics~\arabic{r2b}}% SKILLS
 {\teeth}% ABILITIES
-{}
+{
+  \knacks{\adrenalinesurge, \perfectsneakattack}
+}
 }
 %
 \newcommand{\wolf}[1][\randomdozen\npc{\A\T[\arabic{r12}]}{\arabic{r12} Wolves}]{
@@ -193,6 +196,7 @@
     \addtocounter{gold}{\value{r2}}
 	\randomfour
 	\ifodd\value{r4}\multiply\value{track} by -1\fi
+
   \renewcommand\abilities{\flight, \claws}
 
 	\person{\value{age}}% STRENGTH
@@ -203,28 +207,25 @@
 	{\arabic{track}}}% CHARISMA
 	{\value{gold}}%DR 3-4
 	{\arabic{age}}% COMBAT
-	{Brawl~\arabic{enc}, Projectiles~\arabic{r3b}, Academics~\arabic{r3}, Athletics~\arabic{r2b}, Deceit~\arabic{r2c}, Tactics~2, Vigilance~3\ifnum\value{r3}<3,
-  \setcounter{gold}{3}\addtocounter{gold}{-\value{r3}}%
-  Xenomology~\arabic{gold}\fi
-	\knacks{\ifodd\value{page}\chosenEnemy{Dwarves}\else\charge\fi, \ifnumcomp{\value{r3}}{>}{2}{\laststand}{\adrenalinesurge}}
-    \Path{
-      \ifodd\value{r4}
-        Air \arabic{r3b},
-      \fi
-      Fire~\arabic{r2d},
-      \ifodd\value{r2}
-        Fate~2
-        \ifodd\value{r2c},
-          Water 1
+	{
+    Brawl~\arabic{enc}, Projectiles~\arabic{r3b}, Academics~\arabic{r3}, Athletics~\arabic{r2b}, Deceit~\arabic{r2c}, Tactics~2, Vigilance~3\ifnum\value{r3}<3,
+    \setcounter{gold}{3}\addtocounter{gold}{-\value{r3}}%
+    Xenomology~\arabic{gold}\fi
+      \Path{
+        \ifodd\value{r4}
+          Air \arabic{r3b},
         \fi
-      \fi
-  }}{}%
-	{\ifodd\value{r2}%
-	\setcounter{gold}{\value{r3b}}\multiply\value{gold} by 3%
-	\addtocounter{gold}{\value{int}}%
-	\lockedmana{\value{r3b}}%
-	\setcounter{sp}{\value{gold}}%
-	\fi%
+        Fire~\arabic{r2d},
+        \ifodd\value{r2}
+          Fate~2
+          \ifodd\value{r2c},
+            Water 1
+          \fi
+        \fi
+    }
+  }{}%
+	{
+    \knacks{\ifodd\value{page}\chosenEnemy{Dwarves}\else\charge\fi, \ifnumcomp{\value{r3}}{>}{2}{\laststand}{\adrenalinesurge}}
   }
 	}
 
@@ -259,10 +260,11 @@
 	{0}% DR
 	{2}% COMBAT
 	{Caving \arabic{r2}, Crafts~1, Tactics~1%
-    \knacks{Chosen Enemy: Goblins}%
   }% SKILLS
 	{\ifodd\value{r2}\spear, \partialchain\else\shortsword, \partialplate\fi, \lootMedium}% EQUIPMENT
-	{}% SKILLS
+	{
+    \knacks{\chosenEnemy{Goblins}}%
+  }% Mods
 }
 
 \newcommand{\dwarvenrunemaster}[1][\npc{\Dw\M}{Dwarven Runemaster}]{
@@ -283,13 +285,14 @@
 	{0}% DR
 	{1}% COMBAT
 	{Academics~\arabic{enc}, Caving \arabic{r2}, Crafts~1, Tactics~2
-    \knacks{\ritualcaster}%
     \Path{
       Fate~\arabic{enc}, \ifodd\value{r2d}Fire\else Air\fi ~\arabic{r3b}
     }
   }% SKILLS
 	{\shortsword, \partialchain, \lootMedium}% EQUIPMENT
-	{}
+	{
+    \knacks{\ritualcaster}%
+  }
 	}
 
 
@@ -362,19 +365,21 @@
     Water~\arabic{r4},
   \fi}%
 	\ifodd\value{r4}\else%
-  \knacks{%
-		\ifnum\value{r4}=2%
-			\weaponmaster{rapier}%
-		\else%
-			\precisestrike%
-		\fi}%
   \fi
 	}% SKILLS
 	{\ifnumcomp{\value{r4}}{=}{2}{\Dagger, shortbow, }{\rapier, dagger, }%
 	\lootJewellery\ifnum\value{r12}>12%
 		, \lootMagic%
 	\fi}% EQUIPMENT
-	{}
+	{
+    \knacks{%
+      \ifnum\value{r4}=2%
+        \weaponmaster{rapier}%
+      \else%
+        \precisestrike%
+      \fi
+    }%
+  }
 	}
 
 \newcommand{\elvenenchanter}[1][\npc{\El\M}{Elven Enchanter}]{
@@ -518,10 +523,11 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {0}% DR
 {\ifodd\value{r2} 0\else 1\fi}% COMBAT
 {\ifodd\value{r3c}\else Projectiles 1, \fi Crafts~\arabic{r2b}, \ifodd\value{r4} Empathy~1, Wyldcrafting~\arabic{r2}\fi
-\knacks{\specialist{animal husbandry}}
 }% SKILLS
 {\Dagger, \lootSmall}% EQUIPMENT
-{}
+{
+  \knacks{\specialist{animal husbandry}}
+}
 }
 
 \newcommand{\humanmaid}[1][\npc{\Hu\F}{Maid}]{

@@ -295,13 +295,10 @@
 
 \newcommand{\lockedmana}[1]{\setcounter{mpLocked}{#1}}
 
-\newcommand{\knacks}[1]{ \\
-	\ent{Knacks:} & #1 
-}
+\newcommand{\knacks}[1]{\gdef\showKnacks{#1}}
 
-\newcommand{\showAbilities}[1]{ \\
-	\ent{Abilities:} & \abilities
-}
+\newcommand\showKnacks{}
+
 
 %%%%%%%%%%%%%%%%%%%%% Knacks
 %
@@ -447,11 +444,9 @@
   \setcounter{dex}{#2}
   \setcounter{spd}{#3}
   \mind#4
-  \setcounter{dr}{#5}
   \setcounter{att}{#6}
   \renewcommand{\skills}{#7}
   \renewcommand{\equipment}{#8}
-  \renewcommand{\mods}{#9}
 
   \clean
 
@@ -469,6 +464,8 @@
 
     \creaturestats
 
+    #9
+
     \skillsEtc
 
     \derivedstats
@@ -482,7 +479,7 @@
     \hrulefill\hspace{-0.15em}\raisebox{-0.2em}{\npcsymbol}
 
     \begin{center}\textbf{\large\name}\end{center}
-    \mods
+    #9
     \hphantom{\equipment}
     \derivedstats
 
@@ -567,7 +564,7 @@
     \hphantom{\abilities}
     \derivedstats
 
-    Abilities: \abilities
+    \skillsEtc
 
     \hrulefill
     \end{minipage}
@@ -579,6 +576,7 @@
 }
 
 \newcommand{\clean}{
+  \knacks{}
   \setcounter{dr}{0}
 	\setcounter{fp}{0}
 	\setcounter{sp}{0}
@@ -639,6 +637,10 @@
       \skills \\
   }{}
 
+    \ifdefempty{\showKnacks}{}{
+      \ent{Knacks:} & \showKnacks \\
+    }
+
 	\iftoggle{mind}%
     {%
     \ifdefempty{\equipment}{}
@@ -646,7 +648,7 @@
       \ent{Equipment} & \equipment \\
     }
     }%
-    {\ent{Abilities} & \abilities \\}
+    {}
 
   \ifdefempty{\abilities}{}%
     {\ent{Abilities:} & \abilities}
