@@ -640,7 +640,12 @@
   }{}
 
 	\iftoggle{mind}%
-    {\ent{Equipment} & \equipment \\}%
+    {%
+    \ifdefempty{\equipment}{}
+    {
+      \ent{Equipment} & \equipment \\
+    }
+    }%
     {\ent{Abilities} & \abilities \\}
 
   \ifdefempty{\abilities}{}%

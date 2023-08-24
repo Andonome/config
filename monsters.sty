@@ -218,9 +218,7 @@
           Water 1
         \fi
       \fi
-  }}{%
-	\iftoggle{bestiarychapter}{$3D6\times 100$gp, sitting in a lair.}{%
-		{\setcounter{gold}{\thepage}\addtocounter{gold}{-50}\multiply\value{gold} by \value{list}\multiply\value{gold} by \thechapter \ifnumcomp{\value{gold}}{>}{0}{\arabic{gold}gp in lair in assorted change}{None}}}}%
+  }}{}%
 	{\ifodd\value{r2}%
 	\setcounter{gold}{\value{r3b}}\multiply\value{gold} by 3%
 	\addtocounter{gold}{\value{int}}%
