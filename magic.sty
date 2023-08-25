@@ -36,7 +36,7 @@
 
   {\sffamily(#4
   #3
-  #2)}
+  #2~)}
   Cost:~\arabic{spelllevel},
   \setRange%
   Range:~\spellRange,
@@ -71,8 +71,8 @@
       \fi%
     }%
     {%
-      \setcounter{track}{6}%
-      \addtocounter{track}{-\value{spelllevel}}%
+      \setcounter{track}{20}%
+      \Repeat{\arabic{spelllevel}}{\addtocounter{track}{-4}}%
       \ifnum\value{track}<1%
         \renewcommand\spellRange{touch}%
       \else%
