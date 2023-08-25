@@ -8,4 +8,8 @@
   {
     \spellArea\ targets within \spellRange\ receive a blast of wind, and lose \arabic{spelllevel}~\glspl{ap}.
     The wind pushes targets back \arabic{spelllevel} steps, minus their Strength Bonus.
+
+  Targets with their back to the wind lose only
+  \setcounter{track}{\value{spelllevel}}\divide\value{track} by 2%
+  \arabic{track}~\glspl{ap}.
   }
