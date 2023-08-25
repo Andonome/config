@@ -1569,7 +1569,17 @@ mana stone with \arabic{track} mana, \lootJewellery, \randomtwo\lootJewellery, \
 {\arabic{r4}}% AGGRESSION
 {\ifnum\value{gold}>0 Athletics \arabic{gold}, Stealth~\arabic{gold}\else Projectiles~\arabic{r3}\fi
 }% SKILLS
-{\acidBody, \ifnum\value{gold}<1\acidSpray\fi\ifnum\value{gold}<0, \gelRegen\addtocounter{xpbonus}{1}\fi}% ABILITIES
+{
+  \acidBody,
+  \ifnum\value{gold}<1
+    \acidSpray%
+  \else%
+   \gloopy%
+  \fi%
+  \ifnum\value{gold}<0,%
+    \ignorespaces, \gelRegen\addtocounter{xpbonus}{1}%
+  \fi%
+}% ABILITIES
 {
   \knacks{\ifnum\value{r4}>3
     \berserker,

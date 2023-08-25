@@ -816,14 +816,21 @@
 }
 
 \newcommand{\acidBody}{%
-	Acidic Body (inflict
+  Acidic Body (inflict
   \setcounter{track}{3}%
   \addtocounter{track}{\value{str}}%
   \dmg{track} Damage each turn of grappling)%
 }
 
 \newcommand{\gelRegen}{%
-	Regeneration (1 HP/ round, max. \setcounter{hp}{\value{str}}\addtocounter{hp}{6}\roundUp{hp} \arabic{hp})%
+  Regeneration (1 HP/ round, max. \setcounter{hp}{\value{str}}\addtocounter{hp}{6}\roundUp{hp} \arabic{hp})%
+}
+
+\newcommand\gloopy{%
+  Viscid (on a tie, the attacker \emph{must} inflict Damage, but the weapon sticks into the body,
+  \setcounter{track}{\value{str}}%
+  \addtocounter{track}{7}%
+  \tn{\arabic{track}} to pull out)%
 }
 
 \newcommand{\amphibious}{
@@ -831,7 +838,7 @@
 }
 
 \newcommand{\claws}{
-	Claws%
+  Claws%
 }
 
 % To fly, creatures should have Speed
