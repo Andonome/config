@@ -6,9 +6,9 @@
 % |_|  |_|\__,_|\__, |_|\___|
 %               |___/        
 
-\newcommand\mFate{Fate\settoggle{insubstantial}{true}}
+\newcommand\mFate{Fate\global\settoggle{insubstantial}{true}}
 \newcommand\mEarth{Earth}
-\newcommand\mAir{Air\settoggle{insubstantial}{true}}
+\newcommand\mAir{Air\global\settoggle{insubstantial}{true}}
 \newcommand\mFire{Fire}
 \newcommand\mWater{Water}
 
@@ -22,9 +22,9 @@
 
 
 \newcommand{\spell}[7]{
-  \settoggle{distant}{false}%
-  \settoggle{duplicated}{false}%
-  \settoggle{insubstantial}{false}
+  \global\settoggle{distant}{false}%
+  \global\settoggle{duplicated}{false}%
+  \global\settoggle{insubstantial}{false}
   \setcounter{spelllevel}{1}%
   \foreach \s in {#4}{%
     \stepcounter{spelllevel}%
@@ -36,12 +36,12 @@
 
   {\sffamily(#4
   #3
-  #2~)}
+  #2)}
   Cost:~\arabic{spelllevel},
   \setRange%
   Range:~\spellRange,
+  \setArea%
   \iftoggle{duplicated}{%
-    \setArea%
     Targets:~\spellArea, %
   }{}%
   \tn{\arabic{age}},
@@ -110,14 +110,14 @@
 \newcommand\detailed{Detailed}
 
 \newcommand\duplicated{%
-  \settoggle{duplicated}{true}%
+  \global\settoggle{duplicated}{true}%
   Duplicated%
 }
 
 \newcommand\divergent{Divergent}
 
 \newcommand\distant{%
-  \settoggle{distant}{true}%
+  \global\settoggle{distant}{true}%
   Distant%
 }
 
