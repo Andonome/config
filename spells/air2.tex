@@ -10,6 +10,6 @@
     The wind pushes targets back \arabic{spelllevel} steps, minus their Strength Bonus.
 
   Targets with their back to the wind lose only
-  \setcounter{track}{\value{spelllevel}}\divide\value{track} by 2%
+  \setcounter{track}{\value{spelllevel}}\roundUp{track}%
   \arabic{track}~\glspl{ap}.
   }
