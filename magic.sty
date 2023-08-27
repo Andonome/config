@@ -29,27 +29,40 @@
   \foreach \s in {#4}{%
     \stepcounter{spelllevel}%
   }%
-  \setcounter{age}{\value{spelllevel}}%
-  \addtocounter{age}{6}%
-  \subsubsection[\textbf{#1}: #6. (Cost:~\arabic{spelllevel}, Spheres:~#2, \tn{\arabic{age}}, Skill:~#5, Range: \spellRange)]{#1}%
-  \label{#1}%
+  \iftoggle{verbose}{
+    \setcounter{age}{\value{spelllevel}}%
+    \addtocounter{age}{6}%
+    \subsubsection{#1}%
+    \label{#1}%
 
-  {\sffamily(#4
-  #3
-  #2)}
-  Cost:~\arabic{spelllevel},
-  \setRange%
-  Range:~\spellRange,
-  \setArea%
-  \iftoggle{duplicated}{%
-    Targets:~\spellArea, %
-  }{}%
-  \tn{\arabic{age}},
-  Skill:~\underline{#5}
-  \vspace{.5em}\afterparnoindent
-  \index[spells]{\textbf{#1}: #6. (Cost:~\arabic{spelllevel}, Spheres:~#2, Range: \spellRange\iftoggle{duplicated}{, Targets: \spellArea}{}, \tn{\arabic{age}}, Skill:~#5)}
+    {\sffamily(#4
+    #3
+    #2)}
+    Cost:~\arabic{spelllevel},
+    \setRange%
+    Range:~\spellRange,
+    \setArea%
+    \iftoggle{duplicated}{%
+      Targets:~\spellArea, %
+    }{}%
+    \tn{\arabic{age}},
+    Skill:~\underline{#5}
+    \vspace{.5em}\afterparnoindent
+    \index[spells]{\textbf{#1}: #6. (Cost:~\arabic{spelllevel}, Spheres:~#2, Range: \spellRange\iftoggle{duplicated}{, Targets: \spellArea}{}, \tn{\arabic{age}}, Skill:~#5)}
 
-  #7
+    #7
+  }{
+    \item[\textbf{#1}]
+    \hphantom{#4}%
+    \setArea%
+    \setRange%
+    \setcounter{age}{8}% to track TN
+    \addtocounter{age}{\value{#5}}%
+    (Cost:~\arabic{spelllevel}, Spheres:~#2, Range: \spellRange\iftoggle{duplicated}{, Targets: \spellArea}{}, \tn{\arabic{age}})
+
+    \item
+    \MakeUppercase#6.
+  }
 }
 
 \newcommand\spellRange{}
@@ -144,4 +157,19 @@
   \vspace{.3em}
 }
 
+\newcommand\shortSpells[1]{
+  \begin{description}
+    \settoggle{verbose}{false}
+    \foreach \s in {#1}{
+      \input{config/spells/\s.tex}
+    }
+  \end{description}
+}
+
+\newcommand\longSpells[1]{
+    \settoggle{verbose}{true}
+    \foreach \s in {#1}{
+      \input{config/spells/\s.tex}
+    }
+}
 
