@@ -576,10 +576,9 @@
   \afterparnoindent
 }
 
-
 \newcommand{\clean}{
   \knacks{}
-  \foreach \s in {Earth,Air,Fate,Fire,Water,Projectiles,Combat,Brawl,Academics,Athletics,Caving,Crafts,Deceit,Empathy,Medicine,Performance,Larceny,Seafaring,Tactics,Vigilance,Wyldcrafting}%
+  \foreach \s in {Projectiles,Combat,Brawl,Academics,Athletics,Caving,Crafts,Deceit,Empathy,Medicine,Performance,Larceny,Seafaring,Tactics,Vigilance,Wyldcrafting}%
     {\setcounter{\s}{0}}
   \setcounter{dr}{0}
 	\setcounter{fp}{0}
@@ -629,45 +628,42 @@
 
 \newcommand\skillsEtc{
 
-  \foreach\s in {Air,Earth,Fate,Fire,Water}%
-    {\ifnum\value{\s}>0\addtocounter{mp}{3}\fi}%
+\begin{tabularx}{\linewidth}{p{.20\textwidth}>{\raggedright\arraybackslash}p{.70\textwidth}}
 
-  \begin{tabularx}{\linewidth}{p{.20\textwidth}>{\raggedright\arraybackslash}p{.70\textwidth}}
+  \iftoggle{verbose}{
+    \ent{Skills} &
+    \foreach \s in {Earth,Air,Fire,Water,Fate,Projectiles,Combat,Brawl,Academics,Athletics,Caving,Crafts,Deceit,Empathy,Medicine,Performance,Larceny,Seafaring,Tactics,Vigilance,Wyldcrafting}
+      {\ifnum\value{\s}>0 \s~\arabic{\s}, \fi}
+      \skills \\
+  }{}
 
-    \iftoggle{verbose}{
-      \ent{Skills} &
-      \foreach \s in {Earth,Air,Fire,Water,Fate,Projectiles,Combat,Brawl,Academics,Athletics,Caving,Crafts,Deceit,Empathy,Medicine,Performance,Larceny,Seafaring,Tactics,Vigilance,Wyldcrafting}
-        {\ifnum\value{\s}>0 \s~\arabic{\s}, \fi}
-        \skills \\
-    }{}
+  \ifdefempty{\showKnacks}{}{
+    \ent{Knacks:} & \showKnacks \\
+  }
 
+%  \foreach \s in {Air,Earth,Fate,Fire,Water}%
+%    {\ifnum\value{\s}>0 \addtocounter{mp}{3}\fi}
+  \ifnum\value{mp}>0
+    \ent{Spheres:} &
+    \foreach \s in {Air,Earth,Fate,Fire,Water}%
+      {\ifnum\value{\s}>0 \s~\arabic{\s}, \fi}
+    \\
+  \fi
 
-    \ifdefempty{\showKnacks}{}{
-      \ent{Knacks:} & \showKnacks
-      \\
+	\iftoggle{mind}%
+    {%
+    \ifdefempty{\equipment}{}
+    {
+      \ent{Equipment} & \equipment \\
     }
+    }%
+    {}
 
-    \ifnum\value{mp}>0
-      \ent{Spheres:} &
-      \foreach \s in {Air,Earth,Fate,Fire,Water}%
-        {\ifnum\value{\s}>0 \s~\arabic{\s}, \fi}
-      \\
-    \fi
+  \ifdefempty{\abilities}{}%
+    {\ent{Abilities:} & \abilities}
+	\mods
 
-    \iftoggle{mind}%
-      {%
-      \ifdefempty{\equipment}{}
-      {
-        \ent{Equipment} & \equipment \\
-      }
-      }%
-      {}
-
-    \ifdefempty{\abilities}{}%
-      {\ent{Abilities:} & \abilities}
-    \mods
-
-  \end{tabularx}
+\end{tabularx}
 
 }
 
@@ -723,6 +719,7 @@
     }{}%
   \addtocounter{hp}{6}%
   \ifnum\value{mp}>0%
+    \addtocounter{mp}{\value{int}}%
     \setcounter{mpFree}{\value{mp}}
     \addtocounter{mpFree}{-\value{mpLocked}}%
   \fi%

@@ -899,11 +899,11 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 
 \newcommand{\gnollshaman}[1][\npc{\Nl\F}{Gnoll Shaman}]{
 	#1
+	\addtocounter{age}{-2}
 	\randomtwo
 	\randomtwoB
 	\randomtwoD
 	\randomthree
-    \addtocounter{age}{-2}
 	\randomthreeB
 	\randomthreeC
 	\randomfour
@@ -920,6 +920,14 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 \ifnum\value{r4}>1%
 	{Vigilance~\arabic{enc}}%
 	\fi%
+  \Path{
+    \ifodd\value{r2}%
+      Air\else Fire%
+    \fi~\arabic{r3}, %
+    \ifodd\value{r3b}\else%
+      Fate~\arabic{r2d}, Water 1%
+    \fi%
+  }
 }% SKILLS
 {\Dagger\ifodd\value{r3}\else, \lootMagic\fi}% EQUIPMENT
 {
@@ -1199,7 +1207,6 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 \fi%
 }% EQUIPMENT
 {
-  \setcounter{mp}{3}
   \setcounter{Earth}{\value{age}}
   \setcounter{Fire}{2}
 }
