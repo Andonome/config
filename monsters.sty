@@ -918,7 +918,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {1}% COMBAT
 {Brawl~2, Projectiles~\arabic{r2b}, Academics~\arabic{r2}, \ifodd\value{r3b}\else Deceit~\arabic{r3b}, \fi Stealth~\arabic{r3}, Wyldcrafting~\arabic{r2b}, 
 \ifnum\value{r4}>1%
-	{Vigilance~\arabic{enc}, Wyldcrafting~\arabic{enc}}%
+	{Vigilance~\arabic{enc}}%
 	\fi%
 }% SKILLS
 {\Dagger\ifodd\value{r3}\else, \lootMagic\fi}% EQUIPMENT
@@ -926,6 +926,9 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
   \setcounter{Fate}{2}
   \ifodd\value{r3c}
     \setcounter{Air}{\value{r2b}}
+  \fi
+  \ifodd\value{r3}\else
+    \setcounter{Fire}{\value{r2d}}
   \fi
 }
 }
