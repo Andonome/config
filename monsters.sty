@@ -514,20 +514,24 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 	\randomthree\addtocounter{age}{-2}
 	\randomtwo
 	\addtocounter{enc}{1}
-\person{\arabic{enc}}% STRENGTH
-{0}% DEXTERITY 
-{0}% SPEED
-{{\arabic{age}}% INTELLIGENCE
-{-1}% WITS
-{\ifodd \value{page} -1\else1\fi}}% CHARISMA
-{0}% DR
-{\ifodd\value{r2} 0\else 1\fi}% COMBAT
-{\ifodd\value{r3c}\else Projectiles 1, \fi Crafts~\arabic{r2b}, \ifodd\value{r4} Empathy~1, Wyldcrafting~\arabic{r2}\fi
-}% SKILLS
-{\Dagger, \lootSmall}% EQUIPMENT
-{
-  \knacks{\specialist{animal husbandry}}
-}
+  \person{\arabic{enc}}% STRENGTH
+  {0}% DEXTERITY 
+  {0}% SPEED
+  {{\arabic{age}}% INTELLIGENCE
+  {-1}% WITS
+  {\ifodd \value{page} -1\else1\fi}}% CHARISMA
+  {0}% DR
+  {\ifodd\value{r2} 0\else 1\fi}% COMBAT
+  {Crafts~\arabic{r2b}, \ifodd\value{r4} Empathy~1\fi
+  }% SKILLS
+  {\Dagger, \lootSmall}% EQUIPMENT
+  {
+    \knacks{\specialist{animal husbandry}}
+    \setcounter{Wyldcrafting}{\value{r2}}
+    \ifodd\value{r3c}\else
+      \setcounter{Projectiles}{1}
+    \fi
+  }
 }
 
 \newcommand{\humanmaid}[1][\npc{\Hu\F}{Maid}]{
@@ -895,11 +899,11 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 
 \newcommand{\gnollshaman}[1][\npc{\Nl\F}{Gnoll Shaman}]{
 	#1
-	\addtocounter{age}{-2}
 	\randomtwo
 	\randomtwoB
 	\randomtwoD
 	\randomthree
+    \addtocounter{age}{-2}
 	\randomthreeB
 	\randomthreeC
 	\randomfour
@@ -916,17 +920,14 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 \ifnum\value{r4}>1%
 	{Vigilance~\arabic{enc}, Wyldcrafting~\arabic{enc}}%
 	\fi%
-  \Path{
-    \ifodd\value{r2}%
-      Air\else Fire%
-    \fi~\arabic{r3}, %
-    \ifodd\value{r3b}\else%
-      Fate~\arabic{r2d}, Water 1%
-    \fi%
-  }
 }% SKILLS
 {\Dagger\ifodd\value{r3}\else, \lootMagic\fi}% EQUIPMENT
-{}
+{
+  \setcounter{Fate}{2}
+  \ifodd\value{r3c}
+    \setcounter{Air}{\value{r2b}}
+  \fi
+}
 }
 
 \newcommand{\nuracat}[1][\npc{\A\N}{Nura Cat}]{
@@ -1188,16 +1189,17 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {0}% DR
 {\arabic{age}}% AGGRESSION
 {Projectiles~\arabic{r2}, \ifodd\value{r3} Deceit\else Athletics\fi~\arabic{r3}, Medicine~\arabic{r2}, Stealth~1, Tactics~2
-  \Path{
-    Earth~\arabic{r2}, Water~\arabic{r2b}
-  }
 }% SKILLS
 {\Dagger\ifodd\value{r4}, torch\fi%
 \ifnum\value{r4b}=4%
 	, \lootMagic
 \fi%
 }% EQUIPMENT
-{}
+{
+  \setcounter{mp}{3}
+  \setcounter{Earth}{\value{age}}
+  \setcounter{Fire}{2}
+}
 }
 
 \newcommand{\hobgoblin}[1][\npc{\T[\arabic{r12}]\N}{\arabic{r12} Hobgoblins}]{
