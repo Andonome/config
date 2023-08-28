@@ -1,8 +1,8 @@
 \ProvidesPackage{config/stats}
 %%%%%%%%%%%%%%%%%%%% Introduction
 
-\newtoggle{bestiarychapter}
-\settoggle{bestiarychapter}{false}
+\newtoggle{genExamples}
+\settoggle{genExamples}{false}
 
 \newtoggle{allyCharacter}
 \settoggle{allyCharacter}{false}
@@ -718,7 +718,7 @@
     \setcounter{mpFree}{\value{mp}}
     \addtocounter{mpFree}{-\value{mpLocked}}%
   \fi%
-  \iftoggle{bestiarychapter}{%
+  \iftoggle{genExamples}{%
     HP~\arabic{hp},
     \ifnum\value{mp}>0%
       MP
@@ -795,7 +795,7 @@
     \iftoggle{mind}%
       {\addtocounter{fp}{\value{Charisma}}%
         \ifnum\value{fp}>2\ignorespaces, \arabic{fp}~FP %
-        \iftoggle{bestiarychapter}%
+        \iftoggle{genExamples}%
           {}%
           {\Repeat{\value{fp}}{\sqn}}%
         \fi

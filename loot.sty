@@ -5,7 +5,7 @@
 %%%%%%%%%%%%%%%%%%%% LOOT %%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\lootSmall}{%
-	\iftoggle{bestiarychapter}{%
+	\iftoggle{genExamples}{%
 		\ifodd\value{r2}%
 			$3D6$\else$2D6$%
 		\fi \glspl{cp}}{%
@@ -13,7 +13,7 @@
 }
 
 \newcommand{\lootMedium}{%
-	\iftoggle{bestiarychapter}{%
+	\iftoggle{genExamples}{%
 		\ifodd\value{r2}%
 			$3D6$%
 		\else%
@@ -28,7 +28,7 @@
 }
 
 \newcommand{\lootBig}{%
-\iftoggle{bestiarychapter}{%
+\iftoggle{genExamples}{%
 	\ifodd\thepage $3D6-2$\else$2D6+4$\fi \glspl{gp}}{%
 	\randomdozen\addtocounter{r12}{8}\arabic{r12}\glspl{gp}%
 	}%
@@ -38,7 +38,7 @@
   \ifnum\value{noAppearing}>1%
   Mana stone holding 2 MP%
   \else%
-  \iftoggle{bestiarychapter}{}%
+  \iftoggle{genExamples}{}%
     {%
       \stepcounter{treasure}%
       \ifnum\value{treasure}>10\setcounter{treasure}{0}\fi%
@@ -73,7 +73,7 @@
 
 
 \newcommand{\lootJewellery}{%
-\iftoggle{bestiarychapter}{jewellery worth \ifodd\value{r2}$3D6$sp\else$1D6+2$\glspl{gp}\fi}%
+\iftoggle{genExamples}{jewellery worth \ifodd\value{r2}$3D6$sp\else$1D6+2$\glspl{gp}\fi}%
 	{%
     \stepcounter{treasure}%
     \ifnum\value{treasure}>10\setcounter{treasure}{0}\fi%
