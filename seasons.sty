@@ -1,62 +1,65 @@
+\newcounter{season}
+\setcounter{season}{\month}
 \newcounter{temperature}
 
-\ifnum\month=1
+\ifcase\value{season}\or
   \newcommand\season{Qualmea}
-  \newcommand\seasonDesc{\ifodd\value{page}sharp\else fierce\fi}
+  \newcommand\seasonDesc{\ifodd\value{r2d}sharp\else fierce\fi}
   \setcounter{temperature}{1}
-\fi
-\ifnum\month=2
+  \randomtwoD
+\or
   \newcommand\season{Atya}
-  \newcommand\seasonDesc{\ifodd\value{page}calm\else pleasant\fi}
+  \newcommand\seasonDesc{\ifodd\value{r2d}calm\else pleasant\fi}
   \setcounter{temperature}{2}
-\fi
-\ifnum\month=3
+  \randomtwoD
+\or
   \newcommand\season{Alassea}
-  \newcommand\seasonDesc{\ifodd\value{page}frigid\else chilling\fi}
+  \newcommand\seasonDesc{\ifodd\value{r2d}frigid\else chilling\fi}
   \setcounter{temperature}{0}
-\fi
-\ifnum\month=4
+  \randomtwoD
+\or
   \newcommand\season{Cantea}
-  \newcommand\seasonDesc{\ifodd\value{page}calm\else pleasant\fi}
+  \newcommand\seasonDesc{\ifodd\value{r2d}calm\else pleasant\fi}
   \setcounter{temperature}{2}
-\fi
-\ifnum\month=5
+  \randomtwoD
+\or
   \newcommand\season{C\'alea}
-  \newcommand\seasonDesc{\ifodd\value{page}humid\else warm\fi}
+  \newcommand\seasonDesc{\ifodd\value{r2d}humid\else warm\fi}
   \setcounter{temperature}{3}
-\fi
-\ifnum\month=6
+  \randomtwoD
+\or
   \newcommand\season{V\'erea}
-  \newcommand\seasonDesc{\ifodd\value{page}calm\else pleasant\fi}
+  \newcommand\seasonDesc{\ifodd\value{r2d}calm\else pleasant\fi}
   \setcounter{temperature}{2}
-\fi
-\ifnum\month=7
+  \randomtwoD
+\or
   \newcommand\season{Otsea}
-  \newcommand\seasonDesc{\ifodd\value{page}sharp\else fierce\fi}
+  \newcommand\seasonDesc{\ifodd\value{r2d}sharp\else fierce\fi}
   \setcounter{temperature}{1}
-\fi
-\ifnum\month=8
+  \randomtwoD
+\or
   \newcommand\season{Toldea}
-  \newcommand\seasonDesc{\ifodd\value{page}calm\else pleasant\fi}
+  \newcommand\seasonDesc{\ifodd\value{r2d}calm\else pleasant\fi}
   \setcounter{temperature}{2}
-\fi
-\ifnum\month=9
+  \randomtwoD
+\or
   \newcommand\season{Laiquea}
-  \newcommand\seasonDesc{\ifodd\value{page}humid\else warm\fi}
+  \newcommand\seasonDesc{\ifodd\value{r2d}humid\else warm\fi}
   \setcounter{temperature}{3}
-\fi
-\ifnum\month=10
+  \randomtwoD
+\or
   \newcommand\season{Quainea}
-  \newcommand\seasonDesc{\ifodd\value{page}peaceful\else pleasant\fi}
+  \newcommand\seasonDesc{\ifodd\value{r2d}peaceful\else pleasant\fi}
   \setcounter{temperature}{2}
-\fi
-\ifnum\month=11
+  \randomtwoD
+\or
   \newcommand\season{Minquesta}
-  \newcommand\seasonDesc{\ifodd\value{page}frigid\else chilling\fi}
+  \newcommand\seasonDesc{\ifodd\value{r2d}frigid\else chilling\fi}
   \setcounter{temperature}{0}
-\fi
-\ifnum\month=12
+  \randomtwoD
+\else
   \newcommand\season{Ohta}
-  \newcommand\seasonDesc{\ifodd\value{page}calm\else pleasant\fi}
+  \newcommand\seasonDesc{\ifodd\value{r2d}calm\else pleasant\fi}
   \setcounter{temperature}{2}
+  \randomtwoD
 \fi
