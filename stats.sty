@@ -461,9 +461,9 @@
       top=0pt,
       ]
 
-    \creaturestats
-
     #9
+
+    \creaturestats
 
     \skillsEtc
 
@@ -814,6 +814,18 @@
 
 \newcommand\hide[1]{%
   \setcounter{dr}{#1}%
+}
+
+\newcommand\undead{%
+  \addtocounter{spd}{-1}%
+  \renewcommand\abilities{%
+    Undead%
+    \ifnum\value{dr}>1%
+      \stepcounter{dr}%
+    \else%
+      \setcounter{dr}{2}%
+    \fi%
+  }%
 }
 
 \newcommand{\acidSpray}{%

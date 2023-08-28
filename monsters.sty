@@ -1391,21 +1391,22 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 	#1
 	\randomtwo
 	\randomtwoB
-	\addtocounter{enc}{-3}
+	\addtocounter{enc}{-2}
 	\randomthreeB
 \animal{\arabic{r2b}}% STRENGTH
-{-2}% DEXTERITY 
+{0}% DEXTERITY 
 {\arabic{enc}}% SPEED
 {-2}% WITS
-{2}% DR
+{0}% DR
 {2}% AGGRESSION
 {
   \ifnumcomp{\value{r3b}}{=}{1}%
     {\\ \ent{Equipment:} & \lootSmall \\}%
     {}
 }% SKILLS
-{Undead}% ABILITIES
+{}% ABILITIES
 {
+  \undead
 }%
 }
 
@@ -1413,10 +1414,11 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 	#1
 	\randomtwo\addtocounter{enc}{1}
 	\randomtwoB
+	\randomtwoC
 	\addtocounter{r2b}{-1}
 \person{\arabic{enc}}% STRENGTH
 {\arabic{r2b}}% DEXTERITY 
-{0}% SPEED
+{\arabic{r2c}}% SPEED
 {{\arabic{enc}}% INTELLIGENCE
 {0}% WITS
 {-5}}% CHARISMA
@@ -1435,7 +1437,9 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 	\fi%
 \fi%
 \ifodd\thepage, \lootJewellery\fi}% EQUIPMENT
-{}
+{
+  \undead
+}
 }
 
 \newcommand{\necromancer}[1][\npc{\M}{Necromancer}]{
@@ -1484,6 +1488,7 @@ mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIP
 	\randomtwo
 	\addtocounter{enc}{1}
 	\randomtwoB
+	\randomtwoD
 	\randomthree
     \addtocounter{age}{-2}
 	\randomthreeB
@@ -1491,7 +1496,7 @@ mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIP
 	\randomfour
 \person{\arabic{r2}}% STRENGTH
 {\arabic{age}}% DEXTERITY 
-{-2}% SPEED
+{\arabic{r2d}}% SPEED
 {{\arabic{enc}}% INTELLIGENCE
 {\arabic{r2b}}% WITS
 {-5}}% CHARISMA
@@ -1518,13 +1523,16 @@ mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIP
 	\fi%
 \multiply\value{track} by 2%
 , mana stone with \arabic{track} mana, \lootJewellery, \randomtwo\lootJewellery, \lootMagic}% EQUIPMENT
-{\lockedmana{\value{r4}}}
+{%
+  \lockedmana{\value{r4}}
+  \renewcommand\abilities{\undead}
+}
 }
 
 \newcommand{\lich}[1][\npc{\D}{Lich}]{
   #1
   \randomtwo
-  \addtocounter{enc}{-3}
+  \addtocounter{enc}{-1}
   \randomtwoB
   \randomtwoC
     \stepcounter{r2c}
@@ -1562,7 +1570,10 @@ mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIP
 	\Dagger%
 \fi, \addtocounter{track}{3}\multiply\value{track} by 2%
 mana stone with \arabic{track} mana, \lootJewellery, \randomtwo\lootJewellery, \lootMagic}% EQUIPMENT
-{\lockedmana{\value{r4}}}
+{
+  \lockedmana{\value{r4}}
+  \renewcommand\abilities{\undead}
+}
 }
 
 \newcommand{\jelly}[1][\npc{\A}{\ifnum\value{r4}>3 Black\else \ifnum\value{r4}>2 Red \else \ifnum\value{r4}>1 Brown\else Transluscent\fi\fi\fi~ Ooze}]{
