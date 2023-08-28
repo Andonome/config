@@ -31,15 +31,15 @@
     \vspace{.8cm}
     \begin{tabularx}{\linewidth}{lXlXlX}
       \hiderowcolors
-      \textbf{Name:} & \iftoggle{examplecharacter}{\name}{\hrulefill} &
+      \textbf{Name:} & \iftoggle{examplecharacter}{\sffamily\name}{\hrulefill} &
       \textbf{Player:} & \hrulefill &
-      \textbf{Code:} & \iftoggle{examplecharacter}{\code}{\hrulefill}
+      \textbf{Code:} & \iftoggle{examplecharacter}{\sffamily\code}{\hrulefill}
       \\
       \\
 
-      \textbf{Race:} & \iftoggle{examplecharacter}{\race}{\hrulefill} &
-      \textbf{Concept:} & \iftoggle{examplecharacter}{\concept}{\hrulefill} &
-      \textbf{Rank:} & \iftoggle{examplecharacter}{\rank}{\hrulefill} \\
+      \textbf{Race:} & \iftoggle{examplecharacter}{\sffamily\race}{\hrulefill} &
+      \textbf{Concept:} & \iftoggle{examplecharacter}{\sffamily\concept}{\hrulefill} &
+      \textbf{Rank:} & \iftoggle{examplecharacter}{\sffamily\rank}{\hrulefill} \\
     \end{tabularx}
 }
 
@@ -156,7 +156,7 @@ circle label/.style = {
           \\
           \\
         }{
-          \characterWeapon & \arabic{weaponBonus} & \arabic{damage} & \arabic{heft} & \arabic{weight} \\
+          \sffamily\characterWeapon & \sffamily\arabic{weaponBonus} & \sffamily\arabic{damage} & \sffamily\arabic{heft} & \sffamily\arabic{weight} \\
         }
     }{}
     \\
@@ -172,7 +172,7 @@ circle label/.style = {
       \iftoggle{examplecharacter}{
         \hline
         \ifdefempty{\characterArmour}{}{
-          \characterArmour & \arabic{armourDR} & \arabic{covering} & \arabic{weight} \\
+          \sffamily\characterArmour & \sffamily\arabic{armourDR} & \sffamily\arabic{covering} & \sffamily\arabic{weight} \\
         }
       }{}
     \end{tabularx}
@@ -195,23 +195,23 @@ circle label/.style = {
       \\
       \\
       \\
-      \iftoggle{examplecharacter}{\arabic{dr}}{\underline{\hspace{2em}/\hspace{2em}}}
+      \iftoggle{examplecharacter}{\sffamily\arabic{dr}}{\underline{\hspace{2em}/\hspace{2em}}}
       &
       \iftoggle{examplecharacter}%
       {%
         \addtocounter{spd}{3}%
-        \arabic{spd}%
+        \sffamily\arabic{spd}%
       }%
       {\underline{\hspace{2em}}}
       &
-      2D6%
+      \iftoggle{examplecharacter}{\sffamily}{}2D6%
       \iftoggle{examplecharacter}% Bonus
       {%
       \addtocounter{Combat}{\value{dex}}%
       \addtocounter{Combat}{\value{weaponBonus}}%
       \ifnum\value{Combat}=0\else%
         \ifnum\value{Combat}>0+\else-\fi%
-        \arabic{Combat}%
+        \sffamily\arabic{Combat}%
       \fi%
       }%
       {\underline{\hspace{2em}}} &
@@ -219,7 +219,7 @@ circle label/.style = {
       {%
         \addtocounter{damage}{\value{str}}%
         \addtocounter{damage}{4}%
-        \dmg{damage}%
+        \sffamily\dmg{damage}%
       }%
       {
         \underline{\hspace{1em}} D6+\underline{\hspace{1.5em}}
@@ -286,7 +286,7 @@ circle label/.style = {
     rowspan=3,
   }{
 
-  \iftoggle{examplecharacter}{\characterEquipment\vspace{14em}}{\lineDots[3]\vspace{1em}}
+  \iftoggle{examplecharacter}{\sffamily\characterEquipment\vspace{14em}}{\lineDots[3]\vspace{1em}}
 
   
   \glsentryshortpl{cp}
@@ -306,9 +306,9 @@ circle label/.style = {
   \setlength{\parskip}{0mm}
 
     \iftoggle{examplecharacter}{
-      \knackOne
+      \sffamily\knackOne
 
-      \knackTwo
+      \sffamily\knackTwo
     }{
       \lineDots[5]
     }
@@ -323,7 +323,7 @@ circle label/.style = {
 
   \setlength{\parskip}{0mm}
     \small Total:
-    \iftoggle{examplecharacter}{ 50 }{ }
+    \iftoggle{examplecharacter}{\sffamily 50 }{ }
     \tcblower
     \small Unspent:
   }
