@@ -1014,7 +1014,7 @@ Roll & Result \\
 \newcommand\currentCircle{}
 \newcommand{\weeline}{\line(1,0){30} \hspace{.6cm}}
 
-\newcommand\showAttribute[2]{
+\newcommand\showAttribute[1]{
   \setcounter{track}{-4}%
   {#1}%
   \whileboolexpr{%
@@ -1023,7 +1023,7 @@ Roll & Result \\
   {%
     &%
     \ifnum\value{track}>0%
-      \ifnum\value{track}>\value{#2}%
+      \ifnum\value{track}>\value{#1}%
         \statCircle%
       \else%
         \statDot%
@@ -1032,7 +1032,7 @@ Roll & Result \\
       \ifnum\value{track}=0%
         \raisebox{2pt}{\statDot[\footnotesize]}%
       \else%
-        \ifnum\value{#2}>\value{track}%
+        \ifnum\value{#1}>\value{track}%
           {\Large\Square}%
         \else%
           {\Large\XBox}%
