@@ -205,7 +205,7 @@
 	{{\arabic{age}}% INTELLIGENCE
 	{\arabic{enc}}% WITS
 	{\arabic{track}}}% CHARISMA
-	{\value{gold}}%DR 3-4
+	{}%
 	{\arabic{age}}% COMBAT
 	{
     Brawl~\arabic{enc}, Projectiles~\arabic{r3b}, Academics~\arabic{r3}, Athletics~\arabic{r2b}, Deceit~\arabic{r2c}, Tactics~2, Vigilance~3\ifnum\value{r3}<3,
@@ -226,6 +226,7 @@
   }{}%
 	{
     \knacks{\ifodd\value{page}\chosenEnemy{Dwarves}\else\charge\fi, \ifnumcomp{\value{r3}}{>}{2}{\laststand}{\adrenalinesurge}}
+    \hide{\value{gold}}
   }
 	}
 
