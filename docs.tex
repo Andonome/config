@@ -64,8 +64,6 @@ Individual characters can be created by using the \verb"\npc" command then the \
 
 \end{verbatim}
 
-\settoggle{debug}{true}
-
 \npc{\M}{Alice}
 \person{0}% STRENGTH
 {1}% DEXTERITY 
@@ -90,11 +88,11 @@ Then the \verb"\humansoldier" command turns from this:
 
 \ldots into this:
 
-%\settoggle{genExamples}{true}
+\settoggle{genExamples}{true}
 
 \humansoldier
 
-This second soldier is still partly random.
+This second soldier is still random, but note the loot they carry has changed into a roll.
 
 \subsection{Boxes}
 
