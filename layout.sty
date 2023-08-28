@@ -324,8 +324,17 @@ bookmarks=true]%
 
 %%% \tn shows a tie number.
 
-\newcommand\tn[1]{%
+\newcounter{tn}
+\setcounter{tn}{7}
+\newcommand\tn[1][\arabic{tn}]{%
   \gls{tn}~#1%
+}
+
+\newcommand\roll[2]{%
+  \setcounter{tn}{7}%
+  \addtocounter{tn}{\value{#1}}%
+  \addtocounter{tn}{\value{#2}}%
+  #1 + #2%
 }
 
 %%% The dice-face (\dicef) command shows an actual die, or multiple
