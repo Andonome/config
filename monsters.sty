@@ -1024,7 +1024,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {\arabic{r2}}% AGGRESSION
 {Projectiles \arabic{r2}, Wyldcrafting~1}% SKILLS
 {\acidSpray}% ABILITIES
-{\addtocounter{str}{1}}
+{\addtocounter{Strength}{1}}
 }
 
 \newcommand{\nuraspider}[1][\npc{\A\N}{Nura Spider}]{
@@ -1790,7 +1790,7 @@ mana stone with \arabic{track} mana, \lootJewellery, \randomtwo\lootJewellery, \
   }}% SKILLS
 {None}% ABILITIES
 {
-  \setcounter{gold}{\value{age}}\multiply\value{gold} by 3\addtocounter{gold}{\value{int}}\setcounter{sp}{\value{gold}}%
+  \setcounter{gold}{\value{age}}\multiply\value{gold} by 3\addtocounter{gold}{\value{Intelligence}}\setcounter{sp}{\value{gold}}%
   \lockedmana{\value{age}}
   \knacks{\snapcaster}
 }

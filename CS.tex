@@ -53,12 +53,12 @@
     \addtolength{\tabcolsep}{-0.53em}
     \begin{tabular}{lcccccccccc}
     & \tiny{-4} & \tiny{-3} & \tiny{-2} & \tiny{-1} & \tiny{0} & \tiny{1} & \tiny{2} & \tiny{3} & \tiny{4} \\
-    \showAttribute{Strength}{str}
-    \showAttribute{Dexterity}{dex}
-    \showAttribute{Speed}{spd}
-    \showAttribute{Intelligence}{int}
-    \showAttribute{Wits}{wts}
-    \showAttribute{Charisma}{cha}
+    \showAttribute{Strength}{Strength}
+    \showAttribute{Dexterity}{Dexterity}
+    \showAttribute{Speed}{Speed}
+    \showAttribute{Intelligence}{Intelligence}
+    \showAttribute{Wits}{Wits}
+    \showAttribute{Charisma}{Charisma}
     \end{tabular}
   }
 
@@ -199,15 +199,15 @@ circle label/.style = {
       &
       \iftoggle{examplecharacter}%
       {%
-        \addtocounter{spd}{3}%
-        \sffamily\arabic{spd}%
+        \addtocounter{Speed}{3}%
+        \sffamily\arabic{Speed}%
       }%
       {\underline{\hspace{2em}}}
       &
       \iftoggle{examplecharacter}{\sffamily}{}2D6%
       \iftoggle{examplecharacter}% Bonus
       {%
-      \addtocounter{Combat}{\value{dex}}%
+      \addtocounter{Combat}{\value{Dexterity}}%
       \addtocounter{Combat}{\value{weaponBonus}}%
       \ifnum\value{Combat}=0\else%
         \ifnum\value{Combat}>0+\else-\fi%
@@ -217,7 +217,7 @@ circle label/.style = {
       {\underline{\hspace{2em}}} &
       \iftoggle{examplecharacter}% Damage
       {%
-        \addtocounter{damage}{\value{str}}%
+        \addtocounter{damage}{\value{Strength}}%
         \addtocounter{damage}{4}%
         \sffamily\dmg{damage}%
       }%

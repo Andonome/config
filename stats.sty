@@ -230,12 +230,6 @@
 %
 % Attributes: str, dex, spd, int, wts, cha
 % secondary str, dex and spd
-\newcounter{str}
-\newcounter{dex}
-\newcounter{spd}
-\newcounter{int}
-\newcounter{wts}
-\newcounter{cha}
 \newcounter{att}
 \newcounter{dr}
 \newcounter{knacks}
@@ -429,7 +423,7 @@
 %% 
 %
 \newcommand{\mind}[3]{
-\setcounter{int}{#1}\setcounter{wts}{#2}\setcounter{cha}{#3}
+\setcounter{Intelligence}{#1}\setcounter{Wits}{#2}\setcounter{Charisma}{#3}
 }
 %
 
@@ -438,10 +432,10 @@
 \newcommand{\person}[9]{
   \settoggle{creatureBox}{true}
   \settoggle{mind}{true}
-  \setcounter{str}{#1}
+  \setcounter{Strength}{#1}
 	\setcounter{hp}{#1}
-  \setcounter{dex}{#2}
-  \setcounter{spd}{#3}
+  \setcounter{Dexterity}{#2}
+  \setcounter{Speed}{#3}
   \mind#4
   \setcounter{att}{#6}
   \renewcommand{\skills}{#7}
@@ -509,11 +503,11 @@
 \newcommand{\animal}[9]{
   \settoggle{creatureBox}{true}
 	\settoggle{mind}{false}
-	\setcounter{str}{#1}
+	\setcounter{Strength}{#1}
 	\setcounter{hp}{#1}
-	\setcounter{dex}{#2}
-	\setcounter{spd}{#3}
-	\setcounter{wts}{#4}
+	\setcounter{Dexterity}{#2}
+	\setcounter{Speed}{#3}
+	\setcounter{Wits}{#4}
 	\setcounter{dr}{#5}
 	\setcounter{att}{#6}
   \setcounter{encumbrance}{0}
@@ -616,10 +610,10 @@
 % but that doesn't work with creature stats, so we suppress it here
 \hiderowcolors
 
-	Strength & \arabic{str} & Dexterity & \arabic{dex} & Speed & \arabic{spd} \\
+	Strength & \arabic{Strength} & Dexterity & \arabic{Dexterity} & Speed & \arabic{Speed} \\
 \iftoggle{mind}{
-	Intelligence & \arabic{int}  & Wits & \arabic{wts} & Charisma & \arabic{cha}  \\}{%
-	&& Wits & \arabic{wts} \\
+	Intelligence & \arabic{Intelligence}  & Wits & \arabic{Wits} & Charisma & \arabic{Charisma}  \\}{%
+	&& Wits & \arabic{Wits} \\
 	}
 
 \end{tabularx}
@@ -683,25 +677,25 @@
   \iftoggle{verbose}{\hrulefill}{}
   \setlength\topsep{0pt}
   \setlength\parskip{0pt}
-  \iftoggle{debug}{str: \arabic{str}, dex: \arabic{dex}, spd: \arabic{spd}, att: \arabic{att}, damage: \arabic{damage}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}}{}
+  \iftoggle{debug}{str: \arabic{Strength}, dex: \arabic{Dexterity}, spd: \arabic{Speed}, att: \arabic{att}, damage: \arabic{damage}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}}{}
 
 
 % Stats for allies don't need to show Combat +1 as 'TN 8 to hit', they just need to show '+1'.
 \iftoggle{allyCharacter}{}{
   \addtocounter{att}{7}
 }
-\addtocounter{att}{\value{dex}}
-\ifnum\value{weight}>\value{str}% now to compute encumbrance
-  \addtocounter{str}{5}% we can't have negative values affecting results
+\addtocounter{att}{\value{Dexterity}}
+\ifnum\value{weight}>\value{Strength}% now to compute encumbrance
+  \addtocounter{Strength}{5}% we can't have negative values affecting results
   \addtocounter{weight}{5}
-  \addtocounter{spd}{-\value{weight}}
-  \addtocounter{spd}{\value{str}}
-  \addtocounter{str}{-5}% now we return strand weight to the original values
+  \addtocounter{Speed}{-\value{weight}}
+  \addtocounter{Speed}{\value{Strength}}
+  \addtocounter{Strength}{-5}% now we return strand weight to the original values
   \addtocounter{weight}{-5}
 \fi
 \begin{center}
   \iftoggle{verbose}{\normalsize}{\large}%
-  \setcounter{ap}{\value{spd}}
+  \setcounter{ap}{\value{Speed}}
   \addtocounter{ap}{3}
   \scshape AP \ifnum\value{ap}<1 $\frac{1}{2}$ \else \arabic{ap}\fi%
   \ifnumcomp{\value{heft}}{>}{1}{ (AP Cost: \arabic{heft})}{},
@@ -709,7 +703,7 @@
   \iftoggle{allyCharacter}{$2D6$\ifnum\value{att}>-1 +\fi}{}%
   \arabic{att}%
   \setcounter{enc}{\value{att}},%
-  \addtocounter{damage}{\value{str}}
+  \addtocounter{damage}{\value{Strength}}
   \addtocounter{damage}{4}%
   \mbox{Dam \dmg{damage}, }%
     \ifnumcomp{\value{dr}}{>}{0}{%
@@ -720,7 +714,7 @@
     }{}%
   \addtocounter{hp}{6}%
   \ifnum\value{mp}>0%
-    \addtocounter{mp}{\value{int}}%
+    \addtocounter{mp}{\value{Intelligence}}%
     \setcounter{mpFree}{\value{mp}}
     \addtocounter{mpFree}{-\value{mpLocked}}%
   \fi%
@@ -760,9 +754,9 @@
   %%% = Attack (TN) * Dam + max((spd-hef),mp)^2
   \setcounter{attackXPtotal}{\value{att}}%
   \multiply\value{attackXPtotal} by \value{damage}%
-  \addtocounter{spd}{-\value{heft}}%
-  \ifnum\value{spd}>\value{mp}%
-    \setcounter{enc}{\value{spd}}
+  \addtocounter{Speed}{-\value{heft}}%
+  \ifnum\value{Speed}>\value{mp}%
+    \setcounter{enc}{\value{Speed}}
   \else%
     \setcounter{enc}{\value{mp}}
   \fi%
@@ -783,7 +777,7 @@
     \setcounter{xp}{\value{attackXPtotal}}%
     \addtocounter{xp}{\value{defenceXPtotal}}%
 
-  \iftoggle{debug}{str: \arabic{str}, dex: \arabic{dex}, spd: \arabic{spd}, att: \arabic{att}, damage: \arabic{damage}, weight: \arabic{weight}, XP Bonus: \arabic{xpbonus}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}, mp: \arabic{mp} Grand Total: \arabic{xp}}{\iftoggle{verbose}{\hrulefill}}
+  \iftoggle{debug}{str: \arabic{Strength}, dex: \arabic{Dexterity}, spd: \arabic{Speed}, att: \arabic{att}, damage: \arabic{damage}, weight: \arabic{weight}, XP Bonus: \arabic{xpbonus}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}, mp: \arabic{mp} Grand Total: \arabic{xp}}{\iftoggle{verbose}{\hrulefill}}
     
   \iftoggle{examplecharacter}%
   {}%
@@ -799,7 +793,7 @@
         }%
     % if the creature has a mind, print fate points (if any).
     \iftoggle{mind}%
-      {\addtocounter{fp}{\value{cha}}%
+      {\addtocounter{fp}{\value{Charisma}}%
         \ifnum\value{fp}>2\ignorespaces, \arabic{fp}~FP %
         \iftoggle{bestiarychapter}%
           {}%
@@ -818,7 +812,7 @@
 }
 
 \newcommand\undead{%
-  \addtocounter{spd}{-1}%
+  \addtocounter{Speed}{-1}%
   \renewcommand\abilities{%
     Undead%
     \ifnum\value{dr}>1%
@@ -832,9 +826,9 @@
 \newcommand{\acidSpray}{%
   Acidic Spray
   \setcounter{track}{4}%
-  \addtocounter{track}{\value{spd}}%
+  \addtocounter{track}{\value{Speed}}%
   (\dmg{track} Damage,
-  \setcounter{track}{\value{dex}}%
+  \setcounter{track}{\value{Dexterity}}%
   \addtocounter{track}{8}%
   \glsentrytext{tn} \arabic{track} to dodge)%
 }
@@ -842,17 +836,17 @@
 \newcommand{\acidBody}{%
   Acidic Body (inflict
   \setcounter{track}{3}%
-  \addtocounter{track}{\value{str}}%
+  \addtocounter{track}{\value{Strength}}%
   \dmg{track} Damage each turn of grappling)%
 }
 
 \newcommand{\gelRegen}{%
-  Regeneration (1 HP/ round, max. \setcounter{hp}{\value{str}}\addtocounter{hp}{6}\roundUp{hp} \arabic{hp})%
+  Regeneration (1 HP/ round, max. \setcounter{hp}{\value{Strength}}\addtocounter{hp}{6}\roundUp{hp} \arabic{hp})%
 }
 
 \newcommand\gloopy{%
   Viscid (on a tie, the attacker \emph{must} inflict Damage, but the weapon sticks into the body,
-  \setcounter{track}{\value{str}}%
+  \setcounter{track}{\value{Strength}}%
   \addtocounter{track}{7}%
   \tn[\arabic{track}] to pull out)%
 }
@@ -872,9 +866,9 @@
 \newcommand{\flight}{%
   Flight %
   \setcounter{enc}{\value{dr}}%
-  \addtocounter{enc}{\value{str}}%
-  \setcounter{track}{\value{dex}}%
-  \addtocounter{track}{\value{spd}}%
+  \addtocounter{enc}{\value{Strength}}%
+  \setcounter{track}{\value{Dexterity}}%
+  \addtocounter{track}{\value{Speed}}%
   \ifnum\value{enc}>\value{track}%
     (can glide, but not fly)
   \else%
@@ -889,7 +883,7 @@
 \newcommand{\stench}{%
 	Stench (breathing in demands Str + Wyldcrafting check, \glsentrytext{tn}%
   \setcounter{track}{10}%
-  \addtocounter{track}{-\value{spd}}%
+  \addtocounter{track}{-\value{Speed}}%
   \arabic{track}%
   )
 }
@@ -897,7 +891,7 @@
 \newcommand{\crazyGas}{%
   Gas (hallucinations and
   \setcounter{track}{4}%
-  \addtocounter{track}{\value{str}}%
+  \addtocounter{track}{\value{Strength}}%
   \arabic{track} \glspl{fatigue} per round)%
 }
 
@@ -922,7 +916,7 @@
 }
 
 \newcommand{\web}{%
-  \setcounter{track}{6}\addtocounter{track}{\value{str}}%
+  \setcounter{track}{6}\addtocounter{track}{\value{Strength}}%
   Web (Strength + Athletics, TN \arabic{track} to break free as a movement action)%
 }
 
