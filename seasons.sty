@@ -2,64 +2,80 @@
 \setcounter{season}{\month}
 \newcounter{temperature}
 
-\ifcase\value{season}\or
-  \newcommand\season{Qualmea}
-  \newcommand\seasonDesc{\ifodd\value{r2d}sharp\else fierce\fi}
-  \setcounter{temperature}{1}
-  \randomtwoD
-\or
-  \newcommand\season{Atya}
-  \newcommand\seasonDesc{\ifodd\value{r2d}calm\else pleasant\fi}
-  \setcounter{temperature}{2}
-  \randomtwoD
-\or
-  \newcommand\season{Alassea}
-  \newcommand\seasonDesc{\ifodd\value{r2d}frigid\else chilling\fi}
-  \setcounter{temperature}{0}
-  \randomtwoD
-\or
-  \newcommand\season{Cantea}
-  \newcommand\seasonDesc{\ifodd\value{r2d}calm\else pleasant\fi}
-  \setcounter{temperature}{2}
-  \randomtwoD
-\or
-  \newcommand\season{C\'alea}
-  \newcommand\seasonDesc{\ifodd\value{r2d}humid\else warm\fi}
-  \setcounter{temperature}{3}
-  \randomtwoD
-\or
-  \newcommand\season{V\'erea}
-  \newcommand\seasonDesc{\ifodd\value{r2d}calm\else pleasant\fi}
-  \setcounter{temperature}{2}
-  \randomtwoD
-\or
-  \newcommand\season{Otsea}
-  \newcommand\seasonDesc{\ifodd\value{r2d}sharp\else fierce\fi}
-  \setcounter{temperature}{1}
-  \randomtwoD
-\or
-  \newcommand\season{Toldea}
-  \newcommand\seasonDesc{\ifodd\value{r2d}calm\else pleasant\fi}
-  \setcounter{temperature}{2}
-  \randomtwoD
-\or
-  \newcommand\season{Laiquea}
-  \newcommand\seasonDesc{\ifodd\value{r2d}humid\else warm\fi}
-  \setcounter{temperature}{3}
-  \randomtwoD
-\or
-  \newcommand\season{Quainea}
-  \newcommand\seasonDesc{\ifodd\value{r2d}peaceful\else pleasant\fi}
-  \setcounter{temperature}{2}
-  \randomtwoD
-\or
-  \newcommand\season{Minquesta}
-  \newcommand\seasonDesc{\ifodd\value{r2d}frigid\else chilling\fi}
-  \setcounter{temperature}{0}
-  \randomtwoD
-\else
-  \newcommand\season{Ohta}
-  \newcommand\seasonDesc{\ifodd\value{r2d}calm\else pleasant\fi}
-  \setcounter{temperature}{2}
-  \randomtwoD
-\fi
+\setcounter{track}{\month}
+\newcommand\season{}
+
+%%% State a Season's name.
+
+\newcommand\showSeason{%
+  \ifcase\value{track}\or%
+    Qualmea%
+    \setcounter{temperature}{1}%
+  \or%
+    Atya%
+    \setcounter{temperature}{2}%
+  \or%
+    Alassea%
+    \setcounter{temperature}{0}%
+  \or%
+    Cantea%
+    \setcounter{temperature}{2}%
+  \or%
+    Calea%
+    \setcounter{temperature}{3}%
+  \or%
+    Verea%
+    \setcounter{temperature}{2}%
+  \or%
+    Otsea%
+    \setcounter{temperature}{1}%
+  \or%
+    Toldea%
+    \setcounter{temperature}{2}%
+  \or%
+    Laiquea%
+    \setcounter{temperature}{3}%
+  \or%
+    Quainea%
+    \setcounter{temperature}{2}%
+  \or%
+    Minquesta%
+    \setcounter{temperature}{0}%
+  \else
+    Ohta%
+    \setcounter{temperature}{2}%
+  \fi%
+}
+
+\newcommand\showAstroEvents{%
+  \ifcase\value{track}\or%
+    eclipse%
+  \or%
+  \or%
+    eclipse%
+  \or%
+  \or%
+  \or%
+  \or%
+  \or%
+  \or%
+  \or%
+  \or%
+    eclipse%
+  \else%
+  \fi%
+}
+
+
+\newcommand\showTemperature{%
+  \ifcase\value{temperature}%
+    cold%
+  \or%
+    stormy%
+  \or%
+    mild%
+  \else%
+    hot%
+  \fi%
+}
+
