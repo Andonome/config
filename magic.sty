@@ -45,10 +45,10 @@
     \iftoggle{duplicated}{%
       Targets:~\spellArea, %
     }{}%
-    \tn{\arabic{age}},
+    \tn[\arabic{age}],
     Skill:~\underline{#5}
     \vspace{.5em}\afterparnoindent
-    \index[spells]{\textbf{#1}: #6. (Cost:~\arabic{spelllevel}, Spheres:~#2, Range: \spellRange\iftoggle{duplicated}{, Targets: \spellArea}{}, \tn{\arabic{age}}, Skill:~#5)}
+    \index[spells]{\textbf{#1}: #6. (Cost:~\arabic{spelllevel}, Spheres:~#2, Range: \spellRange\iftoggle{duplicated}{, Targets: \spellArea}{}, \tn[\arabic{age}], Skill:~#5)}
 
     #7
   }{
@@ -56,7 +56,7 @@
     \hphantom{#4}%
     \setArea%
     \setRange%
-    (Cost:~\arabic{spelllevel}, Spheres:~#2, Range: \spellRange\iftoggle{duplicated}{, Targets: \spellArea}{}, \tn{\arabic{age}})
+    (Cost:~\arabic{spelllevel}, Spheres:~#2, Range: \spellRange\iftoggle{duplicated}{, Targets: \spellArea}{}, \tn[\arabic{age}])
 
     \MakeUppercase#6.
   }
