@@ -537,6 +537,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 %%%%% Section Formatting %%%%%
 
 \newcommand{\frontpage}[2][\expandafter\MakeUppercase \jobname]{
+  \frontmatter
   \pagenumbering{gobble}
   \begin{titlepage}
     \centering
@@ -556,6 +557,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \cleardoublepage
   \frontmatter
   \tableofcontents
+  \clearpage
 }
 
 \newcommand\startappendix{
