@@ -537,6 +537,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 %%%%% Section Formatting %%%%%
 
 \newcommand{\frontpage}[2][\expandafter\MakeUppercase \jobname]{
+  \pagenumbering{gobble}
   \begin{titlepage}
     \centering
     \hphantom{nemo}
@@ -552,8 +553,9 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
     {\footnotesize \textcolor{gray}{\today}\par}
     \vspace{3em}
   \end{titlepage}
-  \pagenumbering{gobble}
   \cleardoublepage
+  \frontmatter
+  \tableofcontents
 }
 
 \newcommand\startappendix{
