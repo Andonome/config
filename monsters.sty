@@ -154,8 +154,10 @@
 {\ifodd\thepage 2\else 3\fi}% DR
 {\arabic{r3}}% AGGRESSION
 {Athletics~2, Stealth~\arabic{enc}, Tactics~\arabic{r3}}% SKILLS
-{\tentacles}% ABILITIES
-{}
+{}% ABILITIES
+{
+  \renewcommand\abilities{\tentacles}
+}
 }
 
 \newcommand{\basilisk}[1][\npc{\A}{Basilisk}]{
