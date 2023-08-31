@@ -536,18 +536,19 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 
 %%%%% Section Formatting %%%%%
 
-\newcommand{\frontpage}[3]{
+\newcommand{\frontpage}[3][\expandafter\MakeUppercase \jobname]{
   \begin{titlepage}
     \centering
-    \vspace{2cm}
-    {\scshape\Huge\bfseries #1\par}
-    \vspace{1cm}
+    \hphantom{nemo}
+    \vfill \vfill
+    {\Huge\scshape\outline{#1}\par}
+    \vspace{1em}
     \IfFileExists{images/#3.jpg}{
       \includegraphics[width=0.6\textwidth]{images/#3.jpg}\par\vspace{1cm}
     }{}
-    {\Large #2\par}
-    \vspace{1.5cm}
-    {\large This edition bound on \today\par}
+    {\large\scshape #2\par}
+    \vspace{1em}
+    {\large \today\par}
   
   \end{titlepage}
   \cleardoublepage
