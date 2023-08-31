@@ -536,21 +536,23 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 
 %%%%% Section Formatting %%%%%
 
-\newcommand{\frontpage}[3][\expandafter\MakeUppercase \jobname]{
+\newcommand{\frontpage}[2][\expandafter\MakeUppercase \jobname]{
   \begin{titlepage}
     \centering
     \hphantom{nemo}
     \vfill \vfill
+    \includesvg[width=.2\textwidth]{config/logo}
+    \par
+    \vspace{-2em}
     {\Huge\scshape\outline{#1}\par}
-    \vspace{1em}
-    \IfFileExists{images/#3.jpg}{
-      \includegraphics[width=0.6\textwidth]{images/#3.jpg}\par\vspace{1cm}
-    }{}
+    \vspace{2em}
     {\large\scshape #2\par}
-    \vspace{1em}
-    {\large \today\par}
-  
+    \flushright
+    \vspace{2em}
+    {\footnotesize \textcolor{gray}{\today}\par}
+    \vspace{3em}
   \end{titlepage}
+  \pagenumbering{gobble}
   \cleardoublepage
 }
 
