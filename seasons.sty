@@ -1,14 +1,14 @@
 \newcounter{season}
 \setcounter{season}{\month}
+  \setcounter{season}{\month}
 \newcounter{temperature}
 
-\setcounter{track}{\month}
 \newcommand\season{}
 
 %%% State a Season's name.
 
 \newcommand\showSeason{%
-  \ifcase\value{track}\or%
+  \ifcase\value{season}\or%
     Qualmea%
     \setcounter{temperature}{1}%
   \or%
@@ -48,7 +48,7 @@
 }
 
 \newcommand\showAstroEvents{%
-  \ifcase\value{track}\or%
+  \ifcase\value{season}\or%
     eclipse%
   \or%
   \or%
