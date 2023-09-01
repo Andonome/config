@@ -3,7 +3,7 @@
   {\mFate}% Spheres
   {Wax}% Action
   {\duplicated}% Enhancements
-  {Empathy}% Skill
+  {target's Charisma}% Resist with
   {\spellArea{} targets gain \arabic{spelllevel} \glspl{fp}}% Description
   {}
 
@@ -11,7 +11,7 @@
   {\mFate}% Spheres
   {Wane}% Action
   {\duplicated}% Enhancements
-  {Deceit}% Skill
+  {target's Charisma}% Resist with
   {\spellArea{} targets lose \arabic{spelllevel} \glspl{fp}}% Description
   {}
 
@@ -19,9 +19,9 @@
   {Fate}% Spheres
   {Wane}% Action
   {\distant}% Enhancements
-  {Deceit}% Skill
-  {target loses 1D6+\arabic{spelllevel} \glspl{fp}}% Description
+  {target's Charisma}% Resist with
+  {target loses \rollConv~\glspl{fp}}% Description
   {
-    One target at \spellRange{} loses \dmg{spelllevel}~\glspl{fp}.
+    One target at \spellRange{} loses \rollConv~\glspl{fp}.
   }
 
