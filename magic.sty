@@ -76,10 +76,10 @@
     #2)}
     Cost:~\arabic{spelllevel},
     \setRange%
-    Range:~\spellRange,
+    Range:~\spellRange
     \setArea%
     \iftoggle{duplicated}{%
-      Targets:~\spellArea, %
+      \ignorespaces, Targets:~\spellArea, %
     }{}%
     \afterparnoindent
 
@@ -92,7 +92,7 @@
     }
 
     \vphantom{\dmg{spellPotency}}
-    \index[spells]{\textbf{#1}: #6 (Cost: \arabic{spelllevel}, Range: \spellRange, \iftoggle{duplicated}{Targets: \spellArea}{})}
+    \index[spells]{\textbf{#1}: #6 (Cost: \arabic{spelllevel}, Range:~\spellRange\iftoggle{duplicated}{, Targets: \spellArea}{})}
   }{
     \item[\textbf{#1}]%
     \vphantom{\dmg{spellPotency}}%
