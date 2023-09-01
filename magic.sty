@@ -91,17 +91,16 @@
     }
 
   }{
-    \item[\textbf{#1}]
-    \hphantom{#4}%
+    \item[\textbf{#1}]%
+    \vphantom{#4}%
     \setArea%
     \setRange%
-    (Spheres:~#2, Cost:~\arabic{spelllevel}, Range: \spellRange\iftoggle{duplicated}{, Targets: \spellArea}{})
-
-    \ifdefparam{#5}{
-      Roll #5, \tn, or #6.
+    \ifdefparam{#5}{%
+      Roll #5, \tn[\arabic{spellResTN}], or #6.
     }{
       \MakeUppercase#6.
     }
+    (Spheres:~#2, Cost:~\arabic{spelllevel}, Range: \spellRange\iftoggle{duplicated}{, Targets: \spellArea}{})
   }
 }
 
