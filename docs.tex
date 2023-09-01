@@ -3,6 +3,8 @@
 
 \date{\today}
 
+\externalReferent{judgement}
+
 \begin{document}
 
 \frontpage%
@@ -150,7 +152,7 @@ title={Spell Summaries},columns=2]
   {Earth}% Spheres
   {Wane}% Action
   {\distant, \duplicated}% Enhancements
-  {Caving}% Skill
+  {the rock's density}% Skill
   {Ground shakes}% Short Description
   {Brrrrrr}% Long Description
 
@@ -159,19 +161,29 @@ title={Spell Summaries},columns=2]
 
 After inputting that, you can get the spell, and the `printindex' command will create a spell-list by using a special index, just for spells.
 
-In non-verbose mode, the same spell presents differently, and belong in the \verb"description" environment.
-
-\settoggle{genExamples}{true}
-
-\showSpells{mind2}
+\spell{Quake}% Name
+  {Earth}% Spheres
+  {Wane}% Action
+  {\distant, \duplicated}% Enhancements
+  {the rock's density}% Skill
+  {Ground shakes}% Short Description
+  {Brrrrrr}% Long Description
 
 Alternatively, pull in a bunch of spells from a sphere at a particular level with:
 
-\verb"\shortSpells{air2}"
+\verb"\showSpells{fate1,air2}"
 
-\ldots which shows Air spells of level 2.
+\showSpells{fate1,air2}
 
-\settoggle{verbose}{true}
+\ldots which shows Air spells of level 2, and Fate at level 1.
+
+Alternatively, input the spells after a creature, with:
+
+\verb"\creatureSpells{fate1,air2}"
+
+\demilich
+
+\creatureSpells{fate1,air2}
 
 \subsubsection{Magical Items}
 

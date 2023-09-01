@@ -213,22 +213,17 @@
     Brawl~\arabic{enc}, Projectiles~\arabic{r3b}, Academics~\arabic{r3}, Athletics~\arabic{r2b}, Deceit~\arabic{r2c}, Tactics~2, Vigilance~3\ifnum\value{r3}<3,
     \setcounter{gold}{3}\addtocounter{gold}{-\value{r3}}%
     Xenomology~\arabic{gold}\fi
-      \Path{
-        \ifodd\value{r4}
-          Air \arabic{r3b},
-        \fi
-        Fire~\arabic{r2d},
-        \ifodd\value{r2}
-          Fate~2
-          \ifodd\value{r2c},
-            Water 1
-          \fi
-        \fi
-    }
   }{}%
 	{
     \knacks{\ifodd\value{page}\chosenEnemy{Dwarves}\else\charge\fi, \ifnumcomp{\value{r3}}{>}{2}{\laststand}{\adrenalinesurge}}
     \hide{\value{gold}}
+    \ifodd\value{r4}%
+      \setcounter{Air}{\value{r3b}}%
+    \fi%
+      \setcounter{Fire}{\value{r2d}}%
+      \ifodd\value{r2}%
+        \setcounter{Fate}{\value{r2c}}%
+      \fi%
   }
 	}
 
@@ -1505,13 +1500,6 @@ mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIP
 {2}% DR
 {\arabic{r2}}% AGGRESSION
 {Brawl 2, Projectiles~\arabic{r2}, Academics~\arabic{r3}, Deceit~1, Medicine~\arabic{r3c}, Vigilance~\arabic{r2}
-  \Path{
-    Air~\arabic{r3}, Fate~\arabic{r3b}, Water~\arabic{r3c}, %
-    Fire~\arabic{r2d}, %
-    \ifodd\value{r4}%
-      Earth~1
-    \fi%
-  }
 }% SKILLS
 {\ifodd\thechapter%
 	\Dagger, %
@@ -1527,7 +1515,13 @@ mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIP
 , mana stone with \arabic{track} mana, \lootJewellery, \randomtwo\lootJewellery, \lootMagic}% EQUIPMENT
 {%
   \lockedmana{\value{r4}}
-  \renewcommand\abilities{\undead}
+  \setcounter{Air}{\value{r3}}%
+  \setcounter{Fate}{\value{r3b}}%
+  \setcounter{Water}{\value{r3c}}%
+  \ifodd\value{r4}%
+    \setcounter{Earth}{1}%
+  \fi%
+  \undead
 }
 }
 

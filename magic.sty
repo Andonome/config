@@ -6,14 +6,46 @@
 % |_|  |_|\__,_|\__, |_|\___|
 %               |___/        
 
-\newcommand\mFate{Fate\global\settoggle{insubstantial}{true}}
-\newcommand\mEarth{Earth}
-\newcommand\mAir{Air\global\settoggle{insubstantial}{true}}
-\newcommand\mFire{Fire}
-\newcommand\mWater{Water}
 
 % We use spellPotency to track spell effects which are typically larger than the spell's level.
 \newcounter{spellPotency}
+
+% spellResTN is the TN to resist spells, used only in specified spells beneath creatures. For example, if someone had Air 2, resisting their spells would be TN (7 + 2) 9.
+\newcounter{spellResTN}
+
+
+\newcommand\mFate{%
+  Fate%
+  \global\settoggle{insubstantial}{true}%
+  \ifnum\value{spellResTN}<8%
+    \addtocounter{spellResTN}{\value{Fate}}%
+  \fi%
+}
+\newcommand\mEarth{%
+  Earth%
+  \ifnum\value{spellResTN}<8%
+    \addtocounter{spellResTN}{\value{Earth}}
+  \fi%
+}
+\newcommand\mAir{%
+  Air%
+  \global\settoggle{insubstantial}{true}%
+  \ifnum\value{spellResTN}<8%
+    \addtocounter{spellResTN}{\value{Air}}
+  \fi%
+}
+\newcommand\mFire{%
+  Fire%
+  \ifnum\value{spellResTN}<8%
+    \addtocounter{spellResTN}{\value{Fire}}
+  \fi%
+}
+\newcommand\mWater{%
+  Water%
+  \ifnum\value{spellResTN}<8%
+    \addtocounter{spellResTN}{\value{Water}}
+  \fi%
+}
 
 % 1 = Name
 % 2 = Spheres
@@ -26,13 +58,14 @@
 \newcommand{\spell}[7]{
   \global\settoggle{distant}{false}%
   \global\settoggle{duplicated}{false}%
-  \global\settoggle{insubstantial}{false}
+  \global\settoggle{insubstantial}{false}%
   \setcounter{spelllevel}{1}%
   \foreach \s in {#4}{%
     \stepcounter{spelllevel}%
   }%
   \setcounter{spellPotency}{\value{spelllevel}}%
-  \addtocounter{spellPotency}{2}%
+    \addtocounter{spellPotency}{2}%
+  \setcounter{spellResTN}{7}%
   \iftoggle{genExamples}{
     \subsubsection{#1}%
     \label{#1}%
@@ -47,8 +80,6 @@
     \iftoggle{duplicated}{%
       Targets:~\spellArea, %
     }{}%
-    Resistance:~#5
-    \par
     \afterparnoindent
 
     #7
@@ -59,19 +90,18 @@
       The \glsentrytext{tn} equals 7, with modifiers for #5.
     }
 
-    %\ifcsmacro{#5}{
-    %  The \glsentrytext{tn} equals 7 plus the opponent's #5.
-    %}{
-    %  The \glsentrytext{tn} depends upon #5.
-    %}
   }{
     \item[\textbf{#1}]
     \hphantom{#4}%
     \setArea%
     \setRange%
-    (Cost:~\arabic{spelllevel}, Spheres:~#2, Range: \spellRange\iftoggle{duplicated}{, Targets: \spellArea}{}, \tn[\arabic{age}])
+    (Cost:~\arabic{spelllevel}, Spheres:~#2, Range: \spellRange\iftoggle{duplicated}{, Targets: \spellArea}{})
 
-    \MakeUppercase#6.
+    \ifdefparam{#5}{
+      Roll #5, \tn, or #6.
+    }{
+      \MakeUppercase#6.
+    }
   }
 }
 
