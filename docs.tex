@@ -5,6 +5,8 @@
 
 \externalReferent{judgement}
 
+\makeindex[name=spells,title={Spell Summaries},columns=2]
+
 \begin{document}
 
 \frontpage%
@@ -142,7 +144,7 @@ And you can list dice, with results, with the `\texttt{dlist}' environment.
 \subsubsection{Spells}
 
 Spells automatically calculate everything they can.
-They also compile an optional index (this requires one spell index command).
+They also compile a spell index, if you request a spell index before \verb"\begin{document}".
 
 \begin{verbatim}
 \makeindex[name=spells,
@@ -173,7 +175,7 @@ Alternatively, pull in a bunch of spells from a sphere at a particular level wit
 
 \verb"\showSpells{fate1,air2,mind2}"
 
-\showSpells{fate1,air2,mind2}
+\showSpells{fire1,fate1,air2,mind2}
 
 \ldots which shows Air spells of level 2, and Fate at level 1.
 
@@ -529,5 +531,7 @@ Specifically, you can use \verb"\footnote{\nameref{keepingWatch}.}", which then 
 \footnote{The rule also appears in a miniature table of contents sometimes.}
 
 \end{multicols}
+
+\printindex[spells]
 
 \end{document}

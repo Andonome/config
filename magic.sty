@@ -39,6 +39,7 @@
   \ifnum\value{spellResTN}<8%
     \addtocounter{spellResTN}{\value{Fire}}
   \fi%
+  \addtocounter{spellPotency}{-1}%
 }
 \newcommand\mWater{%
   Water%
@@ -64,14 +65,14 @@
     \stepcounter{spelllevel}%
   }%
   \setcounter{spellPotency}{\value{spelllevel}}%
-    \addtocounter{spellPotency}{2}%
+    \addtocounter{spellPotency}{3}%
   \setcounter{spellResTN}{7}%
   \iftoggle{genExamples}{
     \subsubsection{#1}%
     \label{#1}%
 
-    {\sffamily(#4
-    #3
+    {\sffamily(#4%
+    \ifnum\value{spelllevel}>1~\fi #3
     #2)}
     Cost:~\arabic{spelllevel},
     \setRange%
@@ -90,8 +91,11 @@
       The \glsentrytext{tn} equals 7, with modifiers for #5.
     }
 
+    \vphantom{\dmg{spellPotency}}
+    \index[spells]{\textbf{#1}: #6 (Cost: \arabic{spelllevel}, Range: \spellRange, \iftoggle{duplicated}{Targets: \spellArea}{})}
   }{
     \item[\textbf{#1}]%
+    \vphantom{\dmg{spellPotency}}%
     \vphantom{#4}%
     \setArea%
     \setRange%
@@ -172,6 +176,8 @@
   \global\settoggle{distant}{true}%
   Distant%
 }
+
+\newcommand\rollConv{\arabic{numberofdice}D6\ifnum\value{damagebonus}<0\arabic{damagebonus}\else\ifnum\value{damagebonus}>0+\arabic{damagebonus}\fi\fi}
 
 \newcommand{\magicitem}[7]{%
   \vspace{1em}\needspace{1em}\noindent\textbf{#1}%
