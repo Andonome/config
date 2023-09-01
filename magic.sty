@@ -12,14 +12,16 @@
 \newcommand\mFire{Fire}
 \newcommand\mWater{Water}
 
+% We use spellPotency to track spell effects which are typically larger than the spell's level.
+\newcounter{spellPotency}
+
 % 1 = Name
 % 2 = Spheres
 % 3 = Action
 % 4 = Enhancements
-% 5 = Skill
+% 5 = Resistance
 % 6 = Description
 % 7 = Longer notes
-
 
 \newcommand{\spell}[7]{
   \global\settoggle{distant}{false}%
@@ -29,9 +31,9 @@
   \foreach \s in {#4}{%
     \stepcounter{spelllevel}%
   }%
-  \iftoggle{verbose}{
-    \setcounter{age}{\value{spelllevel}}%
-    \addtocounter{age}{6}%
+  \setcounter{spellPotency}{\value{spelllevel}}%
+  \addtocounter{spellPotency}{2}%
+  \iftoggle{genExamples}{
     \subsubsection{#1}%
     \label{#1}%
 
@@ -45,12 +47,23 @@
     \iftoggle{duplicated}{%
       Targets:~\spellArea, %
     }{}%
-    \tn[\arabic{age}],
-    Skill:~\underline{#5}
-    \vspace{.5em}\afterparnoindent
-    \index[spells]{\textbf{#1}: #6. (Cost:~\arabic{spelllevel}, Spheres:~#2, Range: \spellRange\iftoggle{duplicated}{, Targets: \spellArea}{}, \tn[\arabic{age}], Skill:~#5)}
+    Resistance:~#5
+    \par
+    \afterparnoindent
 
     #7
+
+    \ifdefparam{#5}{
+      The \glsentrytext{tn} equals 7 plus the target's #5.
+    }{
+      The \glsentrytext{tn} equals 7, with modifiers for #5.
+    }
+
+    %\ifcsmacro{#5}{
+    %  The \glsentrytext{tn} equals 7 plus the opponent's #5.
+    %}{
+    %  The \glsentrytext{tn} depends upon #5.
+    %}
   }{
     \item[\textbf{#1}]
     \hphantom{#4}%
@@ -154,19 +167,21 @@
   \vspace{.3em}
 }
 
-\newcommand\shortSpells[1]{
+\newcommand\creatureSpells[1]{
   \begin{description}
-    \settoggle{verbose}{false}
+    \settoggle{genExamples}{false}
     \foreach \s in {#1}{
       \input{config/spells/\s.tex}
     }
   \end{description}
 }
 
-\newcommand\longSpells[1]{
-    \settoggle{verbose}{true}
+\newcommand\showSpells[1]{
+    \needspace{3em}\bigLine
+    \settoggle{genExamples}{true}
     \foreach \s in {#1}{
       \input{config/spells/\s.tex}
     }
+    \bigLine
 }
 

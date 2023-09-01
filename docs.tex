@@ -159,29 +159,11 @@ title={Spell Summaries},columns=2]
 
 After inputting that, you can get the spell, and the `printindex' command will create a spell-list by using a special index, just for spells.
 
-\spell{Quake}% Name
-  {Earth}% Spheres
-  {Wane}% Action
-  {\distant, \duplicated}% Enhancements
-  {Caving}% Skill
-  {Ground shakes}% Short Description
-  {Brrrrrr}% Long Description
-
 In non-verbose mode, the same spell presents differently, and belong in the \verb"description" environment.
 
-\settoggle{verbose}{false}
+\settoggle{genExamples}{true}
 
-\begin{description}
-
-\spell{Quake}% Name
-  {Earth}% Spheres
-  {Wane}% Action
-  {\distant, \duplicated}% Enhancements
-  {Caving}% Skill
-  {Ground shakes}% Short Description
-  {Brrrrrr}% Long Description
-
-\end{description}
+\showSpells{mind2}
 
 Alternatively, pull in a bunch of spells from a sphere at a particular level with:
 

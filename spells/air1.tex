@@ -2,7 +2,7 @@
   {\mAir}% Spheres
   {Wax}% Action
   {}% Enhancements
-  {Seafaring}% Skill
+  {\roll{Strength}{Athletics}}% Skill
   {targets lose \arabic{spelllevel} \gls{ap} and get pushed back \arabic{spelllevel}~\glspl{ap} minus Strength}% Description
   {
     The mage blasts the target with chilled wind, draining them of \arabic{spelllevel} \gls{ap}.
@@ -13,13 +13,13 @@
   {\mAir}% Spheres
   {Wane}% Action
   {}% Enhancements
-  {Crafts}% Skill
-  {a pocket of foul air inflicts 3~\glspl{fatigue} each round}% Description
+  {the wind speed}% Skill
+  {a pocket of foul air inflicts \arabic{spellPotency}~\glspl{fatigue} each round}% Description
   {
     The caster pollutes the air, making it stink, and caustic to breath.
-    Anyone can attempt to hold their breath, but those not expecting the nauseating fumes suffer 3 \glspl{fatigue}.
+    Anyone can attempt to hold their breath, but those not expecting the nauseating fumes suffer \arabic{spellPotency}~\glspl{fatigue}.
 
-    The air only covers 1 square -- enough for a doorway, or small tunnel.
+    The air only covers \arabic{spelllevel} square -- enough for a doorway, or small tunnel.
     It dissipates after a couple of turns, or less if wind is present.
   }
 
@@ -27,7 +27,7 @@
   {\mAir}% Spheres
   {Warp}% Action
   {}% Enhancements
-  {Seafaring}% Skill
+  {the density of the liquid}% Skill
   {a small bubble surrounds the caster}% Description
   {
     A bubble, around 1 metre in diameter, gains a wobbly `shell', which holds it in place.
