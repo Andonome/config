@@ -327,7 +327,7 @@
       \fi%
     }}% SKILLS
 	{\ifodd\thepage\Dagger, \lootJewellery\else\spear\fi}% EQUIPMENT
-	{\lockedmana{5}}
+	{}
 	}
 
 \newcommand{\elf}[1][\npc{\T[\arabic{r2c}]\El\F}{\arabic{r2c} Elves}]{
@@ -869,7 +869,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
   }
 }% SKILLS
 {\lootMedium, \ifodd\thepage\lootMagic\else mana stone with 4 mp\fi}% EQUIPMENT
-{\lockedmana{\value{r2}}}
+{}
 }
 
 \newcommand{\gnollhunter}[1][\npc{\T[\arabic{r12}]\Nl}{\arabic{r12} Gnoll Hunters}]{
@@ -1478,7 +1478,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 \fi%
 , \multiply\value{track} by 2%
 mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIPMENT
-{\lockedmana{\value{r4}}}
+{}
 }
 
 \newcommand{\demilich}[1][\npc{\D\E}{Demilich}]{
@@ -1515,7 +1515,6 @@ mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIP
 \multiply\value{track} by 2%
 , mana stone with \arabic{track} mana, \lootJewellery, \randomtwo\lootJewellery, \lootMagic}% EQUIPMENT
 {%
-  \lockedmana{\value{r4}}
   \setcounter{Air}{\value{r3}}%
   \setcounter{Fate}{\value{r3b}}%
   \setcounter{Water}{\value{r3c}}%
@@ -1568,7 +1567,6 @@ mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIP
 \fi, \addtocounter{track}{3}\multiply\value{track} by 2%
 mana stone with \arabic{track} mana, \lootJewellery, \randomtwo\lootJewellery, \lootMagic}% EQUIPMENT
 {
-  \lockedmana{\value{r4}}
   \renewcommand\abilities{\undead}
 }
 }
@@ -1788,7 +1786,6 @@ mana stone with \arabic{track} mana, \lootJewellery, \randomtwo\lootJewellery, \
 {None}% ABILITIES
 {
   \setcounter{gold}{\value{age}}\multiply\value{gold} by 3\addtocounter{gold}{\value{Intelligence}}\setcounter{sp}{\value{gold}}%
-  \lockedmana{\value{age}}
   \knacks{\snapcaster}
 }
 }

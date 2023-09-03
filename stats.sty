@@ -239,8 +239,6 @@
 % Extras: MP hp fp
 % Derived: dicenumber, dicebonus,
 \newcounter{mp}
-\newcounter{mpLocked}
-\newcounter{mpFree}
 \newcounter{sp}
 \newcounter{hp}
 \newcounter{fp}
@@ -276,8 +274,6 @@
 
 % magic
 \newcommand{\magicPath}{}
-
-\newcommand{\lockedmana}[1]{\setcounter{mpLocked}{#1}}
 
 \newcommand{\knacks}[1]{\gdef\showKnacks{#1}}
 
@@ -573,7 +569,6 @@
   \setcounter{damage}{0}
   \setcounter{knacks}{0}
   \setcounter{mp}{0}
-  \setcounter{mpLocked}{0}
   \setcounter{xpbonus}{0}
 }
 
@@ -704,20 +699,10 @@
       \mbox{DR \arabic{dr} (\arabic{enc}!)}, %
     }{}%
   \addtocounter{hp}{6}%
-  \ifnum\value{mp}>0%
-    \addtocounter{mp}{\value{Intelligence}}%
-    \setcounter{mpFree}{\value{mp}}
-    \addtocounter{mpFree}{-\value{mpLocked}}%
-  \fi%
   \iftoggle{genExamples}{%
     HP~\arabic{hp},
     \ifnum\value{mp}>0%
-      MP
-      \ifnum\value{mpLocked}>0%
-        \arabic{mpFree} / \arabic{mp},
-      \else%
-        \arabic{mp},
-      \fi%
+      MP \arabic{mp},
     \fi%
     \ifnum\value{sp}>0%
     SP \arabic{sp},
