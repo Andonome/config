@@ -567,7 +567,6 @@
   }
 
   \settoggle{creatureBox}{false}
-  \setcounter{noAppearing}{1}
   \afterparnoindent
 }
 
@@ -575,6 +574,7 @@
   \knacks{}
   \foreach \s in {Air,Earth,Fate,Fire,Water,Projectiles,Combat,Brawl,Academics,Athletics,Caving,Crafts,Deceit,Empathy,Medicine,Performance,Larceny,Seafaring,Tactics,Vigilance,Wyldcrafting}%
     {\setcounter{\s}{0}}
+  \setcounter{noAppearing}{1}
   \setcounter{dr}{0}
   \setcounter{fp}{0}
   \setcounter{sp}{0}
