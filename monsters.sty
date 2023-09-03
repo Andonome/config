@@ -400,12 +400,13 @@
 	{0}% DR
 	{\value{r2d}}% COMBAT
 	{Projectiles~\arabic{r2b}, Academics~3, Empathy~3, Deceit~\arabic{enc}, Performance~\arabic{r2}, \ifodd\value{r2}Stealth~\else Tactics~\fi \arabic{r2b}, Wyldcrafting~\arabic{r2c}, Vigilance~2%
-	\Path{
-    Earth~\arabic{r2c}, Fate~\arabic{r3}, Water~\arabic{r3c}
-    }%
   }% SKILLS
 	{\Dagger, \lootJewellery\ifodd\thepage, \randomtwo\lootJewellery\ifodd\value{r4}, \lootMagic\fi\fi}% EQUIPMENT
-	{}
+	{
+    \setcounter{Air}{\value{r2c}}
+    \setcounter{Fate}{\value{r3}}
+    \setcounter{Water}{\value{r3c}}
+  }
 }
 
 \newcommand{\gnome}[1][\npc{\Gn\M}{Wandering Gnome}]{
