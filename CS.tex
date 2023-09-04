@@ -142,7 +142,11 @@ circle label/.style = {
   \posterbox[
   adjusted title=Items to Hand,
   remember,
-  ]{name=armoury,column=6,row=9,span=21,rowspan=4}{
+  ]{name=armoury,
+  column=5,
+  row=9,
+  span=21,
+  rowspan=4}{
     \renewcommand{\arraystretch}{1.5}
     \vspace{-1em}
     \begin{tabularx}{\linewidth}{p{.4\textwidth}YYYY}
@@ -298,10 +302,28 @@ circle label/.style = {
 %---
 
   \posterbox[
-    adjusted title=Abilities \& Knacks \hint{ 5 / 10 / 15/ 20 },
+    adjusted title=Abilities \& Conditions,
     remember,
   ]
-  {name=knacks,column=6,row=13,span=21,rowspan=3}{
+  {name=abilities,
+  column=5,
+  row=13,
+  span=11,
+  rowspan=3}{
+    \iftoggle{examplecharacter}{}{
+      \lineDots[4]
+    }
+  }
+
+  \posterbox[
+    adjusted title=Knacks \hint{ 5 / 10 / 15/ 20 },
+    remember,
+  ]
+  {name=knacks,
+  column=16,
+  row=13,
+  span=10,
+  rowspan=3}{
 
   \setlength{\parskip}{0mm}
 
@@ -310,7 +332,7 @@ circle label/.style = {
 
       \sffamily\knackTwo
     }{
-      \lineDots[5]
+      \lineDots[4]
     }
   }
 
@@ -319,7 +341,11 @@ circle label/.style = {
     adjusted title=XP,
     remember,
   ]
-  {name=xp,column=1,row=17,span=5,rowspan=2}{
+  {name=xp,
+  column=1,
+  row=17,
+  span=5,
+  rowspan=2}{
 
   \setlength{\parskip}{0mm}
     \small Total:
