@@ -203,21 +203,41 @@
   \vspace{.3em}
 }
 
-\newcommand\creatureSpells[1]{
+\newcommand\creatureSpells[2][]{
   \begin{description}
     \settoggle{genExamples}{false}
-    \foreach \s in {#1}{
-      \input{config/spells/\s.tex}
+    #1
+    \foreach \s in {#2}{
+      \IfFileExists{config/spells/\s.tex}{
+        \input{config/spells/\s.tex}
+      }{}
+    }
+  \end{description}
+}
+
+\newcommand\showStdSpells{
+  \setcounter{enc}{0}
+  \begin{description}
+    \settoggle{genExamples}{false}
+    \foreach\n in {3,2,1}{
+      \ifnum\value{enc}<3
+        \foreach \s in {Earth,Air,Fire,Water,Fate}{
+          \ifnumcomp{\value{\s}}{=}{\n}{
+              \input{config/spells/\s\n.tex}
+              \stepcounter{enc}
+          }{}
+        }
+      \fi
     }
   \end{description}
 }
 
 \newcommand\showSpells[1]{
-    \needspace{3em}\bigLine
-    \settoggle{genExamples}{true}
-    \foreach \s in {#1}{
-      \input{config/spells/\s.tex}
-    }
-    \bigLine
+  \needspace{3em}\bigLine
+  \settoggle{genExamples}{true}
+  \foreach \s in {#1}{
+    \input{config/spells/\s.tex}
+  }
+  \bigLine
 }
 
