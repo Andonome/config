@@ -75,6 +75,7 @@
     \ifnum\value{spelllevel}>1~\fi #3
     #2)}
     Cost:~\arabic{spelllevel},
+    Resistance: 
     \setRange%
     Range:~\spellRange
     \setArea%
@@ -92,7 +93,7 @@
     }
 
     \vphantom{\dmg{spellPotency}}
-    \index[spells]{\textbf{#1}: #6 (Cost: \arabic{spelllevel}, Range:~\spellRange\iftoggle{duplicated}{, Targets: \spellArea}{})}
+    \index[spells]{\textbf{#1}: #6 (Cost: \arabic{spelllevel}, Range:~\spellRange, Resisted by: #5,\iftoggle{duplicated}{, Targets: \spellArea}{})}
   }{
     \item[\textbf{#1}]%
     \vphantom{\dmg{spellPotency}}%
