@@ -75,7 +75,7 @@
     \ifnum\value{spelllevel}>1~\fi #3
     #2)}
     Cost:~\arabic{spelllevel},
-    Resistance: 
+    Resistance: #5
     \setRange%
     Range:~\spellRange
     \setArea%
@@ -85,12 +85,6 @@
     \afterparnoindent
 
     #7
-
-    \ifdefparam{#5}{
-      The \glsentrytext{tn} equals 7 plus the target's #5.
-    }{
-      The \glsentrytext{tn} equals 7, with modifiers for #5.
-    }
 
     \vphantom{\dmg{spellPotency}}
     \index[spells]{\textbf{#1}: #6 (Cost: \arabic{spelllevel}, Range:~\spellRange, Resisted by: #5,\iftoggle{duplicated}{, Targets: \spellArea}{})}
