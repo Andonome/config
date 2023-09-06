@@ -855,21 +855,16 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {0}% DR
 {\arabic{r2b}}% COMBAT
 {Academics~\arabic{r3}, \ifodd\value{r3} Deceit~\arabic{r2}, Tactics~\arabic{enc}\else Empathy~\arabic{r2}, Vigilance~\arabic{enc}\fi
-  \Path{
-      \ifodd\value{r2b}%
-        Fire~\arabic{r3b}, Air%
-      \else%
-        Fate%
-      \fi%
-      \randomtwoC%
-      ~\arabic{r2c},%
-      \ifodd\value{r12}%
-        Water~\arabic{r3}%
-      \fi%
-  }
 }% SKILLS
 {\lootMedium, \ifodd\thepage\lootMagic\else mana stone with 4 mp\fi}% EQUIPMENT
-{}
+{
+  \ifodd\value{r2b}%
+    \setcounter{Fire}{\value{r3b}}
+    \setcounter{Air}{\value{r2c}}
+  \else%
+    \setcounter{Water}{\value{r3b}}
+  \fi%
+}
 }
 
 \newcommand{\gnollhunter}[1][\npc{\T[\arabic{r12}]\Nl}{\arabic{r12} Gnoll Hunters}]{
