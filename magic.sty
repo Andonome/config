@@ -24,27 +24,27 @@
 \newcommand\mEarth{%
   Earth%
   \ifnum\value{spellResTN}<8%
-    \addtocounter{spellResTN}{\value{Earth}}
+    \addtocounter{spellResTN}{\value{Earth}}%
   \fi%
 }
 \newcommand\mAir{%
   Air%
   \global\settoggle{insubstantial}{true}%
   \ifnum\value{spellResTN}<8%
-    \addtocounter{spellResTN}{\value{Air}}
+    \addtocounter{spellResTN}{\value{Air}}%
   \fi%
 }
 \newcommand\mFire{%
   Fire%
   \ifnum\value{spellResTN}<8%
-    \addtocounter{spellResTN}{\value{Fire}}
+    \addtocounter{spellResTN}{\value{Fire}}%
   \fi%
   \addtocounter{spellPotency}{-1}%
 }
 \newcommand\mWater{%
   Water%
   \ifnum\value{spellResTN}<8%
-    \addtocounter{spellResTN}{\value{Water}}
+    \addtocounter{spellResTN}{\value{Water}}%
   \fi%
 }
 
