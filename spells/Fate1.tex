@@ -5,20 +5,20 @@
   {the target's Charisma}% Resist with
   {\spellArea~target gains \rollConv~\glspl{fp}}% Description
   {
-    The mage blesses the target with high hopes for their future, bestowing $1D6$ \glspl{fp} immediately.
+    The mage blesses the target with high hopes for their future, bestowing \rollConv~\glspl{fp} immediately.
   }
 
 \spell{Curse}% Name
   {\mFate}% Spheres
   {Wane}% Action
   {}% Enhancements
-  {the target's Charisma}% Resist with
-  {lose $1D6$ \glspl{fp}}% Description
+  {\roll{Charisma}{Tactics}}% Resist with
+  {lose \rollConv~\glspl{fp}}% Description
   {
-    The caster notes the worst of someone's possible futures -- the most unpleasant thing which is reasonably likely.
+    The caster wishes for the target's shoes to fill up with rocks, or some other small irritation.
+    The target then loses \rollConv~\glspl{fp}.
   }
 
-The target then loses $1D6$~\glspl{fp}.
 
 \spell{Twisted Fate}% Name
   {\mFate}% Spheres
@@ -29,7 +29,7 @@ The target then loses $1D6$~\glspl{fp}.
   {
     The caster hexes the target with death on the road, hoping they will not meet their destination.
     Within $1D6$ days, the target meets with a monstrous encounter.%
-    \exRef{judgement}{Judgement}{monsterEncounters}
+    \footnote{The \gls{gm} rolls randomly.}
 
     \Glspl{npc} targeted by this spell will survive if only their \gls{xp} value is greater than the monster they would encounter.
     Otherwise, they meet a gruesome fate on the road.
