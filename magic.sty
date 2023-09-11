@@ -82,7 +82,7 @@
     \iftoggle{duplicated}{%
       \ignorespaces, Targets:~\spellArea, %
     }{}%
-    \afterparnoindent
+
     #7
 
     \vphantom{\dmg{spellPotency}}
@@ -228,11 +228,10 @@
 }
 
 \newcommand\showSpells[1]{
-  \needspace{3em}\bigLine
+  \needspace{3em}
   \settoggle{genExamples}{true}
   \foreach \s in {#1}{
     \input{config/spells/\s.tex}
   }
-  \bigLine
 }
 
