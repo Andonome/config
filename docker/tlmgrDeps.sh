@@ -5,9 +5,8 @@
 #
 # Some of these packages might not be necessary, but after so long messing with the tlmgr search tool I got bored.
 
-TLMGR=$(which tlmgr) 2>/dev/null || TLMGR=$(find /opt/ -name tlmgr) 2>/dev/null || (echo Cannot find tlmgr. You must install it. Try searching for texlive && exit 1)
-
-$TLMGR install \
+tlmgr install \
+latex-bin \
 tools \
 lipsum \
 xcolor \
