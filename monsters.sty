@@ -1180,6 +1180,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 	#1
 	\randomtwo
 	\randomtwoB
+	\randomtwoC
 	\randomthree
 	\addtocounter{age}{-1}
 	\randomthreeB
@@ -1201,8 +1202,13 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 \fi%
 }% EQUIPMENT
 {
-  \setcounter{Earth}{\value{age}}
-  \setcounter{Fire}{2}
+  \ifodd\value{r3}
+    \setcounter{Earth}{\value{age}}
+  \fi
+  \ifodd\value{r2b}
+    \setcounter{Water}{\value{r3b}}
+  \fi
+  \setcounter{Fire}{\value{r2c}}
 }
 }
 
