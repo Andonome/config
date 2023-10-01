@@ -151,7 +151,7 @@
 {{-4}% INTELLIGENCE
 {\arabic{r2b}}% WITS
 {-5}}% CHARISMA
-{\ifodd\thepage 2\else 3\fi}% DR
+{\ifodd\value{r4} 2\else 3\fi}% DR
 {\arabic{r3}}% AGGRESSION
 {Athletics~2, Stealth~\arabic{enc}, Tactics~\arabic{r3}}% SKILLS
 {}% ABILITIES
@@ -241,7 +241,7 @@
 	{0}% DR
 	{1}% COMBAT
 	{Caving \arabic{r2}, Crafts~\arabic{r2b}, Deceit~\arabic{r3}}% SKILLS
-	{\shortsword, \ifodd\thepage\lootMedium\else\lootBig, \lootJewellery\fi}% EQUIPMENT
+  {\shortsword, \ifodd\value{r4}\lootMedium\else\lootBig, \lootJewellery\fi}% EQUIPMENT
 	{}
 	}
 %
@@ -326,7 +326,7 @@
         Air~\arabic{r3c}%
       \fi%
     }}% SKILLS
-	{\ifodd\thepage\Dagger, \lootJewellery\else\spear\fi}% EQUIPMENT
+  {\ifodd\value{r2b}\Dagger, \lootJewellery\else\spear\fi}% EQUIPMENT
 	{}
 	}
 
@@ -401,7 +401,7 @@
 	{\value{r2d}}% COMBAT
 	{Projectiles~\arabic{r2b}, Academics~3, Empathy~3, Deceit~\arabic{enc}, Performance~\arabic{r2}, \ifodd\value{r2}Stealth~\else Tactics~\fi \arabic{r2b}, Wyldcrafting~\arabic{r2c}, Vigilance~2%
   }% SKILLS
-	{\Dagger, \lootJewellery\ifodd\thepage, \randomtwo\lootJewellery\ifodd\value{r4}, \lootMagic\fi\fi}% EQUIPMENT
+  {\Dagger, \lootJewellery\ifodd\value{r4}, \randomtwo\lootJewellery\ifodd\value{r4}, \lootMagic\fi\fi}% EQUIPMENT
 	{
     \setcounter{Air}{\value{r2c}}
     \setcounter{Fate}{\value{r3}}
@@ -504,7 +504,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
       \fi%
     }
   }% SKILLS
-	{\lootBig, \ifodd\thepage\lootMagic\fi}% EQUIPMENT
+  {\lootBig\ifodd\value{r4}, \lootMagic\fi}% EQUIPMENT
 	{}
 }
 
@@ -546,7 +546,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {0}% DR
 {\ifnum\value{r12}=7 1\else 0\fi}% AGGRESSION
 {Empathy~1, \ifodd\thechapter Deceit~\arabic{r2}\fi}% SKILLS
-{\ifodd\thepage \Dagger, \lootSmall\else None\fi}% EQUIPMENT
+{\ifodd\value{r4} \Dagger, \lootSmall\else None\fi}% EQUIPMENT
 {}
 }
 
@@ -813,7 +813,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {\arabic{r3}}}% CHARISMA
 {0}% DR
 {\arabic{age}}% COMBAT
-{Academics~\ifodd\value{r3b}\arabic{r2}\else\arabic{r3b}\fi, Empathy~\arabic{enc}, Deceit~\ifodd\thepage 2\else 1\fi, Performance~\ifodd\thechapter 2\else 1\fi%
+{Academics~\ifodd\value{r3b}\arabic{r2}\else\arabic{r3b}\fi, Empathy~\arabic{enc}, Deceit~\ifodd\value{r4b} 2\else 1\fi, Performance~\ifodd\thechapter 2\else 1\fi%
 \ifnum\value{noAppearing}=1
 	\ifnum\value{r3}>2
     \Path{
@@ -832,7 +832,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 	\else%
 	\Dagger%
 \fi%
-	, lute, \lootMedium\ifodd\thepage, \lootJewellery\fi}% EQUIPMENT
+  , lute, \lootMedium\ifodd\value{r3}, \lootJewellery\fi}% EQUIPMENT
 {}
 }
 
@@ -856,7 +856,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {\arabic{r2b}}% COMBAT
 {Academics~\arabic{r3}, \ifodd\value{r3} Deceit~\arabic{r2}, Tactics~\arabic{enc}\else Empathy~\arabic{r2}, Vigilance~\arabic{enc}\fi
 }% SKILLS
-{\lootMedium, \ifodd\thepage\lootMagic\else mana stone with 4 mp\fi}% EQUIPMENT
+{\lootMedium, \ifodd\value{r3}\lootMagic\else mana stone with 4 mp\fi}% EQUIPMENT
 {
   \ifodd\value{r2b}%
     \setcounter{Fire}{\value{r3b}}
@@ -1373,14 +1373,14 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {-5}}% CHARISMA
 {2}% DR
 {2}% COMBAT
-{Brawl~\arabic{enc}, \ifodd\thepage Caving\else Deceit\fi~\arabic{r3}, Tactics~\arabic{r2}, Vigilance~1, Xenomology~\arabic{r2b}}% SKILLS
+{Brawl~\arabic{enc}, \ifodd\value{r3} Caving\else Deceit\fi~\arabic{r3}, Tactics~\arabic{r2}, Vigilance~1, Xenomology~\arabic{r2b}}% SKILLS
 {\ifodd\value{r2}%
 	\greatclub%
 \else%
 	\greatsword, dagger%
 \fi%
 \iftoggle{genExamples}{}%
-  {\ifodd\thepage, \lootJewellery\fi}%
+  {\ifodd\value{r3}, \lootJewellery\fi}%
 }% EQUIPMENT
 {}
 }
@@ -1423,7 +1423,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {-5}}% CHARISMA
 {2}% DR
 {2}% COMBAT
-{Brawl~\arabic{enc}, \ifodd\thepage Caving\else Deceit\fi~\arabic{r3}, Tactics~\arabic{r2}, Vigilance~1}% SKILLS
+{Brawl~\arabic{enc}, \ifodd\value{r3} Caving\else Deceit\fi~\arabic{r3}, Tactics~\arabic{r2}, Vigilance~1}% SKILLS
 {\ifodd\value{r2}%
 	\longsword%
 	\ifodd\value{r4}%
@@ -1435,7 +1435,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 		, \partialchain%
 	\fi%
 \fi%
-\ifodd\thepage, \lootJewellery\fi}% EQUIPMENT
+\ifodd\value{r3}, \lootJewellery\fi}% EQUIPMENT
 {
   \undead
 }
@@ -1469,7 +1469,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
     \fi
   }%
 }% SKILLS
-{\ifodd\thepage%
+{\ifodd\value{r3}%
 	\Dagger%
 \else%
 	\shortsword%
