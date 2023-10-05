@@ -864,10 +864,11 @@
 }
 
 \newcommand{\stench}{%
-	Stench (breathing in demands Str + Wyldcrafting check, \glsentrytext{tn}%
+  Stench (breathing in demands \roll{Strength}{Wyldcrafting} check, \glsentrytext{tn}
   \setcounter{track}{10}%
   \addtocounter{track}{-\value{Speed}}%
-  \arabic{track}%
+  \arabic{track},
+  or lose 3 \glspl{ap}
   )
 }
 

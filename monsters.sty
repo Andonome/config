@@ -178,7 +178,10 @@
 	{\arabic{r3b}}% AGGRESSION
 	{Projectiles~\arabic{r2}, Athletics~\arabic{r2c}}% SKILLS
 	{Odour demands Strength check, TN 9. Acidic breath (1D6-2 Damage).}% ABILITIES
-	{\knacks{\unstoppable}}
+	{
+    \knacks{\unstoppable}
+    \renewcommand\abilities{\stench}
+  }
 }
 
 %
@@ -1615,15 +1618,17 @@ mana stone with \arabic{track} mana, \lootJewellery, \randomtwo\lootJewellery, \
 	\randomthree 
 	\randomtwoB
 	\addtocounter{r2b}{-1}
-\animal{\arabic{enc}}% STRENGTH
-{\arabic{r2b}}% DEXTERITY 
-{\arabic{r3}}% SPEED
-{\arabic{r2}}% WITS
-{\arabic{enc}}% DR
-{2}% AGGRESSION
-{Caving~\arabic{r3}, Stealth~\arabic{r2}, Vigilance~\arabic{r2b}}% SKILLS
-{\quadraped}% ABILITIES
-{}
+  \animal{\arabic{enc}}% STRENGTH
+  {\arabic{r2b}}% DEXTERITY 
+  {\arabic{r3}}% SPEED
+  {\arabic{r2}}% WITS
+  {\arabic{enc}}% DR
+  {2}% AGGRESSION
+  {Caving~\arabic{r3}, Stealth~\arabic{r2}, Vigilance~\arabic{r2b}}% SKILLS
+  {\quadraped}% ABILITIES
+  {
+      \renewcommand\abilities{\stench}
+  }
 }
 
 \newcommand{\horse}[1][\npc{\A}{Horse}]{
