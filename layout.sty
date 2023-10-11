@@ -15,7 +15,7 @@
 
 \RequirePackage{gfsartemisia-euler} % fancy fonts
 \RequirePackage{epsdice} % for dice
-\RequirePackage[T1]{fontenc} % 
+%\RequirePackage[T1]{fontenc} % 
 \RequirePackage{starfont} % for creature symbols
 \RequirePackage{wasysym} % for sq checkboxes
 \RequirePackage{appendix}
@@ -356,6 +356,19 @@ bookmarks=true]%
     \arabic{diceNo}%
   \fi%
 }
+
+\newcounter{diceNo2}
+\newcommand\rollDice[1]{%
+  \setcounter{track}{#1}%
+  \setcounter{diceNo}{1}%
+  \setcounter{diceNo2}{1}%
+  \ifnum\value{track}>7%
+    \setcounter{diceNo2}{6}%
+  \fi%
+  \addtocounter{track}{-\value{diceNo2}}%
+  \setcounter{diceNo}{\value{track}}%
+  \epsdice[black]{\arabic{diceNo}} \epsdice{\arabic{diceNo2}}
+  }
 
 \newcounter{dlist}
 \newenvironment{dlist}%
