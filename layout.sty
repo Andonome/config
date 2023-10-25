@@ -333,7 +333,7 @@ bookmarks=true]%
 \newcommand\roll[2]{%
   \setcounter{tn}{7}%
   \addtocounter{tn}{\value{#1}}%
-  \addtocounter{tn}{\value{#2}}%
+  \ifdefcounter{#2}{\addtocounter{tn}{\value{#2}}}{}%
   #1~+~#2%
 }
 
