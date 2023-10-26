@@ -1129,11 +1129,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 		\Dagger%
 	\fi%
 \fi%
-\ifodd\value{r3b}%
-	\ifnum\value{noAppearing}=1
-		, tinder box%
-	\fi%
-\fi%
+, \lootGoblin
 .}% EQUIPMENT
 {
   \ifodd\value{r3}\else
@@ -1199,7 +1195,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {\arabic{age}}% AGGRESSION
 {Projectiles~\arabic{r2}, \ifodd\value{r3} Deceit\else Athletics\fi~\arabic{r3}, Medicine~\arabic{r2}, Stealth~1, Tactics~2
 }% SKILLS
-{\Dagger\ifodd\value{r4}, torch\fi%
+{\Dagger\ifodd\value{r4}, \lootGoblin\fi%
 \ifnum\value{r4b}=4%
 	, \lootMagic
 \fi%
@@ -1231,7 +1227,12 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {0}% DR
 {2}% COMBAT
 {\ifodd\value{r3b} Athletics~1, \fi Crafts~1, Tactics~\arabic{r2}}% SKILLS
-{\ifodd\value{r2b}\shortsword\else\maul\fi, \partialchain}% EQUIPMENT
+{
+  \ifodd\value{r2b}\shortsword\else\maul\fi, \partialchain%
+  \ifodd\value{r3}%
+    , \lootGoblin%
+  \fi%
+}% EQUIPMENT
 {}
 }
 
