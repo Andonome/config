@@ -850,9 +850,10 @@
 \newcommand{\flight}{%
   Flight %
   \setcounter{enc}{\value{dr}}%
+  \roundUp{enc}%
   \addtocounter{enc}{\value{Strength}}%
-  \setcounter{track}{\value{Dexterity}}%
-  \addtocounter{track}{\value{Speed}}%
+  \setcounter{track}{\value{Speed}}%
+  \addtocounter{track}{\value{Air}}%
   \ifnum\value{enc}>\value{track}%
     (can glide, but not fly)
   \else%
