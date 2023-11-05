@@ -786,7 +786,52 @@
     }{}%
   }
 }
-%
+
+\newcommand\swarm[6][]%
+  {
+    \begin{tcolorbox}[
+      title={\A\ Swarm: #2},
+      before upper={\parindent0pt},
+      ornamented,
+      fontupper=\small,
+      halign=flush left,
+      left=10pt,
+      right=15pt,
+      top=0pt,
+      bottom=0pt,
+      ]
+    \clean
+    \setcounter{hp}{#3}
+    \setcounter{Dexterity}{#4}
+    \setcounter{att}{#4}
+    \addtocounter{att}{10}
+    \setcounter{Speed}{#5}
+    \setcounter{ap}{#5}
+    \addtocounter{ap}{3}
+    \setcounter{Wits}{#6}
+    \renewcommand\abilities{#1}
+
+    \scshape
+    \begin{tabularx}{\textwidth}{cYcc}
+    \hiderowcolors
+
+    \Gls{ap}: \arabic{ap} & Att: $\arabic{att} - HP$ 
+    \iftoggle{verbose}{
+      & Speed: \arabic{Speed}
+      & Wits: \arabic{Wits}
+    }{
+      & Dam: 1
+    }
+    \\
+    & \showBoxes & \\
+    \end{tabularx}
+    \ifdefempty{\abilities}{}{%
+      \textbf{Abilities}: \abilities
+    }%
+    \end{tcolorbox}
+  }
+
+
 %%%%%%%%%%%%%%%%%%%% Creature Abilities
 
 \newcommand{\abilities}{}
