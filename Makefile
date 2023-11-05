@@ -21,4 +21,6 @@ clean:
 	*.sls \
 	*.glg \
 	*.gls \
+	*.ind \
+	*.ilg \
 	svg-inkscape
