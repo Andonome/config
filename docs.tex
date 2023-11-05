@@ -228,49 +228,6 @@ Or you can specify a list of spells, with an optional argument to take any spell
     {Brrrrrr}% Long Description
 ]{Fate1,Air2}
 
-\subsubsection{Magical Items}
-
-This is a magical item.
-
-\begin{verbatim}
-
-\magicitem{Noodle of Death}% NAME
-  {Extinguish}% SPELL
-  {Divinity (FSM)}% PATH
-  {Instant}% DURATION
-  {Pocket Spell}% TYPE
-  {2}% Potency
-  {5}% MP
-
-\end{verbatim}
-
-\magicitem{Noodle of Death}% NAME
-  {Extinguish}% SPELL
-  {Divinity (FSM)}% PATH
-  {Instant}% DURATION
-  {Pocket Spell}% TYPE
-  {2}% Potency
-  {5}% MP
-
-\subsubsection{Spheres}
-
-Each sphere is produced with a sphere command, so this -- \verb"\sphere{Mirrors}" -- would produce the `Mirrors' sphere.
-
-After that, each level is produced with \verb"\spelllevel".
-
-These commands handle numbering, indexing, et c.
-
-Finally, individual spells are laid out with \verb"\spell{Fireball}{Instant}{Projectiles}{goes burr}"
-
-The first argument gives a name, the second the type (`instant' or `continuous'), the third is the Skill casters can roll when using it, and the fourth is the spell's description.
-
-The spell's description can be referenced from other books as a summary (if you have set \verb"\label{fireball}"), e.g. `\verb"\nameref{fireball}"' produces `\textit{Fireball -- goes burr}'.
-
-\subsubsection{Enhancements}
-A different command is used for enhancements: \verb"\enhancement{Blue}{1}{makes spells blue}".
-
-The first argument gives a name, the second gives how many levels it adds to the spell, and the last is the spell's description.
-
 \subsection{Pictures}
 
 \sidepic{l1}
