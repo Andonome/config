@@ -812,7 +812,7 @@
     \renewcommand\abilities{#1}
 
     \scshape
-    \begin{tabularx}{\textwidth}{cYcc}
+    \begin{tabularx}{.8\textwidth}{Yccc}
     \hiderowcolors
 
     \Gls{ap}: \arabic{ap} & Att: $\arabic{att} - HP$ 
@@ -825,8 +825,11 @@
     \\
     & \showBoxes & \\
     \end{tabularx}
+
+    \normalfont
     \ifdefempty{\abilities}{}{%
       \textbf{Abilities}: \abilities
+      \vspace{1em}
     }%
     \end{tcolorbox}
   }
