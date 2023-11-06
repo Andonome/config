@@ -228,9 +228,34 @@ Or you can specify a list of spells, with an optional argument to take any spell
     {Brrrrrr}% Long Description
 ]{Fate1,Air2}
 
+\subsubsection{Talismans}
+
+Magical talismans (one-use items) are formatted like this:
+
+\begin{verbatim}
+  \magicItem{Scroll of Distraction}% Name
+    {\duplicated, \divergent}% Enhancements
+    {someone attacks}% Activation
+    {\roll{Strength}{Athletics}}%
+    {illusionary bats appear, causing a massive distraction}%
+    {Fire Shoots}% Effect
+    {A pretty brooch}% Item description
+\end{verbatim}
+
+\subsection{Pictures}
+
+\magicItem{Scroll of Distraction}% Name
+  {\duplicated, \divergent}% Enhancements
+  {someone attacks}% Activation
+  {\roll{Strength}{Athletics}}%
+  {illusionary bats appear, causing a massive distraction}%
+  {Fire Shoots}% Effect
+  {A pretty brooch}% Item description
+
 \subsection{Pictures}
 
 \sidepic{l1}
+
 All images should go into the images directory.
 
 Writing \verb"\pic{b1}" shows the image under \verb"images/b1.svg".
