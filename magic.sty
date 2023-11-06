@@ -175,32 +175,34 @@
 
 \newcommand\rollConv{\arabic{numberofdice}D6\ifnum\value{damagebonus}<0\arabic{damagebonus}\else\ifnum\value{damagebonus}>0+\arabic{damagebonus}\fi\fi}
 
-\newcommand\magicItem[8]{
+\newcommand\magicItem[7]{
   \global\settoggle{distant}{false}%
   \global\settoggle{duplicated}{false}%
   \global\settoggle{insubstantial}{false}%
   \setcounter{spelllevel}{1}%
-  \foreach \s in {#4}{%
+  \foreach \s in {#3}{%
     \stepcounter{spelllevel}%
   }%
   \setcounter{spellPotency}{\value{spelllevel}}%
     \addtocounter{spellPotency}{3}%
   \setcounter{spellResTN}{7}%
   \vphantom{\dmg{spellPotency}}%
-  \vphantom{#4}%
-  \vphantom{#2}%
+  \vphantom{#3}%
   \setArea%
   \setRange%
   \needspace{3em}
   {\center\decoone~\textbf{\large #1}~\decoone}
   \noindent
   \begin{description}
-    \item[Item:] #8
+    \item[Item:] #7
     \item[Activation:]
-      When #6,
-      #7
+      When #3,
+      #6
+    \raggedright
     \item[Stats:]
-      Potence:~\arabic{spelllevel}, Range: \spellRange\iftoggle{duplicated}{, Targets: \spellArea}{}, Resisted:~#5
+      Potence:~\arabic{spelllevel}, Range: \spellRange\iftoggle{duplicated}{, Targets: \spellArea}{}
+      \item[Resisted~by:]
+      #4
   \end{description}
 
 }
