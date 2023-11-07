@@ -60,30 +60,27 @@
 \newcommand{\equipment}{}
 \newcommand{\mods}{}
 
+\newcommand\absNum[1]{\ifnum\value{#1}>0+\fi\ifnum\value{#1}=0\else\arabic{#1}\fi}
 
 % we calculate damage here because we can't display 1d6+6 damage - it has to turn into 2d6+2 damage.
-\newcommand{\dmg}[1]{%
-  \ifnum\value{#1}<1 0\else%
-    \setcounter{damagebonus}{\value{#1}}%
-    \setcounter{numberofdice}{1}%
+
+\newcommand\conDmg[1]{%
+  \setcounter{numberofdice}{1}%
+  \setcounter{damagebonus}{\value{#1}}%
+  \addtocounter{damagebonus}{-4}%
+  \whileboolexpr{%
+    test {\ifnumcomp{\value{damagebonus}}{>}{3}}%
+  }{%
     \addtocounter{damagebonus}{-4}%
-    \whileboolexpr{%
-      test {\ifnumcomp{\value{damagebonus}}{>}{3}}%
-    }{%
-      \addtocounter{damagebonus}{-4}%
-      \addtocounter{numberofdice}{1}%
-    }%
-    {\arabic{numberofdice}D6%
-    \ifnumcomp{\value{damagebonus}}{>}{0}%
-      {+\arabic{damagebonus}}%
-      {%
-      \ifnumcomp{\value{damagebonus}}{<}{0}{%
-        \arabic{damagebonus}%
-      }{}%
-      }%
-    }%
-  \fi%
+    \addtocounter{numberofdice}{1}%
+  }%
 }
+
+\newcommand\showDam{%
+  \arabic{numberofdice}D6\absNum{damagebonus}%
+}
+
+\newcommand\dmg[1]{\conDmg{#1}\showDam}
 
 \newcommand\showBoxes{
   \ifnum\value{mp}<1
@@ -103,7 +100,6 @@
       \HPMPSPboxes
     \fi
   \fi
-
 }
 
 \newcommand\boxStat[2][0]{%
