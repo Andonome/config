@@ -3,10 +3,10 @@
   {Wax}% Action
   {Fate, Air}% Spheres
   {\roll{Strength}{Athletics}}% Resist with
-  {target loses \arabic{spelllevel} \glspl{hp}}% Description
+  {target loses \arabic{spellCost} \glspl{hp}}% Description
   {
     The caster insists the target has taken a wound and they begin to feel it as internal bleeding accompanies a headache.
-    The target takes \dmg{spelllevel} Damage.
+    The target takes \dmg{spellCost} Damage.
   }
 
 \spell{Infectious Migraine}% Name
@@ -14,9 +14,9 @@
   {Wax}% Action
   {Fate, Air}% Spheres
   {\roll{Strength}{Athletics}}% Resist with
-  {\arabic{spellTargets} targets lose \arabic{spelllevel} \glspl{fatigue}}% Description
+  {\arabic{spellTargets} targets lose \arabic{spellCost} \glspl{fatigue}}% Description
   {
-    As the caster roars, a deathly feeling flows over \arabic{spellTargets} targets within \spellRange\ each take \arabic{spelllevel} \glspl{fatigue}.
+    As the caster roars, a deathly feeling flows over \arabic{spellTargets} targets within \spellRange\ each take \arabic{spellCost} \glspl{fatigue}.
   }
 
 \spell{Corpse Stench}% Name
@@ -39,16 +39,16 @@
   {
     The caster removes one type of death from the target -- \glspl{fatigue}, poison, venom, rot, or anything else they can think of.
 
-    Corpses in this state no longer decay\ldots or at least delay any decay for \arabic{spelllevel} \glspl{interval}. 
+    Corpses in this state no longer decay\ldots or at least delay any decay for \arabic{spellCost} \glspl{interval}. 
     Time spent completely motionless does not count against this time, so any corpse can remain indefinitely fresh, and any poison can remain indefinitely at bay, as long as the subject does not move an inch.
   }
 
 \spell{Soul Specks}% Name
-  {Fate, Air}% Spheres
-  {Warp}% Action
   {detailed}% Enhancements
+  {Warp}% Action
+  {Fate, Air}% Spheres
   {Vigilance}% Resist with
-  {Gain \gls{dr} 2, ignore up to \arabic{spelllevel}~\gls{fatigue} penalties, and see as the dead see}% Description
+  {Gain \gls{dr} 2, ignore up to \arabic{spellCost}~\gls{fatigue} penalties, and see as the dead see}% Description
   {
     The caster stares into a middle distance continuously, until they find a special state of de-focussing their eyes which lets them (or a target) see as the dead see.
     They no longer see normal light, but instead see only the light of souls.

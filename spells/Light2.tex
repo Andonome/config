@@ -1,32 +1,32 @@
 \spell{Sun Flare}% Name
-  {Fire, Air}% Spheres
-  {Wax}% Action
   {duplicated}% Enhancements
+  {Wax}% Action
+  {Fire, Air}% Spheres
   {\roll{Wits}{Vigilance}}% Resist with
   {Room fills with light}% Description
   {
     The caster grows any source of light into a painful glare, covering a massive area.%
     \footnote{$7!$ squares, but who's counting?}
-    When this light springs up suddenly in the dark, anyone looking towards it makes a Wits + Vigilance test (\tn[9]) or loses \arabic{spelllevel}~\gls{ap}.
+    When this light springs up suddenly in the dark, anyone looking towards it makes a Wits + Vigilance test (\tn[9]) or loses \arabic{spellCost}~\gls{ap}.
   }
 
 \spell{Were Light}% Name
-  {Fire, Air}% Spheres
-  {Wax}% Action
   {detailed}% Enhancements
+  {Wax}% Action
+  {Fire, Air}% Spheres
   {\roll{Wits}{Vigilance}}% Resist with
   {any spark blooms into a warm light}% Description
   {
     This light attaches to a target, hovering around them like sparkling oil-stain.
-    The light springs up suddenly, and targets used to the dark, make a Wits + Vigilance test (\tn[9]) or loses \arabic{spelllevel}~\gls{ap}.
+    The light springs up suddenly, and targets used to the dark, make a Wits + Vigilance test (\tn[9]) or loses \arabic{spellCost}~\gls{ap}.
 
     The light fades if left in the darkness for a full \gls{interval}, or if batted and prodded for a couple of rounds.
   }
 
 \spell{Shadow Puppet}% Name
-  {Fire, Air}% Spheres
-  {Wane}% Action
   {detailed}% Enhancements
+  {Wane}% Action
+  {Fire, Air}% Spheres
   {\roll{Wits}{Vigilance}}% Resist with
   {A shadow forms a silhouette}% Description
   {
@@ -34,7 +34,7 @@
 
     During the daylight, it simply appears very strange; but at night these shadow puppets can easily fool someone.
 
-    \setcounter{track}{\value{spelllevel}}
+    \setcounter{track}{\value{spellCost}}
     \addtocounter{track}{7}
     Onlookers in twilight must roll Wits + Vigilance, \tn[\arabic{track}], to see through the illusion, and more darkness can increase the \gls{tn}.
   }

@@ -4,12 +4,12 @@
   {Wax}% Action
   {Air}% Spheres
   {\roll{Strength}{Athletics}}% Resist with
-  {targets lose \arabic{spelllevel} \glspl{ap} and get pushed back \arabic{spelllevel} minus Strength squares}% Description
+  {targets lose \arabic{spellCost} \glspl{ap} and get pushed back \arabic{spellCost} minus Strength squares}% Description
   {
-    \arabic{spellTargets} targets within \spellRange\ receive a blast of wind, and lose \arabic{spelllevel}~\glspl{ap}.
-    The wind pushes targets back \arabic{spelllevel} steps, minus their Strength Bonus.
+    \arabic{spellTargets} targets within \spellRange\ receive a blast of wind, and lose \arabic{spellCost}~\glspl{ap}.
+    The wind pushes targets back \arabic{spellCost} steps, minus their Strength Bonus.
 
   Targets with their back to the wind lose only
-  \setcounter{track}{\value{spelllevel}}\roundUp{track}%
+  \setcounter{track}{\value{spellCost}}\roundUp{track}%
   \arabic{track}~\glspl{ap}.
   }

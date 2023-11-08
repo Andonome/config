@@ -1,15 +1,16 @@
-\spell{Storm Blast}% Name
-  {Air\ and Fire}% Spheres
-  {Wax}% Action
-  {detailed, divergent, duplicated}% Enhancements
-  {the storm's ferocity}% Resist with
-  {\arabic{spellTargets} targets lose \arabic{spelllevel} \glspl{ap} while lightning hits them for \arabic{spelllevel} Damage}% Description
+\spell{Night's Teeth}% Name
+  {detailed, duplicated, divergent}% Enhancements
+  {Wane}% Action
+  {Fire, Air}% Spheres
+  {\roll{Wits}{Vigilance}}% Resist with
+  {lanterns flare, burning \arabic{spellTargets} any nearby targets for \showDam\ Damage, then shadowy spirits latch onto their face, inflicting \arabic{spellCost} \glspl{fatigue}}% Description
   {
-    During any \gls{interval} where lightning flashes, the caster can seize the ambient fire in the air, and channel it into a powerful blast of lightning and wind.
+    As the caster calls to fire spirits, fires in the area flare up like dragons' breath, burning anyone nearby.
+    Shadowy spirits, born of the foul air from the dead fires, cover the caster's enemies.
 
-    The resulting boom inflicts \dmg{spelllevel} Damage on \arabic{spellTargets} targets, and reduce their \glspl{ap} by \arabic{spelllevel}.
-    Armour does nothing to shield the targets -- the lightning finds a way through.
+    Anyone neary a fire takes \showDam\ Damage.
+    Anyone who breathes in receives \arabic{spellCost} \glspl{fatigue}.
 
-    Casters should ensure they have enough targets before starting this spell, or it will target them and their companions.
-    The range of \spellRange\ can also present a problem, as the first target must be close, and subsequent targets must be within \spellRange\ of another for the storm to pass through them.
+    The shadowy spirits of noxious air will follow all targets, wth an effective Speed Bonus of \arabic{spellCost}.
   }
+

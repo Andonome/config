@@ -1,11 +1,11 @@
 \spell{Chaos}% Name
-  {Water, Fate}% Spheres
-  {Wane}% Action
   {duplicated}% Enhancements
+  {Wane}% Action
+  {Water, Fate}% Spheres
   {\roll{Wits}{Academics}}% Resist with
-  {\arabic{spellTargets} targets suffer -\arabic{spelllevel}~\glspl{ap}}% Description
+  {\arabic{spellTargets} targets suffer -\arabic{spellCost}~\glspl{ap}}% Description
   {
-    \arabic{spellTargets} targets within \spellRange\ become confused about what they're doing, and suffer a minus \arabic{spelllevel} penalty to all actions based on Mental Attributes.
+    \arabic{spellTargets} targets within \spellRange\ become confused about what they're doing, and suffer a minus \arabic{spellCost} penalty to all actions based on Mental Attributes.
     Any target in combat loses the same number of \glspl{ap} each round.
 
     All valid targets in range feel the effects, so if the spell can only target one enemy, then it will target anyone else until it has affected \arabic{spellTargets} targets.
@@ -13,12 +13,12 @@
   }
 
 \spell{Fear}% Name
-  {Water, Fate}% Spheres
-  {Wane}% Action
   {divergent}% Enhancements
+  {Wane}% Action
+  {Water, Fate}% Spheres
   {\roll{Wits}{Academics}}% Resist with
-  {the target loses \arabic{spelllevel}~\glspl{ap} and \showDam~\glspl{fp}}% Description
+  {the target loses \arabic{spellCost}~\glspl{ap} and \showDam~\glspl{fp}}% Description
   {
     The caster explains to the target their imminent death.
-    The target immediately loses \showDam\ \glspl{fp} and takes on a persistent -\arabic{spelllevel} penalty to Mind Attributes and \glspl{ap}.
+    The target immediately loses \showDam\ \glspl{fp} and takes on a persistent -\arabic{spellCost} penalty to Mind Attributes and \glspl{ap}.
   }
