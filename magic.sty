@@ -51,6 +51,20 @@
 \newcommand\spellIndex{\index[spells]{\textbf{\spellName} Cost: \arabic{spellCost}, \spellEnhancements, \spellAction~\spellSphere Resisted by: \detokenize{\spellResistance} \spellSum \spellNotes }}
 
 
+\newcommand\shortSpell{%
+  \paragraph{\spellName}
+
+  Cost: \arabic{spellCost},
+  \spellEnhancements,
+  \spellAction~
+  \spellSphere
+
+  Resisted by: \spellResistance
+
+  \spellSum \ 
+  \spellNotes
+}
+
 
 % We use spellPotency to track spell effects which are typically larger than the spell's level.
 \newcounter{spellPotency}
