@@ -369,6 +369,7 @@
 
 \newcommand{\snapcaster}{%
   \addtocounter{knacks}{1}%
+  \global\settoggle{snapCaster}{true}%
   Snap Caster
   (spells use Wits and cost 1 less \glsentrytext{ap})
 }
@@ -408,6 +409,9 @@
 \newcommand{\mind}[3]{
 \setcounter{Intelligence}{#1}\setcounter{Wits}{#2}\setcounter{Charisma}{#3}
 }
+
+\newtoggle{snapCaster}
+\settoggle{snapCaster}{true}
 %
 
 %%%%%%%%%%% Person
@@ -561,6 +565,7 @@
 }
 
 \newcommand{\clean}{
+  \global\toggletrue{snapCaster}
   \knacks{}
   \foreach \s in {Air,Earth,Fate,Fire,Water,Projectiles,Combat,Brawl,Academics,Alchemy,Athletics,Caving,Crafts,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Tactics,Vigilance,Wyldcrafting}%
     {\setcounter{\s}{0}}
