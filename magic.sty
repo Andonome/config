@@ -7,6 +7,49 @@
 %               |___/        
 
 
+\newcounter{spellCost}
+\setcounter{spellCost}{1}
+
+\newcommand\spellName{}
+\newcommand\spellEnhancements{}
+\newcommand\spellAction{}
+\newcommand\spellSphere{}
+\newcommand\spellResistance{}
+\newcommand\spellSum{}
+\newcommand\spellNotes{}
+
+\newcommand\calcSpell[7]{%
+  \renewcommand\spellName{#1}%
+  \setcounter{spellCost}{1}%
+  \foreach \d in {#2}{%
+    \stepcounter{spellCost}%
+  }%
+  \renewcommand\spellEnhancements{#2}%
+  \renewcommand\spellAction{#3}%
+  \renewcommand\spellSphere{#4}%
+  \renewcommand\spellResistance{#5}
+  \renewcommand\spellSum{#6}
+  \renewcommand\spellNotes{#7}
+}
+
+
+\newcommand\displaySpell{%
+  \paragraph{\spellName}
+
+  Cost: \arabic{spellCost},
+  \spellEnhancements,
+  \spellAction~
+  \spellSphere
+
+  Resisted by: \spellResistance
+
+  \spellSum \ 
+  \spellNotes
+}
+
+
+
+
 % We use spellPotency to track spell effects which are typically larger than the spell's level.
 \newcounter{spellPotency}
 
