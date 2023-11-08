@@ -22,12 +22,14 @@
 \setcounter{spellTargets}{1}
 
 \newcommand\calcSpell[7]{%
-  \togglefalse{distant}%
   \renewcommand\spellName{#1}%
   \setcounter{spellCost}{1}%
+  \setcounter{spellTargets}{1}%
+  \togglefalse{distant}%
+  \togglefalse{duplicated}%
   \foreach \d in {#2}{%
-    \ifdefstring{\d}{distant}{\global\toggletrue{distant}}{\global\togglefalse{distant}}%
-    \ifdefstring{\d}{duplicated}{\global\toggletrue{duplicated}}{\global\togglefalse{duplicated}}%
+    \ifdefstring{\d}{distant}{\global\toggletrue{distant}}{}%
+    \ifdefstring{\d}{duplicated}{\global\toggletrue{duplicated}}{}%
     \stepcounter{spellCost}%
   }%
   \renewcommand\spellEnhancements{#2}%
@@ -37,9 +39,14 @@
   \renewcommand\spellSum{#6}
   \renewcommand\spellNotes{#7}
   \setRange%
-  \foreach \x in {1,...,\arabic{spellCost}}%
-    {\multiply\value{spellTargets} by 10\addtocounter{spellTargets}{0}}
-  \spellIndex
+    \multiply\value{spellTargets} by \value{spellCost}%
+    \multiply\value{spellTargets} by \value{spellCost}%
+    \addtocounter{spellTargets}{0}%
+  \iftoggle{distant}{%
+    \foreach \x in {1,...,\arabic{spellCost}}%
+      {\multiply\value{spellTargets} by 10\addtocounter{spellTargets}{0}}%
+  }{}%
+  \index[spells]{\textbf{#1} Cost: \arabic{spellCost}, \spellEnhancements\ \spellAction~\spellSphere, Range: \spellRange, Targets: \arabic{spellTargets}, Resisted by: \detokenize{#5}, \spellSum}
 }
 
 \newcommand\fullSpell{%
@@ -59,7 +66,6 @@
   \spellSum \ 
   \spellNotes
 }
-
 
 \newcommand\spellIndex{\index[spells]{\textbf{\spellName} Cost: \arabic{spellCost}, \spellEnhancements, \spellAction~\spellSphere, Range: \spellRange, \ifnum\value{spellTargets}>1 Targets: \arabic{spellTargets}, \fi Resisted by: \detokenize{\spellResistance}, \spellSum \spellNotes }}
 
@@ -218,10 +224,6 @@
 \newcommand\setArea{%
   \setcounter{spellArea}{\value{spelllevel}}%
   \multiply\value{spellArea} by \value{spelllevel}%
-  \iftoggle{insubstantial}{%
-    \multiply\value{spellArea} by \value{spelllevel}%
-    \addtocounter{spellArea}{0}%
-  }{}%
   \renewcommand\spellArea{%
     \arabic{spellArea}%
   }%
