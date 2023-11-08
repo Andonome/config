@@ -98,9 +98,6 @@
 }
 
 
-% spellResTN is the TN to resist spells, used only in specified spells beneath creatures. For example, if someone had Air 2, resisting their spells would be TN (7 + 2) 9.
-\newcounter{spellResTN}
-
 \newcommand\spellRange{}
 \newcommand\setRange{%
   \iftoggle{distant}%
@@ -153,20 +150,6 @@
   \settoggle{distant}{false}
 \newtoggle{duplicated}
   \settoggle{duplicated}{false}
-
-\newcommand\detailed{Detailed}
-
-\newcommand\duplicated{%
-  \global\settoggle{duplicated}{true}%
-  Duplicated%
-}
-
-\newcommand\divergent{Divergent}
-
-\newcommand\distant{%
-  \global\settoggle{distant}{true}%
-  Distant%
-}
 
 \newcommand\showStdSpells{
   \setcounter{enc}{0}
