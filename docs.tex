@@ -155,9 +155,9 @@ They also compile a spell index, if you request a spell index before \verb"\begi
 title={Spell Summaries},columns=2]
 
 \spell{Quake}% Name
-  {Earth}% Spheres
+  {distant,duplicated}% Enhancements
   {Wane}% Action
-  {\distant, \duplicated}% Enhancements
+  {Earth}% Spheres
   {the rock's density}% Skill
   {Ground shakes}% Short Description
   {Brrrrrr}% Long Description
@@ -168,9 +168,9 @@ title={Spell Summaries},columns=2]
 After inputting that, you can get the spell, and the `printindex' command will create a spell-list by using a special index, just for spells.
 
 \spell{Quake}% Name
-  {Earth}% Spheres
+  {distant,duplicated}% Enhancements
   {Wane}% Action
-  {\distant, \duplicated}% Enhancements
+  {Earth}% Spheres
   {the rock's density}% Skill
   {Ground shakes}% Short Description
   {Brrrrrr}% Long Description
@@ -197,60 +197,6 @@ This will take an educated guestimate of a few spells you want to show.
 \demilich
 
 \showStdSpells
-
-Or you can specify a list of spells, with an optional argument to take any spell you like.
-
-\begin{verbatim}
-
-  \elf
-
-  \creatureSpells[
-    \spell{Quake}% Name
-      {Earth}% Spheres
-      {Wane}% Action
-      {\distant, \duplicated}% Enhancements
-      {the rock's density}% Skill
-      {Ground shakes}% Short Description
-      {Brrrrrr}% Long Description
-  ]{Fate1,Air2}
-
-\end{verbatim}
-
-\elf
-
-\creatureSpells[
-  \spell{Quake}% Name
-    {Earth}% Spheres
-    {Wane}% Action
-    {\distant, \duplicated}% Enhancements
-    {the rock's density}% Skill
-    {Ground shakes}% Short Description
-    {Brrrrrr}% Long Description
-]{Fate1,Air2}
-
-\subsubsection{Talismans}
-
-Magical talismans (one-use items) are formatted like this:
-
-\begin{verbatim}
-  \magicItem{Scroll of Distraction}% Name
-    {\duplicated, \divergent}% Enhancements
-    {someone attacks}% Activation
-    {\roll{Strength}{Athletics}}%
-    {illusionary bats appear, causing a massive distraction}%
-    {Fire Shoots}% Effect
-    {A pretty brooch}% Item description
-\end{verbatim}
-
-\subsection{Pictures}
-
-\magicItem{Scroll of Distraction}% Name
-  {\duplicated, \divergent}% Enhancements
-  {someone attacks}% Activation
-  {\roll{Strength}{Athletics}}%
-  {illusionary bats appear, causing a massive distraction}%
-  {Fire Shoots}% Effect
-  {A pretty brooch}% Item description
 
 \subsection{Pictures}
 

@@ -3,6 +3,7 @@
 \usepackage{lipsum}
 
 \date{\today}
+\makeindex[name=spells,title={Spell Summaries},columns=2]
 
 \settoggle{debug}{true}
 
@@ -37,6 +38,8 @@ Current day should equal \arabic{r4b}.
   \setcounter{Fate}{2}
 }
 
+\input{spells/Air1.tex}
+
 \begin{speechtext}
 
   ``Would you tell me, please, which way I ought to go from here?''
@@ -47,13 +50,6 @@ Current day should equal \arabic{r4b}.
 
 \subsection{And now for something completely different}
 
-\magicitem{Noodle of Death}% NAME
-  {Extinguish}% SPELL
-  {Divinity (FSM)}% PATH
-  {Instant}% DURATION
-  {Pocket Spell}% TYPE
-  {2}% Potency
-  {5}% MP
 
 \subsection{Encounters}
 
@@ -169,13 +165,13 @@ This section is non-verbose, so only basic stats are shown.
 
 \gnollshaman
 
-\creatureSpells{Fire1}
+\showStdSpells{Fire1}
 
 \gnollshaman
 
-\creatureSpells{Fate1}
+\showStdSpells{Fate1}
 
-\creatureSpells{Fate2}
+\showStdSpells{Fate2}
 
 \end{multicols}
 
@@ -571,5 +567,10 @@ When using a bestiary chapter, the stats appear as dice rolls, rather than fixed
 \settoggle{verbose}{false}
 
 \Repeat{2}{\tests}
+
+%\foreach \s in {Fire,Air,Water,Fate,Earth}%
+%  {\foreach \n in {1,...4}%
+%    {\input{spells/\s\n.tex}}
+%  }
 
 \end{document}
