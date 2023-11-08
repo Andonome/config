@@ -7,8 +7,11 @@
 %               |___/        
 
 
+% Some spells inflict X fatigue, where X is the spell level plus 2.
 \newcounter{spellCost}
-\setcounter{spellCost}{1}
+  \setcounter{spellCost}{1}
+\newcounter{spellPlusTwo}
+  \setcounter{spellPlusTwo}{1}
 
 \newcommand\spellName{}
 \newcommand\spellEnhancements{}
@@ -32,6 +35,8 @@
     \ifdefstring{\d}{duplicated}{\global\toggletrue{duplicated}}{}%
     \stepcounter{spellCost}%
   }%
+  \setcounter{spellPlusTwo}{\value{spellCost}}%
+    \addtocounter{spellPlusTwo}{2}%
   \renewcommand\spellEnhancements{#2}%
   \renewcommand\spellAction{#3}%
   \renewcommand\spellSphere{#4}%
@@ -69,7 +74,6 @@
 
 \newcommand\spellIndex{\index[spells]{\textbf{\spellName} Cost: \arabic{spellCost}, \spellEnhancements, \spellAction~\spellSphere, Range: \spellRange, \ifnum\value{spellTargets}>1 Targets: \arabic{spellTargets}, \fi Resisted by: \detokenize{\spellResistance}, \spellSum \spellNotes }}
 
-
 \newcommand\shortSpell{%
   \item[\spellName]
   Cost: \arabic{spellCost},
@@ -93,54 +97,9 @@
   }%
 }
 
-% We use spellPotency to track spell effects which are typically larger than the spell's level.
-\newcounter{spellPotency}
 
 % spellResTN is the TN to resist spells, used only in specified spells beneath creatures. For example, if someone had Air 2, resisting their spells would be TN (7 + 2) 9.
 \newcounter{spellResTN}
-
-
-\newcommand\mFate{%
-  Fate%
-  \global\settoggle{insubstantial}{true}%
-  \ifnum\value{spellResTN}<8%
-    \addtocounter{spellResTN}{\value{Fate}}%
-  \fi%
-}
-\newcommand\mEarth{%
-  Earth%
-  \ifnum\value{spellResTN}<8%
-    \addtocounter{spellResTN}{\value{Earth}}%
-  \fi%
-}
-\newcommand\mAir{%
-  Air%
-  \global\settoggle{insubstantial}{true}%
-  \ifnum\value{spellResTN}<8%
-    \addtocounter{spellResTN}{\value{Air}}%
-  \fi%
-}
-\newcommand\mFire{%
-  Fire%
-  \ifnum\value{spellResTN}<8%
-    \addtocounter{spellResTN}{\value{Fire}}%
-  \fi%
-  \addtocounter{spellPotency}{-1}%
-}
-\newcommand\mWater{%
-  Water%
-  \ifnum\value{spellResTN}<8%
-    \addtocounter{spellResTN}{\value{Water}}%
-  \fi%
-}
-
-% 1 = Name
-% 2 = Spheres
-% 3 = Action
-% 4 = Enhancements
-% 5 = Resistance
-% 6 = Description
-% 7 = Longer notes
 
 \newcommand\spellRange{}
 \newcommand\setRange{%
@@ -207,75 +166,6 @@
 \newcommand\distant{%
   \global\settoggle{distant}{true}%
   Distant%
-}
-
-\newcommand\rollConv{\arabic{numberofdice}D6\ifnum\value{damagebonus}<0\arabic{damagebonus}\else\ifnum\value{damagebonus}>0+\arabic{damagebonus}\fi\fi}
-
-\newcommand\magicItem[7]{
-  \global\settoggle{distant}{false}%
-  \global\settoggle{duplicated}{false}%
-  \global\settoggle{insubstantial}{false}%
-  \setcounter{spelllevel}{1}%
-  \foreach \s in {#3}{%
-    \stepcounter{spelllevel}%
-  }%
-  \setcounter{spellPotency}{\value{spelllevel}}%
-    \addtocounter{spellPotency}{3}%
-  \setcounter{spellResTN}{7}%
-  \vphantom{\dmg{spellPotency}}%
-  \vphantom{#3}%
-  \setArea%
-  \setRange%
-  \needspace{3em}
-  {\center\decoone~\textbf{\large #1}~\decoone}
-  \noindent
-  \begin{description}
-    \item[Item:] #7
-    \item[Activation:]
-      When #3,
-      #6
-    \raggedright
-    \item[Stats:]
-      Potence:~\arabic{spelllevel}, Range: \spellRange\iftoggle{duplicated}{, Targets: \spellArea}{}
-      \item[Resisted~by:]
-      #4
-  \end{description}
-
-}
-
-\newcommand{\magicitem}[7]{%
-  \vspace{1em}\needspace{1em}\noindent\textbf{#1}%
-  \index{Magical Item!#1}
-
-  \noindent
-  \textit{Spells: #2, }%
-  \textit{Path: #3, }%
-  \textit{Duration: #4, }%
-  \textit{Type: #5, }%
-  \textit{Potency: +#6, }%
-  \textit{MP: #7}%
-  % Type can be 'Pocket Spell', 'Talisman', or 'Artefact'.
-  \needspace{2em}%
-}
-
-\newcommand{\manalake}[8]{
-  \subsection{#1 (Level #8)}
-
-  \textit{Spells: #2, }\textit{Path: #3, }\textit{Duration: #4, }\textit{Type: #5, }\textit{Potence: #6, }\textit{#7 MP}% Type can be 'pocket spell', 'magical item', or 'artefact'.
-  \index{Mana Lakes!#1}
-  \vspace{.3em}
-}
-
-\newcommand\creatureSpells[2][]{
-  \begin{description}
-    \settoggle{fullSpells}{false}
-    #1
-    \foreach \s in {#2}{
-      \IfFileExists{config/spells/\s.tex}{
-        \input{config/spells/\s.tex}
-      }{}
-    }
-  \end{description}
 }
 
 \newcommand\showStdSpells{
