@@ -18,10 +18,16 @@
 \newcommand\spellSum{}
 \newcommand\spellNotes{}
 
+\newcounter{spellTargets}
+\setcounter{spellTargets}{1}
+
 \newcommand\calcSpell[7]{%
+  \togglefalse{distant}%
   \renewcommand\spellName{#1}%
   \setcounter{spellCost}{1}%
   \foreach \d in {#2}{%
+    \ifdefstring{\d}{distant}{\global\toggletrue{distant}}{\global\togglefalse{distant}}%
+    \ifdefstring{\d}{duplicated}{\global\toggletrue{duplicated}}{\global\togglefalse{duplicated}}%
     \stepcounter{spellCost}%
   }%
   \renewcommand\spellEnhancements{#2}%
@@ -30,8 +36,10 @@
   \renewcommand\spellResistance{#5}
   \renewcommand\spellSum{#6}
   \renewcommand\spellNotes{#7}
+  \setRange%
+  \foreach \x in {1,...,\arabic{spellCost}}%
+    {\multiply\value{spellTargets} by 10\addtocounter{spellTargets}{0}}
 }
-
 
 \newcommand\fullSpell{%
   \paragraph{\spellName}
@@ -41,14 +49,18 @@
   \spellAction~
   \spellSphere
 
-  Resisted by: \spellResistance
+  Resisted by: \spellResistance,
+  Range: \spellRange
+  \ifnum\value{spellTargets}>1%
+    , Targets: \arabic{spellTargets}
+  \fi
 
   \spellSum \ 
   \spellNotes
 }
 
 
-\newcommand\spellIndex{\index[spells]{\textbf{\spellName} Cost: \arabic{spellCost}, \spellEnhancements, \spellAction~\spellSphere Resisted by: \detokenize{\spellResistance} \spellSum \spellNotes }}
+\newcommand\spellIndex{\index[spells]{\textbf{\spellName} Cost: \arabic{spellCost}, \spellEnhancements, \spellAction~\spellSphere, Range: \spellRange, \ifnum\value{spellTargets}>1 Targets: \arabic{spellTargets}, \fi Resisted by: \detokenize{\spellResistance}, \spellSum \spellNotes }}
 
 
 \newcommand\shortSpell{%
