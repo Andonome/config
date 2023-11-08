@@ -129,18 +129,6 @@
 
 
 %%%
-\newcommand\spellArea{}
-\newcounter{spellArea}
-
-\newcommand\setArea{%
-  \setcounter{spellArea}{\value{spelllevel}}%
-  \multiply\value{spellArea} by \value{spelllevel}%
-  \renewcommand\spellArea{%
-    \arabic{spellArea}%
-  }%
-}
-
-%%%
 
 \newtoggle{fullSpells}
   \settoggle{fullSpells}{true}
