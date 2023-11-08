@@ -33,7 +33,7 @@
 }
 
 
-\newcommand\displaySpell{%
+\newcommand\fullSpell{%
   \paragraph{\spellName}
 
   Cost: \arabic{spellCost},
@@ -47,6 +47,8 @@
   \spellNotes
 }
 
+
+\newcommand\spellIndex{\index[spells]{\textbf{\spellName} Cost: \arabic{spellCost}, \spellEnhancements, \spellAction~\spellSphere Resisted by: \detokenize{\spellResistance} \spellSum \spellNotes }}
 
 
 
