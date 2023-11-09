@@ -179,3 +179,19 @@
   }
 }
 
+\newcommand\showTalisman{
+  \addtocounter{castingBonus}{7}%
+  \paragraph{\spellName}
+  \spellSum
+
+  Resisted by: \spellResistance\ (\tn[\arabic{castingBonus}])
+
+  \spellNotes
+}
+
+\newcommand\talisman[7]{%
+  \calcSpell{#1}{#2}{#3}{#4}{#5}{#6}{#7}%
+  \index{Talismans!#1}
+  \showTalisman
+}
+
