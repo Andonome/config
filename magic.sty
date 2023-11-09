@@ -26,6 +26,49 @@
 \newcounter{spellTargets}
 \setcounter{spellTargets}{1}
 
+\newcommand\spellRange{}
+\newcommand\setRange{%
+  \iftoggle{distant}%
+    {%
+      \ifcase\value{spelllevel}\relax%
+      \renewcommand\spellRange{Error}%
+      \or%
+      \renewcommand\spellRange{Error}%
+      \or%
+        \renewcommand\spellRange{throwing distance}%
+      \or%
+        \renewcommand\spellRange{shouting distance}%
+      \or%
+        \renewcommand\spellRange{horizon}%
+      \else%
+        \renewcommand\spellRange{line of sight}%
+      \fi%
+    }%
+    {%
+      \setcounter{track}{20}%
+      \Repeat{\arabic{spelllevel}}{\addtocounter{track}{-4}}%
+      \ifnum\value{track}<1%
+        \renewcommand\spellRange{touch}%
+      \else%
+        \renewcommand\spellRange{\arabic{track}~steps}%
+      \fi%
+    }%
+}
+
+
+%%%
+
+\newtoggle{fullSpells}
+  \settoggle{fullSpells}{true}
+\newtoggle{insubstantial}
+  \settoggle{insubstantial}{false}
+\newtoggle{distant}
+  \settoggle{distant}{false}
+\newtoggle{duplicated}
+  \settoggle{duplicated}{false}
+
+
+
 \newcommand\calcSpell[7]{%
   \renewcommand\spellName{#1}%
   \setcounter{spellCost}{1}%
@@ -86,8 +129,6 @@
   \spellNotes
 }
 
-\newcommand\spellIndex{\index[spells]{\textbf{\spellName} Cost: \arabic{spellCost}, \spellEnhancements, \spellAction~\spellSphere, Range: \spellRange, \ifnum\value{spellTargets}>1 Targets: \arabic{spellTargets}, \fi Resisted by: \detokenize{\spellResistance}, \spellSum \spellNotes }}
-
 \newcommand\shortSpell{%
   \addtocounter{castingBonus}{7}%
   \item[\spellName]
@@ -111,47 +152,6 @@
     \shortSpell%
   }%
 }
-
-\newcommand\spellRange{}
-\newcommand\setRange{%
-  \iftoggle{distant}%
-    {%
-      \ifcase\value{spelllevel}\relax%
-      \renewcommand\spellRange{Error}%
-      \or%
-      \renewcommand\spellRange{Error}%
-      \or%
-        \renewcommand\spellRange{throwing distance}%
-      \or%
-        \renewcommand\spellRange{shouting distance}%
-      \or%
-        \renewcommand\spellRange{horizon}%
-      \else%
-        \renewcommand\spellRange{line of sight}%
-      \fi%
-    }%
-    {%
-      \setcounter{track}{20}%
-      \Repeat{\arabic{spelllevel}}{\addtocounter{track}{-4}}%
-      \ifnum\value{track}<1%
-        \renewcommand\spellRange{touch}%
-      \else%
-        \renewcommand\spellRange{\arabic{track}~steps}%
-      \fi%
-    }%
-}
-
-
-%%%
-
-\newtoggle{fullSpells}
-  \settoggle{fullSpells}{true}
-\newtoggle{insubstantial}
-  \settoggle{insubstantial}{false}
-\newtoggle{distant}
-  \settoggle{distant}{false}
-\newtoggle{duplicated}
-  \settoggle{duplicated}{false}
 
 \newcommand\showStdSpells{
   \setcounter{enc}{0}
