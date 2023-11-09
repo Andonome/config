@@ -286,7 +286,7 @@
 	{0}% DR
 	{1}% COMBAT
 	{Academics~\arabic{enc}, Caving \arabic{r2}, Crafts~1, Tactics~2
-    \Path{
+    \Spheres{
       Fate~\arabic{enc}, \ifodd\value{r2d}Fire\else Air\fi ~\arabic{r3b}
     }
   }% SKILLS
@@ -318,7 +318,7 @@
 	{6}% DR
 	{\arabic{r3}}% COMBAT
 	{Academics~3, Athletics~\arabic{r3c}, \ifodd\value{r2}Crafts~2, Performance~\arabic{r3}, \else Empathy~\arabic{r2b}, Seafaring~\arabic{r3}, Vigilance~\arabic{r3b}, Wyldcrafting~3\fi 
-    \Path{%
+    \Spheres{%
       \ifodd\value{r4}%
         Earth~\arabic{r2b}, Water %
       \else%
@@ -353,7 +353,7 @@
 	{0}% DR
 	{\ifodd\value{list}1\else2\fi}% COMBAT
 	{\ifnumcomp{\value{r4}}{<}{2}{}{Projectiles~\arabic{age},} Academics~\arabic{age}, Athletics~1, \ifodd\value{r4} Crafts~\arabic{r3}\else Performance~\arabic{r2b}\fi, Stealth~\arabic{r2}, Vigilance~\arabic{age}, Wyldcrafting~\arabic{r3b}
-	\Path%
+	\Spheres%
 	{\ifnumcomp{\value{r4}}{<}{3}%
 		{Earth~\arabic{r3}, }%
 		{Fire~\arabic{r3b}, }%
@@ -431,8 +431,8 @@
 {0}% COMBAT
 {Academics~\arabic{r3}, Caving \arabic{r3c}, \ifodd\value{page} Crafts~\arabic{r2}, \else Deceit \arabic{age}, \fi Empathy~\arabic{r2b}, \ifodd\value{page} \else Larceny~1, Stealth~1 \fi 
 \ifodd\value{r12} Vigilance~\arabic{r2c}\fi
-\ifodd\value{page}
-	\Path{Fire~\arabic{r2}}
+\ifodd\value{r2c}
+	\Spheres{Fire~\arabic{r2}}
 \fi}% SKILLS
 {\ifodd\value{r3}%
 	\Dagger,
@@ -499,7 +499,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 	{\ifodd\value{r2}%
 		\else Projectiles \arabic{enc}, \fi%
 	Academics~3, \ifodd\value{chapter} Crafts~\arabic{enc}, \fi Deceit~\arabic{age},  Stealth~\arabic{enc}
-    \Path{
+    \Spheres{
       Fire~\arabic{r2d}
       \ifodd\value{r12}%
         \randomtwoD
@@ -623,7 +623,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {\arabic{r2b}}% COMBAT
 {Academics~\arabic{r3}, Empathy~\arabic{r3b}
 \ifodd\value{r3b}
-  \Path{
+  \Spheres{
     Fate~\arabic{r2c},
   \ifodd\value{r4}\else
     Water~1
@@ -819,7 +819,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {Academics~\ifodd\value{r3b}\arabic{r2}\else\arabic{r3b}\fi, Empathy~\arabic{enc}, Deceit~\ifodd\value{r4b} 2\else 1\fi, Performance~\ifodd\thechapter 2\else 1\fi%
 \ifnum\value{noAppearing}=1
 	\ifnum\value{r3}>2
-    \Path{
+    \Spheres{
       \ifodd\value{r3b}%
         Fate~2%
       \fi%
@@ -917,7 +917,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 \ifnum\value{r4}>1%
 	{Vigilance~\arabic{enc}}%
 	\fi%
-  \Path{
+  \Spheres{
     \ifodd\value{r2}%
       Air\else Fire%
     \fi~\arabic{r3}, %
@@ -1466,7 +1466,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {2}% DR
 {\arabic{r2}}% COMBAT
 {Brawl~2, Projectiles~\arabic{r2c}, Academics~\arabic{r3}, Deceit~1, Medicine~\arabic{r2c}, Vigilance~\arabic{r2}
-  \Path{%
+  \Spheres{%
     Air~\arabic{r2}, Fate~\arabic{r3b}, Water~\arabic{r3c}
     \ifodd\value{r4}
       Fire~\arabic{r2d}
@@ -1554,7 +1554,7 @@ mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIP
 {2}% DR
 {\arabic{r3b}}% COMBAT
 {Brawl 2, \ifodd\thechapter Projectiles~\arabic{r3}, \fi Academics~3, Caving \arabic{r3c}, \ifodd\value{gold}Crafts~\arabic{r3}, \fi Deceit~\arabic{r2b}, Medicine~\arabic{r2b}, Vigilance~\arabic{r3b}
-  \Path{
+  \Spheres{
     Air~\arabic{r3}, Fate~3, Water~\arabic{r2c}, %
     Fire~\arabic{r2d}, %
     \ifodd\value{r3}%
@@ -1784,7 +1784,7 @@ mana stone with \arabic{track} mana, \lootJewellery, \randomtwo\lootJewellery, \
 {0}% DR
 {0}% AGGRESSION
 {Projectiles~\arabic{r3}, Academics~3, Deceit~\arabic{r2}, Tactics~\arabic{r3b}, Xenomology~\arabic{r2b}
-  \Path{
+  \Spheres{
     Air~\arabic{r3}, Fate~\arabic{r3b}, Fire~\arabic{r3c}, %
     \ifodd\value{r4}%
       Earth~1, 
