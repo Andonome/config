@@ -57,6 +57,44 @@
     \pgfusepath{fill}%
   }%
 
+
+%%%%% Common Commands %%%%%
+
+% make repeating function
+\newcommand{\Repeat}[1]{%
+  \expandafter\@Repeat\expandafter{\the\numexpr #1\relax}%
+}
+
+\def\@Repeat#1{%
+    \ifnum#1>0
+        \expandafter\@@Repeat\expandafter{\the\numexpr #1-1\expandafter\relax\expandafter}%
+    \else
+        \expandafter\@gobble
+    \fi
+}
+\def\@@Repeat#1#2{%
+    \@Repeat{#1}{#2}#2%
+}
+
+
+% This allows us to compare two strings. What other wonders will LaTeX bring in the future?  Perhaps subtraction syntax one day.
+\ExplSyntaxOn
+\NewExpandableDocumentCommand{\ifStrSame}{mmmm}
+ {
+  \str_if_eq:eeTF { #1 } { #2 } { #3 } { #4 }
+ }
+\ExplSyntaxOff
+
+% This function divides a number by two, and rounds it up.
+\newcommand\roundUp[1]{%
+  \ifodd\value{#1}%
+    \stepcounter{#1}%
+  \fi%
+  \divide\value{#1} by 2%
+  \addtocounter{#1}{0}% Think this line's pointless? Try removing it and seeing what happens - I dare you.
+}
+
+
 %%%%% Add fancy page chapter sides %%%%%
 
 \newcounter{chapshift}
@@ -187,39 +225,6 @@ bookmarks=true]%
     }
 }
 
-% and make repeating function
-\newcommand{\Repeat}[1]{%
-  \expandafter\@Repeat\expandafter{\the\numexpr #1\relax}%
-}
-
-\def\@Repeat#1{%
-    \ifnum#1>0
-        \expandafter\@@Repeat\expandafter{\the\numexpr #1-1\expandafter\relax\expandafter}%
-    \else
-        \expandafter\@gobble
-    \fi
-}
-\def\@@Repeat#1#2{%
-    \@Repeat{#1}{#2}#2%
-}
-
-% This allows us to compare two strings. What other wonders will LaTeX bring in the future?  Perhaps subtraction syntax one day.
-\ExplSyntaxOn
-\NewExpandableDocumentCommand{\ifStrSame}{mmmm}
- {
-  \str_if_eq:eeTF { #1 } { #2 } { #3 } { #4 }
- }
-\ExplSyntaxOff
-
-% This function divides a number by two, and rounds it up.
-\newcommand\roundUp[1]{%
-  \ifodd\value{#1}%
-    \stepcounter{#1}%
-  \fi%
-  \divide\value{#1} by 2%
-  \addtocounter{#1}{0}% Think this line's pointless? Try removing it and seeing what happens - I dare you.
-}
-
 \newcommand{\chapnumfont}{
   \fontsize{50}{0}
   \selectfont
@@ -236,10 +241,7 @@ bookmarks=true]%
 \setcounter{encnum}{1}
 \newcommand{\sqarea}{town}
 
-\newcommand{\headingtype}{CHAPTER}
-
-\newcommand\outline[2][7]{\contour[#1]{black}{\textcolor{white}{#2}}}
-\contourlength{0.1em}
+%%%%% Image Commands %%%%%
 
 \newcommand{\pic}[1]{
   \noindent%
@@ -531,7 +533,6 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 }
 }
 
-
 \newtcolorbox{boxtext}[1][]{
   colback=white,
   before={\paragraph*{}\noindent},
@@ -545,8 +546,16 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
     \end{wrapfigure}%
 }
 
+%%%%% Header Formatting %%%%%
+
 % Chapter Heading Color
+
 \colorlet{chapnumcol}{black!100}
+
+\newcommand{\headingtype}{CHAPTER}
+
+\newcommand\outline[2][7]{\contour[#1]{black}{\textcolor{white}{#2}}}
+\contourlength{0.1em}
 
 %%%%% Section Formatting %%%%%
 
@@ -1025,61 +1034,6 @@ Roll & Result \\
     {(#1) #2}
   \stopcontents[#1]\settoggle{firstsq}{false}
   \vspace{3em}
-}
-
-%%%%% Character Sheet Commands
-
-\newcounter{statCircles}
-\newcounter{statDots}
-
-\newcommand\statCircle[1][\large]{#1\textbf{\Circle}}
-\newcommand\statDot[1][\large]{#1\textbf{\CIRCLE}}
-\newcommand\currentCircle{}
-\newcommand{\weeline}{\line(1,0){30} \hspace{.6cm}}
-
-\newcommand\showAttribute[1]{
-  \setcounter{track}{-4}%
-  {#1}%
-  \whileboolexpr{%
-    test {\ifnumcomp{\value{track}}{<}{5}}%
-  }%
-  {%
-    &%
-    \ifnum\value{track}>0%
-      \ifnum\value{track}>\value{#1}%
-        \statCircle%
-      \else%
-        \statDot%
-      \fi%
-    \else%
-      \ifnum\value{track}=0%
-        \raisebox{2pt}{\statDot[\footnotesize]}%
-      \else%
-        \ifnum\value{#1}>\value{track}%
-          {\Large\Square}%
-        \else%
-          {\Large\XBox}%
-        \fi%
-      \fi%
-    \fi%
-    \stepcounter{track}%
-  }%
-  \\%
-}
-
-
-\newcommand{\skill}[1]{
-  \setcounter{statCircles}{3}
-  \addtocounter{statCircles}{-\value{#1}}
-  #1 \dotfill &
-  \Repeat{\value{#1}}{\statDot}\Repeat{\value{statCircles}}{\statCircle}\\
-  \stepcounter{track}
-}
-
-\newcommand\emptySkill{%
-    \dotfill & %
-    \Repeat{3}{\statCircle}%
-    \\%
 }
 
 \newcommand\hint[1]{%

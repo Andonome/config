@@ -72,3 +72,60 @@
 
 \newcommand\charSpellList{}
 
+
+%%%%% Show Dots Commands %%%%%
+
+\newcounter{statCircles}
+\newcounter{statDots}
+
+\newcommand\statCircle[1][\large]{#1\textbf{\Circle}}
+\newcommand\statDot[1][\large]{#1\textbf{\CIRCLE}}
+\newcommand\currentCircle{}
+\newcommand{\weeline}{\line(1,0){30} \hspace{.6cm}}
+
+\newcommand\showAttribute[1]{
+  \setcounter{track}{-4}%
+  {#1}%
+  \whileboolexpr{%
+    test {\ifnumcomp{\value{track}}{<}{5}}%
+  }%
+  {%
+    &%
+    \ifnum\value{track}>0%
+      \ifnum\value{track}>\value{#1}%
+        \statCircle%
+      \else%
+        \statDot%
+      \fi%
+    \else%
+      \ifnum\value{track}=0%
+        \raisebox{2pt}{\statDot[\footnotesize]}%
+      \else%
+        \ifnum\value{#1}>\value{track}%
+          {\Large\Square}%
+        \else%
+          {\Large\XBox}%
+        \fi%
+      \fi%
+    \fi%
+    \stepcounter{track}%
+  }%
+  \\%
+}
+
+
+
+\newcommand{\skill}[1]{
+  \setcounter{statCircles}{3}
+  \addtocounter{statCircles}{-\value{#1}}
+  #1 \dotfill &
+  \Repeat{\value{#1}}{\statDot}\Repeat{\value{statCircles}}{\statCircle}\\
+  \stepcounter{track}
+}
+
+\newcommand\emptySkill{%
+    \dotfill & %
+    \Repeat{3}{\statCircle}%
+    \\%
+}
+
