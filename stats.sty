@@ -777,14 +777,14 @@
             \arabic{xp} XP%
         }%
     % if the creature has a mind, print fate points (if any).
-    \iftoggle{mind}%
-      {\addtocounter{fp}{\value{Charisma}}%
-        \ifnum\value{fp}>2\ignorespaces, \arabic{fp}~FP %
-        \iftoggle{genExamples}%
-          {}%
-          {\Repeat{\value{fp}}{\sqn}}%
-        \fi
-    }{}%
+    %
+    \ifnum\value{fp}>5%
+    \addtocounter{fp}{\value{Charisma}}%
+    \ignorespaces, \arabic{fp}~\glsentrytext{fp}%
+      \iftoggle{genExamples}%
+        {}%
+        {\Repeat{\value{fp}}{\sqn}}%
+    \fi
   }
 }
 
