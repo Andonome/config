@@ -60,6 +60,8 @@
 
 \newtoggle{fullSpells}
   \settoggle{fullSpells}{true}
+\newtoggle{talisman}
+  \settoggle{talisman}{false}
 \newtoggle{insubstantial}
   \settoggle{insubstantial}{false}
 \newtoggle{distant}
@@ -108,7 +110,9 @@
     \foreach \x in {1,...,\arabic{spellCost}}%
       {\multiply\value{spellTargets} by 10\addtocounter{spellTargets}{0}}%
   }{}%
-  \index[spells]{\textbf{#1} Cost: \arabic{spellCost}, \spellEnhancements\ \spellAction~\spellSphere, Range: \spellRange, Targets: \arabic{spellTargets}, Resisted by: \detokenize{#5}, \spellSum}
+  \iftoggle{talisman}{}{%
+    \index[spells]{\textbf{#1} Cost: \arabic{spellCost}, \spellEnhancements\ \spellAction~\spellSphere, Range: \spellRange, Targets: \arabic{spellTargets}, Resisted by: \detokenize{#5}, \spellSum}
+  }
 }
 
 \newcommand\fullSpell{%
@@ -191,8 +195,10 @@
 }
 
 \newcommand\talisman[7]{%
+  \toggletrue{talisman}
   \calcSpell{#1}{#2}{#3}{#4}{#5}{#6}{#7}%
   \index{Talismans!#1}
   \showTalisman
+  \togglefalse{talisman}
 }
 
