@@ -63,6 +63,17 @@
   \setcounter{Water}{0}
 \newcounter{Fate}
   \setcounter{Fate}{0}
+\newcounter{Mind}
+  \setcounter{Mind}{0}
+\newcounter{Light}
+  \setcounter{Light}{0}
+\newcounter{Life}
+  \setcounter{Life}{0}
+\newcounter{Death}
+  \setcounter{Death}{0}
+\newcounter{Force}
+  \setcounter{Force}{0}
+
 
 \newcommand\characterWeapon{}
 \newcommand\characterArmour{}
@@ -127,5 +138,21 @@
     \dotfill & %
     \Repeat{3}{\statCircle}%
     \\%
+}
+
+\newcommand\setXtoLowestOf[3]{%
+  \ifnum\value{#2}<\value{#3}%
+    \setcounter{#1}{\value{#2}}%
+  \else%
+    \setcounter{#1}{\value{#3}}%
+  \fi%
+}
+
+\newcommand\setHighSpheres{
+  \setXtoLowestOf{Mind}{Water}{Air}
+  \setXtoLowestOf{Death}{Air}{Fate}
+  \setXtoLowestOf{Light}{Air}{Fire}
+  \setXtoLowestOf{Force}{Fire}{Earth}
+  \setXtoLowestOf{Life}{Earth}{Water}
 }
 
