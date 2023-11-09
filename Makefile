@@ -23,4 +23,5 @@ clean:
 	*.gls \
 	*.ind \
 	*.ilg \
+  images/wide.jpg \
 	svg-inkscape
