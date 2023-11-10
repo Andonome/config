@@ -558,8 +558,8 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 	#1
 	\randomtwo
 	\randomtwoB
+	\randomtwoC
 	\randomthree
-	\addtocounter{age}{-2}
 	\addtocounter{enc}{-1}
 \person{\arabic{age}}% STRENGTH
 {0}% DEXTERITY 
@@ -569,8 +569,12 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {\arabic{r2b}}}% CHARISMA
 {0}% DR
 {\arabic{enc}}% COMBAT
-{Academics~\arabic{r2b}, \ifodd\value{r2}~Crafts 1, Empathy\else Deceit\fi~\arabic{r3}}% SKILLS
-{\shortsword, \lootBig}% EQUIPMENT
+{Academics~\arabic{r2b}, \ifodd\value{r4}Projectiles~\arabic{r2}\fi\ifodd\value{r2}~Crafts 1, Empathy\else Deceit\fi~\arabic{r3}}% SKILLS
+{\shortsword,
+\ifodd\value{r4}%
+  \longbow,
+\fi%
+\lootBig}% EQUIPMENT
 {}
 }
 
