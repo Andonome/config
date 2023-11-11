@@ -9,13 +9,13 @@
 }
 
 \newacronym[
-  description={The spell's current level (including Enhancements)},
+  description={means the spell's total level},
   text={spell level},
   nonumberlist,
 ]{lv}{Lv}{Spell Level}
 
 \newacronym[
-  description={The smallest unit of currency},
+  description={are the smallest unit of currency},
   shortplural={cp},
   text={copper piece},
   longplural={copper pieces},
@@ -23,7 +23,8 @@
 ]{cp}{cp}{Copper Piece}
 
 \newacronym[
-  description={One silver piece is worth one hundred copper pieces},
+  description={get you 100 silver piece is worth one hundred copper pieces},
+  name={Silver Pieces},
   text={silver piece},
   shortplural={sp},
   longplural={silver pieces},
@@ -31,9 +32,10 @@
   ]{sp}{sp}{Silver Piece}
 
 \newacronym[
-  description={One gold piece is worth ten silver pieces, or one thousand copper pieces},
+  description={convert to ten silver, or a thousand copper pieces},
   shortplural={gp},
   longplural={gold pieces},
+  name={Gold Piece},
   text={gold piece},
   prefix={a\space},
 ]{gp}{gp}{Gold Piece}
@@ -44,7 +46,7 @@
   name={The Judge},
   text={Judge},
   sort={Judge},
-  description={runs the game, interprets the rules, and forgets to bring enough pencils}
+  description={runs the game, interprets the rules, and forgets to bring enough pencils},
 }
 
 \newglossaryentry{storypoint}{
@@ -53,13 +55,6 @@
   prefix={a\space},
   nonumberlist,
   description={allow players to declare that some part of their backstory arrives on scene to help the situation. They also grant \glsfmtplural{xp}}
-}
-
-\newglossaryentry{characterPool}{
-  name={character pool},
-  prefix={a\space},
-  nonumberlist,
-  description={the collection of total playable characters, including allies summoned with \glsentrytext{storypoint}}
 }
 
 \newglossaryentry{interval}{
@@ -74,9 +69,9 @@
 \newglossaryentry{boon}{
   nonumberlist,
   prefix={a\space},
-  name={Concoction},
+  name={A Concoction},
   text={concoction},
-  description={a liquid or powder which, when thrown in the air, hyper-charges the use of a single Sphere, for anyone present next to the burst.
+  description={is a liquid or powder which, when thrown in the air, hyper-charges the use of a single Sphere, for anyone present next to the burst.
   For example, a concoction to boost the Air Sphere would mean a caster with Air 2 could cast a single spell as if they had Air 3.
   The first spell cast, uses up the effect, although some powders have enough for multiple spells}
 }
@@ -86,14 +81,13 @@
   prefix={a\space},
   name={Ingredients},
   text={ingredient},
-  description={A piece of an animal or plant which, when a skilled herbalist may prepare for use as a \glsentrytext{boon}.
-  Most require the Medicine Skill to properly prepare}
+  description={come from animals or plants. Skilled herbalists prepare them a \glsentrytext{boon}}
 }
 
 \newglossaryentry{area}{
   name={Area},
   prefix={an\space},
-  description={The basic unit of large spaces. An area is a space made distinct by its features. In a dungeon, each room might count as an area, while out in the open plains a forest might be composed of the local areas: `the centre with the big, felled tree; the river's fork; the priestess's house and the griffins' nesting site}
+  description={gives a rough unit for large spaces. An area is a space made distinct by its features. In some undergound labyrinth, each room might count as an area, while out in the open plains a forest might be composed of the local areas: `the centre with the big, felled tree; the river's fork; the priestess's house and the griffins' nesting site}
   }
 
 \newglossaryentry{quickaction}{
@@ -104,73 +98,86 @@
   }
 
 \newglossaryentry{attribute}{
-  name={Attribute},
+  name={Attributes},
+  text={Attribute},
   prefix={an\space},
   first={\textit{Attribute}},
-  description={One of the six Traits which form the basis of the character -- Strength, Speed, et c}
+  description={measure a character's inherent abilities -- Strength, Speed, et c}
   }
 
 \newglossaryentry{skill}{
-  name={Skill},
+  name={Skills},
+  text={Skill},
   prefix={a\space},
   nonumberlist,
   first={\textit{Skill}},
-  description={Some training a character has, allowing them to be particularly good at one sort of profession or activity}
+  description={represent training and practice, allowing them to be particularly good at one sort of profession or activity}
   }
 
 \newglossaryentry{natural}{
   name={Natural Roll},
+  sort={Natural Roll},
+  sort={A Natural Roll},
   prefix={a\space},
   nonumberlist,
-  description={A natural roll is a roll where the physical dice land on some number. For example, a `natural 2' is where both dice come up facing 1, as opposed to a player gaining the result `2' from rolling a 3 and getting a -1 penalty. Similarly a `natural 12' is when the dice land on a `12' without modification}
+  description={is a roll where the physical dice land on some number. For example, a `natural 2' is where both dice come up facing 1, as opposed to a player gaining the result `2' from rolling a 3 and getting a -1 penalty. Similarly a `natural 12' is when the dice land on a `12' without modification}
   }
 
 \newglossaryentry{round}{
-  name={Round},
+  name={A Round},
+  text={round},
   prefix={a\space},
   nonumberlist,
-  description={A round is an abstract measurement of time during which characters can make a series of attacks or cast spells. Each new round players adjust their combat tactics}
+  description={measures a small slice of fast-paced time.
+  Mostly, we use rounds for combat}
   }
 
 \newglossaryentry{step}{
   name={Step},
+  text={step},
   prefix={a\space},
-  description={An abstract unit of measurement. We can imagine it about a yard long, or as wide as the step on your gaming board, or any other length. A more story-based game, without a board, might imagine each step is a `zone' or area in a room -- it matters little so long as each step is a consistent size}
+  description={provide a rough measure of space.
+  We can imagine it about a metre long, or as wide as the step on your gaming board, or any other length. A more story-based game, without a board, might imagine each step is a `zone' or area in a room -- it matters little so long as each step is a consistent size}
   }
 
 \newglossaryentry{trait}{
-  name={Trait},
+  name={Traits},
+  text={Trait},
   prefix={a\space},
-  description={Any gaming stat, such as a character's maximum MP, a Skill or an Attribute}
+  description={are any stat on a character sheet, such as Strength, Attack, or a weapon's Damage.}
   }
 
 \newglossaryentry{vitalShot}{
-  name={Vitals Shot},
+  name={A Vitals Shot},
+  text={Vitals Shot},
   prefix={a\space},
-  description={An attack which strikes between the gaps in armour, dealing full Damage},
+  description={means an attack which strikes between the gaps in armour, dealing full Damage},
   }
 
 \newglossaryentry{restingaction}{
   name={Resting Action},
+  text={A Resting Action},
   first={\textit{Resting Action}},
   prefix={a\space},
-  description={An unhurried action, where a character can take time to do something right}
+  description={means an unhurried action, where a character has the time and safety to do somthing right}
 }
 
 \newglossaryentry{downtime}{
   name={Downtime},
+  text={downtime},
   prefix={a\space},
-  description={These are the times between sessions, where characters train, study, or simply drink}
+  description={between sessions lets characters train, heal, and drink.
+  Every week in our world, three weeks pass over there}
   }
 
 \newacronym[
-  description={A measure of how much luck the character has left, used solely to avoid Damage},
+  description={measure of how much luck the character has left, used solely to avoid Damage},
   shortplural={FP},
   prefix={an\space},
   ]{fp}{FP}{Fate Point}
 
 \newacronym[
-  description={The simple, linear, measure of a character's health and injury},
+  description={are the simple, linear, measure of a character's health and injury},
   shortplural={HP},
   prefix={a\space},
   ]{hp}{HP}{Health Point}
@@ -185,25 +192,26 @@
 }
 
 \newacronym[
-  description={The number players need to roll on the dice to achieve a tie with the task. Rolling higher indicates they have their prize, rolling lower means some nasty outcome is upon them, and rolling a tie means both (or neither)},
+  description={are the number players need to roll on the dice to achieve a \emph{tie} with the task.
+  Rolling higher indicates they have their prize, rolling lower means some nasty outcome is upon them, and rolling a tie means both (or neither)},
   shortplural={TNs},
   prefix={a\space},
   ]{tn}{TN}{Tie Number}
 
 \newacronym[
-  description={The ``battery power'' of a magic user, which allows them to power spells},
+  description={work as the ``battery power'' of a magic user, which allows them to power spells},
   shortplural={MP},
   prefix={a\space},
   ]{mp}{MP}{Mana Point}
 
 \newacronym[
-  description={A measure of actions someone can take in a round, based on how fast they can move and react},
+  description={measure how many actions someone can take in a round, based on how fast they can move and react},
   shortplural={AP},
   prefix={an\space},
   ]{ap}{AP}{Action Point}
 
 \newacronym[
-  description={An abstract measurement of how much valuable experience and learning characters have acquired.  PCs spend XP to buy Traits},
+  description={form an abstract measurement of how much valuable experience and learning characters have acquired.  PCs spend XP to buy Traits},
   shortplural={XP},
   prefix={an\space},
   ]{xp}{XP}{Experience Point}
@@ -214,21 +222,20 @@
   ]{pc}{PC}{Player Character}
 
 \newacronym[
-  description={magical shielding from the force sphere},
+  description={show magical shielding from the Force sphere},
   shortplural={SP}
   prefix={a\space},
   ]{SP}{SP}{Shield Point}
 
 \newacronym[
-  description={A rating of protection, generally from wearing armour},
+  description={represent armour of any type, or other states which help avoid Damage},
   shortplural={DR}
   prefix={a\space},
   ]{dr}{DR}{Damage Resistance}
 
 \newacronym[
   description={Non Player Character -- anyone in the world played by the \glsentrytext{gm} rather than a player},
-  prefix={a\space},
-  ]{npc}{NPC}{Non Player Character}
+  prefix={a\space},]{npc}{NPC}{Non Player Character}
 
 
 \newglossaryentry{weight}{
@@ -241,6 +248,14 @@
   Creatures have a \glsentrytext{weight} equal to their own \glsentrytext{hp}}
 }
 
+\newglossaryentry{characterPool}{
+  name={The Character Pool},
+  text={character pool},
+  prefix={a\space},
+  sort={Character Pool},
+  nonumberlist,
+  description={is the collection of total playable characters, including allies summoned with \glsentrytext{storypoint}, ready and waitng for when a \glsentrytext{pc} dies}
+}
 
 \newglossaryentry{edge}{
   name={The Edge},
