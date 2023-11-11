@@ -1299,9 +1299,8 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 {}
 }
 
-\newcommand{\ogre}[1][\npc{\T[\arabic{r4b}]\N}{\arabic{r4b} Ogres}]{
+\newcommand{\ogre}[1][\addtocounter{r4b}{1}\npc{\T[\arabic{r4b}]\N}{\arabic{r4b} Ogres}]{
   \randomfourB
-  \addtocounter{r4b}{1}
 	#1
 	\randomthree\addtocounter{age}{2}
 	\randomtwo
