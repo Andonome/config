@@ -565,9 +565,9 @@
 }
 
 \newcommand{\clean}{
-  \global\toggletrue{snapCaster}
+  \global\togglefalse{snapCaster}
   \knacks{}
-  \foreach \s in {Air,Earth,Fate,Fire,Water,Projectiles,Combat,Brawl,Academics,Alchemy,Athletics,Caving,Crafts,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Tactics,Vigilance,Wyldcrafting}%
+  \foreach \s in {Air,Earth,Fate,Fire,Water,Projectiles,Combat,Brawl,Academics,Alchemy,Athletics,Caving,Crafts,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Stealth,Tactics,Vigilance,Wyldcrafting}%
     {\setcounter{\s}{0}}
   \setcounter{noAppearing}{1}
   \setcounter{dr}{0}
@@ -624,7 +624,7 @@
 
   \iftoggle{verbose}{
     \ent{Skills} &
-    \foreach \s in {Earth,Air,Fire,Water,Fate,Projectiles,Combat,Brawl,Academics,Athletics,Caving,Crafts,Deceit,Empathy,Medicine,Performance,Larceny,Seafaring,Tactics,Vigilance,Wyldcrafting}
+    \foreach \s in {Earth,Air,Fire,Water,Fate,Projectiles,Combat,Brawl,Academics,Athletics,Caving,Crafts,Deceit,Empathy,Medicine,Performance,Larceny,Seafaring,Stealth,Tactics,Vigilance,Wyldcrafting}
       {\ifnum\value{\s}>0 \s~\arabic{\s}, \fi}
       \skills \\
   }{}
