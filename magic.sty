@@ -136,19 +136,17 @@
 }
 
 \newcommand\shortSpell{%
-  \addtocounter{castingBonus}{7}%
   \item[\spellName]
-  Cost: \arabic{spellCost},
-  \spellEnhancements~
-  \spellAction~
-  \spellSphere
+  \spellSum
 
-  Resisted by: \spellResistance\ (\tn[\arabic{castingBonus}])
-
-  \spellSum \ 
-  \spellNotes
+  (Cost: \arabic{spellCost},
+  \iftoggle{opposedSpell}{
+    \addtocounter{castingBonus}{7}%
+    Resisted by: \spellResistance, \tn[\arabic{castingBonus}]%
+  }{%
+    Roll: \absNum{castingBonus}, \gls{tn} set by \spellResistance.
+  })%
 }
-
 
 \newcommand\spell[7]{%
   \calcSpell{#1}{#2}{#3}{#4}{#5}{#6}{#7}%
