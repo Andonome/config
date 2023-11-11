@@ -116,17 +116,14 @@
 
 \newcommand\fullSpell{%
   \paragraph{\spellName}
-
-  Cost: \arabic{spellCost},
-  \spellEnhancements,
-  \spellAction~
-  \spellSphere
+  (Cost: \arabic{spellCost}.
+  \textit{\spellEnhancements\ \spellAction~ \spellSphere})
+  Range:~\spellRange%
+  \ifnum\value{spellTargets}>1%
+    , Targets:~\arabic{spellTargets}%
+  \fi.
 
   Resisted by: \spellResistance,
-  Range: \spellRange
-  \ifnum\value{spellTargets}>1%
-    , Targets: \arabic{spellTargets}
-  \fi
 
   \spellSum \ 
   \spellNotes
