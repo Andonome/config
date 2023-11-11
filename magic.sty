@@ -105,13 +105,10 @@
   \renewcommand\spellSum{#6}%
   \renewcommand\spellNotes{#7}%
   \setRange%
-    \multiply\value{spellTargets} by \value{spellCost}%
-    \multiply\value{spellTargets} by \value{spellCost}%
-    \addtocounter{spellTargets}{0}%
-  \iftoggle{distant}{%
-    \foreach \x in {1,...,\arabic{spellCost}}%
-      {\multiply\value{spellTargets} by 10\addtocounter{spellTargets}{0}}%
-  }{}%
+  \iftoggle{duplicated}{
+    \foreach \i in {1,...,\arabic{spellCost}}%
+      {\multiply\value{spellTargets} by \value{spellCost}\addtocounter{spellTargets}{0}}
+  }{}
   \iftoggle{talisman}{}{%
     \index[spells]{\textbf{#1} (Cost: \arabic{spellCost}, \spellEnhancements\ \spellAction~\spellSphere) Range: \spellRange, Targets: \arabic{spellTargets}, Resisted by: \detokenize{#5}, \spellSum}
   }
