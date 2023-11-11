@@ -30,7 +30,7 @@
 \newcommand\setRange{%
   \iftoggle{distant}%
     {%
-      \ifcase\value{spelllevel}\relax%
+      \ifcase\value{spellCost}\relax%
       \renewcommand\spellRange{Error}%
       \or%
       \renewcommand\spellRange{Error}%
@@ -46,7 +46,7 @@
     }%
     {%
       \setcounter{track}{20}%
-      \Repeat{\arabic{spelllevel}}{\addtocounter{track}{-4}}%
+      \Repeat{\arabic{spellCost}}{\addtocounter{track}{-4}}%
       \ifnum\value{track}<1%
         \renewcommand\spellRange{touch}%
       \else%
