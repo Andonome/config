@@ -980,10 +980,10 @@ Roll & Result \\
 \newcommand{\mapentry}[2][]{
   \needspace{2em}
   \refstepcounter{list}
-  \subsubsection[#2]{
-    \arabic{list}: #2
+  \subsubsection[#2]{%
+    \arabic{list}: \MakeUppercase#2%
   }
-  \label{#1}
+  \label{#1}%
 }
 
 %%%%% Side Quests
