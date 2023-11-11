@@ -110,7 +110,7 @@
       {\multiply\value{spellTargets} by \value{spellCost}\addtocounter{spellTargets}{0}}
   }{}
   \iftoggle{talisman}{}{%
-    \index[spells]{\textbf{#1} (Cost: \arabic{spellCost}, \spellEnhancements\ \spellAction~\spellSphere) Range: \spellRange, Targets: \arabic{spellTargets}, Resisted by: \detokenize{#5}, \spellSum}
+    \index[spells]{\textbf{#1} (Cost: \arabic{spellCost}, \spellEnhancements\ \spellAction~\spellSphere) Range: \spellRange, Targets: \arabic{spellTargets}, Resisted by: \detokenize{#5}, \spellSum.}
   }
 }
 
@@ -125,13 +125,14 @@
 
   Resisted by: \spellResistance,
 
-  \spellSum \ 
+  \spellSum.
+
   \spellNotes
 }
 
 \newcommand\shortSpell{%
   \item[\spellName]
-  \spellSum
+  \spellSum.
 
   (Cost: \arabic{spellCost},
   \iftoggle{opposedSpell}{
@@ -184,8 +185,7 @@
     \setcounter{track}{\value{treasure}}%
   }{%
     \paragraph{\spellName}%
-    \spellSum
-
+    \spellSum.
     \spellNotes
     \iftoggle{opposedSpell}{
       \addtocounter{castingBonus}{7}
