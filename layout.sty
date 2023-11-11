@@ -335,7 +335,7 @@ bookmarks=true]%
 \newcommand\roll[2]{%
   \setcounter{tn}{7}%
   \addtocounter{tn}{\value{#1}}%
-  \ifdefcounter{#2}{\addtocounter{tn}{\value{#2}}}{}%
+  \ifltxcounter{#2}{\addtocounter{tn}{\value{#2}}}{}%
   #1~+~#2%
 }
 
