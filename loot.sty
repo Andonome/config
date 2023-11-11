@@ -81,42 +81,32 @@
 }
 
 \newcommand{\lootMagic}{%
-  \ifnum\value{noAppearing}>1%
-  Mana stone holding 2 MP%
-  \else%
-  \iftoggle{genExamples}{}%
-    {%
-      \stepcounter{treasure}%
-      \ifnum\value{treasure}>10\setcounter{treasure}{0}\fi%
-      \ifcase\value{treasure}\relax%
-        Sorcerer's Eye\index{Magical Item!Sorcerer's Eye}%
-      \or%1
-        quiver with \arabic{r12} Spider Arrows\index{Magical Item!Spider Arrows}%
-      \or%2
-        pouch of Wild Seeds\index{Magical Item!Wild Seeds}%
-      \or%3
-        Bag of Holding\index{Magical Item!Bag of Holding}%
-      \or%4
-        Defensive Heart\index{Magical Item!Defensive Heart}%
-      \or%5
-        Portal Scroll\index{Magical Item!Portal Scroll}%
-      \or%6
-        Sleeping Dust\index{Magical Item!Sleeping Dust}%
-      \or%7
-        Ring of Asphyxiation\index{Magical Item!Ring of Asphyxiation}%
-      \or%8
-        Ghost Shield\index{Magical Item!Ghost Shield}%
-      \or%9
-        Bag of Tricks\index{Magical Item!Bag of Tricks}%
-      \or%10
-        Taming Flute\index{Magical Item!Taming Flute}%
-      \else%11
-        Mana Stone with 4 \glspl{mp}%
-      \fi%
-    }%
-  \fi%
+  \iftoggle{verbose}{
+    \ifnum\value{noAppearing}>1%
+    Mana stone holding 2 MP%
+    \else%
+    \iftoggle{genExamples}{}%
+      {%
+        \ifnum\value{treasure}>10\setcounter{treasure}{0}\fi%
+        \ifcase\value{treasure}\relax%
+          \scrollOfFriendship%
+        \or%1
+          \bloodCandle%
+        \or%2
+          \minersWeed%
+        \or%3
+          \oceanPhial%
+        \or%4
+          \hagFinger%
+        \else%11
+          \homeScroll%
+        \fi%
+        \setcounter{track}{\value{treasure}}%
+        \stepcounter{treasure}%
+      }%
+    \fi%
+  }{}
 }
-
 
 \newcommand{\lootJewellery}{%
 \iftoggle{genExamples}{jewellery worth \ifodd\value{r2}$3D6$sp\else$1D6+2$\glspl{gp}\fi}%

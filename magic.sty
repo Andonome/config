@@ -68,7 +68,8 @@
   \settoggle{distant}{false}
 \newtoggle{duplicated}
   \settoggle{duplicated}{false}
-
+\newtoggle{opposedSpell}
+  \settoggle{opposedSpell}{false}
 
 
 \newcommand\calcSpell[7]{%
@@ -99,9 +100,10 @@
   }{%
     \addtocounter{castingBonus}{\value{Charisma}}%
   }%
-  \renewcommand\spellResistance{#5}
-  \renewcommand\spellSum{#6}
-  \renewcommand\spellNotes{#7}
+  \renewcommand\spellResistance{#5}%
+  \ifdefmacro{#5}{\toggletrue{opposedSpell}}{\togglefalse{opposedSpell}}%
+  \renewcommand\spellSum{#6}%
+  \renewcommand\spellNotes{#7}%
   \setRange%
     \multiply\value{spellTargets} by \value{spellCost}%
     \multiply\value{spellTargets} by \value{spellCost}%
@@ -185,20 +187,34 @@
 }
 
 \newcommand\showTalisman{
-  \addtocounter{castingBonus}{7}%
-  \paragraph{\spellName}
-  \spellSum
+  \iftoggle{creatureBox}{%
+    \spellName\ talisman%
+    \setcounter{track}{\value{treasure}}%
+  }{%
+    \paragraph{\spellName}%
+    \spellSum
 
-  Resisted by: \spellResistance\ (\tn[\arabic{castingBonus}])
+    \spellNotes
+    \iftoggle{opposedSpell}{
+      \addtocounter{castingBonus}{7}
+      Resisted by: \spellResistance\ (\tn[\arabic{castingBonus}])
+    }{
 
-  \spellNotes
+      Roll: \absNum{castingBonus}, \gls{tn} set by \spellResistance.
+    }%
+  }%
 }
 
 \newcommand\talisman[7]{%
-  \toggletrue{talisman}
+  \setcounter{Charisma}{0}%
   \calcSpell{#1}{#2}{#3}{#4}{#5}{#6}{#7}%
-  \index{Talismans!#1}
+  \index{Talismans!#1}%
+  \setcounter{castingBonus}{\value{spellCost}}%
   \showTalisman
   \togglefalse{talisman}
 }
 
+\newcommand\explainTalisman{%
+  \setcounter{treasure}{\value{track}}%
+  \lootMagic%
+}

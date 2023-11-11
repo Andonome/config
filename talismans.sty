@@ -33,3 +33,45 @@
     }% Details
 }
 
+\newcommand\oceanPhial{
+  \talisman{Ocean's Phial}% Name
+    {duplicated,distant}% Enhancements
+    {Wax}% Action
+    {Water}% Spheres
+    {stagnant water}% Resistance
+    {
+      Drop it in any large body of water, and watch the water whirl!
+      Anyone in or near the water gets dragged down or thrown back, unless they pass a \roll{Strength}{Athletics} check,
+      \setcounter{tn}{7}\addtocounter{tn}{\value{spellCost}}%
+      \tn.
+    }% Summary
+    {
+    The phial will take a -3 penalty for use next to small bodies of water, such as puddles, or a +3 Bonus when used on people \emph{inside} a raging river.
+    }% Details
+}
+
+\newcommand\hagFinger{
+  \talisman{Hag's Finger}% Name
+    {detailed}% Enhancements
+    {Wane}% Action
+    {Water}% Spheres
+    {\roll{Charisma}{Stealth}}% Resistance
+    {
+      Point the mummified finger at a cretin, then crack the finger's knuckle till it breaks.
+      The cretin will suffer \arabic{spellPlusTwo} encounters before the next day's light.
+    }% Summary
+    {}% Details
+}
+
+\newcommand\homeScroll{
+  \talisman{Home Scroll}% Name
+    {detailed,distant,duplicated}% Enhancements
+    {Warp}% Action
+    {Earth,Fire}% Spheres
+    {movement, such as wind}% Resistance
+    {
+      This scroll searches for somewhere windless and calm, around a day's walk, and then opens a rift in space to that location.
+    }% Summary
+    {}% Details
+}
+
