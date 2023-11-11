@@ -1,6 +1,6 @@
 \newcommand\scrollOfFriendship{
   \talisman{Scroll of Friendship}% Name
-    {duplicated,detailed}% Enhancements
+    {duplicated, detailed}% Enhancements
     {warp}% Action
     {Fire,Air}% Spheres
     {\roll{Wits}{Vigilance}}% Resistance
@@ -35,7 +35,7 @@
 
 \newcommand\oceanPhial{
   \talisman{Ocean's Phial}% Name
-    {duplicated,distant}% Enhancements
+    {duplicated, distant}% Enhancements
     {Wax}% Action
     {Water}% Spheres
     {stagnant water}% Resistance
@@ -53,20 +53,43 @@
     {Wane}% Action
     {Water}% Spheres
     {\roll{Charisma}{Stealth}}% Resistance
-    {
-      Point the mummified finger at a cretin, then crack the finger's knuckle till it breaks.
+    {Point the mummified finger at a cretin, then crack the finger's knuckle till it breaks.
       The cretin will suffer \arabic{spellPlusTwo} encounters before the next day's light}% Summary
     {}% Details
 }
 
 \newcommand\homeScroll{
   \talisman{Home Scroll}% Name
-    {detailed,distant,duplicated}% Enhancements
+    {detailed, distant, duplicated}% Enhancements
     {Warp}% Action
     {Earth,Fire}% Spheres
     {movement, such as wind}% Resistance
-    {
-      This scroll searches for somewhere windless and calm, around a day's walk, and then opens a rift in space to that location}% Summary
+    {This scroll searches for somewhere windless and calm, around a day's walk, and then opens a rift in space to that location}% Summary
     {}% Details
+}
+
+\newcommand\safetyScroll{
+  \talisman{Safety Scroll}% Name
+    {divergent, detailed}% Enhancements
+    {Wane}% Action
+    {Air, Fate, Earth, Fire}% Spheres
+    {motion of any kind}% Resistance
+    {The scroll's reader stops feeling all pain, or even their own body's weight.
+    Their \gls{weight} reduces by \arabic{spellPlusTwo} (weightless characters float) and they reduce any \gls{fatigue} penalty by \arabic{spellCost}.
+    Any attempts at running and jumping gain a \absNum{spellCost} Bonus}% Summary
+    {
+    The scroll is made from dried papyrus, covered in wax, with ink created with mushrooms and a touch of magnetite.}% Details
+}
+
+\newcommand\snacklet{
+  \talisman{Crunchy Snack}% Name
+    {detailed}% Enhancements
+    {Wane}% Action
+    {Water, Earth}% Spheres
+    {\roll{Strength}{Athletics}}% Resistance
+    {The item is a baby mouth-digger, suspended in its mother's birthing sack.
+    Eating one requires a \roll{Strength}{Tactics} check, to crunch the creature's bones without breaking any teeth (\tn[6]), and once eaten, the consumer begins to shrink, losing \arabic{spellCost} Strength}% Summary
+    {
+    Underground travellers occasionally travel with a few of these creatures, in order to fit through small underground tunnels.}% Details
 }
 

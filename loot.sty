@@ -87,7 +87,7 @@
     \else%
     \iftoggle{genExamples}{}%
       {%
-        \ifnum\value{treasure}>10\setcounter{treasure}{0}\fi%
+        \ifnum\value{treasure}>8\setcounter{treasure}{0}\fi%
         \ifcase\value{treasure}\relax%
           \scrollOfFriendship%
         \or%1
@@ -98,6 +98,10 @@
           \oceanPhial%
         \or%4
           \hagFinger%
+        \or%4
+          \safetyScroll%
+        \or%4
+          \snacklet%
         \else%11
           \homeScroll%
         \fi%
