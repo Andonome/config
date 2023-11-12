@@ -280,7 +280,7 @@ circle label/.style = {
 
 %----
   \posterbox[
-    adjusted title=Backpack,
+    adjusted title=Backpack \hint{\glsentrytext{tn} to remove: \weeline},
     remember,
   ]
   {name=equipment,
@@ -293,10 +293,13 @@ circle label/.style = {
   \iftoggle{examplecharacter}{\sffamily\characterEquipment\vspace{14em}}{\lineDots[3]\vspace{1em}}
 
   
-  \glsentryshortpl{cp}
-  \iftoggle{genExamples}{\arabic{gold} }{\weeline}
-  \glsentryshortpl{sp}\weeline
-  \glsentryshortpl{gp}\weeline
+  \begin{tabularx}{\hsize}{llXr}
+  \glsentryshortpl{cp}\weeline &
+  \glsentryshortpl{sp}\weeline &
+  \glsentryshortpl{gp}\weeline &
+  Encumbrance \weeline
+  \\
+  \end{tabularx}
   }
 
 %---

@@ -28,12 +28,11 @@
     \addtocounter{weight}{#3}% weight rating,
     \addtocounter{weight}{#3}% weight rating again,
     \roundUp{weight}% half weight rating
-  \roundUp{heft}% then the AP cost by 2.
-  \addtocounter{weight}{-2}% And reduce the weight by 2.
+    \roundUp{heft}% then the AP cost by 2.
   \fi%
   #1%
-    \addtocounter{att}{\value{weaponBonus}}%
-    #2%
+  \addtocounter{att}{\value{weaponBonus}}%
+  #2%
 }
 
 %% Use this to show weapons in tables.
@@ -68,9 +67,10 @@
   \setcounter{armourDR}{#3}%
   \setcounter{covering}{#4}%
   \setcounter{weight}{#4}%
-  \roundUp{weight}%
-  \addtocounter{weight}{\value{armourDR}}%
-  \addtocounter{weight}{-4}%
+  \addtocounter{weight}{#3}%
+  \addtocounter{weight}{1}%
+  \divide\value{weight} by 3%
+  \addtocounter{weight}{0}%
   #1% <- for adjustments.
   \iftoggle{creatureBox}{%
     \ifnumcomp{\value{dr}}{>}{\value{armourDR}}%
@@ -134,10 +134,8 @@
 
 \newcommand{\perfectArmour}{\setcounter{covering}{8}}
 
-\newcommand{\partialelvish}{partial leather armour%
-	\ifnumcomp{\value{dr}}{>}{2}%
-	{\addtocounter{dr}{1}}%
-	{\divide\value{dr} by 2 \addtocounter{dr}{2}}%
+\newcommand{\partialelvish}{%
+  \armour[\addtocounter{weight}{-1}]{Elvish Ceramic}{2}{2}%
 }
 
 \newcommand{\partialleather}{%
