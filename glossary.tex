@@ -17,15 +17,17 @@
 \newacronym[
   description={are the smallest unit of currency},
   shortplural={cp},
+  name={Copper Pieces},
   text={copper piece},
   longplural={copper pieces},
   prefix={a\space},
 ]{cp}{cp}{Copper Piece}
 
 \newacronym[
-  description={get you 100 silver piece is worth one hundred copper pieces},
-  name={Silver Pieces},
+  description={gets you 100 copper pieces},
+  name={A Silver Piece},
   text={silver piece},
+  sort={silver piece},
   shortplural={sp},
   longplural={silver pieces},
   prefix={a\space},
@@ -35,7 +37,8 @@
   description={convert to ten silver, or a thousand copper pieces},
   shortplural={gp},
   longplural={gold pieces},
-  name={Gold Piece},
+  name={A Gold Piece},
+  sort={Gold Piece},
   text={gold piece},
   prefix={a\space},
 ]{gp}{gp}{Gold Piece}
@@ -71,6 +74,7 @@
   prefix={a\space},
   name={A Concoction},
   text={concoction},
+  sort={concoction},
   description={is a liquid or powder which, when thrown in the air, hyper-charges the use of a single Sphere, for anyone present next to the burst.
   For example, a concoction to boost the Air Sphere would mean a caster with Air 2 could cast a single spell as if they had Air 3.
   The first spell cast, uses up the effect, although some powders have enough for multiple spells}
@@ -81,20 +85,26 @@
   prefix={a\space},
   name={Ingredients},
   text={ingredient},
-  description={come from animals or plants. Skilled herbalists prepare them a \glsentrytext{boon}}
+  description={come from animals or plants. Skilled herbalists prepare them to make a corresponding \glsentrytext{boon}}
 }
 
 \newglossaryentry{area}{
-  name={Area},
+  name={Areas},
+  sort={Area},
+  text={Area},
   prefix={an\space},
-  description={gives a rough unit for large spaces. An area is a space made distinct by its features. In some undergound labyrinth, each room might count as an area, while out in the open plains a forest might be composed of the local areas: `the centre with the big, felled tree; the river's fork; the priestess's house and the griffins' nesting site}
+  description={give a rough unit for large spaces.
+  An area is a space made distinct by its features.
+  In some undergound labyrinth, each room might count as an area, while out in the open plains a forest might be composed of the local areas: `the centre with the big, felled tree; the river's fork; the priestess's house and the griffins' nesting site}
   }
 
 \newglossaryentry{quickaction}{
-  name={Response Action},
+  name={A Response Action},
+  sort={Response Action},
+  text={Response Action},
   prefix={a\space},
   first={\textit{Response Action}},
-  description={An action taken as a reaction to being attacked, such as responding with an attack, or fleeing},
+  description={is any action taken as a reaction (usually taken when being attacked)},
   }
 
 \newglossaryentry{attribute}{
@@ -115,25 +125,23 @@
   }
 
 \newglossaryentry{natural}{
-  name={Natural Roll},
+  text={Natural Roll},
   sort={Natural Roll},
-  sort={A Natural Roll},
+  name={A Natural Roll},
   prefix={a\space},
-  nonumberlist,
   description={is a roll where the physical dice land on some number. For example, a `natural 2' is where both dice come up facing 1, as opposed to a player gaining the result `2' from rolling a 3 and getting a -1 penalty. Similarly a `natural 12' is when the dice land on a `12' without modification}
   }
 
 \newglossaryentry{round}{
-  name={A Round},
+  name={Rounds},
   text={round},
   prefix={a\space},
-  nonumberlist,
-  description={measures a small slice of fast-paced time.
+  description={measure small slices of fast-paced time.
   Mostly, we use rounds for combat}
   }
 
 \newglossaryentry{step}{
-  name={Step},
+  name={Steps},
   text={step},
   prefix={a\space},
   description={provide a rough measure of space.
@@ -150,13 +158,15 @@
 \newglossaryentry{vitalShot}{
   name={A Vitals Shot},
   text={Vitals Shot},
+  sort={Vitals Shot},
   prefix={a\space},
   description={means an attack which strikes between the gaps in armour, dealing full Damage},
   }
 
 \newglossaryentry{restingaction}{
-  name={Resting Action},
-  text={A Resting Action},
+  name={A Resting Action},
+  text={Resting Action},
+  sort={Resting Action},
   first={\textit{Resting Action}},
   prefix={a\space},
   description={means an unhurried action, where a character has the time and safety to do somthing right}
@@ -229,13 +239,14 @@
 
 \newacronym[
   description={represent armour of any type, or other states which help avoid Damage},
-  shortplural={DR}
+  shortplural={DR},
   prefix={a\space},
   ]{dr}{DR}{Damage Resistance}
 
 \newacronym[
-  description={Non Player Character -- anyone in the world played by the \glsentrytext{gm} rather than a player},
-  prefix={a\space},]{npc}{NPC}{Non Player Character}
+  description={ -- anyone in the world played by the \glsentrytext{gm} rather than a player},
+  prefix={a\space},
+  ]{npc}{NPC}{Non Player Character}
 
 
 \newglossaryentry{weight}{
@@ -280,7 +291,8 @@
 }
 
 \newglossaryentry{guard}{
-  name={Night Guard},
+  name={The Night Guard},
+  sort={Night Guard},
   text={Night Guard},
   prefix={a\space},
   nonumberlist,
@@ -293,7 +305,7 @@
   sort={Blight},
   prefix={a\space},
   first={nura \textit{blight}},
-  description={is is an area too full of nura for anyone to live.
+  description={is is an area too full of goblins for anyone to live.
   Most blights have at least one portal to the nura realm}
 }
 
@@ -306,7 +318,7 @@
 \newglossaryentry{fenestra}{
   name={Fenestra},
   nonumberlist,
-  description={is the world the characters exist}
+  description={is the world the characters exist in}
 }
 
 %%%%% Symbols
