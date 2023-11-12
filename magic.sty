@@ -140,11 +140,15 @@
   \spellSum.
 
   (Cost: \arabic{spellCost},
-  \iftoggle{opposedSpell}{
+  Range:~\spellRange,
+  \ifnum\value{spellTargets}>1%
+    Targets:~\arabic{spellTargets},
+  \fi%
+  \iftoggle{opposedSpell}{%
     \addtocounter{castingBonus}{7}%
     Resisted by: \spellResistance, \tn[\arabic{castingBonus}]%
   }{%
-    Roll: \absNum{castingBonus}, \gls{tn} set by \spellResistance.
+    Roll: \absNum{castingBonus}, \gls{tn} set by \spellResistance.%
   })%
 }
 
