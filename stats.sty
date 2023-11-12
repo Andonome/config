@@ -104,8 +104,8 @@
 
 \newcommand\boxStat[2][0]{%
   \addtocounter{#2}{-#1}%
-  \Repeat{#1}{\sqr}%
-  \Repeat{\value{#2}}{\sqn}%
+  \Repeat{#1}{\CheckedBox}%
+  \Repeat{\value{#2}}{\Square}%
 }
 
 \newcommand\HPboxes{
@@ -785,7 +785,7 @@
     \ignorespaces, \arabic{fp}~\glsentrytext{fp}%
       \iftoggle{genExamples}%
         {}%
-        {\Repeat{\value{fp}}{\sqn}}%
+        {\Repeat{\value{fp}}{\Square}}%
     \fi
   }
 }
