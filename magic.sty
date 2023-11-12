@@ -12,6 +12,8 @@
   \setcounter{spellCost}{1}
 \newcounter{spellPlusTwo}
   \setcounter{spellPlusTwo}{1}
+\newcounter{spellPlusThree}
+  \setcounter{spellPlusThree}{1}
 \newcounter{castingBonus}
   \setcounter{castingBonus}{1}
 
@@ -85,6 +87,9 @@
   }%
   \setcounter{spellPlusTwo}{\value{spellCost}}%
     \addtocounter{spellPlusTwo}{2}%
+  \setcounter{spellPlusThree}{\value{spellCost}}%
+    \addtocounter{spellPlusThree}{3}%
+  \conDmg{spellPlusThree}
   \renewcommand\spellEnhancements{#2}%
   \renewcommand\spellAction{#3}%
   \renewcommand\spellSphere{#4}%
