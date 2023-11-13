@@ -856,12 +856,10 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 
 %%%%%%%%%%%%%%%%%%%% Environments %%%%%%%%%%%%%%%%%%%%
 
-\newenvironment{speechtext}{
-  \begin{boxtext}\it
-\begin{quotation}\noindent}%
-{\end{quotation}
-\end{boxtext}%
-}
+\newenvironment{speechtext}%
+  {\it
+  \begin{quotation}\noindent}%
+  {\end{quotation}}
 
 \newenvironment{rolltable}%
 {\vspace{.3cm}\begin{tabular}{|lp{.8\textwidth}}
