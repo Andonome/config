@@ -390,16 +390,17 @@
 	\randomtwoC
 	\randomtwoD
 	\randomthree
+	\randomthreeB
+  \stepcounter{r3b}
 	\randomthreeC
 	\addtocounter{enc}{1}
-	\addtocounter{r3}{1}
 	\multiply\value{age} by -1
 	\person{\arabic{age}}% STRENGTH
 	{\arabic{r2b}}% DEXTERITY 
 	{1}% SPEED
 	{{\arabic{r3}}% INTELLIGENCE
 	{\arabic{enc}\randomtwo}% WITS
-	{\arabic{enc}}}% CHARISMA
+	{\arabic{r3b}}}% CHARISMA
 	{0}% DR
 	{\value{r2d}}% COMBAT
 	{Projectiles~\arabic{r2b}, Academics~3, Empathy~3, Deceit~\arabic{enc}, Performance~\arabic{r2}, \ifodd\value{r2}Stealth~\else Tactics~\fi \arabic{r2b}, Wyldcrafting~\arabic{r2c}, Vigilance~2%
