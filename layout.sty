@@ -1018,6 +1018,7 @@ Roll & Result \\
   \foreach \area in {#1}%
     {\stopcontents[\area]}
   \startcontents[sq]
+  \sqminitoc
 }
 
 \newcommand{\sqpart}[3]{
@@ -1026,11 +1027,15 @@ Roll & Result \\
   \subsubsection[%
     \hspace{-4em}\arabic{sqNo} -- %
     \iftoggle{firstsq}{\sqr}{\sqn}%
-    #2 -- #3]%
+    ~#2 -- #3]%
     {(#1) #2}
   \stopcontents[#1]\settoggle{firstsq}{false}
   \vspace{3em}
 }
+
+\titlecontents*{lsubsection}[0pt]
+{\large\raggedright}{}{}
+{}[][]
 
 \newcommand\printAllSideQuests[1]{
   \foreach \x in {#1}{
