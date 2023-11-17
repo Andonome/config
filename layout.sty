@@ -973,6 +973,12 @@ Roll & Result \\
 
 %%%%% Side Quests
 
+\newcommand\declareSQareas[1]{
+  \foreach \area in {sq,#1}%
+    {\startcontents[\area]
+    \stopcontents[\area]}
+}
+
 % the first side quest gets a ticked box in the toc.
 % the rest get an empty box, so the GM can tick it once it's ready.
 
@@ -998,25 +1004,40 @@ Roll & Result \\
 \newcounter{sqNo}
 \newcommand{\sqName}{}
 
-\newcommand{\sidequest}[1]{%
-  \renewcommand{\sqName}{#1}
+\newcommand{\sidequest}[2][]{%
+  \stopcontents[sq]
+  \foreach \area in {#1}%
+    {\resumecontents[\area]}
+  %%%%%%%%%%%%%
+  \renewcommand{\sqName}{#2}
   \resumecontents[\sqarea]
   \subsection{\sqName}
   \stopcontents[\sqarea]
   \settoggle{firstsq}{true}
   \setcounter{sqNo}{0}
+  \foreach \area in {#1}%
+    {\stopcontents[\area]}
+  \startcontents[sq]
 }
 
 \newcommand{\sqpart}[3]{
   \refstepcounter{sqNo}
   \resumecontents[#1]
   \subsubsection[%
-    \arabic{sqNo} -- %
+    \hspace{-4em}\arabic{sqNo} -- %
     \iftoggle{firstsq}{\sqr}{\sqn}%
     #2 -- #3]%
     {(#1) #2}
   \stopcontents[#1]\settoggle{firstsq}{false}
   \vspace{3em}
+}
+
+\newcommand\printAllSideQuests[1]{
+  \foreach \x in {#1}{
+    \center\subsection*{\x}
+    \printcontents[\x]{l}{2}{\setcounter{tocdepth}{3}}
+  }
+
 }
 
 \newcommand\hint[1]{%
