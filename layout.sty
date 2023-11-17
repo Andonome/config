@@ -910,20 +910,6 @@ Roll & Result \\
   \end{figure*}
 }
 
-% this shows encounters, and the two counters below show the encounter number
-
-\newtcolorbox[use counter=enc, use counter=list]{encounters}[1]{
-  ornamented,
-  adjusted title=Encounters in #1,
-  tabularx={XXp{.6\textwidth}},
-  bottom=10pt,
-  left=3pt,
-  right=3pt,
-  code={\index{Encounter Tables}\rowcolors{2}{}{gray!10}\setcounter{enc}{19}\setcounter{list}{18}}}
-
-\newcommand{\li}{\addtocounter{enc}{-1}\arabic{enc}&}
-\newcommand{\lii}{\addtocounter{list}{-1}\arabic{list}&}
-
 \newtcolorbox{boxtable}[1][cX]{
   tabularx={#1},
   ornamented,
@@ -1026,7 +1012,7 @@ Roll & Result \\
   \resumecontents[#1]
   \subsubsection[%
     \arabic{sqNo} -- %
-    \iftoggle{firstsq}{\CheckedBoxsqr}{\sqn}%
+    \iftoggle{firstsq}{\sqr}{\sqn}%
     #2 -- #3]%
     {(#1) #2}
   \stopcontents[#1]\settoggle{firstsq}{false}
