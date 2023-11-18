@@ -901,14 +901,14 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \end{figure*}
 }
 
-\newtcolorbox{boxtable}[1][cX]{
-  tabularx={#1},
-  ornamented,
-  top=10pt,
-  bottom=10pt,
-  left=3pt,
-  right=3pt,
-  code={\rowcolors{2}{}{gray!10}\needspace{2em}}
+\newenvironment{boxtable}[1][cL]
+  {
+    \rowcolors{2}{}{gray!10}\needspace{2em}
+    \par\noindent
+    \tabularx{\linewidth}{#1}
+  }%
+  {
+    \endtabularx
   }
 
 \newtcolorbox{nametable}[2][cX]{
