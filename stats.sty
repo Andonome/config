@@ -474,6 +474,7 @@
   \iftoggle{personality}{
 
     \begin{multicols}{2}
+    \raggedright
     \noindent
     \textbf{Archetype:} \archetype, 
 
@@ -483,6 +484,9 @@
     \columnbreak
     \noindent
     \textbf{Description:} \NPCdescription
+    \ifdefempty{\npcQuote}{}{
+      \textbf{Quote:}  \npcQuote \\
+    }
     \end{multicols}
 
     \vspace{1em}
@@ -581,6 +585,7 @@
   \setcounter{knacks}{0}
   \setcounter{mp}{0}
   \setcounter{xpbonus}{0}
+  \renewcommand\npcQuote{}
 }
 
 %%       _   _        _ _           _            
