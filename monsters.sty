@@ -308,6 +308,8 @@
 	\addtocounter{age}{1}
 	\randomthreeB
 	\randomfour
+	\randomfourB
+  \addtocounter{r4b}{-1}
 	\addtocounter{r4}{-2}
 	\person{\arabic{enc}}% STRENGTH
 	{\arabic{r2}}% DEXTERITY
@@ -317,20 +319,19 @@
 	{\arabic{r4}}}% CHARISMA
 	{6}% DR
 	{\arabic{r3}}% COMBAT
-	{Academics~3, Athletics~\arabic{r3c}, \ifodd\value{r2}Crafts~2, Performance~\arabic{r3}, \else Empathy~\arabic{r2b}, Seafaring~\arabic{r3}, Vigilance~\arabic{r3b}, Wyldcrafting~3\fi 
-    \Spheres{%
-      \ifodd\value{r4}%
-        Earth~\arabic{r2b}, Water %
-      \else%
-        Water~\arabic{r2b}, Water %
-      \fi%
-        3, Fate~\arabic{r3b}%
-      \ifodd\value{r12}%
-        Air~\arabic{r3c}%
-      \fi%
-    }}% SKILLS
+	{
+  Academics~3, Athletics~\arabic{r3c}, \ifodd\value{r2}Crafts~2, Performance~\arabic{r3}, \else Empathy~\arabic{r2b}, Seafaring~\arabic{r3}, Vigilance~\arabic{r3b}, Wyldcrafting~3\fi 
+    }% SKILLS
   {\ifodd\value{r2b}\Dagger, \lootJewellery\else\spear\fi}% EQUIPMENT
-	{}
+	{
+    \setcounter{track}{4}
+    \setcounter{Fate}{4}
+    \addtocounter{Fate}{-\value{r4b}}
+    \setcounter{Air}{\value{r3b}}
+    \setcounter{Earth}{\value{age}}
+    \setcounter{Fire}{\value{r4b}}
+    \setcounter{Water}{3}
+  }
 	}
 
 \newcommand{\elf}[1][\npc{\T[\arabic{r2c}]\El\F}{\arabic{r2c} Elves}]{
