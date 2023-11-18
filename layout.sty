@@ -862,16 +862,6 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \begin{quotation}\noindent}%
   {\end{quotation}}
 
-\newenvironment{rolltable}%
-{\vspace{.3cm}\begin{tabular}{|lp{.8\textwidth}}
-
-
-Roll & Result \\
-\hline
-
-}%
-{\end{tabular}}
-
 \newenvironment{exampletext}
   {\needspace{2em}%
   \it
@@ -930,16 +920,6 @@ Roll & Result \\
   left=3pt,
   right=6pt,
   code={\rowcolors{2}{}{gray!10}\needspace{1em}}
-  }
-
-\newtcolorbox{rollchart}{
-  tabularx={cX},
-  top=10pt,
-  bottom=10pt,
-  left=3pt,
-  right=3pt,
-  after={\afterparnoindent},
-  code={\rowcolors{2}{}{gray!10}\needspace{2em}}
   }
 
 %%%%%%%%%%%%%%%%%%% COMMANDS %%%%%%%%%%%%%%%%%%%%
