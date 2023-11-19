@@ -825,7 +825,7 @@
     \renewcommand\abilities{#1}
 
     \scshape
-    \begin{tabularx}{.8\textwidth}{Yccc}
+    \begin{tabularx}{.8\textwidth}{YYYY}
     \hiderowcolors
 
     \Gls{ap}: \arabic{ap} & Att: $\arabic{att} - HP$ 
@@ -836,7 +836,13 @@
       & Dam: 1
     }
     \\
-    & \showBoxes & \\
+    &
+    \iftoggle{genExamples}%
+      {HP: \arabic{hp}
+      \\
+      }%
+      {\showBoxes }
+      & \\ 
     \end{tabularx}
 
     \normalfont
