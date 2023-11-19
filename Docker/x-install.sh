@@ -3,11 +3,12 @@
 xbps-install -Sy xbps
 xbps-install -Sy git git-lfs \
 	inkscape \
+	tar \
 	bash \
 	make \
+	qrencode \
+	ImageMagick \
 	texlive-latexmk \
-	texlive2023-bin 
+	texlive-bin 
 
 git lfs install
-
-ln -sf /usr/bin/bash /usr/bin/sh
