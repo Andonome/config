@@ -781,12 +781,12 @@
   {
     \ifnumcomp{\value{xp}}{<}{73}%
       {\ifnumcomp{\value{xp}}{<}{40}%
-        {\arabic{xpbonus} XP}{$\frac{1}{2}$ XP}}%
+        {\glsentrytext{cr}: \arabic{xpbonus}}{\glsentrytext{cr} $\frac{1}{2}$}}%
         {
             \addtocounter{xp}{-60}%
             \divide\value{xp} by 13%
             \addtocounter{xp}{\value{xpbonus}}%
-            \arabic{xp} XP%
+            \glsentrytext{cr}: \arabic{xp}%
         }%
     % if the creature has a mind, print fate points (if any).
     %
