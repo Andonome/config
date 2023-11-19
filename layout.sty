@@ -168,6 +168,9 @@
 % redefinition of \chaptermark to contain only the number and title (no 'Chapter 1: Pogs', just '1: Pogs')
 \renewcommand\chaptermark[1]{\markboth{\thechapter.~#1}{}}
 
+\newcommand\flwr{\textcolor{\pageSideColor}{\ifodd\thepage\floweroneright\else\floweroneleft\fi}}
+\newcommand\failStar{\textcolor{\pageSideColor}{\decosix}}
+
 \RequirePackage{xr-hyper}
 \RequirePackage[
 pdfstartpage=1,
