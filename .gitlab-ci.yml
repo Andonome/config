@@ -1,8 +1,10 @@
-compile_pdf:
-  image: ctornau/latex
+---
+variables:
+  LATEX_IMAGE: andonome/texbind
+
+build:
+  image: $LATEX_IMAGE
   script:
-    - apt-get update -y
-    - apt-get install -y inkscape make imagemagick
     - make all
   only:
     - master
