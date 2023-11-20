@@ -1544,50 +1544,50 @@ mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIP
 }
 
 \newcommand{\lich}[1][\npc{\D}{Lich}]{
-  #1
-  \randomtwo
-  \addtocounter{enc}{-1}
-  \randomtwoB
-  \randomtwoC
-    \stepcounter{r2c}
-  \randomtwoD
-  \addtocounter{r2b}{2}
-  \randomthree
-  \addtocounter{age}{1}
-  \randomthreeB
-  \randomfour
-  \addtocounter{track}{-3}
-\person{\arabic{r2}}% STRENGTH
-{\arabic{track}}% DEXTERITY 
-{\arabic{enc}}% SPEED
-{{\arabic{r2b}}% INTELLIGENCE
-{\arabic{r3}}% WITS
-{-5}}% CHARISMA
-{2}% DR
-{\arabic{r3b}}% COMBAT
-{Brawl 2, \ifodd\thechapter Projectiles~\arabic{r3}, \fi Academics~3, Caving \arabic{r3c}, \ifodd\value{gold}Crafts~\arabic{r3}, \fi Deceit~\arabic{r2b}, Medicine~\arabic{r2b}, Vigilance~\arabic{r3b}
-  \Spheres{
-    Air~\arabic{r3}, Fate~3, Water~\arabic{r2c}, %
-    Fire~\arabic{r2d}, %
-    \ifodd\value{r3}%
-      Earth~1
+    #1
+    \randomtwo
+    \addtocounter{enc}{-1}
+    \randomtwoB
+    \randomtwoC
+      \stepcounter{r2c}
+    \randomtwoD
+    \addtocounter{r2b}{2}
+    \randomthree
+    \addtocounter{age}{1}
+    \randomthreeB
+    \randomfour
+    \addtocounter{track}{-3}
+    \randomfourB
+  \person{\arabic{r2}}% STRENGTH
+  {\arabic{track}}% DEXTERITY 
+  {\arabic{enc}}% SPEED
+  {{\arabic{r2b}}% INTELLIGENCE
+  {\arabic{r3}}% WITS
+  {-5}}% CHARISMA
+  {2}% DR
+  {\arabic{r3b}}% COMBAT
+  {
+    Brawl 2, \ifodd\thechapter Projectiles~\arabic{r3}, \fi Academics~3, Caving \arabic{r3c}, \ifodd\value{gold}Crafts~\arabic{r3}, \fi Deceit~\arabic{r2b}, Medicine~\arabic{r2b}, Vigilance~\arabic{r3b}
+  }% SKILLS
+  {\ifnum\value{r3b}>2%
+    \longsword%
+    \ifodd\value{r4}%
+      , \completechain%
+    \else%
+      , \partialplate%
     \fi%
-  }}% SKILLS
-{\ifnum\value{r3b}>2%
-	\longsword%
-	\ifodd\value{r4}%
-		, \completechain%
-	\else%
-		, \partialplate%
-	\fi%
-\else%
-	\Dagger%
-\fi, \addtocounter{track}{3}\multiply\value{track} by 2%
-mana stone with \arabic{track} mana, \lootJewellery, \randomtwo\lootJewellery, \lootMagic}% EQUIPMENT
-{
-  \renewcommand\abilities{\undead}
-  \knacks{\snapcaster}
-}
+  \else%
+    \Dagger%
+  \fi, 
+  \lootJewellery, \randomtwo\lootJewellery, \lootMagic}% EQUIPMENT
+  {
+    \renewcommand\abilities{\undead}
+    \knacks{\snapcaster}
+    \setcounter{Fate}{3}
+    \stepcounter{track}
+    \setcounter{Water}{\value{track}}
+    \setcounter{Air}{\value{age}}
+  }
 }
 
 \newcommand{\jelly}[1][\npc{\A}{\ifnum\value{r4}>3 Black\else \ifnum\value{r4}>2 Red \else \ifnum\value{r4}>1 Brown\else Transluscent\fi\fi\fi~ Ooze}]{
