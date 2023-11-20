@@ -82,24 +82,24 @@
 
 \newcommand\dmg[1]{\conDmg{#1}\showDam}
 
-\newcommand\showBoxes{
-  \ifnum\value{mp}<1
-    \ifnum\value{hp}>11
-      \HPboxes
-    \else
-      \ifnum\value{hp}>6
-        \HPHPboxes
-      \else
-        \HPHPHPboxes
-      \fi
-    \fi
-  \else
-    \ifnum\value{sp}<1
-      \HPMPboxes
-    \else
-      \HPMPSPboxes
-    \fi
-  \fi
+\newcommand\showBoxes{%
+  \ifnum\value{mp}<1%
+    \ifnum\value{hp}>11%
+      \HPboxes%
+    \else%
+      \ifnum\value{hp}>6%
+        \HPHPboxes%
+      \else%
+        \HPHPHPboxes%
+      \fi%
+    \fi%
+  \else%
+    \ifnum\value{sp}<1%
+      \HPMPboxes%
+    \else%
+      \HPMPSPboxes%
+    \fi%
+  \fi%
 }
 
 \newcommand\boxStat[2][0]{%
@@ -729,7 +729,8 @@
     SP \arabic{sp},
     \fi%
   }{%
-    \showBoxes
+    \par%
+    \showBoxes%
   }%
   \iftoggle{allyCharacter}{}{
     \calculateXP%
@@ -744,9 +745,7 @@
 %%  /  \|  __/ 
 %% /_/\_\_|    
 %%  
-\newcommand{\calculateXP}{
-  \vspace{.1cm}
-
+\newcommand{\calculateXP}{%
   %%% Now to get the XP value of the creature's attack ability.
   %%% = Attack (TN) * Dam + max((spd-hef),mp)^2
   \setcounter{attackXPtotal}{\value{att}}%
