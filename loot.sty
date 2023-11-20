@@ -8,46 +8,43 @@
 \setcounter{goblinLoot}{\value{r4}}
 
 \newcommand{\lootGoblin}{%
-  \iftoggle{genExamples}{no loot}%
-    {%
-      \ifnum\value{goblinLoot}>13%
-        \setcounter{goblinLoot}{0}%
-      \else%
-        \stepcounter{goblinLoot}%
-      \fi%
-      \ifcase\value{goblinLoot}\relax%
-        \stepcounter{r4}%
-        tinder box and \arabic{r4} candles%
-      \or%
-        1 \gls{sp} from the far North%
-      \or%
-        pouch of long, humanoid hair%
-      \or%
-        rotten mushrooms%
-      \or%
-        flask of lantern oil%
-      \or%
-        leather pouch filled with colorful egg shells%
-      \or%
-        small torch%
-      \or%
-        small shaker filled with dried beans%
-      \or%
-        a horse's tail%
-      \or%
-        lump of clay with an ex-lover's bitemarks%
-      \or%
-        polished sphere of snow-white quartz%
-      \or%
-        tinder box%
-      \or%
-        ratking shaul%
-      \or%
-        1 \gls{gp} from the far East%
-      \else%
-        empty wine bottle filled with dead spiders%
-      \fi%
-    }%
+  \ifnum\value{goblinLoot}>13%
+    \setcounter{goblinLoot}{0}%
+  \else%
+    \stepcounter{goblinLoot}%
+  \fi%
+  \ifcase\value{goblinLoot}\relax%
+    \stepcounter{r4}%
+    tinder box and \arabic{r4} candles%
+  \or%
+    1 \gls{sp} from the far North%
+  \or%
+    pouch of long, humanoid hair%
+  \or%
+    rotten mushrooms%
+  \or%
+    flask of lantern oil%
+  \or%
+    leather pouch filled with colorful egg shells%
+  \or%
+    small torch%
+  \or%
+    small shaker filled with dried beans%
+  \or%
+    a horse's tail%
+  \or%
+    lump of clay with an ex-lover's bitemarks%
+  \or%
+    polished sphere of snow-white quartz%
+  \or%
+    tinder box%
+  \or%
+    ratking shaul%
+  \or%
+    1 \gls{gp} from the far East%
+  \else%
+    empty wine bottle filled with dead spiders%
+  \fi%
 }
 
 \newcommand{\lootSmall}{%
