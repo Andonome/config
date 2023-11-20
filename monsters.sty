@@ -296,6 +296,64 @@
   }
 	}
 
+\newcommand{\hag}[1][\npc{\Hu\F}{Hag}]{
+    #1
+    \randomtwo
+    \addtocounter{enc}{1}
+    \randomtwoB
+    \randomtwoC
+    \randomtwoD
+    \randomthree
+      \addtocounter{age}{-2}
+    \randomthreeB
+    \randomthreeC
+    \randomfour
+  \person{-1}% STRENGTH
+  {\arabic{age}}% DEXTERITY 
+  {0}% SPEED
+  {{\arabic{enc}}% INTELLIGENCE
+  {\arabic{r2b}}% WITS
+  {3}}% CHARISMA
+  {0}% DR
+  {\arabic{r2}}% AGGRESSION
+  {}% SKILLS
+  {
+    \Dagger%
+    \Repeat{2}{%
+      \ifodd\value{r12}%
+        \randomdozen%
+        , \lootJewellery
+        \iftoggle{genExamples}%
+          {}%
+          {, \lootGoblin}%
+      \fi%
+    }%
+  }% EQUIPMENT
+  {%
+    \setcounter{Brawl}{2}
+    \setcounter{Projectiles}{\value{r2}}
+    \setcounter{Academics}{\value{r3}}
+    \setcounter{Deceit}{\value{enc}}
+    \setcounter{Medicine}{\value{r3b}}
+    \setcounter{Vigilance}{\value{r3c}}
+    \setcounter{Brawl}{2}
+    \setcounter{Brawl}{2}
+    %%%%%%%%%%%%
+    \addtocounter{r2d}{2}
+    \setcounter{Water}{3}%
+    \stepcounter{r2c}
+    \setcounter{Earth}{3}%
+    \ifodd\value{track}
+      \setcounter{Fire}{\value{r3c}}%
+    \else%
+      \setcounter{Air}{\value{r3c}}%
+    \fi%
+    \setcounter{Fate}{\value{r2d}}%
+    \knacks{\snapcaster, \ritualcaster}
+  }
+}
+
+
 
 \newcommand{\dryad}[1][\npc{\E\El}{Dryad}]{
 	#1
