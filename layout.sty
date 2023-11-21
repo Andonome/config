@@ -349,16 +349,21 @@ bookmarks=true]%
 \newcommand\dicef[2][]{%
   #1%
   \setcounter{diceNo}{#2}%
-  \ifnum\value{diceNo}>0%
-    \whileboolexpr{%
-      test {\ifnumcomp{\value{diceNo}}{>}{6}}%
-      }{%
-        \addtocounter{diceNo}{-5}%
-        \epsdice{5}%
-      }%
-    \epsdice[black]{\value{diceNo}}%
+  \ifnum\value{diceNo}=12%
+    \epsdice[black]{6}%
+    \epsdice{6}%
   \else%
-    \arabic{diceNo}%
+    \ifnum\value{diceNo}>0%
+      \whileboolexpr{%
+        test {\ifnumcomp{\value{diceNo}}{>}{6}}%
+        }{%
+          \addtocounter{diceNo}{-5}%
+          \epsdice{5}%
+        }%
+      \epsdice[black]{\value{diceNo}}%
+    \else%
+      \arabic{diceNo}%
+    \fi%
   \fi%
 }
 
