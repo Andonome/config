@@ -65,8 +65,12 @@
     \lineDots[10]
   }
 
-  \posterbox[adjusted title=Notes]{name=notes,column=1,below=encounters,span=26,rowspan=1.5}{
-    \lineDots[2]
+  \posterbox[blankest]{name=interval,column=1,below=encounters,span=26,rowspan=1.5}{
+    \center{\underline{\glspl{interval}}}
+    \Huge
+    \foreach \x in {1,...,4}{
+      \foreach \n in {1,...,4}{{\tiny \n}\Square~}
+    }
   }
 
   %----
