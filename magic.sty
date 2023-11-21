@@ -164,7 +164,9 @@
 \newcommand\showStdSpells{
   \setcounter{enc}{0}
   \needspace{2em}
-  \center{\textcolor{\pageSideColor}{\large\Pentagram} \textbf{Spells} \textcolor{\pageSideColor}{\large\Pentagram}}
+  \begin{center}%
+  \textcolor{\pageSideColor}{\large\Pentagram} \textbf{Spells} \textcolor{\pageSideColor}{\large\Pentagram}
+  \end{center}%
   \begin{description}
     \settoggle{fullSpells}{false}
     \foreach\n in {3,2,1}{
