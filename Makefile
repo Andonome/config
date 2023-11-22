@@ -9,6 +9,7 @@ docs.pdf: images/wide.jpg $(wildcard *.sty) docs.tex
 	pdflatex -shell-escape docs.tex
 test.pdf: test.tex $(wildcard *.sty) $(wildcard *.tex)
 	pdflatex -shell-escape test.tex
+	makeglossaries test
 resources.pdf: $(wildcard *.tex) $(wildcard *.sty) 
 	pdflatex -shell-escape resources.tex
 rules.pdf: rules.tex rules $(wildcard *.sty)
