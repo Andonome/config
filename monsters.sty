@@ -573,9 +573,11 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
 
 \newcommand{\humanfarmer}[1][\npc{\Hu\M}{Farmer}]{
 	#1
-	\randomthree\addtocounter{age}{-2}
 	\randomtwo
 	\addtocounter{enc}{1}
+	\randomthree
+  \addtocounter{age}{-2}
+  \randomfour
   \person{\arabic{enc}}% STRENGTH
   {0}% DEXTERITY 
   {0}% SPEED
@@ -586,7 +588,18 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
   {\ifodd\value{r2} 0\else 1\fi}% COMBAT
   {Crafts~\arabic{r2b}, \ifodd\value{r4} Empathy~1\fi
   }% SKILLS
-  {\Dagger, \lootSmall}% EQUIPMENT
+  {
+    \ifodd\value{r3}%
+      \Dagger,
+    \else%
+      \ifodd\value{r4}%
+        \flail,
+      \else%
+        \scythe,
+      \fi%
+    \fi%
+    \lootSmall
+  }% EQUIPMENT
   {
     \knacks{\specialist{animal husbandry}}
     \setcounter{Wyldcrafting}{\value{r2}}
