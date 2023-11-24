@@ -10,7 +10,7 @@
 % This is a list of monster-commands.  You put in the command, like "\dragon", and a dragon will be conjured unto your pdf.
 % If you're unhapy with your dragon, copy-paste the bit where it says \dragon{blah}{bla}, then change those numbers.
 
-\newcommand{\auroch}[1][\npc{\A\T}{\arabic{page} Aurochs}]{
+\newcommand{\auroch}[1][\npc{\A\T}{\arabic{r12}0 Aurochs}]{
 	#1
 \animal{2}% STRENGTH
 {-2}% DEXTERITY 
@@ -218,7 +218,7 @@
     Xenomology~\arabic{gold}\fi
   }{}%
 	{
-    \knacks{\ifodd\value{page}\chosenEnemy{Dwarves}\else\charge\fi, \ifnumcomp{\value{r3}}{>}{2}{\laststand}{\adrenalinesurge}}
+    \knacks{\ifodd\value{r4b}\chosenEnemy{Dwarves}\else\charge\fi, \ifnumcomp{\value{r3}}{>}{2}{\laststand}{\adrenalinesurge}}
     \hide{\value{gold}}
     \ifodd\value{r4}%
       \setcounter{Air}{\value{r3b}}%
@@ -489,7 +489,7 @@
 {\arabic{r2}}}% CHARISMA
 {0}% DR
 {0}% COMBAT
-{Academics~\arabic{r3}, Caving \arabic{r3c}, \ifodd\value{page} Crafts~\arabic{r2}, \else Deceit \arabic{age}, \fi Empathy~\arabic{r2b}, \ifodd\value{page} \else Larceny~1, Stealth~1 \fi 
+{Academics~\arabic{r3}, Caving \arabic{r3c}, \ifodd\value{r3c} Crafts~\arabic{r2}, \else Deceit \arabic{age}, \fi Empathy~\arabic{r2b}, \ifodd\value{r3b} \else Larceny~1, Stealth~1 \fi 
 \ifodd\value{r12} Vigilance~\arabic{r2c}\fi
 \ifodd\value{r2c}
 	\Spheres{Fire~\arabic{r2}}
@@ -524,7 +524,7 @@
 {\ifnum\value{enc}<0%
 	Projectiles \arabic{r2c}, 
 \fi%
-Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\value{page} \else Larceny~\arabic{r2c}, \fi Stealth~\arabic{r2c}
+Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\value{r2} \else Larceny~\arabic{r2c}, \fi Stealth~\arabic{r2c}
 }% SKILLS
 {\ifnum\value{enc}=0%
 	\shortsword
@@ -583,7 +583,7 @@ Academics~1, \ifodd\value{page} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\v
   {0}% SPEED
   {{\arabic{age}}% INTELLIGENCE
   {-1}% WITS
-  {\ifodd \value{page} -1\else1\fi}}% CHARISMA
+  {\ifodd \value{r2} -1\else1\fi}}% CHARISMA
   {0}% DR
   {\ifodd\value{r2} 0\else 1\fi}% COMBAT
   {Crafts~\arabic{r2b}, \ifodd\value{r4} Empathy~1\fi
