@@ -62,17 +62,14 @@
 		\else%
 			$2D6$%
 		\fi~\glspl{sp}}{%
-		\addtocounter{gold}{\thepage}%
-		\divide\value{gold} by \value{r4}%
-		\ifnum\value{gold}<4%
-			\setcounter{gold}{7}%
-		\fi%
+		\setcounter{gold}{\value{r12}}%
+    \multiply\value{gold} by 3%
 		\arabic{gold}~\glspl{sp}}%
 }
 
 \newcommand{\lootBig}{%
 \iftoggle{genExamples}{%
-	\ifodd\thepage $3D6-2$\else$2D6+4$\fi \glspl{gp}}{%
+	$3D6-2$~\glspl{gp}}{%
 	\randomdozen\addtocounter{r12}{8}\arabic{r12}\glspl{gp}%
 	}%
 }
@@ -129,7 +126,7 @@
     \or%1
 			golden ring worth \thechapter~\glspl{sp}%
     \or%2
-      jewel encrusted dagger worth \thepage~\glspl{sp}%
+      jewel encrusted dagger worth \arabic{r12}~\glspl{sp}%
     \or%3
       ornate silver earrings worth 1 \glspl{gp}%
     \or%4
