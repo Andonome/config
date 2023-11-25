@@ -862,6 +862,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
 \arrayrulecolor{\pageSideColor}
 \setlength\arrayrulewidth{2.2pt}
+\renewcommand{\arraystretch}{1.1}
 
 
 %%%%%%%%%%%%%%%%%%%% Environments %%%%%%%%%%%%%%%%%%%%
@@ -914,6 +915,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   {
     \rowcolors{2}{}{gray!10}\needspace{2em}
     \par\noindent
+    \scshape
     \tabularx{\linewidth}{#1}
     \hline
   }%
