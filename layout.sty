@@ -861,6 +861,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
 \arrayrulecolor{\pageSideColor}
+\setlength\arrayrulewidth{2.2pt}
 
 
 %%%%%%%%%%%%%%%%%%%% Environments %%%%%%%%%%%%%%%%%%%%
@@ -914,10 +915,13 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
     \rowcolors{2}{}{gray!10}\needspace{2em}
     \par\noindent
     \tabularx{\linewidth}{#1}
+    \hline
   }%
   {
+    \hline
     \endtabularx
   }
+
 
 \newtcolorbox{nametable}[2][cX]{
   tabularx=#1,
