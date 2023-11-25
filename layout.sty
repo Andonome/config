@@ -127,9 +127,6 @@
 \newcommand\pageSideColor{black!\arabic{pageDarkness}!white}
 \newcommand\pageOppositeColor{black!\arabic{pageAlt}}
 
-\newif\ifsidetab
-\sidetabtrue
-
 \AddToHook{shipout/background}{%
   \if@mainmatter
     \pgfmathsetmacro{\BGvadjust}{ -2 * (\value{chapter} - 1)}
@@ -193,6 +190,8 @@ bookmarks=true]%
     }
 }
 
+\renewcommand{\footnoterule}{\vspace{-0.5em}\noindent\textcolor{\pageOppositeColor}{\raisebox{2.9pt}{\line(1,0){100}}\lefthand} \vspace{.5em} }
+
 % Argument 1: The target git directory (e.g. 'core')
 % Argument 2: What to call that directory (e.g. 'the core rules')
 % Argument 3: Which label you're referring to
@@ -235,8 +234,8 @@ bookmarks=true]%
 
 % change bullet points
 
-\renewcommand{\labelitemi}{\ifodd\the\c@page\leafSW\else\leafSE\fi}
-\renewcommand{\labelitemii}{\aldine}
+\renewcommand{\labelitemi}{\textcolor{\pageOppositeColor}{\ifodd\the\c@page\leafSW\else\leafSE\fi}}
+\renewcommand{\labelitemii}{\textcolor{\pageOppositeColor}{\aldine}}
 
 %%%%%%%%%% Encounter Numbers
 
