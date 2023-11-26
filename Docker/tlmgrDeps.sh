@@ -16,6 +16,7 @@ starfont \
 appendix \
 geometry \
 svg \
+yfonts \
 wrapfig \
 epigraph \
 microtype \
@@ -48,7 +49,7 @@ babel-english \
 gobble \
 titlesec \
 fancyhdr \
-fourier \
+adforn \
 needspace \
 psnfss \
 tcolorbox \

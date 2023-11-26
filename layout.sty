@@ -39,7 +39,7 @@
 \RequirePackage{xparse}
 \RequirePackage{titlesec,titletoc}
 \RequirePackage{fancyhdr}
-  \RequirePackage{fourier-orns}% for fancy headrules
+\RequirePackage{adforn}% for fancy headrules
 \RequirePackage{needspace}
 \RequirePackage{tikz}
   \usetikzlibrary{calc,mindmap,trees}% calc for fancy borders
@@ -113,8 +113,8 @@
 
 \fancypagestyle{plain}{
   \fancyhf{}% clear all header and footer fields
-  \fancyfoot[LE]{\textgoth{\large\thepage\if@mainmatter\hspace{1em}\textcolor{\pageSideColor}{\leafleft}\fi}}
-  \fancyfoot[RO]{\textgoth{\large\if@mainmatter\textcolor{\pageSideColor}{\leafright}\hspace{1em}\fi\thepage}}
+  \fancyfoot[LE]{\textgoth{\large\thepage\if@mainmatter\hspace{1em}\textcolor{\pageSideColor}{\adfflatleafleft}\fi}}
+  \fancyfoot[RO]{\textgoth{\large\if@mainmatter\textcolor{\pageSideColor}{\adfflatleafright}\hspace{1em}\fi\thepage}}
 } 
 
 \pagestyle{plain}
@@ -166,8 +166,8 @@
 % redefinition of \chaptermark to contain only the number and title (no 'Chapter 1: Pogs', just '1: Pogs')
 \renewcommand\chaptermark[1]{\markboth{\thechapter.~#1}{}}
 
-\newcommand\flwr{\textcolor{\pageSideColor}{\ifodd\thepage\floweroneright\else\floweroneleft\fi}}
-\newcommand\failStar{\textcolor{\pageSideColor}{\decosix}}
+\newcommand\flwr{\textcolor{\pageSideColor}{\ifodd\thepage\adfflowerright\else\adfflowerleft\fi}}
+\newcommand\failStar{\textcolor{\pageSideColor}{\Fortune}}
 
 \RequirePackage{xr-hyper}
 \RequirePackage[
@@ -191,7 +191,7 @@ bookmarks=true]%
     }
 }
 
-\renewcommand{\footnoterule}{\vspace{-0.5em}\noindent\textcolor{\pageSideColor}{\raisebox{2.9pt}{\line(1,0){100}}\lefthand} \vspace{.5em} }
+\renewcommand{\footnoterule}{\vspace{-0.5em}\noindent\textcolor{\pageSideColor}{\raisebox{2.9pt}{\line(1,0){100}}\adfhalfleftarrowhead} \vspace{.5em} }
 
 % Argument 1: The target git directory (e.g. 'core')
 % Argument 2: What to call that directory (e.g. 'the core rules')
@@ -235,8 +235,8 @@ bookmarks=true]%
 
 % change bullet points
 
-\renewcommand{\labelitemi}{\textcolor{\pageOppositeColor}{\ifodd\the\c@page\leafSW\else\leafSE\fi}}
-\renewcommand{\labelitemii}{\textcolor{\pageOppositeColor}{\aldine}}
+\renewcommand{\labelitemi}{\textcolor{\pageOppositeColor}{\ifodd\the\c@page\adfdownhalfleafright\else\adfdownhalfleafleft\fi}}
+\renewcommand{\labelitemii}{\textcolor{\pageOppositeColor}{\adfdownhalfleafleft}}
 
 %%%%%%%%%% Encounter Numbers
 
@@ -675,7 +675,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
     }
 
 \newcommand\bigLine{%
-  \textcolor{\pageSideColor}{\ifodd\value{page}\raisebox{-3pt}{\Large\hspace{0.1em}\decothreeright}\fi\hrulefill\ifodd\value{page}\else\raisebox{-3pt}{\Large\hspace{-0.1em}\decothreeleft}\fi}%
+  \textcolor{\pageSideColor}{\ifodd\value{page}\raisebox{-3pt}{\Large\hspace{0.1em}\adfflatleafsolidright}\fi\hrulefill\ifodd\value{page}\else\raisebox{-3pt}{\Large\hspace{-0.1em}\adfflatleafsolidleft}\fi}%
 }
 
 %%%%% NPC Names
@@ -685,7 +685,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 \newcommand{\npcQuote}{}
 \newcommand{\mannerism}{}
 \newcommand{\npcGoal}{}
-\newcommand{\npcsymbol}{\decofourleft\decotwo\decofourright}
+\newcommand{\npcsymbol}{\adfdoubleflourishleft\adfast{\value{r4}}\adfdoubleflourishright}
 \newcommand{\npc}[2]{\settoggle{personality}{false}\renewcommand{\name}{#2}\renewcommand{\npcsymbol}{#1}}
 \newcommand{\NPC}[5]{\renewcommand{\name}{#2}
 \renewcommand{\npcsymbol}{#1}
