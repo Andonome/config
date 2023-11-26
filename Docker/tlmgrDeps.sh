@@ -17,6 +17,8 @@ appendix \
 geometry \
 svg \
 yfonts \
+yfonts-t1 \
+gothic \
 wrapfig \
 epigraph \
 microtype \
