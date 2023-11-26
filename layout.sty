@@ -19,6 +19,7 @@
 \RequirePackage{starfont} % for creature symbols
 \RequirePackage{wasysym} % for sq checkboxes
 \RequirePackage{appendix}
+\RequirePackage{yfonts}
 \RequirePackage{geometry} % changes page borders
   \geometry{margin=50pt}
 \RequirePackage{svg}
@@ -112,8 +113,8 @@
 
 \fancypagestyle{plain}{
   \fancyhf{}% clear all header and footer fields
-  \fancyfoot[LE]{\bf\scshape\thepage}
-  \fancyfoot[RO]{\bf\scshape\thepage}
+  \fancyfoot[LE]{\textgoth{\large\thepage\if@mainmatter\hspace{1em}\textcolor{\pageSideColor}{\leafleft}\fi}}
+  \fancyfoot[RO]{\textgoth{\large\if@mainmatter\textcolor{\pageSideColor}{\leafright}\hspace{1em}\fi\thepage}}
 } 
 
 \pagestyle{plain}
