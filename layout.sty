@@ -105,7 +105,7 @@
   \vspace{-6pt}%
   \textcolor{\pageSideColor}{\hrulefill}%
   \raisebox{-2.1pt}%
-    {\textcolor{\pageSideColor}{\quad\npcsymbol\quad}}%
+    {\textcolor{\pageSideColor}{\quad\adfdoubleflourishleft\npcsymbol\adfdoubleflourishright\quad}}%
   \textcolor{\pageSideColor}{\hrulefill}%
 }
 
@@ -685,7 +685,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 \newcommand{\npcQuote}{}
 \newcommand{\mannerism}{}
 \newcommand{\npcGoal}{}
-\newcommand{\npcsymbol}{\adfdoubleflourishleft\adfast{\value{r4}}\adfdoubleflourishright}
+\newcommand{\npcsymbol}{\adfast{\value{r4}}}
 \newcommand{\npc}[2]{\settoggle{personality}{false}\renewcommand{\name}{#2}\renewcommand{\npcsymbol}{#1}}
 \newcommand{\NPC}[5]{\renewcommand{\name}{#2}
 \renewcommand{\npcsymbol}{#1}
