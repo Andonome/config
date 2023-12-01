@@ -543,7 +543,9 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 \newtcolorbox{boxtext}[1][]{
   colback=white,
   before={\noindent},
-  fonttitle=\scshape, #1
+  fonttitle={\scshape #1},
+  before upper={\afterparnoindent},
+  after={\afterparnoindent},
 }
 
 \newcommand{\sidebox}[2][23]{
@@ -881,6 +883,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   {%
     \par\bigLine
     \vspace{1em}%
+    \afterparnoindent\par%
   }
 
 \newcommand\sideBySide[2]{
