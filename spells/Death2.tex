@@ -6,24 +6,6 @@
   {The caster curses one of the target's vital organs, and they lose \arabic{spellCost} \glspl{hp}}% Description
   {The caster insists the target has taken a wound and they begin to feel it as internal bleeding accompanies a headache.}
 
-\spell{Infectious Migraine}% Name
-  {duplicated}% Enhancements
-  {Wax}% Action
-  {Fate, Air}% Spheres
-  {\roll{Strength}{Athletics}}% Resist with
-  {As the caster roars, a deathly feeling flows over the targets, who gain \arabic{spellCost} \glspl{fatigue}}% Description
-  {}
-
-\spell{Corpse Stench}% Name
-  {distant}% Enhancements
-  {Witness}% Action
-  {Fate, Air}% Spheres
-  {time since death}% Resist with
-  {Sniffing at the wind, the caster identifies any corpses within \spellRange}% Description
-  {
-    Casters typically use this trick to double-check if an immobile and wounded person might still have a chance of life.
-  }
-
 \spell{Preservation}% Name
   {detailed}% Enhancements
   {Wane}% Action
@@ -39,11 +21,16 @@
   {Warp}% Action
   {Fate, Air}% Spheres
   {\roll{Strength}{Vigilance}}% Resist with
-  {Gain \gls{dr} 2, ignore up to \arabic{spellCost}~\gls{fatigue} penalties, and see as the dead see}% Description
+  {With a description of the grey world beyond, the caster pushes the target into a state of semi-death.
+  They gain \gls{dr} 2, ignore all \gls{fatigue} penalties, and see as the dead see, for \arabic{spellCost}~\glspl{interval}}% Description
   {
-    The caster stares into a middle distance continuously, until they find a special state of de-focussing their eyes which lets them (or a target) see as the dead see.
-    They no longer see normal light, but instead see only the light of souls.
-    However, the vision becomes indistinct beyond \spellRange\ -- the target understands nothing more than `something might live over there', and any life around them quickly distorts that limited vision.
+    The target can make limited use of their normal vision, but mostly feels aware of the penetrating light given off by every soul.
+    Animals emit a feint light.
+    Those with a higher Charisma score tend to emanate a little more.
+
+    The vision becomes indistinct beyond \spellRange\ -- the target understands nothing more than `something might live over there', and any life around them quickly distorts that limited vision.
 
     For as long as the spell remains active, the target cannot regenerate \glspl{fatigue}, \glspl{mp}, or \glspl{hp}.
+    While the spell diminishes a little with every movement, but targets who remain still retain the spell's effects.
+    If another spell from the Mind sphere puts the target in a permanent state of sleep, they remain that way, neither growing, nor aging, until some external force moves them.
   }
