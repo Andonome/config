@@ -3,7 +3,7 @@
 # First install tlmgr (likely in the package 
 # texlive or texlive-bin) and texlive2023-bin.
 #
-# Some of these packages might not be necessary, but after so long messing with the tlmgr search tool I got bored.
+# If compiling fails, you *might* also need the cm-super package.
 
 tlmgr install \
 latex-bin \
