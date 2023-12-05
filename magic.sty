@@ -90,7 +90,7 @@
     \addtocounter{spellPlusTwo}{2}%
   \setcounter{spellPlusThree}{\value{spellCost}}%
     \addtocounter{spellPlusThree}{3}%
-  \conDmg{spellPlusThree}
+  \conDmg{spellPlusThree}%
   \renewcommand\spellEnhancements{#2}%
   \renewcommand\spellAction{#3}%
   \renewcommand\spellSphere{#4}%
@@ -111,15 +111,15 @@
   \renewcommand\spellSum{#6}%
   \renewcommand\spellNotes{#7}%
   \setRange%
-  \iftoggle{duplicated}{
+  \iftoggle{duplicated}{%
     \foreach \i in {1,...,\arabic{spellCost}}%
-      {\multiply\value{spellTargets} by \value{spellCost}\addtocounter{spellTargets}{0}}
-  }{}
-  \iftoggle{talisman}{
-    \index[talismans]{\textbf{#1} (\spellEnhancements\ \spellAction~\spellSphere) Range: \spellRange, Area: \arabic{spellTargets}, Resisted by: \detokenize{#5}, Bonus: \arabic{spellCost}. \spellSum|adfclosedflourishleft~p.~}
+      {\multiply\value{spellTargets} by \value{spellCost}\addtocounter{spellTargets}{0}}%
+  }{}%
+  \iftoggle{talisman}{%
+    \index[talismans]{\textbf{#1} (\spellEnhancements\ \spellAction~\spellSphere) Range: \spellRange, Area: \arabic{spellTargets}, Resisted by: \detokenize{#5}, Bonus: \arabic{spellCost}. \spellSum|adfclosedflourishleft~p.~}%
   }{%
-    \index[spells]{\textbf{#1} (Cost: \arabic{spellCost}, \spellEnhancements\ \spellAction~\spellSphere) Range: \spellRange, Area: \arabic{spellTargets}, Resisted by: \detokenize{#5}, \spellSum.|adfclosedflourishleft~p.~}
-  }
+    \index[spells]{\textbf{#1} (Cost: \arabic{spellCost}, \spellEnhancements\ \spellAction~\spellSphere) Range: \spellRange, Area: \arabic{spellTargets}, Resisted by: \detokenize{#5}, \spellSum.|adfclosedflourishleft~p.~}%
+  }%
 }
 
 \newcommand\fullSpell{%
@@ -214,7 +214,7 @@
 }
 
 \newcommand\talisman[7]{%
-  \toggletrue{talisman}
+  \toggletrue{talisman}%
   \setcounter{Charisma}{0}%
   \calcSpell{#1}{#2}{#3}{#4}{#5}{#6}{#7}%
   \setcounter{castingBonus}{\value{spellCost}}%
