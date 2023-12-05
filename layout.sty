@@ -931,15 +931,17 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   }
 
 
-\newtcolorbox{nametable}[2][cX]{
-  tabularx=#1,
-  ornamented,
-  adjusted title=#2,
-  bottom=1em,
-  top=-1pt,
-  left=3pt,
-  right=6pt,
-  code={\rowcolors{2}{}{gray!10}\needspace{1em}}
+\newenvironment{nametable}[2][cL]
+  {
+    \rowcolors{2}{}{gray!10}\needspace{3em}
+    \begin{center}\textbf{#2}\end{center}
+    \par\noindent
+    \tabularx{\linewidth}{#1}
+    \hline
+  }%
+  {
+    \hline
+    \endtabularx
   }
 
 %%%%%%%%%%%%%%%%%%% COMMANDS %%%%%%%%%%%%%%%%%%%%
