@@ -59,6 +59,7 @@
 \newcommand{\skills}{}
 \newcommand{\equipment}{}
 \newcommand{\mods}{}
+\newcommand\showCR{}
 
 \newcommand\absNum[1]{\ifnum\value{#1}>0+\fi\ifnum\value{#1}=0\else\arabic{#1}\fi}
 
@@ -735,6 +736,7 @@
   }%
   \iftoggle{allyCharacter}{}{
     \calculateXP%
+    \outline{\glsentrytext{cr}: \showCR}
   }%
 \end{center}%
 }
@@ -781,12 +783,12 @@
   {
     \ifnumcomp{\value{xp}}{<}{73}%
       {\ifnumcomp{\value{xp}}{<}{40}%
-        {\glsentrytext{cr}: \arabic{xpbonus}}{\glsentrytext{cr} $\frac{1}{2}$}}%
+        {\renewcommand\showCR{\arabic{xpbonus}}}{\renewcommand\showCR{$\frac{1}{2}$}}}%
         {
             \addtocounter{xp}{-60}%
             \divide\value{xp} by 13%
             \addtocounter{xp}{\value{xpbonus}}%
-            \glsentrytext{cr}: \arabic{xp}%
+            \renewcommand\showCR{\arabic{xp}}%
         }%
     % if the creature has a mind, print fate points (if any).
     %
