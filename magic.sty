@@ -6,6 +6,7 @@
 % |_|  |_|\__,_|\__, |_|\___|
 %               |___/        
 
+\makeindex[name=talismans,title={Talisman Summaries},columns=2]
 
 % Some spells inflict X fatigue, where X is the spell level plus 2.
 \newcounter{spellCost}
@@ -114,8 +115,10 @@
     \foreach \i in {1,...,\arabic{spellCost}}%
       {\multiply\value{spellTargets} by \value{spellCost}\addtocounter{spellTargets}{0}}
   }{}
-  \iftoggle{talisman}{}{%
-    \index[spells]{\textbf{#1} (Cost: \arabic{spellCost}, \spellEnhancements\ \spellAction~\spellSphere) Range: \spellRange, Targets: \arabic{spellTargets}, Resisted by: \detokenize{#5}, \spellSum.|adfclosedflourishleft~p.~}
+  \iftoggle{talisman}{
+    \index[talismans]{\textbf{#1} (\spellEnhancements\ \spellAction~\spellSphere) Range: \spellRange, Area: \arabic{spellTargets}, Resisted by: \detokenize{#5}, Bonus: \arabic{spellCost}. \spellSum|adfclosedflourishleft~p.~}
+  }{%
+    \index[spells]{\textbf{#1} (Cost: \arabic{spellCost}, \spellEnhancements\ \spellAction~\spellSphere) Range: \spellRange, Area: \arabic{spellTargets}, Resisted by: \detokenize{#5}, \spellSum.|adfclosedflourishleft~p.~}
   }
 }
 
@@ -153,6 +156,7 @@
 }
 
 \newcommand\spell[7]{%
+  \togglefalse{talisman}
   \calcSpell{#1}{#2}{#3}{#4}{#5}{#6}{#7}%
   \iftoggle{fullSpells}{%
     \fullSpell%
@@ -210,12 +214,10 @@
 }
 
 \newcommand\talisman[7]{%
+  \toggletrue{talisman}
   \setcounter{Charisma}{0}%
   \calcSpell{#1}{#2}{#3}{#4}{#5}{#6}{#7}%
-  \index{Talismans!#1}%
   \setcounter{castingBonus}{\value{spellCost}}%
-  \showTalisman
-  \togglefalse{talisman}
 }
 
 \newcommand\explainTalisman{%

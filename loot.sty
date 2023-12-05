@@ -79,29 +79,37 @@
 \newcommand{\lootMagic}{%
   \iftoggle{verbose}{
     \ifnum\value{noAppearing}>1%
-    Mana stone holding 2 MP%
     \else%
     \iftoggle{genExamples}{}%
       {%
         \ifnum\value{treasure}>8\setcounter{treasure}{0}\fi%
         \ifcase\value{treasure}\relax%
           \scrollOfFriendship%
+          \spellName
         \or%1
           \bloodCandle%
+          \spellName
         \or%2
           \minersWeed%
+          \spellName
         \or%3
           \oceanPhial%
+          \spellName
         \or%
           \labyrinthScroll%
+          \spellName
         \or%4
           \hagFinger%
+          \spellName
         \or%4
           \safetyScroll%
+          \spellName
         \or%4
           \snacklet%
+          \spellName
         \else%11
           \homeScroll%
+          \spellName
         \fi%
         \setcounter{track}{\value{treasure}}%
         \stepcounter{treasure}%
