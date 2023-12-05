@@ -247,6 +247,7 @@
 
 \newcounter{initiative}
 \newcounter{weight}
+\newcounter{maxWeight}
 \newcounter{ap}
 \newcounter{damage}
 \newcounter{shieldBonus}
@@ -514,7 +515,6 @@
 	\setcounter{dr}{#5}
 	\setcounter{Brawl}{#6}
 	\setcounter{att}{#6}
-  \setcounter{encumbrance}{0}
 	\renewcommand{\skills}{#7}
 	\renewcommand{\abilities}{#8}
   \setcounter{covering}{4}
@@ -586,7 +586,8 @@
   \setcounter{fp}{0}
   \setcounter{sp}{0}
   \setcounter{heft}{1}
-  \setcounter{weight}{-5}
+  \setcounter{weight}{0}
+  \setcounter{encumbrance}{0}
   \setcounter{damage}{0}
   \setcounter{knacks}{0}
   \setcounter{mp}{0}
@@ -692,19 +693,19 @@
 \iftoggle{allyCharacter}{}{
   \addtocounter{att}{7}
 }
+\addtocounter{hp}{6}%
 \addtocounter{att}{\value{Dexterity}}
-\ifnum\value{weight}>\value{Strength}% now to compute encumbrance
-  \addtocounter{Strength}{5}% we can't have negative values affecting results
-  \addtocounter{weight}{5}
-  \addtocounter{Speed}{-\value{weight}}
-  \addtocounter{Speed}{\value{Strength}}
-  \addtocounter{Strength}{-5}% now we return strand weight to the original values
-  \addtocounter{weight}{-5}
-\fi
+\setcounter{maxWeight}{\value{hp}}% now to compute encumbrance
+\divide\value{maxWeight} by 2%
+\ifnum\value{weight}>\value{maxWeight}%
+  \addtocounter{encumbrance}{\value{weight}}%
+  \addtocounter{encumbrance}{-\value{maxWeight}}%
+\fi%
 \begin{center}
   \iftoggle{verbose}{\normalsize}{\large}%
-  \setcounter{ap}{\value{Speed}}
-  \addtocounter{ap}{3}
+  \setcounter{ap}{\value{Speed}}%
+  \addtocounter{ap}{3}%
+  \addtocounter{ap}{-\value{encumbrance}}%
   \scshape AP \ifnum\value{ap}<1 $\frac{1}{2}$ \else \arabic{ap}\fi%
   \ifnumcomp{\value{heft}}{>}{1}{ (AP Cost: \arabic{heft})}{},
   Att %
@@ -720,7 +721,6 @@
       \stepcounter{enc}%
       \mbox{DR \arabic{dr} (\arabic{enc}!)}, %
     }{}%
-  \addtocounter{hp}{6}%
   \iftoggle{genExamples}{%
     HP~\arabic{hp},
     \ifnum\value{mp}>0%
@@ -774,7 +774,7 @@
     \setcounter{xp}{\value{attackXPtotal}}%
     \addtocounter{xp}{\value{defenceXPtotal}}%
 
-  \iftoggle{debug}{str: \arabic{Strength}, dex: \arabic{Dexterity}, spd: \arabic{Speed}, att: \arabic{att}, damage: \arabic{damage}, weight: \arabic{weight}, XP Bonus: \arabic{xpbonus}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}, mp: \arabic{mp} Grand Total: \arabic{xp}}{\iftoggle{verbose}{\hrulefill}}
+  \iftoggle{debug}{str: \arabic{Strength}, dex: \arabic{Dexterity}, spd: \arabic{Speed}, att: \arabic{att}, damage: \arabic{damage}, weight: \arabic{weight}, encumbrance: \arabic{encumbrance}, XP Bonus: \arabic{xpbonus}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}, mp: \arabic{mp} Grand Total: \arabic{xp}}{\iftoggle{verbose}{\hrulefill}}
     
   \iftoggle{examplecharacter}%
   {}%
