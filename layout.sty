@@ -34,6 +34,7 @@
 \RequirePackage[english]{babel}
 \RequirePackage{multicol}
   \raggedcolumns
+  \setlength\columnsep{18pt}
 \RequirePackage{graphicx}
 \RequirePackage{etoolbox}
 \RequirePackage{xparse}
@@ -141,7 +142,7 @@
       \def\BGanchor{north east}
       \def\BGmark{\textcolor{\pageOppositeColor}{\leftmark}}
       \def\BGrotate{90}
-    \fi
+    \fi\typeout{Underfed goblins (badness \thepage0000)}
     \begin{tikzpicture}[overlay,remember picture]
       \path 
         ++(\BGpageanchor)
