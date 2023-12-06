@@ -689,7 +689,6 @@
   \setlength\parskip{0pt}
   \iftoggle{debug}{str: \arabic{Strength}, dex: \arabic{Dexterity}, spd: \arabic{Speed}, att: \arabic{att}, damage: \arabic{damage}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}}{}
 
-
 % Stats for allies don't need to show Combat +1 as 'TN 8 to hit', they just need to show '+1'.
 \iftoggle{allyCharacter}{}{
   \addtocounter{att}{7}
@@ -735,8 +734,10 @@
     \showBoxes%
   }%
   \iftoggle{allyCharacter}{}{
-    \calculateXP%
-    \outline{\glsentrytext{cr}: \showCR}
+    \iftoggle{examplecharacter}{}{%
+      \calculateXP%
+      \outline{\glsentrytext{cr}: \showCR}%
+    }%
   }%
 \end{center}%
 }
