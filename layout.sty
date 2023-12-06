@@ -944,6 +944,18 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
     \endtabularx
   }
 
+\newtcolorbox{wideTable}[2][cX]{
+  tabularx=#1,
+  float*=h!,
+  ornamented,
+  adjusted title=#2,
+  bottom=1em,
+  top=-1pt,
+  left=3pt,
+  right=6pt,
+  code={\rowcolors{2}{}{gray!10}\needspace{1em}}
+  }
+
 %%%%%%%%%%%%%%%%%%% COMMANDS %%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\story}[2]{%
