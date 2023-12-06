@@ -8,7 +8,7 @@
 \setcounter{goblinLoot}{\value{r4}}
 
 \newcommand{\lootGoblin}{%
-  \ifnum\value{goblinLoot}>14%
+  \ifnum\value{goblinLoot}>15%
     \setcounter{goblinLoot}{0}%
   \else%
     \stepcounter{goblinLoot}%
@@ -19,7 +19,7 @@
   \or%
     1 \gls{sp} from the far North%
   \or%
-    pouch of long, humanoid hair%
+    pouch of long, dark, humanoid hair%
   \or%
     rotten mushrooms%
   \or%
@@ -30,6 +30,8 @@
     small torch%
   \or%
     small shaker filled with dried beans%
+  \or%
+    tobacco pipe%
   \or%
     a horse's tail%
   \or%
@@ -77,35 +79,33 @@
 }
 
 \newcommand{\lootMagic}{%
-  \iftoggle{verbose}{%
-    \ifnum\value{noAppearing}>1%
-    \else%
-    \iftoggle{genExamples}{}%
-      {%
-        \ifnum\value{treasure}>8\setcounter{treasure}{1}\fi%
-        \ifcase\value{treasure}\relax%
-          \scrollOfFriendship%
-        \or%1
-          \bloodCandle%
-        \or%2
-          \minersWeed%
-        \or%3
-          \oceanPhial%
-        \or%4
-          \hagFinger%
-        \or%4
-          \safetyScroll%
-        \or%4
-          \snacklet%
-        \else%
-          \homeScroll%
-        \fi%
-        \ignorespaces\spellName%
-        \setcounter{track}{\value{treasure}}%
-        \stepcounter{treasure}%
-      }%
-    \fi%
-  }{}%
+  \ifnum\value{noAppearing}>1%
+  \else%
+  \iftoggle{genExamples}{}%
+    {%
+      \ifnum\value{treasure}>8\setcounter{treasure}{1}\fi%
+      \ifcase\value{treasure}\relax%
+        \scrollOfFriendship%
+      \or%1
+        \bloodCandle%
+      \or%2
+        \minersWeed%
+      \or%3
+        \oceanPhial%
+      \or%4
+        \hagFinger%
+      \or%4
+        \safetyScroll%
+      \or%4
+        \snacklet%
+      \else%
+        \homeScroll%
+      \fi%
+      \ignorespaces\spellName%
+      \setcounter{track}{\value{treasure}}%
+      \stepcounter{treasure}%
+    }%
+  \fi%
 }
 
 \newcommand{\lootJewellery}{%
