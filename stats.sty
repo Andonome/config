@@ -909,8 +909,11 @@
 	Amphibious%
 }
 
-\newcommand{\claws}{
-  Claws%
+\newcommand{\claws}{%
+  Claws (+1~Damage)%
+  \ifnum\value{Combat}>\value{Brawl}\else%
+    \stepcounter{damage}%
+  \fi%
 }
 
 \newcommand{\fireBreath}{%

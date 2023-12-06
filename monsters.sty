@@ -213,13 +213,24 @@
 	{}%
 	{\arabic{age}}% COMBAT
 	{
-    Brawl~\arabic{enc}, Projectiles~\arabic{r3b}, Academics~\arabic{r3}, Athletics~\arabic{r2b}, Deceit~\arabic{r2c}, Tactics~2, Vigilance~3\ifnum\value{r3}<3,
-    \setcounter{gold}{3}\addtocounter{gold}{-\value{r3}}%
-    Xenomology~\arabic{gold}\fi
+    \ifnum\value{r3}<3%
+      \setcounter{gold}{3}%
+      \addtocounter{gold}{-\value{r3}}%
+      Xenomology~\arabic{gold}%
+    \fi%
   }{}%
 	{
+    \setcounter{Brawl}{\value{enc}}
+    \setcounter{Projectiles}{\value{r3b}}
+    \setcounter{Academics}{\value{r3}}
+    \setcounter{Athletics}{\value{r2b}}
+    \setcounter{Deceit}{\value{r2c}}
+    \setcounter{Tactics}{2}
+    \setcounter{Vigilance}{3}
+
     \knacks{\ifodd\value{r4b}\chosenEnemy{Dwarves}\else\charge\fi, \ifnumcomp{\value{r3}}{>}{2}{\laststand}{\adrenalinesurge}}
     \hide{\value{gold}}
+
     \ifodd\value{r4}%
       \setcounter{Air}{\value{r3b}}%
     \fi%
