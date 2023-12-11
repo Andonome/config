@@ -1,0 +1,38 @@
+\documentclass[spinewidth=15mm,markcolor=black]{bookcover}
+
+% Loading the glossaries-extra packages won't work here, so LaTeX
+% won't understand the .aux file section headers which have \gls
+% commands. We resolve this with a little white lie.
+\newcommand\glsentrylongpl{}
+\newcommand\glsentrytext{}
+\newcommand\Glsfmtplural{}
+\newcommand\Glsfmtlongpl{}
+\newcommand\Gls{}
+\newcommand\gls{}
+\newcommand\glspl{}
+\newcommand\Glspl{}
+\newcommand\spellName{}
+
+\RequirePackage{xr-hyper}
+\RequirePackage{hyperref}
+
+\makeatletter
+\@addtofilelist{../core/main.tex}
+\@addtofilelist{../core/core.aux}%
+\makeatother
+
+\externaldocument{../core/core}%
+
+% Dummy values
+
+\begin{document}
+\begin{bookcover}
+\begin{bookcoverelement}{color}{bg whole}{orange}
+\end{bookcoverelement}
+
+\begin{bookcoverelement}{normal}{front}[,,,0.4\partheight]
+\centering\bfseries\huge \pageref{combat}, \nameref{combat}\par
+\end{bookcoverelement}
+\end{bookcover}
+
+\end{document}
