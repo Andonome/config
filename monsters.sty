@@ -473,7 +473,11 @@
   }% SKILLS
   {\Dagger, \lootJewellery\ifodd\value{r4}, \randomtwo\lootJewellery\ifodd\value{r4}, \lootMagic\fi\fi}% EQUIPMENT
 	{
-    \setcounter{Air}{\value{r2c}}
+    \ifodd\value{r2b}
+      \setcounter{Air}{\value{r2c}}
+    \else
+      \setcounter{Earth}{\value{r2c}}
+    \fi
     \setcounter{Fate}{\value{r3}}
     \setcounter{Water}{\value{r3c}}
   }
