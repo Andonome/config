@@ -423,20 +423,6 @@
 	{0}% DR
 	{\ifodd\value{list}1\else2\fi}% COMBAT
 	{\ifnumcomp{\value{r4}}{<}{2}{}{Projectiles~\arabic{age},} Academics~\arabic{age}, Athletics~1, \ifodd\value{r4} Crafts~\arabic{r3}\else Performance~\arabic{r2b}\fi, Stealth~\arabic{r2}, Vigilance~\arabic{age}, Wyldcrafting~\arabic{r3b}
-	\Spheres%
-	{\ifnumcomp{\value{r4}}{<}{3}%
-		{Earth~\arabic{r3}, }%
-		{Fire~\arabic{r3b}, }%
-	\ifodd\value{r3}\else
-    Fate~\arabic{r2},
-  \fi%
-	\ifodd\value{gold}%
-    Earth~\arabic{r2b}
-  \else
-    Water~\arabic{r4},
-  \fi}%
-	\ifodd\value{r4}\else%
-  \fi
 	}% SKILLS
 	{\ifnumcomp{\value{r4}}{=}{2}{\rapier, dagger, }{\Dagger, shortbow, }%
 	\lootJewellery\ifnum\value{r12}>12%
@@ -450,8 +436,18 @@
         \precisestrike%
       \fi
     }%
+    \ifnum\value{r4}<3
+      \setcounter{Earth}{\value{r3}}
+      \setcounter{Fire}{\value{r3b}}
+    \fi
+    \ifodd\value{r3}
+      Fate~\arabic{r2}
+    \fi
+    \ifodd\value{gold}
+      Water~\arabic{r4b}
+    \fi
   }
-	}
+}
 
 \newcommand{\elvenenchanter}[1][\npc{\El\M}{Elven Enchanter}]{
 	#1
