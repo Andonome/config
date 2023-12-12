@@ -400,6 +400,7 @@
     \setcounter{Earth}{\value{age}}
     \setcounter{Fire}{\value{r4b}}
     \setcounter{Water}{3}
+    \renewcommand\abilities{\randomfour\mutation{r4}, \stepcounter{r4} \mutation{r4}, \stepcounter{r4} \mutation{r4}.}
   }
 	}
 
@@ -441,10 +442,10 @@
       \setcounter{Fire}{\value{r3b}}
     \fi
     \ifodd\value{r3}
-      Fate~\arabic{r2}
+      \setcounter{Fate}{\value{r2}}
     \fi
     \ifodd\value{gold}
-      Water~\arabic{r4b}
+      \setcounter{Water}{\value{r4b}}
     \fi
   }
 }
@@ -1230,6 +1231,9 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
   \ifodd\value{r4}%
     \setcounter{Tactics}{\value{r2}}
   \fi%
+  \ifnum\value{noAppearing}=1
+    \renewcommand\abilities{\mutation{r4}}
+  \fi
   }
 }
 
@@ -1303,6 +1307,9 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
     \setcounter{Water}{\value{r3b}}
   \fi
   \setcounter{Fire}{\value{r2c}}
+  \ifnum\value{noAppearing}=1
+    \renewcommand\abilities{\mutation{r2d}}
+  \fi
 }
 }
 
@@ -1328,7 +1335,11 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
     , \lootGoblin%
   \fi%
 }% EQUIPMENT
-{}
+{
+  \ifnum\value{noAppearing}=1
+    \renewcommand\abilities{\mutation{r4}}
+  \fi
+}
 }
 
 \newcommand{\deephobgoblin}[1][\npc{\T[\arabic{r12}]\N}{\arabic{r12} Hobgoblins}]{
