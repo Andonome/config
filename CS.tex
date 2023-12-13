@@ -287,7 +287,15 @@ circle label/.style = {
     rowspan=3,
   }{
 
-  \iftoggle{examplecharacter}{\sffamily\characterEquipment\vspace{14em}}{\lineDots[3]\vspace{1em}}
+  \iftoggle{examplecharacter}{\sffamily\characterEquipment\vspace{14em}}{
+    \vspace{1.3em}
+    {\Repeat{5}{\Square}\hbox to .9\textwidth{\leaders\hbox to 30pt{\hss . \hss}\hfil}\vspace{1em}}
+
+    {\Repeat{5}{\Square}\hbox to .9\textwidth{\leaders\hbox to 30pt{\hss . \hss}\hfil}\vspace{1em}}
+
+    {\Repeat{5}{\Square}\hbox to .9\textwidth{\leaders\hbox to 30pt{\hss . \hss}\hfil}\vspace{1em}}
+    \vspace{1em}
+  }
 
   
   \begin{tabularx}{\hsize}{llXr}
