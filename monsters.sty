@@ -1232,7 +1232,10 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
     \setcounter{Tactics}{\value{r2}}
   \fi%
   \ifnum\value{noAppearing}=1
-    \renewcommand\abilities{\mutation{r4}}
+    \iftoggle{genExamples}%
+    {
+      \renewcommand\abilities{\mutation{r4}}
+    }{}
   \fi
   }
 }
