@@ -16,6 +16,7 @@
 \RequirePackage{gfsartemisia-euler} % fancy fonts
 \RequirePackage{epsdice} % for dice
 \RequirePackage[T1]{fontenc} % 
+\RequirePackage{rotunda} % 
 \RequirePackage{starfont} % for creature symbols
 \RequirePackage{wasysym} % for sq checkboxes
 \RequirePackage{appendix}
@@ -225,15 +226,17 @@ bookmarks=true]%
 
 \renewcommand\tableofcontents{%
     {
-      \scshape
+      \titleFont
       \large
       \@starttoc{toc}
     }
 }
 
+\newcommand\titleFont{\rtndfamily}
+
 \newcommand{\chapnumfont}{
   \fontsize{50}{0}
-  \selectfont
+  \titleFont
 }
 
 % change bullet points
@@ -629,7 +632,9 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 }
 
 \titleformat{\chapter}[display]
-{\bfseries}
+{\bfseries
+\titleFont
+}
 {%
   \shiftColours
   \hspace*{-1.5em}
@@ -647,7 +652,8 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \textcolor{\pageSideColor}{\titlerule}%
   \center%
   \LARGE%
-  \scshape}%
+  \titleFont
+  }%
   {\Roman{section}}%
   {1pc}%
   {}%
@@ -656,7 +662,10 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 \renewcommand*{\thesection}{\arabic{section}}
 
 \titleformat{\subsection}
-  {\needspace{12em}\scshape\center\Large}%
+  {\needspace{12em}
+  \titleFont
+  \center
+  \large}%
   {\thesubsection}%
   {1em}%
   {}%
@@ -665,7 +674,9 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \setcounter{list}{0}]
 
 \titleformat{\subsubsection}[wrap]
-{\needspace{3em}\filright\scshape\large}
+{\needspace{3em}\filright
+\titleFont
+\large}
 {}{.5em}{}
 
 \titlespacing{\subsubsection}
@@ -935,7 +946,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 \newenvironment{nametable}[2][cL]
   {
     \rowcolors{2}{}{gray!10}\needspace{3em}
-    \begin{center}\textbf{#2}\end{center}
+    \begin{center}\titleFont\textbf{#2}\end{center}
     \par\noindent
     \tabularx{\linewidth}{#1}
     \hline
