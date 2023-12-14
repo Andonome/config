@@ -40,7 +40,8 @@
 \RequirePackage{graphicx}
 \RequirePackage{etoolbox}
 \RequirePackage{xparse}
-\RequirePackage{titlesec,titletoc}
+\RequirePackage[explicit]{titlesec}
+\RequirePackage{titletoc}
 \RequirePackage{fancyhdr}
 \RequirePackage{adforn}% for fancy headrules
 \RequirePackage{needspace}
@@ -644,7 +645,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \node[minimum width=.25\textwidth, inner sep=-5, outer sep=0, anchor=south west, text width=.25\textwidth, align=left] at (chapname.south east) {\chapnumfont\textcolor{chapnumcol}{\Roman{chapter}}};
 \end{tikzpicture}}
 {0pt}
-{\Huge}
+{\Huge#1}
 
 
 \titleformat{\section}%
@@ -656,7 +657,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   }%
   {\Roman{section}}%
   {1pc}%
-  {}%
+  {#1}%
   [\textcolor{\pageSideColor}{\titlerule}]%
 
 \renewcommand*{\thesection}{\arabic{section}}
@@ -668,7 +669,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \LARGE}%
   {\thesubsection}%
   {1em}%
-  {}%
+  {\adforn{26}~#1~\adforn{54}}%
   [\textcolor{\pageSideColor}{\titlerule}%
   \vspace{1ex}%
   \setcounter{list}{0}]
@@ -677,7 +678,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 {\needspace{3em}\filright
 \titleFont
 \large}
-{}{.5em}{}
+{}{.5em}{#1}
 
 \titlespacing{\subsubsection}
 {9pc}{1.5ex plus .1ex minus .2ex}{1pc}
