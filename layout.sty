@@ -117,8 +117,8 @@
 
 \fancypagestyle{plain}{
   \fancyhf{}% clear all header and footer fields
-  \fancyfoot[LE]{\textgoth{\large\thepage\if@mainmatter\hspace{1em}\textcolor{\pageSideColor}{\adfflatleafleft}\fi}}
-  \fancyfoot[RO]{\textgoth{\large\if@mainmatter\textcolor{\pageSideColor}{\adfflatleafright}\hspace{1em}\fi\thepage}}
+  \fancyfoot[LE]{\textgoth{\randomfourB\large\thepage\if@mainmatter\hspace{1em}\textcolor{\pageSideColor}{\Repeat{\value{r4b}}{\flourish\hspace{-.2em}}}\fi}}
+  \fancyfoot[RO]{\textgoth{\randomfour\large\if@mainmatter\textcolor{\pageSideColor}{\Repeat{\value{r4}}{\flourish\hspace{-.2em}}}\hspace{1em}\fi\thepage}}
 } 
 
 \pagestyle{plain}
@@ -195,7 +195,7 @@ bookmarks=true]%
     }
 }
 
-\renewcommand{\footnoterule}{\vspace{-0.5em}\noindent\textcolor{\pageSideColor}{\raisebox{2.9pt}{\line(1,0){100}}\hspace{-2pt}\adforn{63}} \vspace{.5em} }
+\renewcommand{\footnoterule}{\vspace{-0.5em}\noindent\textcolor{\pageSideColor}{\raisebox{2.9pt}{\line(1,0){100}}\hspace{-2pt}\flourish} \vspace{.5em} }
 
 % Argument 1: The target git directory (e.g. 'core')
 % Argument 2: What to call that directory (e.g. 'the core rules')
@@ -227,7 +227,6 @@ bookmarks=true]%
 
 \renewcommand\tableofcontents{%
     {
-      \titleFont
       \large
       \@starttoc{toc}
     }
@@ -568,7 +567,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 
 \colorlet{chapnumcol}{black!100}
 
-\newcommand{\headingtype}{CHAPTER}
+\newcommand{\headingtype}{\textgoth{Chapter}}
 
 \newcommand\outline[2][7]{\contour[#1]{black}{\textcolor{white}{#2}}}
 \contourlength{0.1em}
@@ -632,6 +631,53 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \fi
 }
 
+\newcounter{adf}
+\setcounter{adf}{0}
+
+\newcommand\flourish{%
+  \if@mainmatter%
+  \ifnum\value{adf}>15%
+    \setcounter{adf}{0}%
+  \fi%
+  \ifcase\value{adf}%
+  \adforn{32}%
+  \or%
+  \adforn{27}%
+  \or%
+  \glsentrytext{beasts}%
+  \or%
+  \adforn{3}%
+  \or%
+  \glsentrytext{poison}%
+  \or%
+  \adforn{34}%
+  \or%
+  \glsentrytext{frost}%
+  \or%
+  \adforn{68}%
+  \or%
+  \glsentrytext{justice}%
+  \or%
+  \adforn{73}%
+  \or%
+  \adforn{44}%
+  \or%
+  \glsentrytext{curiosity}%
+  \or%
+  \adforn{67}%
+  \or%
+  \glsentrytext{hate}%
+  \or%
+  \adforn{55}%
+  \else%
+  \ifodd\thepage\adforn{60}\else\adforn{32}\fi%
+  \fi%
+  \stepcounter{adf}%
+  \else%
+    \adforn{74}%
+  \fi%
+}
+
 \titleformat{\chapter}[display]
 {\bfseries
 \titleFont
@@ -650,15 +696,15 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 
 \titleformat{\section}%
   {\needspace{16em}%
-  \textcolor{\pageSideColor}{\titlerule}%
+  \textcolor{\pageSideColor}{\large\flourish\titlerule}%
   \center%
   \huge%
   \titleFont
   }%
   {\Roman{section}}%
-  {1pc}%
+  {1em}%
   {#1}%
-  [\textcolor{\pageSideColor}{\titlerule}]%
+  [\textcolor{\pageSideColor}{\large\titlerule\flourish}]%
 
 \renewcommand*{\thesection}{\arabic{section}}
 
@@ -671,7 +717,6 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   {1em}%
   {\textcolor{\pageOppositeColor}{\adforn{24}}~#1~\textcolor{\pageOppositeColor}{\adforn{52}}}%
   [\textcolor{\pageSideColor}{\titlerule}%
-  \vspace{1em}%
   \setcounter{list}{0}]
 
 \titleformat{\subsubsection}[wrap]
@@ -692,7 +737,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
     }
 
 \newcommand\bigLine{%
-  \textcolor{\pageSideColor}{\ifodd\value{page}\raisebox{-3pt}{\Large\hspace{0.1em}\adfflatleafsolidright}\fi\hrulefill\ifodd\value{page}\else\raisebox{-3pt}{\Large\hspace{-0.1em}\adfflatleafsolidleft}\fi}%
+  \textcolor{\pageSideColor}{\ifodd\value{page}\raisebox{-3pt}{\Large\hspace{0.1em}\flourish}\fi\hrulefill\ifodd\value{page}\else\raisebox{-3pt}{\Large\hspace{-0.1em}\flourish}\fi}%
 }
 
 %%%%% NPC Names
@@ -947,7 +992,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 \newenvironment{nametable}[2][cL]
   {
     \rowcolors{2}{}{gray!10}\needspace{3em}
-    \begin{center}\titleFont\textbf{#2}\end{center}
+    \begin{center}\flourish~\titleFont\textbf{#2}~\flourish\end{center}
     \par\noindent
     \tabularx{\linewidth}{#1}
     \hline
