@@ -401,6 +401,28 @@ Since the subsection is never used in a table of contents, we can misused it to 
 Specifically, you can use \verb"\footnote{\nameref{keepingWatch}.}", which then produces a footnote with a summary of that rule, which will automatically update if the rule ever changes.
 \footnote{The rule also appears in a miniature table of contents sometimes.}
 
+\subsubsection{External References}
+
+An external reference can reference other books.
+First, the document needs to load the external project with \verb"\externalReferent{core}"
+
+\externalReferent{core}
+
+\begin{itemize}
+  \item
+  The first argument names the project, by the git project name.
+  \item
+  The second argument gives the name you want to use for the book.
+  \item
+  The third argument references the label.
+\end{itemize}
+
+\verb"\exRef{core}{Core Rules}{combat}"
+
+If the core rules are present, and compiled, it provides a footnote.
+Otherwise, it does nothing.%
+\exRef{core}{Core Rules}{combat}
+
 \end{multicols}
 
 \printindex[spells]
