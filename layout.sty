@@ -20,7 +20,6 @@
 \RequirePackage{starfont} % for creature symbols
 \RequirePackage{wasysym} % for sq checkboxes
 \RequirePackage{appendix}
-\RequirePackage{yfonts}
 \RequirePackage{geometry} % changes page borders
   \geometry{margin=50pt}
 \RequirePackage{svg}
@@ -117,8 +116,8 @@
 
 \fancypagestyle{plain}{
   \fancyhf{}% clear all header and footer fields
-  \fancyfoot[LE]{\textgoth{\randomfourB\large\thepage\if@mainmatter\hspace{1em}\textcolor{\pageSideColor}{\Repeat{\value{r4b}}{\flourish\hspace{-.2em}}}\fi}}
-  \fancyfoot[RO]{\textgoth{\randomfour\large\if@mainmatter\textcolor{\pageSideColor}{\Repeat{\value{r4}}{\flourish\hspace{-.2em}}}\hspace{1em}\fi\thepage}}
+  \fancyfoot[LE]{\titleFont{\randomfourB\large\thepage\if@mainmatter\hspace{1em}\textcolor{\pageSideColor}{\Repeat{\value{r4b}}{\flourish\hspace{-.2em}}}\fi}}
+  \fancyfoot[RO]{\titleFont{\randomfour\large\if@mainmatter\textcolor{\pageSideColor}{\Repeat{\value{r4}}{\flourish\hspace{-.2em}}}\hspace{1em}\fi\thepage}}
 } 
 
 \pagestyle{plain}
@@ -567,7 +566,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 
 \colorlet{chapnumcol}{black!100}
 
-\newcommand{\headingtype}{\textgoth{Chapter}}
+\newcommand{\headingtype}{Chapter}
 
 \newcommand\outline[2][7]{\contour[#1]{black}{\textcolor{white}{#2}}}
 \contourlength{0.1em}

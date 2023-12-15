@@ -18,9 +18,8 @@ starfont \
 appendix \
 geometry \
 svg \
-yfonts \
-yfonts-t1 \
-gothic \
+txfonts \
+rotunda \
 wrapfig \
 epigraph \
 microtype \
@@ -36,7 +35,6 @@ glossaries \
 glossaries-extra \
 imakeidx \
 infwarerr \
-euler \
 koma-script \
 trimspaces \
 ifplatform \
