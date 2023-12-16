@@ -1,4 +1,4 @@
-\documentclass[spinewidth=15mm,markcolor=black]{bookcover}
+\documentclass{bookcover}
 
 % Loading the glossaries-extra packages won't work here, so LaTeX
 % won't understand the .aux file section headers which have \gls
@@ -8,6 +8,7 @@
 \newcommand\Glsfmtplural{}
 \newcommand\Glsfmtlongpl{}
 \newcommand\Gls{}
+\newcommand\Glsfmttext{}
 \newcommand\gls{}
 \newcommand\glspl{}
 \newcommand\Glspl{}
@@ -15,23 +16,80 @@
 
 \RequirePackage{xr-hyper}
 \RequirePackage{hyperref}
+\RequirePackage{adforn}
+\RequirePackage[copies]{contour}
+\contourlength{3pt}
 
-\makeatletter
-\@addtofilelist{../core/main.tex}
-\@addtofilelist{../core/core.aux}%
-\makeatother
+\setbookcover{coverwidth=25cm}
+\setbookcover{markcolor=black}
+\setbookcover{coverheight=20cm}
+\setbookcover{spinewidth=25mm}
+\setbookcover{flapwidth=8cm}
+\setbookcover{wrapwidth=5mm}
 
-\externaldocument{../core/core}%
+\externaldocument{judgement}%
 
-% Dummy values
+\newcommand\bookTitle{BIND}
+
+\renewcommand\bookTitle{Judgement}
+
+\newcommand\showChap[1]{\pageref{#1}: \nameref{#1}}
+
+\newcommand\placeTitle[2]{%
+  \node at (8,#1+1) {\includegraphics[width=4cm]{svg-inkscape/logo_svg-tex.pdf}};
+  \node[fill=white,fill opacity=0.9,text opacity=1, rounded corners=5pt] at (8,#1-0.5) {\Huge #2};
+}
+
+\newcommand\placeChap[2]{%
+  \node[fill=white,fill opacity=0.6,text opacity=.7, rounded corners=5pt] at (#1) {\pageref{#2}: \nameref{#2}};
+}
+
+\newcommand\backBlurb[1]{
+  This book has many words, most of which you can read.
+  These words you should not read, as someone should have replaced them with proper words long ago.
+  However, it is evident that you are reading them, and not only evidence, but as true as Descartes' famous \textit{cogito ergo sum}.
+  In short, the statement is the axiom which it asserts.
+}
+
+\newcounter{adf}
+\setcounter{adf}{\month}
+\addtocounter{adf}{15}
+
+\newif\ifruler
+\rulertrue
 
 \begin{document}
 \begin{bookcover}
-\bookcovercomponent{picture}{bg whole}{next_day.jpg}
+\bookcovercomponent{picture}{bg whole}{cover.jpg}
+
+\ifruler
+  \bookcovercomponent{ruler}{front}[,1cm,2cm,]{,lowerright,gray}
+\fi
 
 \begin{bookcoverelement}{normal}{front}[,,,0.4\partheight]
-\centering\bfseries\huge \pageref{combat}, \nameref{combat}\par
+\bfseries
+
+\begin{tikzpicture}[overlay, anchor = north]
+  \placeTitle{0}{\Huge \bookTitle}
+  \placeChap{15,7.3}{cosmology}
+  \placeChap{15,4}{civilization}
+  \placeChap{6,6}{encounters}
+  \placeChap{14,1}{fiends}
+  \placeChap{8,-4}{undead}
+  \placeChap{15,-4}{bestiary}
+  \placeChap{8,-5}{growths}
+  \placeChap{12,-11.3}{judgement}
+\end{tikzpicture}
+
 \end{bookcoverelement}
+
+\bookcovercomponent{center}{spine}{
+\rotatebox[origin=c]{-90}{\bfseries\Large\adforn{\value{adf}}~\bookTitle~\addtocounter{adf}{28}\adforn{\value{adf}}}}
+
+\begin{bookcoverelement}{normal}{back}[2cm,2cm,2cm,2cm]
+  \backBlurb
+\end{bookcoverelement}
+
 \end{bookcover}
 
 \end{document}
