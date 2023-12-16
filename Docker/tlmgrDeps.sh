@@ -8,6 +8,7 @@
 tlmgr install \
 latex-bin \
 tools \
+fgruler bookcover \
 lipsum \
 xcolor \
 gfsartemisia \
