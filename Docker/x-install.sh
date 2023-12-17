@@ -6,7 +6,6 @@ xbps-install -Sy git git-lfs \
 	tar \
 	bash \
 	make \
-	qrencode \
 	ImageMagick \
 	texlive-latexmk \
 	texlive-bin 
