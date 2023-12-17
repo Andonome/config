@@ -626,7 +626,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 
 \newcommand\flourish{%
   \if@mainmatter%
-  \ifnum\value{adf}>15%
+  \ifnum\value{adf}>18%
     \setcounter{adf}{0}%
   \fi%
   \ifcase\value{adf}%
@@ -634,33 +634,35 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \or%
   \adforn{27}%
   \or%
-  \glsentrytext{beasts}%
-  \or%
   \adforn{3}%
   \or%
-  \glsentrytext{poison}%
+  \adforn{25}%
+  \or%
+  \adforn{5}%
   \or%
   \adforn{34}%
   \or%
-  \glsentrytext{frost}%
-  \or%
   \adforn{68}%
   \or%
-  \glsentrytext{justice}%
+  \adforn{9}%
   \or%
   \adforn{73}%
   \or%
+  \adforn{11}%
+  \or%
   \adforn{44}%
   \or%
-  \glsentrytext{curiosity}%
+  \adforn{6}%
+  \or%
+  \adforn{40}%
+  \or%
+  \adforn{63}%
   \or%
   \adforn{67}%
   \or%
-  \glsentrytext{hate}%
-  \or%
-  \adforn{55}%
+  \adforn{52}%
   \else%
-  \ifodd\thepage\adforn{60}\else\adforn{32}\fi%
+  \adforn{55}%
   \fi%
   \stepcounter{adf}%
   \else%
