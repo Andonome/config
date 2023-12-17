@@ -1425,6 +1425,36 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 {}
 }
 
+\newcommand{\armouredOgre}[1][\addtocounter{r4b}{1}\npc{\T[\arabic{r4b}]\N}{\arabic{r4b} Ogres}]{
+  \randomfourB
+	#1
+	\randomthree\addtocounter{age}{2}
+	\randomtwo
+	\randomtwoB
+\person{\arabic{age}}% STRENGTH
+{0}% DEXTERITY 
+{\arabic{r2}}% SPEED
+{{-\arabic{age}}% INTELLIGENCE
+{-1}% WITS
+{-\arabic{age}}}% CHARISMA
+{0}% DR
+{\arabic{r2b}}% AGGRESSION
+{\ifodd\value{r2}Crafts\else Tactics\fi~\arabic{r2}, Wyldcrafting~\arabic{r2}}% SKILLS
+{
+	\ifodd\value{r3}%
+		\greatsword%
+	\else%
+		\greatclub%
+	\fi%
+\ifodd\value{r2}%
+  , \completechain%
+\else%
+  , \partialchain%
+\fi%
+  \ifnumcomp{\thechapter}{>}{3}{, \lootBig}{}}% EQUIPMENT
+{}
+}
+
 \newcommand{\deepogre}[1][\npc{\T[\arabic{r4b}]\N}{\arabic{r4b} Ogres}]{
 	\randomfourB
   \addtocounter{r4b}{1}
