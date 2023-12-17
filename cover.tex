@@ -20,24 +20,17 @@
 \RequirePackage[copies]{contour}
 \contourlength{3pt}
 
-\setbookcover{coverwidth=25cm}
-\setbookcover{markcolor=black}
-\setbookcover{coverheight=20cm}
-\setbookcover{spinewidth=25mm}
-\setbookcover{flapwidth=8cm}
-\setbookcover{wrapwidth=5mm}
-
 \externaldocument{judgement}%
 
 \newcommand\bookTitle{BIND}
 
-\renewcommand\bookTitle{Judgement}
-
 \newcommand\showChap[1]{\pageref{#1}: \nameref{#1}}
+\newcounter{titleHeight}
+\setcounter{titleHeight}{0}
 
-\newcommand\placeTitle[2]{%
-  \node at (8,#1+1) {\includegraphics[width=4cm]{svg-inkscape/logo_svg-tex.pdf}};
-  \node[fill=white,fill opacity=0.9,text opacity=1, rounded corners=5pt] at (8,#1-0.5) {\Huge #2};
+\newcommand\placeTitle{%
+  \node at (8,\value{titleHeight}+1) {\includegraphics[width=4cm]{svg-inkscape/logo_svg-tex.pdf}};
+  \node[fill=white,fill opacity=0.9,text opacity=1, rounded corners=5pt] at (8,\value{titleHeight}-0.5) {\Huge \bookTitle};
 }
 
 \newcommand\placeChap[2]{%
@@ -58,7 +51,27 @@
 \newif\ifruler
 \rulertrue
 
+\newcommand\bookChapters{}
+
+% This inputs the cover in the project.
+% It should look like this:
+% \renewcommand\bookTitle{Title}
+% \renewcommand\backBlurb{Overview}
+% \renewcommand\bookChapters{
+%   \placeChap{15,7.3}{cosmology}
+% }
+% \setbookcover{coverwidth=25cm}
+% \setbookcover{markcolor=black}
+% \setbookcover{coverheight=20cm}
+% \setbookcover{spinewidth=25mm}
+% \setbookcover{flapwidth=0cm}
+% \setbookcover{wrapwidth=5mm}
+% \rulerfalse
+
+\input{cover.tex}
+
 \begin{document}
+
 \begin{bookcover}
 \bookcovercomponent{picture}{bg whole}{cover.jpg}
 
@@ -70,15 +83,8 @@
 \bfseries
 
 \begin{tikzpicture}[overlay, anchor = north]
-  \placeTitle{0}{\Huge \bookTitle}
-  \placeChap{15,7.3}{cosmology}
-  \placeChap{15,4}{civilization}
-  \placeChap{6,6}{encounters}
-  \placeChap{14,1}{fiends}
-  \placeChap{8,-4}{undead}
-  \placeChap{15,-4}{bestiary}
-  \placeChap{8,-5}{growths}
-  \placeChap{12,-11.3}{judgement}
+  \placeTitle
+  \bookChapters
 \end{tikzpicture}
 
 \end{bookcoverelement}
