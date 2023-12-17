@@ -19,7 +19,7 @@ appendix \
 geometry \
 svg \
 txfonts \
-rotunda \
+bookhands \
 wrapfig \
 epigraph \
 microtype \
