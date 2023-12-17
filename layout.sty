@@ -604,19 +604,9 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 
   \appendix
 
-  \appendixpage
-
   \renewcommand{\headingtype}{APPENDIX}
+  \renewcommand\showChapter{\Alph{chapter}}
 
-  \titleformat{\chapter}[display]
-  {\bfseries}
-  {\begin{tikzpicture}
-  \node[minimum width=\textwidth, text=black!25, fill=black!25, inner sep=1, outer sep=0, anchor=south] (rectinit) {\huge CHAPTER};
-  \node[minimum width=.8\textwidth, text=white, inner sep=1, outer sep=0, anchor=south west, text width=.8\textwidth, align=right] at (rectinit.south west) (chapname) {\huge APPENDIX~~};
-  \node[minimum width=.2\textwidth, inner sep=0, outer sep=0, anchor=south west, text width=.2\textwidth, align=left] at (chapname.south east) {\chapnumfont\textcolor{chapnumcol}{\thechapter}};
-  \end{tikzpicture}}
-  {0pt}
-  {\Huge}
 }
 
 \newcommand\shiftColours{
@@ -678,6 +668,8 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \fi%
 }
 
+\newcommand\showChapter{\Roman{chapter}}
+
 \titleformat{\chapter}[display]
 {\bfseries
 \titleFont
@@ -688,7 +680,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 \begin{tikzpicture}
   \node[minimum width=\linewidth+3em, text=\pageOppositeColor, fill=\pageSideColor, inner sep=1, outer sep=0, anchor=south] (rectinit) {\Huge \headingtype};
  \node[minimum width=.75\textwidth, text=white, inner sep=3, outer sep=0, anchor=south west, text width=.75\textwidth, align=right] at (rectinit.south west) (chapname) {};
-  \node[minimum width=.25\textwidth, inner sep=-5, outer sep=0, anchor=south west, text width=.25\textwidth, align=left] at (chapname.south east) {\chapnumfont\textcolor{chapnumcol}{\Roman{chapter}}};
+  \node[minimum width=.25\textwidth, inner sep=-5, outer sep=0, anchor=south west, text width=.25\textwidth, align=left] at (chapname.south east) {\chapnumfont\textcolor{chapnumcol}{\showChapter}};
 \end{tikzpicture}}
 {0pt}
 {\Huge#1}
