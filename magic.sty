@@ -118,24 +118,44 @@
   \iftoggle{talisman}{%
     \index[talismans]{\textbf{#1} (\spellEnhancements\ \spellAction~\spellSphere) Range: \spellRange, Area: \arabic{spellTargets}, Resisted by: \detokenize{#5}, Bonus: \arabic{spellCost}. \spellSum|adfclosedflourishleft~p.~}%
   }{%
-    \index[spells]{\textbf{#1} (Cost: \arabic{spellCost}, \spellEnhancements\ \spellAction~\spellSphere) Range: \spellRange, Area: \arabic{spellTargets}, Resisted by: \detokenize{#5}, \spellSum.|adfclosedflourishleft~p.~}%
+    \index[spells]{\textbf{#1} (Cost: \arabic{spellCost}, \spellEnhancements\ \spellAction~\spellSphere) Range: \spellRange, Targets: \arabic{spellTargets}, Resisted by: \detokenize{#5}, \spellSum|adfclosedflourishleft~p.~}%
   }%
 }
 
 \newcommand\fullSpell{%
-  \paragraph{\spellName}
-  (Cost: \arabic{spellCost}.
-  \textit{\spellEnhancements\ \spellAction~ \spellSphere})
-  Range:~\spellRange%
-  \ifnum\value{spellTargets}>1%
-    , Targets:~\arabic{spellTargets}%
-  \fi.
+  \needspace{4em}
+  \begin{tabularx}{\linewidth}{YX}
+  \adforn{24}~\textbf{\scshape\large\spellName}~\adforn{52}
+  &
+    \small
+    \noindent
+    \textbf{\scshape Requirements}
+    \spellSphere
 
-  Resisted by: \spellResistance,
+    \noindent
+    \textbf{\scshape Cost}
+    \arabic{spellCost} \glsentrytext{mp}
 
+    \noindent
+    \textbf{\scshape Range}
+    \spellRange%
+
+    \ifnumcomp{\value{spellTargets}}{>}{1}{%
+      \noindent
+      \textbf{\scshape Targets}
+      \arabic{spellTargets}%
+    }{}
+
+    \noindent
+    \textbf{\scshape Resisted~by:}
+    \spellResistance
+  \\
+  \end{tabularx}
+  \noindent
   \spellSum.
 
   \spellNotes
+  \vspace{1em}
 }
 
 \newcommand\shortSpell{%
