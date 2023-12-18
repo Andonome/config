@@ -1963,13 +1963,12 @@ mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIP
   {-1}
 }
 
-
 \newcommand\stirgeSwarm{
   \randomdozen
-  \swarm{Stirges Hatchlings}% Name
+  \setcounter{Strength}{-2}
+  \swarm[\flight]{Stirges Hatchlings}% Name
   {\arabic{r12}}%
   {0}%
   {2}%
-  {1}
+  {2}
 }
-
