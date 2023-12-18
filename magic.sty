@@ -11,6 +11,8 @@
 % Some spells inflict X fatigue, where X is the spell level plus 2.
 \newcounter{spellCost}
   \setcounter{spellCost}{1}
+\newcounter{spellPlusOne}
+  \setcounter{spellPlusOne}{1}
 \newcounter{spellPlusTwo}
   \setcounter{spellPlusTwo}{1}
 \newcounter{spellPlusThree}
@@ -86,6 +88,8 @@
     \ifdefstring{\d}{duplicated}{\global\toggletrue{duplicated}}{}%
     \stepcounter{spellCost}%
   }%
+  \setcounter{spellPlusOne}{\value{spellCost}}%
+    \addtocounter{spellPlusOne}{1}%
   \setcounter{spellPlusTwo}{\value{spellCost}}%
     \addtocounter{spellPlusTwo}{2}%
   \setcounter{spellPlusThree}{\value{spellCost}}%
@@ -124,31 +128,23 @@
 
 \newcommand\fullSpell{%
   \needspace{4em}
-  \begin{tabularx}{\linewidth}{YX}
-  \adforn{24}~\textbf{\scshape\large\spellName}~\adforn{52}
+  \begin{tabularx}{\linewidth}{m{.28\linewidth}X}
+  \raggedright
+  \textbf{\titleFont\large\spellName}
   &
     \small
-    \noindent
-    \textbf{\scshape Requirements}
-    \spellSphere
+    \textbf{\scshape Requirements:}
+    \spellSphere~\arabic{spellCost}
 
-    \noindent
-    \textbf{\scshape Cost}
-    \arabic{spellCost} \glsentrytext{mp}
-
-    \noindent
-    \textbf{\scshape Range}
-    \spellRange%
-
-    \ifnumcomp{\value{spellTargets}}{>}{1}{%
-      \noindent
-      \textbf{\scshape Targets}
-      \arabic{spellTargets}%
-    }{}
-
-    \noindent
     \textbf{\scshape Resisted~by:}
     \spellResistance
+
+    \textbf{\scshape Range:}
+    \spellRange%
+    \ifnumcomp{\value{spellTargets}}{>}{1}{
+      \textbf{\scshape Targets:}
+      \arabic{spellTargets}%
+    }{}
   \\
   \end{tabularx}
   \noindent
