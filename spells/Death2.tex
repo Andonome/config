@@ -3,18 +3,17 @@
   {Wax}% Action
   {Fate, Air}% Spheres
   {current \glspl{hp}}% Resist with
-  {The caster curses one of the target's vital organs, and they lose \arabic{spellCost} \glspl{hp}}% Description
-  {The caster insists the target has taken a wound and they begin to feel it as internal bleeding accompanies a headache.}
+  {The caster curses one of the target's vital organs, and they lose \arabic{spellPlusOne} \glspl{hp}}% Description
+  {This spell ignores \gls{dr}, \glspl{fp}, and anything else which might otherwise protect someone.}
 
-\spell{Preservation}% Name
+\spell{Insensitivity}% Name
   {detailed}% Enhancements
   {Wane}% Action
   {Fate, Air}% Spheres
   {target's current \glsentrytext{fatigue} penalty}% Resist with
-  {The caster removes one type of death from the target -- \glspl{fatigue}, poison, venom, rot, or anything else they can think of}% Description
-  {Corpses in this state no longer decay\ldots or at least delay any decay for \arabic{spellCost}~\glspl{interval}. 
-    Time spent completely motionless does not count against this time, so any corpse can remain indefinitely fresh, and any poison can remain indefinitely at bay, as long as the subject does not move an inch.
-  }
+  {The caster bids a farewell to one type of pain -- marching fatigue, poison, venom, or anything else they can think of.
+  The target can ignore up to \arabic{spellPlusOne} \gls{fatigue} penalties from that source for \arabic{spellCost} \glspl{interval}}% Description
+  {}
 
 \spell{Soul Specks}% Name
   {detailed}% Enhancements

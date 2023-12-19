@@ -3,20 +3,12 @@
   {Warp}% Action
   {Water}% Spheres
   {water's speed}% Resist with
-  {\arabic{spellTargets} barrels' worth of water become acidic (\arabic{spellCost} Damage per round contact)}% Description
+  {`Disgusting', the caster shouts, and \arabic{spellTargets} barrels' worth of water become acidic (\arabic{spellCost} Damage per round contact)}% Description
   {
-    Armour or clothing of any type can remove an amount of Damage equal to its Covering rating, but if the Damage equals the armour's \gls{dr} then it degrades and begins to fall apart within a few rounds as leather straps and string degrade.
+    Armour or clothing of any type can remove an amount of Damage equal to its Covering rating, but if the Damage equals the armour's \gls{dr} then the armour degrades and begins to fall apart within \arabic{spellCost} rounds as leather straps and string degrade.
 
     Anyone submerged in the liquid takes \addtocounter{spellCost}{2} \dmg{spellCost} Damage per turn.
     Casting this spell in a slow-moving stream can be deadly to a single target.
     However, fast rivers, or casting on a wider area, each reduce the Damage by -1 or more.
   }
 
-\spell{Detect Water}% Name
-  {distant}% Enhancements
-  {Witness}% Action
-  {Water}% Spheres
-  {water purity}% Resist with
-  {The caster detects liquid within \spellRange, but nothing within a few steps of the caster.
-    They know only the closest source within the range, but have no idea what kind of liquid the spell has revealled.}% Description
-  {It might reveal a river, a tankard of ale, or any other body apparent of liquid.}
