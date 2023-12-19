@@ -231,12 +231,15 @@
     \knacks{\ifodd\value{r4b}\chosenEnemy{Dwarves}\else\charge\fi, \ifnumcomp{\value{r3}}{>}{2}{\laststand}{\adrenalinesurge}}
     \hide{\value{gold}}
 
+    \randomtwoC
     \ifodd\value{r4}%
       \setcounter{Air}{\value{r3b}}%
     \fi%
       \setcounter{Fire}{\value{r2d}}%
       \ifodd\value{r2}%
         \setcounter{Fate}{\value{r2c}}%
+      \else
+        \setcounter{Earth}{\value{r2c}}%
       \fi%
   }
 	}
