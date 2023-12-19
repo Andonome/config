@@ -94,7 +94,7 @@
     \addtocounter{spellPlusTwo}{2}%
   \setcounter{spellPlusThree}{\value{spellCost}}%
     \addtocounter{spellPlusThree}{3}%
-  \conDmg{spellPlusThree}%
+  \conDmg{spellPlusTwo}%
   \renewcommand\spellEnhancements{#2}%
   \renewcommand\spellAction{#3}%
   \renewcommand\spellSphere{#4}%
@@ -131,6 +131,7 @@
   \begin{tabularx}{\linewidth}{m{.28\linewidth}X}
   \raggedright
   \textbf{\titleFont\large\spellName}
+  \iftoggle{examplecharacter}{}{\par\footnotesize\hint{\spellEnhancements\ \spellAction}}
   &
     \small
     \textbf{\scshape Requirements:}
