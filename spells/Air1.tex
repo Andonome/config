@@ -1,19 +1,20 @@
-\spell{Wind Chill}% Name
+\spell{Bubble}% Name
   {}% Enhancements
-  {Wax}% Action
+  {Warp}% Action
   {Air}% Spheres
-  {\roll{Strength}{Athletics}}% Resist with
-  {Targets lose \arabic{spellCost} \gls{ap} and get pushed back \arabic{spellCost}~\glspl{ap} minus Strength}% Description
-  {}
+  {the density of the liquid}% Resist with
+  {A small air-bubble surrounds the caster, protecting them from foul gasses and allowing them to go underwater}% Description
+  {While mostly invisible, the bubble is real, and will go nowhere, resisting all but the strongest winds.
+
+    Casters often use this to protect themselves from Noxious Fog spells.}
 
 \spell{Noxious Fog}% Name
   {}% Enhancements
   {Wane}% Action
   {Air}% Spheres
   {the wind speed}% Resist with
-  {A pocket of foul air inflicts \arabic{spellPlusTwo}~\glspl{fatigue} each round}% Description
+  {A pocket of foul air inflicts \arabic{spellPlusTwo}~\glspl{fatigue} each round, to anyone who inhales it}% Description
   {
-    Anyone can attempt to hold their breath, but those not expecting the nauseating fumes suffer \arabic{spellPlusTwo}~\glspl{fatigue}.
 
     The fog only covers \pgls{step} -- enough for a doorway, or small tunnel.
     It dissipates after a couple of turns, or less if wind is present.
@@ -21,15 +22,11 @@
     Casting the spell outdoors raises the \gls{tn} by 1, casting it on a windy day raises it by 3, and casting the spell in a storm raises the \gls{tn} by 5.
   }
 
-\spell{Bubble}% Name
+\spell{Wind Chill}% Name
   {}% Enhancements
-  {Warp}% Action
+  {Wax}% Action
   {Air}% Spheres
-  {the density of the liquid}% Resist with
-  {A small air-bubble surrounds the caster, protecting them from foul gasses and allowing them to go underwater}% Description
-  {
-    While mostly invisible, the bubble is real, and will go nowhere, resisting all but the strongest winds.
-
-    Casters often use this to protect themselves from Noxious Fog.
-  }
+  {\roll{Strength}{Athletics}}% Resist with
+  {As the caster shouts `back!', a blast of air pushes the target back, and they lose \arabic{spellPlusTwo}~\glspl{ap} minus their Strength Bonus}% Description
+  {}
 
