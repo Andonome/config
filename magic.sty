@@ -183,13 +183,14 @@
 
 \newcommand\showStdSpells{
   \setcounter{enc}{0}
+  \setHighSpheres
   \needspace{2em}
   \begin{center}%
   \textcolor{\pageSideColor}{\large\Pentagram} \textbf{Spells} \textcolor{\pageSideColor}{\large\Pentagram}
   \end{center}%
   \begin{description}
     \settoggle{fullSpells}{false}
-    \foreach\n in {3,2,1}{
+    \foreach \n in {3,2,1}{
       \ifnum\value{enc}<3
         \foreach \s in {Light,Death,Life,Mind,Force,Earth,Air,Fire,Water,Fate}{
           \ifnumcomp{\value{\s}}{=}{\n}{
