@@ -228,7 +228,7 @@
     \setcounter{Tactics}{2}
     \setcounter{Vigilance}{3}
 
-    \knacks{\ifodd\value{r4b}\chosenEnemy{Dwarves}\else\charge\fi, \ifnumcomp{\value{r3}}{>}{2}{\laststand}{\adrenalinesurge}}
+    \knacks{\ifodd\value{r4b}\chosenEnemy{Dwarves}\else\charge\fi, \ifodd\value{r4}\snapcaster\fi\ifnumcomp{\value{r3}}{>}{2}{\laststand}{\adrenalinesurge}}
     \hide{\value{gold}}
 
     \randomtwoC
