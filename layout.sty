@@ -550,8 +550,9 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   colback=white,
   before={\vspace{.5em}\noindent},
   fonttitle={\scshape #1},
-  before upper={\afterparnoindent},
-  after={\afterparnoindent},
+  before upper={\parindent15pt\afterparnoindent},
+  after upper={\iftoggle{verbose}{}{\par What do you do?}},
+  after={\noindent},
 }
 
 \newcommand{\sidebox}[2][23]{
