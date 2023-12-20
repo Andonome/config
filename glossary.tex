@@ -352,8 +352,9 @@
 }
 
 \newglossaryentry{ainumar}{
-  name={Ainumar},
+  name={The Ainumar},
   plural={Ainumari},
+  sort={Ainumar},
   description={is a great orb in the sky, commonly supposed to be where the gods live},
 }
 
@@ -367,9 +368,10 @@
 
 \newglossaryentry{wheat}{
   name={The Poison Guild},
-  text={\ifodd\thepage Wheat \else Poison \fi Guild},
+  text={\ifodd\value{r2} Wheat \else Poison \fi Guild},
   prefix={a\space},
-  description={which protects humanity from poison through baking and brewing}
+  sort={Poison Guild},
+  description={protects humanity from poison through baking and brewing, also known as `the Wheat Guild'}
 }
 
 \newglossaryentry{server}{
@@ -383,6 +385,7 @@
   name={The Healers' Guild},
   text={Healers Guild},
   prefix={a\space},
+  sort={Healers Guild},
   description={Temple of Sickness}
 }
 
@@ -401,6 +404,7 @@
 \newglossaryentry{doulaShop}{
   name={The Doula Shop},
   text={Doula Shop},
+  sort={Doula Shop},
   prefix={a\space},
   description={form the rare locations the doula sell various potions and blessings},
 }
@@ -416,6 +420,7 @@
   name={The Pit of Justice},
   text={Pit of Justice},
   prefix={a\space},
+  sort={Pit of Justice},
   description={provides cheering crowds a place to see justice in action}
 }
 
@@ -444,6 +449,7 @@
   name={The Armourers' Guild},
   text={Armourers' Guild},
   prefix={an\space},
+  sort={Armourer's Guild},
   description={take in angry, young people, and redirect their anger into protection}
 }
 
@@ -458,6 +464,7 @@
   name={The Paper Guild},
   text={Paper Guild},
   prefix={a\space},
+  sort={Paper Guild},
   description={create paper, candles, and soap.
   They always need more basilisk bodies to make the latter two}
 }
