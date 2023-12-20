@@ -79,8 +79,6 @@
 }
 
 \newcommand{\lootMagic}{%
-  \ifnum\value{noAppearing}>1%
-  \else%
   \iftoggle{genExamples}{}%
     {%
       \ifnum\value{treasure}>8\setcounter{treasure}{1}\fi%
@@ -105,14 +103,13 @@
       \setcounter{track}{\value{treasure}}%
       \stepcounter{treasure}%
     }%
-  \fi%
 }
 
 \newcommand{\lootJewellery}{%
 \iftoggle{genExamples}{jewellery worth \ifodd\value{r2}$3D6$sp\else$1D6+2$\glspl{gp}\fi}%
 	{%
     \stepcounter{treasure}%
-    \ifnum\value{treasure}>10\setcounter{treasure}{0}\fi%
+    \ifnum\value{treasure}>10\addtocounter{treasure}{-10}\fi%
     \ifcase\value{treasure}\relax%
 			golden necklace worth \arabic{r12}~\glspl{sp}%
     \or%1
