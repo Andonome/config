@@ -10,40 +10,28 @@
 \newcommand\showSeason{%
   \ifcase\value{season}\or%
     Qualmea%
-    \setcounter{temperature}{1}%
   \or%
     Atya%
-    \setcounter{temperature}{1}%
   \or%
     Alassea%
-    \setcounter{temperature}{0}%
   \or%
     Cantea%
-    \setcounter{temperature}{1}%
   \or%
     Calea%
-    \setcounter{temperature}{2}%
   \or%
     Verea%
-    \setcounter{temperature}{1}%
   \or%
     Otsea%
-    \setcounter{temperature}{1}%
   \or%
     Toldea%
-    \setcounter{temperature}{1}%
   \or%
     Laiquea%
-    \setcounter{temperature}{2}%
   \or%
     Quainea%
-    \setcounter{temperature}{1}%
   \or%
     Minquesta%
-    \setcounter{temperature}{0}%
   \else
     Ohta%
-    \setcounter{temperature}{1}%
   \fi%
 }
 
@@ -76,4 +64,30 @@
     hot%
   \fi%
 }
+
+\ifcase\value{season}\or%
+  \setcounter{temperature}{1}%
+\or%
+  \setcounter{temperature}{1}%
+\or%
+  \setcounter{temperature}{0}%
+\or%
+  \setcounter{temperature}{1}%
+\or%
+  \setcounter{temperature}{2}%
+\or%
+  \setcounter{temperature}{1}%
+\or%
+  \setcounter{temperature}{1}%
+\or%
+  \setcounter{temperature}{1}%
+\or%
+  \setcounter{temperature}{2}%
+\or%
+  \setcounter{temperature}{1}%
+\or%
+  \setcounter{temperature}{0}%
+\else
+  \setcounter{temperature}{1}%
+\fi%
 
