@@ -477,22 +477,17 @@
   \iftoggle{personality}{
 
     \begin{multicols}{2}
+    \begin{description}
     \raggedright
-    \noindent
-    \textbf{Wants:} \npcGoal, 
-
-    \noindent
-    \textbf{Mannerism:} \mannerism
-
-    \columnbreak
-    \noindent
-    \textbf{Description:} \NPCdescription
+    \item[Wants:] \npcGoal
+    \item[Mannerism:] \mannerism
+    \item[Description:] \NPCdescription
     \ifdefempty{\npcQuote}{}{
-      \textbf{Quote:}  \npcQuote \\
+      \item[Quote:]
+      \npcQuote
     }
+    \end{description}
     \end{multicols}
-
-    \vspace{1em}
 
     \settoggle{personality}{false}}%
 	{}
