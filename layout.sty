@@ -931,9 +931,10 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 
 \newenvironment{exampletext}
   {\needspace{2em}%
-  \it
-  \parindent2em
-  %\rule{.4\linewidth}{0.2pt}%
+  \vspace{1em}%
+  \it%
+  \parindent2em%
+  \noindent%
   }
   {%
     \par\bigLine
