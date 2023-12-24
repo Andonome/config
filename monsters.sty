@@ -1976,3 +1976,15 @@ mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIP
   {2}%
   {2}
 }
+
+\newcommand\skeinSwarm{%
+  \randomdozen%
+  \setcounter{track}{\value{r12}}%
+  \multiply\value{track} by 3%
+  \addtocounter{track}{0}%
+  \swarm{\arabic{track} Skein}% Name
+  {\arabic{r12}}%
+  {1}%
+  {2}%
+  {0}
+}
