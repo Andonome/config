@@ -11,121 +11,140 @@
 % If you're unhapy with your dragon, copy-paste the bit where it says \dragon{blah}{bla}, then change those numbers.
 
 \newcommand{\auroch}[1][\npc{\A\T}{\arabic{r12}0 Aurochs}]{
-	#1
-\animal{2}% STRENGTH
-{-2}% DEXTERITY 
-{3}% SPEED
-{1}% WITS
-{2}% DR
-{1}% AGGRESSION
-{Athletics~1}% SKILLS
-{Stampede}% ABILITIES
-{}
+  #1
+  \animal{2}% STRENGTH
+  {-2}% DEXTERITY 
+  {3}% SPEED
+  {1}% WITS
+  {2}% DR
+  {1}% AGGRESSION
+  {}% SKILLS
+  {Stampede}% ABILITIES
+  {
+    \setcounter{Athletics}{1}
+  }
 }
 
 \newcommand{\bear}[1][\npc{\A}{Bear}]{
-	#1
-	\randomtwo
-	\addtocounter{enc}{4}
-	\randomtwoB
-	\addtocounter{r2b}{-2}
-	\addtocounter{r2}{1}
-	\randomthreeB
-\animal{\arabic{enc}}% STRENGTH
-{\arabic{r2b}}% DEXTERITY 
-{\arabic{r2}}% SPEED
-{0}% WITS
-{2}% DR
-{\arabic{r3b}}% AGGRESSION
-{Athletics \arabic{r2}, Stealth~2, Vigilance~2}% SKILLS
-{\claws, \quadraped}% ABILITIES
-{}
+  #1
+  \randomtwo
+  \addtocounter{enc}{4}
+  \randomtwoB
+  \addtocounter{r2b}{-2}
+  \addtocounter{r2}{1}
+  \randomthreeB
+  \animal{\arabic{enc}}% STRENGTH
+  {\arabic{r2b}}% DEXTERITY 
+  {\arabic{r2}}% SPEED
+  {0}% WITS
+  {2}% DR
+  {\arabic{r3b}}% AGGRESSION
+  {}% SKILLS
+  {}% ABILITIES
+  {
+    \setcounter{Athletics}{\value{r2}}
+    \setcounter{Stealth}{2}
+    \setcounter{Vigilance}{2}
+    \renewcommand\abilities{\claws, \quadraped}
+  }
 }
 %
 \newcommand{\boar}[1][\npc{\A}{Boar}]{
-	#1
-	\randomtwoB
-	\randomtwo
-	\addtocounter{enc}{-3}
-	\randomthree
-	\animal{\arabic{r2b}}% STRENGTH
-{\arabic{enc}}% DEXTERITY 
-{3}% SPEED
-{\arabic{r2}}% WITS
-{2}% DR
-{2}% AGGRESSION
-{Athletics~\arabic{r2}, Vigilance~\arabic{r3}}% SKILLS
-{\quadraped}% ABILITIES
-{}
+  #1
+  \randomtwoB
+  \randomtwo
+  \addtocounter{enc}{-3}
+  \randomthree
+  \animal{\arabic{r2b}}% STRENGTH
+  {\arabic{enc}}% DEXTERITY 
+  {3}% SPEED
+  {\arabic{r2}}% WITS
+  {2}% DR
+  {2}% AGGRESSION
+  {}% SKILLS
+  {\quadraped}% ABILITIES
+  {
+    \setcounter{Athletics}{\value{r2}}
+    \setcounter{Vigilance}{\value{r3}}
+  }
 }
 
 \newcommand{\chitincrawler}[1][\npc{\A}{Chitincrawler}]{
-	#1
-	\randomtwo
-	\addtocounter{enc}{3}
-	\addtocounter{r2}{2}
-	\randomtwoB
-	\addtocounter{r2b}{-1}
-	\randomthree
-	\randomthreeB
-	\randomfour
-\animal{\arabic{enc}}% STRENGTH
-{\arabic{r2b}}% DEXTERITY 
-{\arabic{r3b}}% SPEED
-{\arabic{r4}}% WITS
-{\arabic{r2}}% DR
-{\ifodd\value{r3} 3\else 4\fi}% AGGRESSION
-{Athletics~\arabic{r3b}, \ifodd\value{r4} Vigilance~\arabic{r3b}, \fi Wyldcrafting~\arabic{r3}}% SKILLS
-{\web}% ABILITIES
-{}
+  #1
+  \randomtwo
+  \addtocounter{enc}{3}
+  \addtocounter{r2}{2}
+  \randomtwoB
+  \addtocounter{r2b}{-1}
+  \randomthree
+  \randomthreeB
+  \randomfour
+  \animal{\arabic{enc}}% STRENGTH
+  {\arabic{r2b}}% DEXTERITY 
+  {\arabic{r3b}}% SPEED
+  {\arabic{r4}}% WITS
+  {\arabic{r2}}% DR
+  {\ifodd\value{r3} 3\else 4\fi}% AGGRESSION
+  {}% SKILLS
+  {\web}% ABILITIES
+  {
+    \setcounter{Athletics}{\value{r3b}}
+    \ifodd\value{r4}
+      \setcounter{Vigilance}{\value{r3b}}
+    \fi
+    \setcounter{Wyldcrafting}{\value{r3}}
+  }
 }
 %
 \newcommand{\griffin}[1][\randomthree\stepcounter{r3}\npc{\A\T[\arabic{r3}]}{Griffins}]{
-	#1
-	\randomtwo
+  #1
+  \randomtwo
   \randomtwoB
   \randomtwoC
   \ifodd\value{r4}\randomtwoB\else\randomtwoC\fi
   \addtocounter{r2c}{-1}
-	\addtocounter{enc}{1}
-\animal{\value{r2}}% STRENGTH
-{\arabic{r2c}}% DEXTERITY 
-{\value{r2b}}% SPEED
-{2}% WITS
-{0}% DR
-{2}% AGGRESSION
-{
-  Athletics~\arabic{enc},%
-  \addtocounter{r2c}{2} Vigilance \arabic{r2c}
-}% SKILLS
-{\flight}% ABILITIES
-{
-  \knacks{\charge}
-}
+  \addtocounter{enc}{1}
+  \animal{\value{r2}}% STRENGTH
+  {\arabic{r2c}}% DEXTERITY 
+  {\value{r2b}}% SPEED
+  {2}% WITS
+  {0}% DR
+  {2}% AGGRESSION
+  {
+  }% SKILLS
+  {\flight}% ABILITIES
+  {
+    \knacks{\charge}
+    \setcounter{Athletics}{\value{enc}}
+    \addtocounter{r2c}{2}
+    \setcounter{Vigilance}{\value{r2c}}
+  }
 }
 
 \newcommand{\mouthdigger}[1][\npc{\A}{Mouthdigger}]{
-	#1
-	\randomtwo
-	\addtocounter{enc}{1}
-	\randomtwoB
-\animal{2}% STRENGTH
-{-1}% DEXTERITY 
-{\arabic{enc}}% SPEED
-{0}% WITS
-{2}% DR
-{2}% AGGRESSION
-{Stealth~\arabic{enc}, Tactics~\arabic{r2b}}% SKILLS
-{\teeth}% ABILITIES
-{
-  \knacks{\adrenalinesurge, \perfectsneakattack}
-}
+  #1
+  \randomtwo
+  \addtocounter{enc}{1}
+  \randomtwoB
+  \animal{2}% STRENGTH
+  {-1}% DEXTERITY 
+  {\arabic{enc}}% SPEED
+  {0}% WITS
+  {2}% DR
+  {2}% AGGRESSION
+  {}% SKILLS
+  {\teeth}% ABILITIES
+  {
+    \knacks{\adrenalinesurge, \perfectsneakattack}
+    \setcounter{Stealth}{\value{enc}}
+    \setcounter{Tactics}{\value{r2b}}
+  }
 }
 %
 \newcommand{\wolf}[1][\randomdozen\npc{\A\T[\arabic{r12}]}{\arabic{r12} Wolves}]{
-	#1
-	\randomdozen
-	\addtocounter{enc}{2}
+  #1
+  \randomdozen
+  \addtocounter{enc}{2}
 \animal{-1}% STRENGTH
 {-1}% DEXTERITY 
 {\arabic{r2b}}% SPEED
@@ -138,13 +157,13 @@
 }
 
 \newcommand{\woodspy}[1][\npc{\E}{Woodspy}]{
-	#1
-	\randomtwo
-	\randomtwoB
-	\randomtwoC
-	\addtocounter{enc}{2}
-	\randomthree
-	\randomfour
+  #1
+  \randomtwo
+  \randomtwoB
+  \randomtwoC
+  \addtocounter{enc}{2}
+  \randomthree
+  \randomfour
 \person{\arabic{r4}}% STRENGTH
 {\arabic{enc}}% DEXTERITY 
 {\arabic{r2c}}% SPEED
@@ -153,73 +172,76 @@
 {-5}}% CHARISMA
 {\ifodd\value{r4} 2\else 3\fi}% DR
 {\arabic{r3}}% AGGRESSION
-{Athletics~2, Stealth~\arabic{enc}, Tactics~\arabic{r3}}% SKILLS
+{}% SKILLS
 {}% ABILITIES
 {
   \renewcommand\abilities{\tentacles}
+  \setcounter{Athletics}{2}
+  \setcounter{Stealth}{\value{enc}}
+  \setcounter{Tactics}{\value{r3}}
 }
 }
 
 \newcommand{\basilisk}[1][\npc{\A}{Basilisk}]{
-	#1
-	\randomtwo
-	\randomtwoB
-	\randomtwoC
-	\addtocounter{r2b}{-1}
-	\randomthree
-	\addtocounter{age}{5}
-	\randomthreeB
-	\addtocounter{r3b}{1}
-	\animal{\arabic{age}}% STRENGTH
-	{\arabic{r2b}}% DEXTERITY
-	{\arabic{r3}}% SPEED
-	{\arabic{r2b}}% WITS
-	{4}% DR
-	{\arabic{r3b}}% AGGRESSION
-	{Athletics~\arabic{r2c}}% SKILLS
-	{Odour demands Strength check, TN 9. Acidic breath (1D6-2 Damage).}% ABILITIES
-	{
+  #1
+  \randomtwo
+  \randomtwoB
+  \randomtwoC
+  \addtocounter{r2b}{-1}
+  \randomthree
+  \addtocounter{age}{5}
+  \randomthreeB
+  \addtocounter{r3b}{1}
+  \animal{\arabic{age}}% STRENGTH
+  {\arabic{r2b}}% DEXTERITY
+  {\arabic{r3}}% SPEED
+  {\arabic{r2b}}% WITS
+  {4}% DR
+  {\arabic{r3b}}% AGGRESSION
+  {}% SKILLS
+  {}% ABILITIES
+  {
     \knacks{\unstoppable}
     \renewcommand\abilities{\quadraped, \stench}
+    \setcounter{Athletics}{\value{r2c}}
   }
 }
 
-%
 \newcommand{\dragon}[1][\npc{\E}{Dragon}]{
-	#1
-	\randomtwo
-	\randomtwoB
-	\randomtwoC
-	\randomtwoD
-	\addtocounter{r2d}{1}
-	\addtocounter{r2c}{2}
-	\addtocounter{enc}{3}
-	\randomthree
-	\randomthreeB
-	\addtocounter{age}{4}
+  #1
+  \randomtwo
+  \randomtwoB
+  \randomtwoC
+  \randomtwoD
+  \addtocounter{r2d}{1}
+  \addtocounter{r2c}{2}
+  \addtocounter{enc}{3}
+  \randomthree
+  \randomthreeB
+  \addtocounter{age}{4}
   \setcounter{gold}{3}
     \addtocounter{gold}{\value{r2}}
-	\randomfour
-	\ifodd\value{r4}\multiply\value{track} by -1\fi
+  \randomfour
+  \ifodd\value{r4}\multiply\value{track} by -1\fi
 
   \renewcommand\abilities{\flight, \claws, \fireBreath}
 
-	\person{\value{age}}% STRENGTH
-	{\value{age}}% DEXTERITY
-	{\arabic{enc}\addtocounter{age}{-4}}% SPEED 4-5
-	{{\arabic{age}}% INTELLIGENCE
-	{\arabic{enc}}% WITS
-	{\arabic{track}}}% CHARISMA
-	{}%
-	{\arabic{age}}% COMBAT
-	{
+  \person{\value{age}}% STRENGTH
+  {\value{age}}% DEXTERITY
+  {\arabic{enc}\addtocounter{age}{-4}}% SPEED 4-5
+  {{\arabic{age}}% INTELLIGENCE
+  {\arabic{enc}}% WITS
+  {\arabic{track}}}% CHARISMA
+  {}%
+  {\arabic{age}}% COMBAT
+  {
     \ifnum\value{r3}<3%
       \setcounter{gold}{3}%
       \addtocounter{gold}{-\value{r3}}%
       Xenomology~\arabic{gold}%
     \fi%
   }{}%
-	{
+  {
     \setcounter{Brawl}{\value{enc}}
     \setcounter{Projectiles}{\value{r3b}}
     \setcounter{Academics}{\value{r3}}
@@ -242,73 +264,85 @@
         \setcounter{Earth}{\value{r2c}}%
       \fi%
   }
-	}
+}
 
 \newcommand{\dwarventrader}[1][\npc{\T[\arabic{r12}]\Dw\M}{\arabic{r12} Dwarven Traders}]{
-	\randomdozen
-	#1
-	\randomtwoB
-	\randomthree\randomtwo\addtocounter{enc}{-1}
-	\person{\arabic{enc}}% STRENGTH
-	{1}% DEXTERITY
-	{-1}% SPEED
-	{{\arabic{r2}}% INTELLIGENCE
-	{0}% WITS
-	{0}}% CHARISMA
-	{0}% DR
-	{1}% COMBAT
-	{Caving \arabic{r2}, Crafts~\arabic{r2b}, Deceit~\arabic{r3}}% SKILLS
+  \randomdozen
+  #1
+  \randomtwoB
+  \randomthree\randomtwo\addtocounter{enc}{-1}
+  \person{\arabic{enc}}% STRENGTH
+  {1}% DEXTERITY
+  {-1}% SPEED
+  {{\arabic{r2}}% INTELLIGENCE
+  {0}% WITS
+  {0}}% CHARISMA
+  {0}% DR
+  {1}% COMBAT
+  {}% SKILLS
   {\shortsword, \ifodd\value{r4}\lootMedium\else\lootBig, \lootJewellery\fi}% EQUIPMENT
-	{}
-	}
-%
+  {
+    \setcounter{Caving}{\value{r2}}%
+    \setcounter{Crafts}{\value{r2b}}%
+    \setcounter{Deceit}{\value{r3}}%
+  }
+  }
+
 \newcommand{\dwarvensoldier}[1][\npc{\T[\arabic{r12}]\Dw\M}{\arabic{r12} Dwarven Soldiers}]{
-	\randomdozen
-	#1
-	\randomtwo
-	\person{\arabic{r2}}% STRENGTH
-	{\arabic{enc}}% DEXTERITY
-	{0}%Speed
-	{{0}% INTELLIGENCE
-	{0}% WITS
-	{-1}}% CHARISMA
-	{0}% DR
-	{2}% COMBAT
-	{Caving \arabic{r2}, Crafts~1, Tactics~1%
-  }% SKILLS
-	{\ifodd\value{r2}\spear, \partialchain\else\shortsword, \partialplate\fi, \lootMedium}% EQUIPMENT
-	{
+  \randomdozen
+  #1
+  \randomtwo
+  \randomtwoB
+  \person{\arabic{r2}}% STRENGTH
+  {\arabic{enc}}% DEXTERITY
+  {0}%Speed
+  {{0}% INTELLIGENCE
+  {0}% WITS
+  {-1}}% CHARISMA
+  {0}% DR
+  {2}% COMBAT
+  {Caving \arabic{r2}, Crafts~1, Tactics~1}% SKILLS
+  {\ifodd\value{r2}\spear, \partialchain\else\shortsword, \partialplate\fi, \lootMedium}% EQUIPMENT
+  {
     \knacks{\chosenEnemy{Goblins}}%
+    \setcounter{Caving}{\value{r2}}
+    \setcounter{Crafts}{1}
+    \addtocounter{r2b}{-1}
+    \setcounter{Tactics}{\value{r2b}}
   }% Mods
 }
 
 \newcommand{\dwarvenrunemaster}[1][\npc{\Dw\M}{Dwarven Runemaster}]{
-	#1
-	\randomtwo
-	\randomtwoD
-	\addtocounter{enc}{1}
-	\randomthree
+  #1
+  \randomtwo
+  \randomtwoD
+  \addtocounter{enc}{1}
+  \randomthree
     \addtocounter{age}{-2}
-	\randomthreeB
-	\randomfour
-	\person{0}% STRENGTH
-	{1}% DEXTERITY
-	{0}% SPEED
-	{{\value{r2d}}% INTELLIGENCE
-	{\value{age}}% WITS
-	{0}}%  CHARISMA
-	{0}% DR
-	{1}% COMBAT
-	{Academics~\arabic{enc}, Caving \arabic{r2}, Crafts~1, Tactics~2
+  \randomthreeB
+  \randomfour
+  \person{0}% STRENGTH
+  {1}% DEXTERITY
+  {0}% SPEED
+  {{\value{r2d}}% INTELLIGENCE
+  {\value{age}}% WITS
+  {0}}%  CHARISMA
+  {0}% DR
+  {1}% COMBAT
+  {Academics~\arabic{enc}, Caving \arabic{r2}, Crafts~1, Tactics~2
     \Spheres{
       Fate~\arabic{enc}, \ifodd\value{r2d}Fire\else Air\fi ~\arabic{r3b}
     }
   }% SKILLS
-	{\shortsword, \partialchain, \lootMedium}% EQUIPMENT
-	{
+  {\shortsword, \partialchain, \lootMedium}% EQUIPMENT
+  {
     \knacks{\ritualcaster}%
+    \setcounter{Academics}{\value{enc}}
+    \setcounter{Caving}{\value{r2}}
+    \setcounter{Crafts}{1}
+    \setcounter{Tactics}{\value{age}}
   }
-	}
+}
 
 \newcommand{\hag}[1][\npc{\Hu\F}{Hag}]{
     #1
@@ -370,32 +404,32 @@
 
 
 \newcommand{\dryad}[1][\npc{\E\El}{Dryad}]{
-	#1
-	\randomtwo
-	\randomtwoB
-	\randomtwoC
-	\addtocounter{enc}{2}
-	\randomthree
-	\randomthreeC
-	\addtocounter{age}{1}
-	\randomthreeB
-	\randomfour
-	\randomfourB
+  #1
+  \randomtwo
+  \randomtwoB
+  \randomtwoC
+  \addtocounter{enc}{2}
+  \randomthree
+  \randomthreeC
+  \addtocounter{age}{1}
+  \randomthreeB
+  \randomfour
+  \randomfourB
   \addtocounter{r4b}{-1}
-	\addtocounter{r4}{-2}
-	\person{\arabic{enc}}% STRENGTH
-	{\arabic{r2}}% DEXTERITY
-	{1}% SPEED
-	{{\arabic{age}}% INTELLIGENCE
-	{2}% WITS
-	{\arabic{r4}}}% CHARISMA
-	{6}% DR
-	{\arabic{r3}}% COMBAT
-	{
+  \addtocounter{r4}{-2}
+  \person{\arabic{enc}}% STRENGTH
+  {\arabic{r2}}% DEXTERITY
+  {1}% SPEED
+  {{\arabic{age}}% INTELLIGENCE
+  {2}% WITS
+  {\arabic{r4}}}% CHARISMA
+  {6}% DR
+  {\arabic{r3}}% COMBAT
+  {
   Academics~3, Athletics~\arabic{r3c}, \ifodd\value{r2}Crafts~2, Performance~\arabic{r3}, \else Empathy~\arabic{r2b}, Seafaring~\arabic{r3}, Vigilance~\arabic{r3b}, Wyldcrafting~3\fi 
     }% SKILLS
   {\ifodd\value{r2b}\Dagger, \lootJewellery\else\spear\fi}% EQUIPMENT
-	{
+  {
     \setcounter{track}{4}
     \setcounter{Fate}{4}
     \addtocounter{Fate}{-\value{r4b}}
@@ -404,35 +438,46 @@
     \setcounter{Fire}{\value{r4b}}
     \setcounter{Water}{3}
     \renewcommand\abilities{\randomfour\mutation{r4}, \stepcounter{r4} \mutation{r4}, \stepcounter{r4} \mutation{r4}.}
+    \setcounter{Academics}{3}
+    \setcounter{Athletics}{\value{r3c}}
+    \ifodd\value{r2}
+      \setcounter{Crafts}{\value{r2}}
+      \setcounter{Performance}{\value{r3}}
+    \else
+      \setcounter{Empathy}{\value{r2b}}
+      \setcounter{Seafaring}{\value{r3}}
+      \setcounter{Vigilance}{\value{r3b}}
+      \setcounter{Wyldcrafting}{3}
+    \fi
   }
-	}
+  }
 
 \newcommand{\elf}[1][\npc{\T[\arabic{r2c}]\El\F}{\arabic{r2c} Elves}]{
   \randomtwoC
   \stepcounter{r2c}
-	#1
-	\randomtwo
-	\randomtwoB
-	\randomthree
-	\randomthreeB
-	\randomfour
-	\randomdozen
-	\setcounter{gold}{1}\addtocounter{gold}{-\value{age}}
-	\person{\value{gold}}%STRENGTH
-	{\arabic{r2}}%DEXTERITY
-	{\arabic{r2b}}%SPEED
-	{{\arabic{age}}% INTELLIGENCE
-	{\arabic{r2}}% WITS
-	{\ifodd\value{r3}\arabic{r2}\else -1\fi}}% CHARISMA
-	{0}% DR
-	{\ifodd\value{list}1\else2\fi}% COMBAT
-	{\ifnumcomp{\value{r4}}{<}{2}{}{Projectiles~\arabic{age},} Academics~\arabic{age}, Athletics~1, \ifodd\value{r4} Crafts~\arabic{r3}\else Performance~\arabic{r2b}\fi, Stealth~\arabic{r2}, Vigilance~\arabic{age}, Wyldcrafting~\arabic{r3b}
-	}% SKILLS
-	{\ifnumcomp{\value{r4}}{=}{2}{\rapier, dagger, }{\Dagger, shortbow, }%
-	\lootJewellery\ifnum\value{r12}>12%
-		, \lootMagic%
-	\fi}% EQUIPMENT
-	{
+  #1
+  \randomtwo
+  \randomtwoB
+  \randomthree
+  \randomthreeB
+  \randomfour
+  \randomdozen
+  \setcounter{gold}{1}\addtocounter{gold}{-\value{age}}
+  \person{\value{gold}}%STRENGTH
+  {\arabic{r2}}%DEXTERITY
+  {\arabic{r2b}}%SPEED
+  {{\arabic{age}}% INTELLIGENCE
+  {\arabic{r2}}% WITS
+  {\ifodd\value{r3}\arabic{r2}\else -1\fi}}% CHARISMA
+  {0}% DR
+  {\ifodd\value{list}1\else2\fi}% COMBAT
+  {\ifnumcomp{\value{r4}}{<}{2}{}{Projectiles~\arabic{age},} Academics~\arabic{age}, Athletics~1, \ifodd\value{r4} Crafts~\arabic{r3}\else Performance~\arabic{r2b}\fi, Stealth~\arabic{r2}, Vigilance~\arabic{age}, Wyldcrafting~\arabic{r3b}
+  }% SKILLS
+  {\ifnumcomp{\value{r4}}{=}{2}{\rapier, dagger, }{\Dagger, shortbow, }%
+  \lootJewellery\ifnum\value{r12}>12%
+    , \lootMagic%
+  \fi}% EQUIPMENT
+  {
     \knacks{%
       \ifnum\value{r4}=2%
         \weaponmaster{rapier}%
@@ -454,29 +499,29 @@
 }
 
 \newcommand{\elvenenchanter}[1][\npc{\El\M}{Elven Enchanter}]{
-	#1
-	\randomtwo
-	\randomtwoB
-	\randomtwoC
-	\randomtwoD
-	\randomthree
-	\randomthreeB
+  #1
+  \randomtwo
+  \randomtwoB
+  \randomtwoC
+  \randomtwoD
+  \randomthree
+  \randomthreeB
   \stepcounter{r3b}
-	\randomthreeC
-	\addtocounter{enc}{1}
-	\multiply\value{age} by -1
-	\person{\arabic{age}}% STRENGTH
-	{\arabic{r2b}}% DEXTERITY 
-	{1}% SPEED
-	{{\arabic{r3}}% INTELLIGENCE
-	{\arabic{enc}\randomtwo}% WITS
-	{\arabic{r3b}}}% CHARISMA
-	{0}% DR
-	{\value{r2d}}% COMBAT
-	{Projectiles~\arabic{r2b}, Academics~3, Empathy~3, Deceit~\arabic{enc}, Performance~\arabic{r2}, \ifodd\value{r2}Stealth~\else Tactics~\fi \arabic{r2b}, Wyldcrafting~\arabic{r2c}, Vigilance~2%
+  \randomthreeC
+  \addtocounter{enc}{1}
+  \multiply\value{age} by -1
+  \person{\arabic{age}}% STRENGTH
+  {\arabic{r2b}}% DEXTERITY 
+  {1}% SPEED
+  {{\arabic{r3}}% INTELLIGENCE
+  {\arabic{enc}\randomtwo}% WITS
+  {\arabic{r3b}}}% CHARISMA
+  {0}% DR
+  {\value{r2d}}% COMBAT
+  {Projectiles~\arabic{r2b}, Academics~3, Empathy~3, Deceit~\arabic{enc}, Performance~\arabic{r2}, \ifodd\value{r2}Stealth~\else Tactics~\fi \arabic{r2b}, Wyldcrafting~\arabic{r2c}, Vigilance~2%
   }% SKILLS
   {\Dagger, \lootJewellery\ifodd\value{r4}, \randomtwo\lootJewellery\ifodd\value{r4}, \lootMagic\fi\fi}% EQUIPMENT
-	{
+  {
     \ifodd\value{r2b}
       \setcounter{Air}{\value{r2c}}
     \else
@@ -488,14 +533,14 @@
 }
 
 \newcommand{\gnome}[1][\npc{\Gn\M}{Wandering Gnome}]{
-	#1
-	\randomtwo
-	\randomtwoC
-	\addtocounter{enc}{-2}
+  #1
+  \randomtwo
+  \randomtwoC
+  \addtocounter{enc}{-2}
   \randomthree
-	\randomtwoB
-	\randomthreeB
-	\randomthreeC
+  \randomtwoB
+  \randomthreeB
+  \randomthreeC
 \person{-2}% STRENGTH
 {\arabic{r2}}% DEXTERITY 
 {\arabic{enc}}% SPEED
@@ -507,12 +552,12 @@
 {Academics~\arabic{r3}, Caving \arabic{r3c}, \ifodd\value{r3c} Crafts~\arabic{r2}, \else Deceit \arabic{age}, \fi Empathy~\arabic{r2b}, \ifodd\value{r3b} \else Larceny~1, Stealth~1 \fi 
 \ifodd\value{r12} Vigilance~\arabic{r2c}\fi
 \ifodd\value{r2c}
-	\Spheres{Fire~\arabic{r2}}
+  \Spheres{Fire~\arabic{r2}}
 \fi}% SKILLS
 {\ifodd\value{r3}%
-	\Dagger,
+  \Dagger,
 \else%
-	\lootMedium%
+  \lootMedium%
 \fi%
 }% EQUIPMENT
 {}
@@ -520,14 +565,14 @@
 
 \newcommand{\gnomishsoldier}[1][\npc{\T[\arabic{r12}]\Gn\M}{Gnomish Soldiers}]{
   \randomdozen
-	#1
-	\randomtwo
-	\addtocounter{enc}{-2}
-	\randomtwoB
-	\randomtwoC
-	\addtocounter{r2b}{-1}
-	\randomthree
-	\randomthreeB
+  #1
+  \randomtwo
+  \addtocounter{enc}{-2}
+  \randomtwoB
+  \randomtwoC
+  \addtocounter{r2b}{-1}
+  \randomthree
+  \randomthreeB
 \person{\arabic{enc}}% STRENGTH
 {\arabic{r2}}% DEXTERITY 
 {\arabic{r2b}}% SPEED
@@ -537,17 +582,17 @@
 {0}% DR
 {\arabic{r2}}% COMBAT
 {\ifnum\value{enc}<0%
-	Projectiles \arabic{r2c}, 
+  Projectiles \arabic{r2c}, 
 \fi%
 Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\value{r2} \else Larceny~\arabic{r2c}, \fi Stealth~\arabic{r2c}
 }% SKILLS
 {\ifnum\value{enc}=0%
-	\shortsword
+  \shortsword
 \else%
-	Shortbow, \Dagger%
+  Shortbow, \Dagger%
 \fi%
 \ifnum\value{r3c}=2%
-	, \partialelvish%
+  , \partialelvish%
 \fi%
 , \lootMedium
 }% EQUIPMENT
@@ -555,25 +600,25 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 }
 
 \newcommand{\gnomishillusionist}[1][\npc{\Gn\M}{Gnomish Illusionist}]{
-	#1
-	\randomtwo
-	\randomtwoD
-	\randomthree
-	\addtocounter{age}{1}
-	\randomthreeB
-	\addtocounter{r3b}{-3}
-	\randomfour
-	\person{\arabic{r3b}}% STRENGTH
-	{-2}% DEXTERITY 
-	{1}% SPEED
-	{{\arabic{age}}% INTELLIGENCE
-	{2}% WITS
-	{\arabic{enc}}}% CHARISMA
-	{0}% DR
-	{0}% COMBAT
-	{\ifodd\value{r2}%
-		\else Projectiles \arabic{enc}, \fi%
-	Academics~3, \ifodd\value{chapter} Crafts~\arabic{enc}, \fi Deceit~\arabic{age},  Stealth~\arabic{enc}
+  #1
+  \randomtwo
+  \randomtwoD
+  \randomthree
+  \addtocounter{age}{1}
+  \randomthreeB
+  \addtocounter{r3b}{-3}
+  \randomfour
+  \person{\arabic{r3b}}% STRENGTH
+  {-2}% DEXTERITY 
+  {1}% SPEED
+  {{\arabic{age}}% INTELLIGENCE
+  {2}% WITS
+  {\arabic{enc}}}% CHARISMA
+  {0}% DR
+  {0}% COMBAT
+  {\ifodd\value{r2}%
+    \else Projectiles \arabic{enc}, \fi%
+  Academics~3, \ifodd\value{chapter} Crafts~\arabic{enc}, \fi Deceit~\arabic{age},  Stealth~\arabic{enc}
     \Spheres{
       Fire~\arabic{r2d}
       \ifodd\value{r12}%
@@ -583,14 +628,14 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
     }
   }% SKILLS
   {\lootBig\ifodd\value{r4}, \lootMagic\fi}% EQUIPMENT
-	{}
+  {}
 }
 
 \newcommand{\humanfarmer}[1][\npc{\Hu\M}{Farmer}]{
-	#1
-	\randomtwo
-	\addtocounter{enc}{1}
-	\randomthree
+  #1
+  \randomtwo
+  \addtocounter{enc}{1}
+  \randomthree
   \addtocounter{age}{-2}
   \randomfour
   \person{\arabic{enc}}% STRENGTH
@@ -625,9 +670,9 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 }
 
 \newcommand{\humanmaid}[1][\npc{\Hu\F}{Maid}]{
-	#1
-	\randomthree
-	\randomtwo
+  #1
+  \randomthree
+  \randomtwo
 \person{1}% STRENGTH
 {\ifodd \value{age} -1\else1\fi}% DEXTERITY 
 {0}% SPEED
@@ -643,12 +688,12 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 
 \newcommand{\humantrader}[1][\npc{\T[\arabic{r12}]\Hu\M}{\arabic{r12} Traders}]{
   \randomdozen
-	#1
-	\randomtwo
-	\randomtwoB
-	\randomtwoC
-	\randomthree
-	\addtocounter{enc}{-1}
+  #1
+  \randomtwo
+  \randomtwoB
+  \randomtwoC
+  \randomthree
+  \addtocounter{enc}{-1}
 \person{\arabic{age}}% STRENGTH
 {0}% DEXTERITY 
 {0}% SPEED
@@ -667,15 +712,15 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 }
 
 \newcommand{\humandiplomat}[1][\npc{\Hu\M}{The Diplomat}]{
-	#1
-	\randomtwo
-	\addtocounter{enc}{-1}
-	\randomthree
-	\addtocounter{age}{-2}
-	\multiply\value{age} by -1
-	\randomfour
-	\randomfourB
-	\addtocounter{track}{-2}
+  #1
+  \randomtwo
+  \addtocounter{enc}{-1}
+  \randomthree
+  \addtocounter{age}{-2}
+  \multiply\value{age} by -1
+  \randomfour
+  \randomfourB
+  \addtocounter{track}{-2}
 \person{1}% STRENGTH
 {\arabic{age}}% DEXTERITY 
 {0}% SPEED
@@ -697,14 +742,14 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 }
 
 \newcommand{\humanpriest}[1][\npc{\Hu\F}{Human Priest}]{
-	#1
-	\randomtwo
-	\randomtwoB
-	\randomtwoC
-	\addtocounter{r2b}{-1}
-	\randomthree
-	\addtocounter{age}{1}
-	\randomthreeB
+  #1
+  \randomtwo
+  \randomtwoB
+  \randomtwoC
+  \addtocounter{r2b}{-1}
+  \randomthree
+  \addtocounter{age}{1}
+  \randomthreeB
 \person{1}% STRENGTH
 {0}% DEXTERITY 
 {0}% SPEED
@@ -730,15 +775,15 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 
 \newcommand{\humansoldier}[1][\npc{\T[\arabic{r12}]\Hu}{\arabic{r12} Soldiers}]{
   \randomdozen
-	#1
-	\randomtwo
-	\addtocounter{enc}{1}
-	\randomtwoB
-	\setcounter{gold}{\value{r2b}}
-	\addtocounter{gold}{-1}
-	\randomthree
-	\addtocounter{age}{-1}
-	\randomfour
+  #1
+  \randomtwo
+  \addtocounter{enc}{1}
+  \randomtwoB
+  \setcounter{gold}{\value{r2b}}
+  \addtocounter{gold}{-1}
+  \randomthree
+  \addtocounter{age}{-1}
+  \randomfour
 \person{\arabic{enc}}% STRENGTH
 {\arabic{age}}% DEXTERITY 
 {\arabic{gold}}% SPEED
@@ -751,48 +796,48 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
   Tactics~\arabic{r2b}, Wyldcrafting~\arabic{r2},%
 }% SKILLS
 {\ifodd\value{enc}%
-	{\greatsword}%
+  {\greatsword}%
 \else%
-	\ifodd\value{age}%
-		{\longsword}%
-	\else%
-		{\shortsword}%
-	\fi%
+  \ifodd\value{age}%
+    {\longsword}%
+  \else%
+    {\shortsword}%
+  \fi%
 \fi, %
 \ifnum\value{r3}=3%
-	\partialleather%
+  \partialleather%
 \else%
-	\partialchain%
+  \partialchain%
 \fi, %
 \ifodd\value{r4}
-	\roundshield, 
+  \roundshield, 
 \fi
-	\ifnum\value{enc}=3\lootMedium\else\lootSmall\fi}% EQUIPMENT
+  \ifnum\value{enc}=3\lootMedium\else\lootSmall\fi}% EQUIPMENT
 {
   \ifodd\value{r3}%
-  	\knacks{\ifodd\value{r2b}
-  		\adrenalinesurge, 
-  	\else
-  		\stunningstrike, 
-  	\fi
-  	\ifodd\value{r4}
-  		\charge
-  	\fi}
+    \knacks{\ifodd\value{r2b}
+      \adrenalinesurge, 
+    \else
+      \stunningstrike, 
+    \fi
+    \ifodd\value{r4}
+      \charge
+    \fi}
   \fi
 }
 }
 
 \newcommand{\royalguard}[1][\npc{\T[\arabic{r12}]\Hu}{\arabic{r12} Guards}]{
   \randomdozen
-	#1
-	\randomtwo
-	\addtocounter{enc}{1}
-	\randomtwoB
-	\setcounter{gold}{\value{r2b}}
-	\addtocounter{gold}{-1}
-	\randomthree
-	\addtocounter{age}{-1}
-	\randomfour
+  #1
+  \randomtwo
+  \addtocounter{enc}{1}
+  \randomtwoB
+  \setcounter{gold}{\value{r2b}}
+  \addtocounter{gold}{-1}
+  \randomthree
+  \addtocounter{age}{-1}
+  \randomfour
 \person{\arabic{enc}}% STRENGTH
 {\arabic{age}}% DEXTERITY 
 {\arabic{gold}}% SPEED
@@ -804,39 +849,39 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 {\ifodd\value{r3}Craft~\arabic{r2},\fi Tactics~\arabic{r2b}%
 }% SKILLS
 {\ifodd\value{enc}%
-	{\greatsword}%
+  {\greatsword}%
 \else%
-	\ifodd\value{age}%
-		{\longsword}%
-	\else%
-		{\spear}%
-	\fi%
+  \ifodd\value{age}%
+    {\longsword}%
+  \else%
+    {\spear}%
+  \fi%
 \fi, %
-	\partialplate, %
+  \partialplate, %
 \ifodd\value{r4}
-	\roundshield, 
+  \roundshield, 
 \fi
-	\ifnum\value{enc}=3\lootMedium\else\lootSmall\fi}% EQUIPMENT
+  \ifnum\value{enc}=3\lootMedium\else\lootSmall\fi}% EQUIPMENT
 {
-	\ifodd\value{r3}%
-		\knacks{\ifodd\value{r2b}
-			\adrenalinesurge, 
-		\else
-			\precisestrike, 
-		\fi
-		\ifodd\value{r4}
-			\charge
-		\fi}
-	\fi
+  \ifodd\value{r3}%
+    \knacks{\ifodd\value{r2b}
+      \adrenalinesurge, 
+    \else
+      \precisestrike, 
+    \fi
+    \ifodd\value{r4}
+      \charge
+    \fi}
+  \fi
 }
 }
 
 \newcommand{\humanarcher}[1][\npc{\T[\arabic{r12}]\Hu}{\arabic{r12} Archers}]{
   \randomdozen
-	#1
-	\randomtwo
-	\randomtwoB
-	\addtocounter{enc}{-1}
+  #1
+  \randomtwo
+  \randomtwoB
+  \addtocounter{enc}{-1}
 \person{2}% STRENGTH
 {\arabic{r2b}}% DEXTERITY 
 {0}% SPEED
@@ -861,16 +906,16 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 }
 
 \newcommand{\humanthief}[1][\npc{\Hu\M}{Thief}]{
-	#1
-	\randomtwo
-	\addtocounter{enc}{-1}
-	\multiply\value{enc} by -1
-	\randomtwoB
-	\randomthree
-	\randomthreeB
-	\addtocounter{age}{-1}
-	\randomfour
-	\addtocounter{track}{-2}
+  #1
+  \randomtwo
+  \addtocounter{enc}{-1}
+  \multiply\value{enc} by -1
+  \randomtwoB
+  \randomthree
+  \randomthreeB
+  \addtocounter{age}{-1}
+  \randomfour
+  \addtocounter{track}{-2}
 \person{1}% STRENGTH
 {\arabic{r2}}% DEXTERITY 
 {\arabic{age}}% SPEED
@@ -885,21 +930,21 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 \else
   \shortsword,
 \fi\ifnum\value{r4}=1%
-		\partialleather, %
-	\fi%
+    \partialleather, %
+  \fi%
 \lootSmall}% EQUIPMENT
 {}
 }
 
 \newcommand{\humanbard}[1][\npc{\Hu\F}{Bard}]{
-	#1
-	\randomtwo
-	\addtocounter{enc}{1}
-	\randomthree
-	\addtocounter{age}{-1}
-	\randomthreeB
-	\randomfour
-	\randomdozen
+  #1
+  \randomtwo
+  \addtocounter{enc}{1}
+  \randomthree
+  \addtocounter{age}{-1}
+  \randomthreeB
+  \randomfour
+  \randomdozen
 \person{1}% STRENGTH
 {\arabic{r3b}}% DEXTERITY 
 {\arabic{r2b}}% SPEED
@@ -910,7 +955,7 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 {\arabic{age}}% COMBAT
 {Academics~\ifodd\value{r3b}\arabic{r2}\else\arabic{r3b}\fi, Empathy~\arabic{enc}, Deceit~\ifodd\value{r4b} 2\else 1\fi, Performance~\ifodd\thechapter 2\else 1\fi%
 \ifnum\value{noAppearing}=1
-	\ifnum\value{r3}>2
+  \ifnum\value{r3}>2
     \Spheres{
       \ifodd\value{r3b}%
         Fate~2%
@@ -924,23 +969,23 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 \fi%
 }% SKILLS
 {\ifodd\value{r3}\rapier%
-	\else%
-	\Dagger%
+  \else%
+  \Dagger%
 \fi%
   , lute, \lootMedium\ifodd\value{r3}, \lootJewellery\fi}% EQUIPMENT
 {}
 }
 
 \newcommand{\humanalchemist}[1][\npc{\M}{Alchemist}]{
-	#1
-	\randomtwo
-	\addtocounter{enc}{1}
-	\randomthree
-	\randomthreeB
-	\randomtwoB
-	\addtocounter{r2b}{-1}
-	\addtocounter{age}{-1}
-	\multiply\value{age} by -1
+  #1
+  \randomtwo
+  \addtocounter{enc}{1}
+  \randomthree
+  \randomthreeB
+  \randomtwoB
+  \addtocounter{r2b}{-1}
+  \addtocounter{age}{-1}
+  \multiply\value{age} by -1
 \person{\arabic{age}}% STRENGTH
 {0}% DEXTERITY 
 {0}% SPEED
@@ -964,11 +1009,11 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 
 \newcommand{\gnollhunter}[1][\npc{\T[\arabic{r12}]\Nl}{\arabic{r12} Gnoll Hunters}]{
   \randomdozen
-	#1
-	\randomtwo\addtocounter{enc}{1}
-	\randomtwoB
-	\randomtwoC
-	\addtocounter{r2b}{-1}
+  #1
+  \randomtwo\addtocounter{enc}{1}
+  \randomtwoB
+  \randomtwoC
+  \addtocounter{r2b}{-1}
 \person{\arabic{enc}}% STRENGTH
 {\arabic{r2b}}% DEXTERITY 
 {1}% SPEED
@@ -987,16 +1032,16 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 }
 
 \newcommand{\gnollshaman}[1][\npc{\Nl\F}{Gnoll Shaman}]{
-	#1
-	\addtocounter{age}{-2}
-	\randomtwo
-	\randomtwoB
-	\randomtwoD
-	\randomthree
-	\randomthreeB
-	\randomthreeC
-	\randomfour
-	\randomdozen
+  #1
+  \addtocounter{age}{-2}
+  \randomtwo
+  \randomtwoB
+  \randomtwoD
+  \randomthree
+  \randomthreeB
+  \randomthreeC
+  \randomfour
+  \randomdozen
 \person{\arabic{age}}% STRENGTH
 {0}% DEXTERITY 
 {\arabic{r2}}% SPEED
@@ -1007,8 +1052,8 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 {1}% COMBAT
 {Brawl~2, Projectiles~\arabic{r2b}, Academics~\arabic{r2}, \ifodd\value{r3b}\else Deceit~\arabic{r3b}, \fi Stealth~\arabic{r3}, Wyldcrafting~\arabic{r2b}, 
 \ifnum\value{r4}>1%
-	{Vigilance~\arabic{enc}}%
-	\fi%
+  {Vigilance~\arabic{enc}}%
+  \fi%
   \Spheres{
     \ifodd\value{r2}%
       Air\else Fire%
@@ -1031,22 +1076,22 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 }
 
 \newcommand{\morphcat}[1][\npc{\A\R}{Morph Cat}]{
-	#1
-	\randomtwo
-	\addtocounter{enc}{2}
-	\randomtwoB
-	\addtocounter{r2b}{2}
-	\randomthree
-	\animal{\arabic{r2}}% STRENGTH
-	{\arabic{r2b}}% DEXTERITY
-	{\arabic{enc}}% SPEED
-	{\arabic{r2}}% WITS
-	{0}% DR
-	{\arabic{enc}}% AGGRESSION
-	{Athletics~3, Stealth~\arabic{r2}, Sealth~\arabic{r3}, Vigilance~\arabic{r3b}, Wyldcrafting~\arabic{r3}
+  #1
+  \randomtwo
+  \addtocounter{enc}{2}
+  \randomtwoB
+  \addtocounter{r2b}{2}
+  \randomthree
+  \animal{\arabic{r2}}% STRENGTH
+  {\arabic{r2b}}% DEXTERITY
+  {\arabic{enc}}% SPEED
+  {\arabic{r2}}% WITS
+  {0}% DR
+  {\arabic{enc}}% AGGRESSION
+  {Athletics~3, Stealth~\arabic{r2}, Sealth~\arabic{r3}, Vigilance~\arabic{r3b}, Wyldcrafting~\arabic{r3}
 
   }% SKILLS
-	{\claws}%
+  {\claws}%
   {
     \knacks{
       \ifodd\value{r3}
@@ -1060,11 +1105,11 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 
 \newcommand{\morphcrab}[1][\npc{\T[\arabic{r12}]\A\R}{\arabic{r12} Morph Crabs}]{
   \randomdozen
-	#1
-	\randomthree
-	\randomtwo
-	\randomtwoB
-	\addtocounter{enc}{5}
+  #1
+  \randomthree
+  \randomtwo
+  \randomtwoB
+  \addtocounter{enc}{5}
 \animal{\arabic{age}}% STRENGTH
 {-2}% DEXTERITY 
 {\arabic{r2b}}% SPEED
@@ -1078,9 +1123,9 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 
 \newcommand{\morphhorse}[1][\npc{\T[\arabic{r3c}]\A\R}{Morph Horse}]{
   \randomthreeC
-	#1
-	\randomtwo
-	\randomtwoB
+  #1
+  \randomtwo
+  \randomtwoB
 \animal{2}% STRENGTH
 {\arabic{r2b}}% DEXTERITY 
 {2}% SPEED
@@ -1101,9 +1146,9 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
   \randomdozen
   \randomtwoB
   \multiply\value{r12} by \value{r2b}
-	#1
-	\randomtwo
-	\addtocounter{enc}{-3}
+  #1
+  \randomtwo
+  \addtocounter{enc}{-3}
 \animal{\arabic{enc}}% STRENGTH
 {-1}% DEXTERITY 
 {-4}% SPEED
@@ -1116,13 +1161,13 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 }
 
 \newcommand{\morphspider}[1][\npc{\A\R}{Morph Spider}]{
-	#1
-	\randomthree
-	\addtocounter{age}{2}
-	\randomtwo
-	\addtocounter{enc}{-\value{r3}}
-	\addtocounter{enc}{2}
-	\addtocounter{r2}{1}
+  #1
+  \randomthree
+  \addtocounter{age}{2}
+  \randomtwo
+  \addtocounter{enc}{-\value{r3}}
+  \addtocounter{enc}{2}
+  \addtocounter{r2}{1}
 \animal{\arabic{age}}% STRENGTH
 {\arabic{enc}}% DEXTERITY 
 {\arabic{enc}}% SPEED
@@ -1135,13 +1180,13 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 }
 
 \newcommand{\morphwoodspy}[1][\npc{\E\R}{Morph Woodspy}]{
-	#1
-	\randomtwo
-	\randomtwoB
-	\addtocounter{r2b}{2}
-	\randomthree
-	\addtocounter{enc}{2}
-	\addtocounter{age}{1}
+  #1
+  \randomtwo
+  \randomtwoB
+  \addtocounter{r2b}{2}
+  \randomthree
+  \addtocounter{enc}{2}
+  \addtocounter{age}{1}
 \animal{\arabic{enc}}% STRENGTH
 {\arabic{r3}}% DEXTERITY 
 {\arabic{r2b}}% SPEED
@@ -1155,13 +1200,13 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 
 \newcommand{\morphrat}[1][\npc{\T[\arabic{r12}]\A\R}{\arabic{r12} Morph Rats}]{
   \randomdozen
-	\randomtwoB
+  \randomtwoB
   \multiply\value{r12} by \value{r2b}
-	#1
-	\randomtwo
-	\addtocounter{enc}{-1}
-	\randomthree
-	\randomthreeB
+  #1
+  \randomtwo
+  \addtocounter{enc}{-1}
+  \randomthree
+  \randomthreeB
 \animal{\arabic{enc}}% STRENGTH
 {0}% DEXTERITY 
 {\arabic{r2b}}% SPEED
@@ -1175,11 +1220,11 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 
 \newcommand{\morphwolf}[1][\npc{\T[\arabic{r12}]\A\R}{\arabic{r12} Morph Wolves}]{
   \randomdozen
-	#1
-	\randomtwo
-	\addtocounter{enc}{2}
-	\randomtwoB
-	\randomthree
+  #1
+  \randomtwo
+  \addtocounter{enc}{2}
+  \randomtwoB
+  \randomthree
 \animal{\arabic{r2b}}% STRENGTH
 {0}% DEXTERITY 
 {\arabic{enc}}% SPEED
@@ -1245,10 +1290,10 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 
 \newcommand{\undeadgoblin}[1][\npc{\T[\arabic{r12}]\D}{\arabic{r12} Undead Hobgoblins}]{
   \randomdozen
-	#1
-	\randomtwo\addtocounter{enc}{-2}
-	\randomtwoB
-	\addtocounter{r2b}{-1}
+  #1
+  \randomtwo\addtocounter{enc}{-2}
+  \randomtwoB
+  \addtocounter{r2b}{-1}
 \animal{\arabic{enc}}% STRENGTH
 {-2}% DEXTERITY 
 {\arabic{r2b}}% SPEED
@@ -1262,11 +1307,11 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 
 \newcommand{\deepgoblin}[1][\npc{\T[\arabic{r12}]\N}{\arabic{r12} Goblins}]{
   \randomdozen
-	#1
-	\randomtwo\addtocounter{enc}{-2}
-	\randomtwoB
-	\randomtwoC
-	\addtocounter{r2b}{2}
+  #1
+  \randomtwo\addtocounter{enc}{-2}
+  \randomtwoB
+  \randomtwoC
+  \addtocounter{r2b}{2}
 \person{\arabic{enc}}% STRENGTH
 {\arabic{r2}}% DEXTERITY 
 {\arabic{r2b}}% SPEED
@@ -1281,15 +1326,15 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 }
 
 \newcommand{\goblincaster}[1][\npc{\F\N}{Goblin Druid}]{
-	#1
-	\randomtwo
-	\randomtwoB
-	\randomtwoC
-	\randomthree
-	\addtocounter{age}{-1}
-	\randomthreeB
-	\randomfour
-	\randomfourB
+  #1
+  \randomtwo
+  \randomtwoB
+  \randomtwoC
+  \randomthree
+  \addtocounter{age}{-1}
+  \randomthreeB
+  \randomfour
+  \randomfourB
 \person{-2}% STRENGTH
 {\arabic{r3}}% DEXTERITY 
 {1}% SPEED
@@ -1302,7 +1347,7 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 }% SKILLS
 {\Dagger\ifodd\value{r4}, \lootGoblin\fi%
 \ifnum\value{r4b}=4%
-	, \lootMagic
+  , \lootMagic
 \fi%
 }% EQUIPMENT
 {
@@ -1322,11 +1367,11 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 
 \newcommand{\hobgoblin}[1][\npc{\T[\arabic{r12}]\N}{\arabic{r12} Hobgoblins}]{
   \randomdozen
-	#1
-	\randomtwo
-	\randomtwoB
-	\randomthree
-	\randomdozen
+  #1
+  \randomtwo
+  \randomtwoB
+  \randomthree
+  \randomdozen
 \person{\arabic{r2b}}% STRENGTH
 {\arabic{r2}}% DEXTERITY 
 {\arabic{r3}}% SPEED
@@ -1350,11 +1395,11 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 }
 
 \newcommand{\deephobgoblin}[1][\npc{\T[\arabic{r12}]\N}{\arabic{r12} Hobgoblins}]{
-	\randomdozen
-	#1
-	\randomtwo
-	\randomtwoB
-	\randomthree
+  \randomdozen
+  #1
+  \randomtwo
+  \randomtwoB
+  \randomthree
 \person{\arabic{r2}}% STRENGTH
 {1}% DEXTERITY 
 {\arabic{r3}}% SPEED
@@ -1370,8 +1415,8 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 
 \newcommand{\undeadhobgoblin}[1][\npc{\T[\arabic{r12}]\D}{\arabic{r12} Undead Hobgoblins}]{
   \randomdozen
-	#1
-	\randomtwo
+  #1
+  \randomtwo
 \animal{\arabic{r2}}% STRENGTH
 {0}% DEXTERITY 
 {-1}% SPEED
@@ -1385,9 +1430,9 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 
 \newcommand{\sentientundeadhobgoblin}[1][\npc{\T[\arabic{r12}]\D}{\arabic{r12} Sentient Undead Hobgoblins}]{
   \randomdozen
-	#1
-	\randomtwo
-	\randomtwoB
+  #1
+  \randomtwo
+  \randomtwoB
 \person{\arabic{r2}}% STRENGTH
 {-1}% DEXTERITY 
 {-2}% SPEED
@@ -1403,10 +1448,10 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 
 \newcommand{\ogre}[1][\addtocounter{r4b}{1}\npc{\T[\arabic{r4b}]\N}{\arabic{r4b} Ogres}]{
   \randomfourB
-	#1
-	\randomthree\addtocounter{age}{2}
-	\randomtwo
-	\randomtwoB
+  #1
+  \randomthree\addtocounter{age}{2}
+  \randomtwo
+  \randomtwoB
 \person{\arabic{age}}% STRENGTH
 {0}% DEXTERITY 
 {\arabic{r2}}% SPEED
@@ -1417,13 +1462,13 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 {\arabic{r2b}}% AGGRESSION
 {\ifodd\value{r2}Crafts\else Tactics\fi~\arabic{r2}, Wyldcrafting~\arabic{r2}}% SKILLS
 {\ifodd\value{r2}
-	Nothing.
+  Nothing.
 \else
-	\ifodd\value{r3}
-		\greatsword
-	\else
-		\greatclub
-	\fi
+  \ifodd\value{r3}
+    \greatsword
+  \else
+    \greatclub
+  \fi
 \fi
 \ifnumcomp{\thechapter}{>}{8}{, \lootSmall~sp}{}}% EQUIPMENT
 {}
@@ -1431,10 +1476,10 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 
 \newcommand{\armouredOgre}[1][\addtocounter{r4b}{1}\npc{\T[\arabic{r4b}]\N}{\arabic{r4b} Ogres}]{
   \randomfourB
-	#1
-	\randomthree\addtocounter{age}{2}
-	\randomtwo
-	\randomtwoB
+  #1
+  \randomthree\addtocounter{age}{2}
+  \randomtwo
+  \randomtwoB
 \person{\arabic{age}}% STRENGTH
 {0}% DEXTERITY 
 {\arabic{r2}}% SPEED
@@ -1445,11 +1490,11 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 {\arabic{r2b}}% AGGRESSION
 {\ifodd\value{r2}Crafts\else Tactics\fi~\arabic{r2}, Wyldcrafting~\arabic{r2}}% SKILLS
 {
-	\ifodd\value{r3}%
-		\greatsword%
-	\else%
-		\greatclub%
-	\fi%
+  \ifodd\value{r3}%
+    \greatsword%
+  \else%
+    \greatclub%
+  \fi%
 \ifodd\value{r2}%
   , \completechain%
 \else%
@@ -1460,13 +1505,13 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 }
 
 \newcommand{\deepogre}[1][\npc{\T[\arabic{r4b}]\N}{\arabic{r4b} Ogres}]{
-	\randomfourB
+  \randomfourB
   \addtocounter{r4b}{1}
-	#1
-	\randomthree\addtocounter{age}{3}
-	\randomtwo
-	\randomtwoB
-	\randomthreeC
+  #1
+  \randomthree\addtocounter{age}{3}
+  \randomtwo
+  \randomtwoB
+  \randomthreeC
 \person{\arabic{age}}% STRENGTH
 {0}% DEXTERITY 
 {\arabic{enc}}% SPEED
@@ -1476,40 +1521,40 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 {0}% DR
 {\arabic{r2b}}% COMBAT
 {\ifodd\value{r2c}%
-	Caving
+  Caving
 \else%
-	Vigilance 
+  Vigilance 
 \fi\arabic{r2}}% SKILLS
 {\ifodd\value{r3c}
-	Nothing.
+  Nothing.
 \else
-	\greatclub
+  \greatclub
 \fi
 }% EQUIPMENT
 {}
 }
 
 \newcommand{\undeadogre}[1][\npc{\D\N}{Undead Ogre}]{
-	#1
-	\randomtwo
-	\addtocounter{enc}{4}
-	\animal{\arabic{enc}}% STRENGTH
-	{0}% DEXTERITY
-	{-1}% SPEED
-	{-4}% WITS
-	{2}% DR
-	{2}% AGGRESSION
-	{}% SKILLS
-	{Undead}% ABILITIES
-	{}%
+  #1
+  \randomtwo
+  \addtocounter{enc}{4}
+  \animal{\arabic{enc}}% STRENGTH
+  {0}% DEXTERITY
+  {-1}% SPEED
+  {-4}% WITS
+  {2}% DR
+  {2}% AGGRESSION
+  {}% SKILLS
+  {Undead}% ABILITIES
+  {}%
 }
 
 \newcommand{\ogreGhast}[1][\npc{\N\D}{Ogre Ghast}]{
-	#1
-	\randomtwo\addtocounter{enc}{4}
-	\randomtwoB
+  #1
+  \randomtwo\addtocounter{enc}{4}
+  \randomtwoB
   \randomthree
-	\addtocounter{r2b}{-1}
+  \addtocounter{r2b}{-1}
 \person{\arabic{enc}}% STRENGTH
 {\arabic{r2b}}% DEXTERITY 
 {-1}% SPEED
@@ -1520,9 +1565,9 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 {2}% COMBAT
 {Brawl~\arabic{enc}, \ifodd\value{r3} Caving\else Deceit\fi~\arabic{r3}, Tactics~\arabic{r2}, Vigilance~1, Xenomology~\arabic{r2b}}% SKILLS
 {\ifodd\value{r2}%
-	\greatclub%
+  \greatclub%
 \else%
-	\greatsword, dagger%
+  \greatsword, dagger%
 \fi%
 \iftoggle{genExamples}{}%
   {\ifodd\value{r3}, \lootJewellery\fi}%
@@ -1531,12 +1576,12 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 }
 
 \newcommand{\ghoul}[1][\npc{\T[\arabic{r12}]\D}{\arabic{r12} Ghouls}]{
-	\randomdozen
-	#1
-	\randomtwo
-	\randomtwoB
-	\addtocounter{enc}{-2}
-	\randomthreeB
+  \randomdozen
+  #1
+  \randomtwo
+  \randomtwoB
+  \addtocounter{enc}{-2}
+  \randomthreeB
 \animal{\arabic{r2b}}% STRENGTH
 {0}% DEXTERITY 
 {\arabic{enc}}% SPEED
@@ -1555,11 +1600,11 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 }
 
 \newcommand{\ghast}[1][\npc{\D}{Ghast}]{
-	#1
-	\randomtwo\addtocounter{enc}{1}
-	\randomtwoB
-	\randomtwoC
-	\addtocounter{r2b}{-1}
+  #1
+  \randomtwo\addtocounter{enc}{1}
+  \randomtwoB
+  \randomtwoC
+  \addtocounter{r2b}{-1}
 \person{\arabic{enc}}% STRENGTH
 {\arabic{r2b}}% DEXTERITY 
 {\arabic{r2c}}% SPEED
@@ -1570,15 +1615,15 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 {2}% COMBAT
 {Brawl~\arabic{enc}, \ifodd\value{r3} Caving\else Deceit\fi~\arabic{r3}, Tactics~\arabic{r2}, Vigilance~1}% SKILLS
 {\ifodd\value{r2}%
-	\longsword%
-	\ifodd\value{r4}%
-		, \partialleather%
-	\fi%
+  \longsword%
+  \ifodd\value{r4}%
+    , \partialleather%
+  \fi%
 \else%
-	\greatsword, dagger%
-	\ifodd\value{r4}%
-		, \partialchain%
-	\fi%
+  \greatsword, dagger%
+  \ifodd\value{r4}%
+    , \partialchain%
+  \fi%
 \fi%
 \ifodd\value{r3}, \lootJewellery\fi}% EQUIPMENT
 {
@@ -1587,17 +1632,17 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 }
 
 \newcommand{\necromancer}[1][\npc{\M}{Necromancer}]{
-	#1
-	\randomtwo
-	\addtocounter{enc}{1}
-	\randomtwoB
-	\randomtwoC
-	\randomtwoD
-	\addtocounter{r2b}{-1}
-	\randomthree
-	\randomthreeB
-	\randomthreeC
-	\randomfour
+  #1
+  \randomtwo
+  \addtocounter{enc}{1}
+  \randomtwoB
+  \randomtwoC
+  \randomtwoD
+  \addtocounter{r2b}{-1}
+  \randomthree
+  \randomthreeB
+  \randomthreeC
+  \randomfour
 \person{\arabic{r2}}% STRENGTH
 {0}% DEXTERITY 
 {\arabic{r2b}}% SPEED
@@ -1615,12 +1660,12 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
   }%
 }% SKILLS
 {\ifodd\value{r3}%
-	\Dagger%
+  \Dagger%
 \else%
-	\shortsword%
-	\ifodd\value{r3b}%
-		, \partialleather%
-	\fi%
+  \shortsword%
+  \ifodd\value{r3b}%
+    , \partialleather%
+  \fi%
 \fi%
 , \multiply\value{track} by 2%
 mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIPMENT
@@ -1628,16 +1673,16 @@ mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIP
 }
 
 \newcommand{\demilich}[1][\npc{\D\E}{Demilich}]{
-	#1
-	\randomtwo
-	\addtocounter{enc}{1}
-	\randomtwoB
-	\randomtwoD
-	\randomthree
+  #1
+  \randomtwo
+  \addtocounter{enc}{1}
+  \randomtwoB
+  \randomtwoD
+  \randomthree
     \addtocounter{age}{-2}
-	\randomthreeB
-	\randomthreeC
-	\randomfour
+  \randomthreeB
+  \randomthreeC
+  \randomfour
 \person{\arabic{r2}}% STRENGTH
 {\arabic{age}}% DEXTERITY 
 {\arabic{r2d}}% SPEED
@@ -1649,15 +1694,15 @@ mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIP
 {Brawl 2, Projectiles~\arabic{r2}, Academics~\arabic{r3}, Deceit~1, Medicine~\arabic{r3c}, Vigilance~\arabic{r2}
 }% SKILLS
 {\ifodd\thechapter%
-	\Dagger, %
+  \Dagger, %
 \else
-	\longsword, %
+  \longsword, %
 \fi%
-	\ifodd\value{r4}%
-		\partialplate%
-	\else%
-		\completechain%
-	\fi%
+  \ifodd\value{r4}%
+    \partialplate%
+  \else%
+    \completechain%
+  \fi%
 \multiply\value{track} by 2%
 , mana stone with \arabic{track} mana, \lootJewellery, \randomtwo\lootJewellery, \lootMagic}% EQUIPMENT
 {%
@@ -1720,14 +1765,14 @@ mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIP
 }
 
 \newcommand{\jelly}[1][\npc{\A}{\ifnum\value{r4}>3 Black\else \ifnum\value{r4}>2 Red \else \ifnum\value{r4}>1 Brown\else Transluscent\fi\fi\fi~ Ooze}]{
-	#1
-	\randomfour
-	\addtocounter{track}{2}
-	\setcounter{gold}{\value{r4}}
-	\multiply\value{gold} by -1
-	\addtocounter{gold}{3}
-	\randomthree
-	\randomthreeB
+  #1
+  \randomfour
+  \addtocounter{track}{2}
+  \setcounter{gold}{\value{r4}}
+  \multiply\value{gold} by -1
+  \addtocounter{gold}{3}
+  \randomthree
+  \randomthreeB
 \animal{\arabic{r4}}% STRENGTH
 {\arabic{gold}}% DEXTERITY 
 {\arabic{gold}}% SPEED
@@ -1757,29 +1802,32 @@ mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIP
 }
 
 \newcommand{\umberhulk}[1][\npc{\A}{Umber Hulk}]{
-	#1
-	\randomtwo\addtocounter{enc}{3}
-	\randomthree 
-	\randomtwoB
-	\addtocounter{r2b}{-1}
+  #1
+  \randomtwo\addtocounter{enc}{3}
+  \randomthree 
+  \randomtwoB
+  \addtocounter{r2b}{-1}
   \animal{\arabic{enc}}% STRENGTH
   {\arabic{r2b}}% DEXTERITY 
   {\arabic{r3}}% SPEED
   {\arabic{r2}}% WITS
   {\arabic{enc}}% DR
   {2}% AGGRESSION
-  {Caving~\arabic{r3}, Stealth~\arabic{r2}, Vigilance~\arabic{r2b}}% SKILLS
+  {}% SKILLS
   {\quadraped}% ABILITIES
   {
       \renewcommand\abilities{\stench}
+      \setcounter{Caving}{\value{r3}}
+      \setcounter{Stealth}{\value{r2}}
+      \setcounter{Vigilance}{\value{r2b}}
   }
 }
 
 \newcommand{\horse}[1][\npc{\A}{Horse}]{
-	#1
-	\randomtwo
-	\randomtwoB
-	\addtocounter{enc}{1}
+  #1
+  \randomtwo
+  \randomtwoB
+  \addtocounter{enc}{1}
 \animal{\arabic{enc}}% STRENGTH
 {0}% DEXTERITY 
 {\arabic{r2b}}% SPEED
@@ -1792,11 +1840,11 @@ mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIP
 }
 
 \newcommand{\warhorse}[1][\npc{\A}{War Horse}]{
-	#1
-	\randomtwo
-	\randomtwoB
-	\addtocounter{enc}{2}
-	\addtocounter{r2b}{2}
+  #1
+  \randomtwo
+  \randomtwoB
+  \addtocounter{enc}{2}
+  \addtocounter{r2b}{2}
 \animal{\arabic{enc}}% STRENGTH
 {0}% DEXTERITY 
 {\arabic{r2b}}% SPEED
@@ -1809,10 +1857,10 @@ mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIP
 }
 
 \newcommand{\donkey}[1][\npc{\A}{Donkey}]{
-	#1
-	\randomtwo
-	\addtocounter{enc}{1}
-	\randomtwoB
+  #1
+  \randomtwo
+  \addtocounter{enc}{1}
+  \randomtwoB
 \animal{\arabic{r2}}% STRENGTH
 {-1}% DEXTERITY 
 {\arabic{r2b}}% SPEED
@@ -1825,10 +1873,10 @@ mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIP
 }
 
 \newcommand{\cat}[1][\npc{\A}{Cat}]{
-	#1
-	\randomtwo
-	\randomtwoB
-	\addtocounter{r2b}{2}
+  #1
+  \randomtwo
+  \randomtwoB
+  \addtocounter{r2b}{2}
 \animal{-5}% STRENGTH
 {\arabic{enc}}% DEXTERITY 
 {\arabic{r2b}}% SPEED
@@ -1843,10 +1891,10 @@ mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIP
 \newcommand{\huntingdog}[1][\npc{\T[\arabic{r4b}]\A}{\arabic{r4b} Hunting Dogs}]{
   \randomfourB
   \addtocounter{r4b}{2}
-	#1
-	\randomtwo
-	\randomtwoB
-	\addtocounter{enc}{-2}
+  #1
+  \randomtwo
+  \randomtwoB
+  \addtocounter{enc}{-2}
 \animal{-2}% STRENGTH
 {\arabic{enc}}% DEXTERITY 
 {\arabic{r2b}}% SPEED
@@ -1859,13 +1907,13 @@ mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIP
 }
 
 \newcommand{\rockman}[1][\npc{\E}{Rock Man}]{
-	#1
-	\randomtwo
-	\addtocounter{enc}{-1}
-	\randomthree
-	\addtocounter{age}{4}
-	\randomtwoB
-	\addtocounter{r2b}{-\value{age}}
+  #1
+  \randomtwo
+  \addtocounter{enc}{-1}
+  \randomthree
+  \addtocounter{age}{4}
+  \randomtwoB
+  \addtocounter{r2b}{-\value{age}}
 \person{\arabic{age}}% STRENGTH
 {\arabic{r2}}% DEXTERITY
 {\arabic{r2b}}% SPEED
@@ -1876,21 +1924,21 @@ mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIP
 {\arabic{r2}}% AGGRESSION
 {Academics~\arabic{r3}, Stealth~3, Vigilance~\arabic{r2}, Xenomology~\arabic{r2}}% SKILLS
 {\ifnumcomp{\value{r12}}{=}{12}%
-	{Pet rock}%
-	{None}
+  {Pet rock}%
+  {None}
 \perfectArmour}% EQUIPMENT
 {}
 }
 
 \newcommand{\lavaman}[1][\npc{\E}{Lavaman}]{
-	#1
-	\randomtwo
-	\addtocounter{enc}{-1}
-	\randomthree
-	\addtocounter{age}{4}
-	\randomtwoB
-	\addtocounter{r2b}{-\value{age}}
-	\addtocounter{r2b}{3}
+  #1
+  \randomtwo
+  \addtocounter{enc}{-1}
+  \randomthree
+  \addtocounter{age}{4}
+  \randomtwoB
+  \addtocounter{r2b}{-\value{age}}
+  \addtocounter{r2b}{3}
 \person{\arabic{age}}% STRENGTH
 {-1}% DEXTERITY 
 {\arabic{r2b}}% SPEED
@@ -1905,17 +1953,17 @@ mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIP
 }
 
 \newcommand{\archmage}[1][\npc{\E}{Archmage}]{
-	#1
-	\randomtwo
-	\addtocounter{enc}{3}
-	\randomtwoB
+  #1
+  \randomtwo
+  \addtocounter{enc}{3}
+  \randomtwoB
     \addtocounter{r2b}{1}
-	\randomtwoD
-	\randomthree
+  \randomtwoD
+  \randomthree
     \addtocounter{age}{1}
-	\randomthreeB
-	\randomthreeC
-	\randomfour 
+  \randomthreeB
+  \randomthreeC
+  \randomfour 
 \person{-5}% STRENGTH
 {-2}% DEXTERITY 
 {0}% SPEED
@@ -1941,18 +1989,22 @@ mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIP
 }
 
 \newcommand{\watcher}[1][\npc{\A}{Watcher}]{
-	#1
-	\randomthree
-	\addtocounter{age}{-3}
-\animal{\arabic{age}}% STRENGTH
-{-2}% DEXTERITY 
-{-2}% SPEED
-{\arabic{age}}% WITS
-{7}% DR
-{0}% AGGRESSION
-{Stealth~3}% SKILLS
-{\crazyGas}% ABILITIES
-{\addtocounter{xpbonus}{3}}
+  #1
+  \randomthree
+  \addtocounter{age}{-3}
+  \animal{\arabic{age}}% STRENGTH
+  {-2}% DEXTERITY 
+  {-2}% SPEED
+  {\arabic{age}}% WITS
+  {7}% DR
+  {0}% AGGRESSION
+  {}% SKILLS
+  {}% ABILITIES
+  {
+    \renewcommand\abilities{\crazyGas}
+    \setcounter{Stealth}{3}
+    \addtocounter{xpbonus}{3}
+  }
 }
 
 
