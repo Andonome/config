@@ -110,12 +110,12 @@
   {2}% WITS
   {0}% DR
   {2}% AGGRESSION
-  {
-  }% SKILLS
+  {}% SKILLS
   {\flight}% ABILITIES
   {
     \knacks{\charge}
-    \setcounter{Athletics}{\value{enc}}
+    \setcounter{Athletics}{\value{r2c}}
+    \setcounter{Flight}{\value{r2c}}
     \addtocounter{r2c}{2}
     \setcounter{Vigilance}{\value{r2c}}
   }
@@ -218,6 +218,7 @@
   \addtocounter{enc}{3}
   \randomthree
   \randomthreeB
+  \randomthreeC
   \addtocounter{age}{4}
   \setcounter{gold}{3}
     \addtocounter{gold}{\value{r2}}
@@ -246,6 +247,7 @@
     \setcounter{Projectiles}{\value{r3b}}
     \setcounter{Academics}{\value{r3}}
     \setcounter{Athletics}{\value{r2b}}
+    \setcounter{Flight}{\value{r3c}}
     \setcounter{Deceit}{\value{r2c}}
     \setcounter{Tactics}{2}
     \setcounter{Vigilance}{3}
