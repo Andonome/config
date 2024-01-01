@@ -671,17 +671,25 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
   #1
   \randomthree
   \randomtwo
-\person{1}% STRENGTH
-{\ifodd \value{age} -1\else1\fi}% DEXTERITY 
-{0}% SPEED
-{{\ifodd\value{age} 0\else 1\fi}% INTELLIGENCE
-{-1}% WITS
-{0}}% CHARISMA
-{0}% DR
-{\ifnum\value{r12}=7 1\else 0\fi}% AGGRESSION
-{Empathy~1, \ifodd\thechapter Deceit~\arabic{r2}\fi}% SKILLS
-{\ifodd\value{r4} \Dagger, \lootSmall\else None\fi}% EQUIPMENT
-{}
+  \person{1}% STRENGTH
+  {\ifodd \value{age} -1\else1\fi}% DEXTERITY 
+  {0}% SPEED
+  {{\ifodd\value{age} 0\else 1\fi}% INTELLIGENCE
+  {-1}% WITS
+  {0}}% CHARISMA
+  {0}% DR
+  {\ifnum\value{r12}=7 1\else 0\fi}% AGGRESSION
+  {Empathy~1, \ifodd\thechapter Deceit~\arabic{r2}\fi}% SKILLS
+  {\ifodd\value{r4} \Dagger, \lootSmall\else None\fi}% EQUIPMENT
+  {
+    \setcounter{Empathy}{1}
+    \ifodd\value{r4}
+      \setcounter{Deceit}{\value{r2}}
+    \fi
+    \ifodd\value{r2}
+      \knacks{\specialist{Sewing}}
+    \fi
+  }
 }
 
 \newcommand{\humantrader}[1][\npc{\T[\arabic{r12}]\Hu\M}{\arabic{r12} Traders}]{
@@ -692,21 +700,29 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
   \randomtwoC
   \randomthree
   \addtocounter{enc}{-1}
-\person{\arabic{age}}% STRENGTH
-{0}% DEXTERITY 
-{0}% SPEED
-{{\arabic{enc}}% INTELLIGENCE
-{-1}% WITS
-{\arabic{r2b}}}% CHARISMA
-{0}% DR
-{\arabic{enc}}% COMBAT
-{Academics~\arabic{r2b}, \ifodd\value{r4}Projectiles~\arabic{r2}\fi\ifodd\value{r2}~Crafts 1, Empathy\else Deceit\fi~\arabic{r3}}% SKILLS
-{\shortsword,
-\ifodd\value{r4}%
-  \longbow,
-\fi%
-\lootBig}% EQUIPMENT
-{}
+  \person{\arabic{age}}% STRENGTH
+  {0}% DEXTERITY 
+  {0}% SPEED
+  {{\arabic{enc}}% INTELLIGENCE
+  {-1}% WITS
+  {\arabic{r2b}}}% CHARISMA
+  {0}% DR
+  {\arabic{enc}}% COMBAT
+  {Academics~\arabic{r2b}, \ifodd\value{r4}Projectiles~\arabic{r2}\fi\ifodd\value{r2}~Crafts 1, Empathy\else Deceit\fi~\arabic{r3}}% SKILLS
+  {\shortsword,
+  \ifodd\value{r4}%
+    \longbow,
+  \fi%
+  \lootBig}% EQUIPMENT
+  {
+    \ifodd\value{r2}
+      \knacks{\specialist{Appraisal}}
+    \else
+      \ifodd\value{r3}
+        \knacks{\specialist{Cartography}}
+      \fi
+    \fi
+  }
 }
 
 \newcommand{\humandiplomat}[1][\npc{\Hu\M}{The Diplomat}]{
