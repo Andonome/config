@@ -1093,7 +1093,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
     \hspace{-4em}\arabic{sqNo} -- %
     \iftoggle{firstsq}{\sqr}{\sqn}%
     ~#2 -- #3]%
-    {(#1) #2}
+    {#2 \\\hint{#1}}
   \stopcontents[#1]\settoggle{firstsq}{false}
   \vspace{3em}
 }
