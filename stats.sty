@@ -476,18 +476,16 @@
 
 
   \iftoggle{personality}{
-
     \begin{multicols}{2}
-    \begin{description}
     \raggedright
-    \item[Wants:] \npcGoal
-    \item[Mannerism:] \mannerism
-    \item[Description:] \NPCdescription
+    \textbf{Mannerism:}~\mannerism
+    \par
+    \textbf{Description:}~\NPCdescription
+    \par
+    \textbf{Wants:}~\npcGoal
     \ifdefempty{\npcQuote}{}{
-      \item[Quote:]
-      \npcQuote
+      \textbf{Quote:}~\npcQuote
     }
-    \end{description}
     \end{multicols}
 
     \settoggle{personality}{false}}%
