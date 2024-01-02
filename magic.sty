@@ -181,7 +181,7 @@
   }%
 }
 
-\newcommand\showStdSpells{
+\newcommand\showStdSpells[1][]{
   \setcounter{enc}{0}
   \setHighSpheres
   \needspace{2em}
@@ -190,6 +190,7 @@
   \end{center}%
   \begin{description}
     \settoggle{fullSpells}{false}
+    #1
     \foreach \n in {3,2,1}{
       \ifnum\value{enc}<3
         \foreach \s in {Light,Death,Life,Mind,Force,Earth,Air,Fire,Water,Fate}{
