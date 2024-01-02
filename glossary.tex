@@ -51,7 +51,7 @@
   name={The Judge},
   text={Judge},
   sort={Judge},
-  description={runs the game, interprets the rules, and forgets to bring enough pencils},
+  description={rolls encounters, interprets the rules, and forgets to bring enough pencils},
 }
 
 \newglossaryentry{storypoint}{
@@ -71,21 +71,20 @@
 }
 
 \newglossaryentry{boon}{
-  prefix={a\space},
-  name={A Concoction},
+  name={Concoctions},
   text={concoction},
+  prefix={a\space},
   sort={concoction},
-  description={is a liquid or powder which, when thrown in the air, hyper-charges the use of a single Sphere, for anyone present next to the burst.
-  For example, a concoction to boost the Air Sphere would mean a caster with Air 2 could cast a single spell as if they had Air 3.
-  The first spell cast, uses up the effect, although some powders have enough for multiple spells}
+  description={are liquids or powders which, when thrown in the air, hyper-charge the use of a single magic Sphere, for anyone present next to the burst.
+  For example, a concoction to boost the Air Sphere would mean a caster with Air 2 could cast a single spell as if they had Air 3},
 }
 
 \newglossaryentry{ingredient}{
-  prefix={a\space},
   name={Ingredients},
   text={ingredient},
-  description={let casters create a magical \glsentrytext{talisman}, which casts a spell.
-  Earth ingredients go into an Earth \glsentrytext{talisman}, Fire ingredients go into a Fire \glsentrytext{talisman}, and so on}
+  prefix={an\space},
+  description={are substances with elemental affinities, used for powerful magical effects.
+  A griffin's feathers may boost Air magic, or a bear's heart may be used to create a Fire \glsentrytext{talisman}}
 }
 
 \newglossaryentry{talisman}{
@@ -101,7 +100,7 @@
 
 \newglossaryentry{artefact}{
   prefix={an\space},
-  name={Artifacts},
+  name={Artefacts},
   text={artefact},
   description={are spells given sentience, and function as long-term magical items.
   They frequently go awry, as they have a mind of their own, and their own wishes and values},
@@ -115,7 +114,7 @@
   nonumberlist,
   description={give a rough unit for large spaces.
   An area is a space made distinct by its features.
-  In some undergound labyrinth, each room might count as an area, while out in the open plains a forest might be composed of the local areas: `the centre with the big, felled tree; the river's fork; the priestess's house and the griffins' nesting site},
+  In the \glsentrytext{deep}, each cavern might count as an area, while out in the open plains a forest might be composed of the local areas: `the centre with the big, felled tree', `the river's fork', and `the griffins' nesting site'},
   }
 
 \newglossaryentry{quickaction}{
@@ -137,11 +136,12 @@
   }
 
 \newglossaryentry{natural}{
+  name={A Natural Roll},
   text={Natural Roll},
   sort={Natural Roll},
-  name={A Natural Roll},
   prefix={a\space},
-  description={is a roll where the physical dice land on some number. For example, a `natural 2' is where both dice come up facing 1, as opposed to a player gaining the result `2' from rolling a 3 and getting a -1 penalty. Similarly a `natural 12' is when the dice land on a `12' without modification}
+  description={is a roll where the physical dice land on some number.
+  For example, a `natural 2' is where the dice show `\dicef{1}\dicef{1}', as opposed to a player gaining the result `2' from rolling a `\dicef{3}\dicef{1}' while the character has a -2 penalty to the roll}
   }
 
 \newglossaryentry{round}{
@@ -174,7 +174,8 @@
   sort={Vitals Shot},
   prefix={a\space},
   nonumberlist,
-  description={means an attack which strikes between the gaps in armour, dealing full Damage},
+  description={means an attack which strikes between the gaps in armour, dealing full Damage.
+  Creatures with \glsentrytext{dr} show the \glsentrytext{tn} needed to deal a Vitals Shot next to their \glsentrytext{dr} like this: `\glsentrytext{dr} 4 (13!)' (meaning that the \glsentrytext{dr} is 4, but an attack roll of 13 will bypass the \glsentrytext{dr}},
   }
 
 \newglossaryentry{restingaction}{
@@ -201,7 +202,7 @@
   ]{fp}{FP}{Fate Point}
 
 \newacronym[
-  description={are the simple, linear, measure of a character's health and injury},
+  description={coins on the character sheet make a simple, linear, measure of a character's health and injury},
   shortplural={HP},
   prefix={a\space},
   ]{hp}{HP}{Health Point}
@@ -211,12 +212,12 @@
   text={Fatigue Point},
   nonumberlist,
   prefix={a\space},
-  description={measure how tired a character is.
+  description={measure how tired, hungry, and fed-up characters feel.
   Characters can put up with a number of Fatigue Points equal to their \glsentrytext{hp}, after which they receive penalties to act}
 }
 
 \newacronym[
-  description={are the number players need to roll on the dice to achieve a \emph{tie} with the task.
+  description={means the number players need to roll on the dice to achieve a \emph{tie} with the task.
   Rolling higher indicates they have their prize, rolling lower means some nasty outcome is upon them, and rolling a tie means both (or neither)},
   shortplural={TNs},
   prefix={a\space},
@@ -287,7 +288,8 @@
   prefix={a\space},
   sort={Character Pool},
   nonumberlist,
-  description={is the collection of total playable characters, including allies summoned with \glsfmtplural{storypoint}, ready and waitng for when a \glsentrytext{pc} dies}
+  description={is the collection of characters a player has.
+  Players introduce new characters as allies by spending \glsfmtplural{storypoint}, then once their character dies, they take their next \glsentrytext{pc} from the pool}
 }
 
 \newglossaryentry{edge}{
@@ -296,7 +298,7 @@
   text={Edge},
   first={Edge of Civilization},
   prefix={an\space},
-  description={lies one footstep past the last walled town.
+  description={lies one footstep past the last \glsentrytext{village}.
   Beyond this point, only dark forests, empty tundra, and hungry beasts wait.
   When people travel off-road, or have to push back the walls of the forest to prepare for civilization's expansions, they have gone beyond the Edge}
 }
@@ -306,7 +308,7 @@
   prefix={a\space},
   text={Labyrinth},
   sort={Labyrinth},
-  description={is the network of frigid, nearly lifeless caverns, below or beyond the civilized halls of dwarves}
+  description={is the network of frigid, nearly lifeless caverns, which sits beneath much of \glsentrytext{fenestra}}
 }
 
 \newglossaryentry{sylf}{
@@ -360,7 +362,7 @@
   text={bothy},
   plural={bothies},
   prefix={a\space},
-  description={are half-way houses on long roads, built to protect travellers.
+  description={are half-way houses on long roads, built so that travellers can sleep safely after Sundown.
   Some have a single fireplace, and enough room for a half a dozen people and a donkey.
   Others have three stories, and serve as a garrison for the \glsentrytext{guard}},
 }
@@ -370,58 +372,71 @@
   text={Ainumar},
   plural={Ainumari},
   sort={Ainumar},
-  description={is a great orb in the sky, commonly supposed to be where the gods live},
+  description={is a great orb in the sky, commonly supposed to be where the gods live.
+  It is a planet, around the size of Jupiter},
 }
 
 \newglossaryentry{fenestra}{
   name={Fenestra},
   nonumberlist,
-  description={is the moon these stories take place on.  It orbits the \glsentrytext{ainumar}}
+  description={is the moon where these stories take place.
+  It orbits the \glsentrytext{ainumar}}
 }
 
 % Guilds
 
-\newglossaryentry{wheat}{
+\newglossaryentry{abderian}{
+  name={Abderian},
+  description={is the goddess of poison and rot.
+  When she kills someone, she brings them to her banquet of pain, to see how long they can resist eating her rancid food},
+}
+
+\newglossaryentry{wheatGuild}{
   name={The Poison Guild},
-  text={\ifodd\value{r2} Wheat \else Poison \fi Guild},
+  text={\ifodd\value{r3} Temple of Poison\else Wheat Guild\fi},
   prefix={a\space},
   sort={Poison Guild},
   symbol={\glsentrytext{poison}},
-  description={protects humanity from poison through baking and brewing, also known as `the Wheat Guild'}
+  description={protects humanity from poison through baking, brewing, and distillation.
+  They prefer to be known as `the Wheat Guild', but many refer to them as `the Temple of Poison' anyway}
 }
 
 \newglossaryentry{server}{
   name={Servers},
   text={Server},
   prefix={a\space},
-  description={make food for all, and every \glsentrytext{warden} has one in their employ}
-}
-
-\newglossaryentry{healersGuild}{
-  name={The Healers' Guild},
-  text={Healers Guild},
-  prefix={a\space},
-  sort={Healers Guild},
-  symbol={\glsentrytext{sickness}},
-  description={tend to the dying, to ferry people into \glsentrytext{eldren}'s realm.
-  This is the only god people love, because people view death by old age or sickness as a special privilege}
+  description={make food for the \glsentrytext{wheatGuild} all day, and every \glsentrytext{warden} has one in their employ}
 }
 
 \newglossaryentry{eldren}{
   name={Eldren},
-  description={ -- god of death by sickness}
+  description={takes those who die of sickness or age.
+  Many people save up their whole lives to be allowed into the \glsentrytext{healersGuild} once they become old, so they can die in peace, and go to his realm},
 }
 
-\newglossaryentry{paik}{
-  name={Paik},
-  description={ -- god of death by justice}
+\newglossaryentry{healersGuild}{
+  name={The Temple of Sickness},
+  text={Temple of Sickness},
+  prefix={a\space},
+  sort={Temple of Sickness},
+  symbol={\glsentrytext{sickness}},
+  description={(also known as `the Healders Guild') tend to the dying, to ferry people into \glsentrytext{eldren}'s realm.
+  This is the only god people love, because people view death by old age or sickness as a special privilege}
 }
 
 \newglossaryentry{helper}{
   name={Helpers},
   text={Helper},
   prefix={a\space},
-  description={tend to the sick, on behalf of the \glsentrytext{healersGuild}},
+  description={tend to the sick and dying, on behalf of the \glsentrytext{healersGuild}.
+  The temple only takes on new people from those with a disability of some kind, so the grounds are maximally accessible to everyone.
+  The \glsentrytext{guard} who endure permanent injuries often retire as Helpers},
+}
+
+\newglossaryentry{paik}{
+  name={Paik},
+  description={is the god of death by justice.
+  When bandits swing from the noose in the \glsentrytext{court}, Paik takes them to his realm, and taunts them forever}
 }
 
 \newglossaryentry{doulaShop}{
@@ -437,7 +452,9 @@
   name={Doulas},
   text={Doula},
   prefix={a\space},
-  description={help with births, blessings, and beginnings of all kind},
+  description={help with births, blessings, and beginnings of all kind.
+  They protect the population from misgeneis -- the death which occurs before life.
+  Nobody begins a business venture or party without a blessing from a Doula},
 }
 
 \newglossaryentry{court}{
@@ -446,27 +463,29 @@
   prefix={a\space},
   sort={Pit of Justice},
   symbol={\glsentrytext{justice}},
-  description={provides cheering crowds a place to see justice in action}
+  description={is where a town's \glsentrytext{warden} resolves legal disputes, and decides on the correct punishment for criminals}
 }
 
 \newglossaryentry{warden}{
   name={Wardens},
   text={Warden},
   prefix={a\space},
-  description={preside over towns, and deal justice to criminals in their \glsentrytext{court}}
+  description={make the laws and decide fitting punishments for criminals in their \glsentrytext{court}}
 }
 
 \newglossaryentry{sable}{
   name={Sable},
-  description={ -- god of death by cold}
+  description={releases cold into the world to watch people lay down and die in the snow, then takes them to his frigid realm, to place their frozen spirits there like an ornament}
 }
 
 \newglossaryentry{weaversGuild}{
   name={The Weavers' Guild},
   text={Weavers' Guild},
+  sort={Weavers' Guild},
   prefix={a\space},
   symbol={\glsentrytext{frost}},
-  description={houses a massive fire, many looms, and plenty of space for anyone who wants to hear a long story}
+  description={houses a massive fire, many looms, and plenty of space for anyone who wants to hear a long story.
+  This `Temple of Frost' exists to thwart \glsentrytext{sable}, by keeping people warm}
 }
 
 \newglossaryentry{weaver}{
@@ -476,30 +495,44 @@
   description={produces the best and warmest of clothes for \glsentrytext{fenestra}'s harsh cold seasons}
 }
 
+\newglossaryentry{wrecan}{
+  name={Wrecan},
+  description={is goddess of hatred, bigotry, and vengeance.
+  When people fight each other, she takes their soul to her realm of eternal war},
+}
+
 \newglossaryentry{armourHall}{
   name={The Armourers' Guild},
   text={Armourers' Guild},
   prefix={an\space},
   sort={Armourer's Guild},
   symbol={\glsentrytext{hate}},
-  description={take in angry, young people, and redirect their anger into protection}
+  description={take in angry, young people, and redirect their anger into work.
+  This `Temple of Hate' protects civilization from \glsentrytext{wrecan}}
 }
 
 \newglossaryentry{armourer}{
   name={Armourers},
   text={Armourer},
   prefix={an\space},
-  description={protect people from people with metal, leather, and negotiating skills}
+  description={work in the \glsentrytext{armourHall} and guard civilization from from death by Hate, with a combination of excellent armour, and diplomatic skills}
+}
+
+\newglossaryentry{yonder}{
+  name={Yonder},
+  description={is the god who kills by curiosity.
+  When idiots go to investigate something which sensible people would leave alone, they say their soul goes to live with \glsentrytext{yonder} in a state of eternal confusion},
 }
 
 \newglossaryentry{paperGuild}{
   name={The Paper Guild},
-  text={Paper Guild},
+  text={\ifodd\value{r2}Paper Guild\else Temple of Light\fi},
   prefix={a\space},
   sort={Paper Guild},
   symbol={\glsentrytext{curiosity}},
-  description={create paper, candles, and soap.
-  They always need more basilisk bodies to make the latter two}
+  description={create paper, maps, candles, and soap.
+  They always need more basilisk bodies to make the latter two.
+  This `Temple of Light' works against \glsentrytext{yonder}, by educating people}
 }
 
 \newglossaryentry{seeker}{
@@ -513,8 +546,8 @@
   name={Scribes},
   text={Scribe},
   prefix={a\space},
-  description={work for the \glsentrytext{paperGuild}.
-  Most spend their time making books or soap.}
+  description={are anyone who works for the \glsentrytext{paperGuild}.
+  Most spend their time making books or soap}
 }
 
 %%%%% Symbols
