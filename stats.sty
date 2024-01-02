@@ -507,7 +507,6 @@
 	\setcounter{Speed}{#3}
 	\setcounter{Wits}{#4}
 	\setcounter{dr}{#5}
-	\setcounter{Brawl}{#6}
 	\setcounter{att}{#6}
 	\renewcommand{\skills}{#7}
 	\renewcommand{\abilities}{#8}
@@ -684,11 +683,12 @@
   \iftoggle{debug}{str: \arabic{Strength}, dex: \arabic{Dexterity}, spd: \arabic{Speed}, att: \arabic{att}, damage: \arabic{damage}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}}{}
 
 % Stats for allies don't need to show Combat +1 as 'TN 8 to hit', they just need to show '+1'.
-\iftoggle{allyCharacter}{}{
-  \addtocounter{att}{7}
-}
 \addtocounter{hp}{6}%
-\addtocounter{att}{\value{Dexterity}}
+\ifnum\value{Combat}>\value{Brawl}\else\setcounter{att}{\value{Brawl}}\fi%
+\iftoggle{allyCharacter}{}{%
+  \addtocounter{att}{7}%
+}%
+\addtocounter{att}{\value{Dexterity}}%
 \setcounter{maxWeight}{\value{hp}}% now to compute encumbrance
 \divide\value{maxWeight} by 2%
 \ifnum\value{weight}>\value{maxWeight}%
