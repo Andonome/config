@@ -1088,6 +1088,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 }
 
 \newcommand{\sqpart}[3]{
+  \vspace{1em}
   \refstepcounter{sqNo}
   \resumecontents[#1]
   \subsubsection[%
@@ -1096,7 +1097,6 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
     ~#2 -- #3]%
     {#2 \\\hint{#1}}
   \stopcontents[#1]\settoggle{firstsq}{false}
-  \vspace{3em}
 }
 
 \titlecontents*{lsubsection}[0pt]
