@@ -242,7 +242,16 @@ bookmarks=true]%
 
 % change bullet points
 
-\renewcommand{\labelitemi}{\textcolor{\pageSideColor}{\ifodd\the\c@page\adfdownhalfleafright\else\adfdownhalfleafleft\fi}}
+\renewcommand{\labelitemi}{%
+  \textcolor{\pageSideColor}{%
+  \large\ifodd\the\c@page%
+    \adfdownhalfleafright%
+  \else%
+    \adfdownhalfleafleft%
+  \fi%
+  }
+}
+
 \renewcommand{\labelitemii}{\textcolor{\pageSideColor}{\adfdownhalfleafleft}}
 \renewcommand{\labelenumi}{\large\titleFont\arabic{enumi}--}
 \renewcommand{\labelenumii}{\titleFont\Roman{enumii}}
