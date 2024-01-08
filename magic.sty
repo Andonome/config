@@ -219,21 +219,22 @@
     \spellName\ talisman%
     \setcounter{track}{\value{treasure}}%
   }{%
-    \paragraph{\spellName}%
+    \paragraph{\adforn{25}~\spellName~\adforn{53}}%
     \spellSum.
     \spellNotes
-    \iftoggle{opposedSpell}{
-      \addtocounter{castingBonus}{7}
-      Resisted by: \spellResistance\ (\tn[\arabic{castingBonus}]),
-    }{
-
-      Roll: \absNum{castingBonus}, \gls{tn} set by \spellResistance,
+    \par
+    \noindent
+    {\it(\iftoggle{opposedSpell}{%
+      \addtocounter{castingBonus}{7}%
+      Resisted by: \spellResistance\ (\tn[\arabic{castingBonus}]), %
+    }{%
+      Roll: \absNum{castingBonus}, \gls{tn} set by \spellResistance, %
     }%
     Range: \spellRange%
     \ifnum\value{spellTargets}>1%
-      , Area of Effect:~\arabic{spellTargets}.
-    \else.%
-    \fi
+      , Area of Effect:~\arabic{spellTargets}
+    \else%
+    \fi)}
   }%
 }
 
