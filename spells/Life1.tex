@@ -2,15 +2,15 @@
   {}% Enhancements
   {Wax}% Action
   {Earth, Water}% Spheres
-  {current \glspl{hp}}% Resist with
+  {current \glspl{hp} + \gls{dr}}% Resist with
   {The caster encourages the target to fight, and the target gains a +\arabic{spellPlusOne} Strength Bonus.
-  This stacks as usual, so only the lowest Strength Bonus counts (their regular Bonus, or the spell's).
-  This Bonus comes with a monstrous appetite (which demands an extra meal every day), and a -\arabic{spellCost} Dexterity penalty}% Description
+  This stacks as usual, so the highest Bonus counts in full (their regular Bonus, or the spell's), and the lowest add only half.
+  Each added Strength point demands an extra meal every day, and inflicts a -\arabic{spellCost} Charisma penalty due to ugly distortions (along with the loss of an equal number of \glspl{fp}).
+  Each point of \gls{dr} inflicts 1~Damage}% Description
   {
-    Smaller creatures stand to gain a lot more from the spell than larger ones, as Strenght Penalties do not change the spell.
-    Therefore, a tiny creature with a Strength Bonus of -5 would rise to -3.
-
-    The Dexterity penalty fades once targets become used to their new forms, although this can take some weeks.
     If the target ever fails to eat their required meals, they return to their normal state.
     This makes the spell rather dangerous for warriors, as people will often adjust their weapons and armour to their size, so a spell which wears off at the wrong time may leave them with all the wrong equipment.
-    This spell is non-cumulative with others of the Life sphere.}
+    This spell is non-cumulative with others of the Life sphere.
+
+    Tiny creatures (such as mice or house spiders) count as having Strength -5, so this spell could raise them to Strength -3.
+    }
