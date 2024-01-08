@@ -727,33 +727,42 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 }
 
 \newcommand{\humandiplomat}[1][\npc{\Hu\M}{The Diplomat}]{
-  #1
-  \randomtwo
-  \addtocounter{enc}{-1}
-  \randomthree
-  \addtocounter{age}{-2}
-  \multiply\value{age} by -1
-  \randomfour
-  \randomfourB
-  \addtocounter{track}{-2}
-\person{1}% STRENGTH
-{\arabic{age}}% DEXTERITY 
-{0}% SPEED
-{{\arabic{r2}}% INTELLIGENCE
-{0}% WITS
-{\arabic{track}}}% CHARISMA
-{0}% DR
-{\arabic{enc}}% COMBAT
-{Academics~\arabic{r3}, Deceit~\arabic{r3}, \ifodd\value{gold} Empathy~\arabic{r3}, \fi Vigilance~\arabic{r2}}% SKILLS
-{\ifodd\value{enc}
-  \rapier%
-  \ifnum\value{r4b}=3%
-    \partialelvish%
-  \fi%
-\else%
-  \Dagger%
-\fi, \ifodd\value{r3c}\lootSmall\else\lootJewellery\fi}% EQUIPMENT
-{}
+    #1
+    \randomtwo
+    \randomtwoB
+    \addtocounter{enc}{-1}
+    \randomthree
+    \randomthreeC
+    \addtocounter{age}{-2}
+    \multiply\value{age} by -1
+    \randomfour
+    \randomfourB
+    \addtocounter{track}{-2}
+  \person{1}% STRENGTH
+  {\arabic{age}}% DEXTERITY 
+  {0}% SPEED
+  {{\arabic{r2}}% INTELLIGENCE
+  {0}% WITS
+  {\arabic{track}}}% CHARISMA
+  {0}% DR
+  {\arabic{enc}}% COMBAT
+  {}% SKILLS
+  {\ifodd\value{enc}
+    \rapier%
+    \ifnum\value{r4b}=3%
+      \partialelvish%
+    \fi%
+  \else%
+    \Dagger%
+  \fi, \ifodd\value{r3c}\lootSmall\else\lootJewellery\fi}% EQUIPMENT
+  {
+    \setcounter{Academics}{\value{r3}}
+    \setcounter{Deceit}{\value{r2b}}
+    \ifodd\value{gold}
+      \setcounter{Empathy}{\value{r3c}}
+    \fi
+    \setcounter{Vigilance}{\value{r2}}
+  }
 }
 
 \newcommand{\humanpriest}[1][\npc{\Hu\F}{Human Priest}]{
