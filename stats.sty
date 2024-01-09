@@ -371,7 +371,9 @@
 
 \newcommand{\snapcaster}{%
   \addtocounter{knacks}{1}%
-  \global\settoggle{snapCaster}{true}%
+  \ifnum\value{Wits}>\value{Charisma}%
+    \global\settoggle{snapCaster}{true}%
+  \fi%
   Snap Caster
   (spells use Wits and cost 1 less \glsentrytext{ap})
 }
