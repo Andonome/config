@@ -173,7 +173,8 @@
 }
 
 \newcommand\spell[7]{%
-  \togglefalse{talisman}
+  \togglefalse{talisman}%
+  \stepcounter{enc}%
   \calcSpell{#1}{#2}{#3}{#4}{#5}{#6}{#7}%
   \iftoggle{fullSpells}{%
     \fullSpell%
@@ -193,14 +194,13 @@
     \settoggle{fullSpells}{false}
     #1
     \foreach \n in {3,2,1}{
-      \ifnum\value{enc}<3
-        \foreach \s in {Light,Death,Life,Mind,Force,Earth,Air,Fire,Water,Fate}{
-          \ifnumcomp{\value{\s}}{=}{\n}{
-              \input{config/spells/\s\n.tex}
-              \stepcounter{enc}
-          }{}
-        }
-      \fi
+      \foreach \s in {Light,Death,Life,Mind,Force,Earth,Air,Fire,Water,Fate}{
+        \ifnumcomp{\value{\s}}{=}{\n}{
+          \ifnum\value{enc}<3
+            \input{config/spells/\s\n.tex}
+          \fi
+        }{}
+      }
     }
   \end{description}
   \textcolor{\pageSideColor}{\hrulefill\raisebox{-3pt}{\npcsymbol}}

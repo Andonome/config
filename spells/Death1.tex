@@ -1,3 +1,4 @@
+\ifodd\value{diceNo}
 \spell{Boke}% Name
   {}% Enhancements
   {Wax}% Action
@@ -6,6 +7,8 @@
   {The caster makes uncomfortable statements about the target's organs, who then feels sickly and possibly retches.
   The target gains \arabic{spellPlusOne}~\glspl{fatigue}}% Description
   {}
+
+\else
 
 \spell{Care Less}% Name
   {}% Enhancements
@@ -28,4 +31,5 @@
   {The spell preserves someone's natural bodily functions in the face of decay, tiredness, or poison.
     However, they still accumulate \glspl{fatigue} as normal, and cannot heal any through rest, or other means.}
 
-
+\fi
+\stepcounter{diceNo}
