@@ -91,3 +91,14 @@
   \setcounter{temperature}{1}%
 \fi%
 
+\newcommand\showInterval[1]{%
+  \ifcase#1%
+    \LEFTcircle%
+  \or%
+    \Circle
+  \or%
+    \RIGHTcircle
+  \else%
+    \CIRCLE
+  \fi%
+}

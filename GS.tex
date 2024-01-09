@@ -74,15 +74,15 @@
   %----
     \setcounter{track}{7}
     \posterbox[blankest]{name=track,column=27,row=2,span=3,rowspan=3}{
-      {\large
-
-      \Repeat{15}{\tracker
+      {
+        \large
+        \setcounter{track}{7}
+        \setcounter{enc}{0}
+        \Repeat{15}{
+          \intervalTrack
+        }%
       }
-
-
-      }
-
-      }
+    }
 
 %----
 

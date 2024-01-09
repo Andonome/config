@@ -742,6 +742,18 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 
     }
 
+\newcommand\intervalTrack{
+  \center\noindent%
+  \showInterval{\value{enc}}~~\arabic{track}
+  \addtocounter{track}{-1}%
+  \addtocounter{enc}{1}%
+  \vspace{.54cm}
+  \ifnum\value{enc}>3
+    \setcounter{enc}{0}
+  \fi
+
+}
+
 \newcommand\bigLine{%
   \textcolor{\pageSideColor}{\ifodd\value{page}\raisebox{-3pt}{\Large\hspace{0.1em}\flourish}\fi\hrulefill\ifodd\value{page}\else\raisebox{-3pt}{\Large\hspace{-0.1em}\flourish}\fi}%
 }
