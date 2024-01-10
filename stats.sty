@@ -103,10 +103,13 @@
   \fi%
 }
 
-\newcommand\boxStat[2][0]{%
-  \addtocounter{#2}{-#1}%
-  \Repeat{#1}{\CheckedBox}%
-  \Repeat{\value{#2}}{\Square}%
+\newcounter{wounds}
+\setcounter{wounds}{0}
+
+\newcommand\boxStat[1]{%
+  \addtocounter{#1}{-\value{wounds}}%
+  \Repeat{\value{wounds}}{\CheckedBox}%
+  \Repeat{\value{#1}}{\Square}%
 }
 
 \newcommand\HPboxes{
@@ -494,6 +497,7 @@
 	{}
   \settoggle{creatureBox}{false}
   \setcounter{noAppearing}{1}
+  \setcounter{wounds}{0}
   \renewcommand\abilities{}
   \afterparnoindent
 }
@@ -569,6 +573,7 @@
 
   \settoggle{creatureBox}{false}
   \renewcommand\abilities{}
+  \setcounter{wounds}{0}
   \afterparnoindent
 }
 
