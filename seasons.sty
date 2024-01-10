@@ -65,31 +65,36 @@
   \fi%
 }
 
-\ifcase\value{season}\or%
-  \setcounter{temperature}{1}%
-\or%
-  \setcounter{temperature}{1}%
-\or%
-  \setcounter{temperature}{0}%
-\or%
-  \setcounter{temperature}{1}%
-\or%
-  \setcounter{temperature}{2}%
-\or%
-  \setcounter{temperature}{1}%
-\or%
-  \setcounter{temperature}{1}%
-\or%
-  \setcounter{temperature}{1}%
-\or%
-  \setcounter{temperature}{2}%
-\or%
-  \setcounter{temperature}{1}%
-\or%
-  \setcounter{temperature}{0}%
-\else
-  \setcounter{temperature}{1}%
-\fi%
+\newcommand\setTemperature{
+  \ifcase\value{season}\or%
+    \setcounter{temperature}{1}%
+  \or%
+    \setcounter{temperature}{1}%
+  \or%
+    \setcounter{temperature}{0}%
+  \or%
+    \setcounter{temperature}{1}%
+  \or%
+    \setcounter{temperature}{2}%
+  \or%
+    \setcounter{temperature}{1}%
+  \or%
+    \setcounter{temperature}{1}%
+  \or%
+    \setcounter{temperature}{1}%
+  \or%
+    \setcounter{temperature}{2}%
+  \or%
+    \setcounter{temperature}{1}%
+  \or%
+    \setcounter{temperature}{0}%
+  \else
+    \setcounter{temperature}{1}%
+  \fi%
+
+}
+
+\setTemperature
 
 \newcommand\showInterval[1]{%
   \ifcase#1%
