@@ -702,7 +702,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 
 \titleformat{\section}%
   {\needspace{16em}%
-  \textcolor{\pageSideColor}{\large\flourish\titlerule}%
+  \textcolor{\pageSideColor}{\large\raisebox{-4pt}{\Large\hspace{-0.2em}\flourish}\titlerule}%
   \center%
   \huge%
   \titleFont
@@ -710,7 +710,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   {\Roman{section}}%
   {1em}%
   {#1}%
-  [\textcolor{\pageSideColor}{\large\titlerule\flourish}]%
+  [\textcolor{\pageSideColor}{\large\titlerule\raisebox{-4pt}{\Large\hspace{-0.2em}\flourish}}]%
 
 \renewcommand*{\thesection}{\arabic{section}}
 
