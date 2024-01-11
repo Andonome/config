@@ -1812,14 +1812,14 @@ mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIP
 {\ifnum\value{gold}>0 Athletics \arabic{gold}, Stealth~\arabic{gold}\else Projectiles~\arabic{r3}\fi
 }% SKILLS
 {
-  \acidBody,
+  \acidBody%
   \ifnum\value{gold}<1
-    \acidSpray%
+    , \acidSpray%
   \else%
-   \gloopy%
+   , \gloopy%
   \fi%
-  \ifnum\value{gold}<0,%
-    \ignorespaces, \gelRegen\addtocounter{xpbonus}{1}%
+  \ifnum\value{gold}<0%
+    , \gelRegen\addtocounter{xpbonus}{1}%
   \fi%
 }% ABILITIES
 {
