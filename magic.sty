@@ -250,7 +250,7 @@
   \lootMagic%
 }
 
-\newcommand\artefact[9]{
+\newcommand\artefact[8]{
   \settoggle{fullSpells}{false}
   \foreach \s in {Air, Fire, Earth, Water, Fate}%
     {\setcounter{\s}{0}}
@@ -261,9 +261,7 @@
   \setcounter{Intelligence}{#3}
   \setcounter{Wits}{#4}
   \setcounter{Charisma}{#5}
-  \par
   #7
-  \par
   \noindent
   \begin{tabularx}{\linewidth}{rX}
   \hiderowcolors
@@ -279,11 +277,4 @@
       \\
     \textbf{Skills:} & #8 \\
   \end{tabularx}
-  \begin{center}%
-  \textcolor{\pageSideColor}{\large\Pentagram} \textbf{Spells} \textcolor{\pageSideColor}{\large\Pentagram}
-  \end{center}%
-  \begin{description}
-  #9
-  \end{description}
-  \bigLine
 }
