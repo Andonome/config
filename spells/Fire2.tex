@@ -1,3 +1,5 @@
+\ifodd\value{diceNo}
+
 \spell{Party Kill}% Name
   {duplicated}% Enhancements
   {Wane}% Action
@@ -5,6 +7,8 @@
   {size of the flame}% Resist with
   {The caster blows, as if putting out a candle, and \arabic{spellTargets} fires extinguish, becoming nothing but a wiff of smoke}% Description
   {Candles are \tn[6], torches \tn[7], hearths \tn[8], and bonfires demand \tn[9] or more.}
+
+\else
 
 \spell{Sinister Flame}% Name
   {detailed}% Enhancements
@@ -14,3 +18,5 @@
   {A fire-source turns into a long arm with claws, and rakes anyone next to it for \showDam~Damage}% Description
   {}
 
+\fi
+\stepcounter{diceNo}

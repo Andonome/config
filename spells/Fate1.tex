@@ -1,3 +1,5 @@
+\ifodd\value{diceNo}
+
 \spell{Blessing}% Name
   {}% Enhancements
   {Wax}% Action
@@ -15,6 +17,7 @@
     The target then loses \showDam~\glspl{fp}}% Description
   {}
 
+\else
 
 \spell{Twisted Fate}% Name
   {}% Enhancements
@@ -36,3 +39,5 @@
   {With a short interaction, and some questions about family, the caster discerns if the target has any special fate}% Description
   {The spell produces only `yes' (if the target carries \glspl{fp}), or `no' (if they do not), without further details.}
 
+\fi
+\stepcounter{diceNo}

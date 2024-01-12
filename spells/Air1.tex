@@ -1,3 +1,5 @@
+\ifodd\value{diceNo}
+
 \spell{Bubble}% Name
   {}% Enhancements
   {Warp}% Action
@@ -22,6 +24,8 @@
     Casting the spell outdoors raises the \gls{tn} by 1, casting it on a windy day raises it by 3, and casting the spell in a storm raises the \gls{tn} by 5.
   }
 
+\else
+
 \spell{Wind Chill}% Name
   {}% Enhancements
   {Wax}% Action
@@ -30,3 +34,5 @@
   {As the caster shouts `\textit{back}', a blast of air pushes the target back, and they lose \arabic{spellPlusTwo}~\glspl{ap} minus their Strength Bonus}% Description
   {}
 
+\fi
+\stepcounter{diceNo}

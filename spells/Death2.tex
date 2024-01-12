@@ -1,3 +1,4 @@
+\ifodd\value{diceNo}
 \spell{Choke}% Name
   {detailed}% Enhancements
   {Wax}% Action
@@ -5,6 +6,8 @@
   {current \glspl{hp}}% Resist with
   {The caster curses one of the target's vital organs, and they lose \arabic{spellPlusOne} \glspl{hp}}% Description
   {This spell ignores \gls{dr}, \glspl{fp}, and anything else which might otherwise protect someone.}
+
+\else
 
 \spell{Insensitivity}% Name
   {detailed}% Enhancements
@@ -33,3 +36,6 @@
     While the spell diminishes a little with every movement, but targets who remain still retain the spell's effects.
     If another spell from the Mind sphere puts the target in a permanent state of sleep, they remain that way, neither growing, nor aging, until some external force moves them.
   }
+
+\fi
+\stepcounter{diceNo}

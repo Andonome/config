@@ -1,3 +1,5 @@
+\ifodd\value{diceNo}
+
 \spell{Mass Blessing}% Name
   {duplicated}% Enhancements
   {Wax}% Action
@@ -14,6 +16,8 @@
   {With a fast insult (`\textit{oi, \ifcase\value{r4}fuckwit\or spiderchow\or sheep-guard\else copperworth\fi'}), one target at \spellRange{} loses \showDam~\glspl{fp}}% Description
   {}
 
+\else
+
 \spell{Mass Curse}% Name
   {duplicated}% Enhancements
   {Wane}% Action
@@ -23,3 +27,5 @@
     They then loses \showDam~\glspl{fp}}% Description
   {}
 
+\fi
+\stepcounter{diceNo}

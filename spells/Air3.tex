@@ -1,3 +1,4 @@
+\ifodd\value{diceNo}
 \spell{Putrid Visage}% Name
   {detailed, duplicated}% Enhancements
   {Wane}% Action
@@ -5,3 +6,17 @@
   {wind speed}% Resist with
   {As the caster belches, they release a stinking cloud (in the shape of the caster's face) covers an area of \arabic{spellTargets} \glspl{step}, inflicting \arabic{spellPlusOne}~\glspl{fatigue} to anyone in the area who breathes it in}% Description
   {}
+
+\else
+
+\spell{Whisp Hands}% Name
+  {detailed, duplicated}% Enhancements
+  {Wax}% Action
+  {Air}% Spheres
+  {wind speed}% Resist with
+  {The caster shouts `get out', and \arabic{spellTargets} targets find themselves pushed back by whispy hands made of wind, stripping \arabic{spellPlusTwo}~\glspl{ap} minus the targets' Strength.
+  The hands avoid affecting the caster's allies}% Description
+  {}
+
+\fi
+\stepcounter{diceNo}
