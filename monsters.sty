@@ -1612,21 +1612,21 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
   \randomtwoB
   \addtocounter{enc}{-2}
   \randomthreeB
-\animal{\arabic{r2b}}% STRENGTH
-{0}% DEXTERITY 
-{\arabic{enc}}% SPEED
-{-2}% WITS
-{0}% DR
-{2}% AGGRESSION
-{
-  \ifnumcomp{\value{r3b}}{=}{1}%
-    {\\ \ent{Equipment:} & \lootSmall \\}%
-    {}
-}% SKILLS
-{}% ABILITIES
-{
-  \undead
-}%
+  \animal{\arabic{r2b}}% STRENGTH
+  {0}% DEXTERITY 
+  {\arabic{enc}}% SPEED
+  {-2}% WITS
+  {0}% DR
+  {2}% AGGRESSION
+  {
+    \ifnumcomp{\value{r3b}}{=}{1}%
+      {\\ \ent{Equipment:} & \lootSmall \\}%
+      {}
+  }% SKILLS
+  {}% ABILITIES
+  {
+    \undead
+  }%
 }
 
 \newcommand{\ghast}[1][\npc{\D}{Ghast}]{
