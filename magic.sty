@@ -159,16 +159,16 @@
   \item[\spellName]
   \spellSum.
 
-  (Cost:~\arabic{spellCost},
-  Range:~\spellRange,
+  (\textbf{Cost:}~\arabic{spellCost},
+  \textbf{Range:}~\spellRange,
   \ifnum\value{spellTargets}>1%
-    Targets:~\arabic{spellTargets},
+    \textbf{Targets:}~\arabic{spellTargets},
   \fi%
   \iftoggle{opposedSpell}{%
     \addtocounter{castingBonus}{7}%
-    Resisted~by: \spellResistance, \tn[\arabic{castingBonus}]%
+    \textbf{Resisted~by:} \spellResistance, \tn[\arabic{castingBonus}]%
   }{%
-    Roll: \absNum{castingBonus}, \gls{tn} set by \spellResistance.%
+    \textbf{Roll:} \absNum{castingBonus}, \gls{tn} set by \spellResistance.%
   })%
 }
 
