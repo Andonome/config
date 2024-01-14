@@ -1097,9 +1097,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
     {\resumecontents[\area]}
   %%%%%%%%%%%%%
   \renewcommand{\sqName}{#2}
-  \resumecontents[\sqarea]
-  \subsection[\it #2]{\MakeUppercase#2}
-  \stopcontents[\sqarea]
+  \subsection[\it #2]{#2}
   \settoggle{firstsq}{true}
   \setcounter{sqNo}{0}
   \foreach \area in {#1}%
