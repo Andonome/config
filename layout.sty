@@ -3,6 +3,14 @@
 \RequirePackage[table]{xcolor}
 \RequirePackage[copies]{contour}
 \RequirePackage{imakeidx}% for spell summaries
+
+\RequirePackage{xr-hyper}
+\RequirePackage[
+pdfstartpage=1,
+hidelinks=true,
+bookmarks=true]%
+{hyperref}
+
 \RequirePackage[
   acronyms,
   prefix,
@@ -173,12 +181,6 @@
 \newcommand\flwr{\textcolor{\pageSideColor}{\ifodd\thepage\adfflowerright\else\adfflowerleft\fi}}
 \newcommand\failStar{\textcolor{\pageSideColor}{\Fortune}}
 
-\RequirePackage{xr-hyper}
-\RequirePackage[
-pdfstartpage=1,
-hidelinks=true,
-bookmarks=true]%
-{hyperref}
 \RequirePackage[nospace]{varioref}
 
 %%%%%%%%%% Allow for external referencing
