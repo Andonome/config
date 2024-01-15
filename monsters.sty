@@ -1795,7 +1795,6 @@ mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIP
 }
 
 \newcommand{\jelly}[1][\npc{\A}{\ifnum\value{r4}>3 Black\else \ifnum\value{r4}>2 Red \else \ifnum\value{r4}>1 Brown\else Transluscent\fi\fi\fi~ Ooze}]{
-  #1
   \randomfour
   \addtocounter{track}{2}
   \setcounter{gold}{\value{r4}}
@@ -1803,6 +1802,7 @@ mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIP
   \addtocounter{gold}{3}
   \randomthree
   \randomthreeB
+  #1
 \animal{\arabic{r4}}% STRENGTH
 {\arabic{gold}}% DEXTERITY 
 {\arabic{gold}}% SPEED
