@@ -71,6 +71,7 @@
   name={Concoctions},
   text={concoction},
   prefix={a\space},
+  see={ingredient},
   sort={concoction},
   description={are liquids or powders which, when thrown in the air, hyper-charge the use of a single magic Sphere, for anyone present next to the burst.
   For example, a concoction to boost the Air Sphere would mean a caster with Air 2 could cast a single spell as if they had Air 3},
@@ -90,6 +91,7 @@
   text={talisman},
   first={talisman (a one-use magical item)},
   firstplural={talismans (one-use magical items)},
+  see={ingredient},
   sort={Talisman},
   description={usually store two spells -- one to detect a target, and another to cast upon them.
   Each talisman has its own activation condition},
@@ -311,8 +313,8 @@
   prefix={a\space},
   text={Labyrinth},
   sort={Labyrinth},
-  description={is the network of frigid, nearly lifeless caverns, which sits beneath much of \glsentrytext{fenestra}.
-  It is the \glsentrytext{edge} of the underground, beyond comfortable Gnomish warrens}
+  see={edge},
+  description={is the network of frigid, nearly lifeless caverns, which sits beneath much of \glsentrytext{fenestra}},
 }
 
 \newglossaryentry{sylf}{
@@ -321,10 +323,11 @@
 }
 
 \newglossaryentry{guard}{
-  name={The Night Guard},
+  name={Night Guards},
   sort={Night Guard},
   text={Night Guard},
   prefix={a\space},
+  see={sylf},
   nonumberlist,
   description={are the sorry lot who have nothing better to do than wander into the darkness and get eaten}
 }
@@ -333,6 +336,7 @@
   name={Jotters},
   text={jotter},
   prefix={a\space},
+  see={guard},
   description={do paperwork for the \glsentrytext{guard}, and control everything that their seniors don't care to manage}
 }
 
@@ -341,6 +345,7 @@
   sort={Sun Guard},
   text={Sun Guard},
   prefix={a\space},
+  see={court},
   description={are the upstanding soldiers who protect the city from all the unwashed masses, while wearing shiny-white tabards}
 }
 
@@ -375,6 +380,7 @@
   name={The Ainumar},
   text={Ainumar},
   plural={Ainumari},
+  see={fenestra},
   sort={Ainumar},
   description={is a great orb in the sky, commonly supposed to be where the gods live.
   It is a planet, around the size of Jupiter},
@@ -400,6 +406,7 @@
   text={\ifodd\value{r3} Temple of Poison\else Wheat Guild\fi},
   prefix={a\space},
   sort={Poison Guild},
+  see={abderian},
   symbol={\glsentrytext{poison}},
   description={protects humanity from poison through baking, brewing, and distillation.
   They prefer to be known as `the Wheat Guild', but many refer to them as `the Temple of Poison' anyway}
@@ -409,6 +416,7 @@
   name={Servers},
   text={Server},
   prefix={a\space},
+  see={wheatGuild},
   description={make food for the \glsentrytext{wheatGuild} all day, and every \glsentrytext{warden} has one in their employ}
 }
 
@@ -423,6 +431,7 @@
   text={Temple of Sickness},
   prefix={a\space},
   sort={Temple of Sickness},
+  see={eldren},
   symbol={\glsentrytext{sickness}},
   description={(also known as `the Healers Guild') tend to the dying, to ferry people into \glsentrytext{eldren}'s realm.
   This is the only god people love, because people view death by old age or sickness as a special privilege}
@@ -432,6 +441,7 @@
   name={Helpers},
   text={Helper},
   prefix={a\space},
+  see={healersGuild},
   description={tend to the sick and dying, on behalf of the \glsentrytext{healersGuild}.
   The temple only takes on new people from those with a disability of some kind, so the grounds are maximally accessible to everyone.
   The \glsentrytext{guard} who endure permanent injuries often retire as Helpers},
@@ -444,12 +454,13 @@
 }
 
 \newglossaryentry{doulaShop}{
-  name={The Doula Shop},
+  name={Doula Shops},
   text={Doula Shop},
   sort={Doula Shop},
   prefix={a\space},
+  see={doula},
   symbol={\glsentrytext{misgen}},
-  description={form the rare locations the doula sell various potions and blessings},
+  description={sell various potions and blessings},
 }
 
 \newglossaryentry{doula}{
@@ -465,6 +476,7 @@
   name={The Pit of Justice},
   text={Pit of Justice},
   prefix={a\space},
+  see={paik},
   sort={Pit of Justice},
   symbol={\glsentrytext{justice}},
   description={is where a town's \glsentrytext{warden} resolves legal disputes, and decides on the correct punishment for criminals}
@@ -474,7 +486,8 @@
   name={Wardens},
   text={Warden},
   prefix={a\space},
-  description={make the laws and decide fitting punishments for criminals in their \glsentrytext{court}}
+  see={court},
+  description={make the laws and decide fitting punishments for criminals}
 }
 
 \newglossaryentry{sable}{
@@ -487,6 +500,7 @@
   text={Weavers' Guild},
   sort={Weavers' Guild},
   prefix={a\space},
+  see={sable},
   symbol={\glsentrytext{frost}},
   description={houses a massive fire, many looms, and plenty of space for anyone who wants to hear a long story.
   This `Temple of Frost' exists to thwart \glsentrytext{sable}, by keeping people warm}
@@ -496,6 +510,7 @@
   name={Weavers},
   text={Weaver},
   prefix={a\space},
+  see={weaversGuild},
   description={produces the best and warmest of clothes for \glsentrytext{fenestra}'s harsh cold seasons}
 }
 
@@ -510,15 +525,16 @@
   text={Armourers' Guild},
   prefix={an\space},
   sort={Armourer's Guild},
+  see={wrecan},
   symbol={\glsentrytext{hate}},
-  description={take in angry, young people, and redirect their anger into work.
-  This `Temple of Hate' protects civilization from \glsentrytext{wrecan}}
+  description={take in angry, young people, and redirect their anger into work},
 }
 
 \newglossaryentry{armourer}{
   name={Armourers},
   text={Armourer},
   prefix={an\space},
+  see={armourHall},
   description={work in the \glsentrytext{armourHall} and guard civilization from from death by Hate, with a combination of excellent armour, and diplomatic skills}
 }
 
@@ -535,15 +551,17 @@
   prefix={a\space},
   sort={Paper Guild},
   symbol={\glsentrytext{curiosity}},
+  see={yonder},
   description={create paper, maps, candles, and soap.
   They always need more basilisk bodies to make the latter two.
-  This `Temple of Light' works against \glsentrytext{yonder}, by educating people}
+  This `Temple of Light' works against their own curiosity, by educating them}
 }
 
 \newglossaryentry{seeker}{
   name={Seekers},
   text={Seeker},
   prefix={a\space},
+  see={paperGuild},
   description={travel to deliver messages, and gather information for the \glsentrytext{paperGuild}}
 }
 
@@ -551,6 +569,7 @@
   name={Scribes},
   text={Scribe},
   prefix={a\space},
+  see={paperGuild},
   description={are anyone who works for the \glsentrytext{paperGuild}.
   Most spend their time making books or soap}
 }
