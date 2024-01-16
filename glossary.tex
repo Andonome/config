@@ -71,7 +71,7 @@
   name={Concoctions},
   text={concoction},
   prefix={a\space},
-  see={ingredient},
+  see={[see also]ingredient},
   sort={concoction},
   description={are liquids or powders which, when thrown in the air, hyper-charge the use of a single magic Sphere, for anyone present next to the burst.
   For example, a concoction to boost the Air Sphere would mean a caster with Air 2 could cast a single spell as if they had Air 3},
@@ -91,7 +91,7 @@
   text={talisman},
   first={talisman (a one-use magical item)},
   firstplural={talismans (one-use magical items)},
-  see={ingredient},
+  see={[see also]ingredient},
   sort={Talisman},
   description={usually store two spells -- one to detect a target, and another to cast upon them.
   Each talisman has its own activation condition},
@@ -137,7 +137,6 @@
 \newglossaryentry{natural}{
   name={A Natural Roll},
   text={Natural Roll},
-  sort={Natural Roll},
   prefix={a\space},
   description={is a roll where the physical dice land on some number.
   For example, a `natural 2' is where the dice show `\dicef{1}\dicef{1}', as opposed to a player gaining the result `2' from rolling a `\dicef{3}\dicef{1}' while the character has a -2 penalty to the roll}
@@ -174,7 +173,7 @@
   prefix={a\space},
   nonumberlist,
   description={means an attack which strikes between the gaps in armour, dealing full Damage.
-  Creatures with \glsentrytext{dr} show the \glsentrytext{tn} needed to deal a Vitals Shot next to their \glsentrytext{dr} like this: `\glsentrytext{dr} 4 (13!)' (meaning that the \glsentrytext{dr} is 4, but an attack roll of 13 will bypass the \glsentrytext{dr}},
+  Creatures with \glsentrytext{dr} show the \glsentrytext{tn} needed to deal a Vitals Shot next to their \glsentrytext{dr} like this: `\glsentrytext{dr} 4 (13!)' (meaning that the \glsentrytext{dr} is 4, but an attack roll of 13 will bypass the \glsentrytext{dr})},
   }
 
 \newglossaryentry{restingaction}{
@@ -191,7 +190,7 @@
   text={downtime},
   prefix={a\space},
   description={between sessions lets characters train, heal, and drink.
-  Every week in our world, three weeks pass over there}
+  Every week in our world, three weeks pass in \glsentrytext{fenestra}}
   }
 
 \newacronym[
@@ -328,8 +327,17 @@
   text={Night Guard},
   prefix={a\space},
   see={sylf},
+  symbol={\glsentrytext{beasts}},
   nonumberlist,
-  description={are the sorry lot who have nothing better to do than wander into the darkness and get eaten}
+  description={are the sorry lot who have nothing better to do than wander into the darkness and get eaten},
+  alias={templeOfBeasts},
+}
+
+\newglossaryentry{templeOfBeasts}{
+  name={Temple of Beasts},
+  prefix={a\space},
+  nonumberlist,
+  description={\nopostdesc},
 }
 
 \newglossaryentry{jotter}{
@@ -402,14 +410,20 @@
 }
 
 \newglossaryentry{wheatGuild}{
-  name={The Poison Guild},
+  name={Wheat Guild},
   text={\ifodd\value{r3} Temple of Poison\else Wheat Guild\fi},
   prefix={a\space},
-  sort={Poison Guild},
   see={abderian},
   symbol={\glsentrytext{poison}},
-  description={protects humanity from poison through baking, brewing, and distillation.
-  They prefer to be known as `the Wheat Guild', but many refer to them as `the Temple of Poison' anyway}
+  description={protects humanity from poison through baking, brewing, and distillation},
+}
+
+\newglossaryentry{templeOfPoison}{
+  name={Temple of Poison},
+  prefix={a\space},
+  symbol={\glsentrytext{poison}},
+  description={\nopostdesc},
+  alias={wheatGuild},
 }
 
 \newglossaryentry{server}{
@@ -427,14 +441,21 @@
 }
 
 \newglossaryentry{healersGuild}{
-  name={The Temple of Sickness},
-  text={Temple of Sickness},
+  name={Healers' Guild},
   prefix={a\space},
-  sort={Temple of Sickness},
   see={eldren},
   symbol={\glsentrytext{sickness}},
-  description={(also known as `the Healers Guild') tend to the dying, to ferry people into \glsentrytext{eldren}'s realm.
-  This is the only god people love, because people view death by old age or sickness as a special privilege}
+  description={Here the sick, disabled, or dying of \glsentrytext{fenestra} tend to each other.
+  Long-term staff always have some long-term disability, such as missing limbs.
+  Many of the \glsentrytext{guard} start a new career here},
+}
+
+\newglossaryentry{templeOfSickness}{
+  name={Temple of Sickness},
+  prefix={a\space},
+  symbol={\glsentrytext{sickness}},
+  description={\nopostdesc},
+  alias={healersGuild},
 }
 
 \newglossaryentry{helper}{
@@ -479,7 +500,16 @@
   see={paik},
   sort={Pit of Justice},
   symbol={\glsentrytext{justice}},
-  description={is where a town's \glsentrytext{warden} resolves legal disputes, and decides on the correct punishment for criminals}
+  description={is where a town's \glsentrytext{warden} resolves legal disputes, and decides on the correct punishment for criminals.
+  All trials must be on display, to warn the people about the consequences of crime, so they can learn that justice always prevails, and avoid crime}
+}
+
+\newglossaryentry{templeOfJustice}{
+  name={Temple of Justice},
+  prefix={a\space},
+  symbol={\glsentrytext{justice}},
+  description={\nopostdesc},
+  alias={court},
 }
 
 \newglossaryentry{warden}{
@@ -503,15 +533,23 @@
   see={sable},
   symbol={\glsentrytext{frost}},
   description={houses a massive fire, many looms, and plenty of space for anyone who wants to hear a long story.
-  This `Temple of Frost' exists to thwart \glsentrytext{sable}, by keeping people warm}
+  The Guild exists to prevent death by frost},
+}
+
+\newglossaryentry{templeOfFrost}{
+  name={Temple of Frost},
+  prefix={a\space},
+  symbol={\glsentrytext{frost}},
+  description={\nopostdesc},
+  alias={weaversGuild},
 }
 
 \newglossaryentry{weaver}{
   name={Weavers},
   text={Weaver},
   prefix={a\space},
-  see={weaversGuild},
-  description={produces the best and warmest of clothes for \glsentrytext{fenestra}'s harsh cold seasons}
+  alias={weaversGuild},
+  description={produces the best and warmest of clothes for \glsentrytext{fenestra}'s harsh cold seasons},
 }
 
 \newglossaryentry{wrecan}{
@@ -528,6 +566,14 @@
   see={wrecan},
   symbol={\glsentrytext{hate}},
   description={take in angry, young people, and redirect their anger into work},
+}
+
+\newglossaryentry{templeOfHate}{
+  name={Temple of Hate},
+  prefix={a\space},
+  symbol={\glsentrytext{hate}},
+  description={\nopostdesc},
+  alias={armourHall},
 }
 
 \newglossaryentry{armourer}{
@@ -557,11 +603,19 @@
   This `Temple of Light' works against their own curiosity, by educating them}
 }
 
+\newglossaryentry{templeOfLight}{
+  name={Temple of Light},
+  prefix={a\space},
+  symbol={\glsentrytext{curiosity}},
+  description={\nopostdesc},
+  alias={paperGuild},
+}
+
 \newglossaryentry{seeker}{
   name={Seekers},
   text={Seeker},
   prefix={a\space},
-  see={paperGuild},
+  seealso={paperGuild},
   description={travel to deliver messages, and gather information for the \glsentrytext{paperGuild}}
 }
 
