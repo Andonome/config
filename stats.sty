@@ -83,6 +83,11 @@
 
 \newcommand\dmg[1]{\conDmg{#1}\showDam}
 
+\newcommand\showSkills{
+    \foreach \s in {Projectiles,Combat,Brawl,Academics,Athletics,Caving,Crafts,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Stealth,Tactics,Vigilance,Wyldcrafting}
+      {\ifnum\value{\s}>0 \s~\arabic{\s}, \fi}
+}
+
 \newcommand\showBoxes{%
   \ifnum\value{mp}<1%
     \ifnum\value{hp}>11%
@@ -639,8 +644,7 @@
 
   \iftoggle{verbose}{
     \ent{Skills} &
-    \foreach \s in {Projectiles,Combat,Brawl,Academics,Athletics,Caving,Crafts,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Stealth,Tactics,Vigilance,Wyldcrafting}
-      {\ifnum\value{\s}>0 \s~\arabic{\s}, \fi}
+    \showSkills
       \skills \\
   }{}
 
