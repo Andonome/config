@@ -252,6 +252,7 @@
 
 \newcommand\artefact[8]{
   \settoggle{fullSpells}{false}
+  \setcounter{mp}{0}
   \foreach \s in {Air, Fire, Earth, Water, Fate}%
     {\setcounter{\s}{0}}
   \paragraph{\adforn{54}~#1~\adforn{26}}
@@ -271,10 +272,17 @@
       \\
   \textbf{Spheres:} & 
     \foreach \s in {Air, Fire, Earth, Water, Fate}%
-      {\ifnum\value{\s}>0
+      {\ifnum\value{\s}>0%
         \s~\arabic{\s},
-      \fi}
-      \\
+        \addtocounter{mp}{3}%
+      \fi}%
+      \\%
     \textbf{Skills:} & #8 \\
+    \textbf{\glspl{mp}:} &
+    \ifnum\value{mp}>0
+      \boxStat{mp}
+    \else
+      0
+    \fi \\
   \end{tabularx}
 }
