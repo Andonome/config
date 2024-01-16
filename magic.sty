@@ -250,9 +250,9 @@
   \lootMagic%
 }
 
-\newcommand\artefact[8]{
+\newcommand\artefact[7]{
   \settoggle{fullSpells}{false}
-  \setcounter{mp}{0}
+  \clean
   \foreach \s in {Air, Fire, Earth, Water, Fate}%
     {\setcounter{\s}{0}}
   \paragraph{\adforn{54}~#1~\adforn{26}}
@@ -277,7 +277,7 @@
         \addtocounter{mp}{3}%
       \fi}%
       \\%
-    \textbf{Skills:} & #8 \\
+    \textbf{Skills:} & \showSkills \\
     \textbf{\glspl{mp}:} &
     \ifnum\value{mp}>0
       \boxStat{mp}
