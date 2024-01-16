@@ -1,3 +1,5 @@
+\ifodd\value{diceNo}
+
 \spell{Chaos}% Name
   {duplicated}% Enhancements
   {Wane}% Action
@@ -6,3 +8,16 @@
   {Targets become confused about what their own plans, and suffer a -\arabic{spellPlusOne} to Mind Attributes}% Description
   {The spell lasts until the character gains \pgls{xp} for following their Code.}
 
+\else
+
+\spell{Oath}% Name
+  {detailed}% Enhancements
+  {Wax}% Action
+  {Water, Fate}% Spheres
+  {\roll{Wits}{Academics}}% Resist with
+  {The caster asks the target to swear an oath, and they become obsessed with fulfilling it.
+  The target receives a +\arabic{spellPlusOne} Bonus to Resting actions, and a -\arabic{spellPlusOne} Penalty to deviating from the mission}% Description
+  {The spell lasts until they complete their oath, or the character gains \pgls{xp} for following their Code.}
+
+\fi
+\stepcounter{diceNo}
