@@ -7,6 +7,9 @@
 \newtoggle{allyCharacter}
 \settoggle{allyCharacter}{false}
 
+\newtoggle{perfectArmour}
+\settoggle{perfectArmour}{false}
+
 %      _        _   
 %  ___| |_ __ _| |_ 
 % / __| __/ _` | __|
@@ -504,6 +507,7 @@
   \setcounter{noAppearing}{1}
   \setcounter{wounds}{0}
   \renewcommand\abilities{}
+  \global\togglefalse{perfectArmour}
   \afterparnoindent
 }
 
@@ -578,6 +582,7 @@
 
   \settoggle{creatureBox}{false}
   \renewcommand\abilities{}
+  \global\togglefalse{perfectArmour}
   \setcounter{wounds}{0}
   \afterparnoindent
 }
@@ -724,7 +729,10 @@
       \setcounter{enc}{\value{att}}%
       \addtocounter{enc}{\value{covering}}%
       \stepcounter{enc}%
-      \mbox{DR \arabic{dr} (\arabic{enc}!)}, %
+      \mbox{DR \arabic{dr}%
+      \iftoggle{perfectArmour}%
+        {}%
+        { (\arabic{enc}!)}, }%
     }{}%
   \iftoggle{genExamples}{%
     HP~\arabic{hp},
@@ -897,6 +905,7 @@
 \newcommand{\acidBody}{%
   Acidic Body (inflict
   \setcounter{track}{3}%
+  \global\toggletrue{perfectArmour}%
   \addtocounter{track}{\value{Strength}}%
   \dmg{track} Damage each turn of grappling)%
 }
