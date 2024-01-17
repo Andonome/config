@@ -1,13 +1,27 @@
-\newglossary*{people}{People}
+\glsdefpostdesc{general}{.}
+\glsdefpostdesc{people}{.\space\adforn{15}\space}
+\glsdefpostdesc{rules}{.\space\adforn{35}\space}
+\glsdefpostdesc{location}{.\space\adforn{72}\space}
+\glsdefpostdesc{symbol}{.}
 
-\makeglossaries
+\newglossary*{people}{People}
+\glssetcategoryattribute{people}{indexonlyfirst}{true}
+\glssetcategoryattribute{god}{glossnamefont}{textsf}
+
+\newignoredglossary*{peeps}
+
+\glssetcategoryattribute{rules}{nonumberlist}{true}
+\glssetcategoryattribute{rules}{noindex}{true}
+\glssetcategoryattribute{rules}{glossnamefont}{emph}
+
+\glssetcategoryattribute{location}{glossnamefont}{textsc}
 
 % We only want to show full descriptions (e.g. 'PC (Player Character)') in some books. These books make the file '.switch-gls', but most use nothing.
 
 \IfFileExists{.switch-gls}{
   \setabbreviationstyle[acronym]{long-short-sc-desc}
 }{
-  \setabbreviationstyle[acronym]{nolong-short-sc}
+  \setabbreviationstyle[acronym]{short-sc-long-desc}
 }
 
 \newacronym[
@@ -59,11 +73,12 @@
 }
 
 \newglossaryentry{interval}{
-  nonumberlist,
   prefix={an\space},
   name={An Interval},
   text={Interval},
   sort={Interval},
+  category={rules},
+  nonumberlist,
   description={means quarter of a day -- morning, afternoon, evening, or night}
 }
 
@@ -81,6 +96,7 @@
   name={Ingredients},
   text={ingredient},
   prefix={an\space},
+  nonumberlist,
   description={are substances with elemental affinities, used for powerful magical effects.
   A griffin's feathers may boost Air magic, or a bear's heart may be used to create a Fire \glsentrytext{talisman}}
 }
@@ -93,6 +109,7 @@
   firstplural={talismans (one-use magical items)},
   see={[see also]ingredient},
   sort={Talisman},
+  nonumberlist,
   description={usually store two spells -- one to detect a target, and another to cast upon them.
   Each talisman has its own activation condition},
 }
@@ -138,6 +155,8 @@
   name={A Natural Roll},
   text={Natural Roll},
   prefix={a\space},
+  category={rules},
+  nonumberlist,
   description={is a roll where the physical dice land on some number.
   For example, a `natural 2' is where the dice show `\dicef{1}\dicef{1}', as opposed to a player gaining the result `2' from rolling a `\dicef{3}\dicef{1}' while the character has a -2 penalty to the roll}
   }
@@ -154,6 +173,7 @@
   name={Steps},
   text={step},
   prefix={a\space},
+  category={rules},
   nonumberlist,
   description={provide a rough measure of space.
   We can imagine it about a metre long, or as wide as the step on your gaming board, or any other length}
@@ -210,8 +230,9 @@
 \newglossaryentry{fatigue}{
   name={Fatigue Points},
   text={Fatigue Point},
-  nonumberlist,
   prefix={a\space},
+  category={rules},
+  nonumberlist,
   description={measure how tired, hungry, and fed-up characters feel.
   Characters can put up with a number of Fatigue Points equal to their \glsentrytext{hp}, after which they receive penalties to act}
 }
@@ -278,9 +299,10 @@
 \newglossaryentry{weight}{
   name={Weight Rating},
   text={Weight},
-  nonumberlist,
   first={Weight Rating},
   prefix={a\space},
+  category={rules},
+  nonumberlist,
   description={shows how easy something is to carry.
   Characters can carry items with a total Weight Rating equal to their \glsentrytext{hp} total.
   Creatures have a \glsentrytext{weight} equal to their own \glsentrytext{hp}}
@@ -291,6 +313,7 @@
   text={character pool},
   prefix={a\space},
   sort={Character Pool},
+  category={rules},
   nonumberlist,
   description={is the collection of characters a player has.
   Players introduce new characters as allies by spending \glsfmtplural{storypoint}, then once their character dies, they take their next \glsentrytext{pc} from the pool}
@@ -318,6 +341,7 @@
 
 \newglossaryentry{sylf}{
   name={Sylf},
+  category={god},
   description={ -- mother of all beasts}
 }
 
@@ -405,6 +429,7 @@
 
 \newglossaryentry{abderian}{
   name={Abderian},
+  category={god},
   description={is the goddess of poison and rot.
   When she kills someone, she brings them to her banquet of pain, to see how long they can resist eating her rancid food},
 }
@@ -436,6 +461,7 @@
 
 \newglossaryentry{eldren}{
   name={Eldren},
+  category={god},
   description={takes those who die of sickness or age.
   Many people save up their whole lives to be allowed into the \glsentrytext{healersGuild} once they become old, so they can die in peace, and go to his realm},
 }
@@ -470,6 +496,7 @@
 
 \newglossaryentry{paik}{
   name={Paik},
+  category={god},
   description={is the god of death by justice.
   When bandits swing from the noose in the \glsentrytext{court}, Paik takes them to his realm, and taunts them forever}
 }
@@ -515,6 +542,7 @@
 \newglossaryentry{warden}{
   name={Wardens},
   text={Warden},
+  nonumberlist,
   prefix={a\space},
   see={court},
   description={make the laws and decide fitting punishments for criminals}
@@ -522,6 +550,7 @@
 
 \newglossaryentry{sable}{
   name={Sable},
+  category={god},
   description={releases cold into the world to watch people lay down and die in the snow, then takes them to his frigid realm, to place their frozen spirits there like an ornament}
 }
 
@@ -554,6 +583,7 @@
 
 \newglossaryentry{wrecan}{
   name={Wrecan},
+  category={god},
   description={is the goddess of hatred, bigotry, and vengeance.
   When people fight each other, she takes their soul to her realm of eternal war},
 }
@@ -586,6 +616,7 @@
 
 \newglossaryentry{yonder}{
   name={Yonder},
+  category={god},
   description={is the god who kills by curiosity.
   When idiots go to investigate something which sensible people would leave alone, they say their soul goes to live with \glsentrytext{yonder}.
   Nobody knows what happens after that, and there's only one way to find out\ldots},
@@ -852,3 +883,6 @@
 \newcommand{\squash}{\gls{squash}} % multi-part side quest
 \newcommand{\sqr}{\gls{sqr}} % multi-part side quest
 \newcommand{\sqn}{\gls{sqn}} % multi-part side quest
+
+\makeglossaries
+
