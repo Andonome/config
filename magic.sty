@@ -250,25 +250,25 @@
   \lootMagic%
 }
 
-\newcommand\artefact[8]{
+\newcommand\artefact[9][3]{
   \settoggle{fullSpells}{false}
   \clean
   \foreach \s in {Air, Fire, Earth, Water, Fate}%
     {\setcounter{\s}{0}}
-  \setcounter{Intelligence}{#3}
-  \setcounter{Wits}{#4}
-  \setcounter{Charisma}{#5}
-  #8
-  \paragraph{\adforn{54}~#1~\adforn{26}\hspace{1em}}
-  \label{#1}
-  \index{Artefacts!#1}
-  #2
+  \setcounter{Intelligence}{#4}
+  \setcounter{Wits}{#5}
+  \setcounter{Charisma}{#6}
+  #9
+  \paragraph{\adforn{54}~#2~\adforn{26}\hspace{1em}}
+  \label{#2}
+  \index{Artefacts!#2}
+  #3 \hint{\gls{weight} #1}
   \par
   \noindent
   \begin{tabularx}{\linewidth}{rX}
   \hiderowcolors
-  \textbf{Mission:} & \emph{#6!} \\
-  \textbf{Base Spell:} & #7 \\
+  \textbf{Mission:} & \emph{#7!} \\
+  \textbf{Base Spell:} & #8 \\
   \textbf{Mind:} & 
     Intelligence \arabic{Intelligence}, Wits \arabic{Wits}, Charisma \arabic{Charisma}
       \\
