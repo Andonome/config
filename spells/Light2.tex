@@ -1,3 +1,5 @@
+\ifodd\value{diceNo}
+
 \spell{Sun Flare}% Name
   {duplicated}% Enhancements
   {Wax}% Action
@@ -7,6 +9,8 @@
   Nearby lights flash.
   If cast in darkness, everyong within \spellRange\ of an affected light source blinks in confusion, and takes a -\arabic{spellCost} penalty to anything involving vision, for the rest of the round}% Description
   {The spell only works once, as eyes adjust quickly to the shock.}
+
+\else
 
 \spell{Phantasm}% Name
   {detailed}% Enhancements
@@ -19,3 +23,4 @@
   The illusion vanishes upon touch, or even in a strong wind.
   In combat, these illusions provide worth by wasting enemy's \glspl{ap}, since attacking them requires attention and movement.}
 
+\fi
