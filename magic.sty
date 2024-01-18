@@ -255,14 +255,15 @@
   \clean
   \foreach \s in {Air, Fire, Earth, Water, Fate}%
     {\setcounter{\s}{0}}
-  \paragraph{\adforn{54}~#1~\adforn{26}}
-  \label{#1}
-  \index{Artefacts!#1}
-  #2
   \setcounter{Intelligence}{#3}
   \setcounter{Wits}{#4}
   \setcounter{Charisma}{#5}
   #7
+  \paragraph{\adforn{54}~#1~\adforn{26}\hspace{1em}}
+  \label{#1}
+  \index{Artefacts!#1}
+  #2
+  \par
   \noindent
   \begin{tabularx}{\linewidth}{rX}
   \hiderowcolors
@@ -285,4 +286,5 @@
       0
     \fi \\
   \end{tabularx}
+  \setcounter{wounds}{0}
 }
