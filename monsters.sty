@@ -797,6 +797,46 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 {}
 }
 
+\newcommand{\doula}[1][\npc{\Hu\F}{Doula}]{
+  #1
+  \randomtwo
+  \randomtwoB
+  \randomtwoC
+  \addtocounter{r2b}{-1}
+  \randomthree
+  \addtocounter{age}{1}
+  \randomthreeB
+  \randomthreeC
+  \addtocounter{r3c}{-2}
+\person{\arabic{r3c}}% STRENGTH
+{0}% DEXTERITY 
+{0}% SPEED
+{{\arabic{r3}}% INTELLIGENCE
+{0}% WITS
+{\ifodd\value{r3} 0\else 2\fi}}% CHARISMA
+{0}% DR
+{0}% COMBAT
+{}% SKILLS
+{\ifodd\value{r2b}
+  \walkingStick
+\else
+  \ifodd\value{r2b}
+    \Dagger, \lootMedium%
+  \else%
+  \fi%
+\fi}% EQUIPMENT
+{
+  \setcounter{Academics}{\value{r3}}
+  \setcounter{Deceit}{\value{enc}}
+  \setcounter{Medicine}{\value{r3b}}
+  \ifodd\value{r3b}\else
+    \setcounter{Fate}{\value{r3}}
+    \setcounter{Water}{\value{r3c}}
+    \setcounter{Air}{\value{r2b}}
+  \fi
+}
+}
+
 \newcommand{\humansoldier}[1][\npc{\T[\arabic{r12}]\Hu}{\arabic{r12} Soldiers}]{
   \randomdozen
   #1
