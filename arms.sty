@@ -45,17 +45,17 @@
 
 % Shields work much like weapons, except that their Bonus is high, their initiative cost is low, but their attack is poor.
 
-\newcommand\shield[3][]{
-  \setcounter{shieldBonus}{#3}
-  \addtocounter{shieldBonus}{2}
-  \setcounter{shieldWeight}{#3}
-  \setcounter{shieldInit}{#3}
-  \stepcounter{shieldInit}
-  \setcounter{cost}{87}
-  #1 
+\newcommand\shield[3][]{%
+  \setcounter{shieldBonus}{#3}%
+  \addtocounter{shieldBonus}{2}%
+  \setcounter{shieldWeight}{#3}%
+  \setcounter{shieldInit}{#3}%
+  \stepcounter{shieldInit}%
+  \setcounter{cost}{87}%
+  #1%
   \iftoggle{creatureBox}%
-    {#2 shield (+\arabic{shieldBonus}/ \arabic{shieldInit})}{
-      #2 Shield &
+    {#2 shield (+\arabic{shieldBonus}/ \arabic{shieldInit})}{%
+      \MakeUppercase#2 Shield &%
       +\arabic{shieldBonus} &
       \arabic{shieldInit} &
       \arabic{shieldWeight}
@@ -121,9 +121,9 @@
 \newcommand{\woodaxe}{\weapon[\addtocounter{heft}{1}]{Wood Axe}{1}{2}}
 
 % SHIELDS
-\newcommand{\bucklar}{\shield{Bucklar}{0}}
-\newcommand{\roundshield}{\shield{Round}{1}}
-\newcommand{\kiteshield}{\shield{Kite}{2}}
+\newcommand{\bucklar}{\shield{bucklar}{0}}
+\newcommand{\roundshield}{\shield{round}{1}}
+\newcommand{\kiteshield}{\shield{kite}{2}}
 
 % RANGED WEAPONS
 \newcommand{\longbow}{Longbow}

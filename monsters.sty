@@ -872,10 +872,10 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
   \partialleather%
 \else%
   \partialchain%
-\fi, %
-\ifodd\value{r4}
-  \roundshield, 
-\fi
+\fi,%
+\ifodd\value{r4}%
+  \roundshield, %
+\fi%
   \ifnum\value{enc}=3\lootMedium\else\lootSmall\fi}% EQUIPMENT
 {
   \ifodd\value{r3}%
