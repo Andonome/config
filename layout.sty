@@ -290,23 +290,23 @@ bookmarks=true]%
   \label{#2}
 }
 
+ %before upper={\parindent0pt},
+ %boxrule=0mm,
+ %finish fading vignette={size=0.02\textwidth},
+
 \newcommand{\widePic}[2][b]{
   \begin{figure*}[#1!]
     \setcounter{enc}{0}
-    \IfFileExists{images/#2.svg}{
-      \begin{tikzpicture}
-        \raggedright
-        \node (mapPic) {\includesvg[width=\textwidth]{images/#2}};
+    %\IfFileExists{images/#2.svg}{}
+      \begin{tikzpicture}[every shadow/.style={
+      shadow blur invert,
+      shadow xshift=-1pt,
+      shadow yshift=-3pt
+  }]
+        \node[path fading=semi west,blue] (mapPic) {\pic{#2}};
+        \tcbvignette{outside node=mapPic, lowered color=\pageSideColor,size=4mm}
         \csComments
       \end{tikzpicture}
-    }{
-       \tcbincludegraphics[
-       blankest,
-       before upper={\parindent0pt},
-       boxrule=0mm,
-       finish fading vignette={size=0.02\textwidth},
-       ]{images/#2.jpg}
-    }
     \label{#2}
     \renewcommand\csComments{}
   \end{figure*}
@@ -318,6 +318,16 @@ bookmarks=true]%
 
 \newcommand\mapLegend[4]{
   \node [black, font=\bfseries] at (0.#2,0.#3) {#4 #1};
+}
+
+\newcommand\mapCircle[4][0]{
+  \setcounter{track}{#3}
+  \addtocounter{track}{3}
+  \addtocounter{track}{#1}
+  \begin{scope}
+  \draw[fill=white] (#2) circle (#3em);
+  \clip[draw] (#2) circle (#3em) node {\includesvg[width=\arabic{track}em]{images/#4}};
+  \end{scope}
 }
 
 \newcommand\mapPic[4][\Huge]{
