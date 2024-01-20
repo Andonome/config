@@ -312,9 +312,8 @@ bookmarks=true]%
   \end{figure*}
 }
 
-\newcommand\callout[4][4]{
-  \centering%
-  \node[text=\pageOppositeColor, overlay, rectangle callout, callout relative pointer={(#3)}, fill=\pageSideColor,] (\arabic{enc}) at (#2) [text width=#1em]{#4};
+\newcommand\callout[5][4]{
+  \node[text=\pageOppositeColor, overlay, rectangle callout, callout relative pointer={(#3)}, fill=\pageSideColor,] (\arabic{enc}) at (#2) [text width=#1em]{{\large\scshape#4}{ #5}};
 }
 
 \newcommand\mapLegend[4]{
