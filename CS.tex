@@ -166,14 +166,18 @@ circle label/.style = {
         }{
           \sffamily\characterWeapon & \sffamily\arabic{weaponBonus} & \sffamily\arabic{damage} & \sffamily\arabic{heft} & \sffamily\arabic{weight} \\
         }
-    }{}
-    \\
+    }{
+      \Repeat{2}{
+        \hspace{3em} &
+        \Repeat{3}{\statCircle} &
+        \Repeat{3}{\statCircle} &
+        \Repeat{3}{\statCircle} &
+        \Repeat{5}{\Large\Square} \\
+      }
+    }
     \end{tabularx}
 
-    \iftoggle{examplecharacter}{}{
-      \lineDots[3]
-    }
-
+    \vspace{1em}
     \begin{tabularx}{\linewidth}{p{.4\textwidth}YYY}
       \hiderowcolors
       \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{Covering} & \textbf{Weight} \\
@@ -182,10 +186,13 @@ circle label/.style = {
         \ifdefempty{\characterArmour}{}{
           \sffamily\characterArmour & \sffamily\arabic{armourDR} & \sffamily\arabic{covering} & \sffamily\arabic{weight} \\
         }
-      }{}
+      }{
+        \hspace{3em} &
+        \Repeat{5}{\statCircle} &
+        \Repeat{5}{\statCircle} &
+        \Repeat{5}{\Large\Square} \\
+      }
     \end{tabularx}
-
-    \iftoggle{examplecharacter}{}{\lineDots}
   }
 
 %-----
