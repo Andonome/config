@@ -292,18 +292,27 @@ bookmarks=true]%
 
 \newcommand{\widePic}[2][b]{
   \begin{figure*}[#1!]
+    \setcounter{enc}{0}
     \IfFileExists{images/#2.svg}{
-      \includesvg[width=\textwidth]{images/#2}
+      \begin{tikzpicture}
+        \node (mapPic) {\includesvg[width=\textwidth]{images/#2}};
+        \csComments
+      \end{tikzpicture}
     }{
-      \tcbincludegraphics[
-      blankest,
-      before upper={\parindent0pt},
-      boxrule=0mm,
-      finish fading vignette={size=0.02\textwidth},
-      ]{images/#2.jpg}
+       \tcbincludegraphics[
+       blankest,
+       before upper={\parindent0pt},
+       boxrule=0mm,
+       finish fading vignette={size=0.02\textwidth},
+       ]{images/#2.jpg}
     }
     \label{#2}
+    \renewcommand\csComments{}
   \end{figure*}
+}
+
+\newcommand\callout[3]{
+  \node[text=white, overlay, rectangle callout, callout relative pointer={(#2)}, fill=black,] (\arabic{enc}) at (#1) [text width=4cm]{#3};
 }
 
 \newcommand\mapLegend[4]{
