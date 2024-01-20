@@ -295,6 +295,7 @@ bookmarks=true]%
     \setcounter{enc}{0}
     \IfFileExists{images/#2.svg}{
       \begin{tikzpicture}
+        \raggedright
         \node (mapPic) {\includesvg[width=\textwidth]{images/#2}};
         \csComments
       \end{tikzpicture}
@@ -311,8 +312,9 @@ bookmarks=true]%
   \end{figure*}
 }
 
-\newcommand\callout[3]{
-  \node[text=white, overlay, rectangle callout, callout relative pointer={(#2)}, fill=black,] (\arabic{enc}) at (#1) [text width=4cm]{#3};
+\newcommand\callout[4][4]{
+  \centering%
+  \node[text=\pageOppositeColor, overlay, rectangle callout, callout relative pointer={(#3)}, fill=\pageSideColor,] (\arabic{enc}) at (#2) [text width=#1em]{#4};
 }
 
 \newcommand\mapLegend[4]{
