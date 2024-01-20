@@ -298,24 +298,12 @@ circle label/.style = {
     rowspan=3.7,
   }{
 
-  \iftoggle{examplecharacter}{\sffamily\characterEquipment\vspace{14em}}{
-    \vspace{1.3em}
-    {\Repeat{5}{\Square}\hbox to .9\textwidth{\leaders\hbox to 30pt{\hss . \hss}\hfil}\vspace{1em}}
-
-    {\Repeat{5}{\Square}\hbox to .9\textwidth{\leaders\hbox to 30pt{\hss . \hss}\hfil}\vspace{1em}}
-
-    {\Repeat{5}{\Square}\hbox to .9\textwidth{\leaders\hbox to 30pt{\hss . \hss}\hfil}\vspace{1em}}
-    \vspace{1em}
-  }
-
-  
-  \begin{tabularx}{\hsize}{llXr}
-  \glsentryshortpl{cp}\weeline &
-  \glsentryshortpl{sp}\weeline &
-  \glsentryshortpl{gp}\weeline &
-  Encumbrance \weeline
-  \\
-  \end{tabularx}
+    \iftoggle{examplecharacter}{\sffamily\characterEquipment\vspace{12em}}{
+      \vspace{1.3em}
+      \Repeat{5}{
+        {\Repeat{5}{\Square}\hbox to .95\textwidth{\leaders\hbox to 30pt{\hss . \hss}\hfil}\vspace{1em}}
+      }
+    }
   }
 
 %---
@@ -371,6 +359,18 @@ circle label/.style = {
     \iftoggle{examplecharacter}{\textcolor{gray}{50}}{}
     \tcblower
     \small Unspent:
+  }
+
+
+  \posterbox[
+    remember, blankest, halign=center,valign=center,
+  ]{name=money,column=6,span=10,row=18,rowspan=1}{
+    \vspace{-1.1em}
+    \begin{tabularx}{\hsize}{llX}
+      \glsentryshortpl{cp}\weeline &
+      \glsentryshortpl{sp}\weeline &
+      \glsentryshortpl{gp}\weeline \\
+    \end{tabularx}
   }
 
 %------
