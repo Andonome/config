@@ -17,11 +17,13 @@ rules.pdf: rules.tex rules $(wildcard *.sty)
 
 all: docs.pdf test.pdf resources.pdf rules.pdf
 clean:
-	rm -rf *pdf *.aux *.toc *.acn *.acr *.log *.ptc *.out *.idx *.ist *.alg *.glo \
-	*.slo \
-	*.sls \
-	*.glg \
-	*.gls \
+	rm -rf *pdf *.aux *.toc *.acn *.acr *.log *.ptc *.out *.idx *.ist *.alg \
+    *glo \
+	*slo \
+	*sls \
+	*slg \
+	*glg \
+	*gls \
 	*.ind \
 	*.ilg \
   images/wide.jpg \
