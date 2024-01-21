@@ -1060,7 +1060,7 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 {\arabic{r2b}}% COMBAT
 {Academics~\arabic{r3}, \ifodd\value{r3} Deceit~\arabic{r2}, Tactics~\arabic{enc}\else Empathy~\arabic{r2}, Vigilance~\arabic{enc}\fi
 }% SKILLS
-{\lootMedium, \ifodd\value{r3}\lootMagic\else mana stone with 4 mp\fi}% EQUIPMENT
+{\lootMedium}% EQUIPMENT
 {
   \ifodd\value{r2b}%
     \setcounter{Fire}{\value{r3b}}
@@ -1702,89 +1702,87 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 }
 
 \newcommand{\necromancer}[1][\npc{\M}{Necromancer}]{
-  #1
-  \randomtwo
-  \addtocounter{enc}{1}
-  \randomtwoB
-  \randomtwoC
-  \randomtwoD
-  \addtocounter{r2b}{-1}
-  \randomthree
-  \randomthreeB
-  \randomthreeC
-  \randomfour
-\person{\arabic{r2}}% STRENGTH
-{0}% DEXTERITY 
-{\arabic{r2b}}% SPEED
-{{\arabic{enc}}% INTELLIGENCE
-{\arabic{r2b}}% WITS
-{-5}}% CHARISMA
-{2}% DR
-{\arabic{r2}}% COMBAT
-{Brawl~2, Projectiles~\arabic{r2c}, Academics~\arabic{r3}, Deceit~1, Medicine~\arabic{r2c}, Vigilance~\arabic{r2}
-  \Spheres{%
-    Air~\arabic{r2}, Fate~\arabic{r3b}, Water~\arabic{r3c}
-    \ifodd\value{r4}
-      Fire~\arabic{r2d}
-    \fi
-  }%
-}% SKILLS
-{\ifodd\value{r3}%
-  \Dagger%
-\else%
-  \shortsword%
-  \ifodd\value{r3b}%
-    , \partialleather%
+    #1
+    \randomtwo
+    \addtocounter{enc}{1}
+    \randomtwoB
+    \randomtwoC
+    \randomtwoD
+    \addtocounter{r2b}{-1}
+    \randomthree
+    \randomthreeB
+    \randomthreeC
+    \randomfour
+  \person{\arabic{r2}}% STRENGTH
+  {0}% DEXTERITY 
+  {\arabic{r2b}}% SPEED
+  {{\arabic{enc}}% INTELLIGENCE
+  {\arabic{r2b}}% WITS
+  {-5}}% CHARISMA
+  {2}% DR
+  {\arabic{r2}}% COMBAT
+  {Brawl~2, Projectiles~\arabic{r2c}, Academics~\arabic{r3}, Deceit~1, Medicine~\arabic{r2c}, Vigilance~\arabic{r2}
+    \Spheres{%
+      Air~\arabic{r2}, Fate~\arabic{r3b}, Water~\arabic{r3c}
+      \ifodd\value{r4}
+        Fire~\arabic{r2d}
+      \fi
+    }%
+  }% SKILLS
+  {\ifodd\value{r3}%
+    \Dagger%
+  \else%
+    \shortsword%
+    \ifodd\value{r3b}%
+      , \partialleather%
+    \fi%
   \fi%
-\fi%
-, \multiply\value{track} by 2%
-mana stone holding \arabic{track} MP, \ifodd\thechapter\lootJewellery\fi}% EQUIPMENT
-{}
+  }% EQUIPMENT
+  {}
 }
 
 \newcommand{\demilich}[1][\npc{\D\E}{Demilich}]{
-  #1
-  \randomtwo
-  \addtocounter{enc}{1}
-  \randomtwoB
-  \randomtwoD
-  \randomthree
-    \addtocounter{age}{-2}
-  \randomthreeB
-  \randomthreeC
-  \randomfour
-\person{\arabic{r2}}% STRENGTH
-{\arabic{age}}% DEXTERITY 
-{\arabic{r2d}}% SPEED
-{{\arabic{enc}}% INTELLIGENCE
-{\arabic{r2b}}% WITS
-{-5}}% CHARISMA
-{2}% DR
-{\arabic{r2}}% AGGRESSION
-{Brawl 2, Projectiles~\arabic{r2}, Academics~\arabic{r3}, Deceit~1, Medicine~\arabic{r3c}, Vigilance~\arabic{r2}
-}% SKILLS
-{\ifodd\thechapter%
-  \Dagger, %
-\else
-  \longsword, %
-\fi%
-  \ifodd\value{r4}%
-    \partialplate%
-  \else%
-    \completechain%
+    #1
+    \randomtwo
+    \addtocounter{enc}{1}
+    \randomtwoB
+    \randomtwoD
+    \randomthree
+      \addtocounter{age}{-2}
+    \randomthreeB
+    \randomthreeC
+    \randomfour
+  \person{\arabic{r2}}% STRENGTH
+  {\arabic{age}}% DEXTERITY 
+  {\arabic{r2d}}% SPEED
+  {{\arabic{enc}}% INTELLIGENCE
+  {\arabic{r2b}}% WITS
+  {-5}}% CHARISMA
+  {2}% DR
+  {\arabic{r2}}% AGGRESSION
+  {Brawl 2, Projectiles~\arabic{r2}, Academics~\arabic{r3}, Deceit~1, Medicine~\arabic{r3c}, Vigilance~\arabic{r2}
+  }% SKILLS
+  {\ifodd\thechapter%
+    \Dagger, %
+  \else
+    \longsword, %
   \fi%
-\multiply\value{track} by 2%
-, mana stone with \arabic{track} mana, \lootJewellery, \randomtwo\lootJewellery, \lootMagic}% EQUIPMENT
-{%
-  \setcounter{Air}{\value{r3}}%
-  \setcounter{Fate}{\value{r3b}}%
-  \setcounter{Water}{\value{r3c}}%
-  \ifodd\value{r4}%
-    \setcounter{Earth}{1}%
-  \fi%
-  \undead
-  \knacks{\snapcaster}
-}
+    \ifodd\value{r4}%
+      \partialplate%
+    \else%
+      \completechain%
+    \fi%
+  , \lootJewellery, \randomtwo\lootJewellery, \lootMagic}% EQUIPMENT
+  {%
+    \setcounter{Air}{\value{r3}}%
+    \setcounter{Fate}{\value{r3b}}%
+    \setcounter{Water}{\value{r3c}}%
+    \ifodd\value{r4}%
+      \setcounter{Earth}{1}%
+    \fi%
+    \undead
+    \knacks{\snapcaster}
+  }
 }
 
 \newcommand{\lich}[1][\npc{\D}{Lich}]{
