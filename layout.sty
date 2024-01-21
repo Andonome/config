@@ -975,15 +975,17 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   {\end{quotation}}
 
 \newenvironment{exampletext}
-  {\needspace{2em}%
-  \vspace{1em}%
-  \it%
-  \parindent2em%
+  {
+    \parindent2em%
+    \needspace{2em}
+    \vspace{1em}%
+    \it%
+    \afterparnoindent
   }
   {%
-    \par\bigLine
-    \vspace{1em}%
-    \afterparnoindent\par%
+    \par
+    \nobreak\bigLine\vspace{.3em}
+    \afterparnoindent%
   }
 
 \newcommand\sideBySide[2]{
