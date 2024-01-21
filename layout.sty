@@ -959,8 +959,11 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 %%%%%%%%%%%%%%%%%%%% Environments %%%%%%%%%%%%%%%%%%%%
 
 \newenvironment{speechtext}%
-  {\it
-  \begin{quotation}}%
+  {%
+    \it
+    \begin{quotation}%
+    \noindent%
+  }%
   {
     \end{quotation}
   }
@@ -975,12 +978,17 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 }
 \newrobustcmd*{\NoIndentAfterThis}{\@NoIndentAfter\par\par}
 
-\AfterEndEnvironment{speechtext}{\NoIndentAfterThis}
+\AfterEndEnvironment{enumerate}{\NoIndentAfterThis}
+\AfterEndEnvironment{itemize}{\NoIndentAfterThis}
+\AfterEndEnvironment{dlist}{\NoIndentAfterThis}
+\AfterEndEnvironment{list}{\NoIndentAfterThis}
 \AfterEndEnvironment{boxtext}{\NoIndentAfterThis}
-\AfterEndEnvironment{nametable}{\NoIndentAfterThis}
+\AfterEndEnvironment{speechtext}{\NoIndentAfterThis}
 \AfterEndEnvironment{exampletext}{\NoIndentAfterThis}
+\AfterEndEnvironment{nametable}{\NoIndentAfterThis}
 \AfterEndEnvironment{boxtable}{\NoIndentAfterThis}
 \AfterEndEnvironment{tcolorbox}{\NoIndentAfterThis}
+\AfterEndEnvironment{multicols}{\NoIndentAfterThis}
 
 \newenvironment{exampletext}
   {
@@ -988,6 +996,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
     \needspace{2em}
     \vspace{1em}%
     \it%
+    \noindent%
   }
   {%
     \par
