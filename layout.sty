@@ -584,9 +584,8 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   colback=white,
   before={\vspace{.5em}\noindent},
   fonttitle={\scshape #1},
-  before upper={\parindent15pt\afterparnoindent},
+  before upper={\parindent15pt\noindent},
   after upper={\iftoggle{verbose}{}{\par What do you do?}},
-  after={\afterparnoindent},
 }
 
 \newcommand{\sidebox}[2][23]{
@@ -946,17 +945,6 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 
 \raggedbottom
 
- \newif\ifafterpar
- \newcommand\afterparnoindent{%
-   \global\afterpartrue
-   \global\everypar{%
-     \ifafterpar
-       \global\afterparfalse
-       {\setbox\z@\lastbox}%
-     \else
-       \everypar{}%
-     \fi}}
-
 % Make floats hug the text.
 \setlength\intextsep{0em}
 
@@ -975,8 +963,24 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \begin{quotation}}%
   {
     \end{quotation}
-    \afterparnoindent
   }
+
+\newcommand*\@NoIndentAfter{%
+    \@ifnextchar\par{%
+        \def\par{%
+            \everypar{\setbox\z@\lastbox\everypar{}}%
+            \@restorepar%
+        }%
+    }{}%
+}
+\newrobustcmd*{\NoIndentAfterThis}{\@NoIndentAfter\par\par}
+
+\AfterEndEnvironment{speechtext}{\NoIndentAfterThis}
+\AfterEndEnvironment{boxtext}{\NoIndentAfterThis}
+\AfterEndEnvironment{nametable}{\NoIndentAfterThis}
+\AfterEndEnvironment{exampletext}{\NoIndentAfterThis}
+\AfterEndEnvironment{boxtable}{\NoIndentAfterThis}
+\AfterEndEnvironment{tcolorbox}{\NoIndentAfterThis}
 
 \newenvironment{exampletext}
   {
@@ -988,7 +992,6 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   {%
     \par
     \nobreak\bigLine\par
-    \afterparnoindent%
   }
 
 \newcommand\sideBySide[2]{
@@ -1046,7 +1049,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   {
     \hline
     \endtabularx
-    \vspace{1em}
+    \vspace{.5em}
   }
 
 \newtcolorbox{wideTable}[2][cX]{
