@@ -494,10 +494,10 @@
     \textbf{Mannerism:}~\mannerism
     \par
     \textbf{Description:}~\NPCdescription
-    \par
+    \par\pagebreak[3]
     \textbf{Wants:}~\npcGoal
-    \ifdefempty{\npcQuote}{}{
-      \textbf{Quote:}~\npcQuote
+    \ifdefempty{\npcQuote}{}{\par
+      \textbf{Quote:}~\textit{``\npcQuote''}
     }
     \end{multicols}
 
@@ -508,6 +508,7 @@
   \setcounter{wounds}{0}
   \renewcommand\abilities{}
   \global\togglefalse{perfectArmour}
+  \renewcommand\npcQuote{}
   \afterparnoindent
 }
 
@@ -603,7 +604,6 @@
   \setcounter{knacks}{0}
   \setcounter{mp}{0}
   \setcounter{xpbonus}{0}
-  \renewcommand\npcQuote{}
 }
 
 %%       _   _        _ _           _            
