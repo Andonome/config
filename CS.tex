@@ -180,9 +180,9 @@ circle label/.style = {
     \vspace{1em}
     \begin{tabularx}{\linewidth}{p{.4\textwidth}YYY}
       \hiderowcolors
+      \hline
       \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{Covering} & \textbf{Weight} \\
       \iftoggle{examplecharacter}{
-        \hline
         \ifdefempty{\characterArmour}{}{
           \sffamily\characterArmour & \sffamily\arabic{armourDR} & \sffamily\arabic{covering} & \sffamily\arabic{weight} \\
         }
