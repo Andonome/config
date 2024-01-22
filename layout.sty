@@ -12,16 +12,17 @@ bookmarks=true]%
 {hyperref}
 
 \RequirePackage[
+  nostyles,
   acronyms,
   prefix,
   automake,
-  symbols,
   indexonlyfirst,
+  numberedsection=autolabel,
   section=section,
-  stylemods=mcols,
+  stylemods={mcols,topic,tree},
   style=mcoltree,
   autoseeindex=false,
-  nopostdot,
+  symbols,
 ]{glossaries-extra}
 
 \RequirePackage{epsdice} % for dice
@@ -996,7 +997,6 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
     \needspace{2em}
     \vspace{1em}%
     \it%
-    \noindent%
   }
   {%
     \par
