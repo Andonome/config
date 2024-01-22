@@ -2,6 +2,7 @@
 \glsdefpostdesc{people}{.\space\adforn{15}\space}
 \glsdefpostdesc{rules}{.\space\adforn{35}\space}
 \glsdefpostdesc{god}{.}
+\glsdefpostdesc{acronym}{.}
 \glsdefpostdesc{location}{.\space\adforn{72}\space}
 \glsdefpostdesc{symbol}{.}
 
@@ -60,11 +61,12 @@
 ]{gp}{gp}{Gold Piece}
 
 \newglossaryentry{gm}{
-  nonumberlist,
   prefix={a\space},
   name={The Judge},
   text={Judge},
   sort={Judge},
+  category={rules},
+  nonumberlist,
   description={rolls encounters, interprets the rules, and forgets to bring enough pencils},
 }
 
@@ -130,6 +132,7 @@
   sort={Area},
   text={Area},
   prefix={an\space},
+  category={rules},
   nonumberlist,
   description={give a rough unit for large spaces.
   An area is a space made distinct by its features.
@@ -141,6 +144,7 @@
   sort={Response Action},
   text={Response Action},
   prefix={a\space},
+  category={rules},
   nonumberlist,
   first={\textit{Response Action}},
   description={is any action taken as a reaction (usually taken when being attacked)},
@@ -150,6 +154,7 @@
   name={Attributes},
   text={Attribute},
   prefix={an\space},
+  category={rules},
   first={\textit{Attribute}},
   description={measure a character's inherent abilities -- Strength, Speed, et c}
   }
@@ -187,6 +192,7 @@
   name={Rounds},
   text={round},
   prefix={a\space},
+  category={rules},
   description={measure small slices of fast-paced time.
   Mostly, we use rounds for combat}
   }
@@ -205,6 +211,7 @@
   name={Traits},
   text={Trait},
   prefix={a\space},
+  category={rules},
   description={are any stat on a character sheet, such as Strength, Attack, or a weapon's Damage}
   }
 
@@ -214,6 +221,7 @@
   sort={Vitals Shot},
   prefix={a\space},
   nonumberlist,
+  category={rules},
   description={means an attack which strikes between the gaps in armour, dealing full Damage.
   Creatures with \glsentrytext{dr} show the \glsentrytext{tn} needed to deal a Vitals Shot next to their \glsentrytext{dr} like this: `\glsentrytext{dr} 4 (13!)' (meaning that the \glsentrytext{dr} is 4, but an attack roll of 13 will bypass the \glsentrytext{dr})},
   }
@@ -223,6 +231,7 @@
   text={Resting Action},
   sort={Resting Action},
   first={\textit{Resting Action}},
+  category={rules},
   prefix={a\space},
   description={means an unhurried action, where a character has the time and safety to do somthing right}
 }
@@ -231,6 +240,7 @@
   name={Downtime},
   text={downtime},
   prefix={a\space},
+  category={rules},
   description={between sessions lets characters train, heal, and drink.
   Every week in our world, three weeks pass in \glsentrytext{fenestra}}
   }
