@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# This script clones and comples BIND books.
+
+set -e
+
+mkdir -p /BIND/
+
+for b in $@; do
+    git clone https://gitlab.com/bindrpg/$b
+    make -C $b all
+done
+
+# The second compilation means the cross-references should work.
+
+for n in 1 2; do
+    for b in $@; do
+        make -C $b all
+    done
+done
+
+cp **/*.pdf /BIND/
+
+echo -e '\n\n\nCopy your files over by opening a new terminal, and running:\n\n'
+sleep 1
+echo 'docker cp -a texbooks:BIND .'
+sleep 4
+echo 'Once done, press the return key'
+read x
