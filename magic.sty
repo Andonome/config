@@ -259,9 +259,14 @@
   \setcounter{Wits}{#5}
   \setcounter{Charisma}{#6}
   #9
-  \paragraph{\adforn{54}~#2~\adforn{26}\hspace{1em}}
-  \label{#2}
-  \index{Artefacts!#2}
+  \ifglsentryexists{#2}{
+    \paragraph{\adforn{54}~\Glsfmttext{#2}~\adforn{26}\hspace{1em}}
+    \label{#2}
+  }{
+    \paragraph{\adforn{54}~#2~\adforn{26}\hspace{1em}}
+    \label{#2}
+    \index{Artefacts!#2}
+  }
   #3 \hint{\gls{weight} #1}
   \par
   \noindent
