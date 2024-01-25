@@ -7,8 +7,8 @@
 
 %%% State a Season's name.
 
-\newcommand\showSeason{%
-  \ifcase\value{season}\or%
+\newcommand\showSeason[1][\value{season}]{%
+  \ifcase#1\or%
     Qualmea%
   \or%
     Atya%
