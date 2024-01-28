@@ -666,6 +666,7 @@
     {%
     \ifdefempty{\equipment}{}
     {
+      \setcounter{attackXPtotal}{\value{Charisma}}% Must store Charisma while talisman shows spells
       \ent{Equipment} & \equipment \\
     }
     }%

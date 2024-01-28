@@ -244,6 +244,7 @@
   \setcounter{Charisma}{0}%
   \calcSpell{#1}{#2}{#3}{#4}{#5}{#6}{#7}%
   \setcounter{castingBonus}{\value{spellCost}}%
+  \setcounter{Charisma}{\value{attackXPtotal}}% Return Charisma to old value
 }
 
 \newcommand\explainTalisman{%
