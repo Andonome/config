@@ -1,3 +1,5 @@
+\ifodd\value{diceNo}
+
 \spell{Hidden Pocket}% Name
   {duplicated}% Enhancements
   {Warp}% Action
@@ -6,6 +8,17 @@
   {A small magical doorway covers a passage, doorway or other opening, connecting two spaces.
   Creatures with a \gls{weight} of \arabic{spellTargets} or less can fit through before it collapses}% Description
   {While it may seem that the spell has two targets, in fact it has one, because the two spaces become one at the point of casting.}
+
+\spell{Slow Fall}% Name
+  {duplicated}% Enhancements
+  {Wane}% Action
+  {Earth, Fire}% Spheres
+  {caster's Strength}% Resist with
+  {As the caster covers their eyes, they begin to fall slower and slower.
+  Any Damage from falling reduces by \arabic{spellPlusOne}}% Description
+  {}
+
+\else
 
 \spell{Telekinetic Fist}% Name
   {detailed}% Enhancements
@@ -18,3 +31,4 @@
 
     The caster cannot use this spell to attack directly, as they cannot attack at the same time as casting.}
 
+\fi
