@@ -1208,21 +1208,24 @@ Academics~1, \ifodd\value{r12} Crafts~\arabic{r2}, \else \fi Deceit~1, \ifodd\va
 }
 
 \newcommand{\morphslug}[1][\npc{\T[\arabic{r12}]\A\R}{\arabic{r12} Morph Slugs}]{
-  \randomdozen
-  \randomtwoB
-  \multiply\value{r12} by \value{r2b}
-  #1
-  \randomtwo
-  \addtocounter{enc}{-3}
-\animal{\arabic{enc}}% STRENGTH
-{-1}% DEXTERITY 
-{-4}% SPEED
-{-3}% WITS
-{\arabic{r2b}}% DR
-{\arabic{r2}}% AGGRESSION
-{Projectiles \arabic{r2}, Wyldcrafting~1}% SKILLS
-{\acidSpray}% ABILITIES
-{\addtocounter{Strength}{1}}
+    \randomdozen
+    \randomtwoB
+    \multiply\value{r12} by \value{r2b}
+    #1
+    \randomtwo
+    \addtocounter{enc}{-3}
+  \animal{\arabic{enc}}% STRENGTH
+  {-1}% DEXTERITY 
+  {-4}% SPEED
+  {-3}% WITS
+  {\arabic{r2b}}% DR
+  {\arabic{r2}}% AGGRESSION
+  {}% SKILLS
+  {\acidSpray}% ABILITIES
+  {
+    \setcounter{Projectiles}{\value{r2}}
+    \setcounter{Wyldcrafting}{\value{r2b}}
+  }
 }
 
 \newcommand{\morphspider}[1][\npc{\A\R}{Morph Spider}]{

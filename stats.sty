@@ -894,10 +894,11 @@
 \newcommand{\acidSpray}{%
   Acidic Spray
   \setcounter{track}{4}%
-  \addtocounter{track}{\value{Speed}}%
+  \addtocounter{track}{\value{Strength}}%
   (\dmg{track} Damage,
   \setcounter{track}{\value{Dexterity}}%
   \addtocounter{track}{8}%
+  \addtocounter{track}{\value{Projectiles}}%
   \glsentrytext{tn} \arabic{track} to dodge)%
 }
 
