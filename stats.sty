@@ -643,7 +643,7 @@
   \foreach \s in {Air,Earth,Fate,Fire,Water}%
     {\ifnum\value{\s}>0 \addtocounter{mp}{3}\fi}
 
-\begin{tabularx}{\linewidth}{p{.15\textwidth}>{\raggedright\arraybackslash}X}
+\begin{tabular}{p{.15\textwidth}>{\raggedright\arraybackslash}p{.75\textwidth}}
 
   \iftoggle{verbose}{
     \ent{Skills} &
@@ -676,7 +676,7 @@
     {\ent{Abilities:} & \abilities}
 	\mods
 
-\end{tabularx}
+\end{tabular}
 
 }
 
