@@ -805,12 +805,12 @@
         }%
     % if the creature has a mind, print fate points (if any).
     %
-    \addtocounter{fp}{\value{Charisma}}%
     \ifnum\value{fp}>3%
-    \ignorespaces\arabic{fp}~\glsentrytext{fp}%
+      \addtocounter{fp}{\value{Charisma}}%
+      \ignorespaces\arabic{fp}~\glsentrytext{fp}%
       \iftoggle{genExamples}%
         {}%
-        {\space\Repeat{\value{fp}}{\Square}}%
+        {~\boxStat{fp}}%
     \par%
     \fi%
   }%
