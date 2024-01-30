@@ -892,19 +892,14 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 }
 
 \newcommand{\randomthreeB}{%
-  \ifnum\value{r3b}>2%
-    \setcounter{r3b}{1}%
-  \else%
-    \stepcounter{r3b}%
-  \fi%
-  \ifnum\value{r3b}<1%
-    \setcounter{r3b}{3}%
+  \ifodd\value{r3b}%
+    \stepcounter{r3b}
   \fi%
 }
 
 \newcommand{\randomthreeC}{%
   \ifnum\value{r3c}>2%
-    \setcounter{r3c}{1}
+    \setcounter{r3c}{1}%
   \else%
     \stepcounter{r3c}%
   \fi%
@@ -923,11 +918,9 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 }
 
 \newcommand{\randomfourB}{%
-  \ifnum\value{r4b}>3%
-    \setcounter{r4b}{1}%
-  \else%
-    \stepcounter{r4b}%
-  \fi%
+  \randomthreeB%
+  \setcounter{r4b}{\value{r3b}}%
+  \stepcounter{r4b}%
 }
 
 \newcommand{\randomdozen}{%
