@@ -1132,6 +1132,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 
 \newcommand{\sidequest}[2][]{
   \vspace{1em}
+  \par
   \begin{minipage}{\linewidth}
   \stopcontents[sq]
   \foreach \area in {#1}%
@@ -1205,7 +1206,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
     \center\subsection*{\x}
     \printcontents[\x]{f}{2}{\setcounter{tocdepth}{3}}
   }
-
+  \vspace{2em}
 }
 
 \newcommand\hint[1]{%
