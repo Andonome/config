@@ -1,4 +1,8 @@
-\newcommand{\lineDots}[1][1]{\vspace{1.5em}\Repeat{#1}{\hbox to \textwidth{\leaders\hbox to 30pt{\hss . \hss}\hfil}\vspace{1em}}}
+\newcommand{\lineDots}[1][1]{%
+  \foreach \n in {1,...,#1}%
+    {\leavevmode\cleaders\hb@xt@1.5em{\hss \textcolor{\pageSideColor}{.}\hss }\hfill\kern\z@\par\vspace{1em}\noindent}%
+  }
+
 \newcommand\race{}
 \newcommand\concept{}
 \newcommand\code{}
