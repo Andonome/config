@@ -1119,23 +1119,16 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 \newcommand{\sqtoc}{\printcontents[\sqarea]{l}{2}{\section*{Summaries}\setcounter{tocdepth}{3}}}
 
 % Change the to depth from 2 to 3 in order to output a miniature table of contents on all side quests
-\newcommand{\sqminitoc}{
-
-  \begin{figure*}[t]
-  
-  \begin{tcolorbox}[ornamented,adjusted title={Summary: \sqName}]
-  \vspace{-1em}
-  \printcontents[sq]{l}{2}{\setcounter{tocdepth}{3}}
-  
-  \end{tcolorbox}
-  
-  \end{figure*}
+\newcommand{\sqminitoc}{%
+  \printcontents[sq]{t}{3}{\setcounter{tocdepth}{3}}%
 }
 
 \newcounter{sqNo}
 \newcommand{\sqName}{}
 
-\newcommand{\sidequest}[2][]{%
+\newcommand{\sidequest}[2][]{
+  \vspace{1em}
+  \begin{minipage}{\linewidth}
   \stopcontents[sq]
   \foreach \area in {#1}%
     {\resumecontents[\area]}
@@ -1147,7 +1140,10 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \foreach \area in {#1}%
     {\stopcontents[\area]}
   \startcontents[sq]
-  \sqminitoc
+  \sqminitoc%
+  \bigLine
+  \end{minipage}
+  \vspace{1em}
 }
 
 \newcommand{\sqpart}[3]{
@@ -1155,21 +1151,55 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \refstepcounter{sqNo}
   \resumecontents[#1]
   \subsubsection[%
-    \hspace{-4em}\arabic{sqNo} -- %
-    \iftoggle{firstsq}{\sqr}{\sqn}%
-    ~#2 -- #3]%
-    {#2 \\\hint{#1}}
-  \stopcontents[#1]\settoggle{firstsq}{false}
+    \setcounter{track}{\expandafter\thesqNo}%
+    \bfseries#2 -- \mdseries#3]%
+    {{\Large\scshape\thesqNo)}\quad #2 \\\hint{#1}}
+  \settoggle{firstsq}{false}
+  \stopcontents[#1]%
 }
 
-\titlecontents*{lsubsection}[0pt]
-{\large\raggedright}{}{}
-{}[][]
+% Floating SQ ToCs
+\titlecontents{tsubsubsection}
+              [3em]
+              {%
+                \contentspush{\scshape\large\arabic{track}~---~}%
+                \thecontentslabel%
+              }%
+              {}%
+              {}%
+              {}%
+
+% Summary SQ Docs
+\titlecontents*{fsubsection}[20pt]
+{\vspace{1em}\textcolor{\pageSideColor}{\adforn{54}}\quad\large}{}{}
+{\quad\textcolor{\pageSideColor}{\titlerule*[1pc]{---}}}[][]
+
+\titlecontents{fsubsubsection}
+              [5em]
+              {%
+                \vspace{.3em}%
+                \contentspush{%
+                \ifnum\value{track}=1%
+                  \sqr\else\sqn%
+                \fi\quad%
+                (\arabic{track})\quad%
+                  \raggedright%
+                }%
+                \thecontentslabel%
+              }%
+              {}%
+              {}%
+              { \enspace\titlerule*[1pc]{.}\bfseries\large\contentspage }%
+              []%
+
+%\titlecontents*{lsubsection}[0pt]
+%{\adforn{10}~\large\raggedright}{}{}
+%{}[][]
 
 \newcommand\printAllSideQuests[1]{
   \foreach \x in {#1}{
     \center\subsection*{\x}
-    \printcontents[\x]{l}{2}{\setcounter{tocdepth}{3}}
+    \printcontents[\x]{f}{2}{\setcounter{tocdepth}{3}}
   }
 
 }
