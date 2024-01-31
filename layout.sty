@@ -868,8 +868,9 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 
 \newcommand{\randomtwoC}{%
   \ifnum\value{r2c}>1%
-  \setcounter{r2c}{1}\else%
-  \stepcounter{r2c}%
+    \setcounter{r2c}{1}%
+  \else%
+    \stepcounter{r2c}%
   \fi%
 }
 
@@ -892,8 +893,11 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 }
 
 \newcommand{\randomthreeB}{%
-  \ifodd\value{r3b}%
-    \stepcounter{r3b}
+  \ifnum\value{r3b}>2%
+    \setcounter{r3b}{1}%
+  \fi%
+  \ifodd\value{r3}%
+    \stepcounter{r3b}%
   \fi%
 }
 
