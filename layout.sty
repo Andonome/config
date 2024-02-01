@@ -922,9 +922,11 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 }
 
 \newcommand{\randomthreeC}{%
-  \ifnum\value{r3c}>2%
-    \setcounter{r3c}{1}%
-  \else%
+  \setcounter{r3c}{1}%
+  \ifodd\value{r12}%
+    \stepcounter{r3c}%
+  \fi%
+  \ifodd\value{r3}%
     \stepcounter{r3c}%
   \fi%
 }
@@ -934,7 +936,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
     \setcounter{r4}{0}%
   \else%
     \ifnum\value{r4}<1%
-      \setcounter{r4}{1}%
+      \setcounter{r4}{2}%
     \fi%
   \fi%
   \stepcounter{r4}%
