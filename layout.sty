@@ -215,6 +215,26 @@ bookmarks=true]%
 {}%
 }
 
+
+\newcommand\handout[1]{
+  \cleardoublepage
+  \togglefalse{countedPage}
+  \setcounter{diceNo}{\thepage}
+  \pagestyle{empty}
+  \randomtwo
+  \randomthreeC
+  \input{#1.tex}
+  \cleardoublepage
+  \ifodd\thepage
+  \else
+    \clearpage
+  \fi
+  \toggletrue{countedPage}
+  \pagestyle{plain}
+  \setcounter{page}{\value{diceNo}}
+}
+
+
 %%%%%%%%%% Section Headers %%%%%%%%%%
 
 %%% Allow quotes under part headers
