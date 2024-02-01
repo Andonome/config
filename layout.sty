@@ -223,7 +223,9 @@ bookmarks=true]%
   \pagestyle{empty}
   \randomtwo
   \randomthreeC
+  \settoggle{examplecharacter}{true}
   \input{#1.tex}
+  \settoggle{examplecharacter}{false}
   \cleardoublepage
   \ifodd\thepage
   \else
