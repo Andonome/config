@@ -525,7 +525,7 @@
 	\setcounter{att}{#6}
 	\renewcommand{\skills}{#7}
 	\renewcommand{\abilities}{#8}
-  \setcounter{covering}{4}
+  \setcounter{covering}{5}
 
   \iftoggle{verbose}{
     \begin{tcolorbox}[
@@ -727,7 +727,6 @@
     \ifnumcomp{\value{dr}}{>}{0}{%
       \setcounter{enc}{\value{att}}%
       \addtocounter{enc}{\value{covering}}%
-      \stepcounter{enc}%
       \mbox{DR \arabic{dr}%
       \iftoggle{perfectArmour}%
         {}%
