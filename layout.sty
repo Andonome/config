@@ -1228,6 +1228,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 \newcommand\printAllSideQuests[1]{
   \foreach \x in {#1}{
     \center\subsection*{\x}
+    \label{sq:\x}
     \printcontents[\x]{f}{2}{\setcounter{tocdepth}{3}}
   }
   \vspace{2em}
