@@ -326,11 +326,26 @@ bookmarks=true]%
       shadow xshift=-1pt,
       shadow yshift=-3pt
   }]
-        \node[path fading=semi west] (mapPic) {\pic{#2}};
-        \csComments
+      \node[anchor=south west,inner sep=0] (image) at (0,0) {\pic{#2}};
+      \csComments
+      \begin{scope}[
+          x={(image.south east)},
+          y={(image.north west)}
+      ]
+        \mapLabels
+      \end{scope}
       \end{tikzpicture}
   \end{figure*}
   \renewcommand\csComments{}
+  \renewcommand\mapLabels{}
+}
+
+\newcommand\mapNotes[1]{
+  \renewcommand\mapLabels{
+    \foreach \mNum/\mX/\mY in {#1}{
+      \node [black, font=\large\scshape] at (0.\mX,0.\mY) {\outline[14]{\mNum}};
+    }
+  }
 }
 
 \newcommand\callout[5][4]{
@@ -341,13 +356,16 @@ bookmarks=true]%
   \node [black, font=\bfseries] at (0.#2,0.#3) {#4 #1};
 }
 
-\newcommand\mapCircle[4][0]{
-  \setcounter{track}{#3}
+\newcommand\mapCircle[5][0]{
+  \setcounter{track}{#4}
   \addtocounter{track}{3}
   \addtocounter{track}{#1}
-  \begin{scope}
-  \draw[fill=white] (#2) circle (#3em);
-  \clip[draw] (#2) circle (#3em) node {\includesvg[width=\arabic{track}em]{images/#4}};
+  \begin{scope}[
+          x={(image.south east)},
+          y={(image.north west)}
+        ]
+    \draw[fill=white] (0.#2,0.#3) circle (#4em);
+    \clip[draw] (0.#2,0.#3) circle (#4em) node {\includesvg[width=\arabic{track}em]{images/#5}};
   \end{scope}
 }
 
