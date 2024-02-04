@@ -522,7 +522,6 @@
 	\setcounter{Speed}{#3}
 	\setcounter{Wits}{#4}
 	\setcounter{dr}{#5}
-	\setcounter{att}{#6}
 	\setcounter{Brawl}{#6}
 	\renewcommand{\skills}{#7}
 	\renewcommand{\abilities}{#8}
@@ -880,7 +879,9 @@
 
 \newcommand\undead{%
   \addtocounter{Speed}{-1}%
-  \addtocounter{Brawl}{2}%
+  \ifnum\value{Brawl}<3%
+    \setcounter{Brawl}{2}%
+  \fi%
   \renewcommand\abilities{%
     Undead%
     \ifnum\value{dr}>1%
