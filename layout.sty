@@ -1166,12 +1166,11 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 \newcommand{\sidequest}[2][]{
   \vspace{1em}
   \par
-  \begin{minipage}{\linewidth}
   \stopcontents[sq]
   \foreach \area in {#1}%
     {\resumecontents[\area]}
-  %%%%%%%%%%%%%
   \renewcommand{\sqName}{#2}
+  \needspace{5em}
   \subsection[\it #2]{#2}
   \settoggle{firstsq}{true}
   \setcounter{sqNo}{0}
@@ -1180,7 +1179,6 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \startcontents[sq]
   \sqminitoc%
   \bigLine
-  \end{minipage}
   \vspace{1em}
 }
 
