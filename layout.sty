@@ -771,7 +771,8 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   {\Roman{section}}%
   {1em}%
   {#1}%
-  [\textcolor{\pageSideColor}{\large\titlerule\raisebox{-4pt}{\Large\hspace{-0.2em}\flourish}}]%
+  [\textcolor{\pageSideColor}{\large\titlerule\raisebox{-4pt}{\Large\hspace{-0.2em}\flourish}}%
+  \setcounter{list}{0}]%
 
 \renewcommand*{\thesection}{\arabic{section}}
 
@@ -783,8 +784,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   {\thesubsection}%
   {1em}%
   {#1}%
-  [\textcolor{\pageSideColor}{\titlerule}%
-  \setcounter{list}{0}]
+  [\textcolor{\pageSideColor}{\titlerule}]
 
 \titleformat{\subsubsection}[wrap]
 {\needspace{3em}\filright
