@@ -631,7 +631,12 @@
 	Strength & \arabic{Strength} & Dexterity & \arabic{Dexterity} & Speed & \arabic{Speed} \\
 \iftoggle{mind}{
 	Intelligence & \arabic{Intelligence}  & Wits & \arabic{Wits} & Charisma & \arabic{Charisma}  \\}{%
-	&& Wits & \arabic{Wits} \\
+	&& Wits & \arabic{Wits} 
+  &
+  \ifnum\value{Charisma}>0
+  Charisma & \arabic{Charisma}
+  \fi
+  \\
 	}
 
 \end{tabularx}
