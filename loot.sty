@@ -18,7 +18,7 @@
     \stepcounter{r4}%
     tinder box and \arabic{r4} candles%
   \or%
-    1 \gls{sp} from the far North%
+    1~\gls{sp} from the far North%
   \or%
     pouch of long, dark, humanoid hair%
   \or%
@@ -52,7 +52,7 @@
   \or%
     lock-picking set%
   \or%
-    1 \gls{gp} from the far East%
+    1~\gls{gp} from the far East%
   \else%
     empty wine bottle filled with dead spiders%
   \fi%
@@ -63,7 +63,7 @@
 		\ifodd\value{r2}%
 			$3D6$\else$2D6$%
 		\fi \glspl{cp}}{%
-		\randomdozen\multiply\value{r12} by \value{r4}\arabic{r12} \glspl{cp}}%
+		\randomdozen\multiply\value{r12} by \value{r4}\arabic{r12}~\glspl{cp}}%
 }
 
 \newcommand{\lootMedium}{%
@@ -113,7 +113,7 @@
 }
 
 \newcommand{\lootJewellery}{%
-\iftoggle{genExamples}{jewellery worth \ifodd\value{r2}$3D6$sp\else$1D6+2$\glspl{gp}\fi}%
+\iftoggle{genExamples}{jewellery worth \ifodd\value{r2}$3D6$sp\else$1D6+2$~\glspl{gp}\fi}%
 	{%
     \stepcounter{treasure}%
     \ifnum\value{treasure}>10\addtocounter{treasure}{-10}\fi%
