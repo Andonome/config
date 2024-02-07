@@ -1208,20 +1208,24 @@
   \randomthreeC
   #1
   \randomtwo
+  \stepcounter{enc}
   \randomtwoB
-\animal{2}% STRENGTH
+  \randomtwoD
+  \stepcounter{r2d}
+\animal{\value{enc}}% STRENGTH
 {\arabic{r2b}}% DEXTERITY 
 {2}% SPEED
 {0}% WITS
 {2}% DR
 {2}% AGGRESSION
-{Athletics~3, Vigilance~2
-}% SKILLS
+{}% SKILLS
 {\quadraped}% ABILITIES
 {
   \ifodd\value{r2}
   \knacks{\charge}
   \fi
+  \setcounter{Athletics}{\value{r2d}}
+  \setcounter{Vigilance}{\value{r2}}
 }
 }
 
