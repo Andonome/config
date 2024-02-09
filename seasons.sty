@@ -5,6 +5,11 @@
 
 \newcommand\season{}
 
+\newcounter{cycle}
+\setcounter{cycle}{\year}
+\multiply\value{cycle} by 3
+\addtocounter{cycle}{0}
+
 %%% State a Season's name.
 
 \newcommand\showSeason[1][\value{season}]{%
