@@ -107,7 +107,6 @@
   name={Concoctions},
   text={concoction},
   prefix={a\space},
-  see={[see also]ingredient},
   sort={concoction},
   description={are liquids or powders which, when thrown in the air, hyper-charge the use of a single magic Sphere, for anyone present next to the burst.
   For example, a concoction to boost the Air Sphere would mean a caster with Air 2 could cast a single spell as if they had Air 3},
@@ -128,10 +127,10 @@
   text={talisman},
   first={talisman (a one-use magical item)},
   firstplural={talismans (one-use magical items)},
-  see={[see also]ingredient},
   sort={Talisman},
-  description={usually store two spells -- one to detect a target, and another to cast upon them.
-  Each talisman has its own activation condition},
+  description={store a spells with an activation condition.
+  Some of them strike the closest appropriate target, while others have a second spell to detect a more specific target.
+  Each spell level in a talisman requires one \glsentrytext{ingredient} aligned to the correct Sphere},
 }
 
 \newglossaryentry{artefact}{
@@ -190,7 +189,6 @@
   text={segment},
   prefix={a\space},
   category={rules},
-  see={sq},
   description={are scenes which form a larger story},
   }
 
@@ -393,7 +391,6 @@
   prefix={a\space},
   text={Labyrinth},
   sort={Labyrinth},
-  see={edge},
   description={is the network of frigid, nearly lifeless caverns, which sits beneath much of \glsentrytext{fenestra}},
 }
 
@@ -409,25 +406,22 @@
   sort={Night Guard},
   text={Night Guard},
   prefix={a\space},
-  see={sylf},
   symbol={\glsentrytext{beasts}},
   nonumberlist,
   description={are the sorry lot who have nothing better to do than wander into the darkness and get eaten},
-  alias={templeOfBeasts},
 }
 
 \newglossaryentry{templeOfBeasts}{
   name={Temple of Beasts},
   prefix={a\space},
   nonumberlist,
-  description={\nopostdesc},
+  description={see the `\glsentrytext{guard}' and `\glspl{bothy}'},
 }
 
 \newglossaryentry{jotter}{
   name={Jotters},
   text={jotter},
   prefix={a\space},
-  see={guard},
   description={do paperwork for the \glsentrytext{guard}, and control everything that their seniors don't care to manage}
 }
 
@@ -436,7 +430,6 @@
   sort={Sun Guard},
   text={Sun Guard},
   prefix={a\space},
-  see={court},
   description={are the upstanding soldiers who protect the city from all the unwashed masses, while wearing shiny-white tabards}
 }
 
@@ -471,7 +464,6 @@
   name={The Ainumar},
   text={Ainumar},
   plural={Ainumari},
-  see={fenestra},
   sort={Ainumar},
   nonumberlist,
   description={is a great orb in the sky, commonly supposed to be where the gods live.
@@ -495,27 +487,26 @@
 }
 
 \newglossaryentry{wheatGuild}{
-  name={Wheat Guild},
-  text={\ifodd\value{r3} Temple of Poison\else Wheat Guild\fi},
+  name={The Wheat Guild},
+  text={Wheat Guild},
+  sort={Wheat Guild},
   prefix={a\space},
-  see={abderian},
   symbol={\glsentrytext{poison}},
-  description={protects humanity from poison through baking, brewing, and distillation},
+  description={protects humanity from poison and rot, through baking, brewing, and distillation},
 }
 
 \newglossaryentry{templeOfPoison}{
   name={Temple of Poison},
   prefix={a\space},
   symbol={\glsentrytext{poison}},
-  description={\nopostdesc},
-  alias={wheatGuild},
+  nonumberlist,
+  description={see the \gls{wheatGuild}},
 }
 
 \newglossaryentry{server}{
   name={Servers},
   text={Server},
   prefix={a\space},
-  see={wheatGuild},
   description={make food for the \glsentrytext{wheatGuild} all day, and every \glsentrytext{warden} has one in their employ}
 }
 
@@ -529,7 +520,6 @@
 \newglossaryentry{healersGuild}{
   name={Healers' Guild},
   prefix={a\space},
-  see={eldren},
   symbol={\glsentrytext{sickness}},
   description={Here the sick, disabled, or dying of \glsentrytext{fenestra} tend to each other.
   Long-term staff always have some long-term disability, such as missing limbs.
@@ -540,15 +530,14 @@
   name={Temple of Sickness},
   prefix={a\space},
   symbol={\glsentrytext{sickness}},
-  description={\nopostdesc},
-  alias={healersGuild},
+  nonumberlist,
+  description={see the \gls{healersGuild}},
 }
 
 \newglossaryentry{helper}{
   name={Helpers},
   text={Helper},
   prefix={a\space},
-  see={healersGuild},
   description={tend to the sick and dying, on behalf of the \glsentrytext{healersGuild}.
   The temple only takes on new people from those with a disability of some kind, so the grounds are maximally accessible to everyone.
   The \glsentrytext{guard} who endure permanent injuries often retire as Helpers},
@@ -566,7 +555,6 @@
   text={Doula Shop},
   sort={Doula Shop},
   prefix={a\space},
-  see={doula},
   symbol={\glsentrytext{misgen}},
   description={sell various potions and blessings},
 }
@@ -584,19 +572,18 @@
   name={The Pit of Justice},
   text={Pit of Justice},
   prefix={a\space},
-  see={paik},
   sort={Pit of Justice},
   symbol={\glsentrytext{justice}},
   description={is where a town's \glsentrytext{warden} resolves legal disputes, and decides on the correct punishment for criminals.
-  All trials must be on display, to warn the people about the consequences of crime, so they can learn that justice always prevails, and avoid crime}
+  All trials must be on display, to warn the people about the consequences of crime, so they can learn that justice always prevails}
 }
 
 \newglossaryentry{templeOfJustice}{
   name={Temple of Justice},
   prefix={a\space},
   symbol={\glsentrytext{justice}},
-  description={\nopostdesc},
-  alias={court},
+  nonumberlist,
+  description={see the \gls{court}},
 }
 
 \newglossaryentry{warden}{
@@ -604,7 +591,6 @@
   text={Warden},
   nonumberlist,
   prefix={a\space},
-  see={court},
   description={make the laws and decide fitting punishments for criminals}
 }
 
@@ -619,7 +605,6 @@
   text={Weavers' Guild},
   sort={Weavers' Guild},
   prefix={a\space},
-  see={sable},
   symbol={\glsentrytext{frost}},
   description={houses a massive fire, many looms, and plenty of space for anyone who wants to hear a long story.
   The Guild exists to prevent death by frost},
@@ -629,15 +614,14 @@
   name={Temple of Frost},
   prefix={a\space},
   symbol={\glsentrytext{frost}},
-  description={\nopostdesc},
-  alias={weaversGuild},
+  nonumberlist,
+  description={see the \glsentrytext{weaversGuild}},
 }
 
 \newglossaryentry{weaver}{
   name={Weavers},
   text={Weaver},
   prefix={a\space},
-  alias={weaversGuild},
   description={produces the best and warmest of clothes for \glsentrytext{fenestra}'s harsh cold seasons},
 }
 
@@ -653,24 +637,23 @@
   text={Armourers' Guild},
   prefix={an\space},
   sort={Armourer's Guild},
-  see={wrecan},
   symbol={\glsentrytext{hate}},
-  description={take in angry, young people, and redirect their anger into work},
+  description={take in angry, young people, and redirect their anger into work and negotiation skills.
+  They handle all the major disputes which nobody wants to take to the \glsentrytext{templeOfJustice}},
 }
 
 \newglossaryentry{templeOfHate}{
   name={Temple of Hate},
   prefix={a\space},
   symbol={\glsentrytext{hate}},
-  description={\nopostdesc},
-  alias={armourHall},
+  nonumberlist,
+  description={see the \glsentrytext{armourHall}},
 }
 
 \newglossaryentry{armourer}{
   name={Armourers},
   text={Armourer},
   prefix={an\space},
-  see={armourHall},
   description={work in the \glsentrytext{armourHall} and guard civilization from from death by Hate, with a combination of excellent armour, and diplomatic skills}
 }
 
@@ -684,11 +667,10 @@
 
 \newglossaryentry{paperGuild}{
   name={The Paper Guild},
-  text={\ifodd\value{r2}Paper Guild\else Temple of Light\fi},
+  text={Paper Guild},
   prefix={a\space},
   sort={Paper Guild},
   symbol={\glsentrytext{curiosity}},
-  see={yonder},
   description={create paper, maps, candles, and soap.
   They always need more basilisk bodies to make the latter two},
 }
@@ -697,8 +679,8 @@
   name={Temple of Light},
   prefix={a\space},
   symbol={\glsentrytext{curiosity}},
-  description={\nopostdesc},
-  alias={paperGuild},
+  nonumberlist,
+  description={see the \glsentrytext{paperGuild}},
 }
 
 \newglossaryentry{seeker}{
@@ -713,7 +695,6 @@
   name={Scribes},
   text={Scribe},
   prefix={a\space},
-  see={paperGuild},
   description={are anyone who works for the \glsentrytext{paperGuild}.
   Most spend their time making books or soap}
 }
