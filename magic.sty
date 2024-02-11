@@ -120,9 +120,9 @@
       {\multiply\value{spellTargets} by \value{spellCost}\addtocounter{spellTargets}{0}}%
   }{}%
   \iftoggle{talisman}{%
-    \index[talismans]{\textbf{#1} (\spellEnhancements\ \spellAction~\spellSphere) Range: \spellRange, Area: \arabic{spellTargets}, Resisted by: \detokenize{#5}, Bonus: \arabic{spellCost}. \spellSum|adfclosedflourishleft~p.~}%
+    \index[talismans]{\textbf{#1} (\spellEnhancements\ \spellAction~\spellSphere) Range: \spellRange, \ifnumcomp{\value{spellTargets}}{>}{1}{Area: \arabic{spellTargets}, }{} Resisted by: \detokenize{#5}, Bonus: \arabic{spellCost}. \spellSum|adfclosedflourishleft~p.~}%
   }{%
-    \index[spells]{\textbf{#1} {\sffamily (\spellEnhancements \spellAction~\spellSphere)} \textit{Cost: \arabic{spellCost}, Range: \spellRange, Targets: \arabic{spellTargets}, Resisted by: \detokenize{#5}.} \spellSum|adfclosedflourishleft~p.~}%
+    \index[spells]{\textbf{#1} {\sffamily (\spellEnhancements \spellAction~\spellSphere)} \textit{Cost:~\arabic{spellCost}, Range: \spellRange, \ifnumcomp{\value{spellTargets}}{>}{1}{Area: \arabic{spellTargets}, }{} Resisted by: \detokenize{#5}.} \spellSum|adfclosedflourishleft~p.~}%
   }%
 }
 
@@ -144,7 +144,7 @@
     \textbf{\scshape Range:}
     \spellRange%
     \ifnumcomp{\value{spellTargets}}{>}{1}{
-      \textbf{\scshape Targets:}
+      \textbf{\scshape Area:}
       \arabic{spellTargets}%
     }{}
   \\
@@ -162,7 +162,7 @@
   (\textbf{Cost:}~\arabic{spellCost},
   \textbf{Range:}~\spellRange,
   \ifnum\value{spellTargets}>1%
-    \textbf{Targets:}~\arabic{spellTargets},
+    \textbf{Area:}~\arabic{spellTargets},
   \fi%
   \iftoggle{opposedSpell}{%
     \addtocounter{castingBonus}{7}%
