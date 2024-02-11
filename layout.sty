@@ -1206,19 +1206,29 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
               {.}%
 
 % Summary SQ Docs
-\titlecontents*{fsubsection}[20pt]
-{\vspace{1em}\textcolor{\pageSideColor}{\adforn{54}}\quad\large}{}{}
-{\quad\textcolor{\pageSideColor}{\titlerule*[1pc]{---}}}[][]
+\titlecontents*{fsubsection}%
+  [20pt]
+  {%
+    \vspace{1em}\textcolor{\pageSideColor}{\adforn{54}}%
+    \quad\large%
+    \setcounter{sqNo}{0}%
+    \setcounter{track}{0}%
+  }%
+  {}%
+  {}%
+  {\quad\textcolor{\pageSideColor}{\titlerule*[1pc]{---}}}%
+  []%
+  []
 
 \titlecontents{fsubsubsection}
               [5em]
               {%
                 \vspace{.3em}%
                 \contentspush{%
-                \ifnum\value{track}=1%
+                \ifnum\thetrack=1%
                   \sqr\else\sqn%
                 \fi\quad%
-                (\arabic{track})\quad%
+                (\thetrack)\quad%
                   \raggedright%
                 }%
                 \thecontentslabel%
@@ -1234,7 +1244,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 
 \newcommand\printAllSideQuests[1]{
   \foreach \x in {#1}{
-    \center\subsection*{\x}
+    \section*{\x}
     \label{sq:\x}
     \printcontents[\x]{f}{2}{\setcounter{tocdepth}{3}}
   }
