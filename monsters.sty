@@ -424,20 +424,17 @@
   {\arabic{r4}}}% CHARISMA
   {6}% DR
   {\arabic{r3}}% COMBAT
-  {
-  Academics~3, Athletics~\arabic{r3c}, \ifodd\value{r2}Crafts~2, Performance~\arabic{r3}, \else Empathy~\arabic{r2b}, Seafaring~\arabic{r3}, Vigilance~\arabic{r3b}, Wyldcrafting~3\fi 
-    }% SKILLS
+  {}% SKILLS
   {\ifodd\value{r2b}\Dagger, \lootJewellery\else\spear\fi}% EQUIPMENT
   {
     \setcounter{track}{4}
-    \setcounter{Fate}{4}
     \addtocounter{Fate}{-\value{r4b}}
     \setcounter{Air}{\value{r3b}}
     \setcounter{Earth}{\value{age}}
     \setcounter{Fire}{\value{r4b}}
     \setcounter{Water}{3}
     \renewcommand\abilities{\randomfour\mutation{r4}, \stepcounter{r4} \mutation{r4}, \stepcounter{r4} \mutation{r4}.}
-    \setcounter{Academics}{3}
+    \setcounter{Academics}{\value{r4b}}
     \setcounter{Athletics}{\value{r3c}}
     \ifodd\value{r2}
       \setcounter{Crafts}{\value{r2}}
