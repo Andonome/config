@@ -340,10 +340,10 @@ bookmarks=true]%
   \renewcommand\mapLabels{}
 }
 
-\newcommand\mapNotes[1]{
+\newcommand\mapNotes[2][\large]{
   \renewcommand\mapLabels{
-    \foreach \mNum/\mX/\mY in {#1}{
-      \node [black, font=\large\scshape] at (0.\mX,0.\mY) {\outline[14]{\mNum}};
+    \foreach \mNum/\mX/\mY in {#2}{
+      \node [black, font=#1\scshape] at (0.\mX,0.\mY) {\outline[14]{\mNum}};
     }
   }
 }
