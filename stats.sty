@@ -644,11 +644,11 @@
 }
 
 \newcommand\skillsEtc{
-
   \foreach \s in {Air,Earth,Fate,Fire,Water}%
     {\ifnum\value{\s}>0 \addtocounter{mp}{3}\fi}
 
 \begin{tabular}{p{.15\textwidth}>{\raggedright\arraybackslash}p{.75\textwidth}}
+  \hiderowcolors
 
   \iftoggle{verbose}{
     \ent{Skills} &
