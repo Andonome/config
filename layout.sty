@@ -1047,10 +1047,16 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 \newcommand\sideBySide[2]{
   \end{multicols}
   \vspace{-1em}
-  \begin{tcolorbox}[sidebyside,bicolor,colback=white,colbacklower=black!5!white]
-  {#1}
+  \begin{tcolorbox}[
+  sidebyside,
+  before lower={\parindent15pt},
+  bicolor,
+  colback=\pageSideColor,
+  colbacklower=white,
+  ]
+  {\it \color{\pageOppositeColor}#1}
   \tcblower
-  {\it #2}
+  {#2}
   \end{tcolorbox}
   \begin{multicols}{2}
 }
