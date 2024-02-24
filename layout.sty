@@ -265,9 +265,9 @@ bookmarks=true]%
 
 \newcommand\titleFont{\rtndfamily}
 
-\newcommand{\chapnumfont}{
-  \fontsize{50}{0}
-  \titleFont
+\newcommand{\chapnumfont}{%
+  \Huge%
+  \titleFont%
 }
 
 % change bullet points
@@ -1048,13 +1048,11 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \end{multicols}
   \vspace{-1em}
   \begin{tcolorbox}[
+  ornamented,
   sidebyside,
   before lower={\parindent15pt},
-  bicolor,
-  colback=\pageSideColor,
-  colbacklower=white,
   ]
-  {\it \color{\pageOppositeColor}#1}
+  {\it#1}
   \tcblower
   {#2}
   \end{tcolorbox}
