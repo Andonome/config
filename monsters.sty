@@ -961,6 +961,7 @@
   #1
   \randomtwo
   \randomtwoB
+  \randomthree
   \addtocounter{enc}{-1}
 \person{2}% STRENGTH
 {\arabic{r2b}}% DEXTERITY 
@@ -972,10 +973,8 @@
 {\arabic{enc}}% COMBAT
 {Projectiles \arabic{r2b}, Crafts~\arabic{r2b}, \ifodd\value{r4}\else Tactics \fi~\arabic{r2}%
 }% SKILLS
-{\longbow, dagger, \arabic{r3}0 arrows (\boxStat{r3})\ifodd\value{r2}, \partialleather, \lootMedium\fi%
-\ifnum\value{noAppearing}=1%
-, \arabic{r12} Spider arrows.%
-\fi%
+{
+  \longbow, dagger, \arabic{r3}0 arrows (\boxStat{r3})\ifodd\value{r2}, \partialleather, \lootMedium\fi%
 }% EQUIPMENT
 {
   \ifodd\value{r3}%
