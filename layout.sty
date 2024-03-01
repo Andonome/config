@@ -215,11 +215,12 @@ bookmarks=true]%
 {}%
 }
 
+\newcounter{pagebak}
 
 \newcommand\handout[1]{
   \cleardoublepage
   \togglefalse{countedPage}
-  \setcounter{diceNo}{\thepage}
+  \setcounter{pagebak}{\thepage}
   \pagestyle{empty}
   \randomtwo
   \randomthreeC
@@ -233,7 +234,7 @@ bookmarks=true]%
   \fi
   \toggletrue{countedPage}
   \pagestyle{plain}
-  \setcounter{page}{\value{diceNo}}
+  \setcounter{page}{\value{pagebak}}
 }
 
 
