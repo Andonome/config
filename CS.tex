@@ -288,6 +288,7 @@ circle label/.style = {
 %----
   \posterbox[
     adjusted title=Backpack \hint{\glsentrytext{tn} to remove: \weeline},
+    sidebyside,
     remember,
   ]
   {name=equipment,
@@ -295,13 +296,17 @@ circle label/.style = {
     row=15,
     span=23,
     rowspan=3.7,
-  }{
-
-    \iftoggle{examplecharacter}{\sffamily\characterEquipment\vspace{12em}}{
-      \vspace{1.3em}
-      \Repeat{5}{
-        {\Repeat{5}{\Square}\hbox to .95\textwidth{\leaders\hbox to 30pt{\hss . \hss}\hfil}\vspace{1em}}
-      }
+  }{%
+    \iftoggle{examplecharacter}{\sffamily\characterEquipment\vspace{12em}}{%
+      \vspace{1em}%
+      \Repeat{5}{%
+        {\noindent\Repeat{5}{\Square} \lineDots}%
+      }%
+      \tcblower
+      \vspace{1em}%
+      \Repeat{5}{%
+        {\noindent\Repeat{5}{\Square} \lineDots}%
+      }%
     }
   }
 
@@ -315,10 +320,11 @@ circle label/.style = {
   column=5,
   row=12,
   span=11,
-  rowspan=3}{
-    \iftoggle{examplecharacter}{}{
+  rowspan=3}{%
+    \vspace{2em}%
+    \iftoggle{examplecharacter}{}{%
       \lineDots[4]
-    }
+    }%
   }
 
   \posterbox[
@@ -329,15 +335,14 @@ circle label/.style = {
   column=16,
   row=12,
   span=11,
-  rowspan=3}{
-
-  \setlength{\parskip}{0mm}
-
+  rowspan=3}{%
+  \setlength{\parskip}{0mm}%
     \iftoggle{examplecharacter}{
       \sffamily\knackOne
 
       \sffamily\knackTwo
-    }{
+    }{%
+      \vspace{2em}%
       \lineDots[4]
     }
   }
@@ -363,7 +368,7 @@ circle label/.style = {
 
   \posterbox[
     remember, blankest, halign=center,valign=center,
-  ]{name=money,column=6,span=10,row=18,rowspan=1}{
+  ]{name=money,column=18,span=10,row=18,rowspan=1}{
     \vspace{-1.1em}
     \begin{tabularx}{\hsize}{llX}
       \glsentryshortpl{cp}\weeline &
