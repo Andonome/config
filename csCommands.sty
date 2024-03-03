@@ -136,13 +136,17 @@
 \newcommand{\skill}[1]{
   \setcounter{statCircles}{3}
   \addtocounter{statCircles}{-\value{#1}}
-  #1 \dotfill &
+  #1 \lightDots &
   \Repeat{\value{#1}}{\statDot}\Repeat{\value{statCircles}}{\statCircle}\\
   \stepcounter{track}
 }
 
+\newcommand\lightDots{%
+  \textcolor{\pageSideColor}{\titlerule*[1pc]{.}}%
+}
+
 \newcommand\emptySkill{%
-    \dotfill & %
+    \lightDots & %
     \Repeat{3}{\statCircle}%
     \\%
 }

@@ -30,15 +30,15 @@
     \vspace{.8cm}
     \begin{tabularx}{\linewidth}{lXlXlX}
       \hiderowcolors
-      \textbf{Name:} & \iftoggle{examplecharacter}{\sffamily\name}{\dotfill} &
-      \textbf{Player:} & \dotfill &
-      \textbf{Code:} & \iftoggle{examplecharacter}{\sffamily\code}{\dotfill}
+      \textbf{Name:} & \iftoggle{examplecharacter}{\sffamily\name}{\lightDots} &
+      \textbf{Player:} & \lightDots &
+      \textbf{Code:} & \iftoggle{examplecharacter}{\sffamily\code}{\lightDots}
       \\
       \\
 
-      \textbf{Race:} & \iftoggle{examplecharacter}{\sffamily\race}{\dotfill} &
-      \textbf{Concept:} & \iftoggle{examplecharacter}{\sffamily\concept}{\dotfill} &
-      \textbf{Rank:} & \iftoggle{examplecharacter}{\sffamily\rank}{\dotfill} \\
+      \textbf{Race:} & \iftoggle{examplecharacter}{\sffamily\race}{\lightDots} &
+      \textbf{Concept:} & \iftoggle{examplecharacter}{\sffamily\concept}{\lightDots} &
+      \textbf{Rank:} & \iftoggle{examplecharacter}{\sffamily\rank}{\lightDots} \\
     \end{tabularx}
 }
 
@@ -179,7 +179,6 @@ circle label/.style = {
     \vspace{1em}
     \begin{tabularx}{\linewidth}{p{.4\textwidth}YYY}
       \hiderowcolors
-      \hline
       \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{Covering} & \textbf{Weight} \\
       \iftoggle{examplecharacter}{
         \ifdefempty{\characterArmour}{}{
