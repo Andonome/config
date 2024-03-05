@@ -546,31 +546,6 @@ bookmarks=true]%
     \draw[ornamented frame outer, use path=ornament 2];
     \draw[ornamented frame inner, use path=ornament 1];
     \draw[ornamented frame inner, use path=ornament 2];
-    %
-    \iftoggle{creatureBox}{
-      \node at ([xshift=-25pt,yshift=\thedr+5pt] south east)
-        {\ifnum\value{dr}>2
-          \addtocounter{dr}{7}\multiply\value{dr} by 2\includesvg[width=\thedr pt]{config/images/l1}
-          \hspace{-30pt}
-        \fi
-     };
-    \node at ([xshift=-20pt,yshift=-\themp] north east)
-      {\ifnum\value{mp}>1
-        \addtocounter{mp}{2}
-        \multiply\value{mp} by 2
-        \includesvg[angle=270,width=\themp pt]{config/images/b1}
-        \hspace{-20pt}
-      \fi
-      };
-    \node at ([xshift=-5pt,yshift=35pt] south west)
-      {\ifnum\value{att}>7
-        \addtocounter{att}{-4}
-        \multiply\value{att} by 2
-        \includesvg[angle=340,width=\theatt pt]{config/images/s1}
-        \hspace{-30pt}
-      \fi
-    };
-    }{}
   }
 }
 
