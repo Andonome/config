@@ -120,43 +120,43 @@
   \Repeat{\value{#1}}{\Square}%
 }
 
-\newcommand\HPboxes{
-  \begin{tabular}{r}
-  \hiderowcolors
-    HP \arabic{hp}
-    \Repeat{\value{noAppearing}}{
-    \boxStat{hp} \\
-    }
-  \end{tabular}
+\newcommand\HPboxes{%
+  \begin{tabular}{r}%
+  \hiderowcolors%
+    HP \arabic{hp}~%
+    \Repeat{\value{noAppearing}}{%
+    \boxStat{hp} \\%
+    }%
+  \end{tabular}%
 }
 
-\newcommand\HPHPboxes{
-  \begin{tabular}{rr}
-  \hiderowcolors
-    HP \arabic{hp}
-    \whileboolexpr{test {\ifnumcomp{\value{noAppearing}}{>}{0}}}{%
-      \ifnumodd{\value{noAppearing}}{ & \boxStat{hp} \\}{\boxStat{hp}}%
-      \addtocounter{noAppearing}{-1}
-    }
-  \end{tabular}
+\newcommand\HPHPboxes{%
+  \begin{tabular}{rr}%
+  \hiderowcolors%
+    HP \arabic{hp}~%
+    \whileboolexpr{test {\ifnumcomp{\value{noAppearing}}{>}{0}}}{%%
+      \ifnumodd{\value{noAppearing}}{ & \boxStat{hp} \\}{\boxStat{hp}}%%
+      \addtocounter{noAppearing}{-1}%
+    }%
+  \end{tabular}%
 }
 
-\newcommand\HPHPHPboxes{
-  \begin{tabular}{rrr}
-    \hiderowcolors
-    HP \arabic{hp}
-    \whileboolexpr{test {\ifnumcomp{\value{noAppearing}}{>}{0}}}{%
-      \boxStat{hp}
-      \addtocounter{noAppearing}{-1}
-      &
-      \ifnum\value{noAppearing}>0\boxStat{hp}\fi
-      \addtocounter{noAppearing}{-1}
-      &
-      \ifnum\value{noAppearing}>0\boxStat{hp}\fi
-      \addtocounter{noAppearing}{-1}
-      \\
-    }
-  \end{tabular}
+\newcommand\HPHPHPboxes{%
+  \begin{tabular}{rrr}%
+    \hiderowcolors%
+    HP \arabic{hp}~%
+    \whileboolexpr{test {\ifnumcomp{\value{noAppearing}}{>}{0}}}{%%
+      \boxStat{hp}%
+      \addtocounter{noAppearing}{-1}%
+      &%
+      \ifnum\value{noAppearing}>0\boxStat{hp}\fi%
+      \addtocounter{noAppearing}{-1}%
+      &%
+      \ifnum\value{noAppearing}>0\boxStat{hp}\fi%
+      \addtocounter{noAppearing}{-1}%
+      \\%
+    }%
+  \end{tabular}%
 }
 
 \newcommand\HPMPboxes{
@@ -558,7 +558,7 @@
 
     \skillsEtc%
     \derivedstats%
-    \end{tcolorbox}
+    \end{tcolorbox}%
   }{
     \vspace{2em}
     \noindent
@@ -854,8 +854,8 @@
       {HP: \arabic{hp}
       \\
       }%
-      {\showBoxes }
-      & \\ 
+      {\showBoxes}%
+      & \\ %
     \end{tabularx}
 
     \normalfont
@@ -863,7 +863,7 @@
       \textbf{Abilities}: \abilities
       \vspace{1em}
     }%
-    \end{tcolorbox}
+    \end{tcolorbox}%
   }
 
 
