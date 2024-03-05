@@ -556,12 +556,9 @@
 
     #9
 
-    \skillsEtc
-
-    \derivedstats
-
+    \skillsEtc%
+    \derivedstats%
     \end{tcolorbox}
-
   }{
     \vspace{2em}
     \noindent
@@ -573,7 +570,6 @@
     \hphantom{\abilities}%
     \vspace{-2em}
     \derivedstats
-
     \skillsEtc
 
     \hrulefill
@@ -640,7 +636,6 @@
 	}
 
 \end{tabularx}
-
 }
 
 \newcommand\skillsEtc{
@@ -680,9 +675,7 @@
   \ifdefempty{\abilities}{}%
     {\ent{Abilities} & \abilities}
 	\mods
-
 \end{tabular}
-
 }
 
 %%     _               _        _
@@ -696,10 +689,10 @@
 %% print out att, spd, DAM, dex, dr (type), str
 %%
 %
-\newcommand{\derivedstats}{
-  \iftoggle{verbose}{\hrulefill}{}
-  \setlength\topsep{0pt}
-  \setlength\parskip{0pt}
+\newcommand{\derivedstats}{%
+  \setlength\topsep{0pt}%
+  \setlength\parskip{0pt}%
+  \iftoggle{verbose}{\par\hrulefill}{}%
   \iftoggle{debug}{str: \arabic{Strength}, dex: \arabic{Dexterity}, spd: \arabic{Speed}, att: \arabic{att}, damage: \arabic{damage}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}}{}
 
 % Stats for allies don't need to show Combat +1 as 'TN 8 to hit', they just need to show '+1'.
