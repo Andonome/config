@@ -14,7 +14,7 @@ resources.pdf: $(wildcard *.tex) $(wildcard *.sty)
 svg-inkscape:
 	pdflatex -shell-escape rules.tex
 	pdflatex -shell-escape docs.tex
-rules.pdf: svg-inkscape rules.tex rules $(wildcard *.sty)
+rules.pdf: images/wide.jpg svg-inkscape rules.tex rules $(wildcard *.sty)
 	pdflatex -shell-escape rules.tex
 
 all: docs.pdf test.pdf resources.pdf rules.pdf
