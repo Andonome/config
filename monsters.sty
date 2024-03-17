@@ -1868,47 +1868,36 @@
   }
 }
 
-\newcommand{\jelly}[1][\npc{\A}{\ifnum\value{r4}>3 Black\else \ifnum\value{r4}>2 Red \else \ifnum\value{r4}>1 Brown\else Transluscent\fi\fi\fi~ Ooze}]{
-  \randomfour
-  \randomfourB
-  \addtocounter{track}{2}
-  \setcounter{gold}{\value{r4}}
-  \multiply\value{gold} by -1
-  \addtocounter{gold}{3}
-  \randomthree
-  \randomthreeB
-  #1
-\animal{\arabic{r4}}% STRENGTH
-{\arabic{gold}}% DEXTERITY 
-{\arabic{gold}}% SPEED
-{\arabic{r3}}% WITS
-{\arabic{track}}% DR
-{0}% AGGRESSION
-{}% SKILLS
-{
-  \acidBody%
-  \ifnum\value{gold}<1
-    , \acidSpray%
+\newcommand\jelly{%
+  \randomtwoC%
+  \randomthree%
+  \randomfour%
+  \randomdozen%
+  \setcounter{enc}{\value{r12}}%
+    \addtocounter{enc}{\value{r4}}%
+  \setcounter{att}{\value{r4}}%
+    \addtocounter{att}{\value{r2}}%
+  \setcounter{Speed}{3}%
+    \addtocounter{Speed}{-\value{r4}}%
+  \setcounter{Wits}{2}%
+    \addtocounter{Wits}{-\value{r4}}%
+  \swarm[\gloopy, %
+  \ifnum\value{r4}=3%
+    \acidSpray%
+  \fi]{\ifcase\value{r4}\relax\or%
+    Transluscent %
+  \or%
+    Red%
+  \or%
+    Brown%
   \else%
-   , \gloopy%
+    Black%
   \fi%
-  \ifnum\value{gold}<0%
-    , \gelRegen\addtocounter{xpbonus}{1}%
-  \fi%
-}% ABILITIES
-{
-  \setcounter{Brawl}{\value{r4b}}
-  \setcounter{Athletics}{\value{gold}}
-  \setcounter{Stealth}{\value{gold}}
-  \ifnum\value{gold}<0
-    \setcounter{Projectiles}{\value{r3}}
-  \fi
-  \knacks{\ifnum\value{r4}>3
-    \berserker,
-  \fi
-  \unstoppable
-  }
-}
+  \space Ooze}% Name
+  {\value{enc}}% HP
+  {\value{att}}% Attack
+  {\value{Speed}}% Speed
+  {\value{Wits}}% Wits
 }
 
 \newcommand{\umberhulk}[1][\npc{\A}{Umber Hulk}]{
@@ -2137,6 +2126,11 @@
 %%%%% Swarms %%%%%
 
 \newcommand\basiliskSwarm{
+  \ifnum\value{diceNo}>\value{r4}
+    \setcounter{diceNo}{\value{r4}}
+  \else
+    \stepcounter{diceNo}
+  \fi
   \randomdozen
   \swarm{Basilisk Hatchlings}% Name
   {\arabic{r12}}%

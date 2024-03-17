@@ -860,10 +860,11 @@
 
     \normalfont
     \ifdefempty{\abilities}{}{%
-      \textbf{Abilities}: \abilities
-      \vspace{1em}
+      \textbf{Abilities:} \abilities
     }%
+    \vspace{2em}
     \end{tcolorbox}%
+    \null
   }
 
 
@@ -910,14 +911,19 @@
 }
 
 \newcommand{\gelRegen}{%
-  Regeneration (1 HP/ round, max. \setcounter{hp}{\value{Strength}}\addtocounter{hp}{6}\roundUp{hp} \arabic{hp})%
+  \setcounter{diceNo}{\value{hp}}\divide\value{diceNo} by 2%
+  Regeneration (1 \glsentrytext{hp}/ round, max. \arabic{diceNo})%
 }
 
-\newcommand\gloopy{%
+\newcommand\viscid{%
   Viscid (on a tie, the attacker \emph{must} inflict Damage, but the weapon sticks into the body,
   \setcounter{track}{\value{Strength}}%
   \addtocounter{track}{7}%
   \tn[\arabic{track}] to pull out)%
+}
+
+\newcommand\gloopy{%
+  Liquid (non-fire Damage removes 2~\glsfmtplural{hp} but creates a 1~\glsentrytext{hp} copy)%
 }
 
 \newcommand{\amphibious}{
