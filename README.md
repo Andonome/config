@@ -12,11 +12,11 @@ These config files make the BIND RPG books look and act the way they do.
 
 To make a book, start a git, then do:
 
-> git submodule add https://gitlab.com/bindrpg/config config
-
-> git commit -m"add config submodule"
-
-> cp config/main.tex config/.gitignore .
+```bash
+git submodule add https://gitlab.com/bindrpg/config config
+git commit -m"add config submodule"
+cp config/main.tex config/.gitignore .
+```
 
 Edit 'main.tex', and input your tex files by writing `\include{my_file.tex}`.
 
@@ -24,11 +24,15 @@ Edit 'main.tex', and input your tex files by writing `\include{my_file.tex}`.
 
 You can create the [documentation][docs] with
 
-> make docs
+```bash
+make docs
+```
 
-Test your changes before committing with
+Test your changes before committing with:
 
-> make test
+```bash
+make test
+```
 
 ## Issues
 
@@ -41,7 +45,9 @@ Any changes to the master branch should be tested in the `core` and `aif` projec
 
 And when pulling, remember to do:
 
-> git pull --recurse-submodules
+```bash
+git pull --recurse-submodules
+```
 
 # Docker
 
