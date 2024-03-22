@@ -32,6 +32,7 @@
   \fi%
   #1%
   \addtocounter{att}{\value{weaponBonus}}%
+  \ifnum\value{heft}<1\setcounter{heft}1\fi%
   #2%
 }
 
@@ -58,22 +59,22 @@
 
 % Shields work much like weapons, except that their Bonus is high, their initiative cost is low, but their attack is poor.
 
-\newcommand\shield[3][]{%
-  \setcounter{shieldBonus}{#3}%
-  \addtocounter{shieldBonus}{2}%
-  \setcounter{shieldWeight}{#3}%
-  \setcounter{shieldInit}{#3}%
-  \stepcounter{shieldInit}%
-  \setcounter{cost}{87}%
-  #1%
-  \iftoggle{creatureBox}%
-    {#2 shield (+\arabic{shieldBonus}/ \arabic{shieldInit})}{%
-      \MakeUppercase#2 Shield &%
-      +\arabic{shieldBonus} &
-      \arabic{shieldInit} &
-      \arabic{shieldWeight}
-    }%
-}
+%\newcommand\shield[3][]{%
+%  \setcounter{shieldBonus}{#3}%
+%  \addtocounter{shieldBonus}{2}%
+%  \setcounter{shieldWeight}{#3}%
+%  \setcounter{shieldInit}{#3}%
+%  \stepcounter{shieldInit}%
+%  \setcounter{cost}{87}%
+%  #1%
+%  \iftoggle{creatureBox}%
+%    {#2 shield (+\arabic{shieldBonus}/ \arabic{shieldInit})}{%
+%      \MakeUppercase#2 Shield &%
+%      +\arabic{shieldBonus} &
+%      \arabic{shieldInit} &
+%      \arabic{shieldWeight}
+%    }%
+%}
 
 \newcommand\armour[4][]{
   #2% Name
@@ -134,9 +135,9 @@
 \newcommand{\woodaxe}{\weapon[\addtocounter{heft}{1}]{Wood Axe}{1}{2}}
 
 % SHIELDS
-\newcommand{\bucklar}{\shield{bucklar}{0}}
-\newcommand{\roundshield}{\shield{round}{1}}
-\newcommand{\kiteshield}{\shield{kite}{2}}
+\newcommand{\bucklar}{\weapon{Bucklar}{2}{-2}}
+\newcommand{\roundshield}{\weapon{Round Shield}{2}{-1}}
+\newcommand{\kiteshield}{\weapon{Kite Shield}{3}{0}}
 
 % RANGED WEAPONS
 \newcommand{\longbow}{Longbow}
