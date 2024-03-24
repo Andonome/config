@@ -14,13 +14,14 @@
 % The Weight Rating = ( Att + Dam ) - 3
 
 \newcounter{weaponBonus}
+\newcounter{weaponDamage}
 \newcounter{covering}
 \newcounter{armourDR}
 
 
 \newcommand\weapon[4][]{%
   \setcounter{weaponBonus}{#3}%
-  \setcounter{damage}{#4}%
+  \setcounter{weaponDamage}{#4}%
   \setcounter{heft}{#4}%
   \setcounter{weight}{#4}%
   \ifnum#3>-1% If the weapon's attack bonus is positive,
@@ -41,7 +42,7 @@
 %% It remains unterminated so you can add Costs.
 
 \newcommand\showWeapon[1]{%
-  #1 & \arabic{weaponBonus} & \arabic{damage} & \arabic{heft} & \arabic{weight}
+  #1 & \arabic{weaponBonus} & \arabic{weaponDamage} & \arabic{heft} & \arabic{weight}
 }
 
 \newcommand\rangedWeapon[4][0]{%
@@ -104,18 +105,18 @@
 
 \newcommand{\boulder}{\weapon[\addtocounter{weight}{3}]{Boulder}{-3}{5}}
 \newcommand{\chair}{\weapon[\addtocounter{weaponBonus}{-1}]{Chair}{2}{1}}
-\newcommand{\club}{\weapon[\addtocounter{damage}{-1}]{Club}{1}{1}}
-\newcommand{\cudgel}{\weapon[\addtocounter{damage}{-1}]{Cudgel}{0}{0}}
+\newcommand{\club}{\weapon[\addtocounter{weaponDamage}{-1}]{Club}{1}{1}}
+\newcommand{\cudgel}{\weapon[\addtocounter{weaponDamage}{-1}]{Cudgel}{0}{0}}
 \newcommand{\Dagger}{\weapon{Dagger}{0}{2}}
 \newcommand{\firepoker}{\weapon{Firepoker}{1}{0}}
 \newcommand{\flail}{\weapon{Flail}{0}{3}}
 \newcommand{\giantsword}{\weapon{Giant Sword}{4}{3}}
 \newcommand{\greataxe}{\weapon{Great Axe}{2}{3}}
 \newcommand{\greatsword}{\weapon{Greatsword}{3}{3}}
-\newcommand{\greatclub}{\weapon[\addtocounter{damage}{-1}]{Great Club}{3}{4}}
+\newcommand{\greatclub}{\weapon[\addtocounter{weaponDamage}{-1}]{Great Club}{3}{4}}
 \newcommand{\javelin}{\weapon{Javelin}{2}{1}}
 \newcommand{\knife}{\weapon{Knife}{0}{1}}
-\newcommand{\Log}{\weapon[\addtocounter{damage}{-3}]{Log}{1}{0}}
+\newcommand{\Log}{\weapon[\addtocounter{weaponDamage}{-3}]{Log}{1}{0}}
 \newcommand{\rapier}{\weapon[\addtocounter{weight}{-1}]{Rapier}{1}{1}}
 \newcommand{\largerock}{\weapon[\addtocounter{weight}{3}]{Rock (large)}{-1}{2}}
 \newcommand{\longsword}{\weapon{Longsword}{2}{2}}
@@ -130,7 +131,7 @@
 \newcommand{\glaive}{\weapon{Glaive}{3}{2}}
 \newcommand{\stick}{\weapon{Stick}{1}{0}}
 \newcommand{\walkingStick}{\weapon{Walking stick}{1}{0}}
-\newcommand{\whip}{\weapon[\addtocounter{damage}{-1}\addtocounter{heft}{1}]{Whip}{2}{0}}
+\newcommand{\whip}{\weapon[\addtocounter{weaponDamage}{-1}\addtocounter{heft}{1}]{Whip}{2}{0}}
 \newcommand{\warhammer}{\weapon{Warhammer}{1}{4}}
 \newcommand{\woodaxe}{\weapon[\addtocounter{heft}{1}]{Wood Axe}{1}{2}}
 

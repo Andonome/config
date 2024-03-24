@@ -463,9 +463,9 @@
 
     \creaturestats
 
-    \skillsEtc
-
     \computeStats
+
+    \skillsEtc
 
     \derivedstats
 
@@ -558,8 +558,8 @@
 
     #9
 
-    \skillsEtc%
     \computeStats
+    \skillsEtc%
     \derivedstats%
     \end{tcolorbox}%
   }{
@@ -598,6 +598,7 @@
   \setcounter{weight}{0}
   \setcounter{encumbrance}{0}
   \setcounter{damage}{0}
+  \setcounter{weaponDamage}{0}
   \setcounter{knacks}{0}
   \setcounter{mp}{0}
   \setcounter{xpbonus}{0}
@@ -708,6 +709,9 @@
   \setcounter{ap}{\value{Speed}}%
   \addtocounter{ap}{3}%
   \addtocounter{ap}{-\value{encumbrance}}%
+  \foreach \k in {\showKnacks}{
+    X
+  }
 }
 
 %%     _               _        _
@@ -735,8 +739,9 @@
   \iftoggle{allyCharacter}{$2D6$\ifnum\value{att}>-1 +\fi}{}%
   \arabic{att}%
   \setcounter{enc}{\value{att}},%
+  \setcounter{damage}{4}%
   \addtocounter{damage}{\value{Strength}}
-  \addtocounter{damage}{4}%
+  \addtocounter{damage}{\value{weaponDamage}}
   \mbox{Dam \dmg{damage}, }%
     \ifnumcomp{\value{dr}}{>}{0}{%
       \setcounter{enc}{\value{att}}%

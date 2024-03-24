@@ -13,6 +13,39 @@
 
 \chapter{Stuff}
 
-test
+\begin{multicols}{2}
+
+\goblin
+
+\elf
+
+\humanthief
+
+\humanthief
+
+\newcommand\statblock[4]{
+  \clean
+  \setcounter{Strength}{#1}
+  \setcounter{Dexterity}{#2}
+  \setcounter{Speed}{#3}
+  \mind#4
+
+  %%%%%%%%%%
+  \textbf{\name}
+  \foreach\Att in {Strength,Dexterity,Speed}%
+    {\Att: \arabic{\Att}\quad}
+
+  \hrulefill
+
+  \foreach\Att in {Intelligence,Wits,Charisma}%
+    {\Att: \arabic{\Att}\quad}
+}
+
+\npc{\M\Hu}{Bob}
+\statblock{1}{2}{3}%
+  {{-3}{-2}{-1}}
+
+
+\end{multicols}
 
 \end{document}
