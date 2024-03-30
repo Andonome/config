@@ -7,6 +7,7 @@
 
 tlmgr install \
 latex-bin \
+l3packages \
 tools \
 fgruler bookcover \
 qrcode \
