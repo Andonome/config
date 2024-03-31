@@ -259,8 +259,10 @@ bookmarks=true]%
 
 \renewcommand\tableofcontents{%
     {
-      \large
-      \@starttoc{toc}
+      \Large
+      \begin{multicols}{2}
+        \@starttoc{toc}
+      \end{multicols}
     }
 }
 
