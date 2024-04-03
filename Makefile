@@ -1,32 +1,31 @@
+include vars
+
 output: docs.pdf
+
+rubbish/:
+	mkdir rubbish
 
 images:
 	mkdir images
 images/wide.jpg:| images
 	convert -size 100x60 xc:skyblue -fill white -stroke black  -draw "ellipse 50,30 40,20 45,270" images/wide.jpg
 
-docs.pdf: images/wide.jpg svg-inkscape $(wildcard *.sty) docs.tex
-	pdflatex -shell-escape docs.tex
-test.pdf: test.tex $(wildcard *.sty) $(wildcard *.tex)
-	pdflatex -shell-escape test.tex
-resources.pdf: $(wildcard *.tex) $(wildcard *.sty) 
-	pdflatex -shell-escape resources.tex
-svg-inkscape:
-	pdflatex -shell-escape rules.tex
-	pdflatex -shell-escape docs.tex
-rules.pdf: images/wide.jpg svg-inkscape rules.tex rules $(wildcard *.sty)
-	pdflatex -shell-escape rules.tex
+ALL_FILES = $(wildcard *.tex) $(wildcard *.sty) | rubbish/
 
-all: docs.pdf test.pdf resources.pdf rules.pdf
+rubbish/test.pdf: test.tex $(ALL_FILES)
+	$(RUN) test.tex
+
+docs.pdf: images/wide.jpg $(ALL_FILES)
+	$(RUN) docs.tex
+	$(CP) rubbish/docs.pdf docs.pdf
+resources.pdf: $(ALL_FILES)
+	$(RUN) resources.tex
+	$(CP) rubbish/resources.pdf resources.pdf
+rules.pdf: images/wide.jpg $(ALL_FILES)
+	$(RUN) rules.tex
+	$(CP) rubbish/rules.pdf rules.pdf
+
+.PHONY: all clean
+all: docs.pdf resources.pdf rules.pdf rubbish/test.pdf 
 clean:
-	rm -rf *pdf *.aux *.toc *.acn *.acr *.log *.ptc *.out *.idx *.ist *.alg \
-    *glo \
-	*slo \
-	*sls \
-	*slg \
-	*glg \
-	*gls \
-	*.ind \
-	*.ilg \
-  images/wide.jpg \
-	svg-inkscape
+	$(CLEAN) images/wide.jpg
