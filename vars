@@ -4,6 +4,6 @@ DROSS := $(shell head -1 .gitignore)
 COMPILER := latexmk -auxdir=$(DROSS) -pdflua -silent -shell-escape -r config/.latexmkrc -jobname=$(BOOK)
 GLOS := makeglossaries -d $(DROSS)
 RUN := lualatex -output-directory $(DROSS) -shell-escape
-QR_TARGET := $(shell grep 'mailto' README.md | cut -d' ' -f2)
 CLEAN := $(RM) -r $(DROSS) qr.tex *.pdf svg-inkscape
 DEPS := *tex config/*sty
+QR_TARGET != grep mailto: README.md | cut -d: -f2,3
