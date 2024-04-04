@@ -14,8 +14,6 @@ ALL_FILES = $(wildcard *.tex) $(wildcard *.sty) | $(DROSS)
 
 $(DROSS)/test.pdf: test.tex $(ALL_FILES)
 	$(RUN) test.tex
-	$(DROS) test
-	$(RUN) test.tex
 
 docs.pdf: images/wide.jpg $(ALL_FILES)
 	$(RUN) docs.tex
