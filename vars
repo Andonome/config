@@ -5,4 +5,4 @@ COMPILER = latexmk -auxdir=$(DROSS) -pdflua -silent -shell-escape -r config/.lat
 GLOS = makeglossaries -d $(DROSS)
 RUN = lualatex -output-directory $(DROSS) -shell-escape
 QR_TARGET = $(shell grep 'mailto' README.md | cut -d' ' -f2)
-CLEAN = $(RM) -r $(DROSS) qr.tex *.pdf
+CLEAN = $(RM) -r $(DROSS) qr.tex *.pdf svg-inkscape
