@@ -10,5 +10,5 @@ COMPILER := latexmk -auxdir=$(DROSS) -pdflua -silent -shell-escape -r config/.la
 RELEASE := $(BOOK)-$(VERSION).pdf
 GLOS := makeglossaries -d $(DROSS)
 RUN := lualatex -output-directory $(DROSS) -shell-escape
-CLEAN := $(RM) -r $(DROSS) qr.tex *.pdf svg-inkscape
+CLEAN := $(RM) -r $(DROSS) qr.tex *.pdf .switch-gls svg-inkscape
 DEPS := *tex config/*sty
