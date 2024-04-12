@@ -448,6 +448,42 @@ bookmarks=true]%
   \fi%
 }
 
+\newcommand\twoDice[1]{%
+  \setcounter{diceNo}{#1}%
+  \ifnum\value{diceNo}<2%
+    \setcounter{diceNo}{2}%
+  \fi%
+  \ifcase\value{diceNo}%
+    diceError 0%
+  \or%
+    diceError 1%
+  \or%
+    \epsdice{1}, \epsdice[black]{1}%
+  \or%
+    \epsdice{1}, \epsdice[black]{2}%
+  \or%
+    \epsdice{1}, \epsdice[black]{3}%
+  \or%
+    \epsdice{1}, \epsdice[black]{4}%
+  \or%
+    \epsdice{1}, \epsdice[black]{5}%
+  \or%
+    \epsdice{1}, \epsdice[black]{6}%
+  \or%
+    \epsdice{2}, \epsdice[black]{6}%
+  \or%
+    \epsdice{3}, \epsdice[black]{6}%
+  \or%
+    \epsdice{4}, \epsdice[black]{6}%
+  \or%
+    \epsdice{5}, \epsdice[black]{6}%
+  \or%
+    \epsdice{6}, \epsdice[black]{6}%
+  \else
+    diceError%
+  \fi%
+}
+
 \newcounter{diceNo2}
 \newcommand\rollDice[1]{%
   \setcounter{track}{#1}%
@@ -464,6 +500,10 @@ bookmarks=true]%
 \newcounter{dlist}
 \newenvironment{dlist}%
   {\raggedright\begin{list}{\Large\dicef{\value{dlist}}}{\usecounter{dlist}}}%
+  {\end{list}\null}%
+
+\newenvironment{dlistDouble}%
+  {\raggedright\begin{list}{\Large\twoDice{\value{dlist}}}{\usecounter{dlist}}}%
   {\end{list}\null}%
 
 \newcounter{blingNo}
