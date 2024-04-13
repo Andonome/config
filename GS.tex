@@ -17,20 +17,18 @@
    },
 ]
   \posterbox[
-    adjusted title=Campaign,
+    blankest,
     right=0pt,
-    ]{name=campaign,below=top,column=1,row=1,span=10,rowspan=2,}{
-      
-
+    ]{name=campaign,below=top,column=2,row=2,span=23,rowspan=1,}{
+    \label{gmSheet}
     \large
-    Campaign: \lineDots
-
-    Season: \lineDots
-
+    Campaign: \lineDots Season: \lineDots
 }{
     }
 
-  \posterbox[adjusted title=Situation,]{name=situation,column=11,row=1,span=14,rowspan=2}{
+  \posterbox[
+    blankest,
+  ]{name=situation,column=2,row=3,span=23,rowspan=1}{
     \vspace{1em}%
     \lineDots[4]%
   }
@@ -38,7 +36,7 @@
 %---
 
 
-  \posterbox[adjusted title=\Glsentrylongpl{pc}]{name=pcs,below=campaign,column=1,span=24,rowspan=4}{
+  \posterbox[blankest,adjusted title=\Glsentrylongpl{pc}]{name=pcs,below=situation,column=2,span=24,rowspan=4}{
 
     \begin{tabularx}{\linewidth}{b{.19\linewidth}|b{.18\linewidth}|b{.2\linewidth}|X|b{.22\linewidth}}
     \hiderowcolors
@@ -53,27 +51,26 @@
 
 %---
 
-  \posterbox[adjusted title=Encounters]{name=encounters,below=pcs,row=7,span=13,rowspan=4}{
-    \vspace{1em}
-    \lineDots[10]
-  }
-
-%---
-
-  \posterbox[adjusted title=\Glsentrylongpl{npc}]{name=npcs,column=14,row=7,span=11,rowspan=4}{
-    \vspace{1em}
-    \lineDots[10]
-  }
-
-  \posterbox[blankest]{name=interval,column=1,below=encounters,span=26,rowspan=1.5}{
+  \posterbox[blankest]{name=interval,below=pcs,span=26}{
     \center{\underline{\glspl{interval}}}
     \Huge
-    \foreach \x in {1,...,4}{
-      \foreach \n in {1,...,4}{{\tiny \n}\Square~}
+
+    \Repeat{3}{%
+    \begin{tabular}{lccccl}
+      & \showInterval{1} & \showInterval{2} & \showInterval{3} & \showInterval{4} & \small\flourish \\
+      & \Square & \Square & \Square & \Square & \\
+    \end{tabular}%
     }
+    %\begin{tabular}{cccc}
+    %  \Square & \Square & \Square & \Square \\
+    %  \showInterval{1} & \showInterval{2} & \showInterval{3} & \showInterval{4} \\
+    %\end{tabular}
+    %\foreach \x in {1,...,4}{
+    %  %\foreach \n in {1,...,4}{{\tiny \n}\Square~}
+    %}
   }
 
-  %----
+%----
     \setcounter{track}{7}
     \posterbox[blankest]{name=track,column=27,row=2,span=3,rowspan=3}{
       {
@@ -81,14 +78,11 @@
         \setcounter{track}{7}
         \setcounter{enc}{0}
         \Repeat{15}{
-          \intervalTrack
+          \tracker
         }%
       }
     }
 
 %----
 
-
-
 \end{tcbposter}
-
