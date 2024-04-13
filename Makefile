@@ -25,6 +25,7 @@ resources.pdf: $(ALL_FILES)
 	$(CP) $(DROSS)/resources.pdf resources.pdf
 rules.pdf: images/wide.jpg $(ALL_FILES)
 	$(RUN) rules.tex
+	$(RUN) rules.tex
 	$(CP) $(DROSS)/rules.pdf rules.pdf
 
 .PHONY: all clean
