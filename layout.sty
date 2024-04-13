@@ -196,7 +196,8 @@ bookmarks=true]%
   \newtoggle{#1}
     \IfFileExists{../rubbish/#1.aux}{
       \externaldocument{../rubbish/#1}%
-      \settoggle{#1}{true}
+      \@addtofilelist{../rubbish/#1.aux}%
+      \settoggle{#1}{true}%
     }%
     {\typeout{No file #1.}
     \settoggle{#1}{false}
