@@ -5,7 +5,7 @@ COMPRESS = gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dNOPAUSE -dQUIET -dBAT
 
 CP := ln -f
 BOOK := $(shell basename "$$(pwd)")
-DROSS := $(shell head -1 .gitignore)
+DROSS := ../rubbish/
 COMPILER := latexmk -auxdir=$(DROSS) -pdflua -silent -shell-escape -r config/.latexmkrc -jobname=$(BOOK)
 RELEASE := $(BOOK)-$(VERSION).pdf
 GLOS := makeglossaries -d $(DROSS)
