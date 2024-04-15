@@ -10,6 +10,6 @@ COPY gimme /usr/bin/
 
 RUN /x-install.sh
 
-ENV PATH="/opt/texlive/2023/bin/x86_64-linux:${PATH}"
+ENV PATH="/opt/texlive/2024/bin/x86_64-linux:${PATH}"
 
 RUN /tlmgrDeps.sh

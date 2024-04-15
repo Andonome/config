@@ -11,3 +11,5 @@ xbps-install -Sy git git-lfs \
 	texlive-bin 
 
 git lfs install
+
+xbps-remove -Oo
