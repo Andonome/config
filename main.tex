@@ -23,12 +23,19 @@
 
 \humanthief
 
-\newcommand\statblock[4]{
+\newcommand\statblock[6]{
   \clean
   \setcounter{Strength}{#1}
   \setcounter{Dexterity}{#2}
   \setcounter{Speed}{#3}
   \mind#4
+  #5
+  \foreach \k in {#6}{%
+    \stepcounter{knacks}%
+  }
+  \renewcommand\showKnacks{#6}
+  %
+  \computeStats
 
   %%%%%%%%%%
   \textbf{\name}
@@ -39,12 +46,20 @@
 
   \foreach\Att in {Intelligence,Wits,Charisma}%
     {\Att: \arabic{\Att}\quad}
+
+  \hrulefill
+
+  \showSkills
+
+  \showKnacks
+
 }
 
 \npc{\M\Hu}{Bob}
 \statblock{1}{2}{3}%
-  {{-3}{-2}{-1}}
-
+  {{-3}{-2}{-1}}%
+  {\setcounter{Academics}{1}}
+  {\adrenalinesurge, \laststand}
 
 \end{multicols}
 

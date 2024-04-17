@@ -280,7 +280,6 @@
 % 
 
 
-
 % magic
 \newcommand{\magicPath}{}
 
@@ -288,100 +287,95 @@
 
 \newcommand\showKnacks{}
 
-
 %%%%%%%%%%%%%%%%%%%%% Knacks
 %
 \newcommand{\adrenalinesurge}{%
-  \addtocounter{knacks}{1}%
-  Adrenaline Surge (+1 Damage, once per \ifnum\value{knacks}<2 combat\else round, \arabic{knacks} uses per combat\fi)%
+  Adrenaline~Surge (+1 Damage, once per \ifnum\value{knacks}<2 combat\else round, \arabic{knacks} uses per combat\fi)%
 }
 \newcommand{\berserker}{%
   Berserker (+1 \glsentrytext{ap}. on round 2 of combat, +1 Damage. on round 3)%
-  \addtocounter{knacks}{1}%
 }
-\newcommand{\brawler}{Brawler\addtocounter{knacks}{1}%
-\iftoggle{examplecharacter}{ (+2 to unarmed attacks)}{}}
+\newcommand{\brawler}{%
+  Brawler%
+  (+2 to unarmed attacks)
+}
+
 \newcommand{\charge}{%
   Fast Charge
   (+1 \glsentrytext{ap}, Attack, and Damage after charging 6 steps)%
-  \addtocounter{knacks}{1}%
 }
+
 \newcommand{\cuttingswing}{%
   Cutting Swing
   (when an opponent hits 0 \glspl{hp}, damage transfers to the next opponent)%
-  \addtocounter{knacks}{1}%
 }
 \newcommand{\dodger}{%
-  \addtocounter{knacks}{1}%
   Dodger
   (+\arabic{knacks} to dodge projectiles)%
 }
 \newcommand{\guardian}{%
-  \addtocounter{knacks}{1}%
   Guardian
   (spend 0 AP to guard someone, and gain +1 to guarding against attacks)%
 }
 \newcommand{\laststand}{%
-  \addtocounter{knacks}{1}%
-  Last Stand
+  Last~Stand
   (when losing \glspl{hp}, the character gains \setcounter{enc}{2}\addtocounter{enc}{\value{knacks}}\arabic{enc} AP)%
 }
+
 \newcommand{\lucky}{%
-  \addtocounter{knacks}{1}%
   \addtocounter{fp}{4}%
   Lucky (add 4 \glsentryshortpl{fp})
 }
 
 \newcommand{\mightydraw}{%
-  \addtocounter{knacks}{1}%
   Mighty Draw
   \setcounter{enc}{\value{knacks}}\roundUp{enc} (reduce cost to draw longbow by \arabic{enc} AP)
 }
 \newcommand{\perfectsneakattack}{%
-  \addtocounter{knacks}{1}%
   Perfect Sneak Attack
   (+\arabic{knacks} Damage for sneak attacks)
 }
 \newcommand{\precisestrike}{%
-  \addtocounter{knacks}{1}%
   Precise Strike
   (+1 Attack when calculating \pgls{vitalShot})
 }
-\newcommand{\specialist}[1]{Specialist \addtocounter{knacks}{1}
-\iftoggle{examplecharacter}{ (+2 when using any #1)}{(#1)}}
+\newcommand{\specialist}[1]{%
+  Specialist
+\iftoggle{examplecharacter}{ (+2 when using any #1)}{(#1)}%
+}
+
 \newcommand{\stunningstrike}{%
-  \addtocounter{knacks}{1}%
   Stunning Strike
   (take -1 penalty, and opponent's AP reduces by half Damage)%
 }
 \newcommand{\snapshot}{%
-  \addtocounter{knacks}{1}%
   Snap Draw
   (Pay 0 AP to reload arrow or draw weapon)%
 }
 \newcommand{\unstoppable}{%
-  \addtocounter{knacks}{1}%
   \addtocounter{hp}{2}%
   Unstoppable
   (+2 \glsentryshortpl{hp}, and +\arabic{knacks} to any Medicine rolls to save them when dying)%
 }
-\newcommand{\vengeful}{Vengeful\addtocounter{knacks}{1}%
-\iftoggle{examplecharacter}{ (+2 Intelligence after losing HP)}{}}
-  \newcommand{\weaponmaster}[1]{%
+
+\newcommand{\vengeful}{%
+  Vengeful%
+  \iftoggle{examplecharacter}{ (+2 Intelligence after losing HP)}{}%
+}
+
+\newcommand{\weaponmaster}[1]{%
   \addtocounter{att}{1}%
-  \addtocounter{knacks}{1}%
   Weapon Master
-  (+1 Attack when using a {#1})
+  (+1 Attack when using a {#1})%
 }
 
 \newcommand{\autophage}{%
   \addtocounter{knacks}{1}%
   Autophage
-  (cast with \glspl{ep} instead of \glspl{mp})
+  (cast with \glspl{ep} instead of \glspl{mp})%
 }
 
 \newcommand{\snapcaster}{%
-  \addtocounter{knacks}{1}%
   \ifnum\value{Wits}>\value{Charisma}%
     \global\settoggle{snapCaster}{true}%
   \fi%
@@ -396,13 +390,12 @@
 }
 
 \newcommand{\fasthealer}{%
-  \addtocounter{knacks}{1}%
   Fast Healer
-  (resting heals 2 additional \glspl{ep} and 1 \gls{mp})
+  (resting heals 2 additional \glspl{ep} and 1 \gls{mp})%
 }
 
-\newcommand{\combatcaster}{Combat Caster\addtocounter{knacks}{1}}
-\newcommand\chosenEnemy[1]{Chosen Enemy (+1 against #1, -2 when trying to be friendly)\addtocounter{knacks}{1}}
+\newcommand{\combatcaster}{Combat Caster}
+\newcommand\chosenEnemy[1]{Chosen Enemy (+1 against #1, -2 when trying to be friendly)}
 
 % _ __   ___ _ __ ___  ___  _ __  
 %| '_ \ / _ \ '__/ __|/ _ \| '_ \ 
@@ -709,9 +702,6 @@
   \setcounter{ap}{\value{Speed}}%
   \addtocounter{ap}{3}%
   \addtocounter{ap}{-\value{encumbrance}}%
-  \foreach \k in {\showKnacks}{
-    X
-  }
 }
 
 %%     _               _        _
