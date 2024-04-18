@@ -664,7 +664,7 @@
     \ifdefempty{\equipment}{}
     {
       \setcounter{attackXPtotal}{\value{Charisma}}% Must store Charisma while talisman shows spells
-      \ent{Equipment} & \equipment \\
+      \ent{Equipment} & \ifdefempty{\weaponName}{}{\weaponName, }\equipment \\
     }
     }%
     {}
@@ -692,7 +692,6 @@
   \iftoggle{allyCharacter}{}{%
     \addtocounter{att}{7}%
   }%
-  \addtocounter{att}{\value{Dexterity}}%
   \setcounter{maxWeight}{\value{hp}}% now to compute encumbrance
   \divide\value{maxWeight} by 2%
   \ifnum\value{weight}>\value{maxWeight}%
@@ -702,6 +701,12 @@
   \setcounter{ap}{\value{Speed}}%
   \addtocounter{ap}{3}%
   \addtocounter{ap}{-\value{encumbrance}}%
+  \addtocounter{att}{\value{Dexterity}}%
+  \addtocounter{att}{\value{weaponBonus}}%
+  \setcounter{damage}{\value{Strength}}%
+  \addtocounter{damage}{4}%
+  \addtocounter{damage}{\value{weaponDamage}}%
+  \addtocounter{covering}{\value{att}}
 }
 
 %%     _               _        _
@@ -729,9 +734,9 @@
   \iftoggle{allyCharacter}{$2D6$\ifnum\value{att}>-1 +\fi}{}%
   \arabic{att}%
   \setcounter{enc}{\value{att}},%
-  \setcounter{damage}{4}%
-  \addtocounter{damage}{\value{Strength}}
-  \addtocounter{damage}{\value{weaponDamage}}
+  \setcounter{damage}{4}% Remove
+  \addtocounter{damage}{\value{Strength}}% Remove
+  \addtocounter{damage}{\value{weaponDamage}}% Remove
   \mbox{Dam \dmg{damage}, }%
     \ifnumcomp{\value{dr}}{>}{0}{%
       \setcounter{enc}{\value{att}}%

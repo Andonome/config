@@ -17,24 +17,26 @@
 \newcounter{weaponDamage}
 \newcounter{covering}
 \newcounter{armourDR}
+\newcounter{armourWeight}
 
+\newcommand\weaponName{}
 
 \newcommand\weapon[4][]{%
   \setcounter{weaponBonus}{#3}%
   \setcounter{weaponDamage}{#4}%
   \setcounter{heft}{#4}%
-  \setcounter{weight}{#4}%
+  \setcounter{armourWeight}{#4}%
   \ifnum#3>-1% If the weapon's attack bonus is positive,
     \addtocounter{heft}{#3}% add it to the AP cost and 
-    \addtocounter{weight}{#3}% weight rating,
-    \addtocounter{weight}{#3}% weight rating again,
-    \roundUp{weight}% half weight rating
+    \addtocounter{armourWeight}{#3}% weight rating,
+    \addtocounter{armourWeight}{#3}% weight rating again,
+    \roundUp{armourWeight}% half weight rating
     \roundUp{heft}% then the AP cost by 2.
   \fi%
   #1%
   \addtocounter{att}{\value{weaponBonus}}%
   \ifnum\value{heft}<1\setcounter{heft}1\fi%
-  #2%
+  \renewcommand\weaponName{#2}%
 }
 
 %% Use this to show weapons in tables.
@@ -42,7 +44,7 @@
 %% It remains unterminated so you can add Costs.
 
 \newcommand\showWeapon[1]{%
-  #1 & \arabic{weaponBonus} & \arabic{weaponDamage} & \arabic{heft} & \arabic{weight}
+  #1 & \arabic{weaponBonus} & \arabic{weaponDamage} & \arabic{heft} & \arabic{armourWeight}
 }
 
 \newcommand\rangedWeapon[4][0]{%
@@ -81,11 +83,11 @@
   #2% Name
   \setcounter{armourDR}{#3}%
   \setcounter{covering}{#4}%
-  \setcounter{weight}{#4}%
-  \addtocounter{weight}{#3}%
-  \addtocounter{weight}{1}%
-  \divide\value{weight} by 3%
-  \addtocounter{weight}{0}%
+  \setcounter{armourWeight}{#4}%
+  \addtocounter{armourWeight}{#3}%
+  \addtocounter{armourWeight}{1}%
+  \divide\value{armourWeight} by 3%
+  \addtocounter{armourWeight}{0}%
   #1% <- for adjustments.
   \iftoggle{creatureBox}{%
     \ifnumcomp{\value{dr}}{>}{\value{armourDR}}%
@@ -100,10 +102,10 @@
 }
 
 \newcommand\showArmour[1]{%
-  #1 & \arabic{armourDR} & \arabic{covering} &  \arabic{weight}
+  #1 & \arabic{armourDR} & \arabic{covering} &  \arabic{armourWeight}
 }
 
-\newcommand{\boulder}{\weapon[\addtocounter{weight}{3}]{Boulder}{-3}{5}}
+\newcommand{\boulder}{\weapon[\addtocounter{armourWeight}{3}]{Boulder}{-3}{5}}
 \newcommand{\chair}{\weapon[\addtocounter{weaponBonus}{-1}]{Chair}{2}{1}}
 \newcommand{\club}{\weapon[\addtocounter{weaponDamage}{-1}]{Club}{1}{1}}
 \newcommand{\cudgel}{\weapon[\addtocounter{weaponDamage}{-1}]{Cudgel}{0}{0}}
@@ -117,14 +119,14 @@
 \newcommand{\javelin}{\weapon{Javelin}{2}{1}}
 \newcommand{\knife}{\weapon{Knife}{0}{1}}
 \newcommand{\Log}{\weapon[\addtocounter{weaponDamage}{-3}]{Log}{1}{0}}
-\newcommand{\rapier}{\weapon[\addtocounter{weight}{-1}]{Rapier}{1}{1}}
-\newcommand{\largerock}{\weapon[\addtocounter{weight}{3}]{Rock (large)}{-1}{2}}
+\newcommand{\rapier}{\weapon[\addtocounter{armourWeight}{-1}]{Rapier}{1}{1}}
+\newcommand{\largerock}{\weapon[\addtocounter{armourWeight}{3}]{Rock (large)}{-1}{2}}
 \newcommand{\longsword}{\weapon{Longsword}{2}{2}}
 \newcommand{\maul}{\weapon{Maul}{1}{3}}
 \newcommand{\poleaxe}{\weapon{Poleaxe}{3}{3}}
 \newcommand{\quarterstaff}{\weapon{Quarterstaff}{3}{0}}
-\newcommand{\rock}{\weapon[\addtocounter{heft}{1}\addtocounter{weight}{-1}]{Rock}{-1}{0}}
-\newcommand{\scythe}{\weapon[\addtocounter{weight}{2}]{Scythe}{-2}{1}}
+\newcommand{\rock}{\weapon[\addtocounter{heft}{1}\addtocounter{armourWeight}{-1}]{Rock}{-1}{0}}
+\newcommand{\scythe}{\weapon[\addtocounter{armourWeight}{2}]{Scythe}{-2}{1}}
 \newcommand{\shortsword}{\weapon{Shortsword}{1}{1}}
 \newcommand{\skillet}{\weapon[\addtocounter{heft}{1}]{Frying Pan}{1}{2}}
 \newcommand{\spear}{\weapon{Spear}{3}{1}}
@@ -153,7 +155,7 @@
 \newcommand{\perfectArmour}{\setcounter{covering}{8}}
 
 \newcommand{\partialelvish}{%
-  \armour[\addtocounter{weight}{-1}]{Elvish Ceramic armour}{2}{3}%
+  \armour[\addtocounter{armourWeight}{-1}]{Elvish Ceramic armour}{2}{3}%
 }
 
 \newcommand{\partialleather}{%

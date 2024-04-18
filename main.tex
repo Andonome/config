@@ -53,13 +53,30 @@
 
   \showKnacks
 
+  \hrulefill
+
+  Weapon: \weaponName
+
+  {\scshape
+    \glsentrytext{ap} \arabic{ap},
+    \iftoggle{allyCharacter}{$2D6$\ifnum\value{att}>-1 +\fi}{}%
+    Att \arabic{att},
+    Dam \dmg{damage},
+    \ifnum\value{dr}>0%
+      \glsentrytext{dr} \arabic{dr} (\arabic{covering})
+    \fi%
+  }
+
 }
 
 \npc{\M\Hu}{Bob}
 \statblock{1}{2}{3}%
   {{-3}{-2}{-1}}%
-  {\setcounter{Academics}{1}}
-  {\adrenalinesurge, \laststand}
+  {
+    \setcounter{Academics}{1}
+    \longsword
+  }
+  {\adrenalinesurge, \mightydraw}
 
 \end{multicols}
 
