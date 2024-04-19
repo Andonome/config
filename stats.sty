@@ -588,17 +588,8 @@
   \foreach \s in {Air,Earth,Fate,Fire,Water,Projectiles,Combat,Brawl,Academics,Alchemy,Athletics,Caving,Crafts,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Stealth,Tactics,Vigilance,Wyldcrafting}%
     {\setcounter{\s}{0}}
   \setcounter{noAppearing}{1}
-  \setcounter{dr}{0}
-  \setcounter{fp}{0}
-  \setcounter{sp}{0}
-  \setcounter{heft}{1}
-  \setcounter{weight}{0}
-  \setcounter{encumbrance}{0}
-  \setcounter{damage}{0}
-  \setcounter{weaponDamage}{0}
-  \setcounter{knacks}{0}
-  \setcounter{mp}{0}
-  \setcounter{xpbonus}{0}
+  \foreach \s in {dr,weaponDamage,weaponBonus,armourDR,armourWeight,fp,sp,heft,weight,damage,knacks,mp,xpbonus}%
+    {\setcounter{\s}{0}}
 }
 
 %%       _   _        _ _           _            
@@ -711,6 +702,14 @@
   \addtocounter{damage}{4}%
   \addtocounter{damage}{\value{weaponDamage}}%
   \addtocounter{covering}{\value{att}}
+  \ifnumcomp{\value{dr}}{>}{\value{armourDR}}%
+  {%
+    \divide\value{armourDR} by 2%
+    \addtocounter{dr}{\value{armourDR}}%
+  }{%
+    \divide\value{dr} by 2%
+    \addtocounter{dr}{\value{armourDR}}%
+  }%
 }
 
 %%     _               _        _

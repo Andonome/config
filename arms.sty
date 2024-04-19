@@ -90,16 +90,6 @@
   \divide\value{armourWeight} by 3%
   \addtocounter{armourWeight}{0}%
   #1% <- for adjustments.
-  \iftoggle{creatureBox}{%
-    \ifnumcomp{\value{dr}}{>}{\value{armourDR}}%
-    {%
-      \divide\value{armourDR} by 2%
-      \addtocounter{dr}{\value{armourDR}}%
-    }{%
-      \divide\value{dr} by 2%
-      \addtocounter{dr}{\value{armourDR}}%
-    }%
-  }{}%
 }
 
 \newcommand\showArmour[1]{%

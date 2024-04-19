@@ -23,17 +23,16 @@
 
 \humanthief
 
-\newcommand\statblock[6]{
+\newcommand\statblock[4]{
+  \begin{exampletext}
   \clean
-  \setcounter{Strength}{#1}
-  \setcounter{Dexterity}{#2}
-  \setcounter{Speed}{#3}
-  \mind#4
-  #5
-  \foreach \k in {#6}{%
+  \body#1
+  \mind#2
+  #3
+  \foreach \k in {#4}{%
     \stepcounter{knacks}%
   }
-  \renewcommand\showKnacks{#6}
+  \renewcommand\showKnacks{#4}
   %
   \computeStats
 
@@ -72,29 +71,34 @@
       \glsentrytext{dr} \arabic{dr} (\arabic{covering})
     \fi%
   }
-  \par
-  \hrulefill
-  \par
-  \hrulefill
-
+  \end{exampletext}
 }
 
+
 \npc{\F\Hu}{Alice}
-\statblock{1}{2}{3}%
+\statblock{{1}{2}{3}}%
   {{-3}{-2}{-1}}%
   {
     \setcounter{Wyldcrafting}{1}
-  }
+  }% SKILLS
   {\adrenalinesurge, \mightydraw}
 
 \npc{\M\Hu}{Bob}
-\statblock{1}{2}{3}%
+\statblock{{1}{2}{3}}%
   {{-3}{-2}{-1}}%
   {
     \setcounter{Academics}{1}
     \longsword
     \partialleather
   }
+  {\adrenalinesurge, \mightydraw}
+
+\npc{\F\Hu}{Charlie}
+\statblock{{1}{2}{3}}%
+  {{-3}{-2}{-1}}%
+  {
+    \setcounter{Xenomology}{1}
+  }% SKILLS
   {\adrenalinesurge, \mightydraw}
 
 \end{multicols}
