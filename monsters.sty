@@ -552,9 +552,11 @@
   \Spheres{Fire~\arabic{r2}}
 \fi}% SKILLS
 {\ifodd\value{r3}%
-  \Dagger,
+  \Dagger, \rations.
 \else%
-  \lootMedium%
+  \ifodd\value{r3b}%
+    \lootMedium\ifnum\value{noAppearing}=1, \lootGoblin\fi.%
+  \fi%
 \fi%
 }% EQUIPMENT
 {}
@@ -665,12 +667,12 @@
   }% SKILLS
   {
     \ifodd\value{r3}%
-      \Dagger,
+      \Dagger, %
     \else%
       \ifodd\value{r4}%
-        \flail,
+        \flail, %
       \else%
-        \scythe,
+        \rations, %
       \fi%
     \fi%
     \lootSmall

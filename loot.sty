@@ -4,6 +4,31 @@
 
 %%%%%%%%%%%%%%%%%%%% LOOT %%%%%%%%%%%%%%%%%%%%
 
+
+\newcommand\rations{%
+  \ifcase\value{treasure}%
+    smoked meats%
+  \or%
+    dried fruits%
+  \or%
+    auroch tongue%
+  \or%
+    flaggon o' porry%
+  \or%
+    carrot-biscuits%
+  \or%
+    honey-walnut cake%
+  \or%
+    lisk-strips%
+  \or%
+    goat cheese%
+  \else%
+    \setcounter{treasure}{0}%
+    rye bread%
+  \fi%
+  \stepcounter{treasure}%
+}%
+
 \newcounter{goblinLoot}
 \setcounter{goblinLoot}{\value{r4}}
 \addtocounter{goblinLoot}{\value{r4}}
