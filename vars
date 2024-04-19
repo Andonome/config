@@ -5,10 +5,10 @@ COMPRESS = gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dNOPAUSE -dQUIET -dBAT
 
 CP := ln -f
 BOOK := $(shell basename "$$(pwd)")
-DROSS := ../rubbish/
+DROSS := ../rubbish
 COMPILER := latexmk -auxdir=$(DROSS) -pdflua -silent -shell-escape -r config/.latexmkrc -jobname=$(BOOK)
 RELEASE := $(BOOK)-$(VERSION).pdf
 GLOS := makeglossaries -d $(DROSS)
 RUN := lualatex -output-directory $(DROSS) -shell-escape
 CLEAN := $(RM) -r $(DROSS) qr.tex *.pdf .switch-gls svg-inkscape
-DEPS := $(wildcard *.tex) $(wildcard config/*sty) $(wildcard $(DROSS)*.glg)
+DEPS := $(wildcard *.tex) $(wildcard config/*sty) $(wildcard $(DROSS)/*.glg)
