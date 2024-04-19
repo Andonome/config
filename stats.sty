@@ -664,7 +664,7 @@
     \ifdefempty{\equipment}{}
     {
       \setcounter{attackXPtotal}{\value{Charisma}}% Must store Charisma while talisman shows spells
-      \ent{Equipment} & \ifdefempty{\weaponName}{}{\weaponName, }\equipment \\
+      \ent{Equipment} & \equipment, \weaponName \\
     }
     }%
     {}
@@ -733,7 +733,7 @@
   Att %
   \iftoggle{allyCharacter}{$2D6$\ifnum\value{att}>-1 +\fi}{}%
   \arabic{att}%
-  \setcounter{enc}{\value{att}},%
+  \setcounter{enc}{\value{att}}, %
   \setcounter{damage}{4}% Remove
   \addtocounter{damage}{\value{Strength}}% Remove
   \addtocounter{damage}{\value{weaponDamage}}% Remove
