@@ -55,7 +55,13 @@
 
   \hrulefill
 
-  Weapon: \weaponName
+  \ifdefempty{\weaponName}{}{%
+    Weapon: \weaponName%
+  }
+
+  \ifdefempty{\armourName}{}{%
+    Armour: \armourName%
+  }
 
   {\scshape
     \glsentrytext{ap} \arabic{ap},
@@ -66,8 +72,20 @@
       \glsentrytext{dr} \arabic{dr} (\arabic{covering})
     \fi%
   }
+  \par
+  \hrulefill
+  \par
+  \hrulefill
 
 }
+
+\npc{\F\Hu}{Alice}
+\statblock{1}{2}{3}%
+  {{-3}{-2}{-1}}%
+  {
+    \setcounter{Wyldcrafting}{1}
+  }
+  {\adrenalinesurge, \mightydraw}
 
 \npc{\M\Hu}{Bob}
 \statblock{1}{2}{3}%
@@ -75,6 +93,7 @@
   {
     \setcounter{Academics}{1}
     \longsword
+    \partialleather
   }
   {\adrenalinesurge, \mightydraw}
 

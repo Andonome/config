@@ -20,6 +20,7 @@
 \newcounter{armourWeight}
 
 \newcommand\weaponName{}
+\newcommand\armourName{}
 
 \newcommand\weapon[4][]{%
   \setcounter{weaponBonus}{#3}%
@@ -80,7 +81,7 @@
 %}
 
 \newcommand\armour[4][]{
-  #2% Name
+  \renewcommand\armourName{#2}% Name
   \setcounter{armourDR}{#3}%
   \setcounter{covering}{#4}%
   \setcounter{armourWeight}{#4}%

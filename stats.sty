@@ -414,8 +414,12 @@
 %%  clear: weaponsknack1 and 2, 
 %% 
 %
-\newcommand{\mind}[3]{
-\setcounter{Intelligence}{#1}\setcounter{Wits}{#2}\setcounter{Charisma}{#3}
+\newcommand{\body}[3]{%
+  \setcounter{Strength}{#1}\setcounter{Dexterity}{#2}\setcounter{Speed}{#3}%
+}
+
+\newcommand{\mind}[3]{%
+  \setcounter{Intelligence}{#1}\setcounter{Wits}{#2}\setcounter{Charisma}{#3}%
 }
 
 \newtoggle{snapCaster}
@@ -639,7 +643,7 @@
   \foreach \s in {Air,Earth,Fate,Fire,Water}%
     {\ifnum\value{\s}>0 \addtocounter{mp}{3}\fi}
 
-\begin{tabular}{p{.15\textwidth}>{\raggedright\arraybackslash}p{.75\textwidth}}
+\begin{tabular}{p{.18\textwidth}>{\raggedright\arraybackslash}p{.75\textwidth}}
   \hiderowcolors
 
   \iftoggle{verbose}{
@@ -664,7 +668,7 @@
     \ifdefempty{\equipment}{}
     {
       \setcounter{attackXPtotal}{\value{Charisma}}% Must store Charisma while talisman shows spells
-      \ent{Equipment} & \equipment, \weaponName \\
+      \ent{Equipment} & \equipment, \weaponName, \armourName \\
     }
     }%
     {}
