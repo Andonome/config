@@ -17,15 +17,12 @@
 
 \goblin
 
-%\griffin
+\griffin
 
 \dragon
 
-\humanthief
-
 \newcommand\statblock[7]{
   \par
-  \begin{exampletext}
   \clean
   \npc#1
   \body#2
@@ -42,10 +39,11 @@
   \computeStats%
   #7%
   \computeEncumbrance%
-  }
+}
 
   %%%%%%%%%%
 \newcommand\showChar[1]{
+  \begin{exampletext}
   #1
   (\npcsymbol)\quad
   \textbf{\name}
@@ -108,11 +106,35 @@
       \par%
       \showBoxes%
       \ifnum\value{noAppearing}=1%
-        \par\glsentrytext{fp}~\boxStat{fp}%
+        \par\glsentrytext{fp}\ifnum\value{fp}>2~\boxStat{fp}\fi%
       \fi%
     }%
   }
   \end{exampletext}
+}
+
+%%%%%%%%%%%%%%%%%%%%
+
+\newcommand\Animal[6]{
+  \statblock{#1}%
+    {#2}%
+    {{-6}{#3}{-6}}%
+    {
+      #4
+    }
+    {#5}
+    {}% EQUIPMENT
+    {#6}% ABILITIES
+}
+
+\showChar{
+  \Animal{{\A}{Moggie}}%
+    {{-5}{1}{3}}% BODY
+    {2}% WITS
+    {
+      \setcounter{Stealth}{3}
+    }%
+    {\quadraped}% ABILITIES
 }
 
 \showChar{
@@ -126,7 +148,7 @@
     }% SKILLS
     {\adrenalinesurge, \mightydraw}% KNACKS
     {butter}% EQUIPMENT
-    {}% Abilities
+    {}% ABILITIES
 }
 
 \showStdSpells
@@ -144,7 +166,7 @@
     }
     {\adrenalinesurge, \mightydraw}
     {\rations}% EQUIPMENT
-    {}% Abilities
+    {}% ABILITIES
 }
 
 
@@ -159,7 +181,7 @@
     }% SKILLS
     {\adrenalinesurge, \mightydraw}
     {stick}% EQUIPMENT
-    {}% Abilities
+    {}% ABILITIES
 }
 
 \togglefalse{examplecharacter}
@@ -179,8 +201,8 @@
     {
       \tentacles
       \web
-      \hide{4}
-    }% Abilities
+      \mutation{r4}
+    }% ABILITIES
 }
 
 \end{multicols}
