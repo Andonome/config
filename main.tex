@@ -23,7 +23,7 @@
 
 \humanthief
 
-\newcommand\statblock[6]{
+\newcommand\statblock[7]{
   \par
   \begin{exampletext}
   \clean
@@ -40,6 +40,7 @@
   %
   \renewcommand\equipment{#6}
   \computeStats
+  #7
 
   %%%%%%%%%%
   (\npcsymbol)\quad
@@ -58,7 +59,7 @@
   \showSkills
 
   \ifnum\value{mp}>0%
-    \textbf{Spheres}:
+    \noindent\textbf{Spheres}:
     \foreach \s in {Air,Earth,Fate,Fire,Water}%
       {\ifnum\value{\s}>0 \s~\arabic{\s}, \fi}
   \fi
@@ -68,10 +69,10 @@
   \hrulefill
 
   \ifdefempty{\Abilities}{}{%
-    \textbf{Abilities}: \Abilities
+    \noindent\textbf{Abilities}: \Abilities
   }
 
-  \textbf{Equipment}:
+  \noindent\textbf{Equipment}:
   \ifdefempty{\weaponName}{}{%
     \weaponName,
   }%
@@ -113,6 +114,7 @@
   }% SKILLS
   {\adrenalinesurge, \mightydraw}% KNACKS
   {butter}% EQUIPMENT
+  {}% Abilities
 
 \showStdSpells
 
@@ -128,6 +130,7 @@
   }
   {\adrenalinesurge, \mightydraw}
   {cheese}% EQUIPMENT
+  {}% Abilities
 
 
 \statblock{{\F\Hu}{Charlie}}%
@@ -140,19 +143,26 @@
   }% SKILLS
   {\adrenalinesurge, \mightydraw}
   {stick}% EQUIPMENT
+  {}% Abilities
 
 \togglefalse{examplecharacter}
 
 
-\statblock{{\T[7]\N}{\arabic{noAppearing} Goblins}}%
+\statblock{{\T[2]\N}{\arabic{noAppearing} Goblins}}%
   {{-2}{1}{2}}%
   {{-3}{2}{-4}}%
   {
     \setcounter{Xenomology}{1}
+    \setcounter{Projectiles}{2}
     \javelin
   }% SKILLS
   {}
-  {\arabic{noAppearing} \lootGoblin}% EQUIPMENT
+  {\lootGoblin}% EQUIPMENT
+  {
+    \tentacles
+    \web
+    \hide{4}
+  }% Abilities
 
 \end{multicols}
 

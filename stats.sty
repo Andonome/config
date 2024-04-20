@@ -81,7 +81,7 @@
 }
 
 \newcommand\showDam{%
-  \arabic{numberofdice}D6\absNum{damagebonus}%
+  \arabic{numberofdice}D6\ifnum\value{damagebonus}=0\else\absNum{damagebonus}\fi%
 }
 
 \newcommand\dmg[1]{\conDmg{#1}\showDam}
@@ -743,8 +743,6 @@
   \addtocounter{damage}{\value{weaponDamage}}% Remove
   \mbox{Dam \dmg{damage}, }%
     \ifnumcomp{\value{dr}}{>}{0}{%
-      \setcounter{enc}{\value{att}}%
-      \addtocounter{enc}{\value{covering}}%
       \mbox{DR \arabic{dr}%
       \iftoggle{perfectArmour}%
         {}%
@@ -897,7 +895,17 @@
 \newcommand{\addAbility}[1]{\edef\Abilities{\Abilities{}#1, }}
 
 \newcommand\hide[1]{%
-  \setcounter{dr}{#1}%
+  \ifnum\value{dr}>#1%
+    \setcounter{track}{#1}%
+    \roundUp{track}%
+  \else%
+    \setcounter{track}{\value{dr}}%
+    \setcounter{dr}{#1}%
+  \fi%
+  \roundUp{track}%
+  \addtocounter{dr}{\value{track}}%
+  \setcounter{covering}{\value{att}}%
+  \addtocounter{covering}{5}%
 }
 
 \newcommand\undead{%
@@ -916,52 +924,57 @@
 }
 
 \newcommand{\acidSpray}{%
-  Acid Spray %
   \setcounter{track}{4}%
   \addtocounter{track}{\value{Strength}}%
-  \setcounter{age}{\value{Dexterity}}%
-  \addtocounter{age}{8}%
+  \setcounter{age}{7}%
+  \addtocounter{age}{\value{Dexterity}}%
   \addtocounter{age}{\value{Projectiles}}%
-  \conDmg{track}
+  \conDmg{track}%
+  \addAbility{acid spray (\glsentrytext{tn}~\arabic{age} to dodge or \showDam~Damage)}%
 }
 
 \newcommand{\acidBody}{%
-  Acidic Body (inflict
   \setcounter{track}{3}%
   \global\toggletrue{perfectArmour}%
   \addtocounter{track}{\value{Strength}}%
-  \dmg{track} Damage each turn of grappling)%
+  \dmg{track}%
+  \addAbility{acidic Body (inflict \conDmg~Damage each turn of grappling)}%
 }
 
 \newcommand{\gelRegen}{%
-  \setcounter{diceNo}{\value{hp}}\divide\value{diceNo} by 2%
-  Regeneration (1 \glsentrytext{hp}/ round, max. \arabic{diceNo})%
+  \setcounter{track}{\value{Strength}}%
+  \addtocounter{track}{6}%
+  \roundUp{track}%
+  \addAbility{regeneration (1 \glsentrytext{hp}/ round, max. \arabic{track})}%
 }
 
 \newcommand\viscid{%
-  Viscid (on a tie, the attacker \emph{must} inflict Damage, but the weapon sticks into the body,
   \setcounter{track}{\value{Strength}}%
   \addtocounter{track}{7}%
-  \tn[\arabic{track}] to pull out)%
+  \addAbility{viscid (on a tie, the attacker must inflict Damage, but the weapon sticks into the body, \glsentrytext{tn}~\arabic{track}  to pull out)}%
 }
 
 \newcommand\gloopy{%
-  Liquid (non-fire Damage removes 2~\glsfmtplural{hp} but creates a 1~\glsentrytext{hp} copy)%
+  \addAbility{liquid (non-fire Damage removes 2~\glsentrytext{hp} but creates a 1~\glsentrytext{hp} copy)}%
 }
 
-\newcommand{\amphibious}{
-	Amphibious%
+\newcommand{\amphibious}{%
+	\addAbility{amphibious}%
 }
 
 \newcommand{\claws}{%
-  Claws (+1~Damage)%
   \ifnum\value{Combat}>\value{Brawl}\else%
     \stepcounter{damage}%
   \fi%
+  \addAbility{claws (+1~Damage)}%
 }
 
 \newcommand{\fireBreath}{%
-  Fiery breath (equivalent to a torch)%
+  \setcounter{track}{4}%
+  \conDmg{track}%
+  \setcounter{enc}{\value{hp}}%
+  \addtocounter{enc}{\value{hp}}%
+  \addAbility{fiery breath (range: \arabic{enc} \glspl{step}, Dam: \showDam\ifnum\value{mp}>0\ plus 1 per \glsentrytext{mp} spent\fi)}%
 }
 
 % To fly, creatures should have Speed
@@ -969,62 +982,65 @@
 % DR.
 
 \newcommand{\flight}{%
-  Flight %
   \setcounter{enc}{\value{dr}}%
   \roundUp{enc}%
   \addtocounter{enc}{\value{Strength}}%
   \setcounter{track}{\value{Speed}}%
   \addtocounter{track}{\value{Air}}%
+  \addAbility{Flight %
   \ifnum\value{enc}>\value{track}%
     (can glide, but not fly)
   \else%
     \ifnum\value{enc}=\value{track}%
       (moves at x8 speed, must run before takeoff)%
     \else%
-      \ignorespaces(moves at x8 speed)%
+      (moves at x8 speed)%
     \fi%
   \fi%
+  }%
 }
 
 \newcommand{\stench}{%
-  Stench (breathing in demands \roll{Strength}{Wyldcrafting} check, \glsentrytext{tn}
   \setcounter{track}{10}%
   \addtocounter{track}{-\value{Speed}}%
-  \arabic{track},
-  or take 3 \glspl{ep}%
-  )
+  \addAbility{Stench (breathing in demands \roll{Strength}{Wyldcrafting} check, \glsentrytext{tn}~\arabic{track},
+  or take 3 \glspl{ep})}%
 }
 
 \newcommand{\crazyGas}{%
-  Gas (hallucinations and
   \setcounter{track}{4}%
   \addtocounter{track}{\value{Strength}}%
-  \arabic{track} \glspl{ep} per round)%
+  \addAbility{Gas (receive hallucinations and \arabic{track}~\glspl{ep} per round)}%
 }
 
 \newcommand{\quadraped}{%
-  Quadraped (double movement)%
+  \addAbility{Quadraped (double movement)}%
 }
 
 \newcommand{\teeth}{%
-  Fangs%
+  \addAbility{Fangs}%
 }
 
 \newcommand{\tentacles}{%
-  \addtocounter{track}{3}%
-  \divide\value{track} by 2%
-  Tentacles \ifnum\value{track}>2%
-    (grapple up to \arabic{track} opponents without becoming prone)%
-  \fi%
+  \setcounter{track}{2}%
+  \addtocounter{track}{\value{Strength}}%
+  \addtocounter{track}{\value{Dexterity}}%
+  \ifnum\value{track}<2\setcounter{track}{2}\fi%
+  \addtocounter{enc}{\value{track}}%
+  \roundUp{enc}%
+  \addAbility{\arabic{track}~tentacles (grapple up to \arabic{enc} opponents without going prone)}%
 }
 
 \newcommand{\venom}{%
-  Venom (grappling inflicts 1D6 \glsfmtlongpl{ep})%
+  \randomfourB%
+  \conDmg{r4b}%
+  \addAbility{venom (grappling attack inflicts \showDam~\glsfmtlongpl{ep})}%
 }
 
 \newcommand{\web}{%
-  \setcounter{track}{6}\addtocounter{track}{\value{Strength}}%
-  Web (\roll{Strength}{Athletics}, \glsentrytext{tn} \arabic{track} to break free for 1~\glsentrytext{ap})%
+  \setcounter{track}{8}%
+  \addtocounter{track}{\value{Strength}}%
+  \addAbility{web (\roll{Strength}{Athletics}, \glsentrytext{tn} \arabic{track} to break free for 1~\glsentrytext{ap})}%
 }
 
 %%%%%%%%%%%%%%%%%%%%% Magic Path
