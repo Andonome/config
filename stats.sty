@@ -681,7 +681,8 @@
 %%
 
 \newcommand\computeStats{
-  \addtocounter{hp}{6}%
+  \setcounter{hp}{6}%
+  \addtocounter{hp}{\value{Strength}}%
   % Stats for allies don't need to show Combat +1 as 'TN 8 to hit', they just need to show '+1'.
   \ifnum\value{Combat}>\value{Brawl}\else\setcounter{att}{\value{Brawl}}\fi%
   \iftoggle{allyCharacter}{}{%
