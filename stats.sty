@@ -64,7 +64,7 @@
 \newcommand{\mods}{}
 \newcommand\showCR{}
 
-\newcommand\absNum[1]{\ifnum\value{#1}>0+\fi\ifnum\value{#1}=0\else\arabic{#1}\fi}
+\newcommand\absNum[1]{\ifnum\value{#1}>-1+\fi\arabic{#1}}
 
 % we calculate damage here because we can't display 1d6+6 damage - it has to turn into 2d6+2 damage.
 

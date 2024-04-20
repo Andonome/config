@@ -33,6 +33,8 @@
     \stepcounter{knacks}%
   }
   \renewcommand\showKnacks{#4}
+  \foreach \s in {Air,Earth,Fate,Fire,Water}%
+    {\ifnum\value{\s}>0 \addtocounter{mp}{3}\fi}
   %
   \renewcommand\equipment{#5}
   \computeStats
@@ -50,6 +52,12 @@
   \hrulefill
 
   \showSkills
+
+  \ifnum\value{mp}>0%
+    \textbf{Spheres}:
+    \foreach \s in {Air,Earth,Fate,Fire,Water}%
+      {\ifnum\value{\s}>0 \s~\arabic{\s}, \fi}
+  \fi
 
   \showKnacks
 
@@ -72,9 +80,12 @@
     \glsentrytext{ap} \arabic{ap},
     \iftoggle{allyCharacter}{$2D6$\ifnum\value{att}>-1 +\fi}{}%
     Att \arabic{att},
-    Dam \dmg{damage},
+    Dam \dmg{damage}%
     \ifnum\value{dr}>0%
-      \glsentrytext{dr} \arabic{dr} (\arabic{covering})
+      , \glsentrytext{dr} \arabic{dr} (\arabic{covering})%
+    \fi%
+    \ifnum\value{mp}>0%
+      , \glsentrytext{mp} \arabic{mp}, %
     \fi%
   }
   \end{exampletext}
@@ -83,12 +94,16 @@
 
 \npc{\F\Hu}{Alice}
 \statblock{{1}{2}{3}}%
-  {{-3}{-2}{-1}}%
+  {{3}{0}{2}}%
   {
     \setcounter{Wyldcrafting}{1}
+    \setcounter{Fire}{1}
+    \setcounter{Air}{3}
   }% SKILLS
   {\adrenalinesurge, \mightydraw}% KNACKS
   {butter}% EQUIPMENT
+
+\showStdSpells
 
 \npc{\M\Hu}{Bob}
 \statblock{{1}{2}{3}}%
