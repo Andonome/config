@@ -23,7 +23,7 @@
 
 \humanthief
 
-\newcommand\statblock[4]{
+\newcommand\statblock[5]{
   \begin{exampletext}
   \clean
   \body#1
@@ -34,6 +34,7 @@
   }
   \renewcommand\showKnacks{#4}
   %
+  \renewcommand\equipment{#5}
   \computeStats
 
   %%%%%%%%%%
@@ -54,13 +55,14 @@
 
   \hrulefill
 
+  \textbf{Equipment}:
   \ifdefempty{\weaponName}{}{%
-    Weapon: \weaponName%
-  }
-
+    \weaponName,
+  }%
   \ifdefempty{\armourName}{}{%
-    Armour: \armourName%
-  }
+    \armourName,
+  }%
+  \equipment%
 
   {\scshape
     \glsentrytext{ap} \arabic{ap},
@@ -81,7 +83,8 @@
   {
     \setcounter{Wyldcrafting}{1}
   }% SKILLS
-  {\adrenalinesurge, \mightydraw}
+  {\adrenalinesurge, \mightydraw}% KNACKS
+  {butter}% EQUIPMENT
 
 \npc{\M\Hu}{Bob}
 \statblock{{1}{2}{3}}%
@@ -92,14 +95,18 @@
     \partialleather
   }
   {\adrenalinesurge, \mightydraw}
+  {cheese}% EQUIPMENT
 
 \npc{\F\Hu}{Charlie}
-\statblock{{1}{2}{3}}%
+\statblock{{1}{2}{-1}}%
   {{-3}{-2}{-1}}%
   {
     \setcounter{Xenomology}{1}
+    \spear
+    \completeplate
   }% SKILLS
   {\adrenalinesurge, \mightydraw}
+  {stick}% EQUIPMENT
 
 \end{multicols}
 
