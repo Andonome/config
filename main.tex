@@ -84,12 +84,16 @@
     \ifnum\value{dr}>0%
       , \glsentrytext{dr} \arabic{dr} (\arabic{covering})%
     \fi%
-    \ifnum\value{mp}>0%
-      , \glsentrytext{mp} \arabic{mp}, %
-    \fi%
+    \iftoggle{examplecharacter}{%
+      \arabic{hp}~\glsentrytext{hp}
+      \ifnum\value{mp}>0%
+        , \glsentrytext{mp} \arabic{mp}, %
+      \fi%
+    }{%
+      \par
+      \showBoxes
+    }
   }
-  \par
-  \showBoxes
   \end{exampletext}
 }
 
@@ -107,6 +111,7 @@
 
 \showStdSpells
 
+\toggletrue{examplecharacter}
 \npc{\M\Hu}{Bob}
 \statblock{{1}{2}{3}}%
   {{-3}{-2}{-1}}%
