@@ -131,29 +131,31 @@
 }
 
 \newcommand\HPHPboxes{%
+  \setcounter{track}{\value{noAppearing}}%
   \begin{tabular}{rr}%
   \hiderowcolors%
     HP \arabic{hp}~%
-    \whileboolexpr{test {\ifnumcomp{\value{noAppearing}}{>}{0}}}{%%
-      \ifnumodd{\value{noAppearing}}{ & \boxStat{hp} \\}{\boxStat{hp}}%%
-      \addtocounter{noAppearing}{-1}%
+    \whileboolexpr{test {\ifnumcomp{\value{track}}{>}{0}}}{%%
+      \ifnumodd{\value{track}}{ & \boxStat{hp} \\}{\boxStat{hp}}%%
+      \addtocounter{track}{-1}%
     }%
   \end{tabular}%
 }
 
 \newcommand\HPHPHPboxes{%
+  \setcounter{track}{\value{noAppearing}}%
   \begin{tabular}{rrr}%
     \hiderowcolors%
     HP \arabic{hp}~%
-    \whileboolexpr{test {\ifnumcomp{\value{noAppearing}}{>}{0}}}{%%
+    \whileboolexpr{test {\ifnumcomp{\value{track}}{>}{0}}}{%%
       \boxStat{hp}%
-      \addtocounter{noAppearing}{-1}%
+      \addtocounter{track}{-1}%
       &%
-      \ifnum\value{noAppearing}>0\boxStat{hp}\fi%
-      \addtocounter{noAppearing}{-1}%
+      \ifnum\value{track}>0\boxStat{hp}\fi%
+      \addtocounter{track}{-1}%
       &%
-      \ifnum\value{noAppearing}>0\boxStat{hp}\fi%
-      \addtocounter{noAppearing}{-1}%
+      \ifnum\value{track}>0\boxStat{hp}\fi%
+      \addtocounter{track}{-1}%
       \\%
     }%
   \end{tabular}%
