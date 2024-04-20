@@ -891,6 +891,10 @@
 
 \newcommand{\abilities}{}
 
+\newcommand{\Abilities}{}
+
+\newcommand{\addAbility}[1]{\edef\Abilities{\Abilities{}#1, }}
+
 \newcommand\hide[1]{%
   \setcounter{dr}{#1}%
 }
@@ -911,14 +915,13 @@
 }
 
 \newcommand{\acidSpray}{%
-  Acidic Spray
+  Acid Spray %
   \setcounter{track}{4}%
   \addtocounter{track}{\value{Strength}}%
-  (\dmg{track} Damage,
-  \setcounter{track}{\value{Dexterity}}%
-  \addtocounter{track}{8}%
-  \addtocounter{track}{\value{Projectiles}}%
-  \glsentrytext{tn} \arabic{track} to dodge)%
+  \setcounter{age}{\value{Dexterity}}%
+  \addtocounter{age}{8}%
+  \addtocounter{age}{\value{Projectiles}}%
+  \conDmg{track}
 }
 
 \newcommand{\acidBody}{%
