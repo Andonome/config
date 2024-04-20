@@ -705,6 +705,7 @@
     \divide\value{dr} by 2%
     \addtocounter{dr}{\value{armourDR}}%
   }%
+  \addtocounter{fp}{\value{Charisma}}%
 }
 
 \newcommand\computeEncumbrance{%
@@ -836,16 +837,6 @@
             \addtocounter{xp}{\value{xpbonus}}%
             \renewcommand\showCR{\arabic{xp}}%
         }%
-    % if the creature has a mind, print fate points (if any).
-    %
-    \ifnum\value{fp}>3%
-      \addtocounter{fp}{\value{Charisma}}%
-      \ignorespaces\arabic{fp}~\glsentrytext{fp}%
-      \iftoggle{genExamples}%
-        {}%
-        {~\boxStat{fp}}%
-    \par%
-    \fi%
   }%
 }
 

@@ -98,10 +98,16 @@
       \ifnum\value{mp}>0%
         , \glsentrytext{mp} \arabic{mp}, %
       \fi%
+      \ifnum\value{fp}>0%
+        , \glsentrytext{fp} \arabic{fp}, %
+      \fi%
     }{%
-      \par
-      \showBoxes
-    }
+      \par%
+      \showBoxes%
+      \ifnum\value{noAppearing}=1%
+        \par\glsentrytext{fp}~\boxStat{fp}%
+      \fi%
+    }%
   }
   \end{exampletext}
 }
