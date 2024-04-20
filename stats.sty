@@ -587,9 +587,9 @@
   \knacks{}
   \foreach \s in {Air,Earth,Fate,Fire,Water,Projectiles,Combat,Brawl,Academics,Alchemy,Athletics,Caving,Crafts,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Stealth,Tactics,Vigilance,Wyldcrafting}%
     {\setcounter{\s}{0}}
-  \setcounter{noAppearing}{1}
-  \foreach \s in {dr,weaponDamage,weaponBonus,armourDR,armourWeight,fp,sp,heft,weight,damage,knacks,mp,xpbonus}%
+  \foreach \s in {encumbrance,dr,weaponDamage,weaponBonus,weaponWeight,armourWeight,armourDR,armourWeight,fp,sp,heft,weight,damage,knacks,mp,xpbonus}%
     {\setcounter{\s}{0}}
+  \setcounter{noAppearing}{1}
 }
 
 %%       _   _        _ _           _            
@@ -688,12 +688,6 @@
   \iftoggle{allyCharacter}{}{%
     \addtocounter{att}{7}%
   }%
-  \setcounter{maxWeight}{\value{hp}}% now to compute encumbrance
-  \divide\value{maxWeight} by 2%
-  \ifnum\value{weight}>\value{maxWeight}%
-    \addtocounter{encumbrance}{\value{weight}}%
-    \addtocounter{encumbrance}{-\value{maxWeight}}%
-  \fi%
   \setcounter{ap}{\value{Speed}}%
   \addtocounter{ap}{3}%
   \addtocounter{ap}{-\value{encumbrance}}%
@@ -711,6 +705,30 @@
     \divide\value{dr} by 2%
     \addtocounter{dr}{\value{armourDR}}%
   }%
+}
+
+\newcommand\computeEncumbrance{%
+  \setcounter{maxWeight}{\value{hp}}% now to compute encumbrance
+  \roundUp{maxWeight}%
+  \ifnum\value{armourWeight}>\value{maxWeight}%
+    \addtocounter{encumbrance}{\value{armourWeight}}%
+    \addtocounter{encumbrance}{-\value{maxWeight}}%
+  \fi%
+  \ifnum\value{weaponWeight}>\value{maxWeight}%
+    \addtocounter{encumbrance}{\value{weaponWeight}}%
+    \addtocounter{encumbrance}{-\value{maxWeight}}%
+  \fi%
+  \ifnum\value{weight}>\value{maxWeight}%
+    \addtocounter{encumbrance}{\value{weight}}%
+    \addtocounter{encumbrance}{-\value{weight}}%
+  \fi%
+  \addtocounter{weight}{\value{weaponWeight}}%
+  \addtocounter{weight}{\value{armourWeight}}%
+  \ifnum\value{weight}>\value{hp}%
+    \addtocounter{encumbrance}{\value{weight}}%
+    \addtocounter{encumbrance}{-\value{hp}}%
+  \fi%
+  \addtocounter{ap}{-\value{encumbrance}}%
 }
 
 %%     _               _        _

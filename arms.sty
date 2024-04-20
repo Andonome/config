@@ -15,6 +15,7 @@
 
 \newcounter{weaponBonus}
 \newcounter{weaponDamage}
+\newcounter{weaponWeight}
 \newcounter{covering}
 \newcounter{armourDR}
 \newcounter{armourWeight}
@@ -26,12 +27,12 @@
   \setcounter{weaponBonus}{#3}%
   \setcounter{weaponDamage}{#4}%
   \setcounter{heft}{#4}%
-  \setcounter{armourWeight}{#4}%
+  \setcounter{weaponWeight}{#4}%
   \ifnum#3>-1% If the weapon's attack bonus is positive,
     \addtocounter{heft}{#3}% add it to the AP cost and 
-    \addtocounter{armourWeight}{#3}% weight rating,
-    \addtocounter{armourWeight}{#3}% weight rating again,
-    \roundUp{armourWeight}% half weight rating
+    \addtocounter{weaponWeight}{#3}% weight rating,
+    \addtocounter{weaponWeight}{#3}% weight rating again,
+    \roundUp{weaponWeight}% half weight rating
     \roundUp{heft}% then the AP cost by 2.
   \fi%
   #1%

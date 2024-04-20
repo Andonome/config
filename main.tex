@@ -41,6 +41,7 @@
   \renewcommand\equipment{#6}
   \computeStats
   #7
+  \computeEncumbrance
 
   %%%%%%%%%%
   (\npcsymbol)\quad
@@ -64,7 +65,9 @@
       {\ifnum\value{\s}>0 \s~\arabic{\s}, \fi}
   \fi
 
-  \showKnacks
+  \ifnum\value{knacks}>0
+    \textbf{Knacks}: \showKnacks
+  \fi
 
   \hrulefill
 
@@ -79,7 +82,8 @@
   \ifdefempty{\armourName}{}{%
     \armourName,
   }%
-  \equipment%
+  \equipment %
+  \hfill \Repeat{\value{encumbrance}}{~\glsentrytext{encumbrance}}
 
   {\scshape
     \glsentrytext{ap} \arabic{ap},
@@ -129,7 +133,7 @@
     \partialleather
   }
   {\adrenalinesurge, \mightydraw}
-  {cheese}% EQUIPMENT
+  {\rations}% EQUIPMENT
   {}% Abilities
 
 
