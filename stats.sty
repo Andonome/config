@@ -10,6 +10,23 @@
 \newtoggle{perfectArmour}
 \settoggle{perfectArmour}{false}
 
+\newcommand\showNumbers{
+  \par
+  Str: \arabic{Strength},
+  Dex: \arabic{Dexterity},
+  Spd: \arabic{Speed},
+  Att: \arabic{att},
+  Damage: \arabic{damage},
+  Weight: \arabic{weight},
+  Encumbrance: \arabic{encumbrance},
+  XP Bonus: \arabic{xpbonus},
+  Attack total: \arabic{attackXPtotal},
+  Def Total: \arabic{defenceXPtotal},
+  MP: \arabic{mp},
+  Grand Total: \arabic{xp}
+  \par
+}
+
 %      _        _   
 %  ___| |_ __ _| |_ 
 % / __| __/ _` | __|
@@ -56,7 +73,6 @@
 \newtoggle{creatureBox}
 \newtoggle{examplecharacter}
 \settoggle{examplecharacter}{false}
-\newtoggle{debug}\settoggle{debug}{false}
 \newcommand{\ent}[1]{\textbf{#1}}
 \newcommand{\test}{}
 \newcommand{\skills}{}
@@ -749,7 +765,6 @@
   \setlength\topsep{0pt}%
   \setlength\parskip{0pt}%
   \iftoggle{verbose}{\par\hrulefill}{}%
-  \iftoggle{debug}{str: \arabic{Strength}, dex: \arabic{Dexterity}, spd: \arabic{Speed}, att: \arabic{att}, damage: \arabic{damage}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}}{}
 
 \begin{center}
   \iftoggle{verbose}{\normalsize}{\large}%
@@ -825,7 +840,7 @@
     \setcounter{xp}{\value{attackXPtotal}}%
     \addtocounter{xp}{\value{defenceXPtotal}}%
 
-  \iftoggle{debug}{str: \arabic{Strength}, dex: \arabic{Dexterity}, spd: \arabic{Speed}, att: \arabic{att}, damage: \arabic{damage}, weight: \arabic{weight}, encumbrance: \arabic{encumbrance}, XP Bonus: \arabic{xpbonus}, Attack total: \arabic{attackXPtotal}, Def Total: \arabic{defenceXPtotal}, mp: \arabic{mp} Grand Total: \arabic{xp}}{\iftoggle{verbose}{\hrulefill}}%
+  \iftoggle{verbose}{\hrulefill}
     
   \iftoggle{examplecharacter}%
   {}%
