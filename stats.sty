@@ -600,14 +600,14 @@
   \setcounter{wounds}{0}
 }
 
-\newcommand{\clean}{
-  \global\togglefalse{snapCaster}
-  \knacks{}
+\newcommand{\clean}{%
+  \global\togglefalse{snapCaster}%
+  \knacks{}%
   \foreach \s in {Air,Earth,Fate,Fire,Water,Projectiles,Combat,Brawl,Academics,Alchemy,Athletics,Caving,Crafts,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Stealth,Tactics,Vigilance,Wyldcrafting}%
-    {\setcounter{\s}{0}}
+    {\setcounter{\s}{0}}%
   \foreach \s in {encumbrance,dr,weaponDamage,weaponBonus,weaponWeight,armourWeight,armourDR,armourWeight,fp,sp,heft,weight,damage,knacks,mp,xpbonus}%
-    {\setcounter{\s}{0}}
-  \setcounter{noAppearing}{1}
+    {\setcounter{\s}{0}}%
+  \setcounter{noAppearing}{1}%
 }
 
 %%       _   _        _ _           _            
@@ -798,7 +798,6 @@
   }%
   \iftoggle{allyCharacter}{}{%
     \iftoggle{examplecharacter}{}{%
-      \calculateXP%
       \outline{\glsentrytext{cr}: \showCR}%
     }%
   }%
@@ -839,9 +838,6 @@
   % XP = attackXPtotal + defenceXPtotal
     \setcounter{xp}{\value{attackXPtotal}}%
     \addtocounter{xp}{\value{defenceXPtotal}}%
-
-  \iftoggle{verbose}{\hrulefill}
-    
   \iftoggle{examplecharacter}%
   {}%
   {%
