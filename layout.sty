@@ -980,6 +980,27 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \addtocounter{r12}{\value{r4}}%
 }
 
+\newcommand\randomize{%
+  \stepcounter{r2}%
+  \stepcounter{r3}%
+  \stepcounter{r4}%
+  \ifodd\value{r3}%
+    \stepcounter{r2b}%
+    \stepcounter{r3b}%
+    \stepcounter{r4}%
+  \else%
+    \stepcounter{r2c}%
+    \stepcounter{r3c}%
+    \stepcounter{r4b}%
+  \fi%
+  \foreach\c in {r2,r2b,r2c}%
+    {\ifnum\value{\c}>2\setcounter{\c}{1}\fi}%
+  \foreach\c in {r3,r3b,r3c}%
+    {\ifnum\value{\c}>3\setcounter{\c}{1}\fi}%
+  \foreach\c in {r4,r4b}%
+    {\ifnum\value{\c}>4\setcounter{\c}{1}\fi}%
+}
+
 %%%%%%%%%%%%%%%%%%%% LAYOUT %%%%%%%%%%%%%%%%%%%%
 \makeindex
 
