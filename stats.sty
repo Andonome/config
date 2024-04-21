@@ -873,6 +873,7 @@
       bottom=0pt,
       ]
     \clean
+    #1
     \setcounter{hp}{#3}
     \setcounter{Dexterity}{#4}
     \setcounter{att}{#4}
@@ -881,7 +882,6 @@
     \setcounter{ap}{#5}
     \addtocounter{ap}{3}
     \setcounter{Wits}{#6}
-    \renewcommand\abilities{#1}
 
     \scshape
     \begin{tabularx}{.8\textwidth}{YYYY}
@@ -903,14 +903,14 @@
       {\showBoxes}%
       & \\ %
     \end{tabularx}
-
-    \normalfont
-    \ifdefempty{\abilities}{}{%
-      \textbf{Abilities:} \abilities
+    \ifdefempty{\Abilities}{}{%
+      \normalfont
+      \par
+      \par\textbf{Abilities:} \Abilities
     }%
-    \vspace{2em}
+    \vspace{1.4em}%
     \end{tcolorbox}%
-    \null
+    \null%
   }
 
 
