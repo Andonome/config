@@ -113,6 +113,84 @@
       {\ifnum\value{\s}>0 \s~\arabic{\s}, \fi}
 }
 
+
+\newcommand\traits[7]{%
+  \clean%
+  \randomize%
+  \npc#1%
+  \body#2%
+  \mind#3%
+  #4%
+  \foreach \k in {#5}{%
+    \stepcounter{knacks}%
+  }%
+  \renewcommand\showKnacks{#5}%
+  \foreach \s in {Air,Earth,Fate,Fire,Water}%
+    {\ifnum\value{\s}>0 \addtocounter{mp}{3}\fi}%
+  \renewcommand\equipment{#6}%
+  \computeStats%
+  #7%
+  \computeEncumbrance%
+  \calculateXP%
+}
+
+\newcommand\statblock[1]{
+    \begin{tcolorbox}[
+      code={\setlength\parindent{0pt}#1},
+      title={\npcsymbol\ \name},
+      ornamented,
+      fontupper=\small,
+      halign=flush left,
+      left=5pt,
+      right=5pt,
+      top=0pt,
+      bottom=10pt,
+      ]
+      \creaturestats
+      \begin{tabularx}{\linewidth}{lX}
+      \ent{Skills} & \showSkills \\
+      \ifnum\value{mp}>0%
+        \ent{Spheres} &
+        \foreach \s in {Air,Earth,Fate,Fire,Water}%
+          {\ifnum\value{\s}>0 \s~\arabic{\s}, \fi}
+        \\
+      \fi
+      \ifnum\value{knacks}>0
+        \ent{Knacks} & \showKnacks \\
+      \fi
+      \ifdefempty{\Abilities}{}{%
+        \ent{Abilities} & \Abilities \\
+      }
+      \ifdefempty{\equipment}{}{%
+        \ent{Equipment} &
+        \ifdefempty{\weaponName}{}{%
+          \weaponName, %
+        }%
+        \ifdefempty{\armourName}{}{%
+          \armourName, %
+        }%
+        \equipment.
+      }%
+      \end{tabularx}
+      \tcblower%%%%%%%%%%%%%%%%%%%%
+      \derivedstats%
+    \end{tcolorbox}
+}
+
+\newcommand\Animal[6]{
+  \statblock{
+    \traits{#1}%
+      {#2}%
+      {{-6}{#3}{-6}}%
+      {
+        #4
+      }
+      {#5}
+      {}% EQUIPMENT
+      {#6}% ABILITIES
+  }
+}
+
 \newcommand\showBoxes{%
   \ifnum\value{mp}<1%
     \ifnum\value{hp}>11%
