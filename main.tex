@@ -130,28 +130,31 @@
       bottom=10pt,
       ]
       \creaturestats
-      \showSkills
-      \par
+      \begin{tabularx}{\linewidth}{lX}
+      \ent{Skills} & \showSkills \\
       \ifnum\value{mp}>0%
-        \noindent\textbf{Spheres}:
+        \ent{Spheres} &
         \foreach \s in {Air,Earth,Fate,Fire,Water}%
           {\ifnum\value{\s}>0 \s~\arabic{\s}, \fi}
+        \\
       \fi
-      \par
       \ifnum\value{knacks}>0
-        \textbf{Knacks}: \showKnacks
+        \ent{Knacks} & \showKnacks \\
       \fi
       \ifdefempty{\Abilities}{}{%
-        \noindent\textbf{Abilities}: \Abilities
+        \ent{Abilities} & \Abilities \\
       }
-      \noindent\textbf{Equipment}:
-      \ifdefempty{\weaponName}{}{%
-        \weaponName, %
+      \ifdefempty{\equipment}{}{%
+        \ent{Equipment} &
+        \ifdefempty{\weaponName}{}{%
+          \weaponName, %
+        }%
+        \ifdefempty{\armourName}{}{%
+          \armourName, %
+        }%
+        \equipment.
       }%
-      \ifdefempty{\armourName}{}{%
-        \armourName, %
-      }%
-      \equipment%
+      \end{tabularx}
       \tcblower%%%%%%%%%%%%%%%%%%%%
       \derivedstats%
     \end{tcolorbox}
@@ -175,27 +178,27 @@
 }
 
 \newcommand\Animal[6]{
-  \traits{#1}%
-    {#2}%
-    {{-6}{#3}{-6}}%
-    {
-      #4
-    }
-    {#5}
-    {}% EQUIPMENT
-    {#6}% ABILITIES
+  \statblock{
+    \traits{#1}%
+      {#2}%
+      {{-6}{#3}{-6}}%
+      {
+        #4
+      }
+      {#5}
+      {}% EQUIPMENT
+      {#6}% ABILITIES
+  }
 }
 
-\statblock{
-  \Animal{{\T[3]\A}{Moggie}}%
-    {{2}{1}{3}}% BODY
-    {2}% WITS
-    {
-      \setcounter{Stealth}{3}
-    }%
-    {}%
-    {\quadraped}% ABILITIES
-}
+\Animal{{\T[3]\A}{Moggie}}%
+  {{2}{1}{3}}% BODY
+  {2}% WITS
+  {
+    \setcounter{Stealth}{3}
+  }%
+  {}%
+  {\quadraped\mutation{r4}}% ABILITIES
 
 \showChar{
   \traits{{\F\Hu}{Alice}}%

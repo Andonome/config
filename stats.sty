@@ -77,7 +77,13 @@
 \newcommand{\test}{}
 \newcommand{\skills}{}
 \newcommand{\equipment}{}
+\newcommand{\abilities}{}
+\newcommand{\Abilities}{}
+\newcommand{\addAbility}[1]{\edef\Abilities{\Abilities{}#1, }}
+\newcommand{\Equipment}{}
+\newcommand{\addEquipment}[1]{\edef\Equipment{\Equipment{}#1, }}
 \newcommand{\mods}{}
+
 \newcommand\showCR{}
 
 \newcommand\absNum[1]{\ifnum\value{#1}>-1+\fi\arabic{#1}}
@@ -910,11 +916,6 @@
 
 %%%%%%%%%%%%%%%%%%%% Creature Abilities
 
-\newcommand{\abilities}{}
-
-\newcommand{\Abilities}{}
-
-\newcommand{\addAbility}[1]{\edef\Abilities{\Abilities{}#1, }}
 
 \newcommand\hide[1]{%
   \ifnum\value{dr}>#1%
