@@ -878,6 +878,20 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \setcounter{r3c}{1}
 \newcounter{r4b}
   \setcounter{r4b}{\day}
+
+\newcounter{rn1t0}
+  \setcounter{rn1t0}{-1}
+\newcounter{r0t1}
+  \setcounter{r0t1}{0}
+\newcounter{r2t3}
+  \setcounter{r2t3}{2}
+\newcounter{r3t4}
+  \setcounter{r3t4}{3}
+\newcounter{rn3t3}
+  \setcounter{rn3t3}{3}
+\newcounter{r4t5}
+  \setcounter{r4t5}{4}
+
 \newcounter{r12}
 \setcounter{r12}{\month}
 \newcounter{enc}
@@ -984,10 +998,14 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \stepcounter{r2}%
   \stepcounter{r3}%
   \stepcounter{r4}%
+  \stepcounter{r2t3}
+  \stepcounter{r3t4}
+  \stepcounter{r4t5}
+  \stepcounter{r0t1}
+  \stepcounter{rn1t0}
   \ifodd\value{r3}%
     \stepcounter{r2b}%
     \stepcounter{r3b}%
-    \stepcounter{r4}%
   \else%
     \stepcounter{r2c}%
     \stepcounter{r3c}%
@@ -999,6 +1017,14 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
     {\ifnum\value{\c}>3\setcounter{\c}{1}\fi}%
   \foreach\c in {r4,r4b}%
     {\ifnum\value{\c}>4\setcounter{\c}{1}\fi}%
+  \ifnum\value{r0t1}>1\setcounter{r0t1}{0}\fi%
+  \ifnum\value{rn1t0}>0\setcounter{rn1t0}{-1}\fi%
+  \ifnum\value{r2t3}>3\setcounter{r2t3}{2}\fi%
+  \ifnum\value{r3t4}>4\setcounter{r3t4}{3}\fi%
+  \ifnum\value{r4t5}>5\setcounter{r4t5}{4}\fi%
+  \setcounter{rn3t3}{\value{r3b}}%
+  \multiply\value{rn3t3} by -1%
+  \addtocounter{rn3t3}{0}%
 }
 
 %%%%%%%%%%%%%%%%%%%% LAYOUT %%%%%%%%%%%%%%%%%%%%
