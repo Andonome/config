@@ -17,141 +17,89 @@
   {1}% WITS
   {
     \setcounter{Athletics}{2}
-  }%
-  {}%
+  }% SKILLS
+  {}% KNACKS
   {\quadraped}% ABILITIES
 }
 
-\newcommand{\bear}[1][\npc{\A}{Bear}]{
-  #1
-  \randomtwo
-  \addtocounter{enc}{4}
-  \randomtwoB
-  \addtocounter{r2b}{-2}
-  \addtocounter{r2}{1}
-  \randomthreeB
-  \animal{\arabic{enc}}% STRENGTH
-  {\arabic{r2b}}% DEXTERITY 
-  {\arabic{r2}}% SPEED
+\newcommand{\bear}[1][{\A}{Bear}]{
+  \Animal{#1}%
+  {{r4t5}{rn1t0}{r2}}% BODY
   {0}% WITS
-  {2}% DR
-  {\arabic{r3b}}% AGGRESSION
-  {}% SKILLS
-  {}% ABILITIES
   {
-    \setcounter{Athletics}{\value{r2}}
-    \setcounter{Stealth}{2}
-    \setcounter{Vigilance}{2}
-    \renewcommand\abilities{\claws, \quadraped}
-  }
-}
-%
-\newcommand{\boar}[1][\npc{\A}{Boar}]{
-  #1
-  \randomtwoB
-  \randomtwo
-  \addtocounter{enc}{-3}
-  \randomthree
-  \animal{\arabic{r2b}}% STRENGTH
-  {\arabic{enc}}% DEXTERITY 
-  {3}% SPEED
-  {\arabic{r2}}% WITS
-  {2}% DR
-  {2}% AGGRESSION
-  {}% SKILLS
-  {\quadraped}% ABILITIES
-  {
-    \setcounter{Athletics}{\value{r2}}
-    \setcounter{Vigilance}{\value{r3}}
-  }
+    \set{Athletics}{r2}
+  }% SKILLS
+  {}% KNACKS
+  {\quadraped \claws}% ABILITIES
 }
 
-\newcommand{\chitincrawler}[1][\npc{\A}{Chitincrawler}]{
-  #1
-  \randomtwo
-  \addtocounter{enc}{3}
-  \addtocounter{r2}{2}
-  \randomtwoB
-  \addtocounter{r2b}{-1}
-  \randomthree
-  \randomthreeB
-  \randomfour
-  \animal{\arabic{enc}}% STRENGTH
-  {\arabic{r2b}}% DEXTERITY 
-  {\arabic{r3b}}% SPEED
-  {\arabic{r4}}% WITS
-  {\arabic{r2}}% DR
-  {\ifodd\value{r3} 3\else 4\fi}% AGGRESSION
-  {}% SKILLS
-  {\web}% ABILITIES
+\newcommand{\boar}[1][{\A}{Boar}]{
+  \Animal{#1}%
+  {{r2b}{rn1t0}{0}}% BODY
+  {r2}% WITS
   {
-    \setcounter{Athletics}{\value{r3b}}
-    \ifodd\value{r4}
-      \setcounter{Vigilance}{\value{r3b}}
-    \fi
-    \setcounter{Wyldcrafting}{\value{r3}}
-  }
+    \set{Brawl}{r2}
+    \setcounter{Athletics}{2}
+  }% SKILLS
+  {}% KNACKS
+  {\quadraped}% ABILITIES
 }
-%
-\newcommand{\griffin}[1][\randomthree\stepcounter{r3}\npc{\A\T[\arabic{r3}]}{Griffins}]{
-  #1
-  \randomtwo
-  \randomtwoB
-  \randomtwoC
-  \ifodd\value{r4}\randomtwoB\else\randomtwoC\fi
-  \addtocounter{r2c}{-1}
-  \addtocounter{enc}{1}
-  \animal{\value{r2}}% STRENGTH
-  {\arabic{r2c}}% DEXTERITY 
-  {\value{r2b}}% SPEED
+
+\newcommand{\chitincrawler}[1][{\A}{Chitincrawler}]{
+  \Animal{#1}%
+  {{r4t5}{r0t1}{r3b}}% BODY
+  {r4}% WITS
+  {%
+    \set{Brawl}{r3t4}%
+    \set{Athletics}{r3b}%
+    \ifodd\value{r4}%
+      \setcounter{Vigilance}{\value{r3b}}%
+    \fi%
+    \setcounter{Wyldcrafting}{\value{r3}}%
+  }% SKILLS
+  {}% KNACKS
+  {\quadraped \web \hide{4}}% ABILITIES
+}
+
+\newcommand{\griffin}[1][{\A\T[\arabic{r2t3}]}{\arabic{noAppearing}~Griffins}]{
+  \Animal{#1}%
+  {{r2}{r2c}{r2b}}% BODY
   {2}% WITS
-  {0}% DR
-  {2}% AGGRESSION
-  {}% SKILLS
-  {\flight}% ABILITIES
   {
-    \knacks{\charge}
-    \setcounter{Athletics}{\value{r2c}}
-    \setcounter{Flight}{\value{r2c}}
-    \addtocounter{r2c}{2}
-    \setcounter{Vigilance}{\value{r2c}}
-  }
+    \set{Brawl}{2}
+    \set{Athletics}{r3}
+    \set{Flight}{r3c}
+    \set{Vigilance}{r2t3}
+  }% SKILLS
+  {\charge}% KNACKS
+  {\flight}% ABILITIES
 }
 
-\newcommand{\mouthdigger}[1][\npc{\A}{Mouthdigger}]{
-  #1
-  \randomtwo
-  \addtocounter{enc}{1}
-  \randomtwoB
-  \animal{2}% STRENGTH
-  {-1}% DEXTERITY 
-  {\arabic{enc}}% SPEED
+\newcommand{\mouthdigger}[1][{\A}{Mouthdigger}]{
+  \Animal{#1}%
+  {{2}{r0t1}{r2c}}% BODY
   {0}% WITS
-  {2}% DR
-  {2}% AGGRESSION
-  {}% SKILLS
-  {\teeth}% ABILITIES
   {
-    \knacks{\adrenalinesurge, \perfectsneakattack}
-    \setcounter{Stealth}{\value{enc}}
-    \setcounter{Tactics}{\value{r2b}}
-  }
+    \set{Brawl}{2}
+    \set{Stealth}{r2t3}
+    \set{Tactics}{r2b}
+  }% SKILLS
+  {\adrenalinesurge, \perfectsneakattack}% KNACKS
+  {\teeth \hide{2}}% ABILITIES
 }
 %
-\newcommand{\wolf}[1][\randomdozen\npc{\A\T[\arabic{r12}]}{\arabic{r12} Wolves}]{
-  #1
-  \randomdozen
-  \addtocounter{enc}{2}
-\animal{-1}% STRENGTH
-{-1}% DEXTERITY 
-{\arabic{r2b}}% SPEED
-{1}% WITS
-{0}% DR
-{\arabic{r2}}% AGGRESSION
-{Athletics~2, Tactics~2}% SKILLS
-{\teeth, \quadraped}% ABILITIES
-{}
+\newcommand{\wolf}[1][{\A\T[\arabic{r12}]}{\arabic{r12} Wolves}]{
+  \Animal{#1}%
+  {{-1}{r0t1}{r2b}}% BODY
+  {0}% WITS
+  {%
+    \set{Athletics}{2}%
+    \set{Tactics}{2}%
+  }% SKILLS
+  {}% KNACKS
+  {\teeth, \quadraped}% ABILITIES
 }
+
 
 \newcommand{\woodspy}[1][\npc{\E}{Woodspy}]{
   #1
@@ -204,63 +152,67 @@
   }
 }
 
+%\newcommand{\dragon}[1][\npc{\E}{Dragon}]{
+%  #1
+%  \person{\value{age}}% STRENGTH
+%  {\value{age}}% DEXTERITY
+%  {\arabic{enc}\addtocounter{age}{-4}}% SPEED 4-5
+%  {{\arabic{age}}% INTELLIGENCE
+%  {\arabic{enc}}% WITS
+%  {\arabic{track}}}% CHARISMA
+%  {}%
+%  {\arabic{age}}% COMBAT
+%  {
+%    \ifnum\value{r3}<3%
+%      \setcounter{gold}{3}%
+%      \addtocounter{gold}{-\value{r3}}%
+%      Xenomology~\arabic{gold}%
+%    \fi%
+%  }{}%
+%  {
+%
+%    \knacks{}
+%    \hide{\value{gold}}
+%
+%    \randomtwoC
+%    \ifodd\value{r4}%
+%      \setcounter{Air}{\value{r3b}}%
+%    \fi%
+%      \setcounter{Fire}{\value{r2d}}%
+%      \ifodd\value{r2}%
+%        \setcounter{Fate}{\value{r2c}}%
+%      \else
+%        \setcounter{Earth}{\value{r2c}}%
+%      \fi%
+%  }
+%}
+
 \newcommand{\dragon}[1][\npc{\E}{Dragon}]{
-  #1
-  \randomtwo
-  \randomtwoB
-  \randomtwoC
-  \randomtwoD
-  \addtocounter{r2d}{1}
-  \addtocounter{r2c}{2}
-  \addtocounter{enc}{3}
-  \randomthree
-  \randomthreeB
-  \randomthreeC
-  \addtocounter{age}{4}
-  \setcounter{gold}{3}
-    \addtocounter{gold}{\value{r2}}
-  \randomfour
-  \ifodd\value{r4}\multiply\value{track} by -1\fi
-
-  \renewcommand\abilities{\flight, \claws, \fireBreath}
-
-  \person{\value{age}}% STRENGTH
-  {\value{age}}% DEXTERITY
-  {\arabic{enc}\addtocounter{age}{-4}}% SPEED 4-5
-  {{\arabic{age}}% INTELLIGENCE
-  {\arabic{enc}}% WITS
-  {\arabic{track}}}% CHARISMA
-  {}%
-  {\arabic{age}}% COMBAT
-  {
-    \ifnum\value{r3}<3%
-      \setcounter{gold}{3}%
-      \addtocounter{gold}{-\value{r3}}%
-      Xenomology~\arabic{gold}%
-    \fi%
-  }{}%
-  {
-    \setcounter{Brawl}{\value{enc}}
-    \setcounter{Academics}{\value{r3}}
-    \setcounter{Athletics}{\value{r2b}}
-    \setcounter{Flight}{\value{r3c}}
-    \setcounter{Deceit}{\value{r2c}}
-    \setcounter{Tactics}{2}
-    \setcounter{Vigilance}{3}
-
-    \knacks{\ifodd\value{r4b}\chosenEnemy{Dwarves}\else\charge\fi, \ifodd\value{r4}\snapcaster\fi\ifnumcomp{\value{r3}}{>}{2}{\laststand}{\adrenalinesurge}}
-    \hide{\value{gold}}
-
-    \randomtwoC
-    \ifodd\value{r4}%
-      \setcounter{Air}{\value{r3b}}%
-    \fi%
-      \setcounter{Fire}{\value{r2d}}%
-      \ifodd\value{r2}%
-        \setcounter{Fate}{\value{r2c}}%
-      \else
-        \setcounter{Earth}{\value{r2c}}%
-      \fi%
+  \statblock{
+    \traits{{\E}{Dragon}}%
+      {{r4t5}{r3t4}{r2t3}}%
+      {{r3t4}{r2t3}{rn3t3}}%
+      {%
+        \set{Brawl}{r4b}
+        \set{Academics}{r3}
+        \set{Athletics}{r2b}
+        \set{Flight}{r3c}
+        \set{Deceit}{r2c}
+        \set{Tactics}{2}
+        \set{Vigilance}{3}
+        \set{Air}{rn1t0}
+        \set{Fire}{r3}
+        \set{Fate}{rn3t3}
+        \set{Water}{rn1t2}
+        \set{Earth}{r3b}
+      }% SKILLS
+      {%
+      \ifnumcomp{\value{r3}}{>}{2}{\laststand}{\adrenalinesurge},
+      \ifnumcomp{\value{r3b}}{>}{1}{\chosenEnemy{Dwarves}}{\unstoppable},
+      \ifnumcomp{\value{Wits}}{>}{\value{Charisma}}{\snapcaster}{}%
+      }% KNACKS
+      {}% EQUIPMENT
+      {\flight \hide{r3t4}}% ABILITIES
   }
 }
 
