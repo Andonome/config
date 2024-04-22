@@ -709,29 +709,17 @@
 %% print the equipment
 %
 \newcommand{\creaturestats}{
-
-% Reference versions (which always are non-verbose) don't
-% have the space for full-sized stats.
-
-\footnotesize
-\begin{tabularx}{\textwidth}{lr@{\hskip 3em}lr@{\hskip 3em}lr}
-
-% the tcolorbox has coloured rows (xcolor package)
-% but that doesn't work with creature stats, so we suppress it here
-\hiderowcolors
-
-	Strength & \arabic{Strength} & Dexterity & \arabic{Dexterity} & Speed & \arabic{Speed} \\
-\iftoggle{mind}{
-	Intelligence & \arabic{Intelligence}  & Wits & \arabic{Wits} & Charisma & \arabic{Charisma}  \\}{%
-	&& Wits & \arabic{Wits} 
-  &
-  \ifnum\value{Charisma}>0
-  Charisma & \arabic{Charisma}
-  \fi
-  \\
-	}
-
-\end{tabularx}
+  \footnotesize
+  \begin{tabularx}{\textwidth}{lr@{\hskip 3em}lr@{\hskip 3em}lr}
+  \hiderowcolors
+    Strength & \arabic{Strength} & Dexterity & \arabic{Dexterity} & Speed & \arabic{Speed} \\
+    \ifnum\value{Intelligence}>-6 Intelligence\fi &
+    \ifnum\value{Intelligence}>-6 \arabic{Intelligence}\fi &
+    Wits & \arabic{Wits} &
+    \ifnum\value{Charisma}>-6 Charisma\fi &
+    \ifnum\value{Charisma}>-6 \arabic{Charisma}\fi
+    \\
+  \end{tabularx}
 }
 
 \newcommand\skillsEtc{
