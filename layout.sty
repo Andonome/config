@@ -885,8 +885,12 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \setcounter{r0t1}{0}
 \newcounter{r2t3}
   \setcounter{r2t3}{2}
+\newcounter{r2t4}
+  \setcounter{r2t4}{2}
 \newcounter{r3t4}
   \setcounter{r3t4}{3}
+\newcounter{rn1t2}
+  \setcounter{rn1t2}{0}
 \newcounter{rn3t3}
   \setcounter{rn3t3}{3}
 \newcounter{r4t5}
@@ -1003,10 +1007,15 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \stepcounter{r4t5}
   \stepcounter{r0t1}
   \stepcounter{rn1t0}
+  \setcounter{rn3t3}{\value{r3b}}%
   \ifodd\value{r3}%
     \stepcounter{r2b}%
     \stepcounter{r3b}%
+    \stepcounter{r2t4}
   \else%
+    \multiply\value{rn3t3} by -1%
+    \addtocounter{rn3t3}{0}%
+    \stepcounter{rn1t2}
     \stepcounter{r2c}%
     \stepcounter{r3c}%
     \stepcounter{r4b}%
@@ -1019,12 +1028,28 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
     {\ifnum\value{\c}>4\setcounter{\c}{1}\fi}%
   \ifnum\value{r0t1}>1\setcounter{r0t1}{0}\fi%
   \ifnum\value{rn1t0}>0\setcounter{rn1t0}{-1}\fi%
+  \ifnum\value{rn1t2}>2\setcounter{rn1t2}{-1}\fi%
   \ifnum\value{r2t3}>3\setcounter{r2t3}{2}\fi%
+  \ifnum\value{r2t4}>4\setcounter{r2t3}{2}\fi%
   \ifnum\value{r3t4}>4\setcounter{r3t4}{3}\fi%
   \ifnum\value{r4t5}>5\setcounter{r4t5}{4}\fi%
-  \setcounter{rn3t3}{\value{r3b}}%
-  \multiply\value{rn3t3} by -1%
-  \addtocounter{rn3t3}{0}%
+}
+
+\newcommand\set[2]{%
+  \ifltxcounter{#2}{\setcounter{#1}{\value{#2}}}{\setcounter{#1}{#2}}%
+}
+
+\newcounter{stackedNo}
+\newcommand\stack[2]{%
+  \ifltxcounter{#1}{\setcounter{stackedNo}{\value{#1}}}{\setcounter{stackedNo}{#1}}%
+  \ifltxcounter{#2}{\setcounter{diceNo2}{\value{#2}}}{\setcounter{diceNo2}{#2}}%
+  \ifnum\value{stackedNo}>\value{diceNo2}%
+    \roundUp{diceNo2}%
+    \addtocounter{stackedNo}{\value{diceNo2}}%
+  \else%
+    \roundUp{stackedNo}%
+    \addtocounter{stackedNo}{\value{diceNo2}}%
+  \fi%
 }
 
 %%%%%%%%%%%%%%%%%%%% LAYOUT %%%%%%%%%%%%%%%%%%%%
