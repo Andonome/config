@@ -127,8 +127,8 @@
   \foreach \s in {Air,Earth,Fate,Fire,Water}%
     {\ifnum\value{\s}>0 \addtocounter{mp}{3}\fi}%
   \renewcommand\equipment{#6}%
-  \computeStats%
   #7%
+  \computeStats%
   \computeEncumbrance%
   \calculateXP%
 }
@@ -181,9 +181,9 @@
     \traits{#1}%
       {#2}%
       {{-6}{#3}{-6}}%
-      {
+      {%
         #4
-      }
+      }%
       {#5}
       {}% EQUIPMENT
       {#6}% ABILITIES
@@ -629,7 +629,6 @@
 	\setcounter{Brawl}{#6}
 	\renewcommand{\skills}{#7}
 	\renewcommand{\abilities}{#8}
-  \setcounter{covering}{5}
 
   \iftoggle{verbose}{
     \begin{tcolorbox}[
@@ -692,7 +691,7 @@
   \knacks{}%
   \foreach \s in {Air,Earth,Fate,Fire,Water,Projectiles,Combat,Brawl,Academics,Alchemy,Athletics,Caving,Crafts,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Stealth,Tactics,Vigilance,Wyldcrafting}%
     {\setcounter{\s}{0}}%
-  \foreach \s in {encumbrance,dr,weaponDamage,weaponBonus,weaponWeight,armourWeight,armourDR,armourWeight,fp,sp,heft,weight,damage,knacks,mp,xpbonus}%
+  \foreach \s in {encumbrance,dr,covering,weaponDamage,weaponBonus,weaponWeight,armourWeight,armourDR,armourWeight,fp,sp,heft,weight,damage,knacks,mp,xpbonus}%
     {\setcounter{\s}{0}}%
   \setcounter{noAppearing}{1}%
 }
@@ -851,44 +850,38 @@
 \newcommand{\derivedstats}{%
   \setlength\topsep{0pt}%
   \setlength\parskip{0pt}%
-  \iftoggle{verbose}{\par\hrulefill}{}%
-
-\begin{center}
-  \iftoggle{verbose}{\normalsize}{\large}%
-  \scshape AP \ifnum\value{ap}<1 $\frac{1}{2}$ \else \arabic{ap}\fi%
-  \ifnumcomp{\value{heft}}{>}{1}{ (AP Cost: \arabic{heft})}{},
-  Att %
-  \iftoggle{allyCharacter}{$2D6$\ifnum\value{att}>-1 +\fi}{}%
-  \arabic{att}%
-  \setcounter{enc}{\value{att}}, %
-  \setcounter{damage}{4}% Remove
-  \addtocounter{damage}{\value{Strength}}% Remove
-  \addtocounter{damage}{\value{weaponDamage}}% Remove
-  \mbox{Dam \dmg{damage}, }%
-    \ifnumcomp{\value{dr}}{>}{0}{%
-      \mbox{DR \arabic{dr}%
-      \iftoggle{perfectArmour}%
-        {}%
-        { (\arabic{enc}!)}, }%
-    }{}%
-  \iftoggle{genExamples}{%
-    HP~\arabic{hp},
-    \ifnum\value{mp}>0%
-      MP \arabic{mp},
-    \fi%
-    \ifnum\value{sp}>0%
-    SP \arabic{sp},
-    \fi%
-  }{%
-    \par%
-    \showBoxes%
-  }%
-  \iftoggle{allyCharacter}{}{%
-    \iftoggle{examplecharacter}{}{%
-      \outline{\glsentrytext{cr}: \showCR}%
+  \begin{center}
+    \iftoggle{verbose}{\normalsize}{\large}%
+    \scshape AP \ifnum\value{ap}<1 $\frac{1}{2}$ \else \arabic{ap}\fi%
+    \ifnumcomp{\value{heft}}{>}{1}{ (AP Cost: \arabic{heft})}{},
+    Att %
+    \iftoggle{allyCharacter}{$2D6$\ifnum\value{att}>-1 +\fi}{}%
+    \arabic{att}, %
+    \mbox{Dam \dmg{damage}, }%
+      \ifnumcomp{\value{dr}}{>}{0}{%
+        \mbox{DR \arabic{dr}%
+        \iftoggle{perfectArmour}%
+          {}%
+          { (\arabic{covering}!)}, }%
+      }{}%
+    \iftoggle{genExamples}{%
+      HP~\arabic{hp},
+      \ifnum\value{mp}>0%
+        MP \arabic{mp},
+      \fi%
+      \ifnum\value{sp}>0%
+      SP \arabic{sp},
+      \fi%
+    }{%
+      \par%
+      \showBoxes%
     }%
-  }%
-\end{center}%
+    \iftoggle{allyCharacter}{}{%
+      \iftoggle{examplecharacter}{}{%
+        \outline{\glsentrytext{cr}: \showCR}%
+      }%
+    }%
+  \end{center}%
 }
 %
 %
@@ -942,74 +935,64 @@
 }
 
 \newcommand\swarm[6][]%
-  {
-    \begin{tcolorbox}[
-      title={\A\ Swarm: #2},
-      before upper={\parindent0pt},
-      ornamented,
-      fontupper=\small,
-      halign=flush left,
-      left=10pt,
-      right=15pt,
-      top=0pt,
-      bottom=0pt,
-      ]
-    \clean
-    #1
-    \setcounter{hp}{#3}
-    \setcounter{Dexterity}{#4}
-    \setcounter{att}{#4}
-    \addtocounter{att}{10}
-    \setcounter{Speed}{#5}
-    \setcounter{ap}{#5}
-    \addtocounter{ap}{3}
-    \setcounter{Wits}{#6}
+{
+  \begin{tcolorbox}[
+    title={\A\ Swarm: #2},
+    before upper={\parindent0pt},
+    ornamented,
+    fontupper=\small,
+    halign=flush left,
+    left=10pt,
+    right=15pt,
+    top=0pt,
+    bottom=0pt,
+    ]
+  \clean
+  #1
+  \setcounter{hp}{#3}
+  \setcounter{Dexterity}{#4}
+  \setcounter{att}{#4}
+  \addtocounter{att}{10}
+  \setcounter{Speed}{#5}
+  \setcounter{ap}{#5}
+  \addtocounter{ap}{3}
+  \setcounter{Wits}{#6}
 
-    \scshape
-    \begin{tabularx}{.8\textwidth}{YYYY}
-    \hiderowcolors
+  \scshape
+  \begin{tabularx}{.8\textwidth}{YYYY}
+  \hiderowcolors
 
-    \Gls{ap}: \arabic{ap} & Att: $\arabic{att} - HP$ 
-    \iftoggle{verbose}{
-      & Speed: \arabic{Speed}
-      & Wits: \arabic{Wits}
-    }{
-      & Dam: 1
-    }
-    \\
-    &
-    \iftoggle{genExamples}%
-      {HP: \arabic{hp}
-      \\
-      }%
-      {\showBoxes}%
-      & \\ %
-    \end{tabularx}
-    \ifdefempty{\Abilities}{}{%
-      \normalfont
-      \par
-      \par\textbf{Abilities:} \Abilities
-    }%
-    \vspace{1.4em}%
-    \end{tcolorbox}%
-    \null%
+  \Gls{ap}: \arabic{ap} & Att: $\arabic{att} - HP$ 
+  \iftoggle{verbose}{
+    & Speed: \arabic{Speed}
+    & Wits: \arabic{Wits}
+  }{
+    & Dam: 1
   }
+  \\
+  &
+  \iftoggle{genExamples}%
+    {HP: \arabic{hp}
+    \\
+    }%
+    {\showBoxes}%
+    & \\ %
+  \end{tabularx}
+  \ifdefempty{\Abilities}{}{%
+    \normalfont
+    \par
+    \par\textbf{Abilities:} \Abilities
+  }%
+  \vspace{1.4em}%
+  \end{tcolorbox}%
+  \null%
+}
 
 
 %%%%%%%%%%%%%%%%%%%% Creature Abilities
 
-
 \newcommand\hide[1]{%
-  \ifnum\value{dr}>#1%
-    \setcounter{track}{#1}%
-    \roundUp{track}%
-  \else%
-    \setcounter{track}{\value{dr}}%
-    \setcounter{dr}{#1}%
-  \fi%
-  \roundUp{track}%
-  \addtocounter{dr}{\value{track}}%
-  \setcounter{covering}{\value{att}}%
+  \set{dr}{#1}%
   \addtocounter{covering}{5}%
 }
 
