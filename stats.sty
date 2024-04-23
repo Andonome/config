@@ -412,7 +412,7 @@
   Berserker (+1 \glsentrytext{ap}. on round 2 of combat, +1 Damage. on round 3)%
 }
 \newcommand{\brawler}{%
-  Brawler%
+  Brawler
   (+2 to unarmed attacks)
 }
 
@@ -480,9 +480,9 @@
 }
 
 \newcommand{\weaponmaster}[1]{%
-  \addtocounter{att}{1}%
+  \addtocounter{att}{0}%
   Weapon Master
-  (+1 Attack when using a {#1})%
+  (+1 attack with a {#1})%
 }
 
 \newcommand{\autophage}{%
@@ -1002,14 +1002,12 @@
   \ifnum\value{Brawl}<3%
     \setcounter{Brawl}{2}%
   \fi%
-  \renewcommand\abilities{%
-    Undead%
-    \ifnum\value{dr}>1%
-      \stepcounter{dr}%
-    \else%
-      \setcounter{dr}{2}%
-    \fi%
-  }%
+  \ifnum\value{dr}>1%
+    \stepcounter{dr}%
+  \else%
+    \setcounter{dr}{2}%
+  \fi%
+  \addAbility{Undead}%
 }
 
 \newcommand{\acidSpray}{%
@@ -1121,7 +1119,6 @@
 }
 
 \newcommand{\venom}{%
-  \randomfourB%
   \conDmg{r4b}%
   \addAbility{venom (grappling attack inflicts \showDam~\glsfmtlongpl{ep})}%
 }
