@@ -8,7 +8,7 @@
 %                                               
 
 % This is a list of monster-commands.  You put in the command, like "\dragon", and a dragon will be conjured unto your pdf.
-% If you're unhapy with your dragon, copy-paste the bit where it says \dragon{blah}{bla}, then change those numbers.
+% If you're unhapy with your dragon, copy-paste the bit where it says \dragon{blah}{blah}, then change those numbers.
 
 
 \newcommand{\auroch}[1][{\A\T}{\arabic{r12}0 Aurochs}]{
@@ -101,91 +101,34 @@
 }
 
 
-\newcommand{\woodspy}[1][\npc{\E}{Woodspy}]{
-  #1
-  \randomtwo
-  \randomtwoB
-  \randomtwoC
-  \addtocounter{enc}{2}
-  \randomthree
-  \randomfour
-\person{\arabic{r4}}% STRENGTH
-{\arabic{enc}}% DEXTERITY 
-{\arabic{r2c}}% SPEED
-{{-4}% INTELLIGENCE
-{\arabic{r2b}}% WITS
-{-5}}% CHARISMA
-{\ifodd\value{r4} 2\else 3\fi}% DR
-{\arabic{r3}}% AGGRESSION
-{}% SKILLS
-{}% ABILITIES
-{
-  \renewcommand\abilities{\tentacles}
-  \setcounter{Athletics}{2}
-  \setcounter{Stealth}{\value{enc}}
-  \setcounter{Tactics}{\value{r3}}
-}
+\newcommand{\woodspy}[1][{\E}{Woodspy}]{
+  \Animal{#1}%
+  {{r3t4}{r2c}{r2b}}% BODY
+  {r3b}% WITS
+  {%
+    \set{Athletics}{2}
+    \set{Stealth}{r2c}
+    \set{Tactics}{r3}
+    \set{Intelligence}{r3c}
+    \addtocounter{Intelligence}{-6}
+  }% SKILLS
+  {}% KNACKS
+  {\tentacles}% ABILITIES
 }
 
-\newcommand{\basilisk}[1][\npc{\A}{Basilisk}]{
-  #1
-  \randomtwo
-  \randomtwoB
-  \randomtwoC
-  \addtocounter{r2b}{-1}
-  \randomthree
-  \addtocounter{age}{5}
-  \randomthreeB
-  \addtocounter{r3b}{1}
-  \animal{\arabic{age}}% STRENGTH
-  {\arabic{r2b}}% DEXTERITY
-  {\arabic{r3}}% SPEED
-  {\arabic{r2b}}% WITS
-  {4}% DR
-  {\arabic{r3b}}% AGGRESSION
-  {}% SKILLS
-  {}% ABILITIES
+
+\newcommand{\basilisk}[1][{\A}{Basilisk}]{
+  \Animal{#1}%
+  {{r4t6}{r2b}{r3}}% BODY
+  {r2c}% WITS
   {
-    \knacks{\unstoppable}
-    \renewcommand\abilities{\quadraped, \stench}
-    \setcounter{Athletics}{\value{r2c}}
-  }
+    \set{Athletics}{2}
+    \set{Brawl}{r3c}
+  }% SKILLS
+  {\unstoppable}% KNACKS
+  {\hide{r4t5} \quadraped \stench}% ABILITIES
 }
 
-%\newcommand{\dragon}[1][\npc{\E}{Dragon}]{
-%  #1
-%  \person{\value{age}}% STRENGTH
-%  {\value{age}}% DEXTERITY
-%  {\arabic{enc}\addtocounter{age}{-4}}% SPEED 4-5
-%  {{\arabic{age}}% INTELLIGENCE
-%  {\arabic{enc}}% WITS
-%  {\arabic{track}}}% CHARISMA
-%  {}%
-%  {\arabic{age}}% COMBAT
-%  {
-%    \ifnum\value{r3}<3%
-%      \setcounter{gold}{3}%
-%      \addtocounter{gold}{-\value{r3}}%
-%      Xenomology~\arabic{gold}%
-%    \fi%
-%  }{}%
-%  {
-%
-%    \knacks{}
-%    \hide{\value{gold}}
-%
-%    \randomtwoC
-%    \ifodd\value{r4}%
-%      \setcounter{Air}{\value{r3b}}%
-%    \fi%
-%      \setcounter{Fire}{\value{r2d}}%
-%      \ifodd\value{r2}%
-%        \setcounter{Fate}{\value{r2c}}%
-%      \else
-%        \setcounter{Earth}{\value{r2c}}%
-%      \fi%
-%  }
-%}
 
 \newcommand{\dragon}[1][\npc{\E}{Dragon}]{
   \statblock{
@@ -237,702 +180,488 @@
     \setcounter{Deceit}{\value{r3}}%
     \knacks{\ifodd\value{r3}\specialist{Appraisal}\else\specialist{Cartography}\fi}
   }
-  }
-
-\newcommand{\dwarvensoldier}[1][\npc{\T[\arabic{r12}]\Dw\M}{\arabic{r12} Dwarven Soldiers}]{
-  \randomdozen
-  #1
-  \randomtwo
-  \randomtwoB
-  \person{\arabic{r2}}% STRENGTH
-  {\arabic{enc}}% DEXTERITY
-  {0}%Speed
-  {{0}% INTELLIGENCE
-  {0}% WITS
-  {-1}}% CHARISMA
-  {0}% DR
-  {2}% COMBAT
-  {Caving \arabic{r2}, Crafts~1, Tactics~1}% SKILLS
-  {\ifodd\value{r2}\spear, \partialchain\else\shortsword, \partialplate\fi, \lootMedium}% EQUIPMENT
-  {
-    \knacks{\chosenEnemy{Goblins}}%
-    \setcounter{Caving}{\value{r2}}
-    \setcounter{Crafts}{1}
-    \addtocounter{r2b}{-1}
-    \setcounter{Tactics}{\value{r2b}}
-  }% Mods
 }
 
-\newcommand{\dwarvenrunemaster}[1][\npc{\Dw\M}{Dwarven Runemaster}]{
-  #1
-  \randomtwo
-  \randomtwoD
-  \addtocounter{enc}{1}
-  \randomthree
-    \addtocounter{age}{-2}
-  \randomthreeB
-  \randomfour
-  \person{0}% STRENGTH
-  {1}% DEXTERITY
-  {0}% SPEED
-  {{\value{r2d}}% INTELLIGENCE
-  {\value{age}}% WITS
-  {0}}%  CHARISMA
-  {0}% DR
-  {1}% COMBAT
-  {Academics~\arabic{enc}, Caving \arabic{r2}, Crafts~1, Tactics~2
-    \Spheres{
-      Fate~\arabic{enc}, \ifodd\value{r2d}Fire\else Air\fi ~\arabic{r3b}
-    }
-  }% SKILLS
-  {\shortsword, \partialchain, \lootMedium}% EQUIPMENT
-  {
-    \knacks{\ritualcaster}%
-    \setcounter{Academics}{\value{enc}}
-    \setcounter{Caving}{\value{r2}}
-    \setcounter{Crafts}{1}
-    \setcounter{Tactics}{\value{age}}
-  }
-}
-
-\newcommand{\hag}[1][\npc{\Hu\F}{Hag}]{
-    #1
-    \randomtwo
-    \addtocounter{enc}{1}
-    \randomtwoB
-    \randomtwoC
-    \randomtwoD
-    \randomthree
-      \addtocounter{age}{-2}
-    \randomthreeB
-    \randomthreeC
-    \randomfour
-  \person{-1}% STRENGTH
-  {\arabic{age}}% DEXTERITY 
-  {0}% SPEED
-  {{\arabic{enc}}% INTELLIGENCE
-  {\arabic{r2b}}% WITS
-  {3}}% CHARISMA
-  {0}% DR
-  {\arabic{r2}}% AGGRESSION
-  {}% SKILLS
-  {
-    \Dagger%
-    \Repeat{2}{%
-      \ifodd\value{r12}%
-        \randomdozen%
-        , \lootJewellery
-        \iftoggle{genExamples}%
-          {}%
-          {, \lootGoblin}%
-      \fi%
-    }%
-  }% EQUIPMENT
+\newcommand{\dwarvensoldier}[1][{\T[\arabic{r12}]\Dw\M}{\arabic{r12} Dwarven Soldiers}]{
+\Person{#1}%
+  {{r2}{r2b}{0}}% BODY
+  {{0}{0}{-1}}% MIND
   {%
-    \setcounter{Brawl}{2}
-    \setcounter{Academics}{\value{r3}}
-    \setcounter{Deceit}{\value{enc}}
-    \setcounter{Medicine}{\value{r3b}}
-    \setcounter{Vigilance}{\value{r3c}}
-    \setcounter{Brawl}{2}
-    \setcounter{Brawl}{2}
-    %%%%%%%%%%%%
-    \addtocounter{r2d}{2}
-    \setcounter{Water}{3}%
-    \stepcounter{r2c}
-    \setcounter{Earth}{3}%
-    \ifodd\value{track}
-      \setcounter{Fire}{\value{r3c}}%
-    \else%
-      \setcounter{Air}{\value{r3c}}%
-    \fi%
-    \setcounter{Fate}{\value{r2d}}%
-    \knacks{\snapcaster, \ritualcaster}
-  }
-}
-
-\newcommand{\dryad}[1][\npc{\E\El}{Dryad}]{
-  #1
-  \randomtwo
-  \randomtwoB
-  \randomtwoC
-  \addtocounter{enc}{2}
-  \randomthree
-  \randomthreeC
-  \addtocounter{age}{1}
-  \randomthreeB
-  \randomfour
-  \randomfourB
-  \addtocounter{r4b}{-1}
-  \addtocounter{r4}{-2}
-  \person{\arabic{enc}}% STRENGTH
-  {\arabic{r2}}% DEXTERITY
-  {1}% SPEED
-  {{\arabic{age}}% INTELLIGENCE
-  {2}% WITS
-  {\arabic{r4}}}% CHARISMA
-  {6}% DR
-  {\arabic{r3}}% COMBAT
-  {}% SKILLS
-  {\ifodd\value{r2b}\Dagger, \lootJewellery\else\spear\fi}% EQUIPMENT
-  {
-    \setcounter{track}{4}
-    \addtocounter{Fate}{-\value{r4b}}
-    \setcounter{Air}{\value{r3b}}
-    \setcounter{Earth}{\value{age}}
-    \setcounter{Fire}{\value{r4b}}
-    \setcounter{Water}{3}
-    \renewcommand\abilities{\randomfour\mutation{r4}, \stepcounter{r4} \mutation{r4}, \stepcounter{r4} \mutation{r4}.}
-    \setcounter{Academics}{\value{r4b}}
-    \setcounter{Athletics}{\value{r3c}}
+    \set{Caving}{r2c}
+    \set{Combat}{2}
+    \set{Crafts}{r2c}
+    \set{Tactics}{1}
     \ifodd\value{r2}
-      \setcounter{Crafts}{\value{r2}}
-      \setcounter{Performance}{\value{r3}}
+      \spear
+      \partialchain
     \else
-      \setcounter{Empathy}{\value{r2b}}
-      \setcounter{Seafaring}{\value{r3}}
-      \setcounter{Vigilance}{\value{r3b}}
-      \setcounter{Wyldcrafting}{3}
+      \shortsword
+      \partialplate
     \fi
-  }
-  }
-
-\newcommand{\elf}[1][\npc{\T[\arabic{r2c}]\El\F}{\arabic{r2c} Elves}]{
-  \randomtwoC
-  \stepcounter{r2c}
-  #1
-  \randomtwo
-  \randomtwoB
-  \randomthree
-  \randomthreeB
-  \randomfour
-  \randomdozen
-  \setcounter{gold}{1}\addtocounter{gold}{-\value{age}}
-  \person{\value{gold}}%STRENGTH
-  {\arabic{r2}}%DEXTERITY
-  {\arabic{r2b}}%SPEED
-  {{\arabic{age}}% INTELLIGENCE
-  {\arabic{r2}}% WITS
-  {\ifodd\value{r3}\arabic{r2}\else -1\fi}}% CHARISMA
-  {0}% DR
-  {\ifodd\value{list}1\else2\fi}% COMBAT
-  {\ifnumcomp{\value{r4}}{<}{2}{}{Projectiles~\arabic{age},} Academics~\arabic{age}, Athletics~1, \ifodd\value{r4} Crafts~\arabic{r3}\else Performance~\arabic{r2b}\fi, Stealth~\arabic{r2}, Vigilance~\arabic{age}, Wyldcrafting~\arabic{r3b}
   }% SKILLS
-  {\ifnumcomp{\value{r4}}{=}{2}{\rapier, dagger, }{\Dagger, shortbow, }%
-  \lootJewellery\ifnum\value{r12}>12%
-    , \lootMagic%
-  \fi}% EQUIPMENT
-  {
-    \knacks{%
-      \ifnum\value{r4}=2%
-        \weaponmaster{rapier}%
-      \else%
-        \precisestrike%
+  {}% KNACKS
+  {\lootMedium}% EQUIPMENT
+  {}% ABILITIES
+}
+
+
+\newcommand{\dwarvenrunemaster}[1][{\Dw\M}{Dwarven Runemaster}]{
+  \Person{#1}%
+    {{0}{1}{-1}}% BODY
+    {{r2b}{r3}{rn3t3}}% MIND
+    {%
+      \set{Academics}{r3b}
+      \set{Caving}{r2}
+      \set{Crafts}{rn1t2}
+      \set{Tactics}{r2}
+      \shortsword
+    }% SKILLS
+    {\ritualcaster}% KNACKS
+    {\lootMagic}% EQUIPMENT
+    {}% ABILITIES
+}
+
+\newcommand{\hag}[1][{\Hu\F}{Hag}]{
+  \Person{#1}%
+    {{-1}{1}{-1}}% BODY
+    {{r3c}{r3}{3}}% MIND
+    {%
+      \set{Brawl}{r3b}
+      \set{Combat}{r2b}
+      \set{Academics}{rn1t2}
+      \set{Deceit}{r2t3}
+      \set{Medicine}{r3c}
+      \set{Wyldcrafting}{rn3t3}
+      \Dagger
+      \set{Air}{rn1t2}
+      \set{Fate}{r3c}
+      \set{Water}{r2t3}
+      \set{Earth}{r3b}
+      \set{Fire}{rn3t3}
+    }% SKILLS
+    {\ritualcaster}% KNACKS
+    {\lootMagic}% EQUIPMENT
+    {}% ABILITIES
+}
+
+\newcommand{\dryad}[1][{\E\El}{Dryad}]{
+  \Person{#1}%
+    {{rn3t3}{r3}{r3c}}% BODY
+    {{r2t3}{r3b}{r3t4}}% MIND
+    {%
+      \set{Brawl}{r3b}
+      \set{Combat}{r2}
+      \set{Academics}{r4b}
+      \set{Athletics}{r3c}
+      \set{Crafts}{rn3t3}
+      \set{Performance}{r2t3}
+      \set{Empathy}{r2c}
+      \set{Seafaring}{2}
+      \set{Vigilance}{r2}
+      \set{Air}{rn1t2}
+      \set{Fate}{r3c}
+      \set{Water}{r2t3}
+      \set{Earth}{r3b}
+      \set{Fire}{rn3t3}
+      \ifnum\value{Strength}>1
+        \spear
+      \else
+        \Dagger
       \fi
-    }%
-    \ifnum\value{r4}<3
-      \setcounter{Earth}{\value{r3}}
-      \setcounter{Fire}{\value{r3b}}
-    \fi
-    \ifodd\value{r3}
-      \setcounter{Fate}{\value{r2}}
-    \fi
-    \ifodd\value{gold}
-      \setcounter{Water}{\value{r4b}}
-    \fi
-  }
+    }% SKILLS
+    {}% KNACKS
+    {\ifodd\value{r3}\lootGoblin, \lootJewellery\else\lootJewellery\fi, \lootJewellery}% EQUIPMENT
+    {\mutation{r4b} \mutation{r4b} \mutation{r4b}}% ABILITIES
 }
 
-\newcommand{\elvenenchanter}[1][\npc{\El\M}{Elven Enchanter}]{
-  #1
-  \randomtwo
-  \randomtwoB
-  \randomtwoC
-  \randomtwoD
-  \randomthree
-  \randomthreeB
-  \stepcounter{r3b}
-  \randomthreeC
-  \addtocounter{enc}{1}
-  \multiply\value{age} by -1
-  \person{\arabic{age}}% STRENGTH
-  {\arabic{r2b}}% DEXTERITY 
-  {1}% SPEED
-  {{\arabic{r3}}% INTELLIGENCE
-  {\arabic{enc}\randomtwo}% WITS
-  {\arabic{r3b}}}% CHARISMA
-  {0}% DR
-  {\value{r2d}}% COMBAT
-  {Projectiles~\arabic{r2b}, Academics~3, Empathy~3, Deceit~\arabic{enc}, Performance~\arabic{r2}, \ifodd\value{r2}Stealth~\else Tactics~\fi \arabic{r2b}, Wyldcrafting~\arabic{r2c}, Vigilance~2%
-  }% SKILLS
-  {\Dagger, \lootJewellery\ifodd\value{r4}, \randomtwo\lootJewellery\ifodd\value{r4}, \lootMagic\fi\fi}% EQUIPMENT
-  {
-    \ifodd\value{r2b}
-      \setcounter{Air}{\value{r2c}}
-    \else
-      \setcounter{Earth}{\value{r2c}}
-    \fi
-    \setcounter{Fate}{\value{r3}}
-    \setcounter{Water}{\value{r3c}}
-    \setcounter{fp}{4}
-  }
+\newcommand{\elf}[1][{\T[\value{r2t4}]\El}{\arabic{noAppearing} Elves}]{
+  \setcounter{age}{1}
+  \addtocounter{age}{-\value{r3}}
+  \set{track}{r3}
+  \addtocounter{track}{-\value{r2c}}
+  \Person{#1}%
+    {{age}{r3b}{r3c}}% BODY
+    {{r3}{r4b}{rn3t3}}% MIND
+    {%
+      \set{Brawl}{rn1t2}
+      \ifodd\value{r2c}
+        \set{Combat}{rn3t3}
+        \set{Athletics}{age}
+        \set{Crafts}{rn3t3}
+        \set{Vigilance}{r2}
+        \set{Wyldcrafting}{rn1t2}
+      \else
+        \set{Combat}{r3c}
+        \set{Academics}{r2}
+        \set{Athletics}{r3c}
+        \set{Performance}{r3}
+        \set{Empathy}{r2c}
+        \set{Seafaring}{r3c}
+        \set{Wyldcrafting}{r3b}
+      \fi
+      \ifnum\value{r3}>1
+        \set{Air}{rn1t2}
+        \set{Fate}{rn3t3}
+        \set{Water}{r2t3}
+        \set{Earth}{r3b}
+      \else
+        \set{Fate}{rn1t2}
+        \set{Water}{track}
+      \fi
+      \ifnum\value{Strength}=0
+        \rapier
+      \fi
+    }% SKILLS
+    {%
+      \ifcase\value{r4b}\relax%
+        \lucky%
+      \or%
+        \dodger%
+      \or%
+        \specialist{rapier}%
+      \else%
+        \fasthealer%
+      \fi%
+    }% KNACKS
+    {\ifnum\value{Strength}=0%
+      \lootJewellery%
+      \else%
+      \ifodd\value{r4b}%
+        \lootJewellery, \lootJewellery%
+      \else%
+        \lootMedium%
+      \fi%
+    \fi}% EQUIPMENT
+    {}% ABILITIES
 }
 
-\newcommand{\gnome}[1][\npc{\Gn\M}{Wandering Gnome}]{
-  #1
-  \randomtwo
-  \randomtwoC
-  \addtocounter{enc}{-2}
-  \randomthree
-  \randomtwoB
-  \randomthreeB
-  \randomthreeC
-\person{-2}% STRENGTH
-{\arabic{r2}}% DEXTERITY 
-{\arabic{enc}}% SPEED
-{{\arabic{age}}% INTELLIGENCE
-{\arabic{r2}}% WITS
-{\arabic{r2}}}% CHARISMA
-{0}% DR
-{0}% COMBAT
-{Academics~\arabic{r3}, Caving \arabic{r3c}, \ifodd\value{r3c} Crafts~\arabic{r2}, \else Deceit \arabic{age}, \fi Empathy~\arabic{r2b}, \ifodd\value{r3b} \else Larceny~1, Stealth~1 \fi 
-\ifodd\value{r12} Vigilance~\arabic{r2c}\fi
-\ifodd\value{r2c}
-  \Spheres{Fire~\arabic{r2}}
-\fi}% SKILLS
-{\ifodd\value{r3}%
-  \Dagger, \rations.
-\else%
-  \ifodd\value{r3b}%
-    \lootMedium\ifnum\value{noAppearing}=1, \lootGoblin\fi.%
-  \fi%
-\fi%
-}% EQUIPMENT
-{}
+\newcommand{\elvenenchanter}[1][{\El\M}{Elven Enchanter}]{
+  \setcounter{age}{1}
+  \addtocounter{age}{-\value{r3}}
+  \set{track}{r3}
+  \addtocounter{track}{-\value{r2c}}
+  \Person{#1}%
+    {{-2}{r3c}{r3b}}% BODY
+    {{r2t3}{r4b}{r4}}% MIND
+    {%
+      \set{Brawl}{rn1t2}
+      \set{Combat}{r3c}
+      \set{Academics}{r3b}
+      \set{Athletics}{r3c}
+      \set{Performance}{r3}
+      \set{Empathy}{r2c}
+      \set{Seafaring}{r3c}
+      \set{Wyldcrafting}{r2c}
+      \set{Air}{rn1t2}
+      \set{Fate}{rn3t3}
+      \set{Water}{r2t3}
+      \set{Earth}{r3b}
+    }% SKILLS
+    {%
+      \ifnum\value{r4b}>2
+        \vengeful%
+      \else%
+        \fasthealer%
+      \fi%
+    }% KNACKS
+    {%
+      \lootJewellery%
+      \ifodd\value{r2b}
+        , \lootMagic%
+      \fi%
+    }% EQUIPMENT
+    {}% ABILITIES
 }
 
-\newcommand{\gnomishsoldier}[1][\npc{\T[\arabic{r12}]\Gn\M}{Gnomish Soldiers}]{
-    \randomdozen
-    #1
-    \randomtwo
-    \addtocounter{enc}{-2}
-    \randomtwoB
-    \randomtwoC
-    \addtocounter{r2b}{-1}
-    \randomthree
-    \randomthreeB
-  \person{\arabic{enc}}% STRENGTH
-  {\arabic{r2}}% DEXTERITY 
-  {\arabic{r2b}}% SPEED
-  {{\arabic{age}}% INTELLIGENCE
-  {\arabic{r2}}% WITS
-  {\arabic{r2b}}}% CHARISMA
-  {0}% DR
-  {\arabic{r2}}% COMBAT
-  {}% SKILLS
-  {%
-    \ifnum\value{Projectiles}>1%
-      \smolCrossBow%
-    \else%
+\newcommand{\gnome}[1][{\Gn\M}{Wandering Gnome}]{
+  \set{track}{r3c}
+  \addtocounter{track}{-4}
+  \Person{#1}%
+    {{track}{r2}{rn1t0}}% BODY
+    {{r3b}{1}{0}}% MIND
+    {%
+      \set{Academics}{r3}
+      \set{Empathy}{r2c}
+      \set{Caving}{r3b}
+      \ifodd\value{r4}
+        \set{Larceny}{r2b}
+      \else
+        \set{Athletics}{r2b}
+      \fi
+      \set{Wyldcrafting}{rn3t3}
+    }% SKILLS
+    {}% KNACKS
+    {\lootMedium\ifodd\value{r12}, \lootGoblin\fi, \rations}% EQUIPMENT
+    {}% ABILITIES
+}
+
+\newcommand{\gnomishsoldier}[1][{\T[\arabic{r12}]\Gn\M}{Gnomish Soldiers}]{
+  \set{track}{r3c}
+  \addtocounter{track}{-3}
+  \Person{#1}%
+    {{track}{r2}{rn1t0}}% BODY
+    {{r3b}{1}{0}}% MIND
+    {%
+      \set{Combat}{r3b}
+      \set{Projectiles}{rn3t3}
+      \set{Academics}{r2b}
+      \set{Caving}{r3b}
+      \ifodd\value{r4}
+        \set{Larceny}{r2b}
+      \else
+        \set{Athletics}{r2b}
+      \fi
+      \set{Tactics}{r2t3}
       \shortsword%
-    \fi%
-  \ifnum\value{r3c}=2%
-    , \partialelvish%
-  \fi%
-  , \lootMedium
-  }% EQUIPMENT
-  {
-    \setcounter{Academics}{1}
-    \ifodd\value{r12}
-      \setcounter{Crafts}{\value{r2}}
-    \else
-      \setcounter{Deceit}{\value{r2}}
-    \fi
-    \ifodd\value{r2}
-      \setcounter{Larceny}{\value{r2c}}
-    \fi
-    \setcounter{Stealth}{\value{r2c}}
-    \setcounter{Projectiles}{0}
-    \ifodd\value{r3}
-      \stepcounter{Projectiles}
-    \fi
-    \ifodd\value{r3b}
-      \stepcounter{Projectiles}
-    \fi
-    \ifodd\value{r3c}
-      \stepcounter{Projectiles}
-    \fi
-  }
-}
-
-\newcommand{\gnomishillusionist}[1][\npc{\Gn\M}{Gnomish Illusionist}]{
-  #1
-  \randomtwo
-  \randomtwoD
-  \randomthree
-  \addtocounter{age}{1}
-  \randomthreeB
-  \addtocounter{r3b}{-3}
-  \randomfour
-  \person{\arabic{r3b}}% STRENGTH
-  {-2}% DEXTERITY 
-  {1}% SPEED
-  {{\arabic{age}}% INTELLIGENCE
-  {2}% WITS
-  {\arabic{enc}}}% CHARISMA
-  {0}% DR
-  {0}% COMBAT
-  {\ifodd\value{r2}%
-    \else Projectiles \arabic{enc}, \fi%
-  Academics~3, \ifodd\value{chapter} Crafts~\arabic{enc}, \fi Deceit~\arabic{age},  Stealth~\arabic{enc}
-    \Spheres{
-      Fire~\arabic{r2d}
-      \ifodd\value{r12}%
-        \randomtwoD
-        Air~\arabic{r2d}
+      \ifnum\value{Strength}=0%
+        \partialelvish%
       \fi%
-    }
-  }% SKILLS
-  {\lootBig\ifodd\value{r4}, \lootMagic\fi}% EQUIPMENT
-  {}
-}
-
-\newcommand{\humanfarmer}[1][\npc{\Hu\M}{Farmer}]{
-  #1
-  \randomtwo
-  \addtocounter{enc}{1}
-  \randomthree
-  \addtocounter{age}{-2}
-  \randomfour
-  \person{\arabic{enc}}% STRENGTH
-  {0}% DEXTERITY 
-  {0}% SPEED
-  {{\arabic{age}}% INTELLIGENCE
-  {-1}% WITS
-  {\ifodd \value{r2} -1\else1\fi}}% CHARISMA
-  {0}% DR
-  {\ifodd\value{r2} 0\else 1\fi}% COMBAT
-  {Crafts~\arabic{r2b}, \ifodd\value{r4} Empathy~1\fi
-  }% SKILLS
-  {
-    \ifodd\value{r3}%
-      \Dagger, %
-    \else%
-      \ifodd\value{r4}%
-        \flail, %
+    }% SKILLS
+    {%
+      \adrenalinesurge, 
+      \ifodd\value{r2}%
+        \perfectsneakattack%
       \else%
-        \rations, %
+        \charge%
       \fi%
+    }% KNACKS
+    {
+    \ifcase\value{Projectiles}\relax%
+    \or%
+      bag of rocks, %
+    \else%
+      \smolCrossBow, %
     \fi%
-    \lootSmall
-  }% EQUIPMENT
-  {
-    \knacks{\specialist{animal husbandry}}
-    \setcounter{Wyldcrafting}{\value{r2}}
-    \ifodd\value{r3c}\else
-      \setcounter{Projectiles}{1}
-    \fi
-  }
+    \lootMedium%
+    }% EQUIPMENT
+    {}% ABILITIES
 }
 
-\newcommand{\humanmaid}[1][\npc{\Hu\F}{Maid}]{
-  #1
-  \randomthree
-  \randomtwo
-  \person{1}% STRENGTH
-  {\ifodd \value{age} -1\else1\fi}% DEXTERITY 
-  {0}% SPEED
-  {{\ifodd\value{age} 0\else 1\fi}% INTELLIGENCE
-  {-1}% WITS
-  {0}}% CHARISMA
-  {0}% DR
-  {\ifnum\value{r12}=7 1\else 0\fi}% AGGRESSION
-  {Empathy~1, \ifodd\thechapter Deceit~\arabic{r2}\fi}% SKILLS
-  {\ifodd\value{r4} \Dagger, \lootSmall\else Sewing equipment\fi}% EQUIPMENT
-  {
-    \setcounter{Empathy}{1}
-    \ifodd\value{r4}
-      \setcounter{Deceit}{\value{r2}}
-    \fi
-    \ifodd\value{r2}
-      \knacks{\specialist{Sewing}}
-    \fi
-  }
-}
-
-\newcommand{\humantrader}[1][\npc{\T[\arabic{r12}]\Hu\M}{\arabic{r12} Traders}]{
-  \randomdozen
-  #1
-  \randomtwo
-  \randomtwoB
-  \randomtwoC
-  \randomthree
-  \addtocounter{enc}{-1}
-  \person{\arabic{age}}% STRENGTH
-  {0}% DEXTERITY 
-  {0}% SPEED
-  {{\arabic{enc}}% INTELLIGENCE
-  {-1}% WITS
-  {\arabic{r2b}}}% CHARISMA
-  {0}% DR
-  {\arabic{enc}}% COMBAT
-  {Academics~\arabic{r2b}, \ifodd\value{r4}Projectiles~\arabic{r2}\fi\ifodd\value{r2}~Crafts 1, Empathy\else Deceit\fi~\arabic{r3}}% SKILLS
-  {\shortsword,
-  \ifodd\value{r4}%
-    \longbow,
-  \fi%
-  \lootBig}% EQUIPMENT
-  {
-    \ifodd\value{r2}
-      \knacks{\specialist{Appraisal}}
-    \else
-      \ifodd\value{r3}
-        \knacks{\specialist{Cartography}}
+\newcommand{\gnomishillusionist}[1][{\Gn\M}{Gnomish Illusionist}]{
+  \set{track}{r3c}
+  \addtocounter{track}{-4}
+  \Person{#1}%
+    {{track}{r2}{rn1t0}}% BODY
+    {{r3b}{1}{r3c}}% MIND
+    {%
+      \set{Academics}{r2t3}
+      \set{Empathy}{r2c}
+      \set{Caving}{r3b}
+      \ifodd\value{r4}
+        \set{Larceny}{r2b}
+      \else
+        \set{Athletics}{r2b}
       \fi
-    \fi
-  }
+      \set{Wyldcrafting}{rn3t3}
+      \set{Air}{r2t3}
+      \set{Fire}{r3}
+      \set{Earth}{r3b}
+    }% SKILLS
+    {}% KNACKS
+    {\lootMedium, \ifodd\value{r12}\lootGoblin\else\lootMagic\fi, \rations}% EQUIPMENT
+    {}% ABILITIES
 }
 
-\newcommand{\humandiplomat}[1][\npc{\Hu\M}{The Diplomat}]{
-    #1
-    \randomtwo
-    \randomtwoB
-    \addtocounter{enc}{-1}
-    \randomthree
-    \randomthreeC
-    \addtocounter{age}{-2}
-    \multiply\value{age} by -1
-    \randomfour
-    \randomfourB
-    \addtocounter{track}{-2}
-  \person{1}% STRENGTH
-  {\arabic{age}}% DEXTERITY 
-  {0}% SPEED
-  {{\arabic{r2}}% INTELLIGENCE
-  {0}% WITS
-  {\arabic{track}}}% CHARISMA
-  {0}% DR
-  {\arabic{enc}}% COMBAT
-  {}% SKILLS
-  {\ifodd\value{enc}
-    \rapier%
-    \ifnum\value{r4b}=3%
-      , \partialelvish%
-    \fi%
-  \else%
-    \Dagger%
-  \fi, \ifodd\value{r3c}\lootSmall\else\lootJewellery\fi}% EQUIPMENT
-  {
-    \setcounter{Academics}{\value{r3}}
-    \setcounter{Deceit}{\value{r2b}}
-    \ifodd\value{gold}
-      \setcounter{Empathy}{\value{r3c}}
-    \fi
-    \setcounter{Vigilance}{\value{r2}}
-  }
+\newcommand{\humanfarmer}[1][{\Hu\M}{Farmer}]{
+  \Person{#1}%
+    {{r3}{0}{0}}% BODY
+    {{rn1t2}{-1}{0}}% MIND
+    {%
+      \ifodd\value{r3}
+        \set{Combat}{1}
+      \else
+        \set{Projectiles}{1}
+      \fi
+      \set{Crafts}{r2}
+      \set{Wyldcrafting}{2}
+      \ifodd\value{r3b}
+        \flail
+      \else
+        \Dagger
+      \fi
+    }% SKILLS
+    {\specialist{husbandry}}% KNACKS
+    {\lootSmall, \rations}% EQUIPMENT
+    {}% ABILITIES
 }
 
-\newcommand{\humanpriest}[1][\npc{\Hu\F}{Human Priest}]{
-  #1
-  \randomtwo
-  \randomtwoB
-  \randomtwoC
-  \addtocounter{r2b}{-1}
-  \randomthree
-  \addtocounter{age}{1}
-  \randomthreeB
-\person{1}% STRENGTH
-{0}% DEXTERITY 
-{0}% SPEED
-{{\arabic{r3}}% INTELLIGENCE
-{0}% WITS
-{\ifodd\value{r3} 0\else 1\fi}}% CHARISMA
-{0}% DR
-{\arabic{r2b}}% COMBAT
-{Academics~\arabic{r3}, Empathy~\arabic{r3b}
-\ifodd\value{r3b}
-  \Spheres{
-    Fate~\arabic{r2c},
-  \ifodd\value{r4}\else
-    Water~1
-    \fi
-  }
-\fi}% SKILLS
-{\ifodd\value{r2b}
-  \quarterstaff\else\Dagger, \lootMedium
-\fi}% EQUIPMENT
-{}
+
+\newcommand{\humanmaid}[1][{\Hu\F}{Maid}]{
+  \Person{#1}%
+    {{r2}{1}{0}}% BODY
+    {{rn1t2}{-1}{0}}% MIND
+    {%
+      \ifodd\value{r3}
+        \set{Combat}{1}
+      \fi
+      \set{Crafts}{r2b}
+      \set{Empathy}{r2c}
+      \ifodd\value{r3b}
+        \set{Vigilance}{rn1t2}
+      \else
+        \Dagger
+      \fi
+    }% SKILLS
+    {\specialist{dyes}}% KNACKS
+    {\lootSmall}% EQUIPMENT
+    {}% ABILITIES
 }
 
-\newcommand{\doula}[1][\npc{\Hu\F}{Doula}]{
-  #1
-  \randomtwo
-  \randomtwoB
-  \randomtwoC
-  \addtocounter{r2b}{-1}
-  \randomthree
-  \addtocounter{age}{1}
-  \randomthreeB
-  \randomthreeC
-  \addtocounter{r3c}{-2}
-\person{\arabic{r3c}}% STRENGTH
-{0}% DEXTERITY 
-{0}% SPEED
-{{\arabic{r3}}% INTELLIGENCE
-{0}% WITS
-{\ifodd\value{r3} 0\else 2\fi}}% CHARISMA
-{0}% DR
-{0}% COMBAT
-{}% SKILLS
-{\ifodd\value{r2b}
-  \walkingStick
-\else
-  \ifodd\value{r2b}
-    \Dagger, \lootMedium%
-  \else%
-  \fi%
-\fi}% EQUIPMENT
-{
-  \setcounter{Academics}{\value{r3}}
-  \setcounter{Deceit}{\value{enc}}
-  \setcounter{Medicine}{\value{r3b}}
-  \ifodd\value{r3b}\else
-    \setcounter{Fate}{\value{r3}}
-    \setcounter{Water}{\value{r3c}}
-    \setcounter{Air}{\value{r2b}}
-  \fi
-}
+\newcommand{\humantrader}[1][{\T[\arabic{r12}]\Hu}{\arabic{noAppearing}~Traders}]{
+  \Person{#1}%
+    {{r2}{0}{0}}% BODY
+    {{rn1t2}{0}{0}}% MIND
+    {%
+      \ifodd\value{r3}
+        \set{Combat}{r2b}
+      \else
+        \set{Projectiles}{r2b}
+      \fi
+      \set{Crafts}{1}
+      \ifodd\value{r4}
+        \set{Empathy}{1}
+      \else
+        \set{Tactics}{1}
+      \fi
+      \set{Wyldcrafting}{2}
+      \ifodd\value{r3b}
+        \shortsword
+      \else
+        \Dagger
+      \fi
+    }% SKILLS
+    {\specialist{cartography}}% KNACKS
+    {\ifnum\value{Projectiles}>1\longbow\fi\lootMedium, \rations}% EQUIPMENT
+    {}% ABILITIES
 }
 
-\newcommand{\humansoldier}[1][\npc{\T[\arabic{r12}]\Hu}{\arabic{r12} Soldiers}]{
-  \randomdozen
-  #1
-  \randomtwo
-  \addtocounter{enc}{1}
-  \randomtwoB
-  \setcounter{gold}{\value{r2b}}
-  \addtocounter{gold}{-1}
-  \randomthree
-  \addtocounter{age}{-1}
-  \randomfour
-\person{\arabic{enc}}% STRENGTH
-{\arabic{age}}% DEXTERITY 
-{\arabic{gold}}% SPEED
-{{0}% INTELLIGENCE
-{-1}% WITS
-{0}}% CHARISMA
-{0}% DR
-{\arabic{r2}}% COMBAT
-{
-  Tactics~\arabic{r2b}, Wyldcrafting~\arabic{r2},%
-}% SKILLS
-{\ifodd\value{enc}%
-  {\greatsword}%
-\else%
-  \ifodd\value{age}%
-    {\longsword}%
-  \else%
-    {\shortsword}%
-  \fi%
-\fi, %
-\ifnum\value{r3}=3%
-  \partialleather%
-\else%
-  \partialchain%
-\fi,%
-\ifodd\value{r4}%
-  \roundshield, %
-\fi%
-  \ifnum\value{enc}=3\lootMedium\else\lootSmall\fi}% EQUIPMENT
-{
-  \ifodd\value{r3}%
-    \knacks{\ifodd\value{r2b}
-      \adrenalinesurge, 
-    \else
-      \stunningstrike, 
-    \fi
-    \ifodd\value{r4}
-      \charge
-    \fi}
-  \fi
-}
+\newcommand{\humandiplomat}[1][{\Hu\M}{The Diplomat}]{
+  \Person{#1}%
+    {{1}{0}{0}}% BODY
+    {{r2}{rn1t2}{rn3t3}}% MIND
+    {%
+      \ifodd\value{r3}
+        \set{Combat}{1}
+      \else
+        \set{Empathy}{2}
+        \set{Crafts}{r2b}
+      \fi
+      \set{Deceit}{r2c}
+      \ifodd\value{r3b}
+        \shortsword
+        \set{Wyldcrafting}{2}
+      \else
+        \Dagger
+        \set{Vigilance}{2}
+      \fi
+    }% SKILLS
+    {}% KNACKS
+    {\lootBig}% EQUIPMENT
+    {}% ABILITIES
 }
 
-\newcommand{\royalguard}[1][\npc{\T[\arabic{r12}]\Hu}{\arabic{r12} Guards}]{
-  \randomdozen
-  #1
-  \randomtwo
-  \addtocounter{enc}{1}
-  \randomtwoB
-  \setcounter{gold}{\value{r2b}}
-  \addtocounter{gold}{-1}
-  \randomthree
-  \addtocounter{age}{-1}
-  \randomfour
-\person{\arabic{enc}}% STRENGTH
-{\arabic{age}}% DEXTERITY 
-{\arabic{gold}}% SPEED
-{{0}% INTELLIGENCE
-{-1}% WITS
-{0}}% CHARISMA
-{0}% DR
-{2}% COMBAT
-{\ifodd\value{r3}Craft~\arabic{r2},\fi Tactics~\arabic{r2b}%
-}% SKILLS
-{\ifodd\value{enc}%
-  {\greatsword}%
-\else%
-  \ifodd\value{age}%
-    {\longsword}%
-  \else%
-    {\spear}%
-  \fi%
-\fi, %
-  \partialplate, %
-\ifodd\value{r4}
-  \roundshield, 
-\fi
-  \ifnum\value{enc}=3\lootMedium\else\lootSmall\fi}% EQUIPMENT
-{
-  \ifodd\value{r3}%
-    \knacks{\ifodd\value{r2b}
-      \adrenalinesurge, 
-    \else
-      \precisestrike, 
-    \fi
-    \ifodd\value{r4}
-      \charge
-    \fi}
-  \fi
-}
+
+\newcommand{\doula}[1][{\Hu\F}{Doula}]{
+  \Person{#1}%
+    {{rn1t0}{r2}{-1}}% BODY
+    {{r3}{r2b}{rn3t3}}% MIND
+    {%
+      \ifodd\value{r3}
+        \set{Combat}{1}
+      \else
+        \set{Brawl}{r2c}
+      \fi
+      \set{Academics}{r3}
+      \set{Deceit}{r3b}
+      \set{Medicine}{r2t3}
+      \set{Crafts}{r2c}
+      \set{Wyldcrafting}{1}
+      \ifnum\value{Charisma}>1
+        \set{Fate}{r3b}
+        \set{Water}{rn1t2}
+        \set{Earth}{rn3t3}
+      \fi
+      \ifodd\value{r3b}
+        \walkingStick
+      \else
+        \Dagger
+      \fi
+    }% SKILLS
+    {}% KNACKS
+    {\ifodd\value{r3}\lootSmall, \rations, \fi\rations, long scarf}% EQUIPMENT
+    {}% ABILITIES
 }
 
-\newcommand{\humanarcher}[1][\npc{\T[\arabic{r12}]\Hu}{\arabic{r12} Archers}]{
-  \randomdozen
-  #1
-  \randomtwo
-  \randomtwoB
-  \randomthree
-  \addtocounter{enc}{-1}
-\person{2}% STRENGTH
-{\arabic{r2b}}% DEXTERITY 
-{0}% SPEED
-{{0}% INTELLIGENCE
-{-1}% WITS
-{0}}% CHARISMA
-{0}% DR
-{\arabic{enc}}% COMBAT
-{Projectiles \arabic{r2b}, Crafts~\arabic{r2b}, \ifodd\value{r4}\else Tactics \fi~\arabic{r2}%
-}% SKILLS
-{
-  \longbow, dagger, \arabic{r3}0 arrows (\boxStat{r3})\ifodd\value{r2}, \partialleather, \lootMedium\fi%
-}% EQUIPMENT
-{
-  \ifodd\value{r3}%
-  \else%
-    \knacks{\mightydraw}
-  \fi
+
+\newcommand{\humansoldier}[1][{\T[\arabic{r12}]\Hu}{\arabic{noAppearing}~Soldiers}]{
+  \Person{#1}%
+    {{r3}{0}{rn1t2}}% BODY
+    {{0}{-1}{0}}% MIND
+    {%
+      \ifodd\value{r3}
+        \set{Vigilance}{r2b}
+      \else
+        \set{Projectiles}{r2b}
+        \set{Crafts}{r2c}
+      \fi
+      \set{Combat}{r2c}
+      \set{Wyldcrafting}{rn1t2}
+      \ifcase\value{Strength}\relax%
+        \shortsword%
+        \partialleather%
+      \or%
+        \longsword%
+        \completeleather%
+      \else%
+        \glaive%
+        \partialchain%
+      \fi%
+    }% SKILLS
+    {}% KNACKS
+    {\rations, \lootSmall}% EQUIPMENT
+    {}% ABILITIES
 }
+
+
+\newcommand{\sunguard}[1][{\T[\arabic{r12}]\Hu}{Sun Guards}]{
+  \Person{#1}%
+    {{2}{0}{1}}% BODY
+    {{0}{-1}{0}}% MIND
+    {%
+      \set{Projectiles}{1}
+      \set{Combat}{2}
+      \set{Deceit}{r2b}
+      \set{Vigilance}{rn1t2}
+      \longsword%
+      \partialplate%
+    }% SKILLS
+    {}% KNACKS
+    {\lootSmall}% EQUIPMENT
+    {}% ABILITIES
+}
+
+\newcommand{\humanarcher}[1][{\T[\arabic{r12}]\Hu}{\arabic{r12} Archers}]{
+  \Person{#1}%
+    {{r3}{0}{rn1t2}}% BODY
+    {{0}{0}{0}}% MIND
+    {%
+      \ifodd\value{r3}
+      \else
+        \set{Combat}{r2b}
+        \set{Crafts}{r2c}
+      \fi
+      \set{Projectiles}{2}
+      \set{Wyldcrafting}{rn1t2}
+      \set{Vigilance}{rn1t2}
+      \ifodd\value{r4}
+        \shortsword
+      \else
+        \Dagger
+      \fi
+    }% SKILLS
+    {\snapshot}% KNACKS
+    {\longbow, \ifodd\value{r3}\rations, \fi\lootSmall}% EQUIPMENT
+    {}% ABILITIES
 }
 
 \newcommand{\humanthief}[1][\npc{\Hu\M}{Thief}]{
@@ -1131,24 +860,6 @@
       \fi
     }
   }
-}
-
-\newcommand{\morphcrab}[1][\npc{\T[\arabic{r12}]\A\R}{\arabic{r12} Morph Crabs}]{
-  \randomdozen
-  #1
-  \randomthree
-  \randomtwo
-  \randomtwoB
-  \addtocounter{enc}{5}
-\animal{\arabic{age}}% STRENGTH
-{-2}% DEXTERITY 
-{\arabic{r2b}}% SPEED
-{\arabic{r3}}% WITS
-{\arabic{enc}}% DR
-{2}% AGGRESSION
-{Wyldcrafting~\arabic{r2}}% SKILLS
-{}% ABILITIES
-{}
 }
 
 \newcommand{\morphhorse}[1][\npc{\T[\arabic{r3c}]\A\R}{Morph Horse}]{
