@@ -791,10 +791,8 @@
   \setcounter{hp}{6}%
   \addtocounter{hp}{\value{Strength}}%
   % Stats for allies don't need to show Combat +1 as 'TN 8 to hit', they just need to show '+1'.
-  \ifnum\value{Combat}>\value{Brawl}\else\setcounter{att}{\value{Brawl}}\fi%
-  \iftoggle{allyCharacter}{}{%
-    \addtocounter{att}{7}%
-  }%
+  \ifnum\value{weaponBonus}>0\set{att}{Combat}\else\set{att}{Brawl}\fi%
+  \addtocounter{att}{7}%
   \setcounter{ap}{\value{Speed}}%
   \addtocounter{ap}{3}%
   \addtocounter{ap}{-\value{encumbrance}}%
@@ -1054,8 +1052,8 @@
 }
 
 \newcommand{\claws}{%
-  \ifnum\value{Combat}>\value{Brawl}\else%
-    \stepcounter{damage}%
+  \ifnum\value{weaponDamage}<1%
+    \stepcounter{weaponDamage}%
   \fi%
   \addAbility{claws (+1~Damage)}%
 }
@@ -1117,7 +1115,7 @@
   \addtocounter{track}{\value{Strength}}%
   \addtocounter{track}{\value{Dexterity}}%
   \ifnum\value{track}<2\setcounter{track}{2}\fi%
-  \addtocounter{enc}{\value{track}}%
+  \set{enc}{track}%
   \roundUp{enc}%
   \addAbility{\arabic{track}~tentacles (grapple up to \arabic{enc} opponents without going prone)}%
 }
