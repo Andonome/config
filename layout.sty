@@ -895,6 +895,8 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \setcounter{rn3t3}{3}
 \newcounter{r4t5}
   \setcounter{r4t5}{4}
+\newcounter{r4t6}
+  \setcounter{r4t6}{4}
 
 \newcounter{r12}
 \setcounter{r12}{\month}
@@ -1005,6 +1007,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \stepcounter{r2t3}%
   \stepcounter{r3t4}%
   \stepcounter{r4t5}%
+  \stepcounter{r4t6}%
   \stepcounter{r0t1}%
   \stepcounter{rn1t0}
   \setcounter{rn3t3}{\value{r3b}}%
@@ -1036,6 +1039,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \ifnum\value{r2t4}>4\setcounter{r2t3}{2}\fi%
   \ifnum\value{r3t4}>4\setcounter{r3t4}{3}\fi%
   \ifnum\value{r4t5}>5\setcounter{r4t5}{4}\fi%
+  \ifnum\value{r4t6}>6\setcounter{r4t6}{4}\fi%
 }
 
 \newcommand\set[2]{%
