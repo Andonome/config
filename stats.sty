@@ -1131,24 +1131,28 @@
 
 %%%%%%%%%%%%%%%%%%%%% Magic Path
 \newcommand{\Spheres}[1]{ \\
-	\raggedright \ent{Spheres} & #1
+  \raggedright \ent{Spheres} & #1
 }
 
-\newcommand\mutation[1]{%
-  \ifcase\value{#1}\relax%
-    \hide{\value{r3}}%
-  \or%
-    \teeth%
-  \or%
-    \claws%
-  \or%
-    \venom%
-  \or%
-    \tentacles%
-  \or%
-    \web%
-  \else%
-    \flight%
-  \fi%
-  \stepcounter{#1}%
+\newcommand\mutation[2][1]{%
+  \Repeat{#1}{%
+    \ifcase\value{#2}\relax%
+      \hide{\value{r3}}%
+    \or%
+      \teeth%
+    \or%
+      \claws%
+    \or%
+      \venom%
+    \or%
+      \amphibious%
+    \or%
+      \tentacles%
+    \or%
+      \web%
+    \else%
+      \flight%
+    \fi%
+    \stepcounter{#2}%
+  }%
 }
