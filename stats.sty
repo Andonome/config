@@ -147,6 +147,7 @@
       ]
       \creaturestats
       \begin{tabularx}{\linewidth}{lX}
+      \renewcommand\tabularxcolumn[1]{m{#1}}
       \ent{Skills} & \showSkills \\
       \ifnum\value{mp}>0%
         \ent{Spheres} &
