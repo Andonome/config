@@ -879,6 +879,8 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 \newcounter{r4b}
   \setcounter{r4b}{\day}
 
+\newcounter{rn4tn1}
+  \setcounter{rn4tn1}{-3}
 \newcounter{rn1t0}
   \setcounter{rn1t0}{-1}
 \newcounter{r0t1}
@@ -1010,6 +1012,8 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \stepcounter{r4t6}%
   \stepcounter{r0t1}%
   \stepcounter{rn1t0}
+  \setcounter{rn4tn1}{\value{r4b}}
+  \addtocounter{rn4tn1}{-5}
   \setcounter{rn3t3}{\value{r3b}}%
   \setcounter{r12}{\value{r3c}}%
   \multiply\value{r12} by 3%
