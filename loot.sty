@@ -110,7 +110,7 @@
 	}%
 }
 
-\newcommand{\lootMagic}{%
+\newcommand{\lootArtefact}{%
   \iftoggle{genExamples}{}%
     {%
       \ifnum\value{treasure}>8\setcounter{treasure}{1}\fi%
@@ -134,6 +134,25 @@
       \ignorespaces\spellName%
       \setcounter{track}{\value{treasure}}%
       \stepcounter{treasure}%
+    }%
+}
+
+\newcommand{\lootMagic}{%
+  \iftoggle{genExamples}{}%
+    {%
+      \ifnum\value{diceNo2}>5\setcounter{diceNo2}{1}\fi%
+      \ifcase\value{diceNo2}\relax%
+        Earth \gls{ingredient}%
+      \or%1
+        Air \gls{ingredient}%
+      \or%2
+        Fire \gls{ingredient}%
+      \or%3
+        Water \gls{ingredient}%
+      \else%4
+        Fate \gls{ingredient}%
+      \fi%
+      \stepcounter{diceNo2}%
     }%
 }
 
