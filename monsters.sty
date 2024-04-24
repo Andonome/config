@@ -11,7 +11,7 @@
 % If you're unhapy with your dragon, copy-paste the bit where it says \dragon{blah}{blah}, then change those numbers.
 
 
-\newcommand{\auroch}[1][{\A\T}{\arabic{r12}0 Aurochs}]{
+\newcommand{\auroch}[1][\npc{\A\T}{\arabic{r12}0 Aurochs}]{
   \Animal{#1}%
   {{2}{-2}{1}}% BODY
   {1}% WITS
@@ -22,7 +22,7 @@
   {\quadraped}% ABILITIES
 }
 
-\newcommand{\bear}[1][{\A}{Bear}]{
+\newcommand{\bear}[1][\npc{\A}{Bear}]{
   \Animal{#1}%
   {{r4t5}{rn1t0}{r2}}% BODY
   {0}% WITS
@@ -33,7 +33,7 @@
   {\quadraped \claws}% ABILITIES
 }
 
-\newcommand{\boar}[1][{\A}{Boar}]{
+\newcommand{\boar}[1][\npc{\A}{Boar}]{
   \Animal{#1}%
   {{r2b}{rn1t0}{0}}% BODY
   {r2}% WITS
@@ -45,7 +45,7 @@
   {\quadraped}% ABILITIES
 }
 
-\newcommand{\chitincrawler}[1][{\A}{Chitincrawler}]{
+\newcommand{\chitincrawler}[1][\npc{\A}{Chitincrawler}]{
   \Animal{#1}%
   {{r4t5}{r0t1}{r3b}}% BODY
   {r4}% WITS
@@ -61,7 +61,7 @@
   {\quadraped \web \hide{4}}% ABILITIES
 }
 
-\newcommand{\griffin}[1][{\A\T[\arabic{r2t3}]}{\arabic{noAppearing}~Griffins}]{
+\newcommand{\griffin}[1][\npc{\A\T[\arabic{r2t3}]}{\arabic{noAppearing}~Griffins}]{
   \Animal{#1}%
   {{r2}{r2c}{r2b}}% BODY
   {2}% WITS
@@ -75,7 +75,7 @@
   {\flight}% ABILITIES
 }
 
-\newcommand{\mouthdigger}[1][{\A}{Mouthdigger}]{
+\newcommand{\mouthdigger}[1][\npc{\A}{Mouthdigger}]{
   \Animal{#1}%
   {{2}{r0t1}{r2c}}% BODY
   {0}% WITS
@@ -88,7 +88,7 @@
   {\teeth \hide{2}}% ABILITIES
 }
 %
-\newcommand{\wolf}[1][{\A\T[\arabic{r12}]}{\arabic{r12} Wolves}]{
+\newcommand{\wolf}[1][\npc{\A\T[\arabic{r12}]}{\arabic{r12} Wolves}]{
   \Animal{#1}%
   {{-1}{r0t1}{r2b}}% BODY
   {0}% WITS
@@ -101,7 +101,7 @@
 }
 
 
-\newcommand{\woodspy}[1][{\E}{Woodspy}]{
+\newcommand{\woodspy}[1][\npc{\E}{Woodspy}]{
   \Animal{#1}%
   {{r3t4}{r2c}{r2b}}% BODY
   {r3b}% WITS
@@ -117,7 +117,7 @@
 }
 
 
-\newcommand{\basilisk}[1][{\A}{Basilisk}]{
+\newcommand{\basilisk}[1][\npc{\A}{Basilisk}]{
   \Animal{#1}%
   {{r4t6}{r2b}{r3}}% BODY
   {r2c}% WITS
@@ -130,7 +130,7 @@
 }
 
 
-\newcommand{\dragon}[1][{\E}{Dragon}]{
+\newcommand{\dragon}[1][\npc{\E}{Dragon}]{
   \statblock{
     \traits{{\E}{Dragon}}%
       {{r4t5}{r3t4}{r2t3}}%
@@ -159,7 +159,7 @@
   }
 }
 
-\newcommand{\dwarventrader}[1][{\T[\arabic{r12}]\Dw\M}{\arabic{r12} Dwarven Traders}]{
+\newcommand{\dwarventrader}[1][\npc{\T[\arabic{r12}]\Dw\M}{\arabic{r12} Dwarven Traders}]{
   \randomdozen
   #1
   \randomtwoB
@@ -182,7 +182,7 @@
   }
 }
 
-\newcommand{\dwarvensoldier}[1][{\T[\arabic{r12}]\Dw\M}{\arabic{r12} Dwarven Soldiers}]{
+\newcommand{\dwarvensoldier}[1][\npc{\T[\arabic{r12}]\Dw\M}{\arabic{r12} Dwarven Soldiers}]{
 \Person{#1}%
   {{r2}{r2b}{0}}% BODY
   {{0}{0}{-1}}% MIND
@@ -205,7 +205,7 @@
 }
 
 
-\newcommand{\dwarvenrunemaster}[1][{\Dw\M}{Dwarven Runemaster}]{
+\newcommand{\dwarvenrunemaster}[1][\npc{\Dw\M}{Dwarven Runemaster}]{
   \Person{#1}%
     {{0}{1}{-1}}% BODY
     {{r2b}{r3}{rn3t3}}% MIND
@@ -221,7 +221,7 @@
     {}% ABILITIES
 }
 
-\newcommand{\hag}[1][{\Hu\F}{Hag}]{
+\newcommand{\hag}[1][\npc{\Hu\F}{Hag}]{
   \Person{#1}%
     {{-1}{1}{-1}}% BODY
     {{r3c}{r3}{3}}% MIND
@@ -244,7 +244,7 @@
     {}% ABILITIES
 }
 
-\newcommand{\dryad}[1][{\E\El}{Dryad}]{
+\newcommand{\dryad}[1][\npc{\E\El}{Dryad}]{
   \Person{#1}%
     {{rn3t3}{r3}{r3c}}% BODY
     {{r2t3}{r3b}{r3t4}}% MIND
@@ -274,7 +274,7 @@
     {\mutation{r4b} \mutation{r4b} \mutation{r4b}}% ABILITIES
 }
 
-\newcommand{\elf}[1][{\T[\value{r2t4}]\El}{\arabic{noAppearing} Elves}]{
+\newcommand{\elf}[1][\npc{\T[\value{r2t4}]\El}{\arabic{noAppearing} Elves}]{
   \setcounter{age}{1}
   \addtocounter{age}{-\value{r3}}
   \set{track}{r3}
@@ -335,7 +335,7 @@
     {}% ABILITIES
 }
 
-\newcommand{\elvenenchanter}[1][{\El\M}{Elven Enchanter}]{
+\newcommand{\elvenenchanter}[1][\npc{\El\M}{Elven Enchanter}]{
   \setcounter{age}{1}
   \addtocounter{age}{-\value{r3}}
   \set{track}{r3}
@@ -373,7 +373,7 @@
     {}% ABILITIES
 }
 
-\newcommand{\gnome}[1][{\Gn\M}{Wandering Gnome}]{
+\newcommand{\gnome}[1][\npc{\Gn\M}{Wandering Gnome}]{
   \set{track}{r3c}
   \addtocounter{track}{-4}
   \Person{#1}%
@@ -395,7 +395,7 @@
     {}% ABILITIES
 }
 
-\newcommand{\gnomishsoldier}[1][{\T[\arabic{r12}]\Gn\M}{Gnomish Soldiers}]{
+\newcommand{\gnomishsoldier}[1][\npc{\T[\arabic{r12}]\Gn\M}{Gnomish Soldiers}]{
   \set{track}{r3c}
   \addtocounter{track}{-3}
   \Person{#1}%
@@ -437,7 +437,7 @@
     {}% ABILITIES
 }
 
-\newcommand{\gnomishillusionist}[1][{\Gn\M}{Gnomish Illusionist}]{
+\newcommand{\gnomishillusionist}[1][\npc{\Gn\M}{Gnomish Illusionist}]{
   \set{track}{r3c}
   \addtocounter{track}{-4}
   \Person{#1}%
@@ -462,7 +462,7 @@
     {}% ABILITIES
 }
 
-\newcommand{\humanfarmer}[1][{\Hu\M}{Farmer}]{
+\newcommand{\humanfarmer}[1][\npc{\Hu\M}{Farmer}]{
   \Person{#1}%
     {{r3}{0}{0}}% BODY
     {{rn1t2}{-1}{0}}% MIND
@@ -486,7 +486,7 @@
 }
 
 
-\newcommand{\humanmaid}[1][{\Hu\F}{Maid}]{
+\newcommand{\humanmaid}[1][\npc{\Hu\F}{Maid}]{
   \Person{#1}%
     {{r2}{1}{0}}% BODY
     {{rn1t2}{-1}{0}}% MIND
@@ -507,7 +507,7 @@
     {}% ABILITIES
 }
 
-\newcommand{\humantrader}[1][{\T[\arabic{r12}]\Hu}{\arabic{noAppearing}~Traders}]{
+\newcommand{\humantrader}[1][\npc{\T[\arabic{r12}]\Hu}{\arabic{noAppearing}~Traders}]{
   \Person{#1}%
     {{r2}{0}{0}}% BODY
     {{rn1t2}{0}{0}}% MIND
@@ -535,7 +535,7 @@
     {}% ABILITIES
 }
 
-\newcommand{\humandiplomat}[1][{\Hu\M}{The Diplomat}]{
+\newcommand{\humandiplomat}[1][\npc{\Hu\M}{The Diplomat}]{
   \Person{#1}%
     {{1}{0}{0}}% BODY
     {{r2}{rn1t2}{rn3t3}}% MIND
@@ -561,7 +561,7 @@
 }
 
 
-\newcommand{\doula}[1][{\Hu\F}{Doula}]{
+\newcommand{\doula}[1][\npc{\Hu\F}{Doula}]{
   \Person{#1}%
     {{rn1t0}{r2}{-1}}% BODY
     {{r3}{r2b}{rn3t3}}% MIND
@@ -593,7 +593,7 @@
 }
 
 
-\newcommand{\humansoldier}[1][{\T[\arabic{r12}]\Hu}{\arabic{noAppearing}~Soldiers}]{
+\newcommand{\humansoldier}[1][\npc{\T[\arabic{r12}]\Hu}{\arabic{noAppearing}~Soldiers}]{
   \Person{#1}%
     {{r3}{0}{rn1t2}}% BODY
     {{0}{-1}{0}}% MIND
@@ -623,7 +623,7 @@
 }
 
 
-\newcommand{\sunguard}[1][{\T[\arabic{r12}]\Hu}{Sun Guards}]{
+\newcommand{\sunguard}[1][\npc{\T[\arabic{r12}]\Hu}{Sun Guards}]{
   \Person{#1}%
     {{2}{0}{1}}% BODY
     {{0}{-1}{0}}% MIND
@@ -640,7 +640,7 @@
     {}% ABILITIES
 }
 
-\newcommand{\humanarcher}[1][{\T[\arabic{r12}]\Hu}{\arabic{r12} Archers}]{
+\newcommand{\humanarcher}[1][\npc{\T[\arabic{r12}]\Hu}{\arabic{r12} Archers}]{
   \Person{#1}%
     {{r3}{0}{rn1t2}}% BODY
     {{0}{0}{0}}% MIND
@@ -664,7 +664,7 @@
     {}% ABILITIES
 }
 
-\newcommand{\humanthief}[1][{\Hu\M}{Thief}]{
+\newcommand{\humanthief}[1][\npc{\Hu\M}{Thief}]{
   \Person{#1}%
     {{r2b}{r2c}{rn1t2}}% BODY
     {{0}{-1}{0}}% MIND
@@ -698,7 +698,7 @@
     {}% ABILITIES
 }
 
-\newcommand{\humanbard}[1][{\Hu\F}{Bard}]{
+\newcommand{\humanbard}[1][\npc{\Hu\F}{Bard}]{
   \Person{#1}%
     {{r2b}{r2c}{rn1t2}}% BODY
     {{0}{-1}{r3c}}% MIND
@@ -728,7 +728,7 @@
     {}% ABILITIES
 }
 
-\newcommand{\humanalchemist}[1][{\M}{Alchemist}]{
+\newcommand{\humanalchemist}[1][\npc{\M}{Alchemist}]{
   \Person{#1}%
     {{rn1t2}{0}{0}}% BODY
     {{r2}{rn1t2}{rn3t3}}% MIND
@@ -767,7 +767,7 @@
     {}% ABILITIES
 }
 
-\newcommand{\gnollhunter}[1][{\T[\arabic{r12}]\Nl}{\arabic{r12} Gnoll Hunters}]{
+\newcommand{\gnollhunter}[1][\npc{\T[\arabic{r12}]\Nl}{\arabic{r12} Gnoll Hunters}]{
   \Person{#1}%
     {{r3}{r2b}{r2c}}% BODY
     {{-1}{0}{-2}}% MIND
@@ -801,7 +801,7 @@
     {}% ABILITIES
 }
 
-\newcommand{\gnollshaman}[1][{\Nl\F}{Gnoll Shaman}]{
+\newcommand{\gnollshaman}[1][\npc{\Nl\F}{Gnoll Shaman}]{
   \Person{#1}%
     {{rn1t2}{0}{1}}% BODY
     {{rn1t0}{r2t3}{rn1t0}}% MIND
@@ -836,7 +836,7 @@
     {}% ABILITIES
 }
 
-\newcommand{\morphcat}[1][{\A\R}{Morph Cat}]{
+\newcommand{\morphcat}[1][\npc{\A\R}{Morph Cat}]{
   \Animal{#1}%
   {{r3b}{r3c}{r3t4}}% BODY
   {r4}% WITS
@@ -853,7 +853,7 @@
   {\quadraped \mutation[2]{r4}}% ABILITIES
 }
 
-\newcommand{\morphhorse}[1][{\T[\arabic{r3c}]\A\R}{\arabic{noAppearing}~Morph Horses}]{
+\newcommand{\morphhorse}[1][\npc{\T[\arabic{r3c}]\A\R}{\arabic{noAppearing}~Morph Horses}]{
   \Animal{#1}%
   {{r4b}{rn1t0}{r4}}% BODY
   {r2}% WITS
@@ -869,7 +869,7 @@
   {\quadraped \set{track}{r3} \mutation[2]{track}}% ABILITIES
 }
 
-\newcommand{\morphslug}[1][{\T[\arabic{r12}]\A\R}{\arabic{r12} Morph Slugs}]{
+\newcommand{\morphslug}[1][\npc{\T[\arabic{r12}]\A\R}{\arabic{r12} Morph Slugs}]{
   \Animal{#1}%
   {{rn1t0}{rn1t2}{-2}}% BODY
   {r2}% WITS
@@ -883,7 +883,7 @@
   {\acidSpray}% ABILITIES
 }
 
-\newcommand{\morphspider}[1][{\A\R}{Morph Spider}]{
+\newcommand{\morphspider}[1][\npc{\A\R}{Morph Spider}]{
   \Animal{#1}%
   {{r4t5}{r0t1}{r4b}}% BODY
   {0}% WITS
@@ -899,7 +899,7 @@
   {\quadraped \set{track}{r4} \mutation[3]{track}}% ABILITIES
 }
 
-\newcommand{\morphwoodspy}[1][{\E\R}{Morph Woodspy}]{
+\newcommand{\morphwoodspy}[1][\npc{\E\R}{Morph Woodspy}]{
   \Animal{#1}%
   {{r4t5}{r0t1}{r4b}}% BODY
   {0}% WITS
@@ -915,7 +915,7 @@
   {\quadraped \set{track}{r2} \mutation[2]{track}}% ABILITIES
 }
 
-\newcommand{\morphrat}[1][{\T[\arabic{r12}]\A\R}{\arabic{r12} Morph Rats}]{
+\newcommand{\morphrat}[1][\npc{\T[\arabic{r12}]\A\R}{\arabic{r12} Morph Rats}]{
   \Animal{#1}%
   {{r2b}{rn1t2}{r4}}% BODY
   {r2}% WITS
@@ -928,7 +928,7 @@
   {\quadraped \set{track}{r4} \mutation[2]{track}}% ABILITIES
 }
 
-\newcommand{\morphwolf}[1][{\T[\arabic{r12}]\A\R}{\arabic{r12} Morph Wolves}]{
+\newcommand{\morphwolf}[1][\npc{\T[\arabic{r12}]\A\R}{\arabic{r12} Morph Wolves}]{
   \Animal{#1}%
   {{r4b}{rn1t2}{r2b}}% BODY
   {r2}% WITS
@@ -944,7 +944,7 @@
 
 %%%%%%%%%% Goblinoids %%%%%%%%%%
 
-\newcommand{\goblin}[1][{\T[\arabic{r12}]\N}{\arabic{noAppearing} Goblins}]{
+\newcommand{\goblin}[1][\npc{\T[\arabic{r12}]\N}{\arabic{noAppearing} Goblins}]{
   \Person{#1}%
     {{rn1t0}{r2b}{rn1t2}}% BODY
     {{rn1t0}{rn3t3}{rn4tn1}}% MIND
@@ -973,7 +973,7 @@
     \fi}% ABILITIES
 }
 
-\newcommand{\undeadgoblin}[1][{\T[\arabic{r12}]\D}{\arabic{r12} Undead Goblins}]{
+\newcommand{\undeadgoblin}[1][\npc{\T[\arabic{r12}]\D}{\arabic{r12} Undead Goblins}]{
   \Person{#1}%
     {{rn1t0}{r2b}{rn1t2}}% BODY
     {{rn1t0}{rn3t3}{rn4tn1}}% MIND
@@ -988,7 +988,7 @@
     {\undead}% ABILITIES
 }
 
-\newcommand{\goblincaster}[1][{\F\N}{Goblin Druid}]{
+\newcommand{\goblincaster}[1][\npc{\F\N}{Goblin Druid}]{
   \Person{#1}%
     {{rn1t0}{r2b}{rn1t2}}% BODY
     {{rn1t0}{r2t3}{rn4tn1}}% MIND
@@ -1026,7 +1026,7 @@
     \fi}% ABILITIES
 }
 
-\newcommand{\hobgoblin}[1][{\T[\arabic{r12}]\N}{\arabic{r12} Hobgoblins}]{
+\newcommand{\hobgoblin}[1][\npc{\T[\arabic{r12}]\N}{\arabic{r12} Hobgoblins}]{
   \Person{#1}%
     {{r3}{rn1t2}{r2}}% BODY
     {{rn1t0}{rn1t0}{rn4tn1}}% MIND
@@ -1061,7 +1061,7 @@
     \fi}% ABILITIES
 }
 
-\newcommand{\undeadhobgoblin}[1][{\T[\arabic{r12}]\D}{\arabic{r12} Undead Hobgoblins}]{
+\newcommand{\undeadhobgoblin}[1][\npc{\T[\arabic{r12}]\D}{\arabic{r12} Undead Hobgoblins}]{
   \Person{#1}%
     {{r3}{rn1t2}{r2}}% BODY
     {{rn1t0}{rn1t0}{rn4tn1}}% MIND
@@ -1073,7 +1073,7 @@
     {\undead}% ABILITIES
 }
 
-\newcommand{\ogre}[1][{\N\M}{Ogre}]{
+\newcommand{\ogre}[1][\npc{\N\M}{Ogre}]{
   \Person{#1}%
     {{r4t6}{rn1t2}{r3}}% BODY
     {{rn1t0}{rn1t2}{rn4tn1}}% MIND
@@ -1104,7 +1104,7 @@
     \fi}% ABILITIES
 }
 
-\newcommand{\armouredOgre}[1][{\N\F}{Ogre}]{
+\newcommand{\armouredOgre}[1][\npc{\N\F}{Ogre}]{
   \Person{#1}%
     {{r4t6}{rn1t2}{r3}}% BODY
     {{rn1t0}{rn1t2}{rn4tn1}}% MIND
@@ -1137,7 +1137,7 @@
     \fi}% ABILITIES
 }
 
-\newcommand{\undeadogre}[1][{\D\N}{Undead Ogre}]{
+\newcommand{\undeadogre}[1][\npc{\D\N}{Undead Ogre}]{
   \Person{#1}%
     {{r4t6}{rn1t2}{r3}}% BODY
     {{rn1t0}{rn1t2}{rn4tn1}}% MIND
@@ -1149,7 +1149,7 @@
     {\undead}% ABILITIES
 }
 
-\newcommand{\ghoul}[1][{\T[\arabic{r12}]\D}{\arabic{r12} Ghouls}]{
+\newcommand{\ghoul}[1][\npc{\T[\arabic{r12}]\D}{\arabic{r12} Ghouls}]{
   \Animal{#1}%
   {{r3}{rn1t2}{0}}% BODY
   {r2}% WITS
@@ -1164,7 +1164,7 @@
   {\undead}% ABILITIES
 }
 
-\newcommand{\ghast}[1][{\D\Hu}{Ghast}]{
+\newcommand{\ghast}[1][\npc{\D\Hu}{Ghast}]{
   \Person{#1}%
     {{r3}{0}{0}}% BODY
     {{rn1t2}{-1}{0}}% MIND
@@ -1198,7 +1198,7 @@
     {}% ABILITIES
 }
 
-\newcommand{\necromancer}[1][{\M}{Necromancer}]{
+\newcommand{\necromancer}[1][\npc{\M}{Necromancer}]{
   \Person{#1}%
     {{rn1t2}{0}{rn1t2}}% BODY
     {{r2}{rn1t2}{rn3t3}}% MIND
@@ -1247,7 +1247,7 @@
     {}% ABILITIES
 }
 
-\newcommand{\demilich}[1][{\D\E}{Demilich}]{
+\newcommand{\demilich}[1][\npc{\D\E}{Demilich}]{
   \Person{#1}%
     {{rn3t3}{0}{0}}% BODY
     {{rn1t2}{r2}{-4}}% MIND
@@ -1286,7 +1286,7 @@
     {\undead}% ABILITIES
 }
 
-\newcommand{\lich}[1][{\D}{Lich}]{
+\newcommand{\lich}[1][\npc{\D}{Lich}]{
   \Person{#1}%
     {{rn3t3}{0}{0}}% BODY
     {{r3t4}{r3b}{-5}}% MIND
@@ -1343,7 +1343,7 @@
   {rn4tn1}% Wits
 }
 
-\newcommand{\umberhulk}[1][{\A}{Umber Hulk}]{
+\newcommand{\umberhulk}[1][\npc{\A}{Umber Hulk}]{
   \Animal{#1}%
   {{r4t6}{r3b}{rn1t2}}% BODY
   {r2c}% WITS
@@ -1355,7 +1355,7 @@
   {\hide{r4t5} \quadraped \stench}% ABILITIES
 }
 
-\newcommand{\horse}[1][{\A}{Horse}]{
+\newcommand{\horse}[1][\npc{\A}{Horse}]{
   \Animal{#1}%
   {{r3b}{rn1t0}{r3}}% BODY
   {r2c}% WITS
@@ -1368,7 +1368,7 @@
   {\hide{2} \quadraped}% ABILITIES
 }
 
-\newcommand{\warhorse}[1][{\A}{War Horse}]{
+\newcommand{\warhorse}[1][\npc{\A}{War Horse}]{
   \Animal{#1}%
   {{r2t3}{r2b}{r3b}}% BODY
   {r2c}% WITS
@@ -1381,7 +1381,7 @@
   {\hide{2} \quadraped}% ABILITIES
 }
 
-\newcommand{\donkey}[1][{\A}{Donkey}]{
+\newcommand{\donkey}[1][\npc{\A}{Donkey}]{
   \Animal{#1}%
   {{r2b}{rn1t0}{r3}}% BODY
   {r2c}% WITS
@@ -1394,7 +1394,7 @@
   {\hide{3} \quadraped}% ABILITIES
 }
 
-\newcommand{\cat}[1][{\A}{Cat}]{
+\newcommand{\cat}[1][\npc{\A}{Cat}]{
   \Animal{#1}%
   {{-5}{r3t4}{r4}}% BODY
   {r3c}% WITS
@@ -1410,7 +1410,7 @@
   {\quadraped}% ABILITIES
 }
 
-\newcommand{\huntingdog}[1][{\T[\arabic{r4b}]\A}{\arabic{r4b} Hunting Dogs}]{
+\newcommand{\huntingdog}[1][\npc{\T[\arabic{r4b}]\A}{\arabic{r4b} Hunting Dogs}]{
   \Animal{#1}%
   {{-3}{rn1t0}{r3}}% BODY
   {r2}% WITS
@@ -1424,7 +1424,7 @@
   {\quadraped}% ABILITIES
 }
 
-\newcommand{\rockman}[1][{\E}{Rock Man}]{
+\newcommand{\rockman}[1][\npc{\E}{Rock Man}]{
   \Person{#1}%
     {{r4t5}{rn1t2}{rn4tn1}}% BODY
     {{rn1t2}{-1}{r3}}% MIND
@@ -1443,7 +1443,7 @@
     {\hide{7}}% ABILITIES
 }
 
-\newcommand{\lavaman}[1][{\E}{Lavaman}]{
+\newcommand{\lavaman}[1][\npc{\E}{Lavaman}]{
   \Person{#1}%
     {{r4t5}{rn1t2}{rn4tn1}}% BODY
     {{rn1t2}{-1}{-3}}% MIND
@@ -1463,7 +1463,7 @@
     {\hide{6} \acidBody[scorching]}% ABILITIES
 }
 
-\newcommand{\archmage}[1][{\E}{Archmage}]{
+\newcommand{\archmage}[1][\npc{\E}{Archmage}]{
   \Person{#1}%
     {{-5}{-1}{-5}}% BODY
     {{r4t6}{r3t4}{rn1t0}}% MIND
@@ -1487,7 +1487,7 @@
     {\mutation{r4b} \mutation{r4b} \mutation{r4b}}% ABILITIES
 }
 
-\newcommand{\watcher}[1][{\A}{Watcher}]{
+\newcommand{\watcher}[1][\npc{\A}{Watcher}]{
   \Animal{#1}%
   {{-5}{-3}{-5}}% BODY
   {r4}% WITS
