@@ -107,7 +107,7 @@
   {r3b}% WITS
   {%
     \set{Athletics}{2}
-    \set{Stealth}{r2c}
+    \set{Stealth}{r4t6}
     \set{Tactics}{r3}
     \set{Intelligence}{r3c}
     \addtocounter{Intelligence}{-6}
@@ -843,13 +843,14 @@
   {%
     \set{Brawl}{r4b}%
     \set{Athletics}{r2b}%
+    \set{Stealth}{r3}%
     \ifodd\value{r4}%
       \setcounter{Vigilance}{\value{r2c}}%
     \fi%
     \setcounter{Wyldcrafting}{\value{r2}}%
   }% SKILLS
   {\charge, \perfectsneakattack}% KNACKS
-  {\quadraped \mutation[2]{r3}}% ABILITIES
+  {\quadraped \mutation[2]{r4}}% ABILITIES
 }
 
 \newcommand{\morphhorse}[1][{\T[\arabic{r3c}]\A\R}{\arabic{noAppearing}~Morph Horses}]{
@@ -966,19 +967,7 @@
       \fi
     }% SKILLS
     {}% KNACKS
-    {%
-      \ifodd\value{r4b}%
-        \ifnum\value{noAppearing}<4%
-          \lootGoblin, %
-        \fi%
-        \ifodd\value{r3b}%
-          \lootMedium, %
-        \fi%
-      \fi%
-      \ifodd\value{r2}%
-        \lootSmall%
-      \fi%
-    }% EQUIPMENT
+    {\lootGoblin, \lootGoblin}% EQUIPMENT
     {\ifnum\value{noAppearing}<3
       \mutation{r4}%
     \fi}% ABILITIES
@@ -1335,19 +1324,7 @@
 }
 
 \newcommand\jelly{%
-  \randomtwoC%
-  \randomthree%
-  \randomfour%
-  \randomdozen%
-  \setcounter{enc}{\value{r12}}%
-    \addtocounter{enc}{\value{r4}}%
-  \setcounter{att}{\value{r4}}%
-    \addtocounter{att}{\value{r2}}%
-  \setcounter{Speed}{3}%
-    \addtocounter{Speed}{-\value{r4}}%
-  \setcounter{Wits}{2}%
-    \addtocounter{Wits}{-\value{r4}}%
-  \swarm[\gloopy, %
+  \swarm[\gloopy%
   \ifnum\value{r4}=3%
     \acidSpray%
   \fi]{\ifcase\value{r4}\relax\or%
@@ -1360,254 +1337,182 @@
     Black%
   \fi%
   \space Ooze}% Name
-  {\value{enc}}% HP
-  {\value{att}}% Attack
-  {\value{Speed}}% Speed
-  {\value{Wits}}% Wits
+  {r12}% HP
+  {r4t6}% Attack
+  {rn1t2}% Speed
+  {rn4tn1}% Wits
 }
 
 \newcommand{\umberhulk}[1][{\A}{Umber Hulk}]{
-  #1
-  \randomtwo\addtocounter{enc}{3}
-  \randomthree 
-  \randomtwoB
-  \addtocounter{r2b}{-1}
-  \animal{\arabic{enc}}% STRENGTH
-  {\arabic{r2b}}% DEXTERITY 
-  {\arabic{r3}}% SPEED
-  {\arabic{r2}}% WITS
-  {\arabic{enc}}% DR
-  {2}% AGGRESSION
-  {}% SKILLS
-  {\quadraped}% ABILITIES
+  \Animal{#1}%
+  {{r4t6}{r3b}{rn1t2}}% BODY
+  {r2c}% WITS
   {
-      \renewcommand\abilities{\stench}
-      \setcounter{Caving}{\value{r3}}
-      \setcounter{Stealth}{\value{r2}}
-      \setcounter{Vigilance}{\value{r2b}}
-  }
+    \set{Athletics}{2}
+    \set{Brawl}{r3c}
+  }% SKILLS
+  {\unstoppable}% KNACKS
+  {\hide{r4t5} \quadraped \stench}% ABILITIES
 }
 
 \newcommand{\horse}[1][{\A}{Horse}]{
-  #1
-  \randomtwo
-  \randomtwoB
-  \addtocounter{enc}{1}
-\animal{\arabic{enc}}% STRENGTH
-{0}% DEXTERITY 
-{\arabic{r2b}}% SPEED
-{\arabic{r2}}% WITS
-{1}% DR
-{\ifodd\value{r2}1\else 0\fi}% AGGRESSION
-{Athletics~2, Vigilance~2}% SKILLS
-{\quadraped}% ABILITIES
-{}
+  \Animal{#1}%
+  {{r3b}{rn1t0}{r3}}% BODY
+  {r2c}% WITS
+  {
+    \set{Athletics}{1}
+    \set{Brawl}{r3c}
+    \set{Vigilance}{r2}
+  }% SKILLS
+  {}% KNACKS
+  {\hide{2} \quadraped}% ABILITIES
 }
 
 \newcommand{\warhorse}[1][{\A}{War Horse}]{
-  #1
-  \randomtwo
-  \randomtwoB
-  \addtocounter{enc}{2}
-  \addtocounter{r2b}{2}
-\animal{\arabic{enc}}% STRENGTH
-{0}% DEXTERITY 
-{\arabic{r2b}}% SPEED
-{\arabic{r2}}% WITS
-{1}% DR
-{\ifodd\value{r2}1\else 2\fi}% AGGRESSION
-{Athletics~2, Vigilance~1}% SKILLS
-{\quadraped}% ABILITIES
-{}
+  \Animal{#1}%
+  {{r2t3}{r2b}{r3b}}% BODY
+  {r2c}% WITS
+  {
+    \set{Athletics}{2}
+    \set{Brawl}{r3c}
+    \set{Vigilance}{rn1t2}
+  }% SKILLS
+  {}% KNACKS
+  {\hide{2} \quadraped}% ABILITIES
 }
 
 \newcommand{\donkey}[1][{\A}{Donkey}]{
-  #1
-  \randomtwo
-  \addtocounter{enc}{1}
-  \randomtwoB
-\animal{\arabic{r2}}% STRENGTH
-{-1}% DEXTERITY 
-{\arabic{r2b}}% SPEED
-{1}% WITS
-{1}% DR
-{1}% AGGRESSION
-{Athletics~2}% SKILLS
-{\quadraped}% ABILITIES
-{}
+  \Animal{#1}%
+  {{r2b}{rn1t0}{r3}}% BODY
+  {r2c}% WITS
+  {
+    \set{Athletics}{r2b}
+    \set{Brawl}{r3c}
+    \set{Vigilance}{r2}
+  }% SKILLS
+  {}% KNACKS
+  {\hide{3} \quadraped}% ABILITIES
 }
 
 \newcommand{\cat}[1][{\A}{Cat}]{
-    #1
-    \randomtwo
-    \randomtwoB
-    \randomtwoC
-    \addtocounter{r2b}{2}
-  \animal{-5}% STRENGTH
-  {\arabic{enc}}% DEXTERITY 
-  {\arabic{r2b}}% SPEED
-  {3}% WITS
-  {0}% DR
-  {\arabic{r2}}% AGGRESSION
-  {}% SKILLS
-  {\quadraped, \claws}% ABILITIES
+  \Animal{#1}%
+  {{-5}{r3t4}{r4}}% BODY
+  {r3c}% WITS
   {
-    \setcounter{Wyldcrafting}{2}
-    \setcounter{Vigilance}{\value{r2c}}
-    \setcounter{Charisma}{\value{r2c}}
-    \ifodd\value{r3}
-      \setcounter{Fate}{\value{r2c}}
-      \setcounter{fp}{3}
-    \fi
-  }%
+    \set{Athletics}{r2t3}
+    \set{Brawl}{r2c}
+    \set{Stealth}{r3}
+    \set{Vigilance}{r3b}
+    \set{fp}{r12}
+    \set{Charisma}{rn3t3}
+  }% SKILLS
+  {}% KNACKS
+  {\quadraped}% ABILITIES
 }
 
 \newcommand{\huntingdog}[1][{\T[\arabic{r4b}]\A}{\arabic{r4b} Hunting Dogs}]{
-  \randomfourB
-  \addtocounter{r4b}{2}
-  #1
-  \randomtwo
-  \randomtwoB
-  \addtocounter{enc}{-2}
-\animal{-2}% STRENGTH
-{\arabic{enc}}% DEXTERITY 
-{\arabic{r2b}}% SPEED
-{1}% WITS
-{0}% DR
-{\arabic{r2}}% AGGRESSION
-{Vigilance~2, Wyldcrafting~\arabic{r2}}% SKILLS
-{\teeth, \quadraped}% ABILITIES
-{}%
+  \Animal{#1}%
+  {{-3}{rn1t0}{r3}}% BODY
+  {r2}% WITS
+  {
+    \set{Athletics}{r3b}
+    \set{Brawl}{r2c}
+    \set{Vigilance}{r3c}
+    \set{Charisma}{rn3t3}
+  }% SKILLS
+  {}% KNACKS
+  {\quadraped}% ABILITIES
 }
 
 \newcommand{\rockman}[1][{\E}{Rock Man}]{
-  #1
-  \randomtwo
-  \addtocounter{enc}{-1}
-  \randomthree
-  \addtocounter{age}{4}
-  \randomtwoB
-  \addtocounter{r2b}{-\value{age}}
-\person{\arabic{age}}% STRENGTH
-{\arabic{r2}}% DEXTERITY
-{\arabic{r2b}}% SPEED
-{{\arabic{r3b}}% INTELLIGENCE
-{-4}% WITS
-{\arabic{r3}}}% CHARISMA
-{\arabic{age}}% DR
-{\arabic{r2}}% AGGRESSION
-{Academics~\arabic{r3}, Stealth~3, Vigilance~\arabic{r2}, Xenomology~\arabic{r2}}% SKILLS
-{\ifnumcomp{\value{r12}}{=}{12}%
-  {Pet rock}%
-  {None}
-\perfectArmour}% EQUIPMENT
-{}
+  \Person{#1}%
+    {{r4t5}{rn1t2}{rn4tn1}}% BODY
+    {{rn1t2}{-1}{r3}}% MIND
+    {%
+      \set{Brawl}{r3c}
+      \set{Caving}{rn1t2}
+      \set{Empathy}{rn3t3}
+      \set{Xenomology}{r2c}
+      \ifodd\value{r3b}
+      \else%
+        \glaive%
+      \fi%
+    }% SKILLS
+    {}% KNACKS
+    {}% EQUIPMENT
+    {\hide{7}}% ABILITIES
 }
 
 \newcommand{\lavaman}[1][{\E}{Lavaman}]{
-  #1
-  \randomtwo
-  \addtocounter{enc}{-1}
-  \randomthree
-  \addtocounter{age}{4}
-  \randomtwoB
-  \addtocounter{r2b}{-\value{age}}
-  \addtocounter{r2b}{3}
-\person{\arabic{age}}% STRENGTH
-{-1}% DEXTERITY 
-{\arabic{r2b}}% SPEED
-{{-4}% INTELLIGENCE
-{-5}% WITS
-{-4}}% CHARISMA
-{\arabic{age}}% DR
-{\arabic{r4}}% AGGRESSION
-{Crafts~\arabic{r2}, Deceit~\arabic{r3}, Xenomology~1}% SKILLS
-{\ifodd\value{r3}None\else\greatsword\fi}% EQUIPMENT
-{\perfectArmour}
+  \Person{#1}%
+    {{r4t5}{rn1t2}{rn4tn1}}% BODY
+    {{rn1t2}{-1}{-3}}% MIND
+    {%
+      \set{Brawl}{r3c}
+      \set{Combat}{r2c}
+      \set{Caving}{r3b}
+      \set{Deceit}{rn3t3}
+      \set{Xenomology}{r2}
+      \ifodd\value{r3b}
+      \else%
+        \glaive%
+      \fi%
+    }% SKILLS
+    {}% KNACKS
+    {}% EQUIPMENT
+    {\hide{6} \acidBody[scorching]}% ABILITIES
 }
 
 \newcommand{\archmage}[1][{\E}{Archmage}]{
-    #1
-    \randomtwo
-    \addtocounter{enc}{3}
-    \randomtwoB
-      \addtocounter{r2b}{1}
-    \randomtwoC
-      \setcounter{track}{\value{r2c}}
-      \stepcounter{track}
-    \randomtwoD
-    \randomthree
-      \addtocounter{age}{1}
-    \randomthreeB
-    \randomthreeC
-    \randomfour
-    \randomfourB
-  \person{-5}% STRENGTH
-  {-2}% DEXTERITY 
-  {0}% SPEED
-  {{\arabic{enc}}% INTELLIGENCE
-  {\arabic{r2b}}% WITS
-  {-4}}% CHARISMA
-  {0}% DR
-  {0}% AGGRESSION
-  {}% SKILLS
-  {None}% ABILITIES
-  {
-    \knacks{\snapcaster}
-
-    \setcounter{Deceit}{\value{r2b}}
-    \randomtwoC
-    \setcounter{Tactics}{\value{r2c}}
-    \setcounter{Xenomology}{\value{track}}
-
-    \multiply\value{track} by 2
-    \addtocounter{track}{-2}
-    \setcounter{Air}{\value{r2b}}
-    \setcounter{Fire}{\value{age}}
-    \setcounter{Water}{\value{track}}
-    \setcounter{Earth}{\value{r4b}}
-  }
+  \Person{#1}%
+    {{-5}{-1}{-5}}% BODY
+    {{r4t6}{r3t4}{rn1t0}}% MIND
+    {%
+      \set{Vigilance}{r3c}
+      \set{Xenomology}{r3t4}
+      \set{Flight}{r4}
+      \set{Tactics}{rn3t3}
+      \set{Air}{rn1t2}
+      \set{Earth}{r3t4}
+      \set{Fire}{r2t3}
+      \set{Water}{r3b}
+      \ifnum\value{Strength}>1
+        \spear
+      \else
+        \Dagger
+      \fi
+    }% SKILLS
+    {}% KNACKS
+    {\ifodd\value{r3}\lootGoblin, \lootJewellery\else\lootJewellery\fi, \lootJewellery}% EQUIPMENT
+    {\mutation{r4b} \mutation{r4b} \mutation{r4b}}% ABILITIES
 }
 
 \newcommand{\watcher}[1][{\A}{Watcher}]{
-  #1
-  \randomthree
-  \addtocounter{age}{-3}
-  \animal{\arabic{age}}% STRENGTH
-  {-2}% DEXTERITY 
-  {-2}% SPEED
-  {\arabic{age}}% WITS
-  {7}% DR
-  {0}% AGGRESSION
-  {}% SKILLS
-  {}% ABILITIES
-  {
-    \renewcommand\abilities{\crazyGas}
-    \setcounter{Stealth}{3}
-    \addtocounter{xpbonus}{3}
-  }
+  \Animal{#1}%
+  {{-5}{-3}{-5}}% BODY
+  {r4}% WITS
+  {%
+    \set{Stealth}{r3t4}%
+    \ifodd\value{r4}%
+      \setcounter{Vigilance}{\value{r2c}}%
+    \fi%
+    \setcounter{Wyldcrafting}{\value{r2}}%
+  }% SKILLS
+  {\unstoppable}% KNACKS
+  {\crazyGas}% ABILITIES
 }
-
 
 %%%%% Swarms %%%%%
 
 \newcommand\basiliskSwarm{
-  \ifnum\value{diceNo}>\value{r4}
-    \setcounter{diceNo}{\value{r4}}
-  \else
-    \stepcounter{diceNo}
-  \fi
-  \randomdozen
   \swarm{Basilisk Hatchlings}% Name
-  {\arabic{r12}}%
+  {r12}%
   {0}%
   {1}%
   {-1}
 }
 
 \newcommand\stirgeSwarm{
-  \randomdozen
-  \setcounter{Strength}{-2}
   \swarm[\flight]{Stirges Hatchlings}% Name
   {\arabic{r12}}%
   {0}%
@@ -1616,12 +1521,8 @@
 }
 
 \newcommand\skeinSwarm{%
-  \randomdozen%
-  \setcounter{track}{\value{r12}}%
-  \multiply\value{track} by 3%
-  \addtocounter{track}{0}%
-  \swarm{\arabic{track} Skein}% Name
-  {\arabic{r12}}%
+  \swarm{\arabic{r12} Skein}% Name
+  {r12}%
   {1}%
   {2}%
   {0}
