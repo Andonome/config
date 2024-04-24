@@ -131,32 +131,29 @@
 
 
 \newcommand{\dragon}[1][\npc{\E}{Dragon}]{
-  \statblock{
-    \traits{{\E}{Dragon}}%
-      {{r4t5}{r3t4}{r2t3}}%
-      {{r3t4}{r2t3}{rn3t3}}%
-      {%
-        \set{Brawl}{r4b}
-        \set{Academics}{r3}
-        \set{Athletics}{r2b}
-        \set{Flight}{r3c}
-        \set{Deceit}{r2c}
-        \set{Tactics}{2}
-        \set{Vigilance}{3}
-        \set{Air}{rn1t0}
-        \set{Fire}{r3}
-        \set{Fate}{rn3t3}
-        \set{Water}{rn1t2}
-        \set{Earth}{r3b}
-      }% SKILLS
-      {%
-      \ifnumcomp{\value{r3}}{>}{2}{\laststand}{\adrenalinesurge},
-      \ifnumcomp{\value{r3b}}{>}{1}{\chosenEnemy{Dwarves}}{\unstoppable},
-      \ifnumcomp{\value{Wits}}{>}{\value{Charisma}}{\snapcaster}{}%
-      }% KNACKS
-      {}% EQUIPMENT
-      {\flight \hide{r3t4}}% ABILITIES
-  }
+  \Person{#1}%
+    {{r4t5}{r3t4}{r2t3}}%
+    {{r3t4}{r2t3}{rn3t3}}%
+    {%
+      \set{Brawl}{r4b}
+      \set{Academics}{r3}
+      \set{Athletics}{r2b}
+      \set{Flight}{r3c}
+      \set{Deceit}{r2c}
+      \set{Tactics}{2}
+      \set{Vigilance}{3}
+      \set{Air}{rn1t0}
+      \set{Fire}{r3}
+      \set{Fate}{rn3t3}
+      \set{Water}{rn1t2}
+      \set{Earth}{r3b}
+    }% SKILLS
+    {%
+      \ifnumcomp{\value{Wits}}{>}{\value{Charisma}}{\snapcaster}{\laststand},
+      \ifnumcomp{\value{r3b}}{>}{1}{\chosenEnemy{Dwarves}}{\unstoppable}%
+    }% KNACKS
+    {}% EQUIPMENT
+    {\flight \hide{r3t4}}% ABILITIES
 }
 
 \newcommand{\dwarventrader}[1][\npc{\T[\arabic{r12}]\Dw\M}{\arabic{r12} Dwarven Traders}]{
