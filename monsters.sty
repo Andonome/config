@@ -286,7 +286,7 @@
       \set{Brawl}{rn1t2}
       \ifodd\value{r2c}
         \set{Combat}{rn3t3}
-        \set{Athletics}{age}
+        \set{Athletics}{r3c}
         \set{Crafts}{rn3t3}
         \set{Vigilance}{r2}
         \set{Wyldcrafting}{rn1t2}
@@ -310,6 +310,8 @@
       \fi
       \ifnum\value{Strength}=0
         \rapier
+      \else
+        \Dagger
       \fi
     }% SKILLS
     {%
