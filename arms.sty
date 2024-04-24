@@ -46,7 +46,7 @@
 %% It remains unterminated so you can add Costs.
 
 \newcommand\showWeapon[1]{%
-  #1 & \arabic{weaponBonus} & \arabic{weaponDamage} & \arabic{heft} & \arabic{armourWeight}
+  #1 \weaponName & \arabic{weaponBonus} & \arabic{weaponDamage} & \arabic{heft} & \arabic{armourWeight}
 }
 
 \newcommand\rangedWeapon[4][0]{%
@@ -94,7 +94,7 @@
 }
 
 \newcommand\showArmour[1]{%
-  #1 & \arabic{armourDR} & \arabic{covering} &  \arabic{armourWeight}
+  #1 \armourName & \arabic{armourDR} & \arabic{covering} &  \arabic{armourWeight}
 }
 
 \newcommand{\boulder}{\weapon[\addtocounter{armourWeight}{3}]{Boulder}{-3}{5}}
