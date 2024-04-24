@@ -15,7 +15,7 @@
   Str: \arabic{Strength},
   Dex: \arabic{Dexterity},
   Spd: \arabic{Speed},
-  Att: \arabic{att},
+  Att: \arabic{toHit},
   Damage: \arabic{damage},
   Weight: \arabic{weight},
   Encumbrance: \arabic{encumbrance},
@@ -136,7 +136,7 @@
 \newcommand\statblock[1]{
     \begin{tcolorbox}[
       code={\setlength\parindent{0pt}#1},
-      title={\npcsymbol\ \name},
+      title={\npcsymbol~\name},
       ornamented,
       fontupper=\small,
       halign=flush left,
@@ -357,6 +357,7 @@
 % Attributes: str, dex, spd, int, wts, cha
 % secondary str, dex and spd
 \newcounter{att}
+\newcounter{toHit}
 \newcounter{dr}
 \newcounter{knacks}
 
@@ -792,12 +793,13 @@
   \addtocounter{hp}{\value{Strength}}%
   % Stats for allies don't need to show Combat +1 as 'TN 8 to hit', they just need to show '+1'.
   \ifnum\value{weaponBonus}>0\set{att}{Combat}\else\set{att}{Brawl}\fi%
-  \addtocounter{att}{7}%
+  \addtocounter{att}{\value{Dexterity}}%
+  \addtocounter{att}{\value{weaponBonus}}%
+  \set{toHit}{att}%
+  \addtocounter{toHit}{7}%
   \setcounter{ap}{\value{Speed}}%
   \addtocounter{ap}{3}%
   \addtocounter{ap}{-\value{encumbrance}}%
-  \addtocounter{att}{\value{Dexterity}}%
-  \addtocounter{att}{\value{weaponBonus}}%
   \setcounter{damage}{\value{Strength}}%
   \addtocounter{damage}{4}%
   \addtocounter{damage}{\value{weaponDamage}}%
@@ -856,9 +858,8 @@
     \scshape AP \ifnum\value{ap}<1 $\frac{1}{2}$ \else \arabic{ap}\fi%
     \ifnumcomp{\value{heft}}{>}{1}{ (AP Cost: \arabic{heft})}{},
     Att %
-    \iftoggle{allyCharacter}{$2D6$\ifnum\value{att}>-1 +\fi}{}%
-    \arabic{att}, %
-    \mbox{Dam \dmg{damage}, }%
+    \iftoggle{allyCharacter}{$2D6$\absNum{att}}{\arabic{toHit}},\space%
+    \mbox{Dam \dmg{damage},\space}%
       \ifnumcomp{\value{dr}}{>}{0}{%
         \mbox{DR \arabic{dr}%
         \iftoggle{perfectArmour}%
