@@ -12,6 +12,8 @@ images/wide.jpg:| images
 
 ALL_FILES := $(wildcard *.tex) $(wildcard *.sty) | $(DROSS)
 
+.PHONY: test
+test: $(DROSS)/test.pdf
 $(DROSS)/test.pdf: test.tex $(ALL_FILES)
 	$(RUN) test.tex
 
