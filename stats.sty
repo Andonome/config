@@ -948,16 +948,17 @@
     top=0pt,
     bottom=0pt,
     ]
+  \randomize
   \clean
   #1
-  \setcounter{hp}{#3}
-  \setcounter{Dexterity}{#4}
-  \setcounter{att}{#4}
+  \set{hp}{#3}
+  \set{Dexterity}{#4}
+  \set{att}{#4}
   \addtocounter{att}{10}
-  \setcounter{Speed}{#5}
-  \setcounter{ap}{#5}
+  \set{Speed}{#5}
+  \set{ap}{#5}
   \addtocounter{ap}{3}
-  \setcounter{Wits}{#6}
+  \set{Wits}{#6}
 
   \scshape
   \begin{tabularx}{.8\textwidth}{YYYY}
