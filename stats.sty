@@ -1020,12 +1020,12 @@
   \addAbility{acid spray (\glsentrytext{tn}~\arabic{age} to dodge or \showDam~Damage)}%
 }
 
-\newcommand{\acidBody}{%
-  \setcounter{track}{3}%
-  \global\toggletrue{perfectArmour}%
-  \addtocounter{track}{\value{Strength}}%
-  \dmg{track}%
-  \addAbility{acidic Body (inflict \conDmg~Damage each turn of grappling)}%
+\newcommand{\acidBody}[1][acidic]{%
+  \toggletrue{perfectArmour}%
+  \set{track}{Strength}%
+  \addtocounter{track}{3}%
+  \conDmg{track}%
+  \addAbility{#1 body (inflict \showDam~Damage each turn of grappling)}%
 }
 
 \newcommand{\gelRegen}{%
