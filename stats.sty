@@ -804,7 +804,9 @@
   \setcounter{damage}{\value{Strength}}%
   \addtocounter{damage}{4}%
   \addtocounter{damage}{\value{weaponDamage}}%
-  \addtocounter{covering}{\value{att}}
+  \iftoggle{allyCharacter}{}{%
+    \addtocounter{covering}{\value{toHit}}%
+  }%
   \ifnumcomp{\value{dr}}{>}{\value{armourDR}}%
   {%
     \divide\value{armourDR} by 2%
@@ -997,7 +999,7 @@
 
 \newcommand\hide[1]{%
   \set{dr}{#1}%
-  \addtocounter{covering}{5}%
+  \setcounter{covering}{5}%
 }
 
 \newcommand\undead{%
@@ -1011,6 +1013,7 @@
   \else%
     \setcounter{dr}{2}%
   \fi%
+  \set{covering}{5}
   \addAbility{Undead}%
 }
 
