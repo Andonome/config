@@ -957,16 +957,14 @@
       \set{Caving}{r2}
       \set{Stealth}{r2}
       \set{Tactics}{rn1t2}
-      \ifcase\value{Strength}
-        \Dagger
-      \or
+      \ifodd\value{Strength}
         \javelin
       \else
-        \rock
+        \Dagger
       \fi
     }% SKILLS
     {}% KNACKS
-    {\lootGoblin, \lootGoblin}% EQUIPMENT
+    {\rock, \lootGoblin, \lootGoblin}% EQUIPMENT
     {\ifnum\value{noAppearing}<3
       \mutation{r4}%
     \fi}% ABILITIES
@@ -1002,12 +1000,10 @@
       \set{Fire}{rn3t3}
       \set{Earth}{r2}
       \set{Water}{rn1t2}
-      \ifcase\value{Strength}
-        \Dagger
-      \or
+      \ifodd\value{Strength}
         \javelin
       \else
-        \rock
+        \Dagger
       \fi
     }% SKILLS
     {\ifodd\value{r4}%
@@ -1084,7 +1080,7 @@
       \set{Caving}{r2}
       \ifodd\value{r3}
         \ifodd\value{r2}
-          \rock
+          \largerock
         \else
           \maul
         \fi
@@ -1116,7 +1112,7 @@
       \ifodd\value{r3c}
         \partialchain
         \ifodd\value{r2}
-          \rock
+          \largerock
         \else
           \maul
         \fi
