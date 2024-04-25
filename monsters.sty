@@ -1145,9 +1145,9 @@
   {{r3}{rn1t2}{0}}% BODY
   {r2}% WITS
   {%
-    \set{Brawl}{r3c}
-    \set{Combat}{rn3t3}
-    \set{Athletics}{r3b}
+    \ifnum\value{noAppearing}>5
+      \set{Strength}{r2c}
+    \fi
     \set{Wyldcrafting}{rn1t2}
     \set{Stealth}{r2b}
   }% SKILLS
@@ -1160,9 +1160,14 @@
     {{r3}{0}{0}}% BODY
     {{rn1t2}{-1}{0}}% MIND
     {%
-      \set{Brawl}{r3c}
-      \set{Combat}{rn3t3}
-      \set{Athletics}{r3b}
+      \ifnum\value{noAppearing}<3
+        \set{Brawl}{r3c}
+        \set{Combat}{rn3t3}
+        \set{Athletics}{r3b}
+      \else
+        \set{Combat}{r2b}
+        \set{Athletics}{rn1t2}
+      \fi
       \ifodd\value{r3}
         \set{Wyldcrafting}{rn1t2}
       \else
