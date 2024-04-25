@@ -689,10 +689,13 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 }
 
 \newcommand\startappendix{
-  \addappheadtotoc
+  \backmatter
   \appendix
   \renewcommand{\headingtype}{APPENDIX}
   \renewcommand\showChapter{\Alph{chapter}}
+  \cleardoublepage
+  \chapter{Appendix}
+  \renewcommand{\npcsymbol}{\quad\scshape Appendix\quad}
 }
 
 \newcommand\shiftColours{
