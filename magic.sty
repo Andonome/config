@@ -127,7 +127,6 @@
 }
 
 \newcommand\fullSpell{%
-  \Needspace{5\baselineskip}%
   \noindent%
   \begin{tabularx}{\linewidth}{m{.28\linewidth}X}
   \hiderowcolors
@@ -151,10 +150,12 @@
     }{}
   \\
   \end{tabularx}
+  \par%
+  \nobreak%
   \noindent%
   \spellSum.
   \spellNotes
-  \vspace{1em}
+  \vspace{\baselineskip}
 }
 
 \newcommand\shortSpell{%
