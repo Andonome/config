@@ -127,7 +127,8 @@
 }
 
 \newcommand\fullSpell{%
-  \needspace{4em}
+  \Needspace{5\baselineskip}%
+  \noindent%
   \begin{tabularx}{\linewidth}{m{.28\linewidth}X}
   \hiderowcolors
   \raggedright
@@ -150,7 +151,7 @@
     }{}
   \\
   \end{tabularx}
-  \noindent
+  \noindent%
   \spellSum.
   \spellNotes
   \vspace{1em}
@@ -210,11 +211,10 @@
 }
 
 \newcommand\showSpells[1]{
-  \needspace{3em}
-  \settoggle{fullSpells}{true}
-  \foreach \s in {#1}{
-    \input{config/spells/\s.tex}
-  }
+  \settoggle{fullSpells}{true}%
+  \foreach \s in {#1}{%
+    \input{config/spells/\s.tex}%
+  }%
 }
 
 \newcommand\showTalisman{
