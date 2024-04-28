@@ -7,7 +7,7 @@ CP := ln -f
 BOOK := $(shell basename "$$(pwd)")
 LOCAL_DROSS := rubbish
 DROSS := ../$(LOCAL_DROSS)
-COMPILER := latexmk -file-line-error -auxdir=$(DROSS) -pdflua -silent -shell-escape -r config/.latexmkrc -jobname=$(BOOK)
+COMPILER := latexmk -file-line-error -auxdir=$(DROSS) -pdflua -interaction=nonstopmode -halt-on-error -shell-escape -r config/.latexmkrc -jobname=$(BOOK)
 RELEASE := $(BOOK)-$(VERSION).pdf
 GLOS := makeglossaries -d $(DROSS)
 RUN := lualatex -output-directory $(DROSS) -shell-escape
