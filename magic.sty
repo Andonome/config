@@ -44,13 +44,15 @@
       \or%
         \renewcommand\spellRange{shouting distance}%
       \or%
+        \renewcommand\spellRange{a remote distance}%
+      \or%
         \renewcommand\spellRange{the horizon}%
       \else%
         \renewcommand\spellRange{line of sight}%
       \fi%
     }%
     {%
-      \setcounter{track}{20}%
+      \setcounter{track}{24}%
       \Repeat{\arabic{spellCost}}{\addtocounter{track}{-4}}%
       \ifnum\value{track}<1%
         \renewcommand\spellRange{touch}%
