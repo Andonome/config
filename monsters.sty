@@ -35,13 +35,13 @@
 
 \newcommand{\boar}[1][\npc{\A}{Boar}]{
   \Animal{#1}%
-  {{r2b}{rn1t0}{0}}% BODY
+  {{rn1t0}{rn1t0}{0}}% BODY
   {r2}% WITS
   {
     \set{Brawl}{r2}
     \setcounter{Athletics}{2}
   }% SKILLS
-  {}% KNACKS
+  {\charge\unstoppable}% KNACKS
   {\quadraped}% ABILITIES
 }
 
