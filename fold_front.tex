@@ -20,20 +20,20 @@
   \input{config/rules/start.tex}
 }
 
-\posterbox[]{name=second,column=2,row=1,span=1,rowspan=1}{
+\posterbox{name=second,column=2,row=1,span=1,rowspan=1}{
   \bklTitle{Traits}
   \input{config/rules/attributes.tex}
   \input{config/rules/skills.tex}
 }
 
 
-\posterbox[fit, fit basedim=10pt]{name=third,column=3,row=1,span=1,rowspan=1}{
+\posterbox{name=third,column=3,row=1,span=1,rowspan=1}{
   \bklTitle{\Glsfmtlongpl{ep}}
   \input{config/rules/exhaustion.tex}
   \input{config/rules/weight.tex}
 }
 
-\posterbox[blankest, fit, fit basedim=10pt,adjusted title=Skills]{name=fourth,column=4,row=1,span=1,rowspan=1}{
+\posterbox{name=fourth,column=4,row=1,span=1,rowspan=1}{
   \label{skillChart}
   \setcounter{page}{4}
   \begin{tabularx}{\linewidth}{X|LLL}
@@ -49,7 +49,7 @@
   \end{tabularx}
 }
 
-\posterbox[blankest, fit, fit basedim=10pt]{name=fifth,column=1,row=2,span=1,rowspan=1}{
+\posterbox{name=fifth,column=1,row=2,span=1,rowspan=1}{
   \begin{tabularx}{\linewidth}{X|LLL}
     \hline
     & \textbf{Intelligence} & \textbf{Wits} & \textbf{Charisma} \\\hline
@@ -64,17 +64,17 @@
 }
 
 
-\posterbox[blankest, fit, fit basedim=10pt]{name=sixth,column=2,row=2,span=1,rowspan=1}{
+\posterbox[blankest]{name=sixth,column=2,row=2,span=1,rowspan=1}{
   \input{config/rules/actions_basic.tex}
 }
 
-\posterbox[blankest, fit, fit basedim=10pt]{name=seventh,column=3,row=2,span=1,rowspan=1}{
+\posterbox{name=seventh,column=3,row=2,span=1,rowspan=1}{
   \input{config/rules/actions_resisted.tex}
   \input{config/rules/actions_resting.tex}
   \input{config/rules/actions_team.tex}
 }
 
-\posterbox[blankest, fit, fit basedim=10pt]{name=eighth,column=4,row=2,span=1,rowspan=1}{
+\posterbox{name=eighth,column=4,row=2,span=1,rowspan=1}{
   \bklTitle{Combat}
   \input{config/rules/hitting_things.tex}
 }
