@@ -13,35 +13,41 @@
 ]
 
 \posterbox[blankest,rotate=180, fit, fit basedim=10pt]{name=ninth,column=1,row=1,span=1,rowspan=1}{
-  \begin{center}\noindent\begin{minipage}{.5\textheight}
+  \begin{center}
+  \rotatebox{-90}{\noindent\begin{minipage}{.5\textheight}
   \input{config/rules/weapons.tex}
   \centering
   \commonWeaponsChart
-  \end{minipage}
-  \rotatebox{-90}
-  \end{center}
-}
-
-\posterbox[blankest, fit, fit basedim=10pt]{name=tenth,column=2,row=1,span=1,rowspan=1}{
-  \bklTitle{Projectiles}
-  \input{config/rules/projectiles.tex}
-  \commonArmourChart
-}
-
-\posterbox[blankest, fit, fit basedim=10pt]{name=eleventh,column=3,row=1,span=1,rowspan=1}{
-  \begin{center}
-  \rotatebox{-90}{\noindent\begin{minipage}{.5\textheight}
-  \bklTitle{Armour}
-  \input{config/rules/armour.tex}
   \end{minipage}}
   \end{center}
 }
 
-\posterbox[blankest, fit, fit basedim=10pt]{name=twelfth,column=4,row=1,span=1,rowspan=1}{
-  \input{config/rules/fate.tex}
+\posterbox[blankest, fit, fit basedim=10pt]{name=tenth,column=2,row=1,span=1,rowspan=1}{
+  \bklTitle{Armour}
+  \input{config/rules/armour.tex}
+  \commonArmourChart
 }
 
-\posterbox[blankest, fit, fit basedim=10pt]{name=thirteenth,column=1,row=2,span=1,rowspan=1}{
+\posterbox[blankest, fit, fit basedim=10pt]{name=eleventh,column=3,row=1,span=1,rowspan=1}{
+  \bklTitle{\Glsfmtlongpl{fp}}
+  \input{config/rules/fate.tex}
+  \bklTitle{Projectiles}
+  \input{config/rules/projectiles.tex}
+}
+
+\posterbox[blankest, fit, fit basedim=10pt]{name=twelfth,column=4,row=1,span=1,rowspan=1}{
+}
+
+\posterbox[ornamented, fit, fit basedim=10pt]{name=thirteenth,column=1,row=2,span=1,rowspan=1}{
+  \begin{center}
+    \bklTitle{\Huge BIND}
+    \par
+    \vspace{3\baselineskip}
+    \bklTitle{\large The Rules-Light RPG}
+    \par
+    \vspace{3\baselineskip}
+    \bklTitle{(it weight 5 grams!)}
+  \end{center}
 }
 
 \posterbox[blankest, fit, fit basedim=10pt]{name=fourteenth,column=2,row=2,span=1,rowspan=1}{
@@ -50,7 +56,7 @@
 }
 
 \posterbox[blankest, fit, fit basedim=10pt]{name=fifteenth,column=3,row=2,span=1,rowspan=1}{
-  \bklTitle{\Glsfmtlongpl{interval}}
+  \bklTitle{\Glspl{interval}}
   \input{config/rules/interval.tex}
 }
 
