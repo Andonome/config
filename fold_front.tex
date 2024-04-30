@@ -1,36 +1,39 @@
 \begin{tcbposter}[
-  coverage = {
-      spread,
+  coverage = {spread,
+    boxsep = 10pt,
   },
-  poster   = {showframe=true,
+  poster   = {showframe=false,
     columns=4,
     rows=2,
   },
   boxes    = {
-    left=2pt,
     colback=white,
-   },
+    fit,
+    fit basedim=10pt,
+    frame code={\node at (frame.south east) {XXX-\thepage~YY};},
+  },
 ]
 
-\posterbox[blankest, fit, fit basedim=10pt]{name=first,column=1,row=1,span=1,rowspan=1}{
+
+\posterbox{name=first,column=1,row=1,span=1,rowspan=1}{
   \bklTitle{Setup}
   \input{config/rules/start.tex}
 }
 
-\posterbox[blankest, fit, fit basedim=10pt]{name=second,column=2,row=1,span=1,rowspan=1}{
+\posterbox[]{name=second,column=2,row=1,span=1,rowspan=1}{
   \bklTitle{Traits}
   \input{config/rules/attributes.tex}
   \input{config/rules/skills.tex}
 }
 
 
-\posterbox[blankest, fit, fit basedim=10pt]{name=third,column=3,row=1,span=1,rowspan=1}{
+\posterbox[fit, fit basedim=10pt]{name=third,column=3,row=1,span=1,rowspan=1}{
   \bklTitle{\Glsfmtlongpl{ep}}
   \input{config/rules/exhaustion.tex}
   \input{config/rules/weight.tex}
 }
 
-\posterbox[blankest, fit, fit basedim=10pt]{name=fourth,column=4,row=1,span=1,rowspan=1}{
+\posterbox[blankest, fit, fit basedim=10pt,adjusted title=Skills]{name=fourth,column=4,row=1,span=1,rowspan=1}{
   \label{skillChart}
   \setcounter{page}{4}
   \begin{tabularx}{\linewidth}{X|LLL}
