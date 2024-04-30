@@ -10,13 +10,14 @@
     colback=white,
     fit,
     fit basedim=10pt,
-    frame code={\node at (frame.south east) {XXX-\thepage~YY};},
+    frame code={\ifodd\thepage\node at (frame.south east) {\thepage};\else \node at (frame.south west) {\thepage};\fi\stepcounter{page}},
   },
 ]
 
 
 \posterbox{name=first,column=1,row=1,span=1,rowspan=1}{
   \bklTitle{Setup}
+  \setcounter{page}{1}
   \input{config/rules/start.tex}
 }
 

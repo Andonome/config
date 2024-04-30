@@ -1,18 +1,17 @@
 \begin{tcbposter}[
   coverage = {spread,
-    top    = 15pt,
-    bottom = 15pt,
-    left   = 15pt,
-    right  = 15pt,
+    boxsep = 10pt,
   },
-  poster   = {showframe=true,
+  poster   = {showframe=false,
     columns=4,
     rows=2,
   },
   boxes    = {
-    left=2pt,
     colback=white,
-   },
+    fit,
+    fit basedim=10pt,
+    frame code={\ifodd\thepage\node at (frame.south east) {\thepage};\else \node at (frame.south west) {\thepage};\fi\stepcounter{page}},
+  },
 ]
 
 
