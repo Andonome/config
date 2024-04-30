@@ -13,12 +13,67 @@
 ]
 
 \posterbox[blankest, fit, fit basedim=10pt]{name=first,column=1,row=1,span=1,rowspan=1}{
-  {
-    One fine day, in the middle of the night.
+  \bklTitle{Setup}
+  \input{config/rules/start.tex}
+}
 
-    Two dead men got up to fight.
+\posterbox[blankest, fit, fit basedim=10pt]{name=second,column=2,row=1,span=1,rowspan=1}{
+  \bklTitle{Traits}
+  \input{config/rules/attributes.tex}
+  \input{config/rules/skills.tex}
+}
 
-  }
+
+\posterbox[blankest, fit, fit basedim=10pt]{name=third,column=3,row=1,span=1,rowspan=1}{
+  \bklTitle{\Glsfmtlongpl{ep}}
+  \input{config/rules/exhaustion.tex}
+  \input{config/rules/weight.tex}
+}
+
+\posterbox[blankest, fit, fit basedim=10pt]{name=fourth,column=4,row=1,span=1,rowspan=1}{
+  \label{skillChart}
+  \setcounter{page}{4}
+  \begin{tabularx}{\linewidth}{X|LLL}
+    \hline
+    & \textbf{Strength} & \textbf{Dexterity} & \textbf{Speed} \\\hline
+    \textbf{Academics} & Orating to a massive crowd & Forgery & Courier Runs \\
+    \textbf{Athletics} & Lifting heavy loads & Climbing & Sprinting \\
+    \textbf{Deceit} & Intimidation & Feigning an injury & Spreading a rumour across an entire town \\
+    \textbf{Stealth} & Hiding in a hay bail & Moving quietly & Escaping into a crowd \\
+    \textbf{Vigilance} & Keeping watch all night & Feeling for an exit in the dark & Searching a full forest for a particular tree \\
+    \textbf{Wyldcrafting} & Wrestling a~boar & Untying a~horse's bridle & Fleeing a stampede \\
+    \hline
+  \end{tabularx}
+}
+
+\posterbox[blankest, fit, fit basedim=10pt]{name=fifth,column=1,row=2,span=1,rowspan=1}{
+  \begin{tabularx}{\linewidth}{X|LLL}
+    \hline
+    & \textbf{Intelligence} & \textbf{Wits} & \textbf{Charisma} \\\hline
+    \textbf{Academics} & Recalling facts & Resisting an enchantment spell & Storytelling \\
+    \textbf{Athletics} & Finding the easiest route to climb & Identifying optimal climbing conditions & Stage acrobatics \\
+    \textbf{Deceit} & Crafting a plausible lie & Making a quick excuse & Implausible lies \\
+    \textbf{Stealth} & Identifying the best hiding spot & Quickly hiding & Sleuthing a banquet, uninvited \\
+    \textbf{Vigilance} & Investigating a crime scene & Spotting an illusion spell & Hearing the best gossip \\
+    \textbf{Wyldcrafting} & Planning a new, hidden trail & Foraging for a quick meal & Selling vegetables \\
+    \hline
+  \end{tabularx}
+}
+
+
+\posterbox[blankest, fit, fit basedim=10pt]{name=sixth,column=2,row=2,span=1,rowspan=1}{
+  \input{config/rules/actions_basic.tex}
+}
+
+\posterbox[blankest, fit, fit basedim=10pt]{name=seventh,column=3,row=2,span=1,rowspan=1}{
+  \input{config/rules/actions_resisted.tex}
+  \input{config/rules/actions_resting.tex}
+  \input{config/rules/actions_team.tex}
+}
+
+\posterbox[blankest, fit, fit basedim=10pt]{name=eighth,column=4,row=2,span=1,rowspan=1}{
+  \bklTitle{Combat}
+  \input{config/rules/hitting_things.tex}
 }
 
 \end{tcbposter}
