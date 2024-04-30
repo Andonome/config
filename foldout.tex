@@ -1,0 +1,22 @@
+\documentclass[landscape]{book}
+
+\usepackage{config/bind}
+
+\externalReferent{core}
+
+\settoggle{verbose}{false}
+\settoggle{genExamples}{false}
+\settoggle{examplecharacter}{true}
+
+\newcommand\bklTitle[1]{{\Large\scshape #1}}
+
+\renewcommand\subsubsection[1]{{\Large\scshape #1\par}}
+
+\pagestyle{empty}
+
+\tcbset{reset}
+\begin{document}
+\input{fold_front.tex}
+\input{fold_back.tex}
+
+\end{document}

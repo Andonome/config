@@ -26,6 +26,10 @@ resources.pdf: $(ALL_FILES) rules.pdf
 	$(RUN) resources.tex
 	$(RUN) resources.tex
 	$(CP) $(DROSS)/resources.pdf resources.pdf
+foldout.pdf: $(ALL_FILES) rules.pdf
+	$(RUN) foldout.tex
+	$(RUN) foldout.tex
+	$(CP) $(DROSS)/foldout.pdf foldout.pdf
 rules.pdf: images/wide.jpg $(wildcard rules/*.tex) $(ALL_FILES)
 	$(RUN) rules.tex
 	$(CP) $(DROSS)/rules.pdf rules.pdf
