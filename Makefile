@@ -22,11 +22,11 @@ docs.pdf: images/wide.jpg $(ALL_FILES)
 	$(GLOS) docs
 	$(RUN) docs.tex
 	$(CP) $(DROSS)/docs.pdf docs.pdf
-resources.pdf: $(ALL_FILES)
+resources.pdf: $(ALL_FILES) rules.pdf
+	$(RUN) resources.tex
 	$(RUN) resources.tex
 	$(CP) $(DROSS)/resources.pdf resources.pdf
 rules.pdf: images/wide.jpg $(wildcard rules/*.tex) $(ALL_FILES)
-	$(RUN) rules.tex
 	$(RUN) rules.tex
 	$(CP) $(DROSS)/rules.pdf rules.pdf
 
