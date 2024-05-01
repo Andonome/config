@@ -12,9 +12,11 @@
 
 \input{config/rules/skills.tex}
 
-\input{config/rules/weight.tex}
+\end{multicols}
 
-\physicalSkillChart
+\mentalSkillChart
+
+\begin{multicols}{2}
 
 \subsection*{Actions}
 \input{config/rules/actions_basic.tex}
@@ -24,6 +26,16 @@
 \input{config/rules/actions_resting.tex}
 
 \input{config/rules/actions_team.tex}
+
+\end{multicols}
+
+\physicalSkillChart
+
+\begin{multicols}{2}
+
+\subsection*{\Glsfmttext{weight}}
+
+\input{config/rules/weight.tex}
 
 \subsection*{Combat}
 
@@ -42,8 +54,6 @@
 \input{config/rules/armour.tex}
 
 \commonArmourChart
-
-\mentalSkillChart
 
 \subsubsection*{\Glsfmtlongpl{fp}}
 \input{config/rules/fate.tex}
