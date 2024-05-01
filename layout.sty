@@ -258,7 +258,6 @@ bookmarks=true]%
 
 \renewcommand\tableofcontents{%
     {
-      \Large
       \begin{multicols}{2}
         \@starttoc{toc}
       \end{multicols}
@@ -669,22 +668,19 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \pagenumbering{gobble}
   \begin{titlepage}
     \centering
-    \hphantom{nemo}
-    \vfill \vfill
     \includesvg[width=.2\textwidth]{config/logo}
     \par
     \vspace{-2em}
     {\Huge\scshape\outline{#1}\par}
     \vspace{2em}
-    {\large\scshape #2\par}
+    {\large\scshape \underline{#2}\par}
+    \tableofcontents
+    \bigLine
     \flushright
-    \vspace{2em}
+    \vfill\null
     {\footnotesize \textcolor{gray}{\today}\par}
-    \vspace{3em}
   \end{titlepage}
   \cleardoublepage
-  \tableofcontents
-  \clearpage
   \frontmatter
 }
 
