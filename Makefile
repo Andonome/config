@@ -26,7 +26,7 @@ resources.pdf: $(ALL_FILES) rules.pdf
 	$(RUN) resources.tex
 	$(RUN) resources.tex
 	$(CP) $(DROSS)/resources.pdf resources.pdf
-foldout.pdf: $(ALL_FILES) rules.pdf
+foldout.pdf: $(wildcard rules/*.tex) $(ALL_FILES) docs.pdf
 	$(RUN) foldout.tex
 	$(RUN) foldout.tex
 	$(CP) $(DROSS)/foldout.pdf foldout.pdf
@@ -35,6 +35,6 @@ rules.pdf: images/wide.jpg $(wildcard rules/*.tex) $(ALL_FILES)
 	$(CP) $(DROSS)/rules.pdf rules.pdf
 
 .PHONY: all clean
-all: docs.pdf resources.pdf rules.pdf $(DROSS)/test.pdf 
+all: docs.pdf foldout.pdf resources.pdf rules.pdf $(DROSS)/test.pdf 
 clean:
 	$(CLEAN) images/wide.jpg

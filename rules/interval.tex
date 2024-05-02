@@ -1,33 +1,32 @@
 The day has four \glspl{interval}:
 
 \noindent
-\begin{tabularx}{\linewidth}{c|c|c|Y}
+\begin{boxtable}[c|c|Y|Y]
 
   \hline
-  1 \textbf{Morning} & 2 \textbf{Afternoon} & 3 \textbf{Evening} & 4 \textbf{Night} \\
+  \showInterval{1} & \showInterval{2} & \showInterval{2} & \showInterval{2} \\ 
+  \textbf{Morning} & \textbf{Afternoon} & \textbf{Evening} & \textbf{Night} \\
   \hline
-\end{tabularx}
-\vspace{.3em}
+\end{boxtable}
 
-At the end of each \gls{interval}, a number of things happen:
+At the end of each \gls{interval}:
 
 \begin{itemize}
   \item
-  The \gls{gm} rolls 1D6, and every character who took part in the \gls{interval} regenerates that many \glspl{fp}.
+  The \gls{gm} rolls $1D6$, and every character who took part in the \gls{interval} regenerates that many \glspl{fp}.
   \item
   Resting characters remove \pgls{ep}.
   \item
-  The \gls{gm} divides a number of \glspl{mp} between everything in the area which can hold \glspl{mp} (round up).
-  \begin{itemize}
-    \item
-      The wind brings \glspl{mp}, so windy locations allow faster \gls{mp} regeneration.
-
-    \manaRegenChart
-    \item
-    Anyone absorbing \glspl{mp} receives penalties for shielding their bodies against the air.
-
-    \manaCoveringChart
-    \item
-    Equivalent heavy clothing provides the same penalties.
-  \end{itemize}
+  The \gls{gm} divides a number of \glspl{mp} between everything in the area which can hold \glspl{mp}.
 \end{itemize}
+
+\begin{multicols}{2}
+  The wind brings \glspl{mp}, so windy locations allow faster \gls{mp} regeneration.
+
+  \manaRegenChart
+  \columnbreak
+  Anyone absorbing \glspl{mp} receives penalties for shielding their bodies against the air.
+  Equivalent heavy clothing provides the same penalties.
+  \manaCoveringChart
+\end{multicols}
+
