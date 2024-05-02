@@ -6,7 +6,6 @@
 
 \settoggle{verbose}{false}
 \settoggle{genExamples}{false}
-\settoggle{examplecharacter}{true}
 
 \newcommand\bklTitle[1]{{\Large\scshape #1}}
 
@@ -18,6 +17,9 @@
 \setlength{\columnsep}{1em}
 \setcounter{pageDarkness}{50}
 \setlength{\columnseprule}{.2pt}
+\renewcommand\hint[1]{\par
+  \textit{#1}
+}
 
 \pagestyle{empty}
 
