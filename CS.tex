@@ -101,21 +101,9 @@ circle label/.style = {
     \renewcommand{\arraystretch}{1.4}
     \begin{tabularx}{\linewidth}{Xr@{}}
       \hiderowcolors
-      \ifnum\value{Brawl}>0
-        \skill{Brawl}
-      \else
-        \emptySkill
-      \fi
-      \ifnum\value{Combat}>0
-        \skill{Combat}
-      \else
-        \emptySkill
-      \fi
-      \ifnum\value{Projectiles}>0
-        \skill{Projectiles}
-      \else
-        \emptySkill
-      \fi
+      \skill{Brawl}
+      \skill{Combat}
+      \skill{Projectiles}
       \ifnum\value{Air}>0
         \skill{Air}
       \else
