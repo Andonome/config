@@ -235,6 +235,7 @@
 
 \newcommand\boxStat[1]{%
   \Repeat{\value{wounds}}{\CheckedBox}%
+  \Repeat{\value{weight}}{w}%
   \Repeat{\value{#1}}{\Square}%
 }
 
@@ -254,7 +255,7 @@
   \hiderowcolors%
     HP \arabic{hp}~%
     \whileboolexpr{test {\ifnumcomp{\value{track}}{>}{0}}}{%%
-      \ifnumodd{\value{track}}{ & \boxStat{hp} \\}{\boxStat{hp}}%%
+      \ifnumodd{\value{track}}{ & \boxStat{freeHP} \\}{\boxStat{freeHP}}%%
       \addtocounter{track}{-1}%
     }%
   \end{tabular}%
@@ -266,13 +267,13 @@
     \hiderowcolors%
     HP \arabic{hp}~%
     \whileboolexpr{test {\ifnumcomp{\value{track}}{>}{0}}}{%%
-      \boxStat{hp}%
+      \boxStat{freeHP}%
       \addtocounter{track}{-1}%
       &%
-      \ifnum\value{track}>0\boxStat{hp}\fi%
+      \ifnum\value{track}>0\boxStat{freeHP}\fi%
       \addtocounter{track}{-1}%
       &%
-      \ifnum\value{track}>0\boxStat{hp}\fi%
+      \ifnum\value{track}>0\boxStat{freeHP}\fi%
       \addtocounter{track}{-1}%
       \\%
     }%
@@ -287,7 +288,7 @@
       \hiderowcolors
       \Repeat{\value{noAppearing}}{
       HP \arabic{hp}
-      \boxStat{hp}
+      \boxStat{freeHP}
       &
       MP \arabic{mp}
       \boxStat{mp}
@@ -299,7 +300,7 @@
     \begin{tabular}{r}
       \hiderowcolors
       \Repeat{\value{noAppearing}}{
-      HP \arabic{hp} \boxStat{hp} \\
+      HP \arabic{hp} \boxStat{freeHP} \\
       MP \arabic{mp} \boxStat{mp} \\
       }
     \end{tabular}
@@ -315,7 +316,7 @@
       \hiderowcolors
       \Repeat{\value{noAppearing}}{
       HP \arabic{hp}
-      \boxStat{hp}
+      \boxStat{freeHP}
       &
       MP \arabic{mp}
       \boxStat{mp}
@@ -330,7 +331,7 @@
       \begin{tabular}{rr}
         \hiderowcolors
         \Repeat{\value{noAppearing}}{
-          HP \arabic{hp} \boxStat{hp} &
+          HP \arabic{hp} \boxStat{freeHP} &
           MP \arabic{mp} \boxStat{mp} \\
           & SP \arabic{sp} \boxStat{sp} \\
         }
@@ -339,7 +340,7 @@
       \begin{tabular}{r}
         \hiderowcolors
         \Repeat{\value{noAppearing}}{
-          HP \arabic{hp} \boxStat{hp} \\
+          HP \arabic{hp} \boxStat{freeHP} \\
           MP \arabic{mp} \boxStat{mp} \\
           SP \arabic{sp} \boxStat{sp} \\
         }
@@ -849,6 +850,7 @@
   \fi%
   \addtocounter{ap}{-\value{encumbrance}}%
   \addtocounter{toHit}{-\value{encumbrance}}%
+  \addtocounter{weight}{-\value{encumbrance}}%
 }
 
 %%     _               _        _
