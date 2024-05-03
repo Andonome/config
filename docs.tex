@@ -31,6 +31,8 @@ The next one might look like this:
 
 \dragon
 
+\showNumbers
+
 If you find it hard to tell the difference between all the dragons, you can give them names in square brackets with the \verb"npc command", like this:
 
 \verb"dragon[\npc{\M}{Bob the dragon}]"
@@ -52,34 +54,38 @@ Individual characters can be created by using the \verb"\npc" command then the \
 
 \begin{verbatim}
 
-\npc{\M}{Alice}
-
-\person{0}% STRENGTH
-{1}% DEXTERITY 
-{-1}% SPEED
-{{2}% INTELLIGENCE
-{0}% WITS
-{0}}% CHARISMA
-{0}% DR
-{1}% COMBAT
-{Academics 1, Wyldcrafting 1}% SKILLS
-{\longsword, adventuring equipment}% EQUIPMENT
-{}
+  \Person{\npc{\M}{Alice}}%
+    {{0}{1}{-1}}% BODY
+    {{2}{0}{0}}% MIND
+    {%
+      \set{Combat}{1}
+      \set{Academics}{1}
+      \set{Wyldcrafting}{1}
+      \longsword
+    }% SKILLS
+    {}% KNACKS
+    {\rations, \lootSmall}% EQUIPMENT
+    {}% ABILITIES
 
 \end{verbatim}
 
-\npc{\M}{Alice}
-\person{0}% STRENGTH
-{1}% DEXTERITY 
-{-1}% SPEED
-{{2}% INTELLIGENCE
-{0}% WITS
-{0}}% CHARISMA
-{0}% DR
-{1}% COMBAT
-{Academics 1, Wyldcrafting 1}% SKILLS
-{\longsword, adventuring equipment}% EQUIPMENT
-{}
+
+\Person{\npc{\M}{Alice}}%
+  {{0}{1}{-1}}% BODY
+  {{2}{0}{0}}% MIND
+  {%
+    \set{Combat}{1}
+    \set{Academics}{1}
+    \set{Wyldcrafting}{1}
+    %\greatsword
+    \longsword
+    \completeleather
+  }% SKILLS
+  {}% KNACKS
+  {\rations, \lootSmall}% EQUIPMENT
+  {}% ABILITIES
+
+\showNumbers
 
 \subsubsection{Bestiary with monstrous ghouls, and ghoulish monsters}
 
@@ -90,11 +96,15 @@ Then the \verb"\humansoldier" command turns from this:
 
 \humansoldier
 
+\showNumbers
+
 \ldots into this:
 
 \settoggle{genExamples}{true}
 
 \humansoldier
+
+\showNumbers
 
 This second soldier is still random, but note the loot they carry has changed into a roll.
 
