@@ -69,6 +69,7 @@ Individual characters can be created by using the \verb"\npc" command then the \
 
 \end{verbatim}
 
+\set{wounds}{1}
 
 \Person{\npc{\M}{Alice}}%
   {{0}{1}{-1}}% BODY
@@ -78,12 +79,13 @@ Individual characters can be created by using the \verb"\npc" command then the \
     \set{Academics}{1}
     \set{Wyldcrafting}{1}
     %\greatsword
-    \longsword
-    \completeleather
+    \shortsword
   }% SKILLS
   {}% KNACKS
   {\rations, \lootSmall}% EQUIPMENT
   {}% ABILITIES
+
+free: \arabic{freeHP}
 
 \showNumbers
 

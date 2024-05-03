@@ -230,9 +230,10 @@
 
 \newcounter{wounds}
 \setcounter{wounds}{0}
+\newcounter{freeHP}
+\setcounter{freeHP}{0}
 
 \newcommand\boxStat[1]{%
-  \addtocounter{#1}{-\value{wounds}}%
   \Repeat{\value{wounds}}{\CheckedBox}%
   \Repeat{\value{#1}}{\Square}%
 }
@@ -242,7 +243,7 @@
   \hiderowcolors%
     HP \arabic{hp}~%
     \Repeat{\value{noAppearing}}{%
-    \boxStat{hp} \\%
+    \boxStat{freeHP} \\%
     }%
   \end{tabular}%
 }
@@ -794,7 +795,7 @@
 \newcommand\computeStats{
   \setcounter{hp}{6}%
   \addtocounter{hp}{\value{Strength}}%
-  \addtocounter{hp}{\value{wounds}}%
+  \addtocounter{hp}{-\value{wounds}}%
   % Stats for allies don't need to show Combat +1 as 'TN 8 to hit', they just need to show '+1'.
   \ifnum\value{weaponBonus}>0\set{att}{Combat}\else\set{att}{Brawl}\fi%
   \addtocounter{att}{\value{Dexterity}}%
@@ -841,6 +842,10 @@
   \ifnum\value{weight}>\value{hp}%
     \addtocounter{encumbrance}{\value{weight}}%
     \addtocounter{encumbrance}{-\value{hp}}%
+    \setcounter{freeHP}{0}%
+  \else%
+    \setcounter{freeHP}{\value{hp}}%
+    \addtocounter{freeHP}{-\value{weight}}%
   \fi%
   \addtocounter{ap}{-\value{encumbrance}}%
   \addtocounter{toHit}{-\value{encumbrance}}%
