@@ -234,9 +234,9 @@
 \setcounter{freeHP}{0}
 
 \newcommand\boxStat[1]{%
-  \Repeat{\value{wounds}}{\CheckedBox}%
-  \Repeat{\value{weight}}{w}%
-  \Repeat{\value{#1}}{\Square}%
+  \Repeat{\value{wounds}}{\CIRCLE}%
+  \Repeat{\value{weight}}{\LEFTcircle}%
+  \Repeat{\value{#1}}{\Circle}%
 }
 
 \newcommand\HPboxes{%
