@@ -33,7 +33,7 @@
 
 \newcommand\spellRange{}
 \newcommand\setRange{%
-  \iftoggle{distant}%
+  \iftoggle{Distant}%
     {%
       \ifcase\value{spellCost}\relax%
       \renewcommand\spellRange{Error}%
@@ -71,10 +71,10 @@
   \settoggle{talisman}{false}
 \newtoggle{insubstantial}
   \settoggle{insubstantial}{false}
-\newtoggle{distant}
-  \settoggle{distant}{false}
-\newtoggle{duplicated}
-  \settoggle{duplicated}{false}
+\newtoggle{Distant}
+  \settoggle{Distant}{false}
+\newtoggle{Duplicated}
+  \settoggle{Duplicated}{false}
 \newtoggle{opposedSpell}
   \settoggle{opposedSpell}{false}
 
@@ -83,11 +83,11 @@
   \renewcommand\spellName{#1}%
   \setcounter{spellCost}{1}%
   \setcounter{spellTargets}{1}%
-  \togglefalse{distant}%
-  \togglefalse{duplicated}%
+  \togglefalse{Distant}%
+  \togglefalse{Duplicated}%
   \foreach \d in {#2}{%
-    \ifdefstring{\d}{distant}{\global\toggletrue{distant}}{}%
-    \ifdefstring{\d}{duplicated}{\global\toggletrue{duplicated}}{}%
+    \ifdefstring{\d}{Distant}{\global\toggletrue{Distant}}{}%
+    \ifdefstring{\d}{Duplicated}{\global\toggletrue{Duplicated}}{}%
     \stepcounter{spellCost}%
   }%
   \setcounter{spellPlusOne}{\value{spellCost}}%
@@ -117,7 +117,7 @@
   \renewcommand\spellSum{#6}%
   \renewcommand\spellNotes{#7}%
   \setRange%
-  \iftoggle{duplicated}{%
+  \iftoggle{Duplicated}{%
     \foreach \i in {1,...,\arabic{spellCost}}%
       {\multiply\value{spellTargets} by \value{spellCost}\addtocounter{spellTargets}{0}}%
   }{}%
