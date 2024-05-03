@@ -31,8 +31,6 @@ The next one might look like this:
 
 \dragon
 
-\showNumbers
-
 If you find it hard to tell the difference between all the dragons, you can give them names in square brackets with the \verb"npc command", like this:
 
 \verb"dragon[\npc{\M}{Bob the dragon}]"
@@ -69,8 +67,6 @@ Individual characters can be created by using the \verb"\npc" command then the \
 
 \end{verbatim}
 
-\set{wounds}{1}
-
 \Person{\npc{\M}{Alice}}%
   {{0}{1}{-1}}% BODY
   {{2}{0}{0}}% MIND
@@ -96,11 +92,7 @@ You can set an example chapter by writing \verb"\settoggle{genExamples}{true}"
 
 Then the \verb"\humansoldier" command turns from this:
 
-\set{wounds}{2}
-
 \humansoldier
-
-\showNumbers
 
 \ldots into this:
 
@@ -108,9 +100,26 @@ Then the \verb"\humansoldier" command turns from this:
 
 \humansoldier
 
-\showNumbers
-
 This second soldier is still random, but note the loot they carry has changed into a roll.
+
+We can also add wounds, like this:
+
+\begin{verbatim}
+
+\set{wounds}{3}
+
+\humansoldier
+
+\end{verbatim}
+
+This means the creature has lost three \glspl{hp}.
+That amount of lost \glspl{hp} generally means the \gls{weight} of all their items has become too high, which means they suffer penalties to their \glspl{ap} and Attack score.
+
+\togglefalse{genExamples}
+
+\set{wounds}{3}
+
+\humansoldier
 
 And finally, we have swarms:
 
@@ -328,7 +337,7 @@ The \verb"\weapon{Name}{1}{2}" command works in 2 ways.
 When defining a weapon, it adjusts the current creature's stats.
 When used in a weapons chart, it shows the weapon's stats.
 
-Stats are derives from the weapon's 3 properties: length, sharpness, and weight.
+Stats are derives from the weapon's 3 properties: length, sharpness, and \gls{weight}.
 
 \begin{verbatim}
   \weapon{Sword}% NAME

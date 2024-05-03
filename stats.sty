@@ -891,7 +891,10 @@
         MP \arabic{mp},
       \fi%
       \ifnum\value{sp}>0%
-      SP \arabic{sp},
+      SP \arabic{sp}, %
+      \fi%
+      \ifnum\value{weight}>0%
+      \Glsentrytext{weight}~\arabic{weight},%
       \fi%
     }{%
       \par%
