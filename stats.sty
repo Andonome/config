@@ -142,13 +142,13 @@
       ornamented,
       fontupper=\small,
       halign=flush left,
-      left=5pt,
-      right=5pt,
+      left=0pt,
+      right=0pt,
       top=0pt,
-      bottom=10pt,
+      bottom=0pt,
       ]
       \creaturestats
-      \begin{tabularx}{\linewidth}{rX}
+      \begin{tabularx}{\linewidth}{rL}
       \ent{Skills} & \showSkills \\
       \ifnum\value{mp}>0%
         \ent{Spheres} &
@@ -175,6 +175,7 @@
       \end{tabularx}
       \tcblower%%%%%%%%%%%%%%%%%%%%
       \derivedstats%
+      \null%
     \end{tcolorbox}
 }
 
@@ -208,6 +209,7 @@
 }
 
 \newcommand\showBoxes{%
+  \renewcommand{\arraystretch}{0.9}%
   \ifnum\value{mp}<1%
     \ifnum\value{hp}>11%
       \HPboxes%
@@ -243,9 +245,9 @@
   \hiderowcolors%
     HP \arabic{hp}~%
     \Repeat{\value{noAppearing}}{%
-    \boxStat{freeHP} \\%
+      \boxStat{freeHP} \\%
     }%
-  \end{tabular}%
+  \end{tabular}
 }
 
 \newcommand\HPHPboxes{%
@@ -254,7 +256,7 @@
   \hiderowcolors%
     HP \arabic{hp}~%
     \whileboolexpr{test {\ifnumcomp{\value{track}}{>}{0}}}{%%
-      \ifnumodd{\value{track}}{ & \boxStat{freeHP} \\}{\boxStat{freeHP}}%%
+      \ifnumodd{\value{track}}{ & \small\boxStat{freeHP} \\}{\small\boxStat{freeHP}}%%
       \addtocounter{track}{-1}%
     }%
   \end{tabular}%
@@ -266,13 +268,13 @@
     \hiderowcolors%
     HP \arabic{hp}~%
     \whileboolexpr{test {\ifnumcomp{\value{track}}{>}{0}}}{%%
-      \boxStat{freeHP}%
+      \small\boxStat{freeHP}%
       \addtocounter{track}{-1}%
       &%
-      \ifnum\value{track}>0\boxStat{freeHP}\fi%
+      \ifnum\value{track}>0\small\boxStat{freeHP}\fi%
       \addtocounter{track}{-1}%
       &%
-      \ifnum\value{track}>0\boxStat{freeHP}\fi%
+      \ifnum\value{track}>0\small\boxStat{freeHP}\fi%
       \addtocounter{track}{-1}%
       \\%
     }%
@@ -287,10 +289,10 @@
       \hiderowcolors
       \Repeat{\value{noAppearing}}{
       HP \arabic{hp}
-      \boxStat{freeHP}
+      \small\boxStat{freeHP}
       &
       MP \arabic{mp}
-      \boxStat{mp}
+      \small\boxStat{mp}
       \\
       }
       \\
@@ -299,8 +301,8 @@
     \begin{tabular}{r}
       \hiderowcolors
       \Repeat{\value{noAppearing}}{
-      HP \arabic{hp} \boxStat{freeHP} \\
-      MP \arabic{mp} \boxStat{mp} \\
+      HP \arabic{hp} \small\boxStat{freeHP} \\
+      MP \arabic{mp} \small\boxStat{mp} \\
       }
     \end{tabular}
   \fi
@@ -315,13 +317,13 @@
       \hiderowcolors
       \Repeat{\value{noAppearing}}{
       HP \arabic{hp}
-      \boxStat{freeHP}
+      \small\boxStat{freeHP}
       &
       MP \arabic{mp}
-      \boxStat{mp}
+      \small\boxStat{mp}
       &
       SP \arabic{sp}
-      \boxStat{sp}
+      \small\boxStat{sp}
       \\
       }
     \end{tabular}
@@ -330,9 +332,9 @@
       \begin{tabular}{rr}
         \hiderowcolors
         \Repeat{\value{noAppearing}}{
-          HP \arabic{hp} \boxStat{freeHP} &
-          MP \arabic{mp} \boxStat{mp} \\
-          & SP \arabic{sp} \boxStat{sp} \\
+          HP \arabic{hp} \small\boxStat{freeHP} &
+          MP \arabic{mp} \small\boxStat{mp} \\
+          & SP \arabic{sp} \small\boxStat{sp} \\
         }
       \end{tabular}
     \else
