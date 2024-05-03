@@ -235,6 +235,10 @@
 \setcounter{freeHP}{0}
 
 \newcommand\boxStat[1]{%
+  \Repeat{\value{#1}}{\Circle}%
+}
+
+\newcommand\hpStat[1]{%
   \Repeat{\value{wounds}}{\CIRCLE}%
   \Repeat{\value{weight}}{\LEFTcircle}%
   \Repeat{\value{#1}}{\Circle}%
@@ -245,7 +249,7 @@
   \hiderowcolors%
     HP \arabic{hp}~%
     \Repeat{\value{noAppearing}}{%
-      \boxStat{freeHP} \\%
+      \hpStat{freeHP} \\%
     }%
   \end{tabular}
 }
@@ -256,7 +260,7 @@
   \hiderowcolors%
     HP \arabic{hp}~%
     \whileboolexpr{test {\ifnumcomp{\value{track}}{>}{0}}}{%%
-      \ifnumodd{\value{track}}{ & \small\boxStat{freeHP} \\}{\small\boxStat{freeHP}}%%
+      \ifnumodd{\value{track}}{ & \small\hpStat{freeHP} \\}{\small\hpStat{freeHP}}%%
       \addtocounter{track}{-1}%
     }%
   \end{tabular}%
@@ -268,13 +272,13 @@
     \hiderowcolors%
     HP \arabic{hp}~%
     \whileboolexpr{test {\ifnumcomp{\value{track}}{>}{0}}}{%%
-      \small\boxStat{freeHP}%
+      \small\hpStat{freeHP}%
       \addtocounter{track}{-1}%
       &%
-      \ifnum\value{track}>0\small\boxStat{freeHP}\fi%
+      \ifnum\value{track}>0\small\hpStat{freeHP}\fi%
       \addtocounter{track}{-1}%
       &%
-      \ifnum\value{track}>0\small\boxStat{freeHP}\fi%
+      \ifnum\value{track}>0\small\hpStat{freeHP}\fi%
       \addtocounter{track}{-1}%
       \\%
     }%
@@ -284,12 +288,12 @@
 \newcommand\HPMPboxes{
   \setcounter{enc}{\value{hp}}
   \addtocounter{enc}{\value{mp}}
-  \ifnum\value{enc}<20
+  \ifnum\value{enc}<16
     \begin{tabular}{rr}
       \hiderowcolors
       \Repeat{\value{noAppearing}}{
       HP \arabic{hp}
-      \small\boxStat{freeHP}
+      \small\hpStat{freeHP}
       &
       MP \arabic{mp}
       \small\boxStat{mp}
@@ -301,7 +305,7 @@
     \begin{tabular}{r}
       \hiderowcolors
       \Repeat{\value{noAppearing}}{
-      HP \arabic{hp} \small\boxStat{freeHP} \\
+      HP \arabic{hp} \small\hpStat{freeHP} \\
       MP \arabic{mp} \small\boxStat{mp} \\
       }
     \end{tabular}
@@ -317,7 +321,7 @@
       \hiderowcolors
       \Repeat{\value{noAppearing}}{
       HP \arabic{hp}
-      \small\boxStat{freeHP}
+      \small\hpStat{freeHP}
       &
       MP \arabic{mp}
       \small\boxStat{mp}
@@ -332,7 +336,7 @@
       \begin{tabular}{rr}
         \hiderowcolors
         \Repeat{\value{noAppearing}}{
-          HP \arabic{hp} \small\boxStat{freeHP} &
+          HP \arabic{hp} \small\hpStat{freeHP} &
           MP \arabic{mp} \small\boxStat{mp} \\
           & SP \arabic{sp} \small\boxStat{sp} \\
         }
@@ -341,7 +345,7 @@
       \begin{tabular}{r}
         \hiderowcolors
         \Repeat{\value{noAppearing}}{
-          HP \arabic{hp} \boxStat{freeHP} \\
+          HP \arabic{hp} \hpStat{freeHP} \\
           MP \arabic{mp} \boxStat{mp} \\
           SP \arabic{sp} \boxStat{sp} \\
         }
@@ -1011,6 +1015,7 @@
 
 \newcommand\hide[1]{%
   \set{dr}{#1}%
+  \addtocounter{weight}{\value{dr}}%
   \setcounter{covering}{5}%
 }
 
@@ -1088,6 +1093,7 @@
 % DR.
 
 \newcommand{\flight}{%
+  \addtocounter{weight}{\value{maxWeight}}%
   \setcounter{enc}{\value{dr}}%
   \roundUp{enc}%
   \addtocounter{enc}{\value{Strength}}%
@@ -1138,6 +1144,7 @@
   \ifnum\value{track}<2\setcounter{track}{2}\fi%
   \set{enc}{track}%
   \roundUp{enc}%
+  \addtocounter{weight}{\value{track}}%
   \addAbility{\arabic{track}~tentacles (grapple up to \arabic{enc} opponents without going prone)}%
 }
 
@@ -1150,6 +1157,9 @@
   \setcounter{track}{8}%
   \addtocounter{track}{\value{Strength}}%
   \addAbility{web (\roll{Strength}{Athletics}, \glsentrytext{tn} \arabic{track} to break free for 1~\glsentrytext{ap})}%
+  \ifnum\value{Strength}>0%
+    \addtocounter{weight}{\value{Strength}}%
+  \fi%
 }
 
 %%%%%%%%%%%%%%%%%%%%% Magic Path
