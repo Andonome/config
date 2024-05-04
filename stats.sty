@@ -910,8 +910,8 @@
       \ifnum\value{sp}>0%
       SP \arabic{sp}, %
       \fi%
-      \ifnum\value{weight}>0%
-      \Glsentrytext{weight}~\arabic{weight},%
+      \ifnum\value{Intelligence}>0%
+        \Glsentrytext{weight}~\arabic{weight},%
       \fi%
     }{%
       \par%
@@ -919,7 +919,7 @@
     }%
     \iftoggle{allyCharacter}{}{%
       \iftoggle{examplecharacter}{}{%
-        \quad\glsentrytext{cr}~\arabic{xp}%
+        \flushright\glsentrytext{cr}~\arabic{xp}%
       }%
     }%
   \end{center}%
