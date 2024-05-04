@@ -144,17 +144,27 @@
 \newcommand{\lootMagic}{%
   \iftoggle{genExamples}{}%
     {%
-      \ifnum\value{diceNo2}>5\setcounter{diceNo2}{1}\fi%
+      \ifnum\value{diceNo2}>10\setcounter{diceNo2}{1}\fi%
       \ifcase\value{diceNo2}\relax%
-        Earth \gls{ingredient}%
+        auroch hooves%
       \or%1
-        Air \gls{ingredient}%
+        sack of griffin feathers%
       \or%2
-        Fire \gls{ingredient}%
+        marching mushrooms%
       \or%3
-        Water \gls{ingredient}%
-      \else%4
-        Fate \gls{ingredient}%
+        Earth \gls{boon}%
+      \or%4
+        Air \gls{boon}%
+      \or%5
+        stirge queen in a phial%
+      \or%6
+        woodspy beak%
+      \or%7
+        Fire \gls{boon}%
+      \or%8
+        Water \gls{boon}%
+      \else%9
+        Fate \gls{boon}%
       \fi%
       \stepcounter{diceNo2}%
     }%
