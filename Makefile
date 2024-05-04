@@ -17,6 +17,9 @@ test: $(DROSS)/test.pdf
 $(DROSS)/test.pdf: test.tex $(ALL_FILES)
 	$(RUN) test.tex
 
+.switch-gls:
+	touch .switch-gls
+
 docs.pdf: images/wide.jpg $(ALL_FILES)
 	$(RUN) docs.tex
 	$(GLOS) docs
@@ -30,7 +33,7 @@ foldout.pdf: $(wildcard rules/*.tex) $(ALL_FILES) docs.pdf
 	$(RUN) foldout.tex
 	$(RUN) foldout.tex
 	$(CP) $(DROSS)/foldout.pdf foldout.pdf
-rules.pdf: images/wide.jpg $(wildcard rules/*.tex) $(ALL_FILES)
+rules.pdf: .switch-gls images/wide.jpg $(wildcard rules/*.tex) $(ALL_FILES)
 	$(RUN) rules.tex
 	$(CP) $(DROSS)/rules.pdf rules.pdf
 
