@@ -29,6 +29,22 @@
   Armour Weight: \arabic{armourWeight}
 }
 
+\newcommand\showFullDescription{%
+  \ifdefempty{\NPCdescription}{}{%
+    \begin{multicols}{2}%
+    \raggedright%
+    \textbf{Description:}~\NPCdescription\nobreak%
+    \par%
+    \textbf{Wants:}~\npcGoal%
+    \ifdefempty{\npcQuote}{}{\par%
+      \textbf{Quote:}~\textit{``\npcQuote''}%
+    }%
+    \par%
+    \textbf{Mannerism:}~\mannerism%
+    \end{multicols}%
+  }%
+}
+
 %      _        _   
 %  ___| |_ __ _| |_ 
 % / __| __/ _` | __|
@@ -138,6 +154,7 @@
 \newcommand\statblock[1]{
     \begin{tcolorbox}[
       code={\setlength\parindent{0pt}#1},
+      after={\showFullDescription},
       title={\npcsymbol~\name},
       ornamented,
       fontupper=\small,
@@ -205,7 +222,7 @@
       {#6}% EQUIPMENT
       {#7}% ABILITIES
   }
-  \setcounter{wounds}{0}
+  \setcounter{wounds}{0}%
 }
 
 \newcommand\showBoxes{%
@@ -239,9 +256,9 @@
 }
 
 \newcommand\hpStat[1]{%
-  \Repeat{\value{wounds}}{\CIRCLE}%
   \Repeat{\value{weight}}{\LEFTcircle}%
   \Repeat{\value{#1}}{\Circle}%
+  \Repeat{\value{wounds}}{\CIRCLE}%
 }
 
 \newcommand\HPboxes{%

@@ -829,12 +829,13 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 \newcommand{\npcGoal}{}
 \newcommand{\npcsymbol}{\adfast{\value{r4}}}
 \newcommand{\npc}[2]{\settoggle{personality}{false}\renewcommand{\name}{#2}\renewcommand{\npcsymbol}{#1}}
-\newcommand{\NPC}[5]{\renewcommand{\name}{#2}
-\renewcommand{\npcsymbol}{#1}
-\settoggle{personality}{true}
-\renewcommand{\NPCdescription}{#3}
-\renewcommand{\mannerism}{#4}
-\renewcommand{\npcGoal}{#5}
+\newcommand{\NPC}[5]{%
+  \renewcommand{\name}{#2}%
+  \renewcommand{\npcsymbol}{#1}%
+  \settoggle{personality}{true}%
+  \renewcommand{\NPCdescription}{#3}%
+  \renewcommand{\mannerism}{#4}%
+  \renewcommand{\npcGoal}{#5}%
 }
 
 %%%%%%%%%%%%%%%%%%%% TOGGLES %%%%%%%%%%%%%%%%%%%%
