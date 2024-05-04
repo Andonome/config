@@ -1,41 +1,37 @@
-\section*{Binding Rules}
+\subsection*{Binding Rules}
+\renewcommand{\arraystretch}{1.1}
 
 \begin{multicols}{2}
 
-\subsection*{Setting Up}
+\subsubsection*{Setting Up}
 
 \input{config/rules/start.tex}
 
-\subsection*{Traits}
+\columnbreak
 
 \input{config/rules/attributes.tex}
-
-\input{config/rules/skills.tex}
 
 \end{multicols}
 
 \mentalSkillChart
 
-\begin{multicols}{2}
+\begin{multicols}{3}
 
-\subsection*{Actions}
 \input{config/rules/actions_basic.tex}
 
-\input{config/rules/actions_resisted.tex}
+%\input{config/rules/actions_resisted.tex}
 
 \input{config/rules/actions_resting.tex}
 
 \input{config/rules/banding.tex}
+
+\input{config/rules/weight.tex}
 
 \end{multicols}
 
 \physicalSkillChart
 
 \begin{multicols}{2}
-
-\subsection*{\Glsfmttext{weight}}
-
-\input{config/rules/weight.tex}
 
 \subsection*{Fight!}
 
@@ -47,21 +43,23 @@
 
 \input{config/rules/armour.tex}
 
+\commonArmourChart
+
 \input{config/rules/fate.tex}
 
 \subsubsection*{Projectiles}
 
 \input{config/rules/projectiles.tex}
 
-\commonArmourChart
-
-\subsubsection*{Magic}
+\subsubsection*{Spells}
 
 \input{config/rules/spells.tex}
 
 \subsubsection*{Swarms}
 
 \input{config/rules/swarms.tex}
+
+\bigLine
 
 \input{config/rules/interval.tex}
 

@@ -1,10 +1,10 @@
 \subsubsection{Armour}
-reduces Damage, but only covers some parts of the body.
-Most armour has a \gls{covering} of `3', meaning that it covers most of the body (but not all).
+provides \gls{dr}, but only when the \gls{covering} applies.
+For armour with \gls{covering} 3:
 
-\begin{itemize}
-  \item Roll $\leq$ \gls{tn} $-$ your \gls{covering}: opponent scores \gls{vitalShot}, ignores Armour (full Damage).
-  \item Roll $<$ \gls{tn}: opponent hits, your \gls{dr} reduces Damage.
-  \item Roll $>$ \gls{tn}: you hit, opponent's \gls{dr} reduces Damage.
-  \item Roll $\geq$ \gls{tn} $+$ opponent's \gls{covering}: you score \gls{vitalShot}, ignore Armour (full Damage).
-\end{itemize}
+\begin{description}
+  \item[Roll $\leq$ \gls{tn} $-$ your \gls{covering}]: opponent scores \pgls{vitalShot}, and ignores your \gls{dr}.
+  \item[Roll $<$ \gls{tn}]: opponent hits, but your \gls{dr} reduces Damage.
+  \item[Roll $>$ \gls{tn}]: you hit, but opponent's \gls{dr} reduces Damage.
+  \item[Roll $\geq$ \gls{tn} $+$ opponent's \gls{covering}]: you score \pgls{vitalShot}, and inflict full Damage.
+\end{description}
