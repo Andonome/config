@@ -1,0 +1,64 @@
+Statblocks show a creature at a glance.
+But don't glance, let's go slow.
+
+\set{wounds}{1}
+
+\Person{\NPC{\F\Hu}{Ashpike}{big gut, bigger goals}{clicks tongue}{step 1: basilisk body}}%
+  {{2}{0}{-1}}% BODY
+  {{1}{-1}{2}}% MIND
+  {
+    \setcounter{Academics}{2}
+    \setcounter{Crafts}{2}
+    \setcounter{Medicine}{1}
+    \setcounter{Combat}{1}
+    %
+    \setcounter{Fire}{2}
+    \setcounter{Air}{2}
+    \setcounter{Earth}{1}
+    \longsword
+    \partialleather
+  }% SKILLS
+  {}% KNACKS
+  {%
+    \lootMagic, \rations
+  }% EQUIPMENT
+  {}% ABILITIES
+
+This is Ashpike.
+\paragraph{From the top,}
+her high Strength and low Speed suggest a larger person, and her \gls{ap} total reflects this -- she has only~2, and the cost to use her longsword sits beside it.
+
+Her \roll{Dexterity}{Combat} only amounts to +1, but the longsword puts her at +3 in total.
+If she enters combat with \pgls{pc}, they would roll at ($7+3$) \tn[10]; so the total Attack (`{\scshape Att}') shows the standard requirements to attack her.
+During play, you may need to adjust these numbers (perhaps she can't drawn her sword, or perhaps she loses it).
+
+The \gls{dr} comes from her armour, and the \gls{tn} to get a \gls{vitalShot} sits next to it in brackets.
+
+Below, the half-circles by the `\gls{hp}' show how encumbered she is.
+Non-weapons (such as her food) are not shown here, because they're likely to be used up, or simply dropped when a fight begins.
+If she accumulates \glspl{ep}, you can add some half-circle shading, until she gains a penalty.
+
+Those same \gls{hp} circles let you mark off Damage, starting from the right.
+Currently, she has a single wound.
+
+Finally, her \glspl{mp} have further circles, so you can mark them off as she casts spells.
+
+\paragraph{Below the box,}
+a few \glspl{npc} have extended information, so you can dart your eyeballs to the description in a flash.
+`Mannerisms', can help distinguish \glspl{npc} with a bit of body-language, but without demanding any `acting'.
+
+Whenever \pgls{npc}'s actions feel unclear, you can jump to what they want, and have them move towards that goal.
+
+Below are her spells:
+
+\bigLine
+
+\showStdSpells
+
+\bigLine
+
+\paragraph{The spells}
+each show a Cost and Range, as you'd expect, but note the words `Resisted' and `Roll'.
+Spells which have the former show what \pgls{pc} must roll to resist the spell, with \pgls{tn} based on Ashpike's \roll{Charisma}{Sphere}.
+Spells with the latter just show her \roll{Charisma}{Sphere} total, and note how to determine the spell's \gls{tn}.
+
