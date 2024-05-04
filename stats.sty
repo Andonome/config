@@ -919,7 +919,7 @@
     }%
     \iftoggle{allyCharacter}{}{%
       \iftoggle{examplecharacter}{}{%
-        \outline{\glsentrytext{cr}: \showCR}%
+        \quad\glsentrytext{cr}~\arabic{xp}%
       }%
     }%
   \end{center}%
@@ -935,44 +935,16 @@
 \newcommand{\calculateXP}{%
   %%% Now to get the XP value of the creature's attack ability.
   %%% = Attack (TN) * Dam + max((spd-hef),mp)^2
-  \setcounter{attackXPtotal}{\value{att}}%
-  \multiply\value{attackXPtotal} by \value{damage}%
-  \setcounter{gold}{\value{Speed}}%
-  \addtocounter{gold}{-\value{heft}}%
-  \ifnum\value{gold}>\value{mp}%
-    \setcounter{enc}{\value{gold}}%
-  \else%
-    \setcounter{enc}{\value{mp}}%
-  \fi%
-    \multiply\value{enc} by\value{enc}%
-    \addtocounter{attackXPtotal}{\value{enc}}%
-    %%% And now the XP defence total.
-    %%% = (att - 7 + dr) x hp
-    \ifnum\value{att}>7%
-      \setcounter{defenceXPtotal}{\value{att}}%
-      \addtocounter{defenceXPtotal}{-7}%
-    \else%
-      \setcounter{defenceXPtotal}{0}%
-    \fi%
-    \addtocounter{defenceXPtotal}{\value{dr}}%
-    \multiply\value{defenceXPtotal} by\value{hp}\addtocounter{defenceXPtotal}{0}%
-
-  % XP = attackXPtotal + defenceXPtotal
-    \setcounter{xp}{\value{attackXPtotal}}%
-    \addtocounter{xp}{\value{defenceXPtotal}}%
-  \iftoggle{examplecharacter}%
-  {}%
-  {%
-    \ifnumcomp{\value{xp}}{<}{73}%
-      {\ifnumcomp{\value{xp}}{<}{40}%
-        {\renewcommand\showCR{\arabic{xpbonus}}}{\renewcommand\showCR{$\frac{1}{2}$}}}%
-        {%
-            \addtocounter{xp}{-60}%
-            \divide\value{xp} by 13%
-            \addtocounter{xp}{\value{xpbonus}}%
-            \renewcommand\showCR{\arabic{xp}}%
-        }%
-  }%
+  \setcounter{xp}{\value{toHit}}%
+  \setcounter{xp}{\value{damage}}%
+  \addtocounter{xp}{\value{dr}}%
+  \addtocounter{xp}{\value{covering}}%
+  \addtocounter{xp}{\value{ap}}%
+  \addtocounter{xp}{-\value{heft}}%
+  \addtocounter{xp}{\value{mp}}%
+  \addtocounter{xp}{\value{covering}}%
+  \addtocounter{xp}{-15}%
+  \roundUp{xp}%
 }
 
 \newcommand\swarm[6][]%
