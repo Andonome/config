@@ -31,6 +31,24 @@
 \newcounter{spellTargets}
 \setcounter{spellTargets}{1}
 
+\newcommand\showOnset{%
+  \ifcase\value{spellCost}\relax%
+  Error%
+  \or%
+  Error%
+  \or%
+  \gls{interval}%
+  \or%
+  day%
+  \or%
+  week%
+  \or%
+  season%
+  \else%
+  \gls{cycle}%
+  \fi%
+}
+
 \newcommand\spellRange{}
 \newcommand\setRange{%
   \iftoggle{Distant}%
@@ -71,6 +89,8 @@
   \settoggle{talisman}{false}
 \newtoggle{insubstantial}
   \settoggle{insubstantial}{false}
+\newtoggle{Devious}
+  \settoggle{Devious}{false}
 \newtoggle{Distant}
   \settoggle{Distant}{false}
 \newtoggle{Duplicated}
@@ -83,9 +103,11 @@
   \renewcommand\spellName{#1}%
   \setcounter{spellCost}{1}%
   \setcounter{spellTargets}{1}%
+  \togglefalse{Devious}%
   \togglefalse{Distant}%
   \togglefalse{Duplicated}%
   \foreach \d in {#2}{%
+    \ifdefstring{\d}{Devious}{\global\toggletrue{Devious}}{}%
     \ifdefstring{\d}{Distant}{\global\toggletrue{Distant}}{}%
     \ifdefstring{\d}{Duplicated}{\global\toggletrue{Duplicated}}{}%
     \stepcounter{spellCost}%
@@ -122,9 +144,9 @@
       {\multiply\value{spellTargets} by \value{spellCost}\addtocounter{spellTargets}{0}}%
   }{}%
   \iftoggle{talisman}{%
-    \index[talismans]{\textbf{#1} (\spellEnhancements\ \spellAction~\spellSphere) Range: \spellRange, \ifnumcomp{\value{spellTargets}}{>}{1}{Area: \arabic{spellTargets}, }{} Resisted by: \detokenize{#5}, Bonus: \arabic{spellCost}. \spellSum|adfclosedflourishleft~p.~}%
+    \index[talismans]{\textbf{#1} (\spellEnhancements\ \spellAction~\spellSphere) Range: \spellRange, \ifnumcomp{\value{spellTargets}}{>}{1}{Area: \arabic{spellTargets}, }{} \iftoggle{Devious}{Onset:~1~\showOnset, }{} Resisted by: \detokenize{#5}, Bonus: \arabic{spellCost}. \spellSum|adfclosedflourishleft~p.~}%
   }{%
-    \index[spells]{\textbf{#1} {\sffamily (\spellEnhancements \spellAction~\spellSphere)} \textit{Cost:~\arabic{spellCost}, Range: \spellRange, \ifnumcomp{\value{spellTargets}}{>}{1}{Area: \arabic{spellTargets}, }{} Resisted by: \detokenize{#5}.} \spellSum|adfclosedflourishleft~p.~}%
+    \index[spells]{\textbf{#1} {\sffamily (\spellEnhancements \spellAction~\spellSphere)} \textit{Cost:~\arabic{spellCost}, Range: \spellRange, \ifnumcomp{\value{spellTargets}}{>}{1}{Area: \arabic{spellTargets}, }{} \iftoggle{Devious}{Onset:~1~\showOnset, }{} Resisted by: \detokenize{#5}.} \spellSum|adfclosedflourishleft~p.~}%
   }%
 }
 
@@ -147,8 +169,14 @@
     \textbf{\scshape Range:}
     \spellRange%
     \ifnumcomp{\value{spellTargets}}{>}{1}{
+      \par
       \textbf{\scshape Area:}
       \arabic{spellTargets}%
+    }{}
+    \iftoggle{Devious}{%
+      \par
+      \textbf{\scshape Onset Time:}
+      1~\showOnset%
     }{}
   \\
   \end{tabularx}
@@ -169,6 +197,9 @@
   \ifnum\value{spellTargets}>1%
     \textbf{Area:}~\arabic{spellTargets},
   \fi%
+  \iftoggle{Devious}{%
+    \textbf{Onset:} 1~\showOnset,
+  }{}%
   \iftoggle{opposedSpell}{%
     \addtocounter{castingBonus}{7}%
     \textbf{Resisted~by:} \spellResistance, \tn[\arabic{castingBonus}]%
