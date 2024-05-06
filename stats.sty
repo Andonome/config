@@ -961,7 +961,6 @@
     ]
   \randomize
   \clean
-  #1
   \set{hp}{#3}
   \set{Dexterity}{#4}
   \set{att}{#4}
@@ -970,7 +969,8 @@
   \set{ap}{#5}
   \addtocounter{ap}{3}
   \set{Wits}{#6}
-
+  #1
+  \set{freeHP}{hp}
   \scshape
   \begin{tabularx}{.8\textwidth}{YYYY}
   \hiderowcolors
@@ -993,7 +993,6 @@
   \end{tabularx}
   \ifdefempty{\Abilities}{}{%
     \normalfont
-    \par
     \par\textbf{Abilities:} \Abilities
   }%
   \end{tcolorbox}%

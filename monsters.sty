@@ -1319,11 +1319,11 @@
     {\undead}% ABILITIES
 }
 
-\newcommand\jelly{%
+\newcommand\jelly[1][\value{r4}]{%
   \swarm[\gloopy%
-  \ifnum\value{r4}=3%
+  \ifnum#1=3%
     \acidSpray%
-  \fi]{\ifcase\value{r4}\relax\or%
+  \fi]{\ifcase#1\relax\or%
     Transluscent %
   \or%
     Red%
