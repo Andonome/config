@@ -1346,3 +1346,16 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   {\small\textcolor{gray}{(#1)}}
 }
 
+%%%%%%%%%%%%%%%%%%%% Rules to Reference %%%%%%%%%%%%%%%%%%%%
+
+\newcommand\makeRule[5]{
+  \subsubsection[#2: \roll{#3}{#4}, \glsentrytext{tn} #5]{#2}
+  \label{#1}%
+  \textit{\roll{#3}{#4}, \glsentrytext{tn}~#5.}%
+}
+
+\newcommand\makeAutoRule[3]{
+  \subsubsection[#2: #3]{#2}
+  \label{#1}%
+}
+
