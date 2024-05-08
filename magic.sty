@@ -220,6 +220,7 @@
 }
 
 \newcommand\showStdSpells[1][]{
+  \ifnum\value{noAppearing}>1\renewcommand\name{caster}\fi% We don't want to display "3 elves rolls with +3 to do X"
   \setcounter{enc}{0}
   \setHighSpheres
   \needspace{2em}
