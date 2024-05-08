@@ -301,10 +301,12 @@
   #9
   \ifglsentryexists{#2}{
     \paragraph{\adforn{54}~\Glsfmttext{#2}~\adforn{26}\hspace{1em}}
-    \label{#2}
+    \label{#2}%
+    \renewcommand\name{\gls{#2}}
   }{
     \paragraph{\adforn{54}~#2~\adforn{26}\hspace{1em}}
     \label{#2}
+    \renewcommand\name{#2}
     \index{Artefacts!#2}
   }
   #3 \hint{\gls{weight} #1}
