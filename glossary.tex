@@ -4,6 +4,11 @@
   \newcommand\glossarytitle{Lexicon}
 \fi
 
+\newglossary*{mech}{Mechanics}
+\newglossary*{people}{People}
+\glssetcategoryattribute{people}{indexonlyfirst}{true}
+\glssetcategoryattribute{mech}{indexonlyfirst}{true}
+
 \glsdefpostdesc{general}{.}
 \glssetcategoryattribute{general}{glossnamefont}{sc}
 \glsdefpostdesc{people}{.\space\adforn{15}\space}
@@ -13,8 +18,6 @@
 \glsdefpostdesc{location}{.\space\adforn{72}\space}
 \glsdefpostdesc{symbol}{.}
 
-\newglossary*{people}{People}
-\glssetcategoryattribute{people}{indexonlyfirst}{true}
 \glssetcategoryattribute{god}{glossnamefont}{textsf}
 
 \newignoredglossary*{peeps}
