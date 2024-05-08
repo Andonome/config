@@ -828,9 +828,13 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 \newcommand{\mannerism}{}
 \newcommand{\npcGoal}{}
 \newcommand{\npcsymbol}{\adfast{\value{r4}}}
-\newcommand{\npc}[2]{\settoggle{personality}{false}\renewcommand{\name}{#2}\renewcommand{\npcsymbol}{#1}}
+\newcommand{\npc}[2]{%
+  \global\def\name{#2}%
+  \renewcommand{\npcsymbol}{#1}%
+}
+
 \newcommand{\NPC}[5]{%
-  \renewcommand{\name}{#2}%
+  \global\def\name{#2}%
   \renewcommand{\npcsymbol}{#1}%
   \settoggle{personality}{true}%
   \renewcommand{\NPCdescription}{#3}%
