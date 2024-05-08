@@ -142,7 +142,9 @@
 }
 
 \newcommand{\lootMagic}{%
-  \iftoggle{genExamples}{}%
+  \iftoggle{genExamples}{%
+    elemental \gls{boon}, %
+    }%
     {%
       \ifnum\value{diceNo2}>10\setcounter{diceNo2}{1}\fi%
       \ifcase\value{diceNo2}\relax%
