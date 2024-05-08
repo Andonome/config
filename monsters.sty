@@ -312,6 +312,9 @@
       \fi
     }% SKILLS
     {%
+      \ifnum\value{Wits}>\value{Charisma}%
+        \snapcaster%
+      \fi%
       \ifcase\value{r4b}\relax%
         \lucky%
       \or%
