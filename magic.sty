@@ -190,22 +190,22 @@
 
 \newcommand\shortSpell{%
   \item[\spellName]
-  \spellSum.
+  \textit{\spellSum}.
 
-  (\textbf{Cost:}~\arabic{spellCost},
+  Spend \arabic{spellCost}~\glsentrytext{mp},
+  \iftoggle{opposedSpell}{%
+    \addtocounter{castingBonus}{7}%
+    \ifnum\value{spellTargets}>1\glspl{pc} resist \else target \gls{pc} resists\fi\  with \spellResistance~(\tn[\arabic{castingBonus}])%
+  }{%
+    \name\ rolls with \absNum{castingBonus} (\gls{tn} set by \spellResistance)%
+  }. %
   \textbf{Range:}~\spellRange,
   \ifnum\value{spellTargets}>1%
     \textbf{Area:}~\arabic{spellTargets},
   \fi%
   \iftoggle{Devious}{%
-    \textbf{Onset:} 1~\showOnset,
+    \textbf{Onset:} 1~\showOnset%
   }{}%
-  \iftoggle{opposedSpell}{%
-    \addtocounter{castingBonus}{7}%
-    \textbf{Resisted~by:} \spellResistance, \tn[\arabic{castingBonus}]%
-  }{%
-    \textbf{Roll:} \absNum{castingBonus}, \gls{tn} set by \spellResistance.%
-  })%
 }
 
 \newcommand\spell[7]{%
