@@ -1,3 +1,5 @@
+\ifodd\value{diceNo}
+
 \spell{Snowbinding}% Name
   {Detailed}% Enhancements
   {Wax}% Action
@@ -8,3 +10,17 @@
   {
     The higher the target weapon's \gls{weight}, the more difficult the spell, as the \gls{weight} adds (but never subtracts) from the \gls{tn}.
   }
+
+\else
+
+\spell{Shatter}% Name
+  {Duplicated}% Enhancements
+  {Wane}% Action
+  {Earth}% Spheres
+  {target's solidity}% Resist with
+  {With a fast, loud, yell, \arabic{spellTargets} target objects crack.
+  Clay has \tn[9], metals have \tn[14] or higher}% Description
+  {}
+
+\fi
+\stepcounter{diceNo}
