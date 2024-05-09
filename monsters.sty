@@ -157,26 +157,23 @@
 }
 
 \newcommand{\dwarventrader}[1][\npc{\T[\arabic{r12}]\Dw\M}{\arabic{r12} Dwarven Traders}]{
-  \randomdozen
-  #1
-  \randomtwoB
-  \randomthree\randomtwo\addtocounter{enc}{-1}
-  \person{\arabic{enc}}% STRENGTH
-  {1}% DEXTERITY
-  {-1}% SPEED
-  {{\arabic{r2}}% INTELLIGENCE
-  {0}% WITS
-  {0}}% CHARISMA
-  {0}% DR
-  {1}% COMBAT
-  {}% SKILLS
-  {\shortsword, \ifodd\value{r4}\lootMedium\else\lootBig, \lootJewellery\fi}% EQUIPMENT
-  {
-    \setcounter{Caving}{\value{r2}}%
-    \setcounter{Crafts}{\value{r2b}}%
-    \setcounter{Deceit}{\value{r3}}%
-    \knacks{\ifodd\value{r3}\specialist{Appraisal}\else\specialist{Cartography}\fi}
-  }
+  \Person{#1}%
+    {{r2}{r2b}{0}}% BODY
+    {{0}{0}{-1}}% MIND
+    {%
+      \set{Caving}{r2c}
+      \set{Combat}{rn1t2}
+      \set{Crafts}{r2c}
+      \ifodd\value{r2}
+        \shortsword
+        \partialchain
+      \else
+        \Dagger
+      \fi
+    }% SKILLS
+    {}% KNACKS
+    {\lootMedium}% EQUIPMENT
+    {}% ABILITIES
 }
 
 \newcommand{\dwarvensoldier}[1][\npc{\T[\arabic{r12}]\Dw\M}{\arabic{r12} Dwarven Soldiers}]{
