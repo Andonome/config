@@ -197,16 +197,6 @@
   description={allow players to declare that some part of their backstory arrives on scene to help the situation. They also grant \glsfmtplural{xp}},
 }
 
-\newglossaryentry{interval}{
-  prefix={an\space},
-  name={An Interval},
-  text={Interval},
-  sort={Interval},
-  type={mech},
-  nonumberlist,
-  description={means quarter of a day -- morning, afternoon, evening, or night},
-}
-
 \newglossaryentry{area}{
   name={Areas},
   sort={Area},
@@ -251,24 +241,6 @@
   description={measure a character's inherent abilities -- Strength, Speed, et c},
   }
 
-\newglossaryentry{sq}{
-  name={Side Quests},
-  text={Side~Quest},
-  prefix={a\space},
-  type={mech},
-  description={are BIND's way of structuring stories.
-  Each \gls{segment} has a location (e.g. `Town', or `Forest'), where it `activates' once the \glspl{pc} enter the area},
-  }
-
-\newglossaryentry{round}{
-  name={Rounds},
-  text={round},
-  prefix={a\space},
-  type={mech},
-  description={measure small slices of fast-paced time.
-  Mostly, we use rounds for combat},
-  }
-
 \newglossaryentry{natural}{
   name={A Natural Roll},
   text={Natural Roll},
@@ -280,12 +252,61 @@
   For example, a `natural 2' is where the dice show `\dicef{1}\dicef{1}', as opposed to a player gaining the result `2' from rolling a `\dicef{3}\dicef{1}' while the character has a -2 penalty to the roll},
   }
 
+\newglossaryentry{campaign}{
+  name={Campaigns},
+  text={campaign},
+  prefix={a\space},
+  type={mech},
+  description={are series of games, linked together by \glsentrytext{sq} plots, and every players' \glsentrytext{characterPool}},
+  }
+
+\newglossaryentry{downtime}{
+  name={Downtime},
+  text={Downtime},
+  prefix={a\space},
+  parent={campaign},
+  type={mech},
+  description={between sessions lets characters train, heal, and drink.
+  Every week in our world, three weeks pass in \glsentrytext{fenestra}},
+  }
+
+\newglossaryentry{sq}{
+  name={Side Quests},
+  text={Side~Quest},
+  prefix={a\space},
+  parent={campaign},
+  type={mech},
+  description={are BIND's way of structuring stories.
+  Each \gls{segment} has a location (e.g. `Town', or `Forest'), where it `activates' once the \glspl{pc} enter the area},
+  }
+
 \newglossaryentry{segment}{
   name={Segments},
   text={segment},
   prefix={a\space},
+  parent={sq},
   type={mech},
   description={are scenes which form a larger story},
+  }
+
+\newglossaryentry{interval}{
+  name={An Interval},
+  text={Interval},
+  prefix={an\space},
+  parent={campaign},
+  sort={Interval},
+  type={mech},
+  nonumberlist,
+  description={means quarter of a day -- morning, afternoon, evening, or night},
+}
+
+\newglossaryentry{round}{
+  name={Rounds},
+  text={round},
+  prefix={a\space},
+  type={mech},
+  description={measure small slices of fast-paced time.
+  Mostly, we use rounds for combat},
   }
 
 \newglossaryentry{step}{
@@ -339,23 +360,6 @@
   The player sets one die to `6', and rolls the other},
 }
 
-\newglossaryentry{downtime}{
-  name={Downtime},
-  text={Downtime},
-  prefix={a\space},
-  type={mech},
-  description={between sessions lets characters train, heal, and drink.
-  Every week in our world, three weeks pass in \glsentrytext{fenestra}},
-  }
-
-\newglossaryentry{campaign}{
-  name={Campaigns},
-  text={campaign},
-  prefix={a\space},
-  type={mech},
-  description={are series of games, linked together by \glsentrytext{sq} plots, and every players' \glsentrytext{characterPool}},
-  }
-
 \newglossaryentry{weight}{
   name={Weight Rating},
   text={Weight},
@@ -372,6 +376,7 @@
   name={Character Pool},
   prefix={a\space},
   type={mech},
+  parent={storypoint},
   description={is the collection of characters a player has.
   Players introduce new characters as allies by spending \glsfmtplural{storypoint}, then once their character dies, they take their next \glsentrytext{pc} from the pool},
 }
