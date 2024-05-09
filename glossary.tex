@@ -4,9 +4,10 @@
   \newcommand\glossarytitle{Lexicon}
 \fi
 
-\newglossary*{mech}{Mechanics}
 \newglossary*{people}{People}
 \glssetcategoryattribute{people}{indexonlyfirst}{true}
+
+\newglossary*{mech}{Mechanics}
 \glssetcategoryattribute{mech}{indexonlyfirst}{true}
 
 \glsdefpostdesc{general}{.}
@@ -424,6 +425,7 @@
   text={Edge},
   first={Edge of Civilization},
   prefix={an\space},
+  category={location},
   parent={fenestra},
   description={lies one footstep past the last \glsentrytext{village}.
   Beyond this point, only dark forests, empty tundra, and hungry beasts wait.
@@ -495,9 +497,10 @@
 
 \newglossaryentry{deep}{
   name={The Labyrinth},
-  prefix={a\space},
   text={Labyrinth},
   sort={Labyrinth},
+  prefix={a\space},
+  category={location},
   parent={fenestra},
   description={is the network of frigid, nearly lifeless caverns, which sits beneath much of \glsentrytext{fenestra}},
 }
