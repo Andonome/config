@@ -811,10 +811,10 @@
   \addtocounter{age}{\value{Dexterity}}%
   \addtocounter{age}{\value{Projectiles}}%
   \conDmg{track}%
-  \addAbility{acid spray (\glsentrytext{tn}~\arabic{age} to dodge or \showDam~Damage)}%
+  \addAbility{Acid spray (\glsentrytext{tn}~\arabic{age} to dodge or \showDam~Damage)}%
 }
 
-\newcommand{\acidBody}[1][acidic]{%
+\newcommand{\acidBody}[1][Acidic]{%
   \toggletrue{perfectArmour}%
   \set{track}{Strength}%
   \addtocounter{track}{3}%
@@ -826,28 +826,28 @@
   \setcounter{track}{\value{Strength}}%
   \addtocounter{track}{6}%
   \roundUp{track}%
-  \addAbility{regeneration (1 \glsentrytext{hp}/ round, max. \arabic{track})}%
+  \addAbility{Regeneration (1 \glsentrytext{hp}/ round, max. \arabic{track})}%
 }
 
 \newcommand\viscid{%
   \setcounter{track}{\value{Strength}}%
   \addtocounter{track}{7}%
-  \addAbility{viscid (on a tie, the attacker must inflict Damage, but the weapon sticks into the body, \glsentrytext{tn}~\arabic{track}  to pull out)}%
+  \addAbility{Viscid (on a tie, the attacker must inflict Damage, but the weapon sticks into the body, \glsentrytext{tn}~\arabic{track}  to pull out)}%
 }
 
 \newcommand\gloopy{%
-  \addAbility{liquid (non-fire Damage removes 2~\glsentrytext{hp} but creates a 1~\glsentrytext{hp} copy)}%
+  \addAbility{Liquid (non-fire Damage removes 2~\glsentrytext{hp} but creates a 1~\glsentrytext{hp} copy)}%
 }
 
 \newcommand{\amphibious}{%
-	\addAbility{amphibious}%
+	\addAbility{Amphibious}%
 }
 
 \newcommand{\claws}{%
   \ifnum\value{weaponDamage}<1%
     \stepcounter{weaponDamage}%
   \fi%
-  \addAbility{claws (+1~Damage)}%
+  \addAbility{Claws (+1~Damage)}%
 }
 
 \newcommand{\fireBreath}{%
@@ -855,7 +855,7 @@
   \conDmg{track}%
   \setcounter{enc}{\value{hp}}%
   \addtocounter{enc}{\value{hp}}%
-  \addAbility{fiery breath (range: \arabic{enc} \glspl{step}, Dam: \showDam\ifnum\value{mp}>0\ plus 1 per \glsentrytext{mp} spent\fi)}%
+  \addAbility{Fiery breath (range: \arabic{enc} \glspl{step}, Dam: \showDam\ifnum\value{mp}>0\ plus 1 per \glsentrytext{mp} spent\fi)}%
 }
 
 % To fly, creatures should have Speed
@@ -869,7 +869,7 @@
   \addtocounter{enc}{\value{Strength}}%
   \setcounter{track}{\value{Speed}}%
   \addtocounter{track}{\value{Air}}%
-  \addAbility{Flight %
+  \addAbility{Wings %
   \ifnum\value{enc}>\value{track}%
     (can glide, but not fly)
   \else%
@@ -920,13 +920,13 @@
 
 \newcommand{\venom}{%
   \conDmg{r4b}%
-  \addAbility{venom (grappling attack inflicts \showDam~\glsfmtlongpl{ep})}%
+  \addAbility{Venom (grappling attack inflicts \showDam~\glsfmtlongpl{ep})}%
 }
 
 \newcommand{\web}{%
   \setcounter{track}{8}%
   \addtocounter{track}{\value{Strength}}%
-  \addAbility{web (\roll{Strength}{Athletics}, \glsentrytext{tn} \arabic{track} to break free for 1~\glsentrytext{ap})}%
+  \addAbility{Web (\roll{Strength}{Athletics}, \glsentrytext{tn} \arabic{track} to break free for 1~\glsentrytext{ap})}%
   \ifnum\value{Strength}>0%
     \addtocounter{weight}{\value{Strength}}%
   \fi%
