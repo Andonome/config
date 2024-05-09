@@ -1,3 +1,5 @@
+\ifodd\value{diceNo}
+
 \spell{Slide}% Name
   {}% Enhancements
   {Wane}% Action
@@ -7,3 +9,18 @@
   {
     This does nothing of any consequence on solid ground, but soft ground, such as any area covered in thick mud, or snow, can throw anyone standing on two legs.}
 
+\else
+
+\spell{Foot-Grab}% Name
+  {}% Enhancements
+  {Wax}% Action
+  {Earth}% Spheres
+  {\roll{Speed}{Athletics}}% Resist with
+  {The caster shouts `Hold fast!', and soft mud, or snow, grabs a target's foot.
+  Once held, they can break free with \roll{Strength}{Brawl}, at the original \gls{tn}}% Description
+  {
+    Attempting this spell on ground which is merely damp, but with insufficient water, increases the \gls{tn}.
+  }
+
+\fi
+\stepcounter{diceNo}
