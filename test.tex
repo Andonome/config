@@ -21,21 +21,20 @@ This is a test document, to make sure new code works before sticking it in a pro
 Current day should equal \arabic{r4b}.
 That means the season in Fenestra is \showSeason, which means it's \showTemperature.
 
-\npc{\M}{Random Guy}
-\person{1}% STRENGTH
-{1}% DEXTERITY 
-{1}% SPEED
-{{-2}% INTELLIGENCE
-{-1}% WITS
-{0}}% CHARISMA
-{0}% DR
-{1}% COMBAT
-{Academics 1, Wyldcrafting 1
-}% SKILLS
-{\Dagger, pieces of string}% EQUIPMENT
-{
-  \setcounter{Fate}{2}
-}
+\Person{\npc{\M\Hu}{Random Guy}}%
+  {{1}{1}{0}}% BODY
+  {{-1}{0}{-1}}% MIND
+  {%
+    \set{Caving}{r2c}
+    \set{Combat}{2}
+    \set{Crafts}{r2c}
+    \set{Tactics}{1}
+    \spear
+    \partialchain
+  }% SKILLS
+  {}% KNACKS
+  {\lootMedium}% EQUIPMENT
+  {}% ABILITIES
 
 \input{spells/Air1.tex}
 
