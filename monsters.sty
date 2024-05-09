@@ -1367,6 +1367,9 @@
       \ifnum\value{Intelligence}<-1
         \setcounter{Intelligence}{-6}
         \setcounter{Charisma}{-6}
+      \else
+        \set{Fate}{r2}
+        \set{Water}{r2c}
       \fi
     }% SKILLS
     {\ifcase\value{rn3t3}%
