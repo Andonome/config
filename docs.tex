@@ -42,6 +42,17 @@ Which then makes a male dragon called ``Bob'':
 You can summon dozens of monsters, including \verb"humansoldier", \verb"basilisk", and \verb"\ghoul"
 (see \verb"monsters.tex" for all the examples).
 
+A longer command lets you fill in more information about \pgls{npc}.
+
+\begin{verbatim}
+  \humandiplomat[\NPC{\Hu\F}{Bob}%
+    {Erratic}%
+    {Snaps fingers}%
+    {Sandwiches}]
+\end{verbatim}
+
+\humandiplomat[\NPC{\Hu\F}{Bob}{Erratic}{Snaps fingers}{Sandwiches}]
+
 Placing a number after the `T' symbol, e.g. \verb"\T[5]" to change the number of rows of boxes to track stats.
 
 \ghoul[\npc{\T[5]\D}{5 Ghouls}]

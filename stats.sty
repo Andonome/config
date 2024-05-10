@@ -224,7 +224,7 @@
 \setcounter{freeHP}{0}
 
 \newcommand\boxStat[1]{%
-  \Repeat{\value{#1}}{\Circle}%
+  \glsentrytext{R}~\Repeat{\value{#1}}{\Square}%
 }
 
 \newcommand\hpStat[1]{%
@@ -274,7 +274,7 @@
 \newcommand\HPMPboxes{%
   \setcounter{enc}{\value{hp}}%
   \addtocounter{enc}{\value{mp}}%
-  \ifnum\value{enc}<16%
+  \ifnum\value{enc}<24%
     \begin{tabular}{rr}%
       \hiderowcolors%
       \Repeat{\value{noAppearing}}{%
