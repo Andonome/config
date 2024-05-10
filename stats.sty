@@ -30,6 +30,10 @@
 }
 
 \newcommand\afterStatBlock{%
+  \needspace{3em}
+  \iftoggle{genExamples}{}{
+    \showBoxes
+  }%
   \ifdefempty{\NPCdescription}{}{%
     \begin{multicols}{2}%
     \raggedright%
@@ -43,9 +47,6 @@
     \textbf{Mannerism:}~\mannerism%
     \end{multicols}%
   }%
-  \iftoggle{genExamples}{}{
-    \showBoxes
-  }
 }
 
 %      _        _   
@@ -246,8 +247,12 @@
   \setcounter{track}{\value{noAppearing}}%
   \begin{tabular}{rr}%
   \hiderowcolors%
+      \ifodd\value{track}%
+      \else%
+        \npcsymbol
+      \fi%
     \whileboolexpr{test {\ifnumcomp{\value{track}}{>}{0}}}{%%
-      \ifnumodd{\value{track}}{ & \small\hpStat{freeHP} \\}{\small\hpStat{freeHP}}%%
+      \ifnumodd{\value{track}}{ \small\hpStat{freeHP}}{& \small\hpStat{freeHP} \\}%%
       \addtocounter{track}{-1}%
     }%
   \end{tabular}%
@@ -672,16 +677,21 @@
           {}%
           { (\arabic{covering}!)}, }%
       }{}%
-    HP~\arabic{hp},
-    \ifnum\value{mp}>0%
-      MP \arabic{mp},
-    \fi%
+    \iftoggle{genExamples}{%
+      HP~\arabic{hp},
+      \ifnum\value{mp}>0%
+        MP \arabic{mp},
+      \fi%
+    }{}
     \ifnum\value{sp}>0%
     SP \arabic{sp}, %
     \fi%
-    \ifnum\value{Intelligence}>0%
-      \Glsentrytext{weight}~held~\arabic{weight},%
-    \fi%
+    \iftoggle{genExamples}{%
+      \ifnum\value{Intelligence}>-1%
+        \Glsentrytext{weight}~held~\arabic{weight},%
+      \fi%
+    }{}
+    {\hfil\small\textcolor{\pageSideColor}{\calculateXP}}%
   \end{center}
 }
 %
@@ -707,7 +717,7 @@
       \addtocounter{xp}{\value{covering}}%
       \addtocounter{xp}{-15}%
       \roundUp{xp}%
-      \flushright\glsentrytext{cr}~\arabic{xp}%
+      \glsentrytext{cr}~\arabic{xp}%
     }%
   }%
 }

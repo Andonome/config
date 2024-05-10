@@ -1147,7 +1147,7 @@
   {{r3}{rn1t2}{0}}% BODY
   {r2}% WITS
   {%
-    \ifnum\value{noAppearing}>5
+    \ifnum\value{noAppearing}>2
       \set{Strength}{r2c}
     \fi
     \set{Wyldcrafting}{rn1t2}
@@ -1159,10 +1159,11 @@
 
 \newcommand{\ghast}[1][\npc{\D\Hu}{Ghast}]{
   \Person{#1}%
-    {{r3}{0}{0}}% BODY
+    {{r2}{0}{0}}% BODY
     {{rn1t2}{-1}{0}}% MIND
     {%
       \ifnum\value{noAppearing}<3
+        \set{Strength}{r3c}
         \set{Brawl}{r3c}
         \set{Combat}{rn3t3}
         \set{Athletics}{r3b}
