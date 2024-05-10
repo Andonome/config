@@ -162,8 +162,9 @@
       }%
       \end{tabularx}
       \tcblower%%%%%%%%%%%%%%%%%%%%
-      \derivedstats%
-      \null%
+      \begin{minipage}{\linewidth}
+        \derivedstats%
+      \end{minipage}
     \end{tcolorbox}
 }
 
@@ -239,7 +240,7 @@
     \Repeat{\value{noAppearing}}{%
       \hpStat{freeHP} \\%
     }%
-  \end{tabular}
+  \end{tabular}%
 }
 
 \newcommand\HPHPboxes{%
@@ -273,31 +274,31 @@
   \end{tabular}%
 }
 
-\newcommand\HPMPboxes{
-  \setcounter{enc}{\value{hp}}
-  \addtocounter{enc}{\value{mp}}
-  \ifnum\value{enc}<16
-    \begin{tabular}{rr}
-      \hiderowcolors
-      \Repeat{\value{noAppearing}}{
-      HP \arabic{hp}
-      \small\hpStat{freeHP}
-      &
-      MP \arabic{mp}
-      \small\boxStat{mp}
-      \\
-      }
-      \\
-    \end{tabular}
-  \else
-    \begin{tabular}{r}
-      \hiderowcolors
-      \Repeat{\value{noAppearing}}{
-      HP \arabic{hp} \small\hpStat{freeHP} \\
-      MP \arabic{mp} \small\boxStat{mp} \\
-      }
-    \end{tabular}
-  \fi
+\newcommand\HPMPboxes{%
+  \setcounter{enc}{\value{hp}}%
+  \addtocounter{enc}{\value{mp}}%
+  \ifnum\value{enc}<16%
+    \begin{tabular}{rr}%
+      \hiderowcolors%
+      \Repeat{\value{noAppearing}}{%
+      HP \arabic{hp}%
+      \small\hpStat{freeHP}%
+      &%
+      MP \arabic{mp}%
+      \small\boxStat{mp}%
+      \\%
+      }%
+      \\%
+    \end{tabular}%
+  \else%
+    \begin{tabular}{r}%
+      \hiderowcolors%
+      \Repeat{\value{noAppearing}}{%
+      HP \arabic{hp} \small\hpStat{freeHP} \\%
+      MP \arabic{mp} \small\boxStat{mp} \\%
+      }%
+    \end{tabular}%
+  \fi%
 }
 
 \newcommand\HPMPSPboxes{
