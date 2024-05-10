@@ -30,8 +30,10 @@
 }
 
 \newcommand\afterStatBlock{%
-  \needspace{3em}
-  \iftoggle{genExamples}{}{
+  \iftoggle{genExamples}{}{%
+    \setcounter{enc}{\value{noAppearing}}%
+    \addtocounter{enc}{4}%
+    \needspace{\value{enc}\baselineskip}%
     \showBoxes
   }%
   \ifdefempty{\NPCdescription}{}{%
