@@ -132,9 +132,10 @@
 
 \newcommand\statblock[1]{
     \begin{tcolorbox}[
+      before={\begin{minipage}{\linewidth}},
       code={\setlength\parindent{0pt}#1},
       title={\npcsymbol~\name},
-      after={\afterStatBlock},
+      after={\afterStatBlock\end{minipage}},
       ornamented,
       size=fbox,
       fontupper=\small,
