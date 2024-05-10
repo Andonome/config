@@ -495,6 +495,23 @@
   They frequently go awry, as they have a mind of their own, and their own wishes and values},
 }
 
+\newglossaryentry{witch}{
+  name={Witch},
+  text={witch},
+  prefix={a\space},
+  parent={alchemy},
+  description={simply means any spell-caster, often used as a derogatory term for a dishonoured \glsentrytext{doula}},
+}
+
+\newglossaryentry{witchcraft}{
+  name={Witchcraft},
+  text={Witchcraft},
+  prefix={a\space},
+  parent={alchemy},
+  description={is what any \glsentrytext{witch} might do.
+  It emphasises actual magical skill, rather than just putting stuff together with a recipe},
+}
+
 \newglossaryentry{deep}{
   name={The Labyrinth},
   text={Labyrinth},
@@ -673,10 +690,20 @@
   description={\qquad},
 }
 
+\newglossaryentry{templeOfMisgenesis}{
+  name={The Temple of Misgenesis},
+  text={Temple of Misgenesis},
+  prefix={a\space},
+  symbol={\glsentrytext{misgen}},
+  nonumberlist,
+  description={Some things never were.  This loose organization alters fortune to ensure nobody has to fail a task before they try, or give up on the best career they never considered},
+}
+
 \newglossaryentry{doula}{
   name={Doulas},
   text={Doula},
   prefix={a\space},
+  parent={templeOfMisgenesis},
   description={help with births, blessings, and beginnings of all kind.
   They protect the population from misgeneis -- the death which occurs before life.
   Nobody begins a business venture or party without a blessing from a Doula},
@@ -688,8 +715,8 @@
   sort={Doula Shop},
   prefix={a\space},
   category={location},
+  parent={templeOfMisgenesis},
   symbol={\glsentrytext{misgen}},
-  %parent={doula},
   description={sell various potions and blessings},
 }
 
