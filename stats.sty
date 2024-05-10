@@ -29,7 +29,7 @@
   Armour Weight: \arabic{armourWeight}
 }
 
-\newcommand\showFullDescription{%
+\newcommand\afterStatBlock{%
   \ifdefempty{\NPCdescription}{}{%
     \begin{multicols}{2}%
     \raggedright%
@@ -43,6 +43,9 @@
     \textbf{Mannerism:}~\mannerism%
     \end{multicols}%
   }%
+  \iftoggle{genExamples}{}{
+    \showBoxes
+  }
 }
 
 %      _        _   
@@ -122,14 +125,13 @@
   #7%
   \computeStats%
   \computeEncumbrance%
-  \calculateXP%
 }
 
 \newcommand\statblock[1]{
     \begin{tcolorbox}[
       code={\setlength\parindent{0pt}#1},
-      after={\showFullDescription},
       title={\npcsymbol~\name},
+      after={\afterStatBlock},
       ornamented,
       size=fbox,
       fontupper=\small,
@@ -162,9 +164,7 @@
       }%
       \end{tabularx}
       \tcblower%%%%%%%%%%%%%%%%%%%%
-      \begin{minipage}{\linewidth}
-        \derivedstats%
-      \end{minipage}
+      \derivedstats\null
     \end{tcolorbox}
 }
 
@@ -680,27 +680,17 @@
           {}%
           { (\arabic{covering}!)}, }%
       }{}%
-    \iftoggle{genExamples}{%
-      HP~\arabic{hp},
-      \ifnum\value{mp}>0%
-        MP \arabic{mp},
-      \fi%
-      \ifnum\value{sp}>0%
-      SP \arabic{sp}, %
-      \fi%
-      \ifnum\value{Intelligence}>0%
-        \Glsentrytext{weight} held~\arabic{weight},%
-      \fi%
-    }{%
-      \par%
-      \showBoxes%
-    }%
-    \iftoggle{allyCharacter}{}{%
-      \iftoggle{examplecharacter}{}{%
-        \flushright\glsentrytext{cr}~\arabic{xp}%
-      }%
-    }%
-  \end{center}%
+    HP~\arabic{hp},
+    \ifnum\value{mp}>0%
+      MP \arabic{mp},
+    \fi%
+    \ifnum\value{sp}>0%
+    SP \arabic{sp}, %
+    \fi%
+    \ifnum\value{Intelligence}>0%
+      \Glsentrytext{weight}~held~\arabic{weight},%
+    \fi%
+  \end{center}
 }
 %
 %
@@ -713,16 +703,21 @@
 \newcommand{\calculateXP}{%
   %%% Now to get the XP value of the creature's attack ability.
   %%% = Attack (TN) * Dam + max((spd-hef),mp)^2
-  \setcounter{xp}{\value{toHit}}%
-  \setcounter{xp}{\value{damage}}%
-  \addtocounter{xp}{\value{dr}}%
-  \addtocounter{xp}{\value{covering}}%
-  \addtocounter{xp}{\value{ap}}%
-  \addtocounter{xp}{-\value{heft}}%
-  \addtocounter{xp}{\value{mp}}%
-  \addtocounter{xp}{\value{covering}}%
-  \addtocounter{xp}{-15}%
-  \roundUp{xp}%
+  \iftoggle{allyCharacter}{}{%
+    \iftoggle{examplecharacter}{}{%
+      \setcounter{xp}{\value{toHit}}%
+      \setcounter{xp}{\value{damage}}%
+      \addtocounter{xp}{\value{dr}}%
+      \addtocounter{xp}{\value{covering}}%
+      \addtocounter{xp}{\value{ap}}%
+      \addtocounter{xp}{-\value{heft}}%
+      \addtocounter{xp}{\value{mp}}%
+      \addtocounter{xp}{\value{covering}}%
+      \addtocounter{xp}{-15}%
+      \roundUp{xp}%
+      \flushright\glsentrytext{cr}~\arabic{xp}%
+    }%
+  }%
 }
 
 \newcommand\swarm[6][]%
