@@ -501,7 +501,7 @@ bookmarks=true]%
   {\end{list}\null}%
 
 \newenvironment{dlistDouble}%
-  {\raggedright\begin{list}{\Large\twoDice{\value{dlist}}}{\usecounter{dlist}}}%
+  {\raggedright\begin{list}{\ifnum\value{dlist}=1\stepcounter{dlist}\fi\Large\twoDice{\value{dlist}}}{\usecounter{dlist}}}%
   {\end{list}\null}%
 
 \newcounter{blingNo}
