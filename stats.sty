@@ -236,7 +236,6 @@
 \newcommand\HPboxes{%
   \begin{tabular}{r}%
   \hiderowcolors%
-    HP \arabic{hp}~%
     \Repeat{\value{noAppearing}}{%
       \hpStat{freeHP} \\%
     }%
@@ -247,7 +246,6 @@
   \setcounter{track}{\value{noAppearing}}%
   \begin{tabular}{rr}%
   \hiderowcolors%
-    HP \arabic{hp}~%
     \whileboolexpr{test {\ifnumcomp{\value{track}}{>}{0}}}{%%
       \ifnumodd{\value{track}}{ & \small\hpStat{freeHP} \\}{\small\hpStat{freeHP}}%%
       \addtocounter{track}{-1}%
@@ -259,7 +257,6 @@
   \setcounter{track}{\value{noAppearing}}%
   \begin{tabular}{rrr}%
     \hiderowcolors%
-    HP \arabic{hp}~%
     \whileboolexpr{test {\ifnumcomp{\value{track}}{>}{0}}}{%%
       \small\hpStat{freeHP}%
       \addtocounter{track}{-1}%
@@ -281,10 +278,8 @@
     \begin{tabular}{rr}%
       \hiderowcolors%
       \Repeat{\value{noAppearing}}{%
-      HP \arabic{hp}%
       \small\hpStat{freeHP}%
       &%
-      MP \arabic{mp}%
       \small\boxStat{mp}%
       \\%
       }%
@@ -294,8 +289,8 @@
     \begin{tabular}{r}%
       \hiderowcolors%
       \Repeat{\value{noAppearing}}{%
-      HP \arabic{hp} \small\hpStat{freeHP} \\%
-      MP \arabic{mp} \small\boxStat{mp} \\%
+      \small\hpStat{freeHP} \\%
+      \small\boxStat{mp} \\%
       }%
     \end{tabular}%
   \fi%
@@ -309,13 +304,10 @@
     \begin{tabular}{rrr}
       \hiderowcolors
       \Repeat{\value{noAppearing}}{
-      HP \arabic{hp}
       \small\hpStat{freeHP}
       &
-      MP \arabic{mp}
       \small\boxStat{mp}
       &
-      SP \arabic{sp}
       \small\boxStat{sp}
       \\
       }
@@ -325,18 +317,18 @@
       \begin{tabular}{rr}
         \hiderowcolors
         \Repeat{\value{noAppearing}}{
-          HP \arabic{hp} \small\hpStat{freeHP} &
-          MP \arabic{mp} \small\boxStat{mp} \\
-          & SP \arabic{sp} \small\boxStat{sp} \\
+          \small\hpStat{freeHP} &
+          \small\boxStat{mp} \\
+          & \small\boxStat{sp} \\
         }
       \end{tabular}
     \else
       \begin{tabular}{r}
         \hiderowcolors
         \Repeat{\value{noAppearing}}{
-          HP \arabic{hp} \hpStat{freeHP} \\
-          MP \arabic{mp} \boxStat{mp} \\
-          SP \arabic{sp} \boxStat{sp} \\
+          \hpStat{freeHP} \\
+          \boxStat{mp} \\
+          \boxStat{sp} \\
         }
       \end{tabular}
     \fi
