@@ -30,7 +30,7 @@
 }
 
 \newcommand\afterStatBlock{%
-  \iftoggle{genExamples}{}{%
+  \iftoggle{genExamples}{\vspace{1em}}{%
     \setcounter{enc}{\value{noAppearing}}%
     \addtocounter{enc}{4}%
     \needspace{\value{enc}\baselineskip}%
@@ -143,6 +143,7 @@
       ]
       \creaturestats
       \begin{tabularx}{\linewidth}{rL}
+      \hiderowcolors
       \ent{Skills} & \showSkills \\
       \ifnum\value{mp}>0%
         \ent{Spheres} &
