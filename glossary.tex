@@ -243,15 +243,6 @@
   In this case, the first character adds their Bonus, the second adds half, the third, a quarter, et c. and we round halves up at the end},
   }
 
-\newglossaryentry{attribute}{
-  name={Attributes},
-  text={Attribute},
-  prefix={an\space},
-  type={mech},
-  first={\textit{Attribute}},
-  description={measure a character's inherent abilities -- Strength, Speed, et c},
-  }
-
 \newglossaryentry{natural}{
   name={A Natural Roll},
   text={Natural Roll},
@@ -338,11 +329,22 @@
   description={are any stat on a character sheet, such as Strength, Attack, or a weapon's Damage},
   }
 
+\newglossaryentry{attribute}{
+  name={Attributes},
+  text={Attribute},
+  prefix={an\space},
+  type={mech},
+  parent={trait},
+  first={\textit{Attribute}},
+  description={measure a character's inherent abilities -- Strength, Speed, et c},
+  }
+
 \newglossaryentry{skill}{
   name={Skills},
   text={Skill},
   prefix={a\space},
   type={mech},
+  parent={trait},
   description={show training.  Characters perform tasks by rolling $2D6$ plus \glsentrytext{attribute} plus Skill.
   Each Skill helps with many tasks, depending on the \glsentrytext{attribute} paired with},
   }
