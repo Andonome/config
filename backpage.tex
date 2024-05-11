@@ -1,16 +1,33 @@
+\ifnum\value{diceNo2}>12
+  \setcounter{diceNo2}{r4}
+\fi
+\stepcounter{diceNo2}
+\ifnum\value{r12}<70
+  \addtocounter{r12}{17}
+\else
+  \randomize
+\fi
+
+\begin{tabularx}{\linewidth}{Xr}
+  \hiderowcolors
+    \textbf{Birthday:}
+    \showSeason[\value{diceNo2}]~\arabic{r12}
+    \par
+    \Huge \Glsfmtplural{storypoint}~\Repeat{5}{\Square}
+  &
+    \includesvg[width=.35\textwidth]{config/logo}
+  \\
+\end{tabularx}
+
+
 \iftoggle{examplecharacter}{
   \iftoggle{core}{
     \charSpellList
   }{}
 
-  \vspace{5em}
-
-  {\Huge Story Points~\Repeat{5}{\Square}}
-
 }{
-  {{\includesvg[width=.35\textwidth]{config/logo}}\hfill\Huge Story Points~\Repeat{5}{\Square}}
   \vspace{1em}
-  \lineDots[29]
+  \lineDots[26]
 }
 
 \vfill\null
