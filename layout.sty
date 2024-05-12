@@ -149,7 +149,11 @@ bookmarks=true]%
 \AddToHook{shipout/background}{%
   \iftoggle{countedPage}{
     \if@mainmatter
-      \pgfmathsetmacro{\BGvadjust}{ -2 * (\value{chapter} - 1)}
+      \ifnum\value{chapter}<14
+        \pgfmathsetmacro{\BGvadjust}{ -2 * (\value{chapter} - 1)}
+      \else
+        \pgfmathsetmacro{\BGvadjust}{ -1 * (\value{chapter} - 1)}
+      \fi
       \ifodd\value{page}
         \def\BGpageanchor{current page.north east}
         \def\BGanchor{north west}
@@ -158,7 +162,7 @@ bookmarks=true]%
       \else
         \def\BGpageanchor{current page.north west}
         \def\BGanchor{north east}
-        \def\BGmark{\textcolor{\pageOppositeColor}{\leftmark}}
+        \def\BGmark{\textcolor{\pageOppositeColor}{\leftmark \BGvadjust}}
         \def\BGrotate{90}
       \fi\typeout{Underfed goblins (badness \thepage0000)}
       \begin{tikzpicture}[overlay,remember picture]
