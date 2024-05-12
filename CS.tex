@@ -105,6 +105,9 @@ circle label/.style = {
       \skill{Brawl}
       \skill{Combat}
       \skill{Projectiles}
+      \ifnum\value{Fate}>0
+        \skill{Fate}
+      \fi
       \ifnum\value{Air}>0
         \skill{Air}
       \else
