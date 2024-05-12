@@ -152,7 +152,7 @@ circle label/.style = {
           \\
           \\
         }{
-          \sffamily\characterWeapon & \sffamily\arabic{weaponBonus} & \sffamily\arabic{damage} & \sffamily\arabic{heft} & \sffamily\arabic{weight} \\
+          \sffamily\characterWeapon\weaponName & \sffamily\arabic{weaponBonus} & \sffamily\arabic{damage} & \sffamily\arabic{heft} & \sffamily\arabic{weight} \\
         }
     }{
       \Repeat{2}{
@@ -171,7 +171,7 @@ circle label/.style = {
       \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{Covering} & \textbf{Weight} \\
       \iftoggle{examplecharacter}{
         \ifdefempty{\characterArmour}{}{
-          \sffamily\characterArmour & \sffamily\arabic{armourDR} & \sffamily\arabic{covering} & \sffamily\arabic{weight} \\
+          \sffamily\characterArmour\armourName & \sffamily\arabic{armourDR} & \sffamily\arabic{covering} & \sffamily\arabic{weight} \\
         }
       }{
         \hspace{3em} &
