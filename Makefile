@@ -35,6 +35,7 @@ foldout.pdf: $(wildcard rules/*.tex) $(ALL_FILES) docs.pdf
 	$(CP) $(DROSS)/foldout.pdf foldout.pdf
 rules.pdf: .switch-gls images/wide.jpg $(wildcard rules/*.tex) $(ALL_FILES)
 	$(RUN) rules.tex
+	$(RUN) rules.tex
 	$(CP) $(DROSS)/rules.pdf rules.pdf
 
 .PHONY: all clean
