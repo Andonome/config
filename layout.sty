@@ -505,7 +505,14 @@ bookmarks=true]%
   {\end{list}\null}%
 
 \newenvironment{dlistDouble}%
-  {\raggedright\begin{list}{\ifnum\value{dlist}=1\stepcounter{dlist}\fi\Large\twoDice{\value{dlist}}}{\usecounter{dlist}}}%
+  {\raggedright%
+  \begin{list}%
+  {\ifnum\value{dlist}=1%
+    \stepcounter{dlist}%
+  \fi%
+  \makebox[0pt][c]{\raisebox{-1em}{\qquad\textcolor{\pageSideColor}{\arabic{dlist}}}}%
+  \Large\twoDice{\value{dlist}}}%
+  {\usecounter{dlist}}}%
   {\end{list}\null}%
 
 \newcounter{blingNo}
