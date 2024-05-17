@@ -22,13 +22,22 @@
 }
 
 \posterbox[tikz={rotate=180}]{name=twelfth,column=2,row=1,span=1,rowspan=1}{
-  \input{config/rules/attributes.tex}
+  \subsubsection{\Glsfmtplural{attribute}}
+  \glsdesc{attribute}
+  \par
+  \vspace{1em}
+  \subsubsection{\Glsfmtplural{skill}}
+  \glsdesc{skill}
 }
 
 
 \posterbox[tikz={rotate=180}]{name=ninth,column=3,row=1,span=1,rowspan=1}{
-  \bklTitle{\Glsfmttext{weight}}
-  \input{config/rules/weight.tex}
+  \subsubsection{\Glsfmttext{weight}}
+  \glsdesc{weight}
+  \vspace{1em}
+  \par
+  \subsubsection{\Glsfmtlongpl{fp}}
+  \glsdesc{fp}
 }
 
 
@@ -70,19 +79,20 @@
 }
 
 \posterbox[blankest]{name=thirteenth,column=2,row=2,span=1,rowspan=1}{
-  \input{config/rules/actions_basic.tex}
+  \subsubsection{\Glsfmtplural{action}}
+  \glsdesc{action}
 }
 
 \posterbox{name=sixteenth,column=3,row=2,span=1,rowspan=1}{
-  \input{config/rules/actions_resisted.tex}
-  \input{config/rules/actions_resting.tex}
+  \glsdesc{restingaction}
   \par
   \vspace{1em}
-  \input{config/rules/banding.tex}
+  \glsdesc{bandAct}
 }
 
 \posterbox{name=first,column=4,row=2,span=1,rowspan=1}{
-  \input{config/rules/hitting_things.tex}
+  \subsubsection{\Glsfmttext{combat}}
+  \glsdesc{combat}
 }
 
 \end{tcbposter}

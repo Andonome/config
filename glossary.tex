@@ -39,6 +39,124 @@
   \setabbreviationstyle[acronym]{short-sc-desc}
 }
 
+
+%%%%%%%%%%
+
+\longnewglossaryentry{campaign}{
+  name={Chronicles},
+  text={Chronicle},
+  prefix={a\space},
+  type={mech},
+  description={are series of games, linked together by \glsentrytext{sq} plots, and every players' \glsentrytext{characterPool}},
+  }
+
+\longnewglossaryentry{downtime}{
+  name={Downtime},
+  text={Downtime},
+  prefix={a\space},
+  parent={campaign},
+  type={mech},
+  description={between sessions lets characters train, heal, and drink.
+  Every week in our world, three weeks pass in \glsentrytext{fenestra}.
+
+  Characters recover half of their current \glspl{hp} (minimum 1), each week},
+  }
+
+\longnewglossaryentry{sq}{
+  name={Side Quests},
+  text={Side~Quest},
+  prefix={a\space},
+  parent={campaign},
+  type={mech},
+  description={are BIND's way of structuring stories.
+  Each \gls{segment} has a location (e.g. `Town', or `Forest'), where it `activates' once the \glspl{pc} enter the area},
+  }
+
+\longnewglossaryentry{segment}{
+  name={Segments},
+  text={segment},
+  prefix={a\space},
+  parent={sq},
+  type={mech},
+  description={are scenes which form a larger story},
+  }
+
+\longnewglossaryentry{interval}{
+  name={An Interval},
+  text={Interval},
+  prefix={an\space},
+  parent={campaign},
+  sort={Interval},
+  type={mech},
+  nonumberlist,
+  description={%
+    divide the day into four parts -- morning (\showInterval{0}), afternoon (\showInterval{1}), evening (\showInterval{2}), and night (\showInterval{3}).
+    \par
+    \vspace{1em}
+    \noindent
+    \begin{minipage}{\linewidth}
+      \begin{description}
+        \item[Resting characters] remove \pgls{ep}.
+        \item[The \gls{gm}] rolls $1D6$ -- everyone gains that many \glspl{fp}.
+        \item[The wind] brings \glspl{mp} towards the biggest vacuum.
+      \end{description}
+    \end{minipage}
+  },
+}
+
+\longnewglossaryentry{round}{
+  name={Rounds},
+  text={round},
+  prefix={a\space},
+  type={mech},
+  description={measure small slices of fast-paced time.
+  Mostly, we use rounds for combat},
+  }
+
+\longnewglossaryentry{step}{
+  name={Steps},
+  text={step},
+  prefix={a\space},
+  type={mech},
+  nonumberlist,
+  description={provide a rough measure of space.
+  We can imagine it about a metre long, or as wide as the step on your gaming board, or any other length},
+  }
+
+
+\longnewglossaryentry{combat}{
+  name={Combat},
+  text={Combat},
+  type={mech},
+  prefix={a\space},
+  description={uses standard resisted rolls.
+  The attacker rolls \roll{Dexterity}{Martial Skill}, and the \glsentrytext{tn} equals 7 + the \glsentrytext{npc}'s \roll{Dexterity}{Martial Skill}},
+}
+
+\longnewglossaryentry{armour}{
+  name={Armour},
+  type={mech},
+  prefix={an\space},
+  nonumberlist,
+  parent={combat},
+  description={%
+    provides \gls{dr}, but only when the \gls{covering} applies.
+    For armour with \gls{covering} 3:
+    \vspace{1em}
+    \noindent
+    \begin{minipage}{\linewidth}
+    \begin{description}
+      \item[Roll $\leq$ \gls{tn} $-$ your \gls{covering}]: opponent scores \pgls{vitalShot}, and ignores your \gls{dr}.
+      \item[Roll $<$ \gls{tn}]: opponent hits, but your \gls{dr} reduces Damage.
+      \item[Roll $>$ \gls{tn}]: you hit, but opponent's \gls{dr} reduces Damage.
+      \item[Roll $\geq$ \gls{tn} $+$ opponent's \gls{covering}]: you score \pgls{vitalShot}, and inflict full Damage.
+    \end{description}
+    \end{minipage}
+  },
+}
+
+%%%%%%%%%% Acronyms
+
 \newacronym[
   description={a brand GNU RPG},
   name={BIND},
@@ -90,7 +208,8 @@
 ]{gp}{gp}{Gold Piece}
 
 \newacronym[
-  description={measure of how much luck the character has left, used solely to avoid Damage},
+  description={measure how much luck the character has left, used solely to avoid Damage.
+  $\Glspl{fp} = \frac{Total~\glsfmtplural{xp}}{10} + Charisma$},
   shortplural={FP},
   prefix={an\space},
   name={Fate Points (FP)},
@@ -133,10 +252,12 @@
   ]{mp}{MP}{Mana Point}
 
 \newacronym[
-  description={measure how many actions someone can take in a round, based on how fast they can move and react},
+  description={measure how many actions someone can take in a round, based on how fast they can move and react.
+  Start with 3 AP, plus your speed; put that many coins on your character sheet, and spend them each time you take an action},
   shortplural={AP},
   name={Action Points (AP)},
   type={mech},
+  parent={combat},
   prefix={an\space},
   ]{ap}{AP}{Action Point}
 
@@ -156,6 +277,7 @@
   name={Creature Ratings (CR)},
   type={mech},
   nonumberlist,
+  parent={combat},
   ]{cr}{CR}{Combat Rating}
 
 \newacronym[
@@ -174,6 +296,7 @@
 \newacronym[
   description={represent armour of any type, or other states which help avoid Damage},
   shortplural={DR},
+  parent={armour},
   type={mech},
   prefix={a\space},
   ]{dr}{DR}{Damage Resistance}
@@ -241,6 +364,26 @@
   Each contains different encounter types, and often has its own \glsentrytext{sq} collection},
   }
 
+\longnewglossaryentry{action}{
+  name={Actions},
+  text={Action},
+  type={mech},
+  prefix={an\space},
+  description={%
+    use $2D6$ to beat the \glsentrytext{tn}.
+
+    \begin{boxtable}
+       7 & Basic        \\
+      10 & Tricky       \\
+      12 & Professional \\
+      14 & Specialist   \\
+    \end{boxtable}
+    The dice determine the state of the world; do not roll again for this action.
+    If another player tries to roll, they use the same \glsentrytext{natural}.
+
+    When you resist another character, the \glsentrytext{gm} sets the \glsentrytext{tn} to 7, then adds the \glsentrytext{npc}'s Bonus},
+}
+
 \longnewglossaryentry{restingaction}{
   name={Resting Actions},
   text={Resting Action},
@@ -248,8 +391,8 @@
   first={\textit{Resting Action}},
   type={mech},
   prefix={a\space},
-  description={can only happen when a character has no penalty for failure.
-  The player sets one die to `6', and rolls the other},
+  description={apply when you can repeat something, without danger.
+Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fails forever},
 }
 
 \longnewglossaryentry{quickaction}{
@@ -261,7 +404,7 @@
   nonumberlist,
   first={\textit{Response Action}},
   description={is any action taken as a reaction (usually taken when being attacked)},
-  }
+}
 
 \longnewglossaryentry{bandAct}{
   name={A Banding Action},
@@ -286,72 +429,19 @@
   For example, a `natural 2' is where the dice show `\dicef{1}\dicef{1}', as opposed to a player gaining the result `2' from rolling a `\dicef{3}\dicef{1}' while the character has a -2 penalty to the roll},
   }
 
-\longnewglossaryentry{campaign}{
-  name={Chronicles},
-  text={Chronicle},
-  prefix={a\space},
-  type={mech},
-  description={are series of games, linked together by \glsentrytext{sq} plots, and every players' \glsentrytext{characterPool}},
-  }
 
-\longnewglossaryentry{downtime}{
-  name={Downtime},
-  text={Downtime},
+\longnewglossaryentry{projectiles}{
+  name={Projectiles},
+  text={Projectiles},
+  type={mech},
   prefix={a\space},
-  parent={campaign},
-  type={mech},
-  description={between sessions lets characters train, heal, and drink.
-  Every week in our world, three weeks pass in \glsentrytext{fenestra}},
-  }
+  description={%
+    employs \roll{Dexterity}{Projectiles}, targets resist with \roll{Speed}{Vigilance}.
 
-\longnewglossaryentry{sq}{
-  name={Side Quests},
-  text={Side~Quest},
-  prefix={a\space},
-  parent={campaign},
-  type={mech},
-  description={are BIND's way of structuring stories.
-  Each \gls{segment} has a location (e.g. `Town', or `Forest'), where it `activates' once the \glspl{pc} enter the area},
-  }
-
-\longnewglossaryentry{segment}{
-  name={Segments},
-  text={segment},
-  prefix={a\space},
-  parent={sq},
-  type={mech},
-  description={are scenes which form a larger story},
-  }
-
-\longnewglossaryentry{interval}{
-  name={An Interval},
-  text={Interval},
-  prefix={an\space},
-  parent={campaign},
-  sort={Interval},
-  type={mech},
-  nonumberlist,
-  description={means quarter of a day -- morning, afternoon, evening, or night},
+    Every 5 \glspl{step}' distance adds +1 to the \glsentrytext{tn}.
+    When \pgls{pc} hits the \gls{tn} precisely, they miss their first target, but hit another target behind (if any)},
 }
 
-\longnewglossaryentry{round}{
-  name={Rounds},
-  text={round},
-  prefix={a\space},
-  type={mech},
-  description={measure small slices of fast-paced time.
-  Mostly, we use rounds for combat},
-  }
-
-\longnewglossaryentry{step}{
-  name={Steps},
-  text={step},
-  prefix={a\space},
-  type={mech},
-  nonumberlist,
-  description={provide a rough measure of space.
-  We can imagine it about a metre long, or as wide as the step on your gaming board, or any other length},
-  }
 
 \longnewglossaryentry{trait}{
   name={Traits},
@@ -368,8 +458,25 @@
   type={mech},
   parent={trait},
   first={\textit{Attribute}},
-  description={measure a character's inherent abilities -- Strength, Speed, et c},
-  }
+  description={
+    \begin{minipage}{\linewidth}
+    \begin{description}
+      \item[Strength:]
+      muscle, brawn, toughness, height
+      \item[Dexterity:]
+      finesse, coördination, balance
+      \item[Speed:]
+      velocity, tendons, vim
+      \item[Intelligence:]
+      memory, logic, tenacity, cunning
+      \item[Wits:]
+      alacrity, levity, attention, acumen
+      \item[Charisma:]
+      gravitas, glamour, confidence, symmetry
+    \end{description}
+    \end{minipage}
+  },
+}
 
 \longnewglossaryentry{skill}{
   name={Skills},
@@ -388,6 +495,7 @@
   prefix={a\space},
   nonumberlist,
   type={mech},
+  parent={armour},
   description={means an attack which strikes between the gaps in armour (or other weak point) and deals full Damage, ignoring \glsentrytext{dr}.
   See \glsentrytext{covering}},
   }
@@ -397,6 +505,7 @@
   type={mech},
   prefix={a\space},
   nonumberlist,
+  parent={armour},
   description={shows how many steps of the dice armour covers.
   A creature with \glsentrytext{dr} 5 means that they can subtract 5 from any Damage.
   However, if the \glsentrytext{tn} to hit them is 10, with a Covering of 3, then their armour protects only 3 steps of the dice (`10, 11, and 12').

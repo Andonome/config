@@ -40,14 +40,20 @@
 
 
 \newcommand\manaRegenChart{
-  \begin{boxtable}[Xc|Xc]
-  \textbf{Location} & \textbf{\glspl{mp}} & \textbf{Covering} & \\
+  \begin{boxtable}
+  \textbf{Location} & \textbf{\glspl{mp}} \\
   \hline
-  Underground & 1 & Partial armour  & -1 \\
-  Indoors     & 2 & Complete armour & -2 \\
-  Outdoors    & 3 & Submerged       & -3 \\
-  Storm       & 4 & Entombed        & -4 \\
+  Underground & 1 \\ 
+  Indoors     & 2 \\ 
+  Outdoors    & 3 \\ 
+  Storm       & 4 \\ 
   \hline
+  \textbf{\glspl{mp}} & \textbf{Covering} \\
+  \hline
+  Partial armour  & -1 \\
+  Complete armour & -2 \\
+  Submerged       & -3 \\
+  Entombed        & -4 \\
   \end{boxtable}
 }
 
@@ -77,7 +83,7 @@
 
 \newcommand\commonArmourChart{
 
-  \begin{boxtable}[rYYY]
+  \begin{boxtable}[Xccc]
 
   \textbf{Armour} & \textbf{\Gls{dr}} & \textbf{\Gls{covering}} & \textbf{Weight} \\\hline
 
