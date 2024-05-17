@@ -2,7 +2,7 @@
   coverage = {spread,
     boxsep = 10pt,
   },
-  poster   = {showframe=false,
+  poster   = {showframe=true,
     columns=4,
     rows=2,
   },
@@ -25,20 +25,21 @@
   \end{center}
 }
 
-\posterbox{name=tenth,column=2,row=1,span=1,rowspan=1}{
+\posterbox[tikz={rotate=180}]{name=tenth,column=2,row=1,span=1,rowspan=1}{
   \bklTitle{Armour}
   \input{config/rules/armour.tex}
   \commonArmourChart
 }
 
-\posterbox{name=eleventh,column=3,row=1,span=1,rowspan=1}{
+\posterbox[tikz={rotate=180}]{name=eleventh,column=3,row=1,span=1,rowspan=1}{
   \input{config/rules/fate.tex}
   \par\vspace{1em}
   \subsubsection{Projectiles}
   \input{config/rules/projectiles.tex}
 }
 
-\posterbox{name=sixth,column=4,row=1,span=1,rowspan=1}{
+\posterbox[tikz={rotate=180}]{name=sixth,column=4,row=1,span=1,rowspan=1}{
+  This page left with nada.
 }
 
 \posterbox{name=second,column=1,row=2,span=1,rowspan=1}{
