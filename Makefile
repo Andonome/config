@@ -29,7 +29,7 @@ resources.pdf: $(ALL_FILES) rules.pdf
 	$(RUN) resources.tex
 	$(RUN) resources.tex
 	$(CP) $(DROSS)/resources.pdf resources.pdf
-foldout.pdf: $(wildcard rules/*.tex) $(ALL_FILES) docs.pdf
+foldout.pdf: $(wildcard fold_*.tex) $(wildcard rules/*.tex) $(ALL_FILES) docs.pdf
 	$(RUN) foldout.tex
 	$(RUN) foldout.tex
 	$(CP) $(DROSS)/foldout.pdf foldout.pdf
