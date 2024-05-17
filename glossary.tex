@@ -160,12 +160,13 @@
 
 \newacronym[
   description={-- one of the characters run by the people playing the game},
+  type={mech},
   prefix={a\space},
   ]{pc}{PC}{Player Character}
 
 \newacronym[
   description={show magical shielding from the Force sphere},
-  shortplural={SP}
+  shortplural={SP},
   type={mech},
   prefix={a\space},
   ]{SP}{SP}{Shield Point}
@@ -199,7 +200,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 
-\newglossaryentry{gm}{
+\longnewglossaryentry{gm}{
   prefix={a\space},
   name={The Judge},
   type={mech},
@@ -210,7 +211,7 @@
   description={rolls encounters, interprets the rules, and forgets to bring enough pencils},
 }
 
-\newglossaryentry{storypoint}{
+\longnewglossaryentry{storypoint}{
   name={Story Points},
   text={Story Point},
   type={mech},
@@ -218,7 +219,7 @@
   description={allow players to declare that some part of their backstory arrives on scene to help the situation. They also grant \glsfmtplural{xp}},
 }
 
-\newglossaryentry{area}{
+\longnewglossaryentry{area}{
   name={Areas},
   sort={Area},
   text={Area},
@@ -230,7 +231,7 @@
   In the \glsentrytext{deep}, each cavern might count as an area, while out in the open plains a forest might be composed of the local areas: `the centre with the big, felled tree', `the river's fork', and `the griffins' nesting site'},
   }
 
-\newglossaryentry{region}{
+\longnewglossaryentry{region}{
   name={Regions},
   text={Region},
   prefix={a\space},
@@ -240,7 +241,18 @@
   Each contains different encounter types, and often has its own \glsentrytext{sq} collection},
   }
 
-\newglossaryentry{quickaction}{
+\longnewglossaryentry{restingaction}{
+  name={Resting Actions},
+  text={Resting Action},
+  sort={Resting Action},
+  first={\textit{Resting Action}},
+  type={mech},
+  prefix={a\space},
+  description={can only happen when a character has no penalty for failure.
+  The player sets one die to `6', and rolls the other},
+}
+
+\longnewglossaryentry{quickaction}{
   name={A Response Action},
   sort={Response Action},
   text={Response Action},
@@ -251,7 +263,7 @@
   description={is any action taken as a reaction (usually taken when being attacked)},
   }
 
-\newglossaryentry{bandAct}{
+\longnewglossaryentry{bandAct}{
   name={A Banding Action},
   sort={Banding Action},
   text={Banding Action},
@@ -263,7 +275,7 @@
   In this case, the first character adds their Bonus, the second adds half, the third, a quarter, et c. and we round halves up at the end},
   }
 
-\newglossaryentry{natural}{
+\longnewglossaryentry{natural}{
   name={A Natural Roll},
   text={Natural Roll},
   sort={Natural Roll},
@@ -274,7 +286,7 @@
   For example, a `natural 2' is where the dice show `\dicef{1}\dicef{1}', as opposed to a player gaining the result `2' from rolling a `\dicef{3}\dicef{1}' while the character has a -2 penalty to the roll},
   }
 
-\newglossaryentry{campaign}{
+\longnewglossaryentry{campaign}{
   name={Chronicles},
   text={Chronicle},
   prefix={a\space},
@@ -282,7 +294,7 @@
   description={are series of games, linked together by \glsentrytext{sq} plots, and every players' \glsentrytext{characterPool}},
   }
 
-\newglossaryentry{downtime}{
+\longnewglossaryentry{downtime}{
   name={Downtime},
   text={Downtime},
   prefix={a\space},
@@ -292,7 +304,7 @@
   Every week in our world, three weeks pass in \glsentrytext{fenestra}},
   }
 
-\newglossaryentry{sq}{
+\longnewglossaryentry{sq}{
   name={Side Quests},
   text={Side~Quest},
   prefix={a\space},
@@ -302,7 +314,7 @@
   Each \gls{segment} has a location (e.g. `Town', or `Forest'), where it `activates' once the \glspl{pc} enter the area},
   }
 
-\newglossaryentry{segment}{
+\longnewglossaryentry{segment}{
   name={Segments},
   text={segment},
   prefix={a\space},
@@ -311,7 +323,7 @@
   description={are scenes which form a larger story},
   }
 
-\newglossaryentry{interval}{
+\longnewglossaryentry{interval}{
   name={An Interval},
   text={Interval},
   prefix={an\space},
@@ -322,7 +334,7 @@
   description={means quarter of a day -- morning, afternoon, evening, or night},
 }
 
-\newglossaryentry{round}{
+\longnewglossaryentry{round}{
   name={Rounds},
   text={round},
   prefix={a\space},
@@ -331,7 +343,7 @@
   Mostly, we use rounds for combat},
   }
 
-\newglossaryentry{step}{
+\longnewglossaryentry{step}{
   name={Steps},
   text={step},
   prefix={a\space},
@@ -341,7 +353,7 @@
   We can imagine it about a metre long, or as wide as the step on your gaming board, or any other length},
   }
 
-\newglossaryentry{trait}{
+\longnewglossaryentry{trait}{
   name={Traits},
   text={Trait},
   prefix={a\space},
@@ -349,7 +361,7 @@
   description={are any stat on a character sheet, such as Strength, Attack, or a weapon's Damage},
   }
 
-\newglossaryentry{attribute}{
+\longnewglossaryentry{attribute}{
   name={Attributes},
   text={Attribute},
   prefix={an\space},
@@ -359,7 +371,7 @@
   description={measure a character's inherent abilities -- Strength, Speed, et c},
   }
 
-\newglossaryentry{skill}{
+\longnewglossaryentry{skill}{
   name={Skills},
   text={Skill},
   prefix={a\space},
@@ -369,7 +381,7 @@
   Each Skill helps with many tasks, depending on the \glsentrytext{attribute} paired with},
   }
 
-\newglossaryentry{vitalShot}{
+\longnewglossaryentry{vitalShot}{
   name={A Vitals Shot},
   text={Vitals Shot},
   sort={Vitals Shot},
@@ -380,7 +392,7 @@
   See \glsentrytext{covering}},
   }
 
-\newglossaryentry{covering}{
+\longnewglossaryentry{covering}{
   name={Covering},
   type={mech},
   prefix={a\space},
@@ -391,18 +403,7 @@
   Rolling 3 steps over their \glsentrytext{tn} (\glsentrytext{tn} $10 + 3 = 13$) means the attack ignores armour, making it \pgls{vitalShot}},
 }
 
-\newglossaryentry{restingaction}{
-  name={Resting Actions},
-  text={Resting Action},
-  sort={Resting Action},
-  first={\textit{Resting Action}},
-  type={mech},
-  prefix={a\space},
-  description={can only happen when a character has no penalty for failure.
-  The player sets one die to `6', and rolls the other},
-}
-
-\newglossaryentry{weight}{
+\longnewglossaryentry{weight}{
   name={Weight Rating},
   text={Weight},
   first={Weight Rating},
@@ -414,7 +415,7 @@
   Creatures have a \glsentrytext{weight} equal to their own \glsentrytext{hp}},
 }
 
-\newglossaryentry{characterPool}{
+\longnewglossaryentry{characterPool}{
   name={Character Pool},
   prefix={a\space},
   type={mech},
@@ -425,7 +426,7 @@
 
 %%%%%%%%%%%%%%%%
 
-\newglossaryentry{ainumar}{
+\longnewglossaryentry{ainumar}{
   name={The Ainumar},
   text={Ainumar},
   plural={Ainumari},
@@ -436,14 +437,14 @@
   On clear days, the great `eye of the gods' becomes visible on its face},
 }
 
-\newglossaryentry{fenestra}{
+\longnewglossaryentry{fenestra}{
   name={Fenestra},
   nonumberlist,
   description={This land, where elves, gnolls, and humans look up at trees, like ants moving through blades of grass.
   Predators larger than a horse hunt deer and people in the same way, so everyone travels together, and well-armed},
 }
 
-\newglossaryentry{alchemy}{
+\longnewglossaryentry{alchemy}{
   prefix={an\space},
   name={Alchemy},
   symbol={\glsentrytext{R}},
@@ -452,7 +453,7 @@
   description={is what alchemists do},
 }
 
-\newglossaryentry{sphere}{
+\longnewglossaryentry{sphere}{
   name={Sphere},
   prefix={a\space},
   parent={alchemy},
@@ -461,7 +462,7 @@
   Each pair joins its neighbours, making the high Spheres; Light, Death, Mind, Life, and Force},
 }
 
-\newglossaryentry{boon}{
+\longnewglossaryentry{boon}{
   name={Concoctions},
   text={Concoction},
   prefix={a\space},
@@ -472,7 +473,7 @@
   Using one in combat requires at least one \glsentrytext{ap} to grab it, and another to dispurse it into the air},
 }
 
-\newglossaryentry{ingredient}{
+\longnewglossaryentry{ingredient}{
   name={Ingredients},
   text={Ingredient},
   prefix={an\space},
@@ -482,7 +483,7 @@
   Each has an elemental affinity, so a Fire Ingredient can only make a Fire \glsentrytext{boon}},
 }
 
-\newglossaryentry{elixir}{
+\longnewglossaryentry{elixir}{
   name={Elixirs},
   text={elixir},
   prefix={an\space},
@@ -491,7 +492,7 @@
   Each one requires a particular type of \glsentrytext{ingredient} to heal a particular disease},
 }
 
-\newglossaryentry{invocation}{
+\longnewglossaryentry{invocation}{
   name={Invocations},
   text={Invocation},
   prefix={an\space},
@@ -501,7 +502,7 @@
   For example, `{\sffamily Distant, Wax Air}' spells encourage air at a distance},
 }
 
-\newglossaryentry{talisman}{
+\longnewglossaryentry{talisman}{
   prefix={a\space},
   name={Talismans},
   text={Talisman},
@@ -514,7 +515,7 @@
   Many will strike the nearest, available target once activated, which makes them dangerous in the wrong hands},
 }
 
-\newglossaryentry{artefact}{
+\longnewglossaryentry{artefact}{
   name={Artefacts},
   text={Artefact},
   prefix={an\space},
@@ -524,7 +525,7 @@
   They frequently go awry, as they have a mind of their own, and their own wishes and values},
 }
 
-\newglossaryentry{cycle}{
+\longnewglossaryentry{cycle}{
   name={Cycles},
   text={cycle},
   prefix={a\space},
@@ -532,7 +533,7 @@
   Each complete Cycle has twelve seasons, and which last three years in total},
 }
 
-\newglossaryentry{edge}{
+\longnewglossaryentry{edge}{
   name={The Edge},
   sort={Edge},
   text={Edge},
@@ -545,7 +546,7 @@
   When people travel off-road, they have gone beyond the Edge},
 }
 
-\newglossaryentry{lonelyRoad}{
+\longnewglossaryentry{lonelyRoad}{
   name={The Lonely Road},
   sort={Lonely Road},
   text={lonely road},
@@ -556,7 +557,7 @@
   Going from one town to the next means a long journey through untamed territory},
 }
 
-\newglossaryentry{witch}{
+\longnewglossaryentry{witch}{
   name={Witch},
   text={witch},
   plural={witches},
@@ -565,7 +566,7 @@
   description={simply means any spell-caster, often used as a derogatory term for a dishonoured \glsentrytext{doula}},
 }
 
-\newglossaryentry{witchcraft}{
+\longnewglossaryentry{witchcraft}{
   name={Witchcraft},
   text={Witchcraft},
   prefix={a\space},
@@ -573,7 +574,7 @@
   description={is real magic, involving skill rather than relying on a recipe},
 }
 
-\newglossaryentry{deep}{
+\longnewglossaryentry{deep}{
   name={The Labyrinth},
   text={Labyrinth},
   sort={Labyrinth},
@@ -583,7 +584,7 @@
   description={is the network of frigid, nearly lifeless caverns, which sits beneath much of \glsentrytext{fenestra}},
 }
 
-\newglossaryentry{blight}{
+\longnewglossaryentry{blight}{
   name={A Blight},
   text={blight},
   sort={Blight},
@@ -594,7 +595,7 @@
   Most blights have at least one cave or portal to the underground goblin realm},
 }
 
-\newglossaryentry{village}{
+\longnewglossaryentry{village}{
   name={Baileys},
   text={bailey},
   prefix={a\space},
@@ -604,7 +605,7 @@
   They mark the \glsentrytext{edge} of civilization, as nothing lies beyond them except the wild forest},
 }
 
-\newglossaryentry{bothy}{
+\longnewglossaryentry{bothy}{
   name={Bothies},
   text={bothy},
   plural={bothies},
@@ -617,7 +618,7 @@
 
 % Guilds
 
-\newglossaryentry{sylf}{
+\longnewglossaryentry{sylf}{
   name={Sylf},
   category={god},
   symbol={\glsentrytext{beasts}},
@@ -627,7 +628,7 @@
   The \glsentrytext{guard} exist to either thwart, or feed her, dependng on whom one asks},
 }
 
-\newglossaryentry{templeOfBeasts}{
+\longnewglossaryentry{templeOfBeasts}{
   name={The Temple of Beasts},
   text={Temple of Beasts},
   prefix={a\space},
@@ -637,7 +638,7 @@
   All of them become heroes, and forest-feed},
 }
 
-\newglossaryentry{broch}{
+\longnewglossaryentry{broch}{
   name={Brochs},
   text={broch},
   prefix={a\space},
@@ -649,7 +650,7 @@
   A ring of flat earth surrounds each one, giving archers a clear shot at anything which emerges from the \glsentrytext{edge}},
 }
 
-\newglossaryentry{guard}{
+\longnewglossaryentry{guard}{
   name={Night Guards},
   sort={Night Guard},
   text={Night Guard},
@@ -659,7 +660,7 @@
   description={are the sorry lot who have nothing better to do than wander into the darkness and get eaten},
 }
 
-\newglossaryentry{jotter}{
+\longnewglossaryentry{jotter}{
   name={Jotters},
   text={jotter},
   prefix={a\space},
@@ -667,7 +668,7 @@
   description={do paperwork for the \glsentrytext{guard}, and control everything that their seniors don't care to manage},
 }
 
-\newglossaryentry{ranger}{
+\longnewglossaryentry{ranger}{
   name={Rangers},
   text={ranger},
   prefix={a\space},
@@ -675,7 +676,7 @@
   description={travel fast, often on horseback, to provide reinforcements to any \glsentrytext{village} in immediate trouble},
 }
 
-\newglossaryentry{thane}{
+\longnewglossaryentry{thane}{
   name={Thanes},
   text={thane},
   prefix={a\space},
@@ -684,7 +685,7 @@
   Most try to find some gold and retire at this point},
 }
 
-\newglossaryentry{abderian}{
+\longnewglossaryentry{abderian}{
   name={Abderian},
   category={god},
   symbol={\glsentrytext{poison}},
@@ -693,7 +694,7 @@
   When she kills someone, she brings them to her banquet of pain, to see how long they can resist eating her rancid food},
 }
 
-\newglossaryentry{templeOfPoison}{
+\longnewglossaryentry{templeOfPoison}{
   name={The Temple of Poison},
   text={Temple of Poison},
   prefix={a\space},
@@ -702,7 +703,7 @@
   description={Beer, brewing and baking protect humanity from \glsentrytext{abderian}, so this temple have established a divine monopoloy on the lot},
 }
 
-\newglossaryentry{wheatGuild}{
+\longnewglossaryentry{wheatGuild}{
   name={The Wheat Guild},
   text={Wheat Guild},
   sort={Wheat Guild},
@@ -713,7 +714,7 @@
   An image of a skeleton, tempting you to feast with her, reminds patrons why they should always eat at an official Wheat Guild hall},
 }
 
-\newglossaryentry{server}{
+\longnewglossaryentry{server}{
   name={Servers},
   text={Server},
   prefix={a\space},
@@ -721,7 +722,7 @@
   description={make food for the \glsentrytext{wheatGuild} all day, and every \glsentrytext{warden} has one in their employ},
 }
 
-\newglossaryentry{eldren}{
+\longnewglossaryentry{eldren}{
   name={Eldren},
   category={god},
   symbol={\glsentrytext{sickness}},
@@ -730,7 +731,7 @@
   Many people save up their whole lives to be allowed into the \glsentrytext{healersGuild} once they become old, so they can die in peace, and go to his realm},
 }
 
-\newglossaryentry{templeOfSickness}{
+\longnewglossaryentry{templeOfSickness}{
   name={The Temple of Sickness},
   text={Temple of Sickness},
   prefix={a\space},
@@ -740,7 +741,7 @@
   They all want \glsentrytext{eldren} to take them, rather than any alternatives, so anyone who has a little to spare puts it towards this temple, and hopes to see a bed inside one day, and die peacefully},
 }
 
-\newglossaryentry{healersGuild}{
+\longnewglossaryentry{healersGuild}{
   name={Healers' Guild},
   prefix={a\space},
   category={location},
@@ -750,7 +751,7 @@
   Many of the \glsentrytext{guard} start a new career here},
 }
 
-\newglossaryentry{helper}{
+\longnewglossaryentry{helper}{
   name={Helpers},
   text={Helper},
   prefix={a\space},
@@ -760,7 +761,7 @@
   The \glsentrytext{guard} who endure permanent injuries often retire as Helpers},
 }
 
-\newglossaryentry{mixer}{
+\longnewglossaryentry{mixer}{
   name={Mixers},
   text={mixer},
   prefix={a\space},
@@ -769,7 +770,7 @@
   They create a constant demand on the \glsentrytext{ingredient}-trade, as people are always getting sick with one thing or another},
 }
 
-\newglossaryentry{counter}{
+\longnewglossaryentry{counter}{
   name={Counters},
   text={counters},
   prefix={a\space},
@@ -778,7 +779,7 @@
   They form the heart of every \glsentrytext{healersGuild}},
 }
 
-\newglossaryentry{nulla}{
+\longnewglossaryentry{nulla}{
   name={\qquad},
   category={god},
   prefix={a\space},
@@ -787,7 +788,7 @@
   description={\qquad},
 }
 
-\newglossaryentry{templeOfMisgenesis}{
+\longnewglossaryentry{templeOfMisgenesis}{
   name={The Temple of Misgenesis},
   text={Temple of Misgenesis},
   prefix={a\space},
@@ -796,7 +797,7 @@
   description={Some things never were.  This loose organization alters fortune to ensure nobody has to fail a task before they try, or give up on the best career they never considered},
 }
 
-\newglossaryentry{doula}{
+\longnewglossaryentry{doula}{
   name={Doulas},
   text={Doula},
   prefix={a\space},
@@ -806,7 +807,7 @@
   Nobody begins a business venture or party without a blessing from a Doula},
 }
 
-\newglossaryentry{doulaShop}{
+\longnewglossaryentry{doulaShop}{
   name={Doula Shops},
   text={Doula Shop},
   sort={Doula Shop},
@@ -817,7 +818,7 @@
   description={sell various potions and blessings},
 }
 
-\newglossaryentry{paik}{
+\longnewglossaryentry{paik}{
   name={Paik},
   category={god},
   symbol={\glsentrytext{justice}},
@@ -826,7 +827,7 @@
   When bandits swing from the noose in the \glsentrytext{court}, Paik takes them to his realm, and taunts them forever},
 }
 
-\newglossaryentry{templeOfJustice}{
+\longnewglossaryentry{templeOfJustice}{
   name={The Temple of Justice},
   text={Temple of Justice},
   prefix={a\space},
@@ -836,7 +837,7 @@
   This temple thwarts the worst plans of the god \glsentrytext{paik} by providing impartial, official, justice},
 }
 
-\newglossaryentry{court}{
+\longnewglossaryentry{court}{
   name={The Pit of Justice},
   text={Pit of Justice},
   prefix={a\space},
@@ -847,7 +848,7 @@
   All trials must be on display, to warn the people about the consequences of crime, so they can learn that justice always prevails},
 }
 
-\newglossaryentry{keeper}{
+\longnewglossaryentry{keeper}{
   name={Keepers},
   text={Keeper},
   nonumberlist,
@@ -857,7 +858,7 @@
   Every \glsentrytext{village} with a couple of hundred souls has a keeper to keep them right, and collect payments for the vital service they provide},
 }
 
-\newglossaryentry{warden}{
+\longnewglossaryentry{warden}{
   name={Wardens},
   text={Warden},
   nonumberlist,
@@ -866,7 +867,7 @@
   description={make the laws and decide fitting punishments for criminals in their \glsentrytext{court}},
 }
 
-\newglossaryentry{seneschal}{
+\longnewglossaryentry{seneschal}{
   name={Seneschals},
   text={seneschal},
   parent={keeper},
@@ -874,7 +875,7 @@
   description={count every \glsentrytext{cp} in an estate, keep their \glsentrytext{warden} up-to-date on recent affairs, and keep in contact with every \glsentrytext{guard} \glsentrytext{jotter} in the area, and ensure the \glsentrytext{wheatGuild} don't cause problems},
 }
 
-\newglossaryentry{sunGuard}{
+\longnewglossaryentry{sunGuard}{
   name={The Sun Guard},
   sort={Sun Guard},
   text={Sun Guard},
@@ -883,7 +884,7 @@
   description={are the upstanding soldiers who protect the city from all the unwashed masses, while wearing shiny-white tabards},
 }
 
-\newglossaryentry{sable}{
+\longnewglossaryentry{sable}{
   name={Sable},
   category={god},
   symbol={\glsentrytext{frost}},
@@ -891,7 +892,7 @@
   description={releases cold into the world to watch people lay down and die in the snow, then takes them to his frigid realm, to place their frozen spirits there like an ornament},
 }
 
-\newglossaryentry{templeOfFrost}{
+\longnewglossaryentry{templeOfFrost}{
   name={The Temple of Frost},
   text={Temple of Frost},
   prefix={a\space},
@@ -900,7 +901,7 @@
   description={Cold saps strength slowly over \glsentrytext{Minquesta} and \glsentrytext{Alassea}, but this temple can push back the frost, denying \glsentrytext{sable} with clothing, a fire, and plenty of gossip},
 }
 
-\newglossaryentry{weaversGuild}{
+\longnewglossaryentry{weaversGuild}{
   name={The Weavers' Guild},
   text={Weavers' Guild},
   sort={Weavers' Guild},
@@ -910,7 +911,7 @@
   description={houses a massive fire, many looms, and plenty of space to tell a long story},
 }
 
-\newglossaryentry{weaver}{
+\longnewglossaryentry{weaver}{
   name={Weavers},
   text={Weaver},
   prefix={a\space},
@@ -918,7 +919,7 @@
   description={produces the best and warmest of clothes for \glsentrytext{fenestra}'s harsh cold seasons},
 }
 
-\newglossaryentry{wrecan}{
+\longnewglossaryentry{wrecan}{
   name={Wrecan},
   category={god},
   symbol={\glsentrytext{hate}},
@@ -927,7 +928,7 @@
   When people fight each other, she takes their soul to her realm of eternal war},
 }
 
-\newglossaryentry{templeOfHate}{
+\longnewglossaryentry{templeOfHate}{
   name={The Temple of Hate},
   text={Temple of Hate},
   prefix={a\space},
@@ -937,7 +938,7 @@
   Disgust spreads into bigotry, then war, as \glsentrytext{wrecan} pulls people into her realm},
 }
 
-\newglossaryentry{armourHall}{
+\longnewglossaryentry{armourHall}{
   name={The Armourers' Guild},
   text={Armourers' Guild},
   prefix={an\space},
@@ -948,7 +949,7 @@
   They handle all the major disputes which nobody wants to take to the \glsentrytext{templeOfJustice}, and often become the de-facto arbiters when one \glsentrytext{warden} cannot agree with another},
 }
 
-\newglossaryentry{armourer}{
+\longnewglossaryentry{armourer}{
   name={Armourers},
   text={Armourer},
   prefix={an\space},
@@ -956,7 +957,7 @@
   description={work in the \glsentrytext{armourHall} and guard civilization from death by Hate, with a combination of excellent armour, and diplomatic skills},
 }
 
-\newglossaryentry{yonder}{
+\longnewglossaryentry{yonder}{
   name={Yonder},
   category={god},
   symbol={\glsentrytext{curiosity}},
@@ -966,7 +967,7 @@
   Nobody knows what happens after that, and there's only one way to find out\ldots},
 }
 
-\newglossaryentry{templeOfCuriosity}{
+\longnewglossaryentry{templeOfCuriosity}{
   name={The Temple of Curiosity},
   text={Temple of Curiosity},
   prefix={a\space},
@@ -977,7 +978,7 @@
   Anyone not content to stay inside and read eventually goes to write a travel-book},
 }
 
-\newglossaryentry{paperGuild}{
+\longnewglossaryentry{paperGuild}{
   name={The Paper Guild},
   text={Paper Guild},
   prefix={a\space},
@@ -988,7 +989,7 @@
   They always need more basilisk bodies to make the latter two},
 }
 
-\newglossaryentry{scribe}{
+\longnewglossaryentry{scribe}{
   name={Scribes},
   text={Scribe},
   prefix={a\space},
@@ -997,7 +998,7 @@
   Most spend their time making books or soap},
 }
 
-\newglossaryentry{seeker}{
+\longnewglossaryentry{seeker}{
   name={Seekers},
   text={Seeker},
   prefix={a\space},
@@ -1006,7 +1007,7 @@
   description={travel to deliver messages, and gather information for the \glsentrytext{paperGuild}},
 }
 
-\newglossaryentry{cartographer}{
+\longnewglossaryentry{cartographer}{
   name={Cartographers},
   text={cartographer},
   prefix={a\space},
@@ -1018,7 +1019,7 @@
 
 %%%%% Seasons
 
-\newglossaryentry{Qualmea}{
+\longnewglossaryentry{Qualmea}{
   name={Qualmea},
   prefix={a\space},
   nonumberlist,
@@ -1027,7 +1028,7 @@
   description={ -- \glsentrytext{fenestra}'s first season, when the ground quakes, and the \glsentrytext{ainumar} creates a long eclipse},
 }
 
-\newglossaryentry{Atya}{
+\longnewglossaryentry{Atya}{
   name={Atya},
   prefix={an\space},
   nonumberlist,
@@ -1036,7 +1037,7 @@
   description={ -- \glsentrytext{fenestra}'s second season},
 }
 
-\newglossaryentry{Alassea}{
+\longnewglossaryentry{Alassea}{
   name={Alassea},
   prefix={an\space},
   nonumberlist,
@@ -1047,7 +1048,7 @@
   During this time, Water spells become more powerful, and becoming larger, or reshaping the water into elements from the caster's past},
 }
 
-\newglossaryentry{Cantea}{
+\longnewglossaryentry{Cantea}{
   name={Cantea},
   prefix={a\space},
   nonumberlist,
@@ -1056,7 +1057,7 @@
   description={ -- \glsentrytext{fenestra}'s fourth season},
 }
 
-\newglossaryentry{Calea}{
+\longnewglossaryentry{Calea}{
   name={Calea},
   prefix={a\space},
   nonumberlist,
@@ -1065,7 +1066,7 @@
   description={ -- \glsentrytext{fenestra}'s fifth season, when the Sun shines hot, and basilisks wander even at night},
 }
 
-\newglossaryentry{Verea}{
+\longnewglossaryentry{Verea}{
   name={Verea},
   prefix={a\space},
   nonumberlist,
@@ -1074,7 +1075,7 @@
   description={ -- \glsentrytext{fenestra}'s sixth season},
 }
 
-\newglossaryentry{Otsea}{
+\longnewglossaryentry{Otsea}{
   name={Otsea},
   prefix={an\space},
   nonumberlist,
@@ -1083,7 +1084,7 @@
   description={ -- \glsentrytext{fenestra}'s seventh season, when earthquakes destroy walls},
 }
 
-\newglossaryentry{Toldea}{
+\longnewglossaryentry{Toldea}{
   name={Toldea},
   prefix={a\space},
   nonumberlist,
@@ -1092,7 +1093,7 @@
   description={ -- \glsentrytext{fenestra}'s eigth season},
 }
 
-\newglossaryentry{Laiquea}{
+\longnewglossaryentry{Laiquea}{
   name={Laiquea},
   prefix={a\space},
   nonumberlist,
@@ -1101,7 +1102,7 @@
   description={ -- \glsentrytext{fenestra}'s ninth season, when the Sun scorches the earth},
 }
 
-\newglossaryentry{Quainea}{
+\longnewglossaryentry{Quainea}{
   name={Quainea},
   prefix={a\space},
   nonumberlist,
@@ -1110,7 +1111,7 @@
   description={ -- \glsentrytext{fenestra}'s tenth season},
 }
 
-\newglossaryentry{Minquesta}{
+\longnewglossaryentry{Minquesta}{
   name={Minquesta},
   prefix={a\space},
   nonumberlist,
@@ -1119,7 +1120,7 @@
   description={ -- \glsentrytext{fenestra}'s eleventh season, and second dark frost, as the \glsentrytext{ainumar} creates another eclipse},
 }
 
-\newglossaryentry{Ohta}{
+\longnewglossaryentry{Ohta}{
   name={Ohta},
   prefix={an\space},
   nonumberlist,

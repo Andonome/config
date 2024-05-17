@@ -16,6 +16,8 @@ ALL_FILES := $(wildcard *.tex) $(wildcard *.sty) | $(DROSS)
 test: $(DROSS)/test.pdf
 $(DROSS)/test.pdf: test.tex $(ALL_FILES)
 	$(RUN) test.tex
+	cd $(DROSS) && makeglossaries test
+	$(RUN) test.tex
 
 .switch-gls:
 	touch .switch-gls
