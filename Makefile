@@ -27,20 +27,16 @@ docs.pdf: images/wide.jpg $(ALL_FILES)
 	$(GLOS) docs
 	$(RUN) docs.tex
 	$(CP) $(DROSS)/docs.pdf docs.pdf
-resources.pdf: $(ALL_FILES) rules.pdf
+resources.pdf: $(ALL_FILES)
 	$(RUN) resources.tex
 	$(RUN) resources.tex
 	$(CP) $(DROSS)/resources.pdf resources.pdf
-foldout.pdf: $(wildcard fold_*.tex) $(wildcard rules/*.tex) $(ALL_FILES) docs.pdf
+foldout.pdf: $(wildcard fold_*.tex) $(ALL_FILES) docs.pdf
 	$(RUN) foldout.tex
 	$(RUN) foldout.tex
 	$(CP) $(DROSS)/foldout.pdf foldout.pdf
-rules.pdf: .switch-gls images/wide.jpg $(wildcard rules/*.tex) $(ALL_FILES)
-	$(RUN) rules.tex
-	$(RUN) rules.tex
-	$(CP) $(DROSS)/rules.pdf rules.pdf
 
 .PHONY: all clean
-all: docs.pdf foldout.pdf resources.pdf rules.pdf $(DROSS)/test.pdf 
+all: docs.pdf foldout.pdf resources.pdf $(DROSS)/test.pdf 
 clean:
 	$(CLEAN) images/wide.jpg
