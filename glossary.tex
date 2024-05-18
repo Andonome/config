@@ -241,6 +241,7 @@
   name={Character Pool},
   prefix={a\space},
   type={mech},
+  category={rules},
   parent={storypoint},
   description={is the collection of characters a player has.
   Players introduce new characters as allies by spending \glsfmtplural{storypoint}, then once their character dies, they take their next \glsentrytext{pc} from the pool},
@@ -254,6 +255,7 @@
   text={Region},
   prefix={a\space},
   type={mech},
+  category={rules},
   nonumberlist,
   description={are broad areas like `forest', `town', `roads'.
   Each contains different encounter types, and often has its own \glsentrytext{sq} collection},
@@ -266,6 +268,7 @@
   prefix={an\space},
   parent={region},
   type={mech},
+  category={rules},
   nonumberlist,
   description={give a rough unit for large spaces.
   An area is a space made distinct by its features.
@@ -279,6 +282,7 @@
   prefix={a\space},
   parent={region},
   type={mech},
+  category={rules},
   nonumberlist,
   description={provide a rough measure of space.
   We can imagine it about a metre long, or as wide as the step on your gaming board, or any other length},
@@ -291,6 +295,7 @@
   name={Actions},
   text={Action},
   type={mech},
+  category={rules},
   prefix={an\space},
   description={should mean something dangerous is happening, even if the only danger is time wasted.
     The \glsentrytext{gm} states the \glsentrytext{tn}, the player rolls $2D6$, and the dice are interpreted.
@@ -329,6 +334,7 @@
   sort={S2},
   parent={action},
   type={mech},
+  category={rules},
   nonumberlist,
   description={is a roll where the physical dice land on some number.
   For example, a `natural 2' is where the dice show `\dicef{1}\dicef{1}', as opposed to a player gaining the result `2' from rolling a `\dicef{3}\dicef{1}' while the character has a -2 penalty to the roll},
@@ -340,6 +346,7 @@
   sort={S3},
   parent={tn},
   type={mech},
+  category={rules},
   prefix={a\space},
   description={start at \glsentrytext{tn}~7, then add the \glsentrytext{npc}'s Bonuses.
     For example, a player declares their \glsentrytext{pc} wants to demand a new sword, but the \glsentrytext{gm} thinks the \glsentrytext{jotter} will just reflexively lie about supplies running low.
@@ -354,6 +361,7 @@
   sort={S6},
   parent={action},
   type={mech},
+  category={rules},
   prefix={a\space},
   description={apply when you can repeat something, without danger.
 Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fails forever},
@@ -367,6 +375,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   sort={S6},
   parent={action},
   type={mech},
+  category={rules},
   nonumberlist,
   description={means characters will get one better working together.
   In this case, the first character adds their Bonus, the second adds half, the third, a quarter, et c. and we round halves up at the end},
@@ -379,6 +388,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   name={Combat},
   text={Combat},
   type={mech},
+  category={rules},
   prefix={a\space},
   description={uses standard resisted rolls.
   The attacker rolls \roll{Dexterity}{Martial Skill}, and the \glsentrytext{tn} equals 7 + the \glsentrytext{npc}'s \roll{Dexterity}{Martial Skill}},
@@ -391,6 +401,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   sort={S3},
   parent={combat},
   type={mech},
+  category={rules},
   nonumberlist,
   first={\textit{Response Action}},
   description={is any action taken as a reaction (usually taken when being attacked)},
@@ -421,6 +432,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   parent={combat},
   category={rules},
   type={mech},
+  category={rules},
   description={start when everyone wants to speak at once.
   The \glsentrytext{gm} goes round the table clockwise as players commit to actions by spending \glsentrytext{ap}-coins},
   }
@@ -466,6 +478,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 \longnewglossaryentry{covering}{
   name={Covering},
   type={mech},
+  category={rules},
   prefix={a\space},
   nonumberlist,
   parent={armour},
@@ -480,6 +493,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   prefix={a\space},
   nonumberlist,
   type={mech},
+  category={rules},
   parent={armour},
   description={are attacks which equal a target's \glsentrytext{tn} plus their \glsentrytext{armour}'s \glsentrytext{covering}; this lets the attack ignore the \glsentrytext{armour}'s \glsentrytext{dr}, and deal direct Damage.
 
@@ -491,6 +505,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   name={Swarms},
   text={swarm},
   type={mech},
+  category={rules},
   symbol={\Juno},
   prefix={a\space},
   nonumberlist,
@@ -514,6 +529,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={Projectiles},
   plural={Projectiles},
   type={mech},
+  category={rules},
   prefix={a\space},
   parent={combat},
   description={rolls use \roll{Dexterity}{Projectiles}, and targets resist with \roll{Speed}{Vigilance}.
@@ -564,6 +580,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   first={Weight Rating},
   prefix={a\space},
   type={mech},
+  category={rules},
   nonumberlist,
   description={shows how easy something is to carry.
   Characters can carry items with a total Weight Rating equal to their \glsentrytext{hp} total.
@@ -588,6 +605,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   prefix={a\space},
   parent={action},
   type={mech},
+  category={rules},
   description={start by spending one \glsentrytext{mp} per spell level.
   The \glsentrytext{witch} then commands the target \glsentrytext{sphere}, rolling \roll{Charisma}{} the lowest \glsentrytext{skill} required.
 
@@ -618,6 +636,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   prefix={a\space},
   parent={casting},
   type={mech},
+  category={rules},
   description={have a mind of their own.
   Once cast, they endure until they burn through themselves, or something destroys them.
   To stop a Fire spell, someone must put the fire out, and if an angry \glsentrytext{witch} makes antlers grow on someone's head, the only way to `dispel' them is with a boning knife.
