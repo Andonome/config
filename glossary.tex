@@ -10,8 +10,10 @@
 \newglossary*{mech}{Mechanics}
 \glssetcategoryattribute{mech}{indexonlyfirst}{true}
 
+\renewcommand*{\acronymtype}{mech}
+
 \glsdefpostdesc{general}{.}
-\glssetcategoryattribute{general}{glossnamefont}{sc}
+\glssetcategoryattribute{general}{glossnamefont}{textbf}
 \glsdefpostdesc{people}{.\space\adforn{15}\space}
 \glsdefpostdesc{rules}{.\space\adforn{35}\space}
 \glsdefpostdesc{god}{.}
@@ -46,7 +48,6 @@
 \longnewglossaryentry{gm}{
   prefix={a\space},
   name={The Judge},
-  type={mech},
   text={Judge},
   sort={Judge},
   type={mech},
@@ -77,7 +78,7 @@
     \noindent
     \begin{minipage}{\linewidth}
     \begin{description}
-      \item[Strength:]
+      \item[Strength:][]
       muscle, brawn, toughness, height
       \item[Dexterity:]
       finesse, coördination, balance
@@ -119,7 +120,6 @@
   description={-- one of the characters run by the people playing the game},
   parent={campaign},
   prefix={a\space},
-  type={mech},
   ]{pc}{PC}{Player Character}
 
 \newacronym[
@@ -127,7 +127,6 @@
   prefix={an\space},
   prefixfirst={a\space},
   parent={campaign},
-  type={mech},
   ]{npc}{NPC}{Non-Player Character}
 
 \longnewglossaryentry{downtime}{
@@ -200,7 +199,6 @@
   prefix={an\space},
   name={Experience Points (XP)},
   parent={storypoint},
-  type={mech},
   nonumberlist,
   ]{xp}{XP}{Experience Point}
 
@@ -274,7 +272,6 @@
   Rolling higher indicates they have their prize, rolling lower means some nasty outcome is upon them, and rolling a tie means both (or neither)},
   shortplural={TNs},
   parent={action},
-  type={mech},
   prefix={a\space},
   ]{tn}{TN}{Tie Number}
 
@@ -342,7 +339,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   shortplural={CRs},
   prefix={a\space},
   name={Creature Ratings (CR)},
-  type={mech},
   nonumberlist,
   parent={combat},
   ]{cr}{CR}{Combat Rating}
@@ -354,7 +350,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   prefixfirst={a\space},
   parent={combat},
   name={Health Points (HP)},
-  type={mech},
   ]{hp}{HP}{Health Point}
 
 \longnewglossaryentry{round}{
@@ -374,7 +369,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   prefix={an\space},
   parent={combat},
   name={Fate Points (FP)},
-  type={mech},
   ]{fp}{FP}{Fate Point}
 
 \longnewglossaryentry{weapon}{
@@ -403,7 +397,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   description={represent armour of any type, or other states which help avoid Damage},
   shortplural={DR},
   parent={armour},
-  type={mech},
   prefix={a\space},
   ]{dr}{DR}{Damage Resistance}
 
@@ -486,7 +479,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   prefix={an\space},
   parent={weight},
   name={Exhaustion Points (EP)},
-  type={mech},
   ]{ep}{EP}{Exhaustion Point}
 
 % Magic
@@ -511,6 +503,15 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   If nobody resists a spell, the \glsentrytext{tn} usually depends on its target.
   Earth spells can affect ice far more easily than rocks, and Air spells can whip up a gale  easier when outdoors},
 }
+
+\newacronym[
+  name={Mana Points (MP)},
+  shortplural={MP},
+  prefix={an\space},
+  prefixfirst={a\space},
+  parent={casting},
+  description={work as the ``battery power'' of a magic user, which allows them to power spells},
+  ]{mp}{MP}{Mana Point}
 
 \longnewglossaryentry{spells}{
   name={Spells},
@@ -539,7 +540,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   description={are the smallest unit of currency},
   shortplural={cp},
   name={Copper Pieces ({\scshape cp})},
-  type={mech},
+  type={main},
   longplural={copper pieces},
   prefix={a\space},
 ]{cp}{cp}{copper piece}
@@ -547,7 +548,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 \newacronym[
   description={gets you 100 copper pieces},
   name={Silver Pieces ({\scshape sp})},
-  type={mech},
+  type={main},
   sort={silver piece},
   longplural={silver pieces},
   shortplural={sp},
@@ -559,7 +560,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   shortplural={gp},
   longplural={gold pieces},
   name={Gold Pieces ({\scshape gp})},
-  type={mech},
+  type={main},
   sort={Gold Piece},
   prefix={a\space},
 ]{gp}{gp}{Gold Piece}
@@ -569,7 +570,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   Start with 3 AP, plus your speed; put that many coins on your character sheet, and spend them each time you take an action},
   shortplural={AP},
   name={Action Points (AP)},
-  type={mech},
   parent={combat},
   prefix={an\space},
   ]{ap}{AP}{Action Point}
@@ -577,7 +577,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 \newacronym[
   description={show magical shielding from the Force sphere},
   shortplural={SP},
-  type={mech},
   prefix={a\space},
   ]{SP}{SP}{Shield Point}
 
@@ -586,23 +585,19 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 \newacronym[
   description={a brand GNU RPG},
   name={BIND},
-  type={mech},
   nonumberlist,
 ]{bind}{BIND}{BIND Is Not DnD}
 
 \newacronym[
   description={books work a little like `print on demand', but it's faster, and cheaper, and if you don't like the paper-quality, you have only yourself to blame},
   prefix={a\space},
-  type={mech},
   parent={bind},
   ]{piy}{PiY}{Print it Yourself}
 
 \newacronym[
   description={means that the file is for printing, not for reading on a screen},
   prefix={a\space},
-  type={mech},
   parent={bind},
-  category={abbreviation},
   nonumberlist,
   ]{pdf}{pdf}{Printable Document Format}
 
@@ -629,8 +624,9 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 \newacronym[
   description={is the universal way to measure time in \glsentrytext{fenestra}, where one \glsentrytext{cycle} equals three `years'},
   name={Gnomish Machine Time (GMT)},
-  parent={fenestra},
   prefix={a\space},
+  parent={fenestra},
+  type={main},
 ]{gmt}{GMT}{Gnomish Machine Time}
 
 \longnewglossaryentry{alchemy}{
@@ -641,16 +637,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   sort={Alchemy},
   description={is what alchemists do},
 }
-
-\newacronym[
-  description={work as the ``battery power'' of a magic user, which allows them to power spells},
-  shortplural={MP},
-  name={Mana Points (MP)},
-  type={mech},
-  parent={alchemy},
-  prefix={an\space},
-  prefixfirst={a\space},
-  ]{mp}{MP}{Mana Point}
 
 \longnewglossaryentry{sphere}{
   name={Sphere},
