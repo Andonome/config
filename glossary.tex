@@ -54,19 +54,32 @@
 
 %%%%%%%%%%
 
-\longnewglossaryentry{gm}{
-  prefix={a\space},
-  name={The Judge},
-  text={Judge},
-  sort={Judge},
-  type={mech},
+%%%%%%%%%% Meta Terminology %%%%%%%%%%
+
+\newacronym[
+  description={a brand GNU RPG},
+  sort={T1},
+  name={BIND},
   nonumberlist,
-  description={rolls encounters, interprets the rules, and forgets to bring enough pencils},
-}
+]{bind}{BIND}{BIND Is Not DnD}
+
+\newacronym[
+  description={books work a little like `print on demand', but it's faster, and cheaper, and if you don't like the paper-quality, you have only yourself to blame},
+  prefix={a\space},
+  parent={bind},
+  ]{piy}{PiY}{Print it Yourself}
+
+\newacronym[
+  description={means that the file is for printing, not for reading on a screen},
+  prefix={a\space},
+  parent={bind},
+  nonumberlist,
+  ]{pdf}{pdf}{Printable Document Format}
 
 % Traits
 
 \longnewglossaryentry{trait}{
+  sort={T2},
   name={Traits},
   text={Trait},
   prefix={a\space},
@@ -87,7 +100,7 @@
     \noindent
     \begin{minipage}{\linewidth}
     \begin{description}
-      \item[Strength:][]
+      \item[Strength:]
       muscle, brawn, toughness, height
       \item[Dexterity:]
       finesse, coördination, balance
@@ -101,7 +114,8 @@
       gravitas, glamour, confidence, symmetry
     \end{description}
     \end{minipage}
-  },
+
+    Traits range from -3 to +3, with adjustments for each race, some some have a limit of +4 in one or two Traits},
 }
 
 \longnewglossaryentry{skill}{
@@ -118,6 +132,7 @@
 % Time
 
 \longnewglossaryentry{campaign}{
+  sort={T8},
   name={Chronicles},
   text={Chronicle},
   prefix={a\space},
@@ -130,6 +145,17 @@
   parent={campaign},
   prefix={a\space},
   ]{pc}{PC}{Player Character}
+
+\longnewglossaryentry{gm}{
+  prefix={a\space},
+  name={The Judge},
+  text={Judge},
+  sort={Judge},
+  type={mech},
+  parent={campaign},
+  nonumberlist,
+  description={rolls encounters, interprets the rules, and forgets to bring enough pencils},
+}
 
 \newacronym[
   description={ -- anyone in the world played by the \glsentrytext{gm} rather than a player},
@@ -156,8 +182,8 @@
   prefix={a\space},
   parent={campaign},
   type={mech},
-  description={are BIND's way of structuring stories.
-  Each \gls{segment} has a location (e.g. `Town', or `Forest'), where it `activates' once the \glspl{pc} enter the area},
+  description={are \glsentrytext{bind}'s way of structuring stories.
+  Each \gls{segment} has a location (e.g. `Town', or `Forest'), where it `activates' once the troupe enter the area},
   }
 
 \longnewglossaryentry{segment}{
@@ -170,15 +196,14 @@
   }
 
 \longnewglossaryentry{interval}{
-  name={An Interval},
+  name={Intervals},
   text={Interval},
   prefix={an\space},
   parent={campaign},
   sort={Interval},
   type={mech},
   nonumberlist,
-  description={%
-    divide the day into four parts -- morning (\showInterval{0}), afternoon (\showInterval{1}), evening (\showInterval{2}), and night (\showInterval{3}).
+  description={divide the day into four parts -- morning (\showInterval{0}), afternoon (\showInterval{1}), evening (\showInterval{2}), and night (\showInterval{3}).
     \par
     \vspace{1em}
     \noindent
@@ -189,12 +214,13 @@
         \item[The wind] brings \glspl{mp} towards the biggest vacuum.
       \end{description}
     \end{minipage}
-  },
+    Each day, the troupe should eat and sleep, or carry an extra~\glsentrytext{ep}},
 }
 
 % Stories
 
 \longnewglossaryentry{storypoint}{
+  sort={T13},
   name={Story Points},
   text={Story Point},
   type={mech},
@@ -223,6 +249,7 @@
 % Space
 
 \longnewglossaryentry{region}{
+  sort={T4},
   name={Regions},
   text={Region},
   prefix={a\space},
@@ -260,34 +287,71 @@
 % Actions
 
 \longnewglossaryentry{action}{
+  sort={T5},
   name={Actions},
   text={Action},
   type={mech},
   prefix={an\space},
-  description={use $2D6$ to beat the \glsentrytext{tn}.
-    \begin{boxtable}
-       7 & Basic        \\
-      10 & Tricky       \\
-      12 & Professional \\
-      14 & Specialist   \\
-    \end{boxtable}
-    The dice determine the state of the world; do not roll again for this action.
-    If another player tries to roll, they use the same \glsentrytext{natural}.
-    When you resist another character, the \glsentrytext{gm} sets the \glsentrytext{tn} to 7, then adds the \glsentrytext{npc}'s Bonus},
+  description={should mean something dangerous is happening, even if the only danger is time wasted.
+    The \glsentrytext{gm} states the \glsentrytext{tn}, the player rolls $2D6$, and the dice are interpreted.
+    The results never appear random to the \glsentrytext{pc}.
+    The result of a roll must tell you something fixed about the world, because the result will not change, and the \glsentrytext{natural} remains fixed on the table},
 }
 
 \newacronym[
   description={means the number players need to roll on the dice to achieve a \emph{tie} with the task.
-  Rolling higher indicates they have their prize, rolling lower means some nasty outcome is upon them, and rolling a tie means both (or neither)},
+    Rolling higher indicates they have their prize, rolling lower means some nasty outcome is upon them, and rolling a tie means both (or neither)
+    \noindent
+    \begin{tabularx}{\linewidth}{lX}
+         \hline
+         \textbf{TN} & \textbf{Difficulty} \\
+         \hline
+         6 & Easy -- just ask the barmaid what you want. \\
+         7 & Basic -- find firewood in the forest. \\
+         10 & Tricky -- find a good price in the market. \\
+         12 & Professional -- fix the cart by Sundown. \\
+         14 & Specialist -- Plan a three-storey stone building. \\
+         \hline
+    \end{tabularx}
+    And a Tie
+  },
   shortplural={TNs},
+  sort={S1},
   parent={action},
   prefix={a\space},
   ]{tn}{TN}{Tie Number}
+
+\longnewglossaryentry{natural}{
+  name={A Natural Roll},
+  text={Natural Roll},
+  sort={Natural Roll},
+  prefix={a\space},
+  sort={S2},
+  parent={action},
+  type={mech},
+  nonumberlist,
+  description={is a roll where the physical dice land on some number.
+  For example, a `natural 2' is where the dice show `\dicef{1}\dicef{1}', as opposed to a player gaining the result `2' from rolling a `\dicef{3}\dicef{1}' while the character has a -2 penalty to the roll},
+  }
+
+\longnewglossaryentry{resistedaction}{
+  name={Resisted Actions},
+  text={Resisted Action},
+  sort={S3},
+  parent={tn},
+  type={mech},
+  prefix={a\space},
+  description={start at \glsentrytext{tn}~7, then add the \glsentrytext{npc}'s Bonuses.
+    For example, a player declares their \glsentrytext{pc} wants to demand a new sword, but the \glsentrytext{gm} thinks the \glsentrytext{jotter} will just reflexively lie about supplies running low.
+
+    The \glsentrytext{jotter}'s \roll{Wits}{Deceit} come to~+2 in total, so the \glsentrytext{tn} is ($7 + 2 =$) 10},
+}
 
 \longnewglossaryentry{restingaction}{
   name={Resting Actions},
   text={Resting Action},
   sort={Resting Action},
+  sort={S6},
   parent={action},
   type={mech},
   prefix={a\space},
@@ -295,23 +359,12 @@
 Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fails forever},
 }
 
-\longnewglossaryentry{quickaction}{
-  name={A Response Action},
-  sort={Response Action},
-  text={Response Action},
-  prefix={a\space},
-  parent={action},
-  type={mech},
-  nonumberlist,
-  first={\textit{Response Action}},
-  description={is any action taken as a reaction (usually taken when being attacked)},
-}
-
 \longnewglossaryentry{bandAct}{
   name={A Banding Action},
   sort={Banding Action},
   text={Banding Action},
   prefix={a\space},
+  sort={S6},
   parent={action},
   type={mech},
   nonumberlist,
@@ -320,27 +373,28 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   In this case, the first character adds their Bonus, the second adds half, the third, a quarter, et c. and we round halves up at the end},
   }
 
-\longnewglossaryentry{natural}{
-  name={A Natural Roll},
-  text={Natural Roll},
-  sort={Natural Roll},
-  prefix={a\space},
-  parent={action},
-  type={mech},
-  nonumberlist,
-  description={is a roll where the physical dice land on some number.
-  For example, a `natural 2' is where the dice show `\dicef{1}\dicef{1}', as opposed to a player gaining the result `2' from rolling a `\dicef{3}\dicef{1}' while the character has a -2 penalty to the roll},
-  }
-
 % Combat
 
 \longnewglossaryentry{combat}{
+  sort={T6},
   name={Combat},
   text={Combat},
   type={mech},
   prefix={a\space},
   description={uses standard resisted rolls.
   The attacker rolls \roll{Dexterity}{Martial Skill}, and the \glsentrytext{tn} equals 7 + the \glsentrytext{npc}'s \roll{Dexterity}{Martial Skill}},
+}
+
+\longnewglossaryentry{quickaction}{
+  name={A Response Action},
+  text={Response Action},
+  prefix={a\space},
+  sort={S3},
+  parent={combat},
+  type={mech},
+  nonumberlist,
+  first={\textit{Response Action}},
+  description={is any action taken as a reaction (usually taken when being attacked)},
 }
 
 \newacronym[
@@ -470,6 +524,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 % Weight
 
 \longnewglossaryentry{weight}{
+  sort={T9},
   name={Weight Rating},
   text={Weight},
   first={Weight Rating},
@@ -493,6 +548,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 % Magic
 
 \longnewglossaryentry{casting}{
+  sort={T7},
   name={Castings},
   text={casting},
   prefix={a\space},
@@ -588,27 +644,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   shortplural={SP},
   prefix={a\space},
   ]{SP}{SP}{Shield Point}
-
-%%%%%%%%%% Meta Terminology %%%%%%%%%%
-
-\newacronym[
-  description={a brand GNU RPG},
-  name={BIND},
-  nonumberlist,
-]{bind}{BIND}{BIND Is Not DnD}
-
-\newacronym[
-  description={books work a little like `print on demand', but it's faster, and cheaper, and if you don't like the paper-quality, you have only yourself to blame},
-  prefix={a\space},
-  parent={bind},
-  ]{piy}{PiY}{Print it Yourself}
-
-\newacronym[
-  description={means that the file is for printing, not for reading on a screen},
-  prefix={a\space},
-  parent={bind},
-  nonumberlist,
-  ]{pdf}{pdf}{Printable Document Format}
 
 %%%%%%%%%%%%%%%% General Terms %%%%%%%%%%%%%%%%%%%%
 
