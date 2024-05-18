@@ -26,6 +26,7 @@
 \glssetcategoryattribute{rules}{nonumberlist}{true}
 \glssetcategoryattribute{rules}{noindex}{true}
 \glssetcategoryattribute{rules}{glossnamefont}{textsc}
+\glssetcategoryattribute{abbreviation}{glossnamefont}{textit}
 
 \glssetcategoryattribute{location}{glossnamefont}{emph}
 
@@ -42,6 +43,70 @@
 
 %%%%%%%%%%
 
+\longnewglossaryentry{gm}{
+  prefix={a\space},
+  name={The Judge},
+  type={mech},
+  text={Judge},
+  sort={Judge},
+  type={mech},
+  nonumberlist,
+  description={rolls encounters, interprets the rules, and forgets to bring enough pencils},
+}
+
+% Traits
+
+\longnewglossaryentry{trait}{
+  name={Traits},
+  text={Trait},
+  prefix={a\space},
+  type={mech},
+  description={are any stat on a character sheet, such as Strength, Attack, or a weapon's Damage},
+  }
+
+\longnewglossaryentry{attribute}{
+  name={Attributes},
+  text={Attribute},
+  prefix={an\space},
+  type={mech},
+  parent={trait},
+  first={\textit{Attribute}},
+  description={show a character's basic aptitudes.
+    \par
+    \vspace{1em}
+    \noindent
+    \begin{minipage}{\linewidth}
+    \begin{description}
+      \item[Strength:]
+      muscle, brawn, toughness, height
+      \item[Dexterity:]
+      finesse, coördination, balance
+      \item[Speed:]
+      velocity, tendons, vim
+      \item[Intelligence:]
+      memory, logic, tenacity, cunning
+      \item[Wits:]
+      alacrity, levity, attention, acumen
+      \item[Charisma:]
+      gravitas, glamour, confidence, symmetry
+    \end{description}
+    \end{minipage}
+  },
+}
+
+\longnewglossaryentry{skill}{
+  name={Skills},
+  text={Skill},
+  prefix={a\space},
+  type={mech},
+  parent={trait},
+  description={show training.  Characters perform tasks by rolling $2D6$ plus \glsentrytext{attribute} plus Skill.
+  Each Skill helps with many tasks, depending on the \glsentrytext{attribute} paired with},
+  }
+
+
+% Time
+
 \longnewglossaryentry{campaign}{
   name={Chronicles},
   text={Chronicle},
@@ -49,6 +114,21 @@
   type={mech},
   description={are series of games, linked together by \glsentrytext{sq} plots, and every players' \glsentrytext{characterPool}},
   }
+
+\newacronym[
+  description={-- one of the characters run by the people playing the game},
+  parent={campaign},
+  prefix={a\space},
+  type={mech},
+  ]{pc}{PC}{Player Character}
+
+\newacronym[
+  description={ -- anyone in the world played by the \glsentrytext{gm} rather than a player},
+  prefix={an\space},
+  prefixfirst={a\space},
+  parent={campaign},
+  type={mech},
+  ]{npc}{NPC}{Non-Player Character}
 
 \longnewglossaryentry{downtime}{
   name={Downtime},
@@ -104,25 +184,149 @@
   },
 }
 
-\longnewglossaryentry{round}{
-  name={Rounds},
-  text={round},
+% Stories
+
+\longnewglossaryentry{storypoint}{
+  name={Story Points},
+  text={Story Point},
+  type={mech},
+  prefix={a\space},
+  description={allow players to declare that some part of their backstory arrives on scene to help the situation. They also grant \glsfmtlongpl{xp}},
+}
+
+\newacronym[
+  description={form an abstract measurement of how much valuable experience and learning characters have acquired.  PCs spend XP to buy Traits},
+  shortplural={XP},
+  prefix={an\space},
+  name={Experience Points (XP)},
+  parent={storypoint},
+  type={mech},
+  nonumberlist,
+  ]{xp}{XP}{Experience Point}
+
+\longnewglossaryentry{characterPool}{
+  name={Character Pool},
   prefix={a\space},
   type={mech},
-  description={measure small slices of fast-paced time.
-  Mostly, we use rounds for combat},
+  parent={storypoint},
+  description={is the collection of characters a player has.
+  Players introduce new characters as allies by spending \glsfmtplural{storypoint}, then once their character dies, they take their next \glsentrytext{pc} from the pool},
+}
+
+% Space
+
+\longnewglossaryentry{region}{
+  name={Regions},
+  text={Region},
+  prefix={a\space},
+  type={mech},
+  nonumberlist,
+  description={are broad areas like `forest', `town', `roads'.
+  Each contains different encounter types, and often has its own \glsentrytext{sq} collection},
   }
+
+\longnewglossaryentry{area}{
+  name={Areas},
+  sort={Area},
+  text={Area},
+  prefix={an\space},
+  parent={region},
+  type={mech},
+  nonumberlist,
+  description={give a rough unit for large spaces.
+  An area is a space made distinct by its features.
+  In the \glsentrytext{deep}, each cavern might count as an area, while out in the open plains a forest might be composed of the local areas: `the centre with the big, felled tree', `the river's fork', and `the griffins' nesting site'},
+  }
+
 
 \longnewglossaryentry{step}{
   name={Steps},
   text={step},
   prefix={a\space},
+  parent={region},
   type={mech},
   nonumberlist,
   description={provide a rough measure of space.
   We can imagine it about a metre long, or as wide as the step on your gaming board, or any other length},
   }
 
+% Actions
+
+\longnewglossaryentry{action}{
+  name={Actions},
+  text={Action},
+  type={mech},
+  prefix={an\space},
+  description={use $2D6$ to beat the \glsentrytext{tn}.
+    \begin{boxtable}
+       7 & Basic        \\
+      10 & Tricky       \\
+      12 & Professional \\
+      14 & Specialist   \\
+    \end{boxtable}
+    The dice determine the state of the world; do not roll again for this action.
+    If another player tries to roll, they use the same \glsentrytext{natural}.
+    When you resist another character, the \glsentrytext{gm} sets the \glsentrytext{tn} to 7, then adds the \glsentrytext{npc}'s Bonus},
+}
+
+\newacronym[
+  description={means the number players need to roll on the dice to achieve a \emph{tie} with the task.
+  Rolling higher indicates they have their prize, rolling lower means some nasty outcome is upon them, and rolling a tie means both (or neither)},
+  shortplural={TNs},
+  parent={action},
+  type={mech},
+  prefix={a\space},
+  ]{tn}{TN}{Tie Number}
+
+\longnewglossaryentry{restingaction}{
+  name={Resting Actions},
+  text={Resting Action},
+  sort={Resting Action},
+  parent={action},
+  type={mech},
+  prefix={a\space},
+  description={apply when you can repeat something, without danger.
+Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fails forever},
+}
+
+\longnewglossaryentry{quickaction}{
+  name={A Response Action},
+  sort={Response Action},
+  text={Response Action},
+  prefix={a\space},
+  parent={action},
+  type={mech},
+  nonumberlist,
+  first={\textit{Response Action}},
+  description={is any action taken as a reaction (usually taken when being attacked)},
+}
+
+\longnewglossaryentry{bandAct}{
+  name={A Banding Action},
+  sort={Banding Action},
+  text={Banding Action},
+  prefix={a\space},
+  parent={action},
+  type={mech},
+  nonumberlist,
+  prefixfirst={a\space\textit{Banding Action}},
+  description={means characters can perform this task as a team in a useful way.
+  In this case, the first character adds their Bonus, the second adds half, the third, a quarter, et c. and we round halves up at the end},
+  }
+
+\longnewglossaryentry{natural}{
+  name={A Natural Roll},
+  text={Natural Roll},
+  sort={Natural Roll},
+  prefix={a\space},
+  parent={action},
+  type={mech},
+  nonumberlist,
+  description={is a roll where the physical dice land on some number.
+  For example, a `natural 2' is where the dice show `\dicef{1}\dicef{1}', as opposed to a player gaining the result `2' from rolling a `\dicef{3}\dicef{1}' while the character has a -2 penalty to the roll},
+  }
+
+% Combat
 
 \longnewglossaryentry{combat}{
   name={Combat},
@@ -132,6 +336,46 @@
   description={uses standard resisted rolls.
   The attacker rolls \roll{Dexterity}{Martial Skill}, and the \glsentrytext{tn} equals 7 + the \glsentrytext{npc}'s \roll{Dexterity}{Martial Skill}},
 }
+
+\newacronym[
+  description={give a rough estimate of a creature's combat abilities},
+  shortplural={CRs},
+  prefix={a\space},
+  name={Creature Ratings (CR)},
+  type={mech},
+  nonumberlist,
+  parent={combat},
+  ]{cr}{CR}{Combat Rating}
+
+\newacronym[
+  description={provide linear, measure of a character's health and injury},
+  shortplural={HP},
+  prefix={an\space},
+  prefixfirst={a\space},
+  parent={combat},
+  name={Health Points (HP)},
+  type={mech},
+  ]{hp}{HP}{Health Point}
+
+\longnewglossaryentry{round}{
+  name={Rounds},
+  text={round},
+  prefix={a\space},
+  parent={combat},
+  type={mech},
+  description={measure small slices of fast-paced time.
+  Mostly, we use rounds for combat},
+  }
+
+\newacronym[
+  description={measure how much luck the character has left, used solely to avoid Damage.
+  $\Glspl{fp} = \frac{Total~\glsfmtplural{xp}}{10} + Charisma$},
+  shortplural={FP},
+  prefix={an\space},
+  parent={combat},
+  name={Fate Points (FP)},
+  type={mech},
+  ]{fp}{FP}{Fate Point}
 
 \longnewglossaryentry{weapon}{
   name={Weapons},
@@ -155,195 +399,13 @@
   It takes effect before \glsentrytext{dr} applies},
 }
 
-\longnewglossaryentry{swarm}{
-  name={Swarms},
-  text={swarm},
-  type={mech},
-  symbol={\Juno},
-  prefix={a\space},
-  nonumberlist,
-  parent={combat},
-  description={
-    are myriad tiny creatures, acting as one.
-    They crawl over characters, and into gaps in armour.
-
-    Swarms can cover a number of \glspl{step} equal to their \glsentrytext{hp}-total, or bunch up together, with 3~\glsentrytext{hp} per \gls{step}.
-
-    Attacking swarms is easy when there are so many targets.
-    The \glsentrytext{tn} to attack always reduces by 1 per \glsentrytext{hp} in the swarm, so when a swarm is listed with `{\scshape Att 12 - 8 \glsentrytext{hp}}', the \glsentrytext{tn} would be only 4; but if the swarm had only 1~\glsentrytext{hp} left, hitting it would require a roll at \glsentrytext{tn}~11.
-    However, swarms only take 1 Damage each per attack.
-
-    Swarms can split into smaller parts as a normal movement action.
-    Each part inflicts 1~Damage each \glsentrytext{round} to anyone on the same \gls{step}, as long as the swarm's \glsentrytext{hp} total comes to more than the target's \glsentrytext{covering}},
-}
-
-\longnewglossaryentry{gm}{
-  prefix={a\space},
-  name={The Judge},
-  type={mech},
-  text={Judge},
-  sort={Judge},
-  type={mech},
-  nonumberlist,
-  description={rolls encounters, interprets the rules, and forgets to bring enough pencils},
-}
-
-\longnewglossaryentry{storypoint}{
-  name={Story Points},
-  text={Story Point},
+\newacronym[
+  description={represent armour of any type, or other states which help avoid Damage},
+  shortplural={DR},
+  parent={armour},
   type={mech},
   prefix={a\space},
-  description={allow players to declare that some part of their backstory arrives on scene to help the situation. They also grant \glsfmtplural{xp}},
-}
-
-\longnewglossaryentry{area}{
-  name={Areas},
-  sort={Area},
-  text={Area},
-  prefix={an\space},
-  type={mech},
-  nonumberlist,
-  description={give a rough unit for large spaces.
-  An area is a space made distinct by its features.
-  In the \glsentrytext{deep}, each cavern might count as an area, while out in the open plains a forest might be composed of the local areas: `the centre with the big, felled tree', `the river's fork', and `the griffins' nesting site'},
-  }
-
-\longnewglossaryentry{region}{
-  name={Regions},
-  text={Region},
-  prefix={a\space},
-  type={mech},
-  nonumberlist,
-  description={are broad areas like `forest', `town', `roads'.
-  Each contains different encounter types, and often has its own \glsentrytext{sq} collection},
-  }
-
-\longnewglossaryentry{action}{
-  name={Actions},
-  text={Action},
-  type={mech},
-  prefix={an\space},
-  description={%
-    use $2D6$ to beat the \glsentrytext{tn}.
-
-    \begin{boxtable}
-       7 & Basic        \\
-      10 & Tricky       \\
-      12 & Professional \\
-      14 & Specialist   \\
-    \end{boxtable}
-    The dice determine the state of the world; do not roll again for this action.
-    If another player tries to roll, they use the same \glsentrytext{natural}.
-
-    When you resist another character, the \glsentrytext{gm} sets the \glsentrytext{tn} to 7, then adds the \glsentrytext{npc}'s Bonus},
-}
-
-\longnewglossaryentry{restingaction}{
-  name={Resting Actions},
-  text={Resting Action},
-  sort={Resting Action},
-  first={\textit{Resting Action}},
-  type={mech},
-  prefix={a\space},
-  description={apply when you can repeat something, without danger.
-Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fails forever},
-}
-
-\longnewglossaryentry{quickaction}{
-  name={A Response Action},
-  sort={Response Action},
-  text={Response Action},
-  prefix={a\space},
-  type={mech},
-  nonumberlist,
-  first={\textit{Response Action}},
-  description={is any action taken as a reaction (usually taken when being attacked)},
-}
-
-\longnewglossaryentry{bandAct}{
-  name={A Banding Action},
-  sort={Banding Action},
-  text={Banding Action},
-  prefix={a\space},
-  type={mech},
-  nonumberlist,
-  prefixfirst={a\space\textit{Banding Action}},
-  description={means characters can perform this task as a team in a useful way.
-  In this case, the first character adds their Bonus, the second adds half, the third, a quarter, et c. and we round halves up at the end},
-  }
-
-\longnewglossaryentry{natural}{
-  name={A Natural Roll},
-  text={Natural Roll},
-  sort={Natural Roll},
-  prefix={a\space},
-  type={mech},
-  nonumberlist,
-  description={is a roll where the physical dice land on some number.
-  For example, a `natural 2' is where the dice show `\dicef{1}\dicef{1}', as opposed to a player gaining the result `2' from rolling a `\dicef{3}\dicef{1}' while the character has a -2 penalty to the roll},
-  }
-
-
-\longnewglossaryentry{projectiles}{
-  name={Projectiles},
-  text={Projectiles},
-  plural={Projectiles},
-  type={mech},
-  prefix={a\space},
-  description={rolls use \roll{Dexterity}{Projectiles}, and targets resist with \roll{Speed}{Vigilance}.
-
-    Every 5 \glspl{step}' distance adds +1 to the \glsentrytext{tn}.
-    When \pgls{pc} hits the \gls{tn} precisely, they miss their first target, but hit another target behind (if any)},
-}
-
-
-\longnewglossaryentry{trait}{
-  name={Traits},
-  text={Trait},
-  prefix={a\space},
-  type={mech},
-  description={are any stat on a character sheet, such as Strength, Attack, or a weapon's Damage},
-  }
-
-\longnewglossaryentry{attribute}{
-  name={Attributes},
-  text={Attribute},
-  prefix={an\space},
-  type={mech},
-  parent={trait},
-  first={\textit{Attribute}},
-  description={show a character's basic aptitudes.
-    \par
-    \vspace{1em}
-    \noindent
-    \begin{minipage}{\linewidth}
-    \begin{description}
-      \item[Strength:]
-      muscle, brawn, toughness, height
-      \item[Dexterity:]
-      finesse, coördination, balance
-      \item[Speed:]
-      velocity, tendons, vim
-      \item[Intelligence:]
-      memory, logic, tenacity, cunning
-      \item[Wits:]
-      alacrity, levity, attention, acumen
-      \item[Charisma:]
-      gravitas, glamour, confidence, symmetry
-    \end{description}
-    \end{minipage}
-  },
-}
-
-\longnewglossaryentry{skill}{
-  name={Skills},
-  text={Skill},
-  prefix={a\space},
-  type={mech},
-  parent={trait},
-  description={show training.  Characters perform tasks by rolling $2D6$ plus \glsentrytext{attribute} plus Skill.
-  Each Skill helps with many tasks, depending on the \glsentrytext{attribute} paired with},
-  }
+  ]{dr}{DR}{Damage Resistance}
 
 \longnewglossaryentry{covering}{
   name={Covering},
@@ -369,6 +431,42 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   This applies symmetrically; if the \glsentrytext{pc}'s armour has `\glsentrytext{covering}~5', and they miss by 5, then their opponent scores a Vitals Shot, and their armour counts for nothing, and does not provide any \glsentrytext{dr}},
   }
 
+\longnewglossaryentry{swarm}{
+  name={Swarms},
+  text={swarm},
+  type={mech},
+  symbol={\Juno},
+  prefix={a\space},
+  nonumberlist,
+  parent={combat},
+  description={
+    are myriad tiny creatures, acting as one.
+    They crawl over characters, and into gaps in armour.
+
+    Swarms can cover a number of \glspl{step} equal to their \glsentrytext{hp}-total, or bunch up together, with 3~\glsentrytext{hp} per \gls{step}.
+
+    Attacking swarms is easy when there are so many targets.
+    The \glsentrytext{tn} to attack always reduces by 1 per \glsentrytext{hp} in the swarm, so when a swarm is listed with `{\scshape Att 12 - 8 \glsentrytext{hp}}', the \glsentrytext{tn} would be only 4; but if the swarm had only 1~\glsentrytext{hp} left, hitting it would require a roll at \glsentrytext{tn}~11.
+    However, swarms only take 1 Damage each per attack.
+
+    Swarms can split into smaller parts as a normal movement action.
+    Each part inflicts 1~Damage each \glsentrytext{round} to anyone on the same \gls{step}, as long as the swarm's \glsentrytext{hp} total comes to more than the target's \glsentrytext{covering}},
+}
+
+\longnewglossaryentry{projectiles}{
+  name={Projectiles},
+  text={Projectiles},
+  plural={Projectiles},
+  type={mech},
+  prefix={a\space},
+  parent={combat},
+  description={rolls use \roll{Dexterity}{Projectiles}, and targets resist with \roll{Speed}{Vigilance}.
+    Every 5 \glsfmtplural{step}' distance adds +1 to the \glsentrytext{tn}.
+    When \pgls{pc} hits the \gls{tn} precisely, they miss their first target, but hit another target behind (if any)},
+}
+
+% Weight
+
 \longnewglossaryentry{weight}{
   name={Weight Rating},
   text={Weight},
@@ -381,37 +479,61 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   Creatures have a \glsentrytext{weight} equal to their own \glsentrytext{hp}},
 }
 
-\longnewglossaryentry{characterPool}{
-  name={Character Pool},
-  prefix={a\space},
+\newacronym[
+  description={measure how tired, hungry, and fed-up characters feel.
+  Characters can put up with a number of Exhaustion Points equal to their \glsentrytext{hp}, after which they receive penalties to act},
+  shortplural={EP},
+  prefix={an\space},
+  parent={weight},
+  name={Exhaustion Points (EP)},
   type={mech},
-  parent={storypoint},
-  description={is the collection of characters a player has.
-  Players introduce new characters as allies by spending \glsfmtplural{storypoint}, then once their character dies, they take their next \glsentrytext{pc} from the pool},
+  ]{ep}{EP}{Exhaustion Point}
+
+% Magic
+
+\longnewglossaryentry{casting}{
+  name={Castings},
+  text={casting},
+  prefix={a\space},
+  parent={action},
+  type={mech},
+  description={start by spending one \glsentrytext{mp} per spell level.
+  The \glsentrytext{witch} then commands the target \glsentrytext{sphere}, rolling \roll{Charisma}{} the lowest \glsentrytext{skill} required.
+
+  When `overpsending' on the \glsentrytext{invocation}, the \glsentrytext{witch} gains 1~\glsentrytext{ep} for each \glsentrytext{mp} they lack.
+
+  The \glsentrytext{witch} selects the first target, but any large \glsentrytext{invocation} forks across the remaining targets like lightning, affecting the closes first.
+
+  If a caster can think of a way to use a spell to stop a sword, they can enter combat as usual, rolling at \glsentrytext{tn} 7 plus the \glsentrytext{npc}'s \roll{Dexterity}{Combat}.
+  A battle-ready \glsentrytext{witch} might encourage a warrior's torch to burn his own face off, or make him forget what he wanted to do a moment before his sword comes down.
+  Casters can enter combat with their spells alone, rolling against \glsentrytext{tn} 7 plus the \glsentrytext{npc}'s \roll{Dexterity}{Combat}.
+
+  If nobody resists a spell, the \glsentrytext{tn} usually depends on its target.
+  Earth spells can affect ice far more easily than rocks, and Air spells can whip up a gale  easier when outdoors},
+}
+
+\longnewglossaryentry{spells}{
+  name={Spells},
+  text={spell},
+  prefix={a\space},
+  parent={casting},
+  description={have a mind of their own.
+  Once cast, they endure until they burn through themselves, or something destroys them.
+  To stop a Fire spell, someone must put the fire out, and if an angry \glsentrytext{witch} makes antlers grow on someone's head, the only way to `dispel' them is with a boning knife.
+
+  Casters can reign in standard, short-range spells, making them target someone one \glsentrytext{step} in front of them; but long-range spells head towards a target at that range.
+  If a spell's range is
+  \setcounter{spellCost}{4}\setRange%
+  \spellRange, it will find the nearest target at that distance.
+
+  When spells target a wide area, the caster only selects the first target.
+  The spell forks through the others like lightning, and may `arc' across any distances up to its original range.
+  Water spells which hit a river will spread through the river, but a curse with an `area' of 4 will have to jump until it has found four people to inflict itself on.
+
+  To learn a spell, the caster must have each elemental \glsentrytext{sphere} the spell requires, and each at least as high as the spell's level},
 }
 
 %%%%%%%%%% Acronyms
-
-\newacronym[
-  description={a brand GNU RPG},
-  name={BIND},
-  type={mech},
-  nonumberlist,
-]{bind}{BIND}{BIND Is Not DnD}
-
-\newacronym[
-  description={means the spell's total level},
-  text={spell level},
-  nonumberlist,
-  type={mech},
-]{lv}{Lv}{Spell Level}
-
-\newacronym[
-  description={is the universal way to measure time in \glsentrytext{fenestra}, where one \glsentrytext{cycle} equals three `years'},
-  name={Gnomish Machine Time (GMT)},
-  type={mech},
-  prefix={a\space},
-]{gmt}{GMT}{Gnomish Machine Time}
 
 \newacronym[
   description={are the smallest unit of currency},
@@ -443,50 +565,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 ]{gp}{gp}{Gold Piece}
 
 \newacronym[
-  description={measure how much luck the character has left, used solely to avoid Damage.
-  $\Glspl{fp} = \frac{Total~\glsfmtplural{xp}}{10} + Charisma$},
-  shortplural={FP},
-  prefix={an\space},
-  name={Fate Points (FP)},
-  type={mech},
-  ]{fp}{FP}{Fate Point}
-
-\newacronym[
-  description={provide linear, measure of a character's health and injury},
-  shortplural={HP},
-  prefix={an\space},
-  prefixfirst={a\space},
-  name={Health Points (HP)},
-  type={mech},
-  ]{hp}{HP}{Health Point}
-
-\newacronym[
-  description={measure how tired, hungry, and fed-up characters feel.
-  Characters can put up with a number of Exhaustion Points equal to their \glsentrytext{hp}, after which they receive penalties to act},
-  shortplural={EP},
-  prefix={an\space},
-  name={Exhaustion Points (EP)},
-  type={mech},
-  ]{ep}{EP}{Exhaustion Point}
-
-\newacronym[
-  description={means the number players need to roll on the dice to achieve a \emph{tie} with the task.
-  Rolling higher indicates they have their prize, rolling lower means some nasty outcome is upon them, and rolling a tie means both (or neither)},
-  shortplural={TNs},
-  type={mech},
-  prefix={a\space},
-  ]{tn}{TN}{Tie Number}
-
-\newacronym[
-  description={work as the ``battery power'' of a magic user, which allows them to power spells},
-  shortplural={MP},
-  name={Mana Points (MP)},
-  type={mech},
-  prefix={an\space},
-  prefixfirst={a\space},
-  ]{mp}{MP}{Mana Point}
-
-\newacronym[
   description={measure how many actions someone can take in a round, based on how fast they can move and react.
   Start with 3 AP, plus your speed; put that many coins on your character sheet, and spend them each time you take an action},
   shortplural={AP},
@@ -497,69 +575,38 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   ]{ap}{AP}{Action Point}
 
 \newacronym[
-  description={form an abstract measurement of how much valuable experience and learning characters have acquired.  PCs spend XP to buy Traits},
-  shortplural={XP},
-  prefix={an\space},
-  name={Experience Points (XP)},
-  type={mech},
-  nonumberlist,
-  ]{xp}{XP}{Experience Point}
-
-\newacronym[
-  description={give a rough estimate of a creature's combat abilities},
-  shortplural={CRs},
-  prefix={a\space},
-  name={Creature Ratings (CR)},
-  type={mech},
-  nonumberlist,
-  parent={combat},
-  ]{cr}{CR}{Combat Rating}
-
-\newacronym[
-  description={-- one of the characters run by the people playing the game},
-  type={mech},
-  prefix={a\space},
-  ]{pc}{PC}{Player Character}
-
-\newacronym[
   description={show magical shielding from the Force sphere},
   shortplural={SP},
   type={mech},
   prefix={a\space},
   ]{SP}{SP}{Shield Point}
 
-\newacronym[
-  description={represent armour of any type, or other states which help avoid Damage},
-  shortplural={DR},
-  parent={armour},
-  type={mech},
-  prefix={a\space},
-  ]{dr}{DR}{Damage Resistance}
+%%%%%%%%%% Meta Terminology %%%%%%%%%%
 
 \newacronym[
-  description={ -- anyone in the world played by the \glsentrytext{gm} rather than a player},
-  prefix={an\space},
+  description={a brand GNU RPG},
+  name={BIND},
   type={mech},
-  prefixfirst={a\space},
-  ]{npc}{NPC}{Non-Player Character}
+  nonumberlist,
+]{bind}{BIND}{BIND Is Not DnD}
 
 \newacronym[
   description={books work a little like `print on demand', but it's faster, and cheaper, and if you don't like the paper-quality, you have only yourself to blame},
   prefix={a\space},
   type={mech},
+  parent={bind},
   ]{piy}{PiY}{Print it Yourself}
 
 \newacronym[
   description={means that the file is for printing, not for reading on a screen},
   prefix={a\space},
   type={mech},
+  parent={bind},
+  category={abbreviation},
   nonumberlist,
   ]{pdf}{pdf}{Printable Document Format}
 
-%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% General Terms %%%%%%%%%%%%%%%%%%%%
 
 \longnewglossaryentry{ainumar}{
   name={The Ainumar},
@@ -579,6 +626,13 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   Predators larger than a horse hunt deer and people in the same way, so everyone travels together, and well-armed},
 }
 
+\newacronym[
+  description={is the universal way to measure time in \glsentrytext{fenestra}, where one \glsentrytext{cycle} equals three `years'},
+  name={Gnomish Machine Time (GMT)},
+  parent={fenestra},
+  prefix={a\space},
+]{gmt}{GMT}{Gnomish Machine Time}
+
 \longnewglossaryentry{alchemy}{
   prefix={an\space},
   name={Alchemy},
@@ -587,6 +641,16 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   sort={Alchemy},
   description={is what alchemists do},
 }
+
+\newacronym[
+  description={work as the ``battery power'' of a magic user, which allows them to power spells},
+  shortplural={MP},
+  name={Mana Points (MP)},
+  type={mech},
+  parent={alchemy},
+  prefix={an\space},
+  prefixfirst={a\space},
+  ]{mp}{MP}{Mana Point}
 
 \longnewglossaryentry{sphere}{
   name={Sphere},
@@ -634,15 +698,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   parent={alchemy},
   description={are the basic sentence-formulae which define spells.
   They consist of one to five `descriptors', one action, and a target.
-  For example, `{\sffamily Distant, Wax Air}' spells encourage air at a distance.
-
-  Each Invocation endures until it burns through itself, or something destroys it.
-  To stop a Fire Invocation, someone must put the fire out, and if \glsentrytext{witchcraft} makes antlers grow on someone's head, the only way to `dispel' them is with a boning knife.
-
-  When Invocations have a long range, then the range cannot be reduce.
-  If an Invocation targets someone at
-  \setcounter{spellCost}{4}\setRange%
-  \spellRange, it will find the nearest target at that distance},
+  For example, `{\sffamily Distant, Wax Air}' spells encourage air at a distance},
 }
 
 \longnewglossaryentry{talisman}{
@@ -713,16 +769,8 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   name={Witchcraft},
   text={Witchcraft},
   prefix={a\space},
-  parent={alchemy},
-  description={is real magic, involving skill rather than relying on a recipe\ldots or any understanding of \glsentrytext{alchemy}.
-  The caster can learn any \glsentrytext{invocation} in time, as long as they their level in each \glsentrytext{sphere} at least equals the \glsentrytext{invocation}'s requirements.
-
-  To employ Witchcraft, the caster speaks to an element, and the player spends one \glsentrytext{mp} for each level of the spell, then rolls \roll{Charisma}{} the lowest \glsentrytext{sphere} the \glsentrytext{invocation} requires (\glsentrytext{tn} depends on the \glsentrytext{invocation}).
-  The \glsentrytext{witch} selects the first target, but any large \glsentrytext{invocation} forks across the remaining targets like lightning, affecting the closes first.
-
-  When `overpsending' on the \glsentrytext{invocation}, the \glsentrytext{witch} gains 1~\glsentrytext{ep} for each \glsentrytext{mp} they lack.
-
-  \Glsentrytext{invocation} attacks work like any Martial \glsentrytext{skill} -- the caster rolls against \glsentrytext{tn} 7 plus the \glsentrytext{npc}'s \roll{Dexterity}{Combat}},
+  parent={action},
+  description={is real magic, involving skill rather than relying on a recipe\ldots or any understanding of \glsentrytext{alchemy}},
 }
 
 \longnewglossaryentry{deep}{
