@@ -49,17 +49,21 @@
   #1 \weaponName & \absNum{weaponBonus} & \absNum{weaponDamage} & \arabic{heft} & \arabic{weaponWeight}
 }
 
+\newcounter{secondWeaponWeight}
+
 \newcommand\rangedWeapon[4][0]{%
   \setcounter{track}{7}%
   \addtocounter{track}{#1}%
   \addtocounter{track}{\value{Dexterity}}%
   \addtocounter{track}{\value{Projectiles}}%
+  \setcounter{secondWeaponWeight}{#3}%
+  \addtocounter{secondWeaponWeight}{-4}%
   \setcounter{enc}{#3}%
   #2 (\glsentrytext{tn}~\arabic{track}, \dmg{enc}, \glsentrytext{ap}~{#4})%
 }
 
 \newcommand\smolCrossBow{%
-  \rangedWeapon{Crossbow}{6}{1}%
+  \rangedWeapon[2]{Crossbow}{6}{1}%
 }
 
 % Shields work much like weapons, except that their Bonus is high, their initiative cost is low, but their attack is poor.
