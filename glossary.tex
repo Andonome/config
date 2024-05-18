@@ -4,6 +4,15 @@
   \newcommand\glossarytitle{Lexicon}
 \fi
 
+% Alter topicmcols style
+
+%\renewcommand*{\glstopicPostSkip}{---}
+\renewcommand*{\glstopicPreSkip}{\bigLine\medskip}
+\renewcommand*{\glstopicSubPreLocSep}{~\adforn{38}~}
+\renewcommand*{\glstopicInit}{\setlength{\parskip}{10pt}}
+
+
+
 \newglossary*{people}{People}
 \glssetcategoryattribute{people}{indexonlyfirst}{true}
 
