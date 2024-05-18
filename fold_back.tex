@@ -10,29 +10,38 @@
     colback=white,
     fit,
     fit basedim=10pt,
+    before upper={\parindent10pt\noindent},
     frame code={\ifodd\thepage\node at (frame.south east) {\thepage};\else \node at (frame.south west) {\thepage};\fi\stepcounter{page}},
   },
 ]
 
-
-\posterbox{name=seventh,column=1,row=1,span=1,rowspan=1}{
-  \begin{center}
-  \rotatebox{-90}{\noindent\begin{minipage}{.5\textheight}
-  \input{config/rules/weapons.tex}
-  \centering
+\posterbox[
+  before upper={\parindent0pt},
+  ]{name=seventh,column=1,row=1,span=1,rowspan=1}{
+  \subsubsection{\Glsfmtplural{weapon}}
+  \glsdesc{weapon}.
+  \rotatebox{-90}{\noindent\begin{minipage}{.40\textheight}
+  \small
   \commonWeaponsChart
   \end{minipage}}
-  \end{center}
 }
 
 \posterbox[tikz={rotate=180}]{name=tenth,column=2,row=1,span=1,rowspan=1}{
   \subsubsection{\Glsfmttext{armour}}
   \glsdesc{armour}
+  \par
+  \vspace{1em}
+  \subsubsection{\Glsfmtlong{dr}}
+  \glsdesc{dr}
+  \par
+  \vspace{1em}
+  \subsubsection{\Glsfmttext{covering}}
+  \glsdesc{covering}
   {\footnotesize\commonArmourChart}
 }
 
 \posterbox[tikz={rotate=180}]{name=eleventh,column=3,row=1,span=1,rowspan=1}{
-  \subsubsection{\Glsfmttext{armour}}
+  \subsubsection{\Glsfmttext{projectiles}}
   \glsdesc{projectiles}
 }
 
@@ -54,8 +63,8 @@
 }
 
 \posterbox{name=fifteenth,column=2,row=2,span=1,rowspan=1}{
-  \bklTitle{Magic}
-  \input{config/rules/spells.tex}
+  \subsubsection{\Glsfmttext{witchcraft}}
+  \glsdesc{witchcraft}
 }
 
 \posterbox{name=fourteenth,column=3,row=2,span=1,rowspan=1}{
@@ -65,8 +74,8 @@
 }
 
 \posterbox{name=third,column=4,row=2,span=1,rowspan=1}{
-  \bklTitle{Swarms}
-  \input{config/rules/swarms.tex}
+  \subsubsection{\Glsfmtplural{swarm}}
+  \glsdesc{swarm}
 }
 
 \end{tcbposter}

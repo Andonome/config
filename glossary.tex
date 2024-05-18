@@ -133,26 +133,261 @@
   The attacker rolls \roll{Dexterity}{Martial Skill}, and the \glsentrytext{tn} equals 7 + the \glsentrytext{npc}'s \roll{Dexterity}{Martial Skill}},
 }
 
+\longnewglossaryentry{weapon}{
+  name={Weapons},
+  text={weapon},
+  type={mech},
+  prefix={a\space},
+  nonumberlist,
+  parent={combat},
+  description={add to Attack and Damage.
+  Smaller weapons only cost 1~\glsentrytext{ap} to use, while larger weapons cost more, but also have bigger Bonuses},
+}
+
 \longnewglossaryentry{armour}{
   name={Armour},
+  text={armour},
   type={mech},
   prefix={an\space},
   nonumberlist,
   parent={combat},
+  description={protects characters by reducing Damage.
+  It takes effect before \glsentrytext{dr} applies},
+}
+
+\longnewglossaryentry{swarm}{
+  name={Swarms},
+  text={swarm},
+  type={mech},
+  symbol={\Juno},
+  prefix={a\space},
+  nonumberlist,
+  parent={combat},
+  description={
+    are myriad tiny creatures, acting as one.
+    They crawl over characters, and into gaps in armour.
+
+    Swarms can cover a number of \glspl{step} equal to their \glsentrytext{hp}-total, or bunch up together, with 3~\glsentrytext{hp} per \gls{step}.
+
+    Attacking swarms is easy when there are so many targets.
+    The \glsentrytext{tn} to attack always reduces by 1 per \glsentrytext{hp} in the swarm, so when a swarm is listed with `{\scshape Att 12 - 8 \glsentrytext{hp}}', the \glsentrytext{tn} would be only 4; but if the swarm had only 1~\glsentrytext{hp} left, hitting it would require a roll at \glsentrytext{tn}~11.
+    However, swarms only take 1 Damage each per attack.
+
+    Swarms can split into smaller parts as a normal movement action.
+    Each part inflicts 1~Damage each \glsentrytext{round} to anyone on the same \gls{step}, as long as the swarm's \glsentrytext{hp} total comes to more than the target's \glsentrytext{covering}},
+}
+
+\longnewglossaryentry{gm}{
+  prefix={a\space},
+  name={The Judge},
+  type={mech},
+  text={Judge},
+  sort={Judge},
+  type={mech},
+  nonumberlist,
+  description={rolls encounters, interprets the rules, and forgets to bring enough pencils},
+}
+
+\longnewglossaryentry{storypoint}{
+  name={Story Points},
+  text={Story Point},
+  type={mech},
+  prefix={a\space},
+  description={allow players to declare that some part of their backstory arrives on scene to help the situation. They also grant \glsfmtplural{xp}},
+}
+
+\longnewglossaryentry{area}{
+  name={Areas},
+  sort={Area},
+  text={Area},
+  prefix={an\space},
+  type={mech},
+  nonumberlist,
+  description={give a rough unit for large spaces.
+  An area is a space made distinct by its features.
+  In the \glsentrytext{deep}, each cavern might count as an area, while out in the open plains a forest might be composed of the local areas: `the centre with the big, felled tree', `the river's fork', and `the griffins' nesting site'},
+  }
+
+\longnewglossaryentry{region}{
+  name={Regions},
+  text={Region},
+  prefix={a\space},
+  type={mech},
+  nonumberlist,
+  description={are broad areas like `forest', `town', `roads'.
+  Each contains different encounter types, and often has its own \glsentrytext{sq} collection},
+  }
+
+\longnewglossaryentry{action}{
+  name={Actions},
+  text={Action},
+  type={mech},
+  prefix={an\space},
   description={%
-    provides \gls{dr}, but only when the \gls{covering} applies.
-    For armour with \gls{covering} 3:
+    use $2D6$ to beat the \glsentrytext{tn}.
+
+    \begin{boxtable}
+       7 & Basic        \\
+      10 & Tricky       \\
+      12 & Professional \\
+      14 & Specialist   \\
+    \end{boxtable}
+    The dice determine the state of the world; do not roll again for this action.
+    If another player tries to roll, they use the same \glsentrytext{natural}.
+
+    When you resist another character, the \glsentrytext{gm} sets the \glsentrytext{tn} to 7, then adds the \glsentrytext{npc}'s Bonus},
+}
+
+\longnewglossaryentry{restingaction}{
+  name={Resting Actions},
+  text={Resting Action},
+  sort={Resting Action},
+  first={\textit{Resting Action}},
+  type={mech},
+  prefix={a\space},
+  description={apply when you can repeat something, without danger.
+Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fails forever},
+}
+
+\longnewglossaryentry{quickaction}{
+  name={A Response Action},
+  sort={Response Action},
+  text={Response Action},
+  prefix={a\space},
+  type={mech},
+  nonumberlist,
+  first={\textit{Response Action}},
+  description={is any action taken as a reaction (usually taken when being attacked)},
+}
+
+\longnewglossaryentry{bandAct}{
+  name={A Banding Action},
+  sort={Banding Action},
+  text={Banding Action},
+  prefix={a\space},
+  type={mech},
+  nonumberlist,
+  prefixfirst={a\space\textit{Banding Action}},
+  description={means characters can perform this task as a team in a useful way.
+  In this case, the first character adds their Bonus, the second adds half, the third, a quarter, et c. and we round halves up at the end},
+  }
+
+\longnewglossaryentry{natural}{
+  name={A Natural Roll},
+  text={Natural Roll},
+  sort={Natural Roll},
+  prefix={a\space},
+  type={mech},
+  nonumberlist,
+  description={is a roll where the physical dice land on some number.
+  For example, a `natural 2' is where the dice show `\dicef{1}\dicef{1}', as opposed to a player gaining the result `2' from rolling a `\dicef{3}\dicef{1}' while the character has a -2 penalty to the roll},
+  }
+
+
+\longnewglossaryentry{projectiles}{
+  name={Projectiles},
+  text={Projectiles},
+  plural={Projectiles},
+  type={mech},
+  prefix={a\space},
+  description={rolls use \roll{Dexterity}{Projectiles}, and targets resist with \roll{Speed}{Vigilance}.
+
+    Every 5 \glspl{step}' distance adds +1 to the \glsentrytext{tn}.
+    When \pgls{pc} hits the \gls{tn} precisely, they miss their first target, but hit another target behind (if any)},
+}
+
+
+\longnewglossaryentry{trait}{
+  name={Traits},
+  text={Trait},
+  prefix={a\space},
+  type={mech},
+  description={are any stat on a character sheet, such as Strength, Attack, or a weapon's Damage},
+  }
+
+\longnewglossaryentry{attribute}{
+  name={Attributes},
+  text={Attribute},
+  prefix={an\space},
+  type={mech},
+  parent={trait},
+  first={\textit{Attribute}},
+  description={show a character's basic aptitudes.
+    \par
     \vspace{1em}
     \noindent
     \begin{minipage}{\linewidth}
     \begin{description}
-      \item[Roll $\leq$ \gls{tn} $-$ your \gls{covering}]: opponent scores \pgls{vitalShot}, and ignores your \gls{dr}.
-      \item[Roll $<$ \gls{tn}]: opponent hits, but your \gls{dr} reduces Damage.
-      \item[Roll $>$ \gls{tn}]: you hit, but opponent's \gls{dr} reduces Damage.
-      \item[Roll $\geq$ \gls{tn} $+$ opponent's \gls{covering}]: you score \pgls{vitalShot}, and inflict full Damage.
+      \item[Strength:]
+      muscle, brawn, toughness, height
+      \item[Dexterity:]
+      finesse, coördination, balance
+      \item[Speed:]
+      velocity, tendons, vim
+      \item[Intelligence:]
+      memory, logic, tenacity, cunning
+      \item[Wits:]
+      alacrity, levity, attention, acumen
+      \item[Charisma:]
+      gravitas, glamour, confidence, symmetry
     \end{description}
     \end{minipage}
   },
+}
+
+\longnewglossaryentry{skill}{
+  name={Skills},
+  text={Skill},
+  prefix={a\space},
+  type={mech},
+  parent={trait},
+  description={show training.  Characters perform tasks by rolling $2D6$ plus \glsentrytext{attribute} plus Skill.
+  Each Skill helps with many tasks, depending on the \glsentrytext{attribute} paired with},
+  }
+
+\longnewglossaryentry{covering}{
+  name={Covering},
+  type={mech},
+  prefix={a\space},
+  nonumberlist,
+  parent={armour},
+  description={means how much \glsentrytext{armour} covers the body.
+  \Glsentrytext{armour} with `Covering 3' protects the torso and may have a helmet, while armour with `Covering 5' protects almost the entire body},
+}
+
+\longnewglossaryentry{vitalShot}{
+  name={Vitals Shots},
+  text={Vitals Shot},
+  sort={Vitals Shot},
+  prefix={a\space},
+  nonumberlist,
+  type={mech},
+  parent={armour},
+  description={are attacks which equal a target's \glsentrytext{tn} plus their \glsentrytext{armour}'s \glsentrytext{covering}; this lets the attack ignore the \glsentrytext{armour}'s \glsentrytext{dr}, and deal direct Damage.
+
+  If a player needs to roll at \glsentrytext{tn}~10 to hit an opponent with `\glsentrytext{covering}~3', then they need to roll `13' to make a Vitals Shot.
+  This applies symmetrically; if the \glsentrytext{pc}'s armour has `\glsentrytext{covering}~5', and they miss by 5, then their opponent scores a Vitals Shot, and their armour counts for nothing, and does not provide any \glsentrytext{dr}},
+  }
+
+\longnewglossaryentry{weight}{
+  name={Weight Rating},
+  text={Weight},
+  first={Weight Rating},
+  prefix={a\space},
+  type={mech},
+  nonumberlist,
+  description={shows how easy something is to carry.
+  Characters can carry items with a total Weight Rating equal to their \glsentrytext{hp} total.
+  Creatures have a \glsentrytext{weight} equal to their own \glsentrytext{hp}},
+}
+
+\longnewglossaryentry{characterPool}{
+  name={Character Pool},
+  prefix={a\space},
+  type={mech},
+  parent={storypoint},
+  description={is the collection of characters a player has.
+  Players introduce new characters as allies by spending \glsfmtplural{storypoint}, then once their character dies, they take their next \glsentrytext{pc} from the pool},
 }
 
 %%%%%%%%%% Acronyms
@@ -323,215 +558,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 
-\longnewglossaryentry{gm}{
-  prefix={a\space},
-  name={The Judge},
-  type={mech},
-  text={Judge},
-  sort={Judge},
-  type={mech},
-  nonumberlist,
-  description={rolls encounters, interprets the rules, and forgets to bring enough pencils},
-}
-
-\longnewglossaryentry{storypoint}{
-  name={Story Points},
-  text={Story Point},
-  type={mech},
-  prefix={a\space},
-  description={allow players to declare that some part of their backstory arrives on scene to help the situation. They also grant \glsfmtplural{xp}},
-}
-
-\longnewglossaryentry{area}{
-  name={Areas},
-  sort={Area},
-  text={Area},
-  prefix={an\space},
-  type={mech},
-  nonumberlist,
-  description={give a rough unit for large spaces.
-  An area is a space made distinct by its features.
-  In the \glsentrytext{deep}, each cavern might count as an area, while out in the open plains a forest might be composed of the local areas: `the centre with the big, felled tree', `the river's fork', and `the griffins' nesting site'},
-  }
-
-\longnewglossaryentry{region}{
-  name={Regions},
-  text={Region},
-  prefix={a\space},
-  type={mech},
-  nonumberlist,
-  description={are broad areas like `forest', `town', `roads'.
-  Each contains different encounter types, and often has its own \glsentrytext{sq} collection},
-  }
-
-\longnewglossaryentry{action}{
-  name={Actions},
-  text={Action},
-  type={mech},
-  prefix={an\space},
-  description={%
-    use $2D6$ to beat the \glsentrytext{tn}.
-
-    \begin{boxtable}
-       7 & Basic        \\
-      10 & Tricky       \\
-      12 & Professional \\
-      14 & Specialist   \\
-    \end{boxtable}
-    The dice determine the state of the world; do not roll again for this action.
-    If another player tries to roll, they use the same \glsentrytext{natural}.
-
-    When you resist another character, the \glsentrytext{gm} sets the \glsentrytext{tn} to 7, then adds the \glsentrytext{npc}'s Bonus},
-}
-
-\longnewglossaryentry{restingaction}{
-  name={Resting Actions},
-  text={Resting Action},
-  sort={Resting Action},
-  first={\textit{Resting Action}},
-  type={mech},
-  prefix={a\space},
-  description={apply when you can repeat something, without danger.
-Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fails forever},
-}
-
-\longnewglossaryentry{quickaction}{
-  name={A Response Action},
-  sort={Response Action},
-  text={Response Action},
-  prefix={a\space},
-  type={mech},
-  nonumberlist,
-  first={\textit{Response Action}},
-  description={is any action taken as a reaction (usually taken when being attacked)},
-}
-
-\longnewglossaryentry{bandAct}{
-  name={A Banding Action},
-  sort={Banding Action},
-  text={Banding Action},
-  prefix={a\space},
-  type={mech},
-  nonumberlist,
-  prefixfirst={a\space\textit{Banding Action}},
-  description={means characters can perform this task as a team in a useful way.
-  In this case, the first character adds their Bonus, the second adds half, the third, a quarter, et c. and we round halves up at the end},
-  }
-
-\longnewglossaryentry{natural}{
-  name={A Natural Roll},
-  text={Natural Roll},
-  sort={Natural Roll},
-  prefix={a\space},
-  type={mech},
-  nonumberlist,
-  description={is a roll where the physical dice land on some number.
-  For example, a `natural 2' is where the dice show `\dicef{1}\dicef{1}', as opposed to a player gaining the result `2' from rolling a `\dicef{3}\dicef{1}' while the character has a -2 penalty to the roll},
-  }
-
-
-\longnewglossaryentry{projectiles}{
-  name={Projectiles},
-  text={Projectiles},
-  type={mech},
-  prefix={a\space},
-  description={%
-    employs \roll{Dexterity}{Projectiles}, targets resist with \roll{Speed}{Vigilance}.
-
-    Every 5 \glspl{step}' distance adds +1 to the \glsentrytext{tn}.
-    When \pgls{pc} hits the \gls{tn} precisely, they miss their first target, but hit another target behind (if any)},
-}
-
-
-\longnewglossaryentry{trait}{
-  name={Traits},
-  text={Trait},
-  prefix={a\space},
-  type={mech},
-  description={are any stat on a character sheet, such as Strength, Attack, or a weapon's Damage},
-  }
-
-\longnewglossaryentry{attribute}{
-  name={Attributes},
-  text={Attribute},
-  prefix={an\space},
-  type={mech},
-  parent={trait},
-  first={\textit{Attribute}},
-  description={
-    \begin{minipage}{\linewidth}
-    \begin{description}
-      \item[Strength:]
-      muscle, brawn, toughness, height
-      \item[Dexterity:]
-      finesse, coördination, balance
-      \item[Speed:]
-      velocity, tendons, vim
-      \item[Intelligence:]
-      memory, logic, tenacity, cunning
-      \item[Wits:]
-      alacrity, levity, attention, acumen
-      \item[Charisma:]
-      gravitas, glamour, confidence, symmetry
-    \end{description}
-    \end{minipage}
-  },
-}
-
-\longnewglossaryentry{skill}{
-  name={Skills},
-  text={Skill},
-  prefix={a\space},
-  type={mech},
-  parent={trait},
-  description={show training.  Characters perform tasks by rolling $2D6$ plus \glsentrytext{attribute} plus Skill.
-  Each Skill helps with many tasks, depending on the \glsentrytext{attribute} paired with},
-  }
-
-\longnewglossaryentry{vitalShot}{
-  name={A Vitals Shot},
-  text={Vitals Shot},
-  sort={Vitals Shot},
-  prefix={a\space},
-  nonumberlist,
-  type={mech},
-  parent={armour},
-  description={means an attack which strikes between the gaps in armour (or other weak point) and deals full Damage, ignoring \glsentrytext{dr}.
-  See \glsentrytext{covering}},
-  }
-
-\longnewglossaryentry{covering}{
-  name={Covering},
-  type={mech},
-  prefix={a\space},
-  nonumberlist,
-  parent={armour},
-  description={shows how many steps of the dice armour covers.
-  A creature with \glsentrytext{dr} 5 means that they can subtract 5 from any Damage.
-  However, if the \glsentrytext{tn} to hit them is 10, with a Covering of 3, then their armour protects only 3 steps of the dice (`10, 11, and 12').
-  Rolling 3 steps over their \glsentrytext{tn} (\glsentrytext{tn} $10 + 3 = 13$) means the attack ignores armour, making it \pgls{vitalShot}},
-}
-
-\longnewglossaryentry{weight}{
-  name={Weight Rating},
-  text={Weight},
-  first={Weight Rating},
-  prefix={a\space},
-  type={mech},
-  nonumberlist,
-  description={shows how easy something is to carry.
-  Characters can carry items with a total Weight Rating equal to their \glsentrytext{hp} total.
-  Creatures have a \glsentrytext{weight} equal to their own \glsentrytext{hp}},
-}
-
-\longnewglossaryentry{characterPool}{
-  name={Character Pool},
-  prefix={a\space},
-  type={mech},
-  parent={storypoint},
-  description={is the collection of characters a player has.
-  Players introduce new characters as allies by spending \glsfmtplural{storypoint}, then once their character dies, they take their next \glsentrytext{pc} from the pool},
-}
 
 %%%%%%%%%%%%%%%%
 
@@ -608,7 +634,15 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   parent={alchemy},
   description={are the basic sentence-formulae which define spells.
   They consist of one to five `descriptors', one action, and a target.
-  For example, `{\sffamily Distant, Wax Air}' spells encourage air at a distance},
+  For example, `{\sffamily Distant, Wax Air}' spells encourage air at a distance.
+
+  Each Invocation endures until it burns through itself, or something destroys it.
+  To stop a Fire Invocation, someone must put the fire out, and if \glsentrytext{witchcraft} makes antlers grow on someone's head, the only way to `dispel' them is with a boning knife.
+
+  When Invocations have a long range, then the range cannot be reduce.
+  If an Invocation targets someone at
+  \setcounter{spellCost}{4}\setRange%
+  \spellRange, it will find the nearest target at that distance},
 }
 
 \longnewglossaryentry{talisman}{
@@ -680,7 +714,15 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={Witchcraft},
   prefix={a\space},
   parent={alchemy},
-  description={is real magic, involving skill rather than relying on a recipe},
+  description={is real magic, involving skill rather than relying on a recipe\ldots or any understanding of \glsentrytext{alchemy}.
+  The caster can learn any \glsentrytext{invocation} in time, as long as they their level in each \glsentrytext{sphere} at least equals the \glsentrytext{invocation}'s requirements.
+
+  To employ Witchcraft, the caster speaks to an element, and the player spends one \glsentrytext{mp} for each level of the spell, then rolls \roll{Charisma}{} the lowest \glsentrytext{sphere} the \glsentrytext{invocation} requires (\glsentrytext{tn} depends on the \glsentrytext{invocation}).
+  The \glsentrytext{witch} selects the first target, but any large \glsentrytext{invocation} forks across the remaining targets like lightning, affecting the closes first.
+
+  When `overpsending' on the \glsentrytext{invocation}, the \glsentrytext{witch} gains 1~\glsentrytext{ep} for each \glsentrytext{mp} they lack.
+
+  \Glsentrytext{invocation} attacks work like any Martial \glsentrytext{skill} -- the caster rolls against \glsentrytext{tn} 7 plus the \glsentrytext{npc}'s \roll{Dexterity}{Combat}},
 }
 
 \longnewglossaryentry{deep}{
@@ -1321,14 +1363,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   description={Animal},
 }
 
-\newglossaryentry{Sw}{
-  type=symbols,
-  sort=TS,
-  nonumberlist,
-  name={\Juno},
-  description={Swarm},
-}
-
 % Guild Symbols
 
 \newglossaryentry{poison}{
@@ -1501,7 +1535,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 \newcommand{\E}{\gls{E}} % sentient
 \newcommand{\A}{\gls{A}} % creature
 \newcommand{\Pl}{\gls{plant}} % plant
-\newcommand{\Sw}{\gls{Sw}} % swarm
+\newcommand{\Sw}{\glssymbol{swarm}} % swarm
 \newcommand{\N}{\gls{N}} % nura
 \newcommand{\R}{\gls{R}} % morph
 \newcommand{\D}{\gls{D}} % undead
