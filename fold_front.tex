@@ -11,15 +11,31 @@
     fit,
     fit basedim=10pt,
     before upper={\parindent10pt\noindent},
-    frame code={\ifodd\thepage\node at (frame.south east) {\thepage};\else \node at (frame.south west) {\thepage};\fi\stepcounter{page}},
+    before upper={\showPage},
+    frame code={},
   },
 ]
 
 
+\togglefalse{countedPage}
+\posterbox[%
+]{name=first,column=4,row=2,span=1,rowspan=1}{
+  \begin{center}
+    \includesvg[width=.8\textwidth]{logo}
+    \par
+    \vspace{3\baselineskip}
+    {\Large\scshape The Rules-Light RPG$^{*}$}
+    \vfill\null
+    \ast\tiny It weighs 5 grams!
+  \end{center}
+}
+
+\setcounter{page}{5}
 \posterbox[%
   tikz={rotate=180},
   before upper={\parindent0pt},
 ]{name=fifth,column=1,row=1,span=1,rowspan=1}{
+  \togglefalse{countedPage}
   \label{skillChart}
   \begin{center}
   \rotatebox{-90}{\noindent\begin{minipage}{.5\textheight}
@@ -38,6 +54,10 @@
   \end{center}
 }
 
+\setcounter{page}{12}
+
+\toggletrue{countedPage}
+
 \posterbox[tikz={rotate=180}]{name=twelfth,column=2,row=1,span=1,rowspan=1}{
   \subsubsection{\Glsfmtplural{vitalShot}}
   \glsdesc{vitalShot}.
@@ -46,7 +66,10 @@
   \vspace{1em}
 }
 
-\posterbox[tikz={rotate=180}]{name=ninth,column=3,row=1,span=1,rowspan=1}{
+\setcounter{page}{9}
+\posterbox[%
+  tikz={rotate=180},
+  ]{name=ninth,column=3,row=1,span=1,rowspan=1}{
   \subsubsection{\Glsfmtlongpl{ep}}
   \glsdesc{ep}.
   \par
@@ -59,8 +82,10 @@
   \glsdesc{hp}.
 }
 
+\setcounter{page}{8}
 \posterbox[%
   before upper={\parindent0pt},
+  tikz={rotate=180},
   ]%
 {name=eighth,column=4,row=1,span=1,rowspan=1}{
   \subsubsection{\Glsfmtplural{bandAct}}
@@ -75,9 +100,13 @@
   \glsdesc{weight}.
 }
 
-\posterbox[%
+
+\togglefalse{countedPage}
+\setcounter{page}{4}
+\posterbox[
   before upper={\parindent0pt},
   ]{name=fourth,column=1,row=2,span=1,rowspan=1}{
+  \togglefalse{countedPage}
   \begin{center}
   \rotatebox{-90}{\noindent\begin{minipage}{.5\textheight}
     \begin{tabularx}{\linewidth}{X|LLL}
@@ -95,7 +124,9 @@
   \end{center}
 }
 
-% Bows?
+\toggletrue{countedPage}
+
+\setcounter{page}{13}
 \posterbox[blankest]{name=thirteenth,column=2,row=2,span=1,rowspan=1}{
   \subsubsection{\Glsfmttext{projectiles}}
   \glsdesc{projectiles}.

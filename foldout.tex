@@ -22,6 +22,15 @@
   \textit{#1}
 }
 
+
+\renewcommand{\footnoterule}{}
+
+\newcommand\showPage{%
+  \iftoggle{countedPage}{%
+    \footnotetext{\vfill\ifodd\thepage\flushright\fi \outline{\thepage}}%
+  }{}%
+}
+
 \pagestyle{empty}
 
 \tcbset{reset}
