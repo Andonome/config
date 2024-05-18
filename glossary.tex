@@ -521,6 +521,40 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
     When \pgls{pc} hits the \gls{tn} precisely, they miss their first target, but hit another target behind (if any)},
 }
 
+\longnewglossaryentry{crossbow}{
+  name={Crossbows},
+  text={crossbow},
+  type={mech},
+  prefix={a\space},
+  parent={projectiles},
+  description={only need 1~\glsentrytext{ap} to fire.
+  They grant a Bonus to hit equal to 4 -\glsentrytext{weight} and deal Damage equal to their \glsentrytext{weight} -2.
+
+  Reloading a crossbow requires 5~rounds, plus the weapon's Damage, and the user must have a Strength Bonus at least as high as the weapon's \glsentrytext{weight}},
+}
+
+\longnewglossaryentry{bow}{
+  name={Hunting Bows},
+  text={hunting bow},
+  type={mech},
+  prefix={a\space},
+  parent={projectiles},
+  description={deal any amount of Damage, depending on the bow, but cannot be pulled back by someone with a Strength Bonus lower than the Damage.
+  The \glsentrytext{ap}~cost to pull one back equals 2 plus its Damage.
+
+  The hunting bow gives a Bonus to hit equal to its Damage, if the archer has time to draw properly (i.e. they still have at least 1~\glsentrytext{ap} after firing).
+  Flustered archers, take the weapon's Bonus as a penalty if they would not be able to fire in time},
+}
+
+\longnewglossaryentry{impromptuThrownWeapons}{
+  name={Impromptu Thrown Weapons},
+  text={impromptu thrown weapon},
+  type={mech},
+  prefix={an\space},
+  parent={projectiles},
+  description={receive a -2 penalty to hit and Damage, and a further -1~Penalty per \glsentrytext{step}~thrown},
+}
+
 % Weight
 
 \longnewglossaryentry{weight}{
