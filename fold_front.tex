@@ -16,35 +16,10 @@
 ]
 
 
-\posterbox[tikz={rotate=180}]{name=fifth,column=1,row=1,span=1,rowspan=1}{
-  \bklTitle{Setup}
-  \setcounter{page}{1}
-  \input{config/rules/start.tex}
-}
-
-\posterbox[tikz={rotate=180}]{name=twelfth,column=2,row=1,span=1,rowspan=1}{
-  \subsubsection{\Glsfmtplural{attribute}}
-  \glsdesc{attribute}
-  \par
-  \vspace{1em}
-  \subsubsection{\Glsfmtplural{skill}}
-  \glsdesc{skill}
-}
-
-
-\posterbox[tikz={rotate=180}]{name=ninth,column=3,row=1,span=1,rowspan=1}{
-  \subsubsection{\Glsfmttext{weight}}
-  \glsdesc{weight}
-  \vspace{1em}
-  \par
-  \subsubsection{\Glsfmtlongpl{fp}}
-  \glsdesc{fp}
-}
-
 \posterbox[%
+  tikz={rotate=180},
   before upper={\parindent0pt},
-  ]%
-{name=eighth,column=4,row=1,span=1,rowspan=1}{
+]{name=fifth,column=1,row=1,span=1,rowspan=1}{
   \label{skillChart}
   \begin{center}
   \rotatebox{-90}{\noindent\begin{minipage}{.5\textheight}
@@ -61,6 +36,43 @@
     \end{tabularx}
   \end{minipage}}
   \end{center}
+}
+
+\posterbox[tikz={rotate=180}]{name=twelfth,column=2,row=1,span=1,rowspan=1}{
+  \subsubsection{\Glsfmtplural{vitalShot}}
+  \glsdesc{vitalShot}.
+  {\footnotesize\commonArmourChart}
+  \par
+  \vspace{1em}
+}
+
+\posterbox[tikz={rotate=180}]{name=ninth,column=3,row=1,span=1,rowspan=1}{
+  \subsubsection{\Glsfmtlongpl{ep}}
+  \glsdesc{ep}.
+  \par
+  \vspace{1em}
+  \subsubsection{\Glsfmttext{combat}}
+  \glsdesc{combat}.
+  \subsubsection{\Glsfmtlongpl{ap}}
+  \glsdesc{ap}.
+  \subsubsection{\Glsfmtlongpl{hp}}
+  \glsdesc{hp}.
+}
+
+\posterbox[%
+  before upper={\parindent0pt},
+  ]%
+{name=eighth,column=4,row=1,span=1,rowspan=1}{
+  \subsubsection{\Glsfmtplural{bandAct}}
+  \glsdesc{bandAct}.
+  \par
+  \vspace{1em}
+  \subsubsection{\Glsfmtplural{restingaction}}
+  \glsdesc{restingaction}.
+  \vspace{1em}
+  \par
+  \subsubsection{\Glsfmttext{weight}}
+  \glsdesc{weight}.
 }
 
 \posterbox[%
@@ -83,27 +95,30 @@
   \end{center}
 }
 
+% Bows?
 \posterbox[blankest]{name=thirteenth,column=2,row=2,span=1,rowspan=1}{
-  \subsubsection{\Glsfmtplural{action}}
-  \glsdesc{action}
-  \par
-  \vspace{1em}
-  \subsubsection{\Glsfmtplural{natural}}
-  \glsdesc{natural}
+  \subsubsection{\Glsfmttext{projectiles}}
+  \glsdesc{projectiles}.
 }
 
 \posterbox{name=sixteenth,column=3,row=2,span=1,rowspan=1}{
-  \subsubsection{\Glsfmtplural{restingaction}}
-  \glsdesc{restingaction}
-  \par
-  \vspace{1em}
-  \subsubsection{\Glsfmtplural{bandAct}}
-  \glsdesc{bandAct}
+  \subsubsection{\Glsfmttext{downtime}}
+  \glsdesc{downtime}.
+  \subsubsection{\Glsfmtplural{interval}}
+  \glsdesc{interval}.
+  {\footnotesize\manaRegenChart}
 }
 
 \posterbox{name=first,column=4,row=2,span=1,rowspan=1}{
-  \subsubsection{\Glsfmttext{combat}}
-  \glsdesc{combat}
+  \begin{center}
+    \subsubsection{\Huge BIND}
+    \par
+    \vspace{3\baselineskip}
+    \subsubsection{The Rules-Light RPG}
+    \par
+    \vspace{3\baselineskip}
+    \hint{(it weighs 5 grams!)}
+  \end{center}
 }
 
 \end{tcbposter}

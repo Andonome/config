@@ -16,8 +16,33 @@
 ]
 
 \posterbox[
-  before upper={\parindent0pt},
   ]{name=seventh,column=1,row=1,span=1,rowspan=1}{
+  \subsubsection{\Glsfmtlongpl{tn}}
+  \glsdesc{tn}.
+  \par
+  \vspace{1em}
+}
+
+\posterbox[tikz={rotate=180}]{name=tenth,column=2,row=1,span=1,rowspan=1}{
+  \subsubsection{\Glsfmttext{armour}}
+  \glsdesc{armour}.
+  \par
+  \vspace{1em}
+  \subsubsection{\Glsfmtlong{dr}}
+  \glsdesc{dr}.
+  \par
+  \vspace{1em}
+  \subsubsection{\Glsfmttext{covering}}
+  \glsdesc{covering}.
+  \par
+  \vspace{1em}
+  \subsubsection{\Glsfmtlongpl{fp}}
+  \glsdesc{fp}.
+  \subsubsection{\Glsfmtplural{quickaction}}
+  \glsdesc{quickaction}.
+}
+
+\posterbox[tikz={rotate=180}]{name=eleventh,column=3,row=1,span=1,rowspan=1}{
   \subsubsection{\Glsfmtplural{weapon}}
   \glsdesc{weapon}.
   \rotatebox{-90}{\noindent\begin{minipage}{.40\textheight}
@@ -26,56 +51,48 @@
   \end{minipage}}
 }
 
-\posterbox[tikz={rotate=180}]{name=tenth,column=2,row=1,span=1,rowspan=1}{
-  \subsubsection{\Glsfmttext{armour}}
-  \glsdesc{armour}
-  \par
-  \vspace{1em}
-  \subsubsection{\Glsfmtlong{dr}}
-  \glsdesc{dr}
-  \par
-  \vspace{1em}
-  \subsubsection{\Glsfmttext{covering}}
-  \glsdesc{covering}
-  {\footnotesize\commonArmourChart}
-}
-
-\posterbox[tikz={rotate=180}]{name=eleventh,column=3,row=1,span=1,rowspan=1}{
-  \subsubsection{\Glsfmttext{projectiles}}
-  \glsdesc{projectiles}
-}
-
 \posterbox[tikz={rotate=180}]{name=sixth,column=4,row=1,span=1,rowspan=1}{
-  \subsubsection{\Glsfmttext{downtime}}
-  \glsdesc{downtime}.
+  \subsubsection{\Glsfmtplural{action}}
+  \glsdesc{action}
+  \subsubsection{\Glsfmtplural{natural}}
+  \glsdesc{natural}.
+  \par
+  \vspace{1em}
 }
 
 \posterbox{name=second,column=1,row=2,span=1,rowspan=1}{
-  \begin{center}
-    \subsubsection{\Huge BIND}
-    \par
-    \vspace{3\baselineskip}
-    \subsubsection{The Rules-Light RPG}
-    \par
-    \vspace{3\baselineskip}
-    \hint{(it weighs 5 grams!)}
-  \end{center}
+  \input{config/rules/start.tex}
 }
 
 \posterbox{name=fifteenth,column=2,row=2,span=1,rowspan=1}{
-  \subsubsection{\Glsfmttext{witchcraft}}
-  \glsdesc{witchcraft}
+  \subsubsection{\Glsfmtplural{spell}}
+  \glsdesc{spell}.
+  \par
+  \vspace{1em}
 }
 
 \posterbox{name=fourteenth,column=3,row=2,span=1,rowspan=1}{
-  \subsubsection{\Glsfmtplural{interval}}
-  \glsdesc{interval}
-  {\footnotesize\manaRegenChart}
+  \subsubsection{\Glsfmtplural{casting}}
+  \glsdesc{casting}.
+  \par
+  \vspace{1em}
+  \subsubsection{\Glsfmtlongpl{mp}}
+  \glsdesc{mp}.
 }
 
 \posterbox{name=third,column=4,row=2,span=1,rowspan=1}{
-  \subsubsection{\Glsfmtplural{swarm}}
-  \glsdesc{swarm}
+  \subsubsection{\Glsfmtplural{trait}}
+  \glsdesc{trait}.
+  \subsubsection{\Glsfmtplural{attribute}}
+  \glsdesc{attribute}.
+  \par
+  \vspace{1em}
+  \subsubsection{\Glsfmtplural{skill}}
+  \glsdesc{skill}.
 }
 
 \end{tcbposter}
+
+
+%\subsubsection{\Glsfmtplural{swarm}}
+%\glsdesc{swarm}
