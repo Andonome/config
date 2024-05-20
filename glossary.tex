@@ -85,8 +85,7 @@
   text={Trait},
   prefix={a\space},
   type={mech},
-  description={are any stat on a character sheet.
-  Characters derive most traits from one \glsentrytext{attribute}, one \glsentrytext{skill}, and a Bonus for equipment},
+  description={are numbers and Knacks},
   }
 
 \longnewglossaryentry{attribute}{
@@ -96,7 +95,7 @@
   type={mech},
   parent={trait},
   first={\textit{Attribute}},
-  description={show a character's basic aptitudes.
+  description={describe the body and mind.
     \par
     \vspace{1em}
     \noindent
@@ -229,7 +228,18 @@
 }
 
 \newacronym[
-  description={form an abstract measurement of how much valuable experience and learning characters have acquired.  PCs spend XP to buy Traits},
+  description={come from each character's Code.
+  Spend them to raise any \glsentrytext{trait}.
+    \noindent
+    \begin{boxtable}
+         \textbf{Trait} & \textbf{Cost} \\
+         \hline
+         \glsentrytext{attribute} & $5^{n} +5$  \\
+         \glsentrytext{skill}     & $5\times n$ \\
+         Knack                    & $5\times n$ \\
+         Martial \glsentrytext{skill} & $10\times n$ \\
+    \end{boxtable}
+  Here `$n$' is the level purchased},
   shortplural={XP},
   prefix={an\space},
   name={Experience Points (XP)},
@@ -297,10 +307,10 @@
   type={mech},
   category={rules},
   prefix={an\space},
-  description={should mean something dangerous is happening, even if the only danger is time wasted.
-    The \glsentrytext{gm} states the \glsentrytext{tn}, the player rolls $2D6$, and the dice are interpreted.
-    The results never appear random to the \glsentrytext{pc}.
-    The result of a roll must tell you something fixed about the world, because the result will not change, and the \glsentrytext{natural} remains fixed on the table},
+  description={for dangerous prizes resolve with $2D6$ plus \glsentrytext{attribute}, plus \glsentrytext{skill}.
+    If the roll beats the \glsentrytext{tn}, the character gets the prize;
+    if the roll is under, they get the danger.
+    When a roll hits the \glsentrytext{tn}, the player chooses both or neither},
 }
 
 \newacronym[
@@ -324,7 +334,7 @@
   ]{tn}{TN}{Tie Number}
 
 \longnewglossaryentry{natural}{
-  name={A Natural Roll},
+  name={Natural Rolls},
   text={Natural Roll},
   sort={Natural Roll},
   prefix={a\space},
@@ -333,8 +343,12 @@
   type={mech},
   category={rules},
   nonumberlist,
-  description={is a roll where the physical dice land on some number.
-  For example, a `natural 2' is where the dice show `\dicef{1}\dicef{1}', as opposed to a player gaining the result `2' from rolling a `\dicef{3}\dicef{1}' while the character has a -2 penalty to the roll},
+  description={represent the situation, and stay where they are; later rolls need to use the same result.
+
+  If someone tries to figure out how to find their way out of the forest, and back to a road, the player could roll `\twoDice{4}'.
+  With a +1 Bonus, the total is `5'.
+  The next character has a +3 Bonus, so their total is `7'.
+  With the \glsentrytext{tn} set at `10', the group cannot find their way back without changing their approach},
   }
 
 \longnewglossaryentry{resistedaction}{
