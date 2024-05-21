@@ -7,12 +7,12 @@
     rows=2,
   },
   boxes    = {
-    colback=white,
     fit,
     fit basedim=10pt,
+    interior empty,
+    geometry nodes=true,
+    frame code={\showPage},
     before upper={\parindent10pt\noindent},
-    after upper={\showPage},
-    frame code={},
   },
 ]
 
@@ -64,12 +64,12 @@
   \glsdesc{tn}.
 }
 
-%\setcounter{page}{1}
 \togglefalse{countedPage}
 \posterbox{name=second,column=1,row=2,span=1,rowspan=1}{
   \input{config/start.tex}
 }
 
+\toggletrue{countedPage}
 \setcounter{page}{15}
 \posterbox{name=fifteenth,column=2,row=2,span=1,rowspan=1}{
   \subsubsection{\Glsfmtplural{spell}}

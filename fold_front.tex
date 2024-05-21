@@ -7,12 +7,12 @@
     rows=2,
   },
   boxes    = {
-    colback=white,
     fit,
     fit basedim=10pt,
+    interior empty,
+    geometry nodes=true,
     before upper={\parindent10pt\noindent},
-    before upper={\showPage},
-    frame code={},
+    frame code={\showPage},
   },
 ]
 
@@ -31,11 +31,11 @@
 }
 
 \setcounter{page}{5}
+\togglefalse{countedPage}
 \posterbox[%
   tikz={rotate=180},
   before upper={\parindent0pt},
 ]{name=fifth,column=1,row=1,span=1,rowspan=1}{
-  \togglefalse{countedPage}
   \label{skillChart}
   \begin{center}
   \rotatebox{-90}{\noindent\begin{minipage}{.5\textheight}
@@ -131,7 +131,7 @@
 \toggletrue{countedPage}
 
 \setcounter{page}{13}
-\posterbox[blankest]{name=thirteenth,column=2,row=2,span=1,rowspan=1}{
+\posterbox{name=thirteenth,column=2,row=2,span=1,rowspan=1}{
   \subsubsection{\Glsfmttext{projectiles}}
   \glsdesc{projectiles}.
   \par

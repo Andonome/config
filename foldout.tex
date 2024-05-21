@@ -7,6 +7,9 @@
 \settoggle{verbose}{false}
 \settoggle{genExamples}{false}
 
+\newtoggle{upsideDown}
+\settoggle{upsideDown}{true}
+
 \renewcommand\subsubsection[1]{{\Large\scshape #1}}
 \renewcommand{\labelitemi}{\small ---}
 %\setlength{\leftmargin}{-3em}
@@ -20,12 +23,29 @@
   \textit{#1}
 }
 
-
-\renewcommand{\footnoterule}{}
-
 \newcommand\showPage{%
-  \iftoggle{countedPage}{%
-    \footnotetext{\vfill\ifodd\thepage\flushright\fi \outline{\thepage}}%
+  \iftoggle{countedPage}{
+    \ifnum\thepage>12%
+      \ifodd\thepage%
+        \node at ([xshift=-2em]interior.south east) {\thepage} ;%
+      \else%
+        \node at ([xshift=2em]interior.south west) {\thepage} ;%
+      \fi%
+    \else%
+      \ifnum\thepage<6%
+        \ifodd\thepage%
+          \node at ([xshift=-2em]interior.south east) {\thepage} ;%
+        \else%
+          \node at ([xshift=2em]interior.south west) {\thepage} ;%
+        \fi%
+      \else%
+        \ifodd\thepage%
+          \node[rotate=180] at ([xshift=22em]interior.south) {\thepage} ;%
+        \else%
+          \node[rotate=-180] at ([xshift=2em]interior.south west) {\thepage} ;%
+        \fi%
+      \fi%
+    \fi%
   }{}%
 }
 
