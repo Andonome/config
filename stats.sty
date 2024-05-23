@@ -216,11 +216,7 @@
       \fi%
     \fi%
   \else%
-    \ifnum\value{sp}<1%
-      \HPMPboxes%
-    \else%
-      \HPMPSPboxes%
-    \fi%
+    \HPMPboxes%
   \fi%
 }
 
@@ -306,45 +302,6 @@
   \fi%
 }
 
-\newcommand\HPMPSPboxes{
-  \setcounter{enc}{\value{hp}}
-  \addtocounter{enc}{\value{mp}}
-  \addtocounter{enc}{\value{sp}}
-  \ifnum\value{enc}<20
-    \begin{tabular}{rrr}
-      \hiderowcolors
-      \Repeat{\value{noAppearing}}{
-      \small\hpStat{freeHP}
-      &
-      \small\boxStat{mp}
-      &
-      \small\boxStat{sp}
-      \\
-      }
-    \end{tabular}
-  \else
-    \ifnum\value{enc}<10
-      \begin{tabular}{rr}
-        \hiderowcolors
-        \Repeat{\value{noAppearing}}{
-          \small\hpStat{freeHP} &
-          \small\boxStat{mp} \\
-          & \small\boxStat{sp} \\
-        }
-      \end{tabular}
-    \else
-      \begin{tabular}{r}
-        \hiderowcolors
-        \Repeat{\value{noAppearing}}{
-          \hpStat{freeHP} \\
-          \boxStat{mp} \\
-          \boxStat{sp} \\
-        }
-      \end{tabular}
-    \fi
-  \fi
-}
-
 
 %%%%%%%%%%%%%%%%%%%% Character Generation %%%%%%%%%%%%%%%%%%%%
 %
@@ -366,7 +323,6 @@
 % Extras: MP hp fp
 % Derived: dicenumber, dicebonus,
 \newcounter{mp}
-\newcounter{sp}
 \newcounter{hp}
 \newcounter{fp}
 \newcounter{numberofdice}
@@ -553,7 +509,7 @@
   \knacks{}%
   \foreach \s in {Air,Earth,Fate,Fire,Water,Projectiles,Combat,Brawl,Academics,Alchemy,Athletics,Caving,Crafts,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Stealth,Tactics,Vigilance,Wyldcrafting}%
     {\setcounter{\s}{0}}%
-  \foreach \s in {encumbrance,dr,covering,weaponDamage,weaponBonus,weaponWeight,armourWeight,armourDR,armourWeight,fp,sp,heft,weight,damage,knacks,mp,xpbonus}%
+  \foreach \s in {encumbrance,dr,covering,weaponDamage,weaponBonus,weaponWeight,armourWeight,armourDR,armourWeight,fp,heft,weight,damage,knacks,mp,xpbonus}%
     {\setcounter{\s}{0}}%
   \setcounter{noAppearing}{1}%
 }
@@ -688,9 +644,6 @@
         MP \arabic{mp},
       \fi%
     }{}
-    \ifnum\value{sp}>0%
-    SP \arabic{sp}, %
-    \fi%
     \iftoggle{genExamples}{%
       \ifnum\value{Intelligence}>-1%
         \Glsentrytext{weight}~held~\arabic{weight},%
