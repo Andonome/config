@@ -12,4 +12,4 @@ RELEASE := $(BOOK)-$(VERSION).pdf
 GLOS := makeglossaries -d $(DROSS)
 RUN := lualatex -output-directory $(DROSS) -shell-escape
 CLEAN := $(RM) -r $(DROSS) $(LOCAL_DROSS) qr.tex *.pdf .switch-gls svg-inkscape
-DEPS := $(wildcard *.tex) $(wildcard config/*sty) $(wildcard $(DROSS)/*.glg)
+DEPS := $(wildcard *.tex) $(wildcard config/*sty) config/ $(wildcard $(DROSS)/*.glg)
