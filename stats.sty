@@ -108,7 +108,7 @@
 \newcommand\dmg[1]{\conDmg{#1}\showDam}
 
 \newcommand\showSkills{
-    \foreach \s in {Projectiles,Combat,Brawl,Academics,Athletics,Caving,Crafts,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Stealth,Tactics,Vigilance,Wyldcrafting}
+    \foreach \s in {Projectiles,Melee,Brawl,Academics,Athletics,Caving,Crafts,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Stealth,Tactics,Vigilance,Wyldcrafting}
       {\ifnum\value{\s}>0 \s~\arabic{\s}, \fi}
 }
 
@@ -507,7 +507,7 @@
 \newcommand{\clean}{%
   \global\togglefalse{snapCaster}%
   \knacks{}%
-  \foreach \s in {Air,Earth,Fate,Fire,Water,Projectiles,Combat,Brawl,Academics,Alchemy,Athletics,Caving,Crafts,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Stealth,Tactics,Vigilance,Wyldcrafting}%
+  \foreach \s in {Air,Earth,Fate,Fire,Water,Projectiles,Melee,Brawl,Academics,Alchemy,Athletics,Caving,Crafts,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Stealth,Tactics,Vigilance,Wyldcrafting}%
     {\setcounter{\s}{0}}%
   \foreach \s in {encumbrance,dr,covering,weaponDamage,weaponBonus,weaponWeight,armourWeight,armourDR,armourWeight,fp,heft,weight,damage,knacks,mp,xpbonus}%
     {\setcounter{\s}{0}}%
@@ -555,8 +555,8 @@
   \setcounter{hp}{6}%
   \addtocounter{hp}{\value{Strength}}%
   \addtocounter{hp}{-\value{wounds}}%
-  % Stats for allies don't need to show Combat +1 as 'TN 8 to hit', they just need to show '+1'.
-  \ifnum\value{weaponBonus}>0\set{att}{Combat}\else\set{att}{Brawl}\fi%
+  % Stats for allies don't need to show Melee +1 as 'TN 8 to hit', they just need to show '+1'.
+  \ifnum\value{weaponBonus}>0\set{att}{Melee}\else\set{att}{Brawl}\fi%
   \addtocounter{att}{\value{Dexterity}}%
   \addtocounter{att}{\value{weaponBonus}}%
   \set{toHit}{att}%

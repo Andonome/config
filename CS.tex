@@ -97,14 +97,14 @@ circle label/.style = {
 
   }
 %----
-  \posterbox[adjusted title={Martial \hint{ 10 / 20 / 40 }},
+  \posterbox[adjusted title={Combat \hint{ 10 / 20 / 40 }},
   remember,
   ]{name=melee,column=11,row=3,span=8,rowspan=4}{
     \renewcommand{\arraystretch}{1.4}
     \begin{tabularx}{\linewidth}{Xr@{}}
       \hiderowcolors
       \skill{Brawl}
-      \skill{Combat}
+      \skill{Melee}
       \skill{Projectiles}
       \ifnum\value{Fate}>0
         \skill{Fate}
@@ -213,9 +213,9 @@ circle label/.style = {
       \iftoggle{examplecharacter}{\sffamily}{}2D6%
       \iftoggle{examplecharacter}% Bonus
       {%
-      \addtocounter{Combat}{\value{Dexterity}}%
-      \addtocounter{Combat}{\value{weaponBonus}}%
-        \sffamily\absNum{Combat}%
+      \addtocounter{Melee}{\value{Dexterity}}%
+      \addtocounter{Melee}{\value{weaponBonus}}%
+        \sffamily\absNum{Melee}%
       }%
       {\underline{\hspace{2em}}} &
       \iftoggle{examplecharacter}% Damage
@@ -228,7 +228,7 @@ circle label/.style = {
         \underline{\hspace{1em}} D6+\underline{\hspace{1.5em}}
       }
       \\
-      \tiny (by Armour) & \tiny 3 + Speed & \tiny 2D6 + Dex \par + Combat \par + Weapon Bonus & \tiny 1D6 + Strength \par + Weapon  \\
+      \tiny (by Armour) & \tiny 3 + Speed & \tiny 2D6 + Dex \par + Melee \par + Weapon Bonus & \tiny 1D6 + Strength \par + Weapon  \\
     \end{tabularx}
   }
 

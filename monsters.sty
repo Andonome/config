@@ -164,7 +164,7 @@
     {{0}{0}{-1}}% MIND
     {%
       \set{Caving}{r2c}
-      \set{Combat}{rn1t2}
+      \set{Melee}{rn1t2}
       \set{Crafts}{r2c}
       \ifodd\value{r2}
         \shortsword
@@ -184,7 +184,7 @@
   {{0}{0}{-1}}% MIND
   {%
     \set{Caving}{r2c}
-    \set{Combat}{2}
+    \set{Melee}{2}
     \set{Crafts}{r2c}
     \set{Tactics}{1}
     \ifodd\value{r2}
@@ -223,7 +223,7 @@
     {{r3c}{r3}{3}}% MIND
     {%
       \set{Brawl}{r3b}
-      \set{Combat}{r2b}
+      \set{Melee}{r2b}
       \set{Academics}{rn1t2}
       \set{Deceit}{r2t3}
       \set{Medicine}{r3c}
@@ -246,7 +246,7 @@
     {{r2t3}{r3b}{r3t4}}% MIND
     {%
       \set{Brawl}{r3b}
-      \set{Combat}{r2}
+      \set{Melee}{r2}
       \set{Academics}{r4b}
       \set{Athletics}{r3c}
       \set{Crafts}{rn3t3}
@@ -281,13 +281,13 @@
     {%
       \set{Brawl}{rn1t2}
       \ifodd\value{r2c}
-        \set{Combat}{rn3t3}
+        \set{Melee}{rn3t3}
         \set{Athletics}{r3c}
         \set{Crafts}{rn3t3}
         \set{Vigilance}{r2}
         \set{Wyldcrafting}{rn1t2}
       \else
-        \set{Combat}{r3c}
+        \set{Melee}{r3c}
         \set{Academics}{r2}
         \set{Athletics}{r3c}
         \set{Performance}{r3}
@@ -346,7 +346,7 @@
     {{r2t3}{r4b}{r4}}% MIND
     {%
       \set{Brawl}{rn1t2}
-      \set{Combat}{r3c}
+      \set{Melee}{r3c}
       \set{Academics}{r3b}
       \set{Athletics}{r3c}
       \set{Performance}{r3}
@@ -403,7 +403,7 @@
     {{track}{r2}{rn1t0}}% BODY
     {{r3b}{1}{0}}% MIND
     {%
-      \set{Combat}{r3b}
+      \set{Melee}{r3b}
       \set{Projectiles}{rn3t3}
       \set{Academics}{r2b}
       \set{Caving}{r3b}
@@ -469,7 +469,7 @@
     {{rn1t2}{-1}{0}}% MIND
     {%
       \ifodd\value{r3}
-        \set{Combat}{1}
+        \set{Melee}{1}
       \else
         \set{Projectiles}{1}
       \fi
@@ -493,7 +493,7 @@
     {{rn1t2}{-1}{0}}% MIND
     {%
       \ifodd\value{r3}
-        \set{Combat}{1}
+        \set{Melee}{1}
       \fi
       \set{Crafts}{r2b}
       \set{Empathy}{r2c}
@@ -514,7 +514,7 @@
     {{rn1t2}{0}{0}}% MIND
     {%
       \ifodd\value{r3}
-        \set{Combat}{r2b}
+        \set{Melee}{r2b}
       \else
         \set{Projectiles}{r2b}
       \fi
@@ -542,7 +542,7 @@
     {{r2}{rn1t2}{rn3t3}}% MIND
     {%
       \ifodd\value{r3}
-        \set{Combat}{1}
+        \set{Melee}{1}
       \else
         \set{Empathy}{2}
         \set{Crafts}{r2b}
@@ -568,7 +568,7 @@
     {{r3}{r2b}{rn3t3}}% MIND
     {%
       \ifodd\value{r3}
-        \set{Combat}{1}
+        \set{Melee}{1}
       \else
         \set{Brawl}{r2c}
       \fi
@@ -605,7 +605,7 @@
         \set{Projectiles}{r2b}
         \set{Crafts}{r2c}
       \fi
-      \set{Combat}{r2c}
+      \set{Melee}{r2c}
       \set{Wyldcrafting}{rn1t2}
       \ifcase\value{Strength}\relax%
         \shortsword%
@@ -630,7 +630,7 @@
     {{0}{-1}{0}}% MIND
     {%
       \set{Projectiles}{1}
-      \set{Combat}{2}
+      \set{Melee}{2}
       \set{Deceit}{r2b}
       \set{Vigilance}{rn1t2}
       \longsword%
@@ -648,7 +648,7 @@
     {%
       \ifodd\value{r3}
       \else
-        \set{Combat}{r2b}
+        \set{Melee}{r2b}
         \set{Crafts}{r2c}
       \fi
       \set{Projectiles}{2}
@@ -676,7 +676,7 @@
       \else
         \set{Crafts}{r2c}
       \fi
-      \set{Combat}{r2c}
+      \set{Melee}{r2c}
       \set{Brawl}{r2b}
       \set{Wyldcrafting}{rn1t2}
       \set{Stealth}{rn3t3}
@@ -710,7 +710,7 @@
         \set{Deceit}{r2}
       \fi
       \set{Empathy}{r2c}
-      \set{Combat}{rn1t2}
+      \set{Melee}{rn1t2}
       \set{Stealth}{rn3t3}
       \set{Larceny}{r2}
       \set{Performance}{r3b}
@@ -736,7 +736,7 @@
     {%
       \set{Academics}{r3c}
       \ifodd\value{r3}
-        \set{Combat}{1}
+        \set{Melee}{1}
       \else
         \set{Empathy}{2}
         \set{Crafts}{r2b}
@@ -780,7 +780,7 @@
         \set{Projectiles}{r2b}
         \set{Crafts}{r2c}
       \fi
-      \set{Combat}{r2c}
+      \set{Melee}{r2c}
       \set{Wyldcrafting}{r3c}
       \ifcase\value{Strength}\relax%
         \javelin%
@@ -808,7 +808,7 @@
     {{rn1t0}{r2t3}{rn1t0}}% MIND
     {%
       \ifodd\value{r3}
-        \set{Combat}{1}
+        \set{Melee}{1}
       \else
         \set{Deceit}{r2c}
       \fi
@@ -951,7 +951,7 @@
     {{rn1t0}{rn3t3}{rn4tn1}}% MIND
     {%
       \ifodd\value{r3}
-        \set{Combat}{1}
+        \set{Melee}{1}
       \else
         \set{Projectiles}{1}
       \fi
@@ -1029,7 +1029,7 @@
     {{rn1t0}{rn1t0}{rn4tn1}}% MIND
     {%
       \ifodd\value{r3}
-        \set{Combat}{rn1t2}
+        \set{Melee}{rn1t2}
       \fi
       \set{Brawl}{rn1t2}
       \set{Caving}{r2}
@@ -1076,7 +1076,7 @@
     {{rn1t0}{rn1t2}{rn4tn1}}% MIND
     {%
       \ifodd\value{r3}
-        \set{Combat}{rn1t2}
+        \set{Melee}{rn1t2}
       \fi
       \set{Brawl}{r3c}
       \set{Caving}{r2}
@@ -1103,7 +1103,7 @@
     {{rn1t0}{rn1t2}{rn4tn1}}% MIND
     {%
       \ifodd\value{r3}
-        \set{Combat}{rn1t2}
+        \set{Melee}{rn1t2}
       \fi
       \set{Brawl}{r3c}
       \set{Caving}{r2}
@@ -1165,10 +1165,10 @@
       \ifnum\value{noAppearing}<3
         \set{Strength}{r3c}
         \set{Brawl}{r3c}
-        \set{Combat}{rn3t3}
+        \set{Melee}{rn3t3}
         \set{Athletics}{r3b}
       \else
-        \set{Combat}{r2b}
+        \set{Melee}{r2b}
         \set{Athletics}{rn1t2}
       \fi
       \ifodd\value{r3}
@@ -1204,7 +1204,7 @@
     {%
       \set{Academics}{r3c}
       \ifodd\value{r3}
-        \set{Combat}{1}
+        \set{Melee}{1}
       \else
         \set{Empathy}{2}
         \set{Crafts}{r2b}
@@ -1252,7 +1252,7 @@
     {{rn1t2}{r2}{-4}}% MIND
     {%
       \set{Brawl}{r3c}
-      \set{Combat}{rn3t3}
+      \set{Melee}{rn3t3}
       \set{Athletics}{r3b}
       \ifodd\value{r3}
         \set{Wyldcrafting}{rn1t2}
@@ -1291,7 +1291,7 @@
     {{r3t4}{r3b}{-5}}% MIND
     {%
       \set{Brawl}{r3c}
-      \set{Combat}{rn3t3}
+      \set{Melee}{rn3t3}
       \set{Caving}{r3}
       \ifodd\value{r3}
         \set{Wyldcrafting}{rn1t2}
@@ -1481,7 +1481,7 @@
     {{rn1t2}{-1}{-3}}% MIND
     {%
       \set{Brawl}{r3c}
-      \set{Combat}{r2c}
+      \set{Melee}{r2c}
       \set{Caving}{r3b}
       \set{Deceit}{rn3t3}
       \set{Xenomology}{r2}
