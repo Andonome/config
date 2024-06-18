@@ -62,7 +62,7 @@ docker run -it --rm --name texbooks andonome/texbind gimme $books
 ```
 
 [docs]: https://gitlab.com/bindrpg/config/-/jobs/artifacts/master/raw/docs.pdf?job=build
-[rules]: https://gitlab.com/bindrpg/config/-/jobs/artifacts/master/raw/rules.pdf?job=build
+[rules]: https://gitlab.com/bindrpg/config/-/jobs/artifacts/master/raw/booklet.pdf?job=build
 [resources]: https://gitlab.com/bindrpg/config/-/jobs/artifacts/master/raw/resources.pdf?job=build
 [issues board]: https://gitlab.com/bindrpg/config/-/issues/
 [issues email]: contact-project+bindrpg-config-16527104-issue-@incoming.gitlab.com
