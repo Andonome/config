@@ -31,12 +31,12 @@ resources.pdf: $(ALL_FILES)
 	$(RUN) resources.tex
 	$(RUN) resources.tex
 	$(CP) $(DROSS)/resources.pdf resources.pdf
-foldout.pdf: $(wildcard fold*.tex) $(ALL_FILES) docs.pdf
-	$(RUN) foldout.tex
-	$(RUN) foldout.tex
-	$(CP) $(DROSS)/foldout.pdf foldout.pdf
+booklet.pdf: $(wildcard fold*.tex) $(ALL_FILES) docs.pdf
+	$(RUN) booklet.tex
+	$(RUN) booklet.tex
+	$(CP) $(DROSS)/booklet.pdf booklet.pdf
 
 .PHONY: all clean
-all: docs.pdf foldout.pdf resources.pdf $(DROSS)/test.pdf 
+all: docs.pdf booklet.pdf resources.pdf $(DROSS)/test.pdf 
 clean:
 	$(CLEAN) images/wide.jpg

@@ -12,5 +12,5 @@ build:
   artifacts:
     paths:
       - docs.pdf
-      - foldout.pdf
+      - booklet.pdf
       - resources.pdf
