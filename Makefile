@@ -34,7 +34,7 @@ resources.pdf: $(ALL_FILES)
 booklet.pdf: $(wildcard fold*.tex) $(ALL_FILES) docs.pdf
 	$(RUN) booklet.tex
 	$(RUN) booklet.tex
-	$(CP) $(DROSS)/booklet.pdf booklet.pdf
+	@pdfjam --angle 90 $(DROSS)/booklet.pdf --no-landscape --outfile $@
 
 .PHONY: all clean
 all: docs.pdf booklet.pdf resources.pdf $(DROSS)/test.pdf 
