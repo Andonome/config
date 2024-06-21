@@ -61,5 +61,5 @@ tikzfill \
 pdfcol \
 epstopdf-pkg \
 environ \
-pdfjam pdflscape \
+pdfjam pdflscape pdfpages \
 collection-fontsrecommended
