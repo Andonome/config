@@ -57,6 +57,9 @@ Arachnids and chiroptera the size of horses look down at them, and hunt them lik
 Inside a town, this place look a lot like a city from the Middle Ages, but people do not own this land.
 It remains wild, as monsters wander across it.}
 
+
+\setglossarypreamble[mech]{These brief rules will serve to run a game.}
+
 %%%%%%%%%% Meta Terminology %%%%%%%%%%
 
 \newacronym[
@@ -134,17 +137,20 @@ It remains wild, as monsters wander across it.}
 % Time
 
 \longnewglossaryentry{campaign}{
-  sort={T10},
+  sort={T9},
   name={Chronicles},
   text={Chronicle},
   prefix={a\space},
   type={mech},
-  description={are series of games, linked together by \glsentrytext{sq} plots, and every players' \glsentrytext{characterPool}},
+  description={Time moves faster in \glsentrytext{fenestra} -- for every week in our world, three weeks pass there.
+  Each chronicle is a record of events from within \glsentrytext{fenestra}.
+  During This time, the game's time moves with the players},
   }
 
 \newacronym[
   description={-- one of the characters run by the people playing the game},
   parent={campaign},
+  sort={A1},
   prefix={a\space},
   ]{pc}{PC}{Player Character}
 
@@ -152,7 +158,7 @@ It remains wild, as monsters wander across it.}
   prefix={a\space},
   name={The Judge},
   text={Judge},
-  sort={Judge},
+  sort={A2},
   type={mech},
   parent={campaign},
   nonumberlist,
@@ -162,6 +168,7 @@ It remains wild, as monsters wander across it.}
 \newacronym[
   description={ -- anyone in the world played by the \glsentrytext{gm} rather than a player},
   prefix={an\space},
+  sort={A3},
   prefixfirst={a\space},
   parent={campaign},
   ]{npc}{NPC}{Non-Player Character}
@@ -206,6 +213,7 @@ It remains wild, as monsters wander across it.}
   type={mech},
   nonumberlist,
   description={divide the day into four parts -- morning (\showInterval{0}), afternoon (\showInterval{1}), evening (\showInterval{2}), and night (\showInterval{3}).
+  After each Interval, each \glsentrytext{pc} regenerates:
     \par
     \noindent
     \begin{itemize}
@@ -217,7 +225,7 @@ It remains wild, as monsters wander across it.}
       The wind brings \glspl{mp}, and each point goes towards whoever has the most empty \glspl{mp}.
     \end{itemize}
     \manaRegenChart
-    Each day, the troupe must eat and sleep, or carry an extra~\glsentrytext{ep}},
+    Each day, everyone must eat and sleep, or take two \glsentrytext{ep} coins},
 }
 
 % Stories
@@ -305,16 +313,16 @@ It remains wild, as monsters wander across it.}
 % Actions
 
 \longnewglossaryentry{action}{
-  sort={T5},
+  sort={T1},
   name={Actions},
   text={Action},
   type={mech},
   category={rules},
   prefix={an\space},
-  description={for dangerous prizes resolve with $2D6$ plus \glsentrytext{attribute}, plus \glsentrytext{skill}.
+  description={When players want their \glsentrytext{pc} to attempt something dangerous, they roll $2D6$ plus \glsentrytext{attribute}, plus \glsentrytext{skill}.
     If the roll beats the \glsentrytext{tn}, the character gets the prize;
     if the roll is under, they get the danger.
-    When a roll hits the \glsentrytext{tn}, the player chooses both or neither},
+    When a roll hits the \glsentrytext{tn} \textit{exactly}, the player chooses both or neither},
 }
 
 \newacronym[
@@ -405,8 +413,9 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   type={mech},
   category={rules},
   prefix={a\space},
-  description={uses standard resisted rolls.
-  The attacker rolls \roll{Dexterity}{Combat Skill}, and the \glsentrytext{tn} equals 7 + the \glsentrytext{npc}'s \roll{Dexterity}{Combat Skill}},
+  description={uses a standard \glsentrytext{resistedaction}.
+  The \glsentrytext{pc} rolls \roll{Dexterity}{Combat Skill}, and the \glsentrytext{tn} equals 7 + the \glsentrytext{npc}'s \roll{Dexterity}{Combat Skill}.
+  It makes no difference who attacks -- the winner deals $1D6+$ Strength Damage, and every +4 Damage converts to $1D6$},
 }
 
 \longnewglossaryentry{quickaction}{
@@ -452,8 +461,29 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   }
 
 \newacronym[
-  description={measure how much luck the character has left, used solely to avoid Damage.
-  $\Glspl{fp} = \frac{Total~\glsfmtplural{xp}}{10} + Charisma$},
+  description={measure how many actions someone can take in a round, based on how fast they can move and react.
+  Start with 3 AP, plus your Speed; put that many coins on your character sheet, and spend them each time you take an action},
+  shortplural={AP},
+  name={Action Points (AP)},
+  parent={combat},
+  prefix={an\space},
+  ]{ap}{AP}{Action Point}
+
+\longnewglossaryentry{running}{
+  name={Running},
+  text={running},
+  prefix={a\space},
+  parent={ap},
+  type={mech},
+  category={rules},
+  nonumberlist,
+  description={costs 1 \glsentrytext{ap}, and lets the character move three \glsfmtplural{step} plus their Athletics},
+}
+
+\newacronym[
+  description={measure how much luck the character has left.
+  Spend them to avoid Damage.
+  Max. $\Glspl{fp} = \frac{Total~\glsfmtplural{xp}}{10} + Charisma$},
   shortplural={FP},
   prefix={an\space},
   parent={combat},
@@ -596,14 +626,14 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   type={mech},
   category={rules},
   nonumberlist,
-  description={shows how easy something is to carry.
-  Characters can carry items with a total Weight Rating equal to their \glsentrytext{hp} total.
+  description={Characters can carry items with a total Weight Rating equal to their \glsentrytext{hp} total.
+  Each point beyond inflicts a -1 Penalty to all actions.
   Creatures have a \glsentrytext{weight} equal to their own \glsentrytext{hp}},
 }
 
 \newacronym[
   description={measure how tired, hungry, and fed-up characters feel.
-  Characters can put up with a number of Exhaustion Points equal to their \glsentrytext{hp}, after which they receive penalties to act},
+  Each EP has a \glsentrytext{weight} of 1},
   shortplural={EP},
   prefix={an\space},
   parent={weight},
@@ -638,7 +668,8 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   prefix={an\space},
   prefixfirst={a\space},
   parent={casting},
-  description={work as the ``battery power'' of a magic user, which allows them to power spells},
+  description={grant every \glsentrytext{witch} their power.
+  When they run out, the caster gains one \glsentrytext{ep} for every point they cannot spend},
   ]{mp}{MP}{Mana Point}
 
 \longnewglossaryentry{spell}{
@@ -714,15 +745,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   sort={Gold Piece},
   prefix={a\space},
 ]{gp}{gp}{Gold Piece}
-
-\newacronym[
-  description={measure how many actions someone can take in a round, based on how fast they can move and react.
-  Start with 3 AP, plus your speed; put that many coins on your character sheet, and spend them each time you take an action},
-  shortplural={AP},
-  name={Action Points (AP)},
-  parent={combat},
-  prefix={an\space},
-  ]{ap}{AP}{Action Point}
 
 %%%%%%%%%%%%%%%% General Terms %%%%%%%%%%%%%%%%%%%%
 
