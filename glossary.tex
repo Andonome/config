@@ -380,7 +380,6 @@ It remains wild, as monsters wander across it.}
 \longnewglossaryentry{restingaction}{
   name={Resting Actions},
   text={Resting Action},
-  sort={Resting Action},
   sort={S6},
   parent={action},
   type={mech},
@@ -404,7 +403,107 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   In this case, the first character adds their Bonus, the second adds half, the third, a quarter, et c. and we round halves up at the end},
   }
 
-% Combat
+% Caving
+
+\longnewglossaryentry{caving}{
+  name={Caving},
+  text={caving},
+  prefix={a\space},
+  sort={V3},
+  parent={action},
+  type={mech},
+  category={rules},
+  description={means co\"ordinating the \glsentrytext{deep}, where long caverns spread like veins, the logistics of travel twist and invert, and the dangers change.
+Fewer monsters wander through them, because fewer plants grow there},
+}
+
+\longnewglossaryentry{blackWalking}{
+  name={Black Walking},
+  text={black walking},
+  prefix={a\space},
+  parent={caving},
+  type={mech},
+  category={rules},
+  description={means walking in the darkness.
+  The player rolls \roll{Dexterity}{Caving} (\tn[8]) to avoid wasting the \glsentrytext{interval} reorienting themselves},
+}
+
+\longnewglossaryentry{gagingCave}{
+  name={Gaging Caverns},
+  text={gaging the cavern},
+  first={gaging a cavern},
+  firstplural={gaging caverns},
+  prefix={a\space},
+  parent={caving},
+  type={mech},
+  category={rules},
+  description={tells you the chance of nearby water, of cave-ins, and may even indicate precious metals.
+  The player rolls \roll{Wits}{Caving} (\tn[10]) to avoid misunderstanding the signs in the dark or (\tn[9]) to spot potential cave-ins.
+  Appropriate tools include chisels and light},
+}
+
+\longnewglossaryentry{echoing}{
+  name={Echoing},
+  text={echoing},
+  first={cavern echoing},
+  prefix={a\space},
+  parent={caving},
+  type={mech},
+  category={rules},
+  description={works like bat-sonar.
+  Gnomes immitated these cries, and added claps, whistles, and different ways of craning the neck while waiting for a response.
+  With practice (and a \roll{Wits}{Caving} roll), a caver can guess the size (\tn[10]) or shape (\tn[12]) of a tunnel, or even guess how a cavern develops over the next hundred metres (\tn[14])},
+}
+
+\longnewglossaryentry{hypoxia}{
+  name={Hypoxia},
+  text={hypoxia},
+  prefix={a\space},
+  parent={caving},
+  type={mech},
+  category={rules},
+  description={means that air has grown thin, which makes people tired in a way they don't always notice.
+  This happens in deep, narrow caverns, and becomes worse as more people breathe the same air, and much worse if any of them carry a flame.
+
+  Anyone affected has the \glsentrytext{tn} for all actions increased (and the player should not be told), and will start to hallucinate (if the players theorize about something that might happen, they begin to hallucinate the exact thing they spoke about).
+  Soon after, all fires go out, as the dead air suffocates them},
+}
+
+\longnewglossaryentry{caveFire}{
+  name={Underground Fires},
+  text={underground fire},
+  prefix={an\space},
+  parent={caving},
+  type={mech},
+  category={rules},
+  description={demand a complete understanding of convection, air-pressure, and the type of fuel being used.
+  The player rolls \roll{Intelligence}{Caving} (\tn[12]), to avoid filling the room with smoke.
+  Inhaling the smoke inflicts 1~\glsentrytext{ep} each time},
+}
+
+\longnewglossaryentry{caveMarching}{
+  name={Marching},
+  text={marching underground},
+  prefix={a\space},
+  parent={caving},
+  type={mech},
+  category={rules},
+  description={in the dark demands a gamble.
+  Walk too slowly, and your supplies run dry; too fast and you hit yourself on something.
+    \begin{boxtable}[YYY]
+      \textbf{Miles} & \textbf{\gls{tn}} & \textbf{\Glspl{ep}} \\\hline
+      0  & 8 & 0/ 3 \\
+      1  & 10 & 2/ 5 \\
+      2  & 12 & 4/ 7 \\
+      3  & 14 & 6/ 9 \\
+    \end{boxtable}
+  The players decides how many miles to cover, then roll \roll{Dexterity}{Caving}.
+  The \glsentrytext{tn} starts at 8, and each mile raises it by +2.
+  If the roll fails, the character with the lowest result immediately gains a $1D6$~\glsentrytext{ep} injury from wandering in the dark},
+}
+
+
+%%%%% Combat
 
 \longnewglossaryentry{combat}{
   sort={T6},
