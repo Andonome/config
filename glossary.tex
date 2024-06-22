@@ -1,8 +1,4 @@
-\ifdefined\glossarytitle
-  \relax
-\else
-  \newcommand\glossarytitle{Lexicon}
-\fi
+\providecommand\glossarytitle{Lexicon}
 
 % Alter topicmcols style
 
@@ -53,7 +49,13 @@
 }
 
 
-%%%%%%%%%%
+%%%%%%%%%% Preambles %%%%%%%%%%
+
+\setglossarypreamble{In this land, people move under tall trees, like ant through blades of grass.
+Arachnids and chiroptera the size of horses look down at them, and hunt them like they hunt deer and aurochs.
+
+Inside a town, this place look a lot like a city from the Middle Ages, but people do not own this land.
+It remains wild, as monsters wander across it.}
 
 %%%%%%%%%% Meta Terminology %%%%%%%%%%
 
@@ -730,9 +732,9 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   plural={Ainumari},
   sort={Ainumar},
   nonumberlist,
-  description={is a great orb in the sky, commonly supposed to be where the gods live.
-  \glsentrytext{fenestra} circles around the Ainumar, as it circles the Sun.
-  On clear days, the great `eye of the gods' becomes visible on its face},
+  description={This massive planet has a raging storm across its face, much like our Jupiter.
+  Many think that the gods live here, planning how to kill people, and take their souls up to their houses.
+  Each god holds domain over a different death},
 }
 
 \longnewglossaryentry{fenestra}{
@@ -853,6 +855,16 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   Going from one town to the next means a long journey through untamed territory},
 }
 
+\longnewglossaryentry{lonelyTavern}{
+  name={Lonely Taverns},
+  text={lonely tavern},
+  prefix={a\space},
+  category={location},
+  parent={lonelyRoad},
+  description={exist on long stretches of empty road, where enough traders pass through to create a miniature settlement, sustained only by the goods people bring.
+  They make their own ale, and keep their own laws},
+}
+
 \longnewglossaryentry{witch}{
   name={Witch},
   text={witch},
@@ -925,9 +937,8 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   category={god},
   symbol={\Aries},
   parent={ainumar},
-  description={has griffin wings, with a woodspy's head, an arachnic thorax, and human belly; both chambers are painfully bloated from pregnancy.
-  She gives birth to monsters endlessly.
-  The \glsentrytext{guard} exist to either thwart, or feed her, dependng on whom one asks},
+  description={has griffin wings, with a woodspy's head, an arachnid thorax, and human belly; both chambers are painfully bloated from pregnancy.
+  She gives birth to monsters endlessly, and they eat someone, she uses their soul to birth a new creature},
 }
 
 \longnewglossaryentry{templeOfBeasts}{
@@ -936,7 +947,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   prefix={a\space},
   symbol={\glssymbol{sylf}},
   nonumberlist,
-  description={The highest and lowest of all temples absorbs people with progressive political ideas, feckless drunks, dickheads, and scum.
+  description={The highest and lowest of all temples absorbs feckless drunks, dickheads, scum, and people with political progressive political ideas.
   All of them become heroes, and forest-feed},
 }
 
@@ -947,13 +958,13 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   category={location},
   parent={templeOfBeasts},
   description={are grand towers which surround civilization.
-  The \glsentrytext{guard} stay in them, playing loud pipes, and lighting fires.
-  The noise echoes around file miles in all directions, tempting monsters to investigate; archers wait to fire on them.
+  The \glsentrytext{guard} stay in them, playing loud pipes, and lighting fires to attract monsters.
+  A ring of flat earth surrounds each broch, giving archers a clear shot at anything which emerges from the \glsentrytext{edge}.
+  The noise echoes up to five miles around, and by dusk, the archers stand ready.
 
-  Sometimes the monster dies, most flee -- still alive, but with a painful lesson about approaching the sound of people, pipes, and song.
+  Sometimes a monster dies, most flee -- still alive, but with a painful lesson about approaching the sound of people, pipes, and song.
   Each predator which comes to a broch means one less attack upon some inner \glsentrytext{village}, or on the \glsentrytext{lonelyRoad}.
 
-  A ring of flat earth surrounds each one, giving archers a clear shot at anything which emerges from the \glsentrytext{edge}.
   Each broch takes charge of a food-producing \glsentrytext{village} or two, which sustains the \glsentrytext{guard}},
 }
 
@@ -964,7 +975,8 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   prefix={a\space},
   parent={templeOfBeasts},
   nonumberlist,
-  description={are the sorry lot who have nothing better to do than wander into the darkness and get eaten},
+  description={are the sorry lot who have nothing better to do than wander into the darkness and get eaten.
+  They exist to either thwart, or feed, \glsentrytext{sylf}, depending on whom one asks},
 }
 
 \longnewglossaryentry{jotter}{
@@ -1152,7 +1164,8 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   sort={Pit of Justice},
   parent={templeOfJustice},
   description={is where a town's \glsentrytext{warden} resolves legal disputes, and decides on the correct punishment for criminals.
-  All trials must be on display, to warn the people about the consequences of crime, so they can learn that justice always prevails},
+  All trials must be on display, to warn the people about the consequences of crime, so they can learn that justice always prevails.
+  And all trials must be entertaining, or nobody will pay the entry fee of 1~\glsentrytext{cp}},
 }
 
 \longnewglossaryentry{keeper}{
