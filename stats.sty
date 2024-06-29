@@ -108,7 +108,7 @@
 \newcommand\dmg[1]{\conDmg{#1}\showDam}
 
 \newcommand\showSkills{
-    \foreach \s in {Projectiles,Melee,Brawl,Academics,Athletics,Caving,Crafts,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Stealth,Tactics,Vigilance,Wyldcrafting}
+    \foreach \s in {Projectiles,Melee,Brawl,Academics,Athletics,Caving,Crafts,Cultivation,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Stealth,Tactics,Vigilance,Wyldcrafting}
       {\ifnum\value{\s}>0 \s~\arabic{\s}, \fi}
 }
 
@@ -507,7 +507,7 @@
 \newcommand{\clean}{%
   \global\togglefalse{snapCaster}%
   \knacks{}%
-  \foreach \s in {Air,Earth,Fate,Fire,Water,Projectiles,Melee,Brawl,Academics,Alchemy,Athletics,Caving,Crafts,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Stealth,Tactics,Vigilance,Wyldcrafting}%
+  \foreach \s in {Air,Earth,Fate,Fire,Water,Projectiles,Melee,Brawl,Academics,Alchemy,Athletics,Caving,Crafts,Cultivation,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Stealth,Tactics,Vigilance,Wyldcrafting}%
     {\setcounter{\s}{0}}%
   \foreach \s in {encumbrance,dr,covering,weaponDamage,weaponBonus,weaponWeight,armourWeight,armourDR,armourWeight,fp,heft,weight,damage,knacks,mp,xpbonus}%
     {\setcounter{\s}{0}}%
