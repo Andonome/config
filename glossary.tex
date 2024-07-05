@@ -813,37 +813,6 @@ Fewer monsters wander through them, because fewer plants grow there},
     Each descriptor raises the \glsentrytext{mp} cost and mechanical effects by 1},
 }
 
-%%%%%%%%%% Acronyms
-
-\newacronym[
-  description={are the smallest unit of currency},
-  shortplural={cp},
-  name={Copper Pieces ({\scshape cp})},
-  type={main},
-  longplural={copper pieces},
-  prefix={a\space},
-]{cp}{cp}{copper piece}
-
-\newacronym[
-  description={gets you 100 copper pieces},
-  name={Silver Pieces ({\scshape sp})},
-  type={main},
-  sort={silver piece},
-  longplural={silver pieces},
-  shortplural={sp},
-  prefix={a\space},
-  ]{sp}{sp}{silver piece}
-
-\newacronym[
-  description={convert to ten silver, or a thousand copper pieces},
-  shortplural={gp},
-  longplural={gold pieces},
-  name={Gold Pieces ({\scshape gp})},
-  type={main},
-  sort={Gold Piece},
-  prefix={a\space},
-]{gp}{gp}{Gold Piece}
-
 %%%%%%%%%%%%%%%% General Terms %%%%%%%%%%%%%%%%%%%%
 
 \longnewglossaryentry{ainumar}{
@@ -864,13 +833,54 @@ Fewer monsters wander through them, because fewer plants grow there},
   Predators larger than a horse hunt deer and people in the same way, so everyone travels together, and well-armed},
 }
 
+\longnewglossaryentry{trade}{
+  name={Trade},
+  text={trade},
+  parent={fenestra},
+  description={keeps civilizations alive.
+  Nowhere can sustain the \glsentrytext{guard} for long, as they need metal for weapons and armour},
+}
+
 \longnewglossaryentry{tradeTongue}{
   name={The Trade Tongue},
   text={Trade Tongue},
+  parent={trade},
   description={lets people trade, despite not sharing much of a common language.
   It has about two hundred words, so people have to indicate what they want to say by lumping words together.
   E.g. `cow' might be `white-water animal', and cheese could be `rock of white-water animal'},
 }
+
+\newacronym[
+  description={are the smallest unit of currency},
+  shortplural={cp},
+  name={Copper Pieces ({\scshape cp})},
+  type={main},
+  longplural={copper pieces},
+  prefix={a\space},
+  parent={trade},
+]{cp}{cp}{copper piece}
+
+\newacronym[
+  description={gets you 100 copper pieces},
+  name={Silver Pieces ({\scshape sp})},
+  type={main},
+  sort={silver piece},
+  longplural={silver pieces},
+  shortplural={sp},
+  prefix={a\space},
+  parent={trade},
+  ]{sp}{sp}{silver piece}
+
+\newacronym[
+  description={convert to ten silver, or a thousand copper pieces},
+  shortplural={gp},
+  longplural={gold pieces},
+  name={Gold Pieces ({\scshape gp})},
+  type={main},
+  sort={Gold Piece},
+  prefix={a\space},
+  parent={trade},
+]{gp}{gp}{Gold Piece}
 
 \newacronym[
   description={is the universal way to measure time in \glsentrytext{fenestra}, where one \glsentrytext{cycle} equals three `years'},
