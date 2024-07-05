@@ -740,12 +740,20 @@ Fewer monsters wander through them, because fewer plants grow there},
 
 % Magic
 
+\longnewglossaryentry{witchcraft}{
+  name={Witchcraft},
+  text={witchcraft},
+  prefix={a\space},
+  type={mech},
+  description={Some speak their \glsentrytext{spell}, others construct it from \glsentrytext{monster} bodies.
+  In any case, the results are the same -- unpredictable},
+}
+
 \longnewglossaryentry{casting}{
-  sort={T7},
   name={Castings},
   text={casting},
   prefix={a\space},
-  parent={action},
+  parent={witchcraft},
   type={mech},
   category={rules},
   description={start by spending one \glsentrytext{mp} per spell level.
@@ -754,10 +762,7 @@ Fewer monsters wander through them, because fewer plants grow there},
   When `overspending' on the \glsentrytext{invocation}, the \glsentrytext{witch} gains 1~\glsentrytext{ep} for each \glsentrytext{mp} they lack.
 
   If nobody resists a spell, the \glsentrytext{tn} usually depends on its target.
-  Earth spells can affect ice far more easily than rocks, and Air spells can whip up a gale easier when outdoors.
-
-  If a caster can think of a way to use a spell to stop a sword, they can enter combat as usual, rolling at \glsentrytext{tn} 7 plus the \glsentrytext{npc}'s \roll{Dexterity}{Melee}.
-  A battle-ready \glsentrytext{witch} might encourage a warrior's torch to burn his own face off, or make him forget what he wanted to do a moment before his sword comes down},
+  Earth spells can affect ice far more easily than rocks, and Air spells can whip up a gale easier when outdoors},
 }
 
 \newacronym[
@@ -765,7 +770,7 @@ Fewer monsters wander through them, because fewer plants grow there},
   shortplural={MP},
   prefix={an\space},
   prefixfirst={a\space},
-  parent={casting},
+  parent={witchcraft},
   description={grant every \glsentrytext{witch} their power.
   When they run out, the caster gains one \glsentrytext{ep} for every point they cannot spend},
   ]{mp}{MP}{Mana Point}
@@ -774,7 +779,7 @@ Fewer monsters wander through them, because fewer plants grow there},
   name={Spells},
   text={spell},
   prefix={a\space},
-  parent={casting},
+  parent={witchcraft},
   type={mech},
   category={rules},
   description={have a mind of their own.
@@ -796,7 +801,7 @@ Fewer monsters wander through them, because fewer plants grow there},
   name={Invocations},
   text={Invocation},
   prefix={an\space},
-  parent={casting},
+  parent={witchcraft},
   type={mech},
   category={rules},
   description={are the basic sentence-formulae which define spells.
@@ -902,10 +907,14 @@ Fewer monsters wander through them, because fewer plants grow there},
 \longnewglossaryentry{sphere}{
   name={Spheres},
   prefix={a\space},
-  parent={alchemy},
+  parent={witchcraft},
+  type={mech},
   description={divide the world into meaningful parts.
   The five elemental Spheres are Fire, Air, Fate, Water, and Earth.
-  Each pair joins its neighbours, making the high Spheres; Light, Death, Mind, Life, and Force},
+  Each pair joins its neighbours, making the high Spheres; Light, Death, Mind, Life, and Force
+
+  If a caster can think of a way to use any Sphere to stop an attack, they can enter combat as usual with their \roll{Charisma}{Sphere}, rolling at \glsentrytext{tn} 7 plus the \glsentrytext{npc}'s \roll{Dexterity}{Melee}.
+  A battle-ready \glsentrytext{witch} might encourage a warrior's torch to burn his own face off, or make him forget what he wanted to do a moment before his sword comes down},
 }
 
 \longnewglossaryentry{boon}{
@@ -913,7 +922,8 @@ Fewer monsters wander through them, because fewer plants grow there},
   text={Concoction},
   prefix={a\space},
   sort={concoction},
-  parent={alchemy},
+  parent={witchcraft},
+  type={mech},
   description={are liquids or powders which, when thrown in the air, hyper-charge the use of a single magic \glsentrytext{sphere}, for anyone present next to the burst.
   For example, a concoction to boost the Air \glsentrytext{sphere} would mean a caster with Air 2 could cast a single spell as if they had Air 3.
   Using one in combat requires at least one \glsentrytext{ap} to grab it, and another to dispurse it into the air},
@@ -924,7 +934,8 @@ Fewer monsters wander through them, because fewer plants grow there},
   text={Ingredient},
   prefix={an\space},
   nonumberlist,
-  parent={alchemy},
+  parent={witchcraft},
+  type={mech},
   description={are the basic materials used to make any \glsentrytext{boon}, or \glsentrytext{talisman}, and for lots of medicines.
   Each has an elemental affinity, so a Fire Ingredient can only make a Fire \glsentrytext{boon}},
 }
@@ -933,7 +944,8 @@ Fewer monsters wander through them, because fewer plants grow there},
   name={Elixirs},
   text={elixir},
   prefix={an\space},
-  parent={alchemy},
+  parent={witchcraft},
+  type={mech},
   description={heal diseases.
   Each one requires a particular type of \glsentrytext{ingredient} to heal a particular disease},
 }
@@ -1012,14 +1024,6 @@ Fewer monsters wander through them, because fewer plants grow there},
   prefix={a\space},
   parent={alchemy},
   description={simply means any spell-caster, often used as a derogatory term for a dishonoured \glsentrytext{doula}},
-}
-
-\longnewglossaryentry{witchcraft}{
-  name={Witchcraft},
-  text={Witchcraft},
-  prefix={a\space},
-  parent={action},
-  description={is real magic, involving skill rather than relying on a recipe\ldots or any understanding of \glsentrytext{alchemy}},
 }
 
 \longnewglossaryentry{deep}{
