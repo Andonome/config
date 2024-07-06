@@ -1397,11 +1397,10 @@
 
 \newcommand{\horse}[1][\npc{\A}{Horse}]{
   \Animal{#1}%
-  {{r3b}{rn1t0}{r3}}% BODY
+  {{r3b}{rn1t2}{r2b}}% BODY
   {r2c}% WITS
   {
     \set{Athletics}{1}
-    \set{Brawl}{r3c}
     \set{Vigilance}{r2}
   }% SKILLS
   {}% KNACKS
@@ -1410,12 +1409,12 @@
 
 \newcommand{\warhorse}[1][\npc{\A}{War Horse}]{
   \Animal{#1}%
-  {{r2t3}{r2b}{r3b}}% BODY
+  {{r2t3}{rn1t2}{r3b}}% BODY
   {r2c}% WITS
   {
     \set{Athletics}{2}
-    \set{Brawl}{r3c}
-    \set{Vigilance}{rn1t2}
+    \set{Brawl}{1}
+    \set{Vigilance}{r2}
   }% SKILLS
   {}% KNACKS
   {\hide{2} \quadraped}% ABILITIES
@@ -1423,12 +1422,26 @@
 
 \newcommand{\donkey}[1][\npc{\A}{Donkey}]{
   \Animal{#1}%
-  {{r2b}{rn1t0}{r3}}% BODY
-  {r2c}% WITS
+  {{r2b}{r2}{r3}}% BODY
+  {rn3t3}% WITS
   {
     \set{Athletics}{r2b}
-    \set{Brawl}{r3c}
-    \set{Vigilance}{r2}
+    \set{Brawl}{r2c}
+    \set{Vigilance}{rn1t2}
+  }% SKILLS
+  {}% KNACKS
+  {\hide{3} \quadraped}% ABILITIES
+}
+
+\newcommand{\mule}[1][\npc{\A}{Mule}]{
+  \Animal{#1}%
+  {{r2t3}{r2}{r3}}% BODY
+  {rn3t3}% WITS
+  {
+    \set{Athletics}{1}
+    \set{Brawl}{r2c}
+    \set{Vigilance}{rn1t2}
+    \set{Wyldcrafting}{rn3t3}
   }% SKILLS
   {}% KNACKS
   {\hide{3} \quadraped}% ABILITIES
