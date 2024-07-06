@@ -190,7 +190,10 @@ It remains wild, as monsters wander across it.}
   parent={campaign},
   type={mech},
   description={are \glsentrytext{bind}'s way of structuring stories.
-  Each \gls{segment} has a location (e.g. `Town', or `Forest'), where it `activates' once the troupe enter the area},
+  The events in the Side~Quest may not feature directly -- instead, the \glspl{pc} often only see the results of the action.
+  Side~Quests continuously prompt the \glspl{pc} to react to the situation, to hunt down trouble, or help out a struggling organization.
+
+  Many Side~Quests can run at the same time, which leads to the players seeing an active world, full of interconnected plots and threads.},
   }
 
 \longnewglossaryentry{segment}{
@@ -198,8 +201,21 @@ It remains wild, as monsters wander across it.}
   text={segment},
   prefix={a\space},
   parent={sq},
+  symbol={\glsentrytext{sqr}},
   type={mech},
-  description={are scenes which form a larger story},
+  description={are like scenes in a story, but with restrictions.
+
+  Each segment belongs to a particular \glsentrytext{region} in the \glsentrytext{campaign}; this means the segment can take place anywhere within that \glsentrytext{region}.
+  For example, a segment cannot take place `when the \glspl{pc} reach the lost temple', because they may not approach that temple.
+  However, it might take place `in the forest', if the \glspl{pc} could discover a lost temple anywhere in the forest.
+  
+  Segments never assume the results of a previous segment; so if one segment introduces a violent \glsentrytext{witch} to the \glspl{pc}, later scenes should not assume that the troupe have not killed the \glsentrytext{witch}.
+
+  And, of course, segments can comfortably split apart.
+  If the \glsentrytext{sq}'s first segment introduces a danger in the forest, while the second shows how the danger has infiltrated the town, then the troupe may search the forest for more information for a long time, without ever returning to town.
+  During this time, numberous other segments might emerge, but they will never find out what comes next in the \glsentrytext{sq} until they enter town.
+
+  Once been completed, the second segment in the \glsentrytext{sq} readies itself, and waits for the troupe to enter its \glsentrytext{region}},
   }
 
 \longnewglossaryentry{interval}{
@@ -275,11 +291,11 @@ It remains wild, as monsters wander across it.}
   text={Region},
   prefix={a\space},
   type={mech},
-  parent={campaign},
+  parent={sq},
   category={rules},
   nonumberlist,
-  description={are broad areas like `forest', `town', `roads'.
-  Each contains different encounter types, and often has its own \glsentrytext{sq} collection},
+  description={are the broad areas in a particular \gls{campaign}, like `forest', `town', `roads', where each \glsentrytext{segment} lives.
+  Each Region should have its own \glsentrytext{segment}-list, where each has a box (`\glsentrytext{sqn}') showing it is not yet ready, or a ticked-box (`\glsentrytext{sqr}') once the \glsentrytext{gm} decides the previous \glsentrytext{segment} has concluded},
   }
 
 \longnewglossaryentry{area}{
