@@ -84,7 +84,6 @@
   {
     \set{Brawl}{2}
     \set{Stealth}{r2t3}
-    \set{Tactics}{r2b}
   }% SKILLS
   {\adrenalinesurge, \perfectsneakattack}% KNACKS
   {\teeth \hide{2}}% ABILITIES
@@ -96,7 +95,7 @@
   {0}% WITS
   {%
     \set{Athletics}{2}%
-    \set{Tactics}{2}%
+    \set{Wyldcrafting}{2}%
   }% SKILLS
   {}% KNACKS
   {\teeth, \quadraped}% ABILITIES
@@ -110,7 +109,7 @@
   {%
     \set{Athletics}{2}
     \set{Stealth}{r4t6}
-    \set{Tactics}{r3}
+    \set{Wyldcrafting}{r3}
     \set{Intelligence}{r3c}
     \addtocounter{Intelligence}{-6}
   }% SKILLS
@@ -142,7 +141,6 @@
       \set{Athletics}{r2b}
       \set{Flight}{r3c}
       \set{Deceit}{r2c}
-      \set{Tactics}{2}
       \set{Vigilance}{3}
       \set{Air}{rn1t0}
       \set{Fire}{r3}
@@ -186,7 +184,7 @@
     \set{Caving}{r2c}
     \set{Melee}{2}
     \set{Crafts}{r2c}
-    \set{Tactics}{1}
+    \set{Cultivation}{1}
     \ifodd\value{r2}
       \spear
       \partialchain
@@ -209,7 +207,6 @@
       \set{Academics}{r3b}
       \set{Caving}{r2}
       \set{Crafts}{rn1t2}
-      \set{Tactics}{r2}
       \shortsword
     }% SKILLS
     {\ritualcaster}% KNACKS
@@ -415,7 +412,7 @@
       \else
         \set{Athletics}{r2b}
       \fi
-      \set{Tactics}{r2t3}
+      \set{Cultivation}{r2t3}
       \shortsword%
       \ifnum\value{Strength}=0%
         \partialelvish%
@@ -526,7 +523,7 @@
       \ifodd\value{r4}
         \set{Empathy}{1}
       \else
-        \set{Tactics}{1}
+        \set{Deceit}{1}
       \fi
       \set{Wyldcrafting}{rn3t3}
       \set{Cultivation}{rn1t2}
@@ -965,7 +962,6 @@
       \set{Brawl}{rn1t2}
       \set{Caving}{r2}
       \set{Stealth}{r2}
-      \set{Tactics}{rn1t2}
       \ifodd\value{Strength}
         \javelin
       \else
@@ -1005,7 +1001,6 @@
       \fi
       \set{Caving}{r3c}
       \set{Stealth}{r2}
-      \set{Tactics}{r2c}
       \set{Fire}{rn3t3}
       \set{Earth}{r2}
       \set{Water}{rn1t2}
@@ -1041,7 +1036,6 @@
       \set{Brawl}{rn1t2}
       \set{Caving}{r2}
       \set{Stealth}{r2}
-      \set{Tactics}{rn1t2}
       \ifcase\value{Strength}
         \Dagger
       \or
@@ -1180,8 +1174,6 @@
       \fi
       \ifodd\value{r3}
         \set{Wyldcrafting}{rn1t2}
-      \else
-        \set{Tactics}{r2}
       \fi
       \set{Stealth}{r2b}
       \ifcase\value{Strength}\relax
@@ -1264,7 +1256,7 @@
       \ifodd\value{r3}
         \set{Wyldcrafting}{rn1t2}
       \else
-        \set{Tactics}{r2}
+        \set{Caving}{r2}
       \fi
       \set{Stealth}{r2b}
       \ifcase\value{Strength}\relax
@@ -1304,7 +1296,7 @@
       \ifodd\value{r3}
         \set{Wyldcrafting}{rn1t2}
       \else
-        \set{Tactics}{r2}
+        \set{Deceit}{r2}
       \fi
       \set{Stealth}{r2b}
       \ifnum\value{Strength}>1
@@ -1524,7 +1516,7 @@
       \set{Vigilance}{r3c}
       \set{Xenomology}{r3t4}
       \set{Flight}{r4}
-      \set{Tactics}{rn3t3}
+      \set{Deceit}{rn3t3}
       \set{Air}{rn1t2}
       \set{Earth}{r3t4}
       \set{Fire}{r2t3}
