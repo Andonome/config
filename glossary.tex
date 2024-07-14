@@ -730,10 +730,21 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   description={receive a -2 penalty to hit and Damage, and a further -1~Penalty per \glsentrytext{step}~thrown},
 }
 
-% Weight
+% Equipment
+
+\longnewglossaryentry{equipment}{
+  sort={T8},
+  name={Equipment},
+  text={equipment},
+  prefix={an\space},
+  type={mech},
+  category={rules},
+  nonumberlist,
+  description={Items can be held in a hand, or in a backpack.
+  By default, each provides a Bonus equal to its \glsentrytext{weight}~1, but various items buck the trend one way or another},
+}
 
 \longnewglossaryentry{weight}{
-  sort={T8},
   name={Weight Rating},
   text={Weight},
   first={Weight Rating},
@@ -741,6 +752,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   type={mech},
   category={rules},
   nonumberlist,
+  parent={equipment},
   description={Characters can carry items with a total Weight Rating equal to their \glsentrytext{hp} total.
   Each point beyond inflicts a -1 Penalty to all actions.
   Creatures have a \glsentrytext{weight} equal to their own \glsentrytext{hp}},
