@@ -428,7 +428,18 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   type={mech},
   category={rules},
   description={means co\"ordinating the \glsentrytext{deep}, where long caverns spread like veins, the logistics of travel twist and invert, and the dangers change.
-Fewer monsters wander through them, because fewer plants grow there},
+
+    The players decides how many miles to cover, then roll \roll{Dexterity}{Caving}.
+    The \glsentrytext{tn} starts at 8, and each mile raises it by +2.
+
+    \begin{boxtable}[YYY]
+      \textbf{Miles} & \textbf{\gls{tn}} & \textbf{\Glspl{ep}} \\\hline
+      0  & 8 & 0/ 3 \\
+      1  & 10 & 2/ 5 \\
+      2  & 12 & 4/ 7 \\
+      3  & 14 & 6/ 9 \\
+    \end{boxtable}
+    If the roll fails, the character with the lowest result immediately gains a $1D6$~\glsentrytext{ep} injury from wandering in the dark},
 }
 
 \longnewglossaryentry{blackWalking}{
@@ -493,28 +504,6 @@ Fewer monsters wander through them, because fewer plants grow there},
   description={demand a complete understanding of convection, air-pressure, and the type of fuel being used.
   The player rolls \roll{Intelligence}{Caving} (\tn[12]), to avoid filling the room with smoke.
   Inhaling the smoke inflicts 1~\glsentrytext{ep} each time},
-}
-
-\longnewglossaryentry{caveMarching}{
-  name={Marching},
-  text={marching underground},
-  prefix={a\space},
-  parent={caving},
-  type={mech},
-  category={rules},
-  description={in the dark demands a gamble.
-    Walk too slowly, and your supplies run dry; too fast and you hit yourself on something.
-    The players decides how many miles to cover, then roll \roll{Dexterity}{Caving}.
-    The \glsentrytext{tn} starts at 8, and each mile raises it by +2.
-
-    \begin{boxtable}[YYY]
-      \textbf{Miles} & \textbf{\gls{tn}} & \textbf{\Glspl{ep}} \\\hline
-      0  & 8 & 0/ 3 \\
-      1  & 10 & 2/ 5 \\
-      2  & 12 & 4/ 7 \\
-      3  & 14 & 6/ 9 \\
-    \end{boxtable}
-    If the roll fails, the character with the lowest result immediately gains a $1D6$~\glsentrytext{ep} injury from wandering in the dark},
 }
 
 %%%%% Combat
