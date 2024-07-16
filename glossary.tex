@@ -137,7 +137,7 @@ It remains wild, as monsters wander across it.}
 % Time
 
 \longnewglossaryentry{campaign}{
-  sort={T9},
+  sort={T7},
   name={Chronicles},
   text={Chronicle},
   prefix={a\space},
@@ -245,7 +245,7 @@ It remains wild, as monsters wander across it.}
 % Stories
 
 \longnewglossaryentry{storypoint}{
-  sort={T13},
+  sort={T8},
   name={Story Points},
   text={Story Point},
   type={mech},
@@ -417,14 +417,49 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   The first character adds their Bonus, the second adds half, the third, a quarter, et c. and we round halves up at the end},
   }
 
+%% Travel
+
+\longnewglossaryentry{travel}{
+  name={Travel},
+  text={travel},
+  prefix={a\space},
+  sort={T9},
+  type={mech},
+  category={rules},
+  description={},
+}
+
+% Overland Journeys
+
+\longnewglossaryentry{journey}{
+  name={Journeys},
+  text={journey},
+  prefix={a\space},
+  parent={travel},
+  type={mech},
+  category={rules},
+  description={depends on the terrain.
+    Good roads provide a smooth journey, rough roads provide less, and deep forests can demand attention and problem-solving twice a mile.
+
+    Each \gls{interval}, the troupe can travel the initial distance easily.
+    Every mile after that adds \pgls{ep}.
+
+    By default, characters might travel 10~miles per day, i.e. 5~miles in the morning, then 5~in the afternoon.
+    Once the Sun sets in the evening, most will rest in \pgls{bothy}, and take time to cook, and potentially meet another travelling group moving in the opposite direction.
+
+    \marchingChart
+    An expedient troupe might add 2~miles each \gls{interval}, and eat nothing but dry rations, so they can march instead of cooking in the evening.
+    With 3~\glspl{interval} of movement, the troupe could travel 21~miles in total.
+    The night would allow them to remove \pgls{ep}, but the day would add 6 more, so they won't be moving like that for long},
+}
+
 % Caving
 
 \longnewglossaryentry{caving}{
   name={Caving},
   text={caving},
   prefix={a\space},
-  sort={V3},
-  parent={action},
+  parent={travel},
   type={mech},
   category={rules},
   description={means co\"ordinating the \glsentrytext{deep}, where long caverns spread like veins, the logistics of travel twist and invert, and the dangers change.
@@ -509,7 +544,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 %%%%% Combat
 
 \longnewglossaryentry{combat}{
-  sort={T6},
+  sort={T5},
   name={Combat},
   text={Combat},
   type={mech},
@@ -733,7 +768,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 % Equipment
 
 \longnewglossaryentry{equipment}{
-  sort={T8},
+  sort={T7},
   name={Equipment},
   text={equipment},
   prefix={an\space},
