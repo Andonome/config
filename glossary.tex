@@ -1741,7 +1741,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   name={Cartographers},
   text={cartographer},
   prefix={a\space},
-  %seealso={paperGuild},
+  %seealso={paper Guild},
   parent={scribe},
   description={create, confirm, and update maps.
     The most valuable of these contain information on \glsentrytext{ingredient}-rich ground, which they use for \glsentrytext{alchemy} spells to learn about the landscape, so they can make more maps},
@@ -1859,16 +1859,35 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   description={ -- \glsentrytext{fenestra}'s twelfth and final season, before the \glsentrytext{cycle} starts again},
 }
 
+%%%%% Plants
+
+\longnewglossaryentry{plant}{
+  name={Plants},
+  text={plant},
+  prefix={a\space},
+  type={mech},
+  symbol={\adfhangingflatleafleft},
+  description={sometimes have elemental properties, which makes them highly reactive},
+}
+
+\longnewglossaryentry{horseDrops}{
+  name={Horse Drops},
+  text={horse drop moss},
+  prefix={a\space},
+  type={mech},
+  parent={plant},
+  description={are red little patches of moss, which grow on the roadside.
+  Horses, donkeys, and mules love them, because they also love being eaten by those fast-moving animals.
+  Once something eats the moss, it begins to grow inside the beast's stomach rapidly (inflicting one \glsentrytext{ep} each \glsentrytext{interval}).
+
+  Curing the beast requires an \roll{Intelligence}{Cultivation} roll (\tn[12]).
+  Once the beast dies, it explodes in a shower of red spores, and anyone breathing enough in can suffer the same effects},
+}
+
+
 
 %%%%% Symbols
 
-\newglossaryentry{plant}{
-  type=symbols,
-  sort=TP,
-  nonumberlist,
-  name={\adfhangingflatleafleft},
-  description={Plant, probably dangerous},
-}
 
 \newglossaryentry{encumbrance}{
   type=symbols,
