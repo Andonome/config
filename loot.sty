@@ -177,32 +177,32 @@
 }
 
 \newcommand{\lootJewellery}{%
-\iftoggle{genExamples}{jewellery worth \ifodd\value{r2}$3D6$sp\else$1D6+2$~\glspl{gp}\fi}%
+\iftoggle{genExamples}{jewellery worth~\ifodd\value{r2}$3D6$\glspl{sp}\else$1D6+2$~\glspl{gp}\fi}%
 	{%
     \stepcounter{treasure}%
     \ifnum\value{treasure}>10\addtocounter{treasure}{-10}\fi%
     \ifcase\value{treasure}\relax%
-			golden necklace worth \arabic{r12}~\glspl{sp}%
+			golden necklace worth~\arabic{r12}~\glspl{sp}%
     \or%1
-			golden ring worth \thechapter~\glspl{sp}%
+			golden ring worth~\thechapter~\glspl{sp}%
     \or%2
-      jewel encrusted dagger worth \arabic{r12}~\glspl{sp}%
+      jewel encrusted dagger worth~\arabic{r12}~\glspl{sp}%
     \or%3
-      ornate silver earrings worth 1~\glspl{gp}%
+      ornate silver earrings worth~1~\glspl{gp}%
     \or%4
-      gem encrusted broach worth \arabic{r4b}~\glspl{gp}
+      gem encrusted broach worth~\arabic{r4b}~\glspl{gp}
     \or%5
-      saphire pendant worth \arabic{r3b}~\glspl{gp}%
+      saphire pendant worth~\arabic{r3b}~\glspl{gp}%
     \or%6
-      gem-encrusted headband, worth \arabic{r4b}~\glspl{gp}%
+      gem-encrusted headband, worth~\arabic{r4b}~\glspl{gp}%
     \or%7
       gold-looking necklage made from fool's gold (worthless)%
     \or%8
-      gem-studded ring, worth \arabic{r12}~\glspl{sp}%
+      gem-studded ring, worth~\arabic{r12}~\glspl{sp}%
     \or%9
-      signet ring, worth \arabic{r2}~\glspl{gp}%
+      signet ring, worth~\arabic{r2}~\glspl{gp}%
     \else%10
-      gem-studded ring, worth \arabic{r12}~\glspl{sp}%
+      gem-studded ring, worth~\arabic{r12}~\glspl{sp}%
     \fi%
   }%
 }
