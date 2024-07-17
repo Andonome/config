@@ -1,6 +1,13 @@
 VERSION != git tag | tail -1
 QR_TARGET != grep mailto: README.md | cut -d: -f2,3
 
+.check:
+	@command -v git >/dev/null || ( echo install git && exit 1 )
+	@command -v git-lfs >/dev/null || ( echo install git-lfs && exit 1 )
+	@command -v lualatex >/dev/null || ( echo install lualatex && exit 1 )
+	@command -v latexmk >/dev/null || ( echo install latexmk && exit 1 )
+	@command -v inkscape >/dev/null || ( echo install inkscape && exit 1 )
+
 COMPRESS = gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dNOPAUSE -dQUIET -dBATCH -dPrinted=false -sOutputFile=$@ $<
 
 CP := ln -f
