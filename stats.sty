@@ -203,21 +203,17 @@
   \setcounter{wounds}{0}%
 }
 
-\newcommand\showBoxes{%
+\newcommand\showBoxes{
+  \begin{center}%
   \renewcommand{\arraystretch}{0.9}%
-  \ifnum\value{mp}<1%
-    \ifnum\value{hp}>11%
-      \HPboxes%
-    \else%
-      \ifnum\value{hp}>6%
-        \HPHPboxes%
-      \else%
-        \HPHPHPboxes%
-      \fi%
-    \fi%
+  \noindent%
+  \ifnum\value{mp}>0%
+    \Repeat{\value{noAppearing}}{\hpStat~\mpStat\quad}%
   \else%
-    \HPMPboxes%
+    \Repeat{\value{noAppearing}}{\hpStat\quad}%
   \fi%
+  \end{center}%
+  \par%
 }
 
 \newcounter{wounds}
@@ -229,79 +225,16 @@
   \glsentrytext{R}~\Repeat{\value{#1}}{\Square}%
 }
 
-\newcommand\hpStat[1]{%
+\newcommand\hpStat{%
   \Repeat{\value{weight}}{\LEFTcircle}%
-  \Repeat{\value{#1}}{\Circle}%
+  \Repeat{\value{freeHP}}{\Circle}%
   \Repeat{\value{wounds}}{\CIRCLE}%
 }
 
-\newcommand\HPboxes{%
-  \begin{tabular}{r}%
-  \hiderowcolors%
-    \Repeat{\value{noAppearing}}{%
-      \hpStat{freeHP} \\%
-    }%
-  \end{tabular}%
+\newcommand\mpStat{%
+  \glsentrysymbol{alchemy}-%
+  \Repeat{\value{mp}}{\Circle}%
 }
-
-\newcommand\HPHPboxes{%
-  \setcounter{track}{\value{noAppearing}}%
-  \begin{tabular}{rr}%
-  \hiderowcolors%
-      \ifodd\value{track}%
-      \else%
-        \npcsymbol
-      \fi%
-    \whileboolexpr{test {\ifnumcomp{\value{track}}{>}{0}}}{%%
-      \ifnumodd{\value{track}}{ \small\hpStat{freeHP}}{& \small\hpStat{freeHP} \\}%%
-      \addtocounter{track}{-1}%
-    }%
-  \end{tabular}%
-}
-
-\newcommand\HPHPHPboxes{%
-  \setcounter{track}{\value{noAppearing}}%
-  \begin{tabular}{rrr}%
-    \hiderowcolors%
-    \whileboolexpr{test {\ifnumcomp{\value{track}}{>}{0}}}{%%
-      \small\hpStat{freeHP}%
-      \addtocounter{track}{-1}%
-      &%
-      \ifnum\value{track}>0\small\hpStat{freeHP}\fi%
-      \addtocounter{track}{-1}%
-      &%
-      \ifnum\value{track}>0\small\hpStat{freeHP}\fi%
-      \addtocounter{track}{-1}%
-      \\%
-    }%
-  \end{tabular}%
-}
-
-\newcommand\HPMPboxes{%
-  \setcounter{enc}{\value{hp}}%
-  \addtocounter{enc}{\value{mp}}%
-  \ifnum\value{enc}<24%
-    \begin{tabular}{rr}%
-      \hiderowcolors%
-      \Repeat{\value{noAppearing}}{%
-      \small\hpStat{freeHP}%
-      &%
-      \small\boxStat{mp}%
-      \\%
-      }%
-      \\%
-    \end{tabular}%
-  \else%
-    \begin{tabular}{r}%
-      \hiderowcolors%
-      \Repeat{\value{noAppearing}}{%
-      \small\hpStat{freeHP} \\%
-      \small\boxStat{mp} \\%
-      }%
-    \end{tabular}%
-  \fi%
-}
-
 
 %%%%%%%%%%%%%%%%%%%% Character Generation %%%%%%%%%%%%%%%%%%%%
 %
@@ -716,14 +649,12 @@
     & Dam: 1
   }
   \\
-  &
+  \end{tabularx}%
+  \par\qquad%
   \iftoggle{genExamples}%
     {HP: \arabic{hp}
-    \\
     }%
-    {\showBoxes}%
-    & \\ %
-  \end{tabularx}
+    {\Repeat{\value{hp}}{\Square}}%
   \ifdefempty{\Abilities}{}{%
     \normalfont
     \par\textbf{Abilities:} \Abilities
