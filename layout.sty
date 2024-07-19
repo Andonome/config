@@ -357,6 +357,11 @@ bookmarks=true]%
   \node[text=\pageOppositeColor, overlay, rectangle callout, callout relative pointer={(#3)}, fill=\pageSideColor,] (\arabic{enc}) at (#2) [text width=#1em]{{\large\scshape#4}{ #5}};
 }
 
+\newcommand\mapFeature[3][0]{
+  \node at (#2) {\rotatebox{#1}{\Large\outline{#3}}};
+}
+
+
 \newcommand\mapLegend[4]{
   \node [black, font=\bfseries] at (0.#2,0.#3) {#4 #1};
 }
