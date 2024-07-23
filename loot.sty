@@ -177,6 +177,7 @@
 }
 
 \newcommand{\lootJewellery}{%
+\randomdozen%
 \iftoggle{genExamples}{jewellery worth~\ifodd\value{r2}$3D6$\glspl{sp}\else$1D6+2$~\glspl{gp}\fi}%
 	{%
     \stepcounter{treasure}%
@@ -184,7 +185,7 @@
     \ifcase\value{treasure}\relax%
 			golden necklace worth~\arabic{r12}~\glspl{sp}%
     \or%1
-			golden ring worth~\thechapter~\glspl{sp}%
+			golden ring worth~\arabic{r12}~\glspl{sp}%
     \or%2
       jewel encrusted dagger worth~\arabic{r12}~\glspl{sp}%
     \or%3
