@@ -842,3 +842,107 @@
     \stepcounter{#2}%
   }%
 }
+
+%%%%%%%%%%%%%%%%%%%% Human Names
+
+\newcounter{humanNameNo}
+  \setcounter{humanNameNo}{\value{r12}}
+\newcounter{humanNameSuffNo}
+  \setcounter{humanNameSuffNo}{\value{r4}}
+
+\newcommand\humanNamePrefix{%
+  \randomfour%
+  \addtocounter{humanNameNo}{\value{r4}}%
+  \ifnum\value{humanNameNo}>19\addtocounter{humanNameNo}{-19}\fi%
+  \expandafter\expandafter\ifcase\value{humanNameNo}\relax%
+  \or%
+    Grit%
+  \or%
+    Rank%
+  \or%
+    Scour%
+  \or%
+    Steer%
+  \or%
+    Mush%
+  \or%
+    Stoat%
+  \or%
+    Court%
+  \or%
+    Glum%
+  \or%
+    Flic%
+  \or%
+    Dug%
+  \or%
+    Nark%
+  \or%
+    Nettle%
+  \or%
+    Slate%
+  \or%
+    Gourse%
+  \or%
+    Cinder%
+  \or%
+    Soot%
+  \or%
+    Moc%
+  \or%
+    Keel%
+  \else%
+    Gout%
+  \fi%
+}
+
+\newcommand\humanNameSuffix{%
+  \randomthreeB%
+  \addtocounter{humanNameSuffNo}{\value{r3b}}%
+  \ifnum\value{humanNameSuffNo}>19\addtocounter{humanNameSuffNo}{-19}\fi%
+  \ifcase\value{humanNameSuffNo}\relax%
+  \or%
+    itch%
+  \or%
+    vore%
+  \or%
+    snag%
+  \or%
+    peel%
+  \or%
+    groat%
+  \or%
+    fen%
+  \or%
+    nash%
+  \or%
+    nail%
+  \or%
+    rash%
+  \or%
+    flay%
+  \or%
+    boak%
+  \or%
+    broil%
+  \or%
+    pike%
+  \or%
+    filch%
+  \or%
+    snatch%
+  \or%
+    flea%
+  \or%
+    fray%
+  \or%
+    rag%
+  \else%
+    blathe%
+  \fi%
+}
+
+\newcommand\composeHumanName{%
+  \humanNamePrefix\humanNameSuffix%
+}
+
