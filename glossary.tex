@@ -17,6 +17,8 @@
 
 \renewcommand*{\acronymtype}{mech}
 
+\glssetcategoryattribute{indexed}{dualindex}{true}
+
 \glsdefpostdesc{general}{.}
 \glssetcategoryattribute{general}{glossnamefont}{textbf}
 \glsdefpostdesc{people}{.\space\adforn{15}\space}
@@ -901,6 +903,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={Ainumar},
   plural={Ainumari},
   sort={Ainumar},
+  category={indexed},
   nonumberlist,
   description={This massive planet has a raging storm across its face, much like our Jupiter.
   Many think that the gods live here, planning how to kill people, and take their souls up to their houses.
@@ -910,6 +913,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 \longnewglossaryentry{fenestra}{
   name={Fenestra},
   nonumberlist,
+  category={indexed},
   description={This land, where elves, gnolls, and humans look up at trees, like ants moving through blades of grass.
   Predators larger than a horse hunt deer and people in the same way, so everyone travels together, and well-armed},
 }
@@ -917,6 +921,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 \longnewglossaryentry{trade}{
   name={Trade},
   text={trade},
+  category={indexed},
   parent={fenestra},
   description={keeps civilizations alive.
   Nowhere can sustain the \glsentrytext{guard} for long, as they need metal for weapons and armour},
@@ -925,6 +930,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 \longnewglossaryentry{tradeTongue}{
   name={The Trade Tongue},
   text={Trade Tongue},
+  category={indexed},
   parent={trade},
   description={lets people trade, despite not sharing much of a common language.
   It has about two hundred words, so people have to indicate what they want to say by lumping words together.
@@ -998,6 +1004,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={Ingredient},
   prefix={an\space},
   nonumberlist,
+  category={indexed},
   parent={witchcraft},
   type={mech},
   description={are the basic materials used to make any \glsentrytext{boon}, or \glsentrytext{talisman}, and for lots of medicines.
@@ -1010,6 +1017,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   prefix={a\space},
   sort={concoction},
   parent={ingredient},
+  category={indexed},
   type={mech},
   description={are liquids or powders which, when thrown in the air, hyper-charge the use of a single magic \glsentrytext{sphere}, for anyone present next to the burst.
   For example, a concoction to boost the Air \glsentrytext{sphere} would mean a caster with Air 2 could cast a single spell as if they had Air 3.
@@ -1021,6 +1029,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={elixir},
   prefix={an\space},
   parent={ingredient},
+  category={indexed},
   type={mech},
   description={heal diseases.
   Each one requires a particular type of \glsentrytext{ingredient} to heal a particular disease},
@@ -1033,6 +1042,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   first={talisman (a one-use alchemical item)},
   firstplural={talismans (one-use alchemical items)},
   sort={Talisman},
+  category={indexed},
   parent={alchemy},
   description={are spells, locked in an item, along with some activation condition.
   A talisman could open a magical gateway once it reaches a certain location, or bless the first person it sees with good luck.
@@ -1155,6 +1165,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={fiend},
   prefix={a\space},
   parent={fenestra},
+  category={indexed},
   description={live outside any civilization, which makes them the enemy.
   Many know magic, others hold armies.
   They make their own laws, in their own realms, and most leave them alone.
@@ -1889,6 +1900,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   name={Plants},
   text={plant},
   prefix={a\space},
+  category={indexed},
   symbol={\adfhangingflatleafleft},
   description={sometimes have elemental properties, which makes them highly reactive},
 }
