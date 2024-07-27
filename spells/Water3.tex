@@ -1,3 +1,5 @@
+\ifodd\value{diceNo}
+
 \spell{Desert Ghosts}% Name
   {Duplicated, Detailed}% Enhancements
   {Wane}% Action
@@ -7,3 +9,17 @@
   Ranged attacks firing through the vapour take a -\arabic{spellPlusTwo} penalty, as do most Vigilance checks}% Description
   {
   When cast on acidic creatures (such as oozes), the spell inflicts \showDam\ Damage.}
+
+\else
+
+\spell{Lemon Hail}% Name
+  {Distant, Duplicated}% Enhancements
+  {Warp}% Action
+  {Water}% Spheres
+  {temperature}% Resist with
+  {The caster starts a fight with a rain-cloud, insulting its meagre abilities.
+  The rain then turns to hail, and up to \arabic{spellTargets} hailstones grow to the size of a lemon, inflicting \showDam~Damage on anyone they hit}% Description
+  {These stones hit one intended target, and the rest tend to hit anyone within a 5~\gls{step} diameter.}
+
+\fi
+\stepcounter{diceNo}
