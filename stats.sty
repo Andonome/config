@@ -441,7 +441,7 @@
   \knacks{}%
   \foreach \s in {Air,Earth,Fate,Fire,Water,Projectiles,Melee,Brawl,Academics,Alchemy,Athletics,Caving,Crafts,Cultivation,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Stealth,Vigilance,Wyldcrafting}%
     {\setcounter{\s}{0}}%
-  \foreach \s in {encumbrance,dr,covering,weaponDamage,weaponBonus,weaponWeight,armourWeight,armourDR,armourWeight,fp,heft,weight,damage,knacks,mp,xpbonus}%
+  \foreach \s in {encumbrance,dr,covering,weaponDamage,weaponBonus,weaponWeight,armourWeight,armourDR,armourWeight,fp,heft,weight,damage,knacks,mp,xpbonus,xp}%
     {\setcounter{\s}{0}}%
   \setcounter{noAppearing}{1}%
 }
@@ -597,16 +597,20 @@
   %%% = Attack (TN) * Dam + max((spd-hef),mp)^2
   \iftoggle{allyCharacter}{}{%
     \iftoggle{examplecharacter}{}{%
-      \setcounter{xp}{\value{toHit}}%
-      \setcounter{xp}{\value{damage}}%
-      \addtocounter{xp}{\value{dr}}%
-      \addtocounter{xp}{\value{covering}}%
-      \addtocounter{xp}{\value{ap}}%
-      \addtocounter{xp}{-\value{heft}}%
-      \addtocounter{xp}{\value{mp}}%
-      \addtocounter{xp}{\value{covering}}%
-      \addtocounter{xp}{-15}%
-      \roundUp{xp}%
+      \setcounter{attackXPtotal}{\value{toHit}}%
+      \multiply\value{attackXPtotal} by \value{damage}%
+      \multiply\value{attackXPtotal} by \value{ap}%
+      \divide\value{attackXPtotal} by 50%
+      \addtocounter{attackXPtotal}{-\value{heft}}%
+      \setcounter{defenceXPtotal}{\value{hp}}%
+      \multiply\value{defenceXPtotal} by \value{dr}%
+      \divide\value{defenceXPtotal} by 10%
+      \setcounter{enc}{\value{mp}}%
+      \divide\value{enc} by 2%
+      \addtocounter{defenceXPtotal}{\value{enc}}%
+      \addtocounter{xp}{\value{attackXPtotal}}%
+      \addtocounter{xp}{\value{defenceXPtotal}}%
+      \ifnum\value{xp}<0\setcounter{xp}{0}\fi
       \glsentrytext{cr}~\arabic{xp}%
     }%
   }%
