@@ -18,64 +18,55 @@
   \posterbox[
     blankest,
     right=0pt,
-    ]{name=campaign,below=top,column=2,row=2,span=23,rowspan=1,}{
+    ]{name=campaign,below=top,column=1,row=2,span=28,rowspan=1,}{
     \label{gmSheet}
     \large
     \Gls{campaign}: \lineDots Season: \lineDots
-}{
-    }
-
-  \posterbox[
-    blankest,
-  ]{name=situation,column=2,row=3,span=23,rowspan=1}{
-    \vspace{1em}%
-    \lineDots[4]%
-  }
+}
 
 %---
-
-
-  \posterbox[blankest,adjusted title=\Glsentrylongpl{pc}]{name=pcs,below=situation,column=2,span=24,rowspan=4}{
-
-    \begin{tabularx}{\linewidth}{b{.19\linewidth}|b{.18\linewidth}|b{.2\linewidth}|X|b{.22\linewidth}}
-    \hiderowcolors
-
-      Player & Character & Concept & {\footnotesize Wits + Vig.} & Notes \\\hline
-
-    \end{tabularx}
-    
-    \vspace{1em}
-    \lineDots[9]
-    }
-
-%---
-
-  \posterbox[blankest]{name=interval,below=pcs,span=26}{
-    \center{\underline{\glspl{interval}}}
-    \Huge
-
-    \Repeat{3}{%
-    \begin{tabular}{lccccl}
-      \hiderowcolors
-      & \showInterval{0} & \showInterval{1} & \showInterval{2} & \showInterval{3} & \small\flourish \\
-      & \Square & \Square & \Square & \Square & \\
-    \end{tabular}%
-    }
-  }
-
-%----
     \setcounter{track}{7}
-    \posterbox[blankest]{name=track,column=27,row=2,span=3,rowspan=3}{
+    \posterbox[blankest]{name=track,column=1,row=4,span=7,rowspan=3}{
       {
-        \large
-        \setcounter{track}{7}
-        \setcounter{enc}{0}
-        \Repeat{15}{
-          \tracker
-        }%
+        \setcounter{enc}{6}
+        \setcounter{diceNo}{0}
+        \Repeat{4}{%
+          \outline{\large \arabic{enc}}\quad\Square~%
+          \vspace{3em}%
+          \showInterval{\value{diceNo}}~\lineDots%
+          \addtocounter{enc}{-1}%
+          \stepcounter{diceNo}%
+        }
+      }
+    }
+
+    \posterbox[blankest]{name=notes,below=track,span=28,rowspan=3}{
+      {
+        \Repeat{7}{%
+          \outline{\large \arabic{enc}}\quad\Square~%
+          \vspace{3em}%
+          \addtocounter{enc}{-1}%
+          \stepcounter{diceNo}%
+          \ifnum\value{diceNo}>3\setcounter{diceNo}{0}\fi%
+          \showInterval{\value{diceNo}}~\lineDots%
+        }
       }
     }
 
 %----
+
+  \posterbox[blankest,adjusted title=\Glsentrylongpl{pc}]{name=pcs,below=campaign,column=8,span=20,rowspan=4}{
+
+    \begin{tabularx}{\linewidth}{b{.19\linewidth}|b{.18\linewidth}|X|b{.22\linewidth}}
+    \hiderowcolors
+
+      Player & Character & {\footnotesize Wits + Vig.} & Notes \\\hline
+
+    \end{tabularx}
+    
+    \vspace{1em}
+    \lineDots[10]
+    }
+
 
 \end{tcbposter}
