@@ -30,13 +30,13 @@
 }
 
 \newcommand\afterStatBlock{%
-  \iftoggle{genExamples}{\vspace{1em}}{%
+  \iftoggle{genExamples}{}{%
     \setcounter{enc}{\value{noAppearing}}%
     \addtocounter{enc}{4}%
     \needspace{\value{enc}\baselineskip}%
-    \showBoxes
-  }%
-  \ifdefempty{\NPCdescription}{}{%
+    \showBoxes%
+    }%
+  \ifdefempty{\NPCdescription}{\vspace{.5em}}{%
     \begin{multicols}{2}%
     \raggedright%
     \textbf{Description:}~\NPCdescription\nobreak%
@@ -204,17 +204,15 @@
   \setcounter{wounds}{0}%
 }
 
-\newcommand\showBoxes{
+\newcommand\showBoxes{%
   \begin{center}%
   \renewcommand{\arraystretch}{0.9}%
-  \noindent%
   \ifnum\value{mp}>0%
     \Repeat{\value{noAppearing}}{\hpStat~\mpStat\quad}%
   \else%
     \Repeat{\value{noAppearing}}{\hpStat\quad}%
   \fi%
   \end{center}%
-  \par%
 }
 
 \newcounter{wounds}
