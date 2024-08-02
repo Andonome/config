@@ -631,11 +631,12 @@
   \clean
   \set{hp}{#3}
   \set{Dexterity}{#4}
-  \set{att}{#4}
-  \addtocounter{att}{10}
+  \set{toHit}{#4}
+  \addtocounter{toHit}{10}
   \set{Speed}{#5}
   \set{ap}{#5}
   \addtocounter{ap}{3}
+  \setcounter{dr}{8}
   \set{Wits}{#6}
   #1
   \set{freeHP}{hp}
@@ -643,7 +644,7 @@
   \begin{tabularx}{.8\textwidth}{YYYY}
   \hiderowcolors
 
-  \Gls{ap}: \arabic{ap} & Att: $\arabic{att} - HP$ 
+  \Gls{ap}: \arabic{ap} & Att: $\arabic{toHit} - HP$ 
   \iftoggle{verbose}{
     & Speed: \arabic{Speed}
     & Wits: \arabic{Wits}
@@ -661,6 +662,7 @@
     \normalfont
     \par\textbf{Abilities:} \Abilities
   }%
+  {\hfil\small\textcolor{\pageSideColor}{\calculateXP}}%
   \end{tcolorbox}%
 }
 
