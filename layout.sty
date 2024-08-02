@@ -840,7 +840,8 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 
 \newcommand{\name}{}
 \newcommand{\NPCdescription}{}
-\newcommand{\npcQuote}{}
+\newcommand{\currentQuote}{}
+\newcommand\npcQuote[1]{\renewcommand\currentQuote{#1}}
 \newcommand{\mannerism}{}
 \newcommand{\npcGoal}{}
 \newcommand{\npcsymbol}{\adfast{\value{r4}}}

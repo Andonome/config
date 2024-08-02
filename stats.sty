@@ -42,8 +42,9 @@
     \textbf{Description:}~\NPCdescription\nobreak%
     \par%
     \textbf{Wants:}~\npcGoal%
-    \ifdefempty{\npcQuote}{}{\par%
-      \textbf{Quote:}~\textit{``\npcQuote''}%
+    \ifdefempty{\currentQuote}{}{\par%
+      \textbf{Quote:}~\textit{``\currentQuote''}%
+      \renewcommand\currentQuote{}%
     }%
     \par%
     \textbf{Mannerism:}~\mannerism%
