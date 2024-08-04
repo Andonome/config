@@ -10,6 +10,9 @@
 \newtoggle{perfectArmour}
 \settoggle{perfectArmour}{false}
 
+\newtoggle{weaponMaster}
+\settoggle{weaponMaster}{false}
+
 \newcommand\showNumbers{
   \par
   Str: \arabic{Strength},
@@ -369,7 +372,7 @@
 }
 
 \newcommand{\weaponmaster}[1][\weaponName]{%
-  \addtocounter{att}{0}%
+  \toggletrue{weaponMaster}%
   Weapon Master
   (+1 to #1 attacks)%
 }
@@ -437,6 +440,7 @@
 
 \newcommand{\clean}{%
   \global\togglefalse{snapCaster}%
+  \global\togglefalse{weaponMaster}%
   \knacks{}%
   \foreach \s in {Air,Earth,Fate,Fire,Water,Projectiles,Melee,Brawl,Academics,Alchemy,Athletics,Caving,Crafts,Cultivation,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Stealth,Vigilance,Wyldcrafting}%
     {\setcounter{\s}{0}}%
@@ -487,7 +491,12 @@
   \addtocounter{hp}{\value{Strength}}%
   \addtocounter{hp}{-\value{wounds}}%
   % Stats for allies don't need to show Melee +1 as 'TN 8 to hit', they just need to show '+1'.
-  \ifnum\value{weaponBonus}>0\set{att}{Melee}\else\set{att}{Brawl}\fi%
+  \ifnum\value{weaponBonus}>0%
+    \set{att}{Melee}%
+    \iftoggle{weaponMaster}{\stepcounter{att}}{}%
+  \else%
+    \set{att}{Brawl}%
+  \fi%
   \addtocounter{att}{\value{Dexterity}}%
   \addtocounter{att}{\value{weaponBonus}}%
   \set{toHit}{att}%
