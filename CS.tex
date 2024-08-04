@@ -160,7 +160,7 @@ circle label/.style = {
           \\
           \\
         }{
-          \sffamily\characterWeapon\weaponName & \sffamily\arabic{weaponBonus} & \sffamily\arabic{damage} & \sffamily\arabic{heft} & \sffamily\arabic{weight} \\
+          \sffamily\characterWeapon\weaponName & \sffamily\arabic{weaponBonus} & \sffamily\arabic{weaponDamage} & \sffamily\arabic{heft} & \sffamily\arabic{weaponWeight} \\
         }
     }{
       \Repeat{2}{
@@ -200,12 +200,12 @@ circle label/.style = {
     \addtolength{\tabcolsep}{-0.2em}
     \begin{tabularx}{\linewidth}{XXXX}
       \hiderowcolors
-      \textbf{\Glsentrytext{dr} / Covering} & \textbf{\Glsentrytext{ap}} &\textbf{Attack} & \textbf{Damage} \\
+      \textbf{\Glsentrytext{dr} / \Glsentrytext{covering}} & \textbf{\Glsentrytext{ap}} &\textbf{Attack} & \textbf{Damage} \\
       \vspace{3em}
       \\
       \\
       \\
-      \iftoggle{examplecharacter}{\sffamily\arabic{dr}}{\underline{\hspace{2em}/\hspace{2em}}}
+      \iftoggle{examplecharacter}{\sffamily\arabic{armourDR}/ \arabic{covering}}{\underline{\hspace{2em}/\hspace{2em}}}
       &
       \iftoggle{examplecharacter}%
       {%
@@ -225,6 +225,7 @@ circle label/.style = {
       \iftoggle{examplecharacter}% Damage
       {%
         \addtocounter{damage}{\value{Strength}}%
+        \addtocounter{damage}{\value{weaponDamage}}%
         \addtocounter{damage}{4}%
         \sffamily\dmg{damage}%
       }%
