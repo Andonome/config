@@ -186,3 +186,11 @@
   \renewcommand\characterEquipment{}
   \renewcommand\charSpellList{}
 }
+
+
+\newcommand\printCharacter[1]{
+  \resetCS
+  \input{ex_cs/#1.tex}
+  \input{config/CS.tex}
+  \input{config/backpage.tex}
+}
