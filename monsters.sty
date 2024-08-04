@@ -954,27 +954,35 @@
 
 \newcommand{\goblin}[1][\npc{\T[\arabic{r12}]\N}{\arabic{noAppearing} Goblins}]{
   \Person{#1}%
-    {{rn1t0}{r2b}{rn1t2}}% BODY
+    {{r3}{r2b}{rn1t2}}% BODY
     {{rn1t0}{rn3t3}{rn4tn1}}% MIND
     {%
-      \ifodd\value{r3}
+      \addtocounter{Strength}{-3}
+      \ifodd\value{r4}
         \set{Melee}{1}
       \else
         \set{Projectiles}{1}
       \fi
       \set{Brawl}{rn1t2}
       \set{Caving}{r2}
-      \set{Stealth}{r2}
-      \ifodd\value{Strength}
+      \set{Stealth}{r2c}
+      \ifnum\value{Strength}>-2
         \javelin
       \else
         \Dagger
       \fi
     }% SKILLS
     {}% KNACKS
-    {\rock, \lootGoblin, \lootGoblin}% EQUIPMENT
-    {\ifnum\value{noAppearing}<3
-      \mutation{r4}%
+    {\rock, %
+    \ifnum\value{r3c}=3%
+      \rations%
+    \else%
+      \lootGoblin%
+    \fi}% EQUIPMENT
+    {\ifnum\value{noAppearing}<3%
+      \ifodd\value{r2}%
+        \mutation{r4b}%
+      \fi%
     \fi}% ABILITIES
 }
 
