@@ -8,6 +8,19 @@ QR_TARGET != grep mailto: README.md | cut -d: -f2,3
 	@command -v latexmk >/dev/null || ( echo install latexmk && exit 1 )
 	@command -v inkscape >/dev/null || ( echo install inkscape && exit 1 )
 
+.help:
+	@echo 'BIND version $(VERSION)'
+	@echo ''
+	@echo 'Check you have the requirements with'
+	@echo '$$ make .check'
+	@echo ''
+	@echo 'Compile with'
+	@echo '$$ make'
+	@echo ''
+	@echo 'Required tlmgr packages are in'
+	@echo 'config/Docker/tlmgrDeps.sh'
+	@echo ''
+
 COMPRESS = gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dNOPAUSE -dQUIET -dBATCH -dPrinted=false -sOutputFile=$@ $<
 
 CP := ln -f
