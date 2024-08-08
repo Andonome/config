@@ -40,9 +40,7 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
 \ifnum\value{r12}>8
 \noindent
 \begin{minipage}{\linewidth}
-\glssymbol{nulla}
-\textbf{At the Doula's}
-  \begin{boxtable}[Xcc]
+  \begin{nametable}[Xcc]{\glsentrysymbol{nulla}~At the Doula's}
     \textbf{Things on shelves} & \textbf{Weight} & \textbf{Cost} \\\hline
     \rareMarketItem[9]{Air \Glsentrytext{ingredient}}{1}{23}%
     \rareMarketItem[9]{Fire \Glsentrytext{ingredient}}{1}{23}%
@@ -55,7 +53,7 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
     \rareMarketItem[9]{Water \Glsentrytext{boon}}{1}{24}%
     \rareMarketItem[9]{Fate \Glsentrytext{boon}}{1}{24}%
     \marketItem{Cup of tea}{0}{0}%
-  \end{boxtable}
+  \end{nametable}
 \end{minipage}
 \fi
 
@@ -126,16 +124,13 @@ Local guide & \mkPrice[cp]{50} per mile \\
 \end{boxtable}
 
 \ifnum\value{r4b}>2
-  \glssymbol{wrecan}
-  \textbf{At the Smith's}
-
-  \begin{boxtable}[XXXXc]
+  \begin{nametable}[XXXXc]{\glsentrysymbol{wrecan}~At the Smith's}
     \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{\glsentrytext{covering}} & \textbf{Weight} & \textbf{Cost} \\\hline
     \ifnum\value{r3}>11
       \showArmourPrice{\completechain}{28}%
     \fi
     \showArmourPrice{\partialchain}{18}%
-  \end{boxtable}
+  \end{nametable}
 \else
   \ifnum\value{r12}>9
     \glssymbol{sylf}
@@ -170,14 +165,12 @@ Local guide & \mkPrice[cp]{50} per mile \\
 \fi
 
 \ifnum\value{r4b}>2
-\needspace{6em}
-\textbf{At the Tanner's}
-  \begin{boxtable}[XXXXX]
+  \begin{nametable}[XXXXX]{At the Tanner's}
     \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{\glsentrytext{covering}} & \textbf{Weight} & \textbf{Cost} \\\hline
     \showArmourPrice{\partialleather}{5}%
     \showArmourPrice{\completeleather}{11}%
     \showArmourPrice{\partiallisk}{31}%
-  \end{boxtable}
+  \end{nametable}
 
   \begin{boxtable}[XXX]
     \rareMarketItem{Hardened half-yurt (dr 4)}{3}{12}
