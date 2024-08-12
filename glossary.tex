@@ -4,7 +4,7 @@
 
 %\renewcommand*{\glstopicPostSkip}{---}
 \renewcommand*{\glstopicPreSkip}{\bigLine\medskip\needspace{10\baselineskip}}
-\renewcommand*{\glstopicSubPreLocSep}{~\adforn{38}~}
+\renewcommand*{\glstopicSubPreLocSep}{~\textcolor{\pageSideColor}{\adforn{38}}~}
 \renewcommand*{\glstopicInit}{\setlength{\parskip}{10pt}}
 
 \newglossary*{people}{People}
@@ -23,8 +23,13 @@
 \glsdefpostdesc{rules}{.\space\adforn{35}\space}
 \glsdefpostdesc{god}{.}
 \glsdefpostdesc{acronym}{.}
-\glsdefpostdesc{location}{.\quad\adforn{14}\space}
 \glsdefpostdesc{symbol}{.}
+
+\glssetcategoryattribute{profession}{glossnamefont}{textit}
+\glsdefpostdesc{profession}{.\\\textcolor{\pageSideColor}{\hrulefill}}
+
+\glssetcategoryattribute{rank}{glossnamefont}{textbf}
+\glsdefpostdesc{rank}{.}
 
 \glssetcategoryattribute{god}{glossnamefont}{textsf}
 
@@ -35,7 +40,8 @@
 \glssetcategoryattribute{rules}{glossnamefont}{textsc}
 \glssetcategoryattribute{abbreviation}{glossnamefont}{textit}
 
-\glssetcategoryattribute{location}{glossnamefont}{emph}
+\glsdefpostdesc{location}{.\quad\adforn{14}\space}
+\glssetcategoryattribute{location}{glossnamefont}{textsc}
 
 \makeglossaries
 
@@ -1297,6 +1303,16 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 
 % Guilds
 
+\longnewglossaryentry{temple}{
+  name={The Divine Guilds},
+  sort={Divine Guilds},
+  text={temple},
+  prefix={a\space},
+  nonumberlist,
+  description={Each temple exists to protect people from a god, by selling goods or services.
+  Each temple functions as a guild, with a divine monopoly on their protection},
+}
+
 \longnewglossaryentry{sylf}{
   name={Sylf},
   category={god},
@@ -1312,6 +1328,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   plural={Temples of Beasts},
   prefix={a\space},
   symbol={\glssymbol{sylf}},
+  parent={temple},
   nonumberlist,
   description={The highest and lowest of all temples absorbs feckless drunks, dickheads, scum, and people with political progressive political ideas.
   All of them become heroes, and forest-feed},
@@ -1322,6 +1339,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={broch},
   prefix={a\space},
   category={location},
+  sort={ZZ},
   parent={templeOfBeasts},
   description={are grand towers which surround civilization.
   The \glsentrytext{guard} stay in them, playing loud pipes, and lighting fires to attract monsters.
@@ -1340,6 +1358,8 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={Night Guard},
   prefix={a\space},
   parent={templeOfBeasts},
+  category={profession},
+  sort={3},
   nonumberlist,
   description={are the sorry lot who have nothing better to do than wander into the darkness and get eaten.
   They exist to either thwart, or feed, \glsentrytext{sylf}, depending on whom one asks},
@@ -1350,7 +1370,8 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={jotter},
   prefix={a\space},
   sort={R5},
-  parent={guard},
+  parent={templeOfBeasts},
+  category={rank},
   description={do paperwork for the \glsentrytext{guard}, and control everything that their seniors don't care to manage},
 }
 
@@ -1360,7 +1381,8 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   plural={fodder},
   prefix={some\space},
   sort={R0},
-  parent={guard},
+  parent={templeOfBeasts},
+  category={rank},
   description={are the lowest rung of the \glsentrytext{guard}.
   Most who enter as fodder arrived as criminals, vagrants, or political idealists.
   About half of these new recruits will survive and gain the next rank.
@@ -1373,7 +1395,8 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={digger},
   prefix={a\space},
   sort={R1},
-  parent={guard},
+  parent={templeOfBeasts},
+  category={rank},
   description={have survived a mission, and returned alive.
   In theory, they should burry the fodder who did not survive the first mission, but in practice, few people leave a body},
 }
@@ -1383,7 +1406,8 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={archer},
   prefix={an\space},
   sort={R2},
-  parent={guard},
+  parent={templeOfBeasts},
+  category={rank},
   description={stand on \glsentrytext{broch} balconies, taking down summoned by the pipes.
 
   Farmers who guard their \glsentrytext{village} can sign up to the \glsentrytext{guard} and begin at this rank immediately},
@@ -1394,7 +1418,8 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={cutter},
   prefix={a\space},
   sort={R3},
-  parent={guard},
+  parent={templeOfBeasts},
+  category={rank},
   description={guard caravants along the long, \glsentrytext{lonelyRoad}, or take special missions, beyond the \glsentrytext{edge}},
 }
 
@@ -1403,7 +1428,8 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={ranger},
   prefix={a\space},
   sort={R4},
-  parent={guard},
+  parent={templeOfBeasts},
+  category={rank},
   description={travel fast, often on horseback, to provide reinforcements to any \glsentrytext{village} in immediate trouble},
 }
 
@@ -1412,7 +1438,8 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={thane},
   prefix={a\space},
   sort={R6},
-  parent={guard},
+  parent={templeOfBeasts},
+  category={rank},
   description={have risen to the point where any \glsentrytext{jotter} will finally leave them alone.
   Most try to find some gold and retire at this point},
 }
@@ -1422,7 +1449,8 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={builder},
   prefix={a\space},
   sort={R7},
-  parent={guard},
+  parent={templeOfBeasts},
+  category={rank},
   description={organize new settlements, which requires an intrepid \glsentrytext{doula} to help locating a good spot.
   It usually involves a lunch with a friendly, local, \glsentrytext{warden}},
 }
@@ -1432,7 +1460,8 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={overseer},
   prefix={an\space},
   sort={R8},
-  parent={guard},
+  parent={templeOfBeasts},
+  category={rank},
   description={organize the \glsentrytext{guard}, and have dinner with any local \glsentrytext{warden} who'll have them},
 }
 
@@ -1451,6 +1480,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   plural={Temples of Poison},
   prefix={a\space},
   symbol={\glssymbol{abderian}},
+  parent={temple},
   nonumberlist,
   description={Beer, brewing and baking protect humanity from \glsentrytext{abderian}, so this temple have established a divine monopoloy on the lot},
 }
@@ -1458,9 +1488,9 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 \longnewglossaryentry{wheatGuild}{
   name={The Wheat Guild},
   text={Wheat Guild},
-  sort={Wheat Guild},
   prefix={a\space},
   category={location},
+  sort={ZZ},
   parent={templeOfPoison},
   description={is where drinks are brewed, and drunks can drink.
   An image of a skeleton, tempting you to feast with her, reminds patrons why they should always eat at an official Wheat Guild hall},
@@ -1469,8 +1499,9 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 \longnewglossaryentry{server}{
   name={Servers},
   text={Server},
-  prefix={a\space},
   parent={templeOfPoison},
+  category={profession},
+  prefix={a\space},
   description={make food for the \glsentrytext{wheatGuild} all day, and every \glsentrytext{warden} has one in their employ},
 }
 
@@ -1489,6 +1520,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   plural={Temples of Sickness},
   prefix={a\space},
   symbol={\glssymbol{eldren}},
+  parent={temple},
   nonumberlist,
   description={People only like one god.
   They all want \glsentrytext{eldren} to take them, rather than any alternatives, so anyone who has a little to spare puts it towards this temple, and hopes to see a bed inside one day, and die peacefully},
@@ -1498,6 +1530,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   name={Healers' Guild},
   prefix={a\space},
   category={location},
+  sort={ZZ},
   parent={templeOfSickness},
   description={take in the sick, disabled, or dying of \glsentrytext{fenestra}, where they tend to each other.
   Long-term staff always have some long-term disability, such as missing limbs.
@@ -1509,6 +1542,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={Helper},
   prefix={a\space},
   parent={templeOfSickness},
+  category={profession},
   description={tend to the sick and dying, on behalf of the \glsentrytext{healersGuild}.
   The temple only takes on new people from those with a disability of some kind, so the grounds are maximally accessible to everyone.
   The \glsentrytext{guard} who endure permanent injuries often retire as Helpers},
@@ -1518,7 +1552,8 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   name={Mixers},
   text={mixer},
   prefix={a\space},
-  parent={helper},
+  parent={templeOfSickness},
+  category={rank},
   description={can devise \glsentrytext{elixir} recipes to cure diseases.
   They create a constant demand on the \glsentrytext{ingredient}-trade, as people are always getting sick with one thing or another},
 }
@@ -1527,7 +1562,8 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   name={Counters},
   text={counters},
   prefix={a\space},
-  parent={helper},
+  parent={templeOfSickness},
+  category={rank},
   description={count the spare beds, pension-funds paid towards the \glsentrytext{templeOfSickness}, expected time until a sick person die, total \glsentrytext{ingredient}-count of each type, and expected total cures and corpses.
   They form the heart of every \glsentrytext{healersGuild}},
 }
@@ -1548,6 +1584,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   plural={Temples of Misgenesis},
   prefix={a\space},
   symbol={$\Large\Circle$},
+  parent={temple},
   nonumberlist,
   description={Some things never were.  This loose organization alters fortune to ensure nobody has to fail a task before they try, or give up on the best career they never considered},
 }
@@ -1557,6 +1594,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={Doula},
   prefix={a\space},
   parent={templeOfMisgenesis},
+  category={profession},
   description={help with births, blessings, and beginnings of all kind.
   They protect the population from misgenesis -- the death which occurs before life.
   Nobody begins a business venture or party without a blessing from a Doula},
@@ -1567,6 +1605,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={wayfinder},
   prefix={a\space},
   parent={templeOfMisgenesis},
+  category={rank},
   description={locate ground for new settlements.
   To qualify, one must have sufficient skill at \glsentrytext{witchcraft} to wander past the \glsentrytext{edge} without fear},
 }
@@ -1577,6 +1616,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   sort={Doula Shop},
   prefix={a\space},
   category={location},
+  sort={ZZ},
   parent={templeOfMisgenesis},
   symbol={\glssymbol{nulla}},
   description={sell various potions and blessings},
@@ -1597,6 +1637,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   plural={Temples of Justice},
   prefix={a\space},
   symbol={\glssymbol{paik}},
+  parent={temple},
   nonumberlist,
   description={Left to their own paranoia, people form mobs, and mob-justice prevails.
   This temple thwarts the worst plans of the god \glsentrytext{paik} by providing impartial, official, justice},
@@ -1607,7 +1648,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={Pit of Justice},
   prefix={a\space},
   category={location},
-  sort={Pit of Justice},
+  sort={ZZ},
   parent={templeOfJustice},
   description={is where a town's \glsentrytext{warden} resolves legal disputes, and decides on the correct punishment for criminals.
   All trials must be on display, to warn the people about the consequences of crime, so they can learn that justice always prevails.
@@ -1619,6 +1660,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={Keeper},
   nonumberlist,
   parent={templeOfJustice},
+  category={profession},
   prefix={a\space},
   description={bear the heavy burden of enforcing laws, and maintaining the \glsentrytext{court}.
   Every \glsentrytext{village} with a couple of hundred souls has a keeper to keep them right, and collect payments for the vital service they provide},
@@ -1628,7 +1670,8 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   name={Wardens},
   text={Warden},
   nonumberlist,
-  parent={keeper},
+  parent={templeOfJustice},
+  category={rank},
   prefix={a\space},
   description={make the laws and decide fitting punishments for criminals in their \glsentrytext{court}},
 }
@@ -1636,17 +1679,19 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 \longnewglossaryentry{seneschal}{
   name={Seneschals},
   text={seneschal},
-  parent={keeper},
+  parent={templeOfJustice},
+  category={rank},
   prefix={a\space},
   description={count every \glsentrytext{cp} in an estate, keep their \glsentrytext{warden} up-to-date on recent affairs, and keep in contact with every \glsentrytext{guard} \glsentrytext{jotter} in the area, and ensure the \glsentrytext{wheatGuild} don't cause problems},
 }
 
 \longnewglossaryentry{sunGuard}{
-  name={The Sun Guard},
+  name={Sun Guards},
   sort={Sun Guard},
   text={Sun Guard},
   prefix={a\space},
-  parent={keeper},
+  parent={templeOfJustice},
+  category={rank},
   description={are the upstanding soldiers who protect the city from all the unwashed masses, while wearing shiny-white tabards},
 }
 
@@ -1664,6 +1709,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   plural={Temples of Frost},
   prefix={a\space},
   symbol={\glssymbol{sable}},
+  parent={temple},
   nonumberlist,
   description={exists to thwart \glsentrytext{sable}, who comes to \gls{fenestra} twice per \glsentrytext{cycle}, during the cold seasons of \glsentrytext{Alassea} and \glsentrytext{Minquesta}.
   Before he strikes, the weavers provide preservatives.
@@ -1676,6 +1722,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   sort={Weavers' Guild},
   prefix={a\space},
   category={location},
+  sort={ZZ},
   parent={templeOfFrost},
   description={houses a massive fire, many looms, and plenty of space to tell a long story},
 }
@@ -1685,6 +1732,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={Weaver},
   prefix={a\space},
   parent={templeOfFrost},
+  category={profession},
   description={produces the best and warmest of clothes for \glsentrytext{fenestra}'s harsh cold seasons},
 }
 
@@ -1694,6 +1742,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   plural={notaries},
   prefix={a\space},
   parent={templeOfFrost},
+  category={rank},
   description={records transferrance of ownership, so people can save money, without having to transport valuable goods.
   The real items remain in a secret location, where they won't interfere with trade},
 }
@@ -1713,6 +1762,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   plural={Temples of Hate},
   prefix={a\space},
   symbol={\glssymbol{wrecan}},
+  parent={temple},
   nonumberlist,
   description={As resources run thin, humanity becomes its own worst enemy.
   Disgust spreads into bigotry, then war, as \glsentrytext{wrecan} pulls people into her realm},
@@ -1723,7 +1773,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={Armourers' Guild},
   prefix={an\space},
   category={location},
-  sort={Armourer's Guild},
+  sort={ZZ},
   parent={templeOfHate},
   description={take in angry, young people, and redirect their anger into work and negotiation skills.
   They handle all the major disputes which nobody wants to take to the \glsentrytext{templeOfJustice}, and often become the de-facto arbiters when one \glsentrytext{warden} cannot agree with another},
@@ -1734,6 +1784,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={Armourer},
   prefix={an\space},
   parent={templeOfHate},
+  category={profession},
   description={work in the \glsentrytext{armourHall} and guard civilization from death by Hate, with a combination of excellent armour, and diplomatic skills},
 }
 
@@ -1753,6 +1804,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   plural={Temples of Curiosity},
   prefix={a\space},
   symbol={\glssymbol{yonder}},
+  parent={temple},
   nonumberlist,
   description={People who go searching for answers often don't come back.
   This temple keeps an official log of all curiosities so that people don't have to go anywhere dangerous to learn -- they can just read.
@@ -1764,7 +1816,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={Paper Guild},
   prefix={a\space},
   category={location},
-  sort={Paper Guild},
+  sort={ZZ},
   parent={templeOfCuriosity},
   description={makes maps, candles, paper, and soap.
   They always need more basilisk bodies to make the latter two},
@@ -1775,8 +1827,19 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={Scribe},
   prefix={a\space},
   parent={templeOfCuriosity},
+  category={profession},
   description={are anyone who works for the \glsentrytext{paperGuild}.
   Most spend their time making books or soap},
+}
+
+\longnewglossaryentry{chandler}{
+  name={Chandlers},
+  text={chandler},
+  prefix={a\space},
+  parent={paperGuild},
+  category={rank},
+  description={make candles, in a hot, humid, basement.
+  Everyone in the \glsentrytext{paperGuild} must begin here, in order to understand the effort light demands},
 }
 
 \longnewglossaryentry{seeker}{
@@ -1784,7 +1847,8 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={Seeker},
   prefix={a\space},
   %seealso={paperGuild},
-  parent={scribe},
+  parent={paperGuild},
+  category={rank},
   description={travel to deliver messages, and gather information for the \glsentrytext{paperGuild}},
 }
 
@@ -1793,7 +1857,8 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={cartographer},
   prefix={a\space},
   %seealso={paper Guild},
-  parent={scribe},
+  parent={paperGuild},
+  category={rank},
   description={create, confirm, and update maps.
     The most valuable of these contain information on \glsentrytext{ingredient}-rich ground, which they use for \glsentrytext{alchemy} spells to learn about the landscape, so they can make more maps},
 }
