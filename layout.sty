@@ -723,7 +723,6 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 \setcounter{adf}{0}
 
 \newcommand\flourish{%
-  \if@mainmatter%
   \ifnum\value{adf}>16%
     \addtocounter{adf}{-16}%
   \fi%
@@ -763,9 +762,6 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \adforn{55}%
   \fi%
   \stepcounter{adf}%
-  \else%
-    \adforn{74}%
-  \fi%
 }
 
 \newcommand\showChapter{\Roman{chapter}}
