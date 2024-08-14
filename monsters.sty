@@ -695,10 +695,15 @@
       \fi%
     }% SKILLS
     {\ifodd\value{r3}
-      \adrenalinesurge
+      \dodger%
     \else%
       \perfectsneakattack
-    \fi, \lucky}% KNACKS
+    \fi, %
+    \ifnum\value{noAppearing}>2%
+      \adrenalinesurge%
+    \else%
+      \lucky%
+    \fi}% KNACKS
     {dagger, \rations, \lootSmall}% EQUIPMENT
     {}% ABILITIES
 }
