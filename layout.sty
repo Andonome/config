@@ -1265,6 +1265,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 }
 
 \newcounter{sqNo}
+\newcounter{sqNoSpare}
 \newcommand{\sqName}{}
 
 \newcommand{\sidequest}[2][]{
@@ -1291,7 +1292,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
   \refstepcounter{sqNo}
   \resumecontents[#1]
   \subsubsection[%
-    \setcounter{track}{\expandafter\thesqNo}%
+    \setcounter{sqNoSpare}{\expandafter\thesqNo}%
     \bfseries#2 -- \mdseries#3]%
     {\large{\scshape\thesqNo)}~\large#2\ \hint{#1}}
   \settoggle{firstsq}{false}
@@ -1302,7 +1303,7 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 \titlecontents{tsubsubsection}
               [3em]
               {%
-                \contentspush{\scshape\large\arabic{track}~---~}%
+                \contentspush{\scshape\large\arabic{sqNoSpare}~---~}%
                 \thecontentslabel%
               }%
               {}%
@@ -1316,7 +1317,6 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
     \vspace{1em}\textcolor{\pageSideColor}{\adforn{54}}%
     \quad\large%
     \setcounter{sqNo}{0}%
-    \setcounter{track}{0}%
   }%
   {}%
   {}%
@@ -1329,10 +1329,10 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
               {%
                 \vspace{.3em}%
                 \contentspush{%
-                \ifnum\thetrack=1%
+                \ifnum\thesqNoSpare=1%
                   \sqr\else\sqn%
                 \fi\quad%
-                Part~\thetrack:\quad%
+                Part~\thesqNoSpare:\quad%
                   \raggedright%
                 }%
                 \thecontentslabel%
