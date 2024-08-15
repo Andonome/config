@@ -27,6 +27,7 @@
 
 \glssetcategoryattribute{profession}{glossnamefont}{textit}
 \glsdefpostdesc{profession}{.\\\textcolor{\pageSideColor}{\hrulefill}}
+\glssetcategoryattribute{profession}{noindex}{true}
 
 \glssetcategoryattribute{rank}{glossnamefont}{textbf}
 \glsdefpostdesc{rank}{.}
@@ -1843,7 +1844,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   name={Chandlers},
   text={chandler},
   prefix={a\space},
-  parent={paperGuild},
+  parent={templeOfCuriosity},
   category={rank},
   description={make candles, in a hot, humid, basement.
   Everyone in the \glsentrytext{paperGuild} must begin here, in order to understand the effort light demands},
@@ -1854,7 +1855,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={Seeker},
   prefix={a\space},
   %seealso={paperGuild},
-  parent={paperGuild},
+  parent={templeOfCuriosity},
   category={rank},
   description={travel to deliver messages, and gather information for the \glsentrytext{paperGuild}},
 }
@@ -1863,8 +1864,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   name={Cartographers},
   text={cartographer},
   prefix={a\space},
-  %seealso={paper Guild},
-  parent={paperGuild},
+  parent={templeOfCuriosity},
   category={rank},
   description={create, confirm, and update maps.
     The most valuable of these contain information on \glsentrytext{ingredient}-rich ground, which they use for \glsentrytext{alchemy} spells to learn about the landscape, so they can make more maps},
