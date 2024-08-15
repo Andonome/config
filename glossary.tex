@@ -585,25 +585,12 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   category={rules},
   prefix={a\space},
   description={It does not matter who initiates combat -- each character enters the standard \glsentrytext{resistedaction}.
-  The \glsentrytext{pc} rolls \roll{Dexterity}{Combat Skill}, and the \glsentrytext{tn} equals 7 + the \glsentrytext{npc}'s \roll{Dexterity}{Combat Skill}.
-  The winner deals $1D6+$ Strength Damage, and every +4 Damage converts to $1D6$},
-}
-
-\longnewglossaryentry{quickaction}{
-  name={A Response Action},
-  text={Response Action},
-  prefix={a\space},
-  sort={S3},
-  parent={combat},
-  type={mech},
-  category={rules},
-  nonumberlist,
-  description={means the character must resist some \glsentrytext{resistedaction}.
-  If the \glsentrytext{ap} loss push them below 0, then every negative becomes a penalty to all action},
+  The \glsentrytext{pc} rolls \roll{Dexterity}{Melee}, and the \glsentrytext{tn} equals 7 + the \glsentrytext{npc}'s \roll{Dexterity}{Melee}.
+  The winner deals $1D6+$ Damage + Strength Bonus, and every +4 Damage converts to $1D6$},
 }
 
 \newacronym[
-  description={give a rough estimate of a creature's combat abilities},
+  description={give a rough estimate of a creature's combat abilities, and the value of any \glsentrytext{monster}'s corpse},
   shortplural={CRs},
   prefix={a\space},
   name={Creature Ratings (CR)},
@@ -612,7 +599,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   ]{cr}{CR}{Combat Rating}
 
 \newacronym[
-  description={provide linear, measure of a character's health and injury},
+  description={provide a linear measure of a character's health or injuries},
   shortplural={HP},
   prefix={an\space},
   prefixfirst={a\space},
@@ -638,6 +625,19 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   parent={combat},
   prefix={an\space},
   ]{ap}{AP}{Action Point}
+
+\longnewglossaryentry{quickaction}{
+  name={A Response Action},
+  text={Response Action},
+  sort={Response},
+  prefix={a\space},
+  parent={ap},
+  type={mech},
+  category={rules},
+  nonumberlist,
+  description={means the character must resist some \glsentrytext{resistedaction}.
+  If the \glsentrytext{ap} loss push them below 0, then every negative becomes a penalty to all action},
+}
 
 \longnewglossaryentry{running}{
   name={Running},
@@ -725,7 +725,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   description={are attacks which equal a target's \glsentrytext{tn} plus their \glsentrytext{armour}'s \glsentrytext{covering}; this lets the attack ignore the \glsentrytext{armour}'s \glsentrytext{dr}, and deal direct Damage.
 
   If a player needs to roll at \glsentrytext{tn}~10 to hit an opponent with `\glsentrytext{covering}~3', then they need to roll `13' to make a Vitals Shot.
-  This applies symmetrically; if the \glsentrytext{pc}'s armour has `\glsentrytext{covering}~5', and they miss by 5, then their opponent scores a Vitals Shot, and their armour counts for nothing, and does not provide any \glsentrytext{dr}},
+  This applies symmetrically; if the \glsentrytext{pc}'s armour has `\glsentrytext{covering}~5', and they miss by 5, then their opponent scores a Vitals Shot, and their armour counts for nothing, providing no \glsentrytext{dr}},
   }
 
 \longnewglossaryentry{swarm}{
