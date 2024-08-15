@@ -843,22 +843,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   In any case, the results are the same -- unpredictable},
 }
 
-\longnewglossaryentry{casting}{
-  name={Castings},
-  text={casting},
-  prefix={a\space},
-  parent={witchcraft},
-  type={mech},
-  category={rules},
-  description={start by spending one \glsentrytext{mp} per spell level.
-  The \glsentrytext{witch} then commands the target \glsentrytext{sphere}, rolling \roll{Charisma}{} the lowest \glsentrytext{skill} required.
-
-  When `overspending' on the \glsentrytext{invocation}, the \glsentrytext{witch} gains 1~\glsentrytext{ep} for each \glsentrytext{mp} they lack.
-
-  If nobody resists a spell, the \glsentrytext{tn} usually depends on its target.
-  Earth spells can affect ice far more easily than rocks, and Air spells can whip up a gale easier when outdoors},
-}
-
 \newacronym[
   name={Mana Points (MP)},
   shortplural={MP},
@@ -866,7 +850,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   prefixfirst={a\space},
   parent={witchcraft},
   description={grant every \glsentrytext{witch} their power.
-  When they run out, the caster gains one \glsentrytext{ep} for every point they cannot spend},
+  When they run out, they gain one \glsentrytext{ep} for every point they cannot spend},
   ]{mp}{MP}{Mana Point}
 
 \longnewglossaryentry{spell}{
@@ -880,15 +864,14 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   Once cast, they endure until they burn through themselves, or something destroys them.
   To stop a Fire spell, someone must put the fire out, and if an angry \glsentrytext{witch} makes antlers grow on someone's head, the only way to `dispel' them is with a boning knife.
 
-  Long-range spells cannot be reigned in; if the range is
+  Spells with a Distant range cannot be reigned in; if the range is
+  \toggletrue{Distant}%
   \setcounter{spellCost}{4}\setRange%
-  \spellRange, the spell will find the nearest target at that distance.
+  `\spellRange', the spell will find the nearest target at that distance.
 
   Casters only select a spell's first target.
   The spell forks through the others like lightning, and may `arc' across any distances up to its original range.
-  Water spells which hit a river will spread through the river, but a curse with an `area' of 4 will have to jump until it has found four people to inflict itself on.
-
-  To learn a spell, the caster's \glsentrytext{skill} must match each \glsentrytext{sphere}},
+  Water spells which hit a river will spread through the river, but a curse with an `area' of 4 will have to jump until it has found four people to inflict itself on},
 }
 
 \longnewglossaryentry{invocation}{
@@ -911,6 +894,121 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
     If a mechanical effect needs a number, that number is 2 when using an elemental \glsentrytext{sphere}, and 1 when using a high \glsentrytext{sphere}.
     Each descriptor raises the \glsentrytext{mp} cost and mechanical effects by 1},
 }
+
+\longnewglossaryentry{witch}{
+  name={Witch},
+  text={witch},
+  plural={witches},
+  prefix={a\space},
+  type={mech},
+  parent={witchcraft},
+  description={simply means anyone who can natural speak to an elemental \glsentrytext{sphere} using their inner \glsentrytext{mp} store.
+  These people have no special uniform, and often hide their talents},
+}
+
+\longnewglossaryentry{casting}{
+  name={Castings},
+  text={casting},
+  prefix={a\space},
+  parent={witch},
+  type={mech},
+  category={rules},
+  description={start by spending one \glsentrytext{mp} per spell level.
+  The \glsentrytext{witch} then commands the target \glsentrytext{sphere}, rolling \roll{Charisma}{} the lowest \glsentrytext{skill} required.
+
+  When `overspending' on the \glsentrytext{invocation}, the \glsentrytext{witch} gains 1~\glsentrytext{ep} for each \glsentrytext{mp} they lack.
+
+  If nobody resists a spell, the \glsentrytext{tn} usually depends on its target.
+  Earth spells can affect ice far more easily than rocks, and Air spells can whip up a gale easier when outdoors},
+}
+
+\longnewglossaryentry{alchemy}{
+  name={Alchemy},
+  text={alchemy},
+  sort={Alchemy},
+  symbol={\glsentrytext{R}},
+  prefix={an\space},
+  type={mech},
+  parent={witchcraft},
+  description={is the practice of turning a raw magical \glsentrytext{ingredient} into something useful.
+  It requires no \glsentrytext{sphere} \glsentrytext{skill} to use -- just a recipe},
+}
+
+\longnewglossaryentry{sphere}{
+  name={Spheres},
+  prefix={a\space},
+  parent={witchcraft},
+  type={mech},
+  description={divide the world into meaningful parts.
+  The five elemental Spheres are Fire, Air, Fate, Water, and Earth.
+  Each one can join with two neighbours to make one of the high Spheres; Light, Death, Mind, Life, and Force.
+
+  If a caster can think of a way to use any Sphere to stop an attack, they can enter combat as usual with their \roll{Charisma}{Sphere}, rolling at \glsentrytext{tn} 7 plus the \glsentrytext{npc}'s \roll{Dexterity}{Melee}.
+  A battle-ready \glsentrytext{witch} might encourage a warrior's torch to burn his own face off, or make him forget what he wanted to do a moment before his sword comes down},
+}
+
+\longnewglossaryentry{ingredient}{
+  name={Ingredients},
+  text={Ingredient},
+  prefix={an\space},
+  nonumberlist,
+  category={indexed},
+  parent={alchemy},
+  type={mech},
+  description={are the basic materials used to make any \glsentrytext{boon}, or \glsentrytext{talisman}, and for lots of medicines.
+  Each has an elemental affinity, so a Fire Ingredient can only make a Fire \glsentrytext{boon}},
+}
+
+\longnewglossaryentry{boon}{
+  name={Concoctions},
+  text={Concoction},
+  prefix={a\space},
+  sort={concoction},
+  parent={alchemy},
+  category={indexed},
+  type={mech},
+  description={are liquids or powders which, when thrown in the air, hyper-charge the use of a single magic \glsentrytext{sphere}, for anyone present next to the burst.
+  For example, a concoction to boost the Air \glsentrytext{sphere} would mean a caster with Air 2 could cast a single spell as if they had Air 3.
+  Using one in combat requires at least one \glsentrytext{ap} to grab it, and another to dispurse it into the air},
+}
+
+\longnewglossaryentry{elixir}{
+  name={Elixirs},
+  text={elixir},
+  prefix={an\space},
+  parent={alchemy},
+  category={indexed},
+  type={mech},
+  description={heal diseases.
+  Each one requires a particular type of \glsentrytext{ingredient} to heal a particular disease},
+}
+
+\longnewglossaryentry{talisman}{
+  prefix={a\space},
+  name={Talismans},
+  text={Talisman},
+  first={talisman (a one-use alchemical item)},
+  firstplural={talismans (one-use alchemical items)},
+  sort={Talisman},
+  category={indexed},
+  type={mech},
+  parent={alchemy},
+  description={are spells, locked in an item, along with some activation condition.
+  A talisman could open a magical gateway once it reaches a certain location, or bless the first person it sees with good luck.
+  Many will strike the nearest, available target once activated, which makes them dangerous in the wrong hands},
+}
+
+\longnewglossaryentry{artefact}{
+  name={Artefacts},
+  text={Artefact},
+  prefix={an\space},
+  type={mech},
+  parent={alchemy},
+  description={happen, often by accident, when someone imbues sentience into an unused \glsentrytext{talisman}, then leaves it to contemplate its existence for a century.
+  spells given sentience, and function as long-term magical items.
+  They frequently go awry, as they have a mind of their own, and their own wishes and values},
+}
+
 
 %%%%%%%%%%%%%%%% General Terms %%%%%%%%%%%%%%%%%%%%
 
@@ -992,88 +1090,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   type={main},
 ]{gmt}{GMT}{Gnomish Machine Time}
 
-\longnewglossaryentry{alchemy}{
-  prefix={an\space},
-  name={Alchemy},
-  symbol={\glsentrytext{R}},
-  text={alchemy},
-  sort={Alchemy},
-  description={is what alchemists do},
-}
-
-\longnewglossaryentry{sphere}{
-  name={Spheres},
-  prefix={a\space},
-  parent={witchcraft},
-  type={mech},
-  description={divide the world into meaningful parts.
-  The five elemental Spheres are Fire, Air, Fate, Water, and Earth.
-  Each pair joins its neighbours, making the high Spheres; Light, Death, Mind, Life, and Force
-
-  If a caster can think of a way to use any Sphere to stop an attack, they can enter combat as usual with their \roll{Charisma}{Sphere}, rolling at \glsentrytext{tn} 7 plus the \glsentrytext{npc}'s \roll{Dexterity}{Melee}.
-  A battle-ready \glsentrytext{witch} might encourage a warrior's torch to burn his own face off, or make him forget what he wanted to do a moment before his sword comes down},
-}
-
-\longnewglossaryentry{ingredient}{
-  name={Ingredients},
-  text={Ingredient},
-  prefix={an\space},
-  nonumberlist,
-  category={indexed},
-  parent={witchcraft},
-  type={mech},
-  description={are the basic materials used to make any \glsentrytext{boon}, or \glsentrytext{talisman}, and for lots of medicines.
-  Each has an elemental affinity, so a Fire Ingredient can only make a Fire \glsentrytext{boon}},
-}
-
-\longnewglossaryentry{boon}{
-  name={Concoctions},
-  text={Concoction},
-  prefix={a\space},
-  sort={concoction},
-  parent={ingredient},
-  category={indexed},
-  type={mech},
-  description={are liquids or powders which, when thrown in the air, hyper-charge the use of a single magic \glsentrytext{sphere}, for anyone present next to the burst.
-  For example, a concoction to boost the Air \glsentrytext{sphere} would mean a caster with Air 2 could cast a single spell as if they had Air 3.
-  Using one in combat requires at least one \glsentrytext{ap} to grab it, and another to dispurse it into the air},
-}
-
-\longnewglossaryentry{elixir}{
-  name={Elixirs},
-  text={elixir},
-  prefix={an\space},
-  parent={ingredient},
-  category={indexed},
-  type={mech},
-  description={heal diseases.
-  Each one requires a particular type of \glsentrytext{ingredient} to heal a particular disease},
-}
-
-\longnewglossaryentry{talisman}{
-  prefix={a\space},
-  name={Talismans},
-  text={Talisman},
-  first={talisman (a one-use alchemical item)},
-  firstplural={talismans (one-use alchemical items)},
-  sort={Talisman},
-  category={indexed},
-  parent={alchemy},
-  description={are spells, locked in an item, along with some activation condition.
-  A talisman could open a magical gateway once it reaches a certain location, or bless the first person it sees with good luck.
-  Many will strike the nearest, available target once activated, which makes them dangerous in the wrong hands},
-}
-
-\longnewglossaryentry{artefact}{
-  name={Artefacts},
-  text={Artefact},
-  prefix={an\space},
-  parent={alchemy},
-  description={happen, often by accident, when someone imbues sentience into an unused \glsentrytext{talisman}, then leaves it to contemplate its existence for a century.
-  spells given sentience, and function as long-term magical items.
-  They frequently go awry, as they have a mind of their own, and their own wishes and values},
-}
-
 \longnewglossaryentry{cycle}{
   name={Cycles},
   text={cycle},
@@ -1116,15 +1132,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   parent={lonelyRoad},
   description={exist on long stretches of empty road, where enough traders pass through to create a miniature settlement, sustained only by the goods people bring.
   They make their own ale, and keep their own laws},
-}
-
-\longnewglossaryentry{witch}{
-  name={Witch},
-  text={witch},
-  plural={witches},
-  prefix={a\space},
-  parent={alchemy},
-  description={simply means any spell-caster, often used as a derogatory term for a dishonoured \glsentrytext{doula}},
 }
 
 \longnewglossaryentry{deep}{
