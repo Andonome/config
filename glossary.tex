@@ -253,12 +253,15 @@ This collection is all you will need for this book.}
 % Stories
 
 \longnewglossaryentry{storypoint}{
-  sort={T3.3},
   name={Story Points},
   text={Story Point},
   type={mech},
   prefix={a\space},
-  description={allow players to declare that some part of their backstory arrives on scene to help the situation. They also grant 5~\glsfmtlongpl{xp}},
+  parent={campaign},
+  description={allow players to declare that some part of their backstory arrives on scene to help the situation.
+  This could be knowing an ally, an obscure fact, or another language.
+
+  Spending a Story Point grants 5~\glsfmtlongpl{xp}},
 }
 
 \newacronym[
@@ -287,8 +290,8 @@ This collection is all you will need for this book.}
   type={mech},
   category={rules},
   parent={storypoint},
-  description={is the collection of characters a player has.
-  Players introduce new characters as allies by spending \glsfmtplural{storypoint}, then once their character dies, they take their next \glsentrytext{pc} from the pool},
+  description={is the collection of allies the player has introduced.
+  Once the \glsentrytext{pc} dies, the player takes their next \glsentrytext{pc} from the pool},
 }
 
 % Space
