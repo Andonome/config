@@ -137,8 +137,8 @@ This collection is all you will need for this book.}
   prefix={a\space},
   type={mech},
   parent={trait},
-  description={show training.  Characters perform tasks by rolling $2D6$ plus \glsentrytext{attribute} plus Skill.
-  Each Skill helps with many tasks, depending on the \glsentrytext{attribute} paired with},
+  nonumberlist,
+  description={each help with many different tasks, depending on the \glsentrytext{attribute} paired with},
   }
 
 
@@ -339,10 +339,7 @@ This collection is all you will need for this book.}
   type={mech},
   category={rules},
   prefix={an\space},
-  description={When players want their \glsentrytext{pc} to attempt something dangerous, they roll $2D6$ plus \glsentrytext{attribute}, plus \glsentrytext{skill}.
-    If the roll beats the \glsentrytext{tn}, the character gets the prize;
-    if the roll is under, they get the danger.
-    When a roll hits the \glsentrytext{tn} \textit{exactly}, the player chooses both or neither},
+  description={When players want their \glsentrytext{pc} to attempt something risky, they roll $2D6$ plus \glsentrytext{attribute}, plus \glsentrytext{skill}},
 }
 
 \newacronym[
@@ -379,7 +376,7 @@ This collection is all you will need for this book.}
 
   If someone tries to figure out how to find their way out of the forest, and back to a road, the player could roll `\twoDice{4}'.
   With a +3 Bonus, the total is `7'.
-  The next character has a +2 Bonus, so their total is `8'.
+  The next character has a +2 Bonus, so their total is `6'.
   With the \glsentrytext{tn} set at `10', the group cannot find their way back without changing their approach},
   }
 
@@ -394,7 +391,7 @@ This collection is all you will need for this book.}
   description={start at \glsentrytext{tn}~7, then add the \glsentrytext{npc}'s Bonuses.
     For example, a player declares their \glsentrytext{pc} wants to demand a new sword, but the \glsentrytext{gm} thinks the \glsentrytext{jotter} will just reflexively lie about supplies running low.
 
-    The \glsentrytext{jotter}'s \roll{Wits}{Deceit} come to~+2 in total, so the \glsentrytext{tn} is ($7 + 2 =$) 10},
+    The \glsentrytext{jotter}'s \roll{Wits}{Deceit} come to~+2 in total, so the \glsentrytext{tn} is ($7 + 2 =$) 9},
 }
 
 \longnewglossaryentry{restingaction}{
@@ -456,7 +453,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
     \marchingChart
     An expedient troupe might add 2~miles each \gls{interval}, and eat nothing but dry rations, so they can march instead of cooking in the evening.
     With 3~\glspl{interval} of movement, the troupe could travel 21~miles in total.
-    The night would allow them to remove \pgls{ep}, but the day would add 6 more, so they won't be moving like that for long},
+    The night would allow them to remove 1~\glsentrytext{ep}, but the day would add 6 more, so they won't be moving like that for long},
 }
 
 \longnewglossaryentry{vigil}{
@@ -817,6 +814,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={Weight},
   first={Weight Rating},
   prefix={a\space},
+  sort={A},
   type={mech},
   nonumberlist,
   parent={equipment},
@@ -1553,6 +1551,8 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   prefix={a\space},
   parent={templeOfSickness},
   category={profession},
+  sort={3},
+  nonumberlist,
   description={tend to the sick and dying, on behalf of the \glsentrytext{healersGuild}.
   The temple only takes on new people from those with a disability of some kind, so the grounds are maximally accessible to everyone.
   The \glsentrytext{guard} who endure permanent injuries often retire as Helpers},
@@ -1795,6 +1795,8 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   prefix={an\space},
   parent={templeOfHate},
   category={profession},
+  sort={3},
+  nonumberlist,
   description={work in the \glsentrytext{armourHall} and guard civilization from death by Hate, with a combination of excellent armour, and diplomatic skills},
 }
 
@@ -1838,6 +1840,8 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   prefix={a\space},
   parent={templeOfCuriosity},
   category={profession},
+  sort={3},
+  nonumberlist,
   description={are anyone who works for the \glsentrytext{paperGuild}.
   Most spend their time making books or soap},
 }
