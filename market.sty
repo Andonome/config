@@ -39,6 +39,7 @@
 }
 
 \newcommand\rareMarketItem[4][9]{%
+  \randomize%
   \ifnum\value{r12}>#1%
     \marketItem{#2}{#3}{#4}%
   \fi%

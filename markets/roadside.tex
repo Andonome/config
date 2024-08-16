@@ -1,36 +1,21 @@
 \section*{\Glsfmttext{village} Market}
 
-\begin{multicols}{2}
-
 \noindent
 All purchases in \pgls{village} require a full morning or afternoon.
 Farmers chat, then barter, and finally refer the buyer to a neighbour.
 
 \Glspl{village} have $1D6\times 10$ of each item with \glsentrytext{weight} 0, $2D6$ of each item with \glsentrytext{weight} 1, and $1D6$ of each heavier items.
 
-\begin{nametable}[Xcc]{\glsentrysymbol{sable}~At the Weavers, with \composeHumanName\ from the \glsentrytext{templeOfFrost}}
+\begin{multicols}{3}
 
-  \textbf{Clothing} & \textbf{Weight} & \textbf{Cost} \\\hline
+\begin{boxtable}[Lc]
 
-  Itchy clothes &  1 & \mkPrice[cp]{30} \\
+\textbf{Services} & \textbf{Cost} \\\hline
+\composeHumanName, the archer & \mkPrice{1} per mile \\
 
-  Travellers clothes &  1 & \ifnum\value{temperature}>0\mkPrice[cp]{60}\else\mkPrice[cp]{80}\fi \\
-  \ifnum\value{r12}>8
-    \marketItem{Orange Travelling Robes}{0}{20}
-    \ifnum\value{r12}>11
-      \marketItem{Red Travelling Robes}{0}{22}
-    \fi
-  \fi
-  \hline
+\composeHumanName, local guide & \mkPrice[cp]{50} per mile \\
 
-  \marketItem[cp]{Bandages}{0}{4}
-  \ifnum\value{r12}>10
-    \hline
-    \marketItem{Rope, 20'}{0}{2}
-  \fi
-  \marketItem{Rope, 50'}{1}{3}
-
-\end{nametable}
+\end{boxtable}
 
 \randomize
 
@@ -69,15 +54,6 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
   \end{boxtable}
 \fi
 
-\begin{boxtable}[Lc]
-
-\textbf{Services} & \textbf{Cost} \\\hline
-\composeHumanName, the archer & \mkPrice{1} per mile \\
-
-\composeHumanName, local guide & \mkPrice[cp]{50} per mile \\
-
-\end{boxtable}
-
 \begin{nametable}[Xcc]{\composeHumanName's Wood Salvage Goods}
 
   \textbf{Travel} & \textbf{Weight} & \textbf{Cost} \\\hline
@@ -100,18 +76,65 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
 
   Hearty meal with the \composeHumanName\ family and \arabic{r12} kids & \ifnum\value{temperature}>0\mkPrice[cp]{2}\else\mkPrice[cp]{4}\fi \\
 
-  \rations & \mkPrice[cp]{15} \\
+  Hardened \rations & \mkPrice[cp]{15} \\
 
-  \rations & \mkPrice[cp]{15} \\
+  Salty \rations & \mkPrice[cp]{15} \\
 
 \end{boxtable}
 
 \end{multicols}
 
-\ifodd\value{r3}
-  \begin{nametable}[XXXXXX]{\composeHumanName's Weaponry}
+\begin{multicols}{2}
 
-  \textbf{Name} & \textbf{Attack Bonus} & \textbf{Damage Bonus} & \textbf{\Glsfmtshort{ap} Cost} & \textbf{Weight} & \textbf{Cost} \\\hline
+\randomize
+\ifnum\value{r4b}>2
+  \begin{nametable}[Xcccc]{At \composeHumanName\ the Tanner's}
+    \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{\glsentrytext{covering}} & \textbf{Weight} & \textbf{Cost} \\\hline
+    \showArmourPrice{\partialleather}{5}%
+    \showArmourPrice{\completeleather}{11}%
+    \showArmourPrice{\partiallisk}{31}%
+  \end{nametable}
+\else
+  \begin{nametable}[XXX]{Retired \Glsentrytext{ranger} \composeHumanName's Tents}
+    \textbf{Size} & \textbf{Weight} & \textbf{Cost} \\\hline
+    \rareMarketItem{Hardened half-yurt (\glsentrytext{dr} 4)}{3}{12}
+    \rareMarketItem{Tent for 4}{4}{8}
+    \rareMarketItem{Tent for 3}{3}{6}
+    \rareMarketItem{Tent for 2}{2}{4}
+    \marketItem{Tent for 1}{1}{3}
+  \end{nametable}
+\fi
+
+\begin{nametable}[Xcc]{\glsentrysymbol{sable}~At the Weavers, with \composeHumanName\ from the \glsentrytext{templeOfFrost}}
+
+  \textbf{Clothing} & \textbf{Weight} & \textbf{Cost} \\\hline
+
+  Itchy clothes &  1 & \mkPrice[cp]{30} \\
+
+  Travellers clothes & 1 & \ifnum\value{temperature}>0\mkPrice[cp]{60}\else\mkPrice[cp]{80}\fi \\
+  \ifnum\value{r12}>8
+    \marketItem{Orange Travelling Robes}{0}{20}
+    \ifnum\value{r12}>11
+      \marketItem{Red Travelling Robes}{0}{22}
+    \fi
+  \fi
+  \hline
+
+  \marketItem[cp]{Bandages}{0}{4}
+  \ifnum\value{r12}>10
+    \hline
+    \marketItem{Rope, 20'}{0}{2}
+  \fi
+  \marketItem{Rope, 50'}{1}{3}
+
+\end{nametable}
+
+\end{multicols}
+
+\ifodd\value{r3}
+  \begin{nametable}[XXXXXc]{\composeHumanName's Weaponry}
+
+  \textbf{Name} & \textbf{Attack} & \textbf{Damage} & \textbf{\Glsfmtshort{ap} Cost} & \textbf{\Glsfmttext{weight}} & \textbf{Cost} \\\hline
 
   \Dagger\weaponName & \arabic{weaponBonus} & \arabic{weaponDamage} & \arabic{heft} & \arabic{weaponWeight} & \mkPrice{2} \\
 
@@ -124,7 +147,7 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
   \end{nametable}
 \fi
 
-\ifnum\value{r4b}>2
+\ifnumcomp{\value{r4b}}{>}{2}{%
   \begin{nametable}[XXXXc]{\glsentrysymbol{wrecan}~At \composeHumanName\ the Smith's}
     \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{\glsentrytext{covering}} & \textbf{Weight} & \textbf{Cost} \\\hline
     \ifnum\value{r3}>11
@@ -132,7 +155,7 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
     \fi
     \showArmourPrice{\partialchain}{18}%
   \end{nametable}
-\else
+}{
   \ifnum\value{r12}>9
     \glssymbol{sylf}
     \begin{nametable}[XYYYXl]{\glsentrysymbol{sylf}~At \composeHumanName, the Fletcher's}
@@ -162,22 +185,4 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
 
     \end{boxtable}
   \fi
-\fi
-
-\ifnum\value{r4b}>2
-  \begin{nametable}[XXXXX]{At \composeHumanName\ the Tanner's}
-    \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{\glsentrytext{covering}} & \textbf{Weight} & \textbf{Cost} \\\hline
-    \showArmourPrice{\partialleather}{5}%
-    \showArmourPrice{\completeleather}{11}%
-    \showArmourPrice{\partiallisk}{31}%
-  \end{nametable}
-
-  \begin{nametable}[XXX]{Retired \Glsentrytext{ranger} \composeHumanName's Tents}
-    \rareMarketItem{Hardened half-yurt (dr 4)}{3}{12}
-    \rareMarketItem{Tent for 4}{4}{8}
-    \rareMarketItem{Tent for 3}{3}{6}
-    \rareMarketItem{Tent for 2}{2}{4}
-    \marketItem{Tent for 1}{1}{3}
-  \end{nametable}
-\fi
-
+}
