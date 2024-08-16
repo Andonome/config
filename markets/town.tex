@@ -7,9 +7,9 @@
 
 \section*{Town Market}
 
-\begin{multicols}{2}
+\begin{multicols}{3}
 
-\begin{nametable}[Xcc]{\glsentrysymbol{sable}~At the \glsentrytext{templeOfFrost}}
+\begin{nametable}[Lcc]{\glsentrysymbol{sable}~At the \glsentrytext{templeOfFrost}}
 
   \textbf{Clothing} & \textbf{Weight} & \textbf{Cost} \\\hline
 
@@ -33,7 +33,7 @@
 \ifnum\value{r12}>7
 \noindent
 \begin{minipage}{\linewidth}
-  \begin{nametable}[Xcc]{\glsentrysymbol{nulla}~\composeHumanName's \glsentrytext{doulaShop}}
+  \begin{nametable}[Lcc]{\glsentrysymbol{nulla}~\composeHumanName's \glsentrytext{doulaShop}}
     \textbf{Things on shelves} & \textbf{Weight} & \textbf{Cost} \\\hline
     \rareMarketItem[9]{Air \Glsentrytext{ingredient}}{1}{23}%
     \rareMarketItem[9]{Fire \Glsentrytext{ingredient}}{1}{23}%
@@ -66,20 +66,20 @@
 
 \end{nametable}
 
-\begin{boxtable}[Lc]
+\begin{nametable}[Lc]{Central Square}
 
-  \textbf{Services in the Market} & \textbf{Cost} \\\hline
-  Boat trip with \ifnum\value{r3}=3 the \composeHumanName\ sisters\else \composeHumanName\fi & \mkPrice[cp]{14} per mile \\
+  \textbf{Service} & \textbf{Cost} \\\hline
+  Boat trip with \ifnum\value{r3}=3 the \composeHumanName\ sisters\else \composeHumanName\fi & \mkPrice[cp]{14}/ mile \\
 
-  Performance by \composeHumanName, the Minstrel & \mkPrice[cp]{90} per song \\
+  Performance by \composeHumanName, the Minstrel & \mkPrice[cp]{90}/ song \\
 
-  New song composition & \mkPrice{4} per song \\
+  New song composition & \mkPrice{4}/ song \\
 
   Cock fighting & \mkPrice[cp]{4} \\
 
   \footnotesize \composeHumanName, the Fence & \footnotesize 50\% and \tiny shhh \\
 
-\end{boxtable}
+\end{nametable}
 
 \begin{nametable}[Xcc]{At the Docks}
 
@@ -89,7 +89,7 @@
   Fake town-pass & 0 & \mkPrice{4} \\
 \end{nametable}
 
-\begin{nametable}[Xcc]{\glsentrysymbol{yonder}~At the \glsentrytext{templeOfCuriosity}}
+\begin{nametable}[Lcc]{\glsentrysymbol{yonder}~At the \glsentrytext{templeOfCuriosity}}
 
   \textbf{Item} & \textbf{Weight} & \textbf{Cost} \\\hline
 
@@ -105,7 +105,6 @@
 
 \end{nametable}
 
-\begin{multicols}{2}
 \begin{nametable}[Xc]{\composeHumanName's Inn}
 
   \textbf{Hospitality} & \textbf{Cost} \\\hline
@@ -178,8 +177,6 @@
 
 \end{nametable}
 
-\end{multicols}
-
 \begin{nametable}[Xcl]{\glsentrysymbol{eldren}~At the \Glsentrytext{templeOfSickness}}
 
   \textbf{Cure} & \textbf{\Glsentrytext{weight}} & \textbf{Cost} \\\hline
@@ -236,7 +233,8 @@
   Crossbow &  +2  & +2 & 1~\glspl{ap} & 3  & \mkPrice{16}  \\
 \end{boxtable}
 
-\begin{nametable}[XXXXc]{\glsentrysymbol{wrecan}~At the \Glsentrytext{templeOfHate}}
+\begin{multicols}{2}
+\begin{nametable}[Xcccc]{\glsentrysymbol{wrecan}~At the \Glsentrytext{templeOfHate}}
   \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{\glsentrytext{covering}} & \textbf{Weight} & \textbf{Cost} \\\hline
   \showArmourPrice{\partialchain}{14}%
   \rareArmour[5]{\completechain}{24}%
@@ -244,7 +242,7 @@
   \rareArmour[9]{\completeplate}{66}%
 \end{nametable}
 
-\begin{nametable}[XXXXX]{\glsentrysymbol{wrecan}~At the Tanner's}
+\begin{nametable}[Xcccc]{\glsentrysymbol{wrecan}~At the Tanner's}
   \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{\glsentrytext{covering}} & \textbf{Weight} & \textbf{Cost} \\\hline
   \showArmourPrice{\partialleather}{5}%
   \showArmourPrice{\completeleather}{11}%
@@ -252,3 +250,4 @@
   \rareArmour[8]{\completelisk}{50}%
 \end{nametable}
 
+\end{multicols}
