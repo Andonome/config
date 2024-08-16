@@ -49,6 +49,7 @@ paralist \
 csvsimple \
 fancyvrb \
 babel-english \
+babel-german \
 gobble \
 titlesec \
 fancyhdr \
