@@ -9,7 +9,8 @@
 
 \begin{multicols}{3}
 
-\begin{nametable}[Lcc]{\glsentrysymbol{sable}~At the \glsentrytext{templeOfFrost}}
+\renewcommand\npcsymbol{\glsentrysymbol{sable}}
+\begin{nametable}[Lcc]{At the \glsentrytext{templeOfFrost}}
 
   \textbf{Clothing} & \textbf{Weight} & \textbf{Cost} \\\hline
 
@@ -24,6 +25,7 @@
   \hline
   \ifnum\value{temperature}=0
     \marketItem[cp]{Rations for a day}{1}{5}
+    \marketItem[cp]{Warm clothes}{2}{17}
   \fi
 
 \end{nametable}
@@ -33,26 +35,26 @@
 \ifnum\value{r12}>7
 \noindent
 \begin{minipage}{\linewidth}
-  \begin{nametable}[Lcc]{\glsentrysymbol{nulla}~\composeHumanName's \glsentrytext{doulaShop}}
+  \renewcommand\npcsymbol{\glsentrysymbol{nulla}}
+  \begin{nametable}[Lcc]{\composeHumanName's \glsentrytext{doulaShop}}
     \textbf{Things on shelves} & \textbf{Weight} & \textbf{Cost} \\\hline
-    \rareMarketItem[9]{Air \Glsentrytext{ingredient}}{1}{23}%
-    \rareMarketItem[9]{Fire \Glsentrytext{ingredient}}{1}{23}%
-    \rareMarketItem[9]{Earth \Glsentrytext{ingredient}}{1}{23}%
-    \rareMarketItem[9]{Water \Glsentrytext{ingredient}}{1}{23}%
-    \rareMarketItem[9]{Fate \Glsentrytext{ingredient}}{1}{23}%
-    \rareMarketItem[9]{Air \Glsentrytext{boon}}{1}{24}%
-    \rareMarketItem[9]{Fire \Glsentrytext{boon}}{1}{24}%
-    \rareMarketItem[8]{Earth \Glsentrytext{boon}}{1}{24}%
-    \rareMarketItem[9]{Water \Glsentrytext{boon}}{1}{24}%
-    \rareMarketItem[9]{Fate \Glsentrytext{boon}}{1}{24}%
+    \rareMarketItem{Air \Glsentrytext{ingredient}}{1}{23}%
+    \rareMarketItem{Fire \Glsentrytext{ingredient}}{1}{23}%
+    \rareMarketItem{Earth \Glsentrytext{ingredient}}{1}{23}%
+    \rareMarketItem{Water \Glsentrytext{ingredient}}{1}{23}%
+    \rareMarketItem{Fate \Glsentrytext{ingredient}}{1}{23}%
+    \rareMarketItem{Air \Glsentrytext{boon}}{1}{24}%
+    \rareMarketItem{Fire \Glsentrytext{boon}}{1}{24}%
+    \rareMarketItem{Earth \Glsentrytext{boon}}{1}{24}%
+    \rareMarketItem{Water \Glsentrytext{boon}}{1}{24}%
+    \rareMarketItem{Fate \Glsentrytext{boon}}{1}{24}%
     \marketItem{Cup of tea}{0}{0}%
   \end{nametable}
 
-  The \gls{doula} will purchase \glsfmtplural{ingredient} for half the cost listed here.
-  She will also prepare \glsfmtplural{ingredient} to cure people for the price of the \glsentrytext{ingredient} plus a favour owed.
 \end{minipage}
 \fi
 
+\renewcommand\npcsymbol{\flourish}
 \begin{nametable}[Xc]{\composeHumanName's Working Beasts}
 
   \textbf{Beasts} & \textbf{Cost} \\\hline
@@ -81,6 +83,7 @@
 
 \end{nametable}
 
+\renewcommand\npcsymbol{\flourish}
 \begin{nametable}[Xcc]{At the Docks}
 
   \textbf{Items} & \textbf{\Glsentrytext{weight}} & \textbf{Cost} \\\hline
@@ -89,7 +92,8 @@
   Fake town-pass & 0 & \mkPrice{4} \\
 \end{nametable}
 
-\begin{nametable}[Lcc]{\glsentrysymbol{yonder}~At the \glsentrytext{templeOfCuriosity}}
+\renewcommand\npcsymbol{\glsentrysymbol{yonder}}
+\begin{nametable}[Lcc]{At the \glsentrytext{templeOfCuriosity}}
 
   \textbf{Item} & \textbf{Weight} & \textbf{Cost} \\\hline
 
@@ -105,6 +109,8 @@
 
 \end{nametable}
 
+
+\renewcommand\npcsymbol{\glsentrysymbol{abderian}}
 \begin{nametable}[Xc]{\composeHumanName's Inn}
 
   \textbf{Hospitality} & \textbf{Cost} \\\hline
@@ -123,6 +129,7 @@
 
 \end{nametable}
 
+\renewcommand\npcsymbol{\glsentrysymbol{abderian}}
 \begin{nametable}[Xc]{\composeHumanName's Tavern}
   \textbf{Hospitality} & \textbf{Cost} \\\hline
 
@@ -143,6 +150,7 @@
   \fi
 \end{nametable}
 
+\renewcommand\npcsymbol{\glsentrysymbol{abderian}}
 \begin{nametable}[Xc]{\composeHumanName's Tavern}
   \textbf{Hospitality} & \textbf{Cost} \\\hline
 
@@ -163,6 +171,7 @@
   \fi
 \end{nametable}
 
+\renewcommand\npcsymbol{\flourish}
 \begin{nametable}[Xc]{\composeHumanName's Inn}
 
   \textbf{Hospitality} & \textbf{Cost} \\\hline
@@ -177,7 +186,8 @@
 
 \end{nametable}
 
-\begin{nametable}[Xcl]{\glsentrysymbol{eldren}~At the \Glsentrytext{templeOfSickness}}
+\renewcommand\npcsymbol{\glsentrysymbol{eldren}}
+\begin{nametable}[Xcl]{At the \Glsentrytext{templeOfSickness}}
 
   \textbf{Cure} & \textbf{\Glsentrytext{weight}} & \textbf{Cost} \\\hline
 
@@ -195,8 +205,22 @@
 
 \end{nametable}
 
+\renewcommand\npcsymbol{\glsentrysymbol{paik}}
+\begin{nametable}[Lc]{\Glsentrytext{court}}
+  \textbf{Service} & \textbf{Cost} \\\hline
+  Front-row seat & 6~\glsfmtplural{cp} \\
+
+  Back-row seat & 3~\glsfmtplural{cp} \\
+
+  Rotten tomatoes & 1~\glsfmttext{cp} \\
+
+  Snacks & 3~\glsfmtplural{cp} \\
+
+\end{nametable}
+
 \end{multicols}
 
+\renewcommand\npcsymbol{\glsentrysymbol{paik}}
 \begin{nametable}[XXXXXX]{Ex-\Gls{sunGuard} Arms Sales}
 
   \textbf{Name} & \textbf{Attack Bonus} & \textbf{Damage Bonus} & \textbf{\Glsfmtshort{ap} Cost} & \textbf{Weight} & \textbf{Cost} \\\hline
@@ -234,7 +258,8 @@
 \end{boxtable}
 
 \begin{multicols}{2}
-\begin{nametable}[Xcccc]{\glsentrysymbol{wrecan}~At the \Glsentrytext{templeOfHate}}
+\renewcommand\npcsymbol{\glsentrysymbol{wrecan}}
+\begin{nametable}[Xcccc]{At the \Glsentrytext{templeOfHate}}
   \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{\glsentrytext{covering}} & \textbf{Weight} & \textbf{Cost} \\\hline
   \showArmourPrice{\partialchain}{14}%
   \rareArmour[5]{\completechain}{24}%
@@ -242,7 +267,8 @@
   \rareArmour[9]{\completeplate}{66}%
 \end{nametable}
 
-\begin{nametable}[Xcccc]{\glsentrysymbol{wrecan}~At the Tanner's}
+\renewcommand\npcsymbol{\glsentrysymbol{wrecan}}
+\begin{nametable}[Xcccc]{At the Tanner's}
   \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{\glsentrytext{covering}} & \textbf{Weight} & \textbf{Cost} \\\hline
   \showArmourPrice{\partialleather}{5}%
   \showArmourPrice{\completeleather}{11}%
