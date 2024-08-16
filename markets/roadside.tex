@@ -37,7 +37,7 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
 \ifnum\value{r12}>8
 \noindent
 \begin{minipage}{\linewidth}
-  \begin{nametable}[Xcc]{\glsentrysymbol{nulla}~At the Doula's}
+  \begin{nametable}[Xcc]{\glsentrysymbol{nulla}~At the \Glsentrytext{doulaShop}}
     \textbf{Things on shelves} & \textbf{Weight} & \textbf{Cost} \\\hline
     \rareMarketItem[9]{Air \Glsentrytext{ingredient}}{1}{23}%
     \rareMarketItem[9]{Fire \Glsentrytext{ingredient}}{1}{23}%
@@ -55,7 +55,7 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
 \fi
 
 \ifodd\value{r3}\else
-  \begin{boxtable}[Xc]
+  \begin{boxtable}[Lc]
 
     \textbf{Beasts} & \textbf{Cost} \\\hline
     Donkey & \mkPrice{4} \\
@@ -69,7 +69,7 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
   \end{boxtable}
 \fi
 
-\begin{boxtable}[Xc]
+\begin{boxtable}[Lc]
 
 \textbf{Services} & \textbf{Cost} \\\hline
 \composeHumanName, the archer & \mkPrice{1} per mile \\
@@ -92,7 +92,7 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
 
 \end{nametable}
 
-\begin{boxtable}[Xc]
+\begin{boxtable}[Lc]
 
   \textbf{Hospitality} & \textbf{Cost} \\\hline
 
@@ -147,7 +147,7 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
 
     \end{nametable}
   \else
-      \begin{boxtable}[XYYYXl]
+      \begin{boxtable}[LYYYXl]
 
         \textbf{Projectile} & Attack Bonus & \textbf{Damage} & \textbf{\Gls{ap} Cost} & \textbf{Weight} & \textbf{Cost} \\\hline
 
