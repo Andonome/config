@@ -80,7 +80,7 @@
 }
 
 \newcommand\showArmour[1]{%
-  #1 \armourName & \arabic{armourDR} & \arabic{covering} &  \arabic{armourWeight}
+  #1 \expandafter\MakeUppercase\armourName & \arabic{armourDR} & \arabic{covering} & \arabic{armourWeight}
 }
 
 \newcommand{\boulder}{\weapon[\addtocounter{armourWeight}{3}]{Boulder}{-3}{5}}
@@ -144,30 +144,30 @@
   \armour{partial leather}{3}{3}%
 }
 
-\newcommand{\completeleather}{
+\newcommand{\completeleather}{%
   \armour{complete leather}{3}{5}%
 }
 
-\newcommand{\partialchain}{
+\newcommand{\partialchain}{%
   \armour{partial chain}{4}{3}%
 }
 
-\newcommand{\completechain}{
+\newcommand{\completechain}{%
   \armour{complete chain}{4}{5}%
 }
 
-\newcommand{\partiallisk}{
+\newcommand{\partiallisk}{%
   \armour{partial lisk-hide}{4}{3}%
 }
 
-\newcommand{\completelisk}{
+\newcommand{\completelisk}{%
   \armour{complete lisk-hide}{4}{5}%
 }
 
-\newcommand{\partialplate}{
+\newcommand{\partialplate}{%
   \armour{partial plate}{5}{3}%
 }
 
-\newcommand{\completeplate}{
+\newcommand{\completeplate}{%
   \armour{complete plate}{5}{5}%
 }

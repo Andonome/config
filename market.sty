@@ -45,7 +45,7 @@
 }
 
 \newcommand\showArmourPrice[2]{%
-  #1\armourName & \arabic{armourDR} & \arabic{covering} & \arabic{armourWeight} & \mkPrice{#2} \\%
+  #1\expandafter\MakeUppercase\armourName & \arabic{armourDR} & \arabic{covering} & \arabic{armourWeight} & \mkPrice{#2} \\%
 }
 
 \newcommand\rareArmour[3][9]{
