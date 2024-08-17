@@ -25,6 +25,7 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
 
 \ifnum\value{r12}>8
 \noindent
+\renewcommand\npcsymbol{\glsentrysymbol{nulla}}
 \begin{minipage}{\linewidth}
   \begin{nametable}[Xcc]{\glsentrysymbol{nulla}~At the \Glsentrytext{doulaShop}}
     \textbf{Things on shelves} & \textbf{Weight} & \textbf{Cost} \\\hline
@@ -43,9 +44,11 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
 \end{minipage}
 \fi
 
+\renewcommand\npcsymbol{\flourish}
 \ifodd\value{r3}\else
   \begin{boxtable}[Lc]
 
+    \renewcommand\npcsymbol{\flourish}
     \textbf{Beasts} & \textbf{Cost} \\\hline
     Donkey & \mkPrice{4} \\
 
@@ -104,6 +107,7 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
     \showArmourPrice{\partiallisk}{31}%
   \end{nametable}
 \else
+  \renewcommand\npcsymbol{\glsentrysymbol{sylf}}
   \begin{nametable}[XXX]{Retired \Glsentrytext{ranger} \composeHumanName's Tents}
     \textbf{Size} & \textbf{Weight} & \textbf{Cost} \\\hline
     \rareMarketItem{Hardened half-yurt (\glsentrytext{dr} 4)}{3}{12}
@@ -116,7 +120,8 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
 
 \columnbreak
 
-\begin{nametable}[Xcc]{\glsentrysymbol{sable}~At the Weavers, with \composeHumanName\ from the \glsentrytext{templeOfFrost}}
+\renewcommand\npcsymbol{\glsentrysymbol{sable}}
+\begin{nametable}[Xcc]{At the Weavers, with \composeHumanName\ from the \glsentrytext{templeOfFrost}}
 
   \textbf{Clothing} & \textbf{Weight} & \textbf{Cost} \\\hline
 
@@ -158,8 +163,9 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
   \end{nametable}
 \fi
 
+\renewcommand\npcsymbol{\glsentrysymbol{wrecan}}
 \ifnumcomp{\value{r4b}}{>}{2}{%
-  \begin{nametable}[XXXXc]{\glsentrysymbol{wrecan}~At \composeHumanName\ the Smith's}
+  \begin{nametable}[XXXXc]{At \composeHumanName\ the Smith's}
     \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{\glsentrytext{covering}} & \textbf{Weight} & \textbf{Cost} \\\hline
     \ifnum\value{r3}>11
       \showArmourPrice{\completechain}{28}%
@@ -168,8 +174,8 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
   \end{nametable}
 }{
   \ifnum\value{r12}>9
-    \glssymbol{sylf}
-    \begin{nametable}[XYYYXl]{\glsentrysymbol{sylf}~At \composeHumanName, the Fletcher's}
+    \renewcommand\npcsymbol{\glsentrysymbol{sylf}}
+    \begin{nametable}[XYYYXl]{At \composeHumanName, the Fletcher's}
 
       \textbf{Projectile} & Attack Bonus & \textbf{Damage} & \textbf{\Gls{ap}} & \textbf{Weight} & \textbf{Cost} \\\hline
 
