@@ -17,12 +17,10 @@
   \marketItem{Orange Travelling Robes}{0}{15}
   \marketItem{Red Travelling Robes}{0}{17}
   \marketItem{Purple Travelling Robes}{0}{23}
+
   \hline
-
-  \marketItem[cp]{Bandages}{0}{2}
-
   \marketItem{Rope, 50'}{1}{2}
-  \hline
+  \marketItem[cp]{Bandages}{0}{2}
   \ifnum\value{temperature}=0
     \marketItem[cp]{Rations for a day}{1}{5}
     \marketItem[cp]{Warm clothes}{2}{17}
@@ -259,19 +257,19 @@
 \renewcommand\npcsymbol{\glsentrysymbol{wrecan}}
 \begin{nametable}[Xcccc]{At the \Glsentrytext{templeOfHate}}
   \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{\glsentrytext{covering}} & \textbf{Weight} & \textbf{Cost} \\\hline
-  \showArmourPrice{\partialchain}{14}%
   \rareArmour[5]{\completechain}{24}%
   \rareArmour[6]{\partialplate}{36}%
   \rareArmour[9]{\completeplate}{66}%
+  \showArmourPrice{\partialchain}{14}%
 \end{nametable}
 
 \renewcommand\npcsymbol{\glsentrysymbol{wrecan}}
 \begin{nametable}[Xcccc]{At the Tanner's}
   \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{\glsentrytext{covering}} & \textbf{Weight} & \textbf{Cost} \\\hline
-  \showArmourPrice{\partialleather}{5}%
-  \showArmourPrice{\completeleather}{11}%
   \rareArmour[6]{\partiallisk}{40}%
   \rareArmour[8]{\completelisk}{50}%
+  \showArmourPrice{\partialleather}{5}%
+  \showArmourPrice{\completeleather}{11}%
 \end{nametable}
 
 \end{multicols}
