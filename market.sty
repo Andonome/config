@@ -48,10 +48,8 @@
   #1\expandafter\MakeUppercase\armourName & \arabic{armourDR} & \arabic{covering} & \arabic{armourWeight} & \mkPrice{#2} \\%
 }
 
-\newcommand\rareArmour[3][9]{
-  \ifnum\value{r12}>#1%
-    \showArmour{#2} & \mkPrice{#3} \\
-  \fi%
+\newcommand\rareArmour[3][9]{%
+  \ifnumcomp{\value{r12}}{>}{#1}{ \showArmour{#2} & \mkPrice{#3} \\ }{}%
 }
 
 
