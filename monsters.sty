@@ -849,6 +849,24 @@
     {}% ABILITIES
 }
 
+\newcommand\morphhuman[1][\npc{\Hu\R}{Mutated Farmer}]{
+  \Person{#1}%
+    {{r3}{0}{0}}% BODY
+    {{rn1t2}{-1}{0}}% MIND
+    {%
+      \ifodd\value{r3}
+        \set{Melee}{1}
+      \else
+        \set{Projectiles}{1}
+      \fi
+      \set{Crafts}{r2}
+      \set{Cultivation}{2}
+    }% SKILLS
+    {\specialist{husbandry}}% KNACKS
+    {}% EQUIPMENT
+    {\mutation[2]{r4}}% ABILITIES
+}
+
 \newcommand{\morphcat}[1][\npc{\A\R}{Morph Cat}]{
   \Animal{#1}%
   {{r3b}{r3c}{r3t4}}% BODY
