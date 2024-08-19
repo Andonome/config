@@ -57,7 +57,7 @@
     \ifodd\value{r4}%
       \setcounter{Vigilance}{\value{r3b}}%
     \fi%
-    \setcounter{Wyldcrafting}{\value{r3}}%
+    \setcounter{Survival}{\value{r3}}%
   }% SKILLS
   {}% KNACKS
   {\octoped \web \hide{4}}% ABILITIES
@@ -95,7 +95,7 @@
   {0}% WITS
   {%
     \set{Athletics}{2}%
-    \set{Wyldcrafting}{2}%
+    \set{Survival}{2}%
   }% SKILLS
   {}% KNACKS
   {\teeth, \quadraped}% ABILITIES
@@ -110,7 +110,7 @@
     \set{Brawl}{r2}
     \set{Athletics}{2}
     \set{Stealth}{r4t6}
-    \set{Wyldcrafting}{r3}
+    \set{Survival}{r3}
     \set{Intelligence}{r3c}
     \addtocounter{Intelligence}{-6}
   }% SKILLS
@@ -226,7 +226,7 @@
       \set{Cultivation}{r2t3}
       \set{Deceit}{r2t3}
       \set{Medicine}{r3c}
-      \set{Wyldcrafting}{rn3t3}
+      \set{Survival}{rn3t3}
       \Dagger
       \set{Air}{rn1t2}
       \set{Fate}{r3c}
@@ -285,7 +285,7 @@
         \set{Crafts}{rn3t3}
         \set{Cultivation}{rn1t2}
         \set{Vigilance}{r2}
-        \set{Wyldcrafting}{rn1t2}
+        \set{Survival}{rn1t2}
       \else
         \set{Melee}{r3c}
         \set{Academics}{r2}
@@ -293,7 +293,7 @@
         \set{Performance}{r3}
         \set{Empathy}{r2c}
         \set{Seafaring}{r3c}
-        \set{Wyldcrafting}{r3b}
+        \set{Survival}{r3b}
       \fi
       \ifnum\value{r3}>1
         \set{Air}{rn1t2}
@@ -352,7 +352,7 @@
       \set{Performance}{r3}
       \set{Empathy}{r2c}
       \set{Seafaring}{r3c}
-      \set{Wyldcrafting}{r2c}
+      \set{Survival}{r2c}
       \set{Air}{rn1t2}
       \set{Fate}{rn3t3}
       \set{Water}{r2t3}
@@ -390,7 +390,7 @@
       \else
         \set{Athletics}{r2b}
       \fi
-      \set{Wyldcrafting}{rn3t3}
+      \set{Survival}{rn3t3}
     }% SKILLS
     {}% KNACKS
     {\lootMedium\ifodd\value{r12}, \lootGoblin\fi, \rations}% EQUIPMENT
@@ -455,7 +455,7 @@
       \else
         \set{Athletics}{r2b}
       \fi
-      \set{Wyldcrafting}{rn3t3}
+      \set{Survival}{rn3t3}
       \set{Air}{r2t3}
       \set{Fire}{r3}
       \set{Earth}{r3b}
@@ -526,7 +526,7 @@
       \else
         \set{Deceit}{1}
       \fi
-      \set{Wyldcrafting}{rn3t3}
+      \set{Survival}{rn3t3}
       \set{Cultivation}{rn1t2}
       \ifodd\value{r3b}
         \shortsword
@@ -553,7 +553,7 @@
       \set{Deceit}{r2c}
       \ifodd\value{r3b}
         \shortsword
-        \set{Wyldcrafting}{2}
+        \set{Survival}{2}
       \else
         \Dagger
         \set{Vigilance}{2}
@@ -580,7 +580,7 @@
       \set{Medicine}{r2t3}
       \set{Crafts}{r2c}
       \set{Cultivation}{2}
-      \set{Wyldcrafting}{rn1t2}
+      \set{Survival}{rn1t2}
       \ifnum\value{Charisma}>1
         \set{Fate}{r3b}
         \set{Water}{rn1t2}
@@ -610,7 +610,7 @@
         \set{Crafts}{r2c}
       \fi
       \set{Melee}{r2c}
-      \set{Wyldcrafting}{rn1t2}
+      \set{Survival}{rn1t2}
       \ifcase\value{Strength}\relax%
         \shortsword%
         \partialleather%
@@ -656,7 +656,7 @@
         \set{Crafts}{r2c}
       \fi
       \set{Projectiles}{2}
-      \set{Wyldcrafting}{rn1t2}
+      \set{Survival}{rn1t2}
       \set{Vigilance}{rn1t2}
       \ifodd\value{r4}
         \shortsword
@@ -682,7 +682,7 @@
       \fi
       \set{Melee}{r2c}
       \set{Brawl}{r2b}
-      \set{Wyldcrafting}{rn1t2}
+      \set{Survival}{rn1t2}
       \set{Stealth}{rn3t3}
       \set{Larceny}{r2}
       \ifcase\value{Strength}\relax%
@@ -754,7 +754,7 @@
       \ifodd\value{r3b}
         \set{Vigilance}{2}
       \else
-        \set{Wyldcrafting}{2}
+        \set{Survival}{2}
         \ifodd\value{r3c}
           \set{Xenomology}{1}
         \fi
@@ -792,7 +792,7 @@
         \set{Crafts}{r2c}
       \fi
       \set{Melee}{r2c}
-      \set{Wyldcrafting}{r3c}
+      \set{Survival}{r3c}
       \ifcase\value{Strength}\relax%
         \javelin%
       \or%
@@ -826,7 +826,7 @@
       \Dagger
       \set{Vigilance}{2}
       \set{Cultivation}{2}
-      \set{Wyldcrafting}{r2c}
+      \set{Survival}{r2c}
       \ifodd\value{r3c}
         \set{Air}{r3c}
         \set{Fate}{r2b}
@@ -878,7 +878,7 @@
     \ifodd\value{r4}%
       \setcounter{Vigilance}{\value{r2c}}%
     \fi%
-    \setcounter{Wyldcrafting}{\value{r2}}%
+    \setcounter{Survival}{\value{r2}}%
   }% SKILLS
   {\charge, \perfectsneakattack}% KNACKS
   {\quadraped \mutation[2]{r4}}% ABILITIES
@@ -894,7 +894,7 @@
     \ifodd\value{r4}%
       \setcounter{Vigilance}{\value{r2c}}%
     \fi%
-    \setcounter{Wyldcrafting}{\value{r2}}%
+    \setcounter{Survival}{\value{r2}}%
   }% SKILLS
   {\charge, \perfectsneakattack}% KNACKS
   {\quadraped \set{track}{r3} \mutation[2]{track}}% ABILITIES
@@ -924,7 +924,7 @@
     \ifodd\value{r4}%
       \setcounter{Vigilance}{\value{r3b}}%
     \fi%
-    \setcounter{Wyldcrafting}{\value{r3}}%
+    \setcounter{Survival}{\value{r3}}%
   }% SKILLS
   {}% KNACKS
   {\octoped \set{track}{r4} \mutation[3]{track}}% ABILITIES
@@ -940,7 +940,7 @@
     \ifodd\value{r4}%
       \setcounter{Vigilance}{\value{r3b}}%
     \fi%
-    \setcounter{Wyldcrafting}{\value{r3}}%
+    \setcounter{Survival}{\value{r3}}%
   }% SKILLS
   {}% KNACKS
   {\set{track}{r2} \mutation[2]{track}}% ABILITIES
@@ -953,7 +953,7 @@
   {%
     \set{Brawl}{r3c}%
     \set{Athletics}{r3b}%
-    \setcounter{Wyldcrafting}{\value{r2}}%
+    \setcounter{Survival}{\value{r2}}%
   }% SKILLS
   {\charge, \perfectsneakattack}% KNACKS
   {\quadraped \set{track}{r4} \mutation[2]{track}}% ABILITIES
@@ -966,7 +966,7 @@
   {%
     \set{Brawl}{r3c}%
     \set{Athletics}{r3b}%
-    \set{Wyldcrafting}{r2c}%
+    \set{Survival}{r2c}%
     \set{Stealth}{r2b}%
   }% SKILLS
   {}% KNACKS
@@ -1186,7 +1186,7 @@
     \ifnum\value{noAppearing}>2
       \set{Strength}{r2c}
     \fi
-    \set{Wyldcrafting}{rn1t2}
+    \set{Survival}{rn1t2}
     \set{Stealth}{r2b}
   }% SKILLS
   {}% KNACKS
@@ -1208,7 +1208,7 @@
         \set{Athletics}{rn1t2}
       \fi
       \ifodd\value{r3}
-        \set{Wyldcrafting}{rn1t2}
+        \set{Survival}{rn1t2}
       \fi
       \set{Stealth}{r2b}
       \ifcase\value{Strength}\relax
@@ -1247,7 +1247,7 @@
       \ifodd\value{r3b}
         \set{Vigilance}{2}
       \else
-        \set{Wyldcrafting}{2}
+        \set{Survival}{2}
         \ifodd\value{r3c}
           \set{Xenomology}{1}
         \fi
@@ -1289,7 +1289,7 @@
       \set{Melee}{rn3t3}
       \set{Athletics}{r3b}
       \ifodd\value{r3}
-        \set{Wyldcrafting}{rn1t2}
+        \set{Survival}{rn1t2}
       \else
         \set{Caving}{r2}
       \fi
@@ -1329,7 +1329,7 @@
       \set{Caving}{r3}
       \set{Cultivation}{r2b}
       \ifodd\value{r3}
-        \set{Wyldcrafting}{rn1t2}
+        \set{Survival}{rn1t2}
       \else
         \set{Deceit}{r2}
       \fi
@@ -1468,7 +1468,7 @@
     \set{Athletics}{1}
     \set{Brawl}{r2c}
     \set{Vigilance}{rn1t2}
-    \set{Wyldcrafting}{rn3t3}
+    \set{Survival}{rn3t3}
   }% SKILLS
   {}% KNACKS
   {\hide{3} \quadraped}% ABILITIES
@@ -1576,7 +1576,7 @@
     \ifodd\value{r4}%
       \setcounter{Vigilance}{\value{r2c}}%
     \fi%
-    \setcounter{Wyldcrafting}{\value{r2}}%
+    \setcounter{Survival}{\value{r2}}%
   }% SKILLS
   {\unstoppable}% KNACKS
   {\crazyGas}% ABILITIES
