@@ -25,7 +25,7 @@ QR_CODE=\qrcode[height=.2\textwidth]{$(QR_TARGET)}
 COMPRESS = gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dNOPAUSE -dQUIET -dBATCH -dPrinted=false -sOutputFile=$@ $<
 
 CP := ln -f
-BOOK := $(shell basename "$$(pwd)")
+BOOK != basename "$(PWD)"
 LOCAL_DROSS := rubbish
 DROSS := ../$(LOCAL_DROSS)
 COMPILER := latexmk -file-line-error -auxdir=$(DROSS) -pdflua -interaction=nonstopmode -halt-on-error -shell-escape -r config/.latexmkrc -jobname=$(BOOK)
