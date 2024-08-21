@@ -1,3 +1,5 @@
+# Configurations and Templates
+
 These config files make the BIND RPG books look and act the way they do.
 
 # Dependencies

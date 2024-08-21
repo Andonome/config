@@ -1,6 +1,6 @@
-include vars
-
 output: docs.pdf
+
+include vars
 
 $(DROSS):
 	mkdir $(DROSS)
@@ -18,9 +18,6 @@ $(DROSS)/test.pdf: test.tex $(ALL_FILES)
 	$(RUN) test.tex
 	cd $(DROSS) && makeglossaries test
 	$(RUN) test.tex
-
-.switch-gls:
-	touch .switch-gls
 
 docs.pdf: images/wide.jpg $(ALL_FILES)
 	$(RUN) docs.tex
