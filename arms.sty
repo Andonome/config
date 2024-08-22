@@ -29,15 +29,17 @@
   \setcounter{heft}{#4}%
   \setcounter{weaponWeight}{#4}%
   \ifnum#3>-1% If the weapon's attack bonus is positive,
-    \addtocounter{heft}{#3}% add it to the AP cost and 
     \addtocounter{weaponWeight}{#3}% weight rating,
-    \addtocounter{weaponWeight}{#3}% weight rating again,
-    \roundUp{weaponWeight}% half weight rating
+    \addtocounter{weaponWeight}{-2}% weight rating,
+    \addtocounter{heft}{#3}% add it to the AP cost and 
     \roundUp{heft}% then the AP cost by 2.
   \fi%
   #1%
   \addtocounter{att}{\value{weaponBonus}}%
   \ifnum\value{heft}<1\setcounter{heft}1\fi%
+  \ifnum\value{weaponWeight}<#3\setcounter{weaponWeight}#3\fi%
+  \ifnum\value{weaponWeight}<1\setcounter{weaponWeight}1\fi%
+  \ifnum#4<0\addtocounter{weaponWeight}{-1}\fi%
   \renewcommand\weaponName{#2}%
 }
 
@@ -117,7 +119,7 @@
 
 % SHIELDS
 \newcommand{\buckler}{\weapon{Buckler}{2}{-2}}
-\newcommand{\roundshield}{\weapon{Round Shield}{2}{-1}}
+\newcommand{\roundshield}{\weapon{Round Shield}{2}{0}}
 \newcommand{\kiteshield}{\weapon{Kite Shield}{3}{0}}
 
 % RANGED WEAPONS
