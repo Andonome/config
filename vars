@@ -5,7 +5,7 @@ QR_CODE=\qrcode[height=.2\textwidth]{$(QR_TARGET)}
 COMPRESS = gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dNOPAUSE -dQUIET -dBATCH -dPrinted=false -sOutputFile=$@ $<
 
 CP := ln -f
-BOOK != basename "$(PWD)"
+BOOK != basename "$(shell pwd)"
 TITLE != head -1 README.md | tail -c+3 | tr ' ' '_'
 LOCAL_DROSS := rubbish
 DROSS = ../$(LOCAL_DROSS)
