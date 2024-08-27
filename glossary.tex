@@ -1058,6 +1058,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 }
 
 
+
 %%%%%%%%%%%%%%%% General Terms %%%%%%%%%%%%%%%%%%%%
 
 \longnewglossaryentry{ainumar}{
@@ -2043,6 +2044,113 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   sort={12},
   parent={cycle},
   description={ -- \glsentrytext{fenestra}'s twelfth and final season, before the \glsentrytext{cycle} starts again},
+}
+
+% Weather
+
+\longnewglossaryentry{weather}{
+  name={Weather},
+  prefix={a\space},
+  nonumberlist,
+  parent={fenestra},
+  description={can spell death for anyone who doesn't take it seriously.
+  Some of these cosmological terrors will lay waste to the underprepared, while others willl slowly sneak up on them},
+}
+
+\longnewglossaryentry{coldSnap}{
+  name={Cold Snaps},
+  text={cold snap},
+  prefix={a\space},
+  type={mech},
+  parent={weather},
+  description={can drain the life from characters and wildlife in a blink.
+  During the cold, each \glsentrytext{interval} without protection inflicts 2~\glsfmtplural{ep}.
+
+  The mass disturbances in the air, mixed with the darkness, creates a kind of magic in the air, which grants +1 to everyone's Fate \glsentrytext{sphere}},
+}
+
+\longnewglossaryentry{earthquake}{
+  name={Earthquakes},
+  text={earthquake},
+  prefix={an\space},
+  type={mech},
+  parent={weather},
+  description={can topple \glsentrytext{village} walls, houses collapse inward, and gnomish warrens have their planning tested from the foundations to the rooves.
+  Despite the shaking, most structures remain standing.
+  Architects in \glsentrytext{fenestra} design castles for quakes, and dwarvish settlements, down at the edge of the \glsentrytext{deep}, often feel nothing, as underground caverns don't shake during quakes as badly as the surface does.
+
+  When quakes break bedrock, everyone with the tiniest understanding of magic finds themselves able to speak to stone, at least a little, as rocks and ice start to wake up.
+  This time grants a +1 bonus to everyone's Earth \glsentrytext{sphere}, for the short duration of the quake},
+}
+
+\longnewglossaryentry{eclipse}{
+  name={Eclipses},
+  text={eclipse},
+  prefix={an\space},
+  type={mech},
+  parent={weather},
+  description={plunge \gls{fenestra} into sudden daytime darkness, as the \gls{ainumar} blocks the Sun.
+  For this entire \gls{interval}, the winds becomes more pliable, and anyone with a voice to speak gains +1 to their Air \glsentrytext{sphere}},
+}
+
+\longnewglossaryentry{flood}{
+  name={Floods},
+  text={flood},
+  prefix={a\space},
+  type={mech},
+  parent={weather},
+  description={ damage infrastructure worse than earthquakes.
+  They rot food, and degrade the foundations of houses in subtle ways, which only become apparent years later.
+  High fortifications remain untouched, but underground dwelling runs the risk of water pouring in from above, and driving everything inside up into the Sunlight.
+
+  \Glsentrytext{fenestra}'s predators seem to have an instinct for floods, and will camp outside any homely holes in their territories.
+
+  Travel during a flood poses serious problems -- any affected area will half the travellers' rate of movement.
+
+While floods occur, everyone gains a +1 Bonus to their Water \glsentrytext{sphere}},
+}
+
+\longnewglossaryentry{heatwave}{
+  name={Heatwave},
+  text={heatwave},
+  prefix={a\space},
+  type={mech},
+  parent={weather},
+  description={will turn most armour into a liability, as all travellers in direct Sunlight will endure 1~\glsentrytext{ep} each \glsentrytext{interval} while wearing loose-fitting clothes, or +2 in heavy clothes.
+
+  During a heatwave, everyone gains a +1 Bonus to their Fire \glsentrytext{sphere}},
+}
+
+\longnewglossaryentry{hurricane}{
+  name={Hurricanes},
+  text={hurricane},
+  prefix={a\space},
+  type={mech},
+  parent={weather},
+  description={make travel challenging, and reduce the standard miles travelled by 1.
+  All large items -- rooves, carts, et c. -- have a 1 in 6 chance of getting pulled off and possibly thrown by the wind},
+}
+
+\longnewglossaryentry{landslide}{
+  name={Landslides},
+  text={landslide},
+  prefix={a\space},
+  type={mech},
+  parent={weather},
+  description={will block all travel across an area for one full \glsentrytext{interval}, and everyone in the area has to flee or seek shelter.
+  Groups use a single \glsentrytext{natural} roll of \roll{Speed}{Athletics} (\tn[10]) to determine the outcome for everyone.
+  Anyone who fails becomes buried; they break free with \roll{Strength}{Survival} (\tn[10]), or remain buried forever},
+}
+
+\longnewglossaryentry{snow}{
+  name={Snow},
+  text={snow},
+  plural={snow},
+  prefix={a\space},
+  type={mech},
+  parent={weather},
+  description={slows every \glsentrytext{journey} to half the standard speed.
+  The added cold also inflicts 1~\glsentrytext{ep} each \glsentrytext{interval} a character spends exposed},
 }
 
 %%%%% Plants
