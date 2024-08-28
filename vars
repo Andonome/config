@@ -15,10 +15,22 @@ RELEASE = $(TITLE).pdf
 GLOS := makeglossaries -d $(DROSS)
 RUN := lualatex -output-directory $(DROSS) -shell-escape
 CLEAN := $(RM) -r $(DROSS) $(LOCAL_DROSS) qr.tex *.pdf .switch-gls svg-inkscape
-DEPS := $(wildcard *.tex) $(wildcard config/*sty) config/ $(wildcard $(DROSS)/*.glg)
+
 
 $(RELEASE): $(DBOOK)
 	@$(CP) $< $@
+
+.PHONY: LOCTEX
+LOCTEX: $(wildcard *.tex)
+
+.PHONY: HANDOUTS
+HANDOUTS: config/CS.tex config/booklet.tex config/fold_front.tex config/fold_back.tex
+
+.PHONY: STYLE_FILES
+STYLE_FILES: config/$(wildcard *.sty)
+
+.PHONY: EXTERNAL
+EXTERNAL: $(wildcard $(DROSS)/*.glg) | $(DROSS)
 
 qr.tex: README.md config/vars
 	@printf '\qrcode[height=.2\\textwidth]{$(QR_TARGET)}' > qr.tex
