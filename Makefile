@@ -2,9 +2,6 @@ output: docs.pdf
 
 include vars
 
-$(DROSS):
-	mkdir $(DROSS)
-
 images:
 	mkdir images
 images/wide.jpg:| images
@@ -28,12 +25,8 @@ resources.pdf: HANDOUTS STYLE_FILES | $(DROSS)
 	$(RUN) resources.tex
 	$(RUN) resources.tex
 	$(CP) $(DROSS)/resources.pdf resources.pdf
-booklet.pdf: STYLE_FILES HANDOUTS docs.pdf | $(DROSS)
-	$(RUN) booklet.tex
-	$(RUN) booklet.tex
-	@pdfjam --angle 90 $(DROSS)/booklet.pdf --no-landscape --outfile $@
 
 .PHONY: all clean
-all: docs.pdf booklet.pdf resources.pdf $(DROSS)/test.pdf 
+all: docs.pdf config/booklet.pdf resources.pdf $(DROSS)/test.pdf 
 clean:
 	$(CLEAN) images/wide.jpg
