@@ -45,3 +45,5 @@ help:
 	@echo 'config/Docker/tlmgrDeps.sh'
 	@echo ''
 
+graph:
+	make -Bind $(TARG) | make2graph | graph-easy --boxart
