@@ -47,7 +47,6 @@
     \textbf{Wants:}~\npcGoal%
     \ifdefempty{\currentQuote}{}{\par%
       \textbf{Quote:}~\textit{``\currentQuote''}%
-      \global\renewcommand\currentQuote{}%
     }%
     \par%
     \textbf{Mannerism:}~\mannerism%
@@ -443,7 +442,6 @@
 \newcommand{\clean}{%
   \global\togglefalse{snapCaster}%
   \global\togglefalse{weaponMaster}%
-  \npcQuote{}%
   \knacks{}%
   \foreach \s in {Air,Earth,Fate,Fire,Water,Projectiles,Melee,Brawl,Academics,Alchemy,Athletics,Caving,Crafts,Cultivation,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Stealth,Survival,Vigilance}%
     {\setcounter{\s}{0}}%
