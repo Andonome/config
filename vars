@@ -40,11 +40,6 @@ qr.tex: README.md config/vars
 $(DROSS):
 	mkdir $(DROSS)
 
-config/booklet.pdf: STYLE_FILES HANDOUTS | $(DROSS)
-	$(RUN) booklet.tex
-	$(RUN) booklet.tex
-	@pdfjam --angle 90 $(DROSS)/booklet.pdf --no-landscape --outfile $@
-
 check:
 	@command -v git >/dev/null || ( echo install git && exit 1 )
 	@command -v git-lfs >/dev/null || ( echo install git-lfs && exit 1 )

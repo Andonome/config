@@ -26,7 +26,12 @@ resources.pdf: HANDOUTS STYLE_FILES | $(DROSS)
 	$(RUN) resources.tex
 	$(CP) $(DROSS)/resources.pdf resources.pdf
 
+booklet.pdf: STYLE_FILES HANDOUTS | $(DROSS)
+	$(RUN) booklet.tex
+	$(RUN) booklet.tex
+	@pdfjam --angle 90 $(DROSS)/booklet.pdf --no-landscape --outfile $@
+
 .PHONY: all clean
-all: docs.pdf config/booklet.pdf resources.pdf $(DROSS)/test.pdf 
+all: docs.pdf booklet.pdf resources.pdf $(DROSS)/test.pdf 
 clean:
 	$(CLEAN) images/wide.jpg
