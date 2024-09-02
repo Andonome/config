@@ -1082,7 +1082,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 }
 
 \newacronym[
-  description={is the universal way to measure time in \glsentrytext{fenestra}, where one \glsentrytext{cycle} equals three `years'},
+  description={is the universal way to measure time in \glsentrytext{fenestra}, where one \glsentrytext{cycle} equals sixty days, and, and one sixth of a year},
   name={Gnomish Machine Time (GMT)},
   prefix={a\space},
   parent={fenestra},
@@ -1095,8 +1095,10 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   sort={Z},
   prefix={a\space},
   parent={ainumar},
-  description={mean complete revolutions around the \glsentrytext{ainumar}, while it also revolves around the Sun.
-  Each complete Cycle has twelve seasons},
+  description={last for sixty days, after which \glsentrytext{fenestra} has travelled around the \glsentrytext{ainumar}.
+  Each cycle begins and ends with a violent \glsentrytext{wrath}, which marks a change in temperature for the next cycle.
+
+  After six cycles, the \glsentrytext{ainumar} completes a revolution around the Sun, and a new year begins},
 }
 
 \longnewglossaryentry{edge}{
@@ -1587,6 +1589,27 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   They form the heart of every \glsentrytext{healersGuild}},
 }
 
+\longnewglossaryentry{grummel}{
+  name={Grummel},
+  category={god},
+  symbol={\Sextile},
+  parent={ainumar},
+  description={waits till \glsentrysymbol{fenestra} approaches the \glsentrysymbol{ainumar} and begins to shake it, causing earthquakes, volcanic erruptions, and tidal waves.
+  These mark the end of each \glsentrytext{cycle}, and people call them Grummel's \glsentrytext{storm}},
+}
+
+\longnewglossaryentry{templeOfStorms}{
+  name={The Temple of Storms},
+  text={Temple of Storms},
+  plural={Temples of Storm},
+  prefix={a\space},
+  symbol={\glsentrysymbol{grummel}},
+  parent={temple},
+  nonumberlist,
+  description={sell calendars and architectural plans.
+  The former help farmers, while the latter help any \glsentrytext{warden} who wants their dwelling to survive the next \glsentrytext{storm}},
+}
+
 \longnewglossaryentry{nulla}{
   name={\qquad},
   category={god},
@@ -2045,6 +2068,66 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   description={ -- \glsentrytext{fenestra}'s twelfth and final season, before the \glsentrytext{cycle} starts again},
 }
 
+\longnewglossaryentry{cOne}{
+  name={Niquis},
+  prefix={a\space},
+  sort={1},
+  parent={cycle},
+  description={is the first \glsentrytext{cycle}, and start with mild weather, and after three days an eclipse blots out the \glsentrytext{ainumar}.
+
+  At the end, an unusually warm \glsentrytext{storm} allows any cold-blooded \glsentrytext{monster} one last opportunity to gorge before the temperature drops rapidly},
+}
+
+\longnewglossaryentry{cTwo}{
+  name={Sables},
+  prefix={a\space},
+  sort={2},
+  parent={cycle},
+  description={begins the second \glsentrytext{cycle} with a warm \glsentrytext{storm}, then immediately after brings cold snow, then more each day.
+
+  At the half-way point -- day thirty -- a fifteen-hour eclipse plumets \glsentrytext{fenestra} into the black, frozen abyss of space.
+  People say the eclipse represent's \glsentrytext{sable}'s attempt to destroy \glsentrytext{fenestra}},
+}
+
+\longnewglossaryentry{cThree}{
+  name={Halkin},
+  prefix={a\space},
+  sort={3},
+  parent={cycle},
+  description={begins the third \glsentrytext{cycle} with a long \glsentrytext{storm} as \glsentrytext{grummel} pulls \glsentrytext{fenestra} back from the shadows to consume more souls and awaken every \glsentrytext{basilisk} from hibernation.
+
+  Three days before the end, an eclipse marks \glsentrytext{sable}'s retreat as the last \glsentrytext{basilisk} awakens},
+}
+
+\longnewglossaryentry{cFour}{
+  name={Umba},
+  prefix={an\space},
+  sort={4},
+  parent={cycle},
+  description={works like Spring, bringing warmth, lambs, and myriad insects.
+  As the fourth \glsentrytext{cycle} out of six, it marks the half-way point, when the weather becomes warmer},
+}
+
+\longnewglossaryentry{cFive}{
+  name={Sylfs},
+  prefix={a\space},
+  sort={5},
+  parent={cycle},
+  description={begins the fifth \glsentrytext{cycle} with a cold-snap eclipse, just as the \glsentrytext{storm} hits, then quickly becomes scorching hot.
+  No sane creature stays in the Sun for long during this \glsentrytext{cycle}},
+}
+
+\longnewglossaryentry{cSix}{
+  name={Lantalka},
+  prefix={a\space},
+  sort={6},
+  parent={cycle},
+  description={begins the last \glsentrytext{cycle} with an eclipse and a sudden temperature drop.
+  The next day returns to feeling warm, but never quite as warm as in \glsentrytext{cFive}.
+
+  Over the next sixty days, the temperature slowly falls, until \glsentrytext{cOne} begins a new year},
+}
+
 % Weather
 
 \longnewglossaryentry{weather}{
@@ -2054,6 +2137,18 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   parent={fenestra},
   description={can spell death for anyone who doesn't take it seriously.
   Some of these cosmological terrors will lay waste to the underprepared, while others willl slowly sneak up on them},
+}
+
+\longnewglossaryentry{storm}{
+  name={\Glsentrytext{grummel}'s Wraths},
+  text={wrath},
+  prefix={a\space},
+  type={mech},
+  parent={weather},
+  description={are the lightning-shod earthquakes which bring tidal waves and make volcanoes errupt at the end of each \glsentrytext{cycle}.
+  During this time, underground people venture deeper underground, while land-dwelling people often leave their houses in search of an empty space.
+
+  No sane creature lives by the sea in \glsentrytext{fenestra} -- the tidal waves remove all civilization from every shore.},
 }
 
 \longnewglossaryentry{coldSnap}{
