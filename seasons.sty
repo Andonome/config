@@ -1,16 +1,62 @@
 \newcounter{season}
 \setcounter{season}{\month}
-  \setcounter{season}{\month}
 \newcounter{temperature}
 
 \newcommand\season{}
 
 \newcounter{cycle}
-\setcounter{cycle}{\year}
-\multiply\value{cycle} by 3
-\addtocounter{cycle}{0}
+\setcounter{cycle}{\month}
+  \roundUp{cycle}
 
-%%% State a Season's name.
+\newcommand\cycleDesc{}
+
+\newcommand\setCycle[2]{%
+  \setcounter{cycle}{#1}% Month
+  \ifnum\value{cycle}>6%
+    \addtocounter{cycle}{-6}%
+  \fi%
+  \ifnum\value{cycle}>3%
+    \addtocounter{cycle}{-3}%
+  \fi%
+  \addtocounter{cycle}{-1}%
+  \multiply\value{cycle} by 30%
+  \addtocounter{cycle}{#2}% Day
+  \divide\value{cycle} by 14%
+  \addtocounter{cycle}{0}%
+}
+
+%%% State a Cycle's name.
+
+\newcommand\showCycle[1][\value{cycle}]{%
+  \ifcase#1%
+    \glsentrytext{cOne}%
+    \setTemperature%
+    \renewcommand\cycleDesc{\glsentrydesc{cOne}}%
+  \or%
+    \glsentrytext{cTwo}%
+    \setTemperature%
+    \renewcommand\cycleDesc{\glsentrydesc{cTwo}}%
+  \or%
+    \glsentrytext{cThree}%
+    \setTemperature%
+    \renewcommand\cycleDesc{\glsentrydesc{cThree}}%
+  \or%
+    \glsentrytext{cFour}%
+    \setTemperature%
+    \renewcommand\cycleDesc{\glsentrydesc{cFour}}%
+  \or%
+    \glsentrytext{cFive}%
+    \setTemperature%
+    \renewcommand\cycleDesc{\glsentrydesc{cFive}}%
+  \else
+    \glsentrytext{cSix}%
+    \setTemperature%
+    \renewcommand\cycleDesc{\glsentrydesc{cSix}}%
+  \fi%
+}
+
+
+%%% Remove %%%
 
 \newcommand\showSeason[1][\value{season}]{%
   \ifcase#1\or%
@@ -60,46 +106,35 @@
   \fi%
 }
 
+%%%
+
+\newcommand\setTemperature{
+  \ifcase\value{cycle}%
+    \setcounter{temperature}{1}%
+  \or%
+    \setcounter{temperature}{0}%
+  \or%
+    \setcounter{temperature}{1}%
+  \or%
+    \setcounter{temperature}{2}%
+  \or%
+    \setcounter{temperature}{3}%
+  \else
+    \setcounter{temperature}{2}%
+  \fi%
+}
+
 \newcommand\showTemperature{%
   \ifcase\value{temperature}%
     cold%
   \or%
     mild%
-  \else%
+  \or%
     hot%
+  \else%
+    scorching%
   \fi%
 }
-
-\newcommand\setTemperature{
-  \ifcase\value{season}\or%
-    \setcounter{temperature}{1}%
-  \or%
-    \setcounter{temperature}{1}%
-  \or%
-    \setcounter{temperature}{0}%
-  \or%
-    \setcounter{temperature}{1}%
-  \or%
-    \setcounter{temperature}{2}%
-  \or%
-    \setcounter{temperature}{1}%
-  \or%
-    \setcounter{temperature}{1}%
-  \or%
-    \setcounter{temperature}{1}%
-  \or%
-    \setcounter{temperature}{2}%
-  \or%
-    \setcounter{temperature}{1}%
-  \or%
-    \setcounter{temperature}{0}%
-  \else
-    \setcounter{temperature}{1}%
-  \fi%
-
-}
-
-\setTemperature
 
 \newcommand\showInterval[1]{%
   \ifcase#1%
