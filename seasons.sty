@@ -23,6 +23,10 @@
   \addtocounter{cycle}{#2}% Day
   \divide\value{cycle} by 14%
   \addtocounter{cycle}{0}%
+  \ifnum\value{cycle}>5%
+    \setcounter{cycle}{0}%
+  \fi%
+  \setTemperature%
 }
 
 %%% State a Cycle's name.
@@ -30,27 +34,21 @@
 \newcommand\showCycle[1][\value{cycle}]{%
   \ifcase#1%
     \glsentrytext{cOne}%
-    \setTemperature%
     \renewcommand\cycleDesc{\glsentrydesc{cOne}}%
   \or%
     \glsentrytext{cTwo}%
-    \setTemperature%
     \renewcommand\cycleDesc{\glsentrydesc{cTwo}}%
   \or%
     \glsentrytext{cThree}%
-    \setTemperature%
     \renewcommand\cycleDesc{\glsentrydesc{cThree}}%
   \or%
     \glsentrytext{cFour}%
-    \setTemperature%
     \renewcommand\cycleDesc{\glsentrydesc{cFour}}%
   \or%
     \glsentrytext{cFive}%
-    \setTemperature%
     \renewcommand\cycleDesc{\glsentrydesc{cFive}}%
   \else
     \glsentrytext{cSix}%
-    \setTemperature%
     \renewcommand\cycleDesc{\glsentrydesc{cSix}}%
   \fi%
 }
