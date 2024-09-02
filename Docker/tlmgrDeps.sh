@@ -1,7 +1,7 @@
 #!/bin/sh
 # This file has the recommended LaTeX packages.
 # First install tlmgr (likely in the package 
-# texlive or texlive-bin) and texlive2023-bin.
+# texlive or texlive-bin) and texlive${year}-bin.
 #
 # If compiling fails, you *might* also need the cm-super package.
 
