@@ -12,20 +12,16 @@
 
 \newcommand\setCycle[2]{%
   \setcounter{cycle}{#1}% Month
-  \ifnum\value{cycle}>6%
-    \addtocounter{cycle}{-6}%
-  \fi%
-  \ifnum\value{cycle}>3%
-    \addtocounter{cycle}{-3}%
-  \fi%
   \addtocounter{cycle}{-1}%
   \multiply\value{cycle} by 30%
   \addtocounter{cycle}{#2}% Day
   \divide\value{cycle} by 14%
   \addtocounter{cycle}{0}%
-  \ifnum\value{cycle}>5%
-    \setcounter{cycle}{0}%
-  \fi%
+  \whileboolexpr{%
+    test {\ifnumcomp{\value{cycle}}{>}{5}}%
+    }{%
+      \addtocounter{cycle}{-5}%
+    }%
   \setTemperature%
 }
 
@@ -147,3 +143,5 @@
     \gls{night}%
   \fi%
 }
+
+\setCycle{\month}{\day}
