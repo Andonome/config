@@ -4,6 +4,11 @@
 \setcounter{cycle}{\month}
   \roundUp{cycle}
 
+\newcounter{fenestraYear}
+\setcounter{fenestraYear}{3}
+\setcounter{fenestraYear}{\year}
+\multiply\value{fenestraYear}by 4
+
 \newcommand\cycleDesc{}
 
 \newcommand\setCycle[2]{%
