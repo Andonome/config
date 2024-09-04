@@ -50,59 +50,6 @@
   \fi%
 }
 
-
-%%% Remove %%%
-
-\newcommand\showSeason[1][\value{season}]{%
-  \ifcase#1\or%
-    \glsentrytext{Qualmea}%
-  \or%
-    \glsentrytext{Atya}%
-  \or%
-    \glsentrytext{Alassea}%
-  \or%
-    \glsentrytext{Cantea}%
-  \or%
-    \glsentrytext{Calea}%
-  \or%
-    \glsentrytext{Verea}%
-  \or%
-    \glsentrytext{Otsea}%
-  \or%
-    \glsentrytext{Toldea}%
-  \or%
-    \glsentrytext{Laiquea}%
-  \or%
-    \glsentrytext{Quainea}%
-  \or%
-    \glsentrytext{Minquesta}%
-  \else
-    \glsentrytext{Ohta}%
-  \fi%
-}
-
-\newcommand\showAstroEvents{%
-  \ifcase\value{season}\or%
-    eclipse and quakes%
-  \or%
-  \or%
-    eclipse%
-  \or%
-  \or%
-  \or%
-  \or%
-    quakes%
-  \or%
-  \or%
-  \or%
-  \or%
-    eclipse%
-  \else%
-  \fi%
-}
-
-%%%
-
 \newcommand\setTemperature{
   \ifcase\value{cycle}%
     \setcounter{temperature}{1}%
