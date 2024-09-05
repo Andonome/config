@@ -105,4 +105,40 @@
     July\or August\or September\or October\or November\else December\fi%
 }
 
+
+\newcounter{ainumarPosition}
+\newcounter{fenestraPosition}
+
+\newcommand\setPlanetPositions[2]{
+  \setCycle{#1}{#2}
+  \setcounter{ainumarPosition}{#1}
+  \multiply\value{ainumarPosition}by 30
+  \addtocounter{ainumarPosition}{#2}
+  \setcounter{fenestraPosition}{\value{ainumarPosition}}
+  \setcounter{enc}{\value{cycle}}
+  \addtocounter{enc}{-1}
+  \multiply\value{enc}by 60
+  \addtocounter{fenestraPosition}{\value{enc}}
+}
+
+\newcommand\orrery[1][\month/\day]{
+  \begin{tikzpicture}
+    \coordinate (S) at (0,0);
+    \draw[\pageSideColor] (S) circle (3.1);% Orbit
+    \fill[\pageSideColor] (S)  circle (30pt);
+    \foreach \m/\d in {#1}{
+      \setPlanetPositions{\m}{\d}
+      \coordinate (A) at (\arabic{ainumarPosition}:3);
+      \path (A) +(\arabic{fenestraPosition}:1) coordinate (F);
+      \draw[\pageSideColor] (S) -- (A) -- (F);
+      \draw[\pageSideColor] (A) circle (1);% Suborbit
+      \fill[\pageSideColor] (A.south)  circle (3pt);
+      \fill[\pageSideColor] (F.east) circle (1pt);
+      \coordinate [label=\outline{\showCycle}] (FN) at (F)+(-\arabic{cycle}.3,\arabic{cycle}.3);
+    }
+    %
+  \end{tikzpicture}
+}
+
+
 \setCycle{\month}{\day}
