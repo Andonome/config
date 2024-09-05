@@ -8,21 +8,30 @@
 \setcounter{fenestraYear}{3}
 \setcounter{fenestraYear}{\year}
 \multiply\value{fenestraYear}by 4
+\newcounter{fenestraDay}
 
 \newcommand\cycleDesc{}
 
 \newcommand\setCycle[2]{%
   \setcounter{cycle}{#1}% Month
-  \addtocounter{cycle}{-1}%
-  \multiply\value{cycle} by 30%
-  \addtocounter{cycle}{#2}% Day
-  \divide\value{cycle} by 14%
-  \addtocounter{cycle}{0}%
-  \whileboolexpr{%
-    test {\ifnumcomp{\value{cycle}}{>}{5}}%
-    }{%
-      \addtocounter{cycle}{-5}%
-    }%
+  \ifnum\value{cycle}>6%
+    \addtocounter{cycle}{-6}% October goes from '10' to '4'
+  \fi%
+  \ifnum\value{cycle}>3%
+    \addtocounter{cycle}{-3}% '4' becomes 1.
+  \fi%
+  \multiply\value{cycle} by 2%
+  \ifnum#2>15%
+    \addtocounter{cycle}{-1}%
+  \else%
+    \addtocounter{cycle}{-2}%
+  \fi%
+  \setcounter{fenestraDay}{\day}%
+  \ifnum\value{fenestraDay}>15%
+    \addtocounter{fenestraDay}{-15}%
+  \fi%
+  \multiply\value{fenestraDay}by 4%
+  \addtocounter{fenestraDay}{0}%
   \setTemperature%
 }
 
