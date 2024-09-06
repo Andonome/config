@@ -8,14 +8,25 @@
     rows=18
   },
   boxes    = {
-    enhanced standard jigsaw,
+    ornamented,
     boxsep=2pt,
+    top=0pt,
     left=1pt,
     right=1pt,
-    boxrule=.6mm,
-    colback=white,
-    drop fuzzy shadow,
-   }
+    fonttitle=\bfseries\scshape,
+    coltitle=black,
+    colframe=\pageSideColor,
+    attach boxed title to top center={yshift=-0.25mm-\tcboxedtitleheight/2,yshifttext=-2mm-\tcboxedtitleheight/2},
+    boxed title style={
+      frame code={
+        \path[draw=\pageOppositeColor, tcb fill frame] ([xshift=-4mm]frame.west)
+        -- (frame.north west) -- (frame.north east) -- ([xshift=4mm]frame.east)
+        -- (frame.south east) -- (frame.south west) -- cycle;
+      },
+      interior code={ \path[draw=\pageOppositeColor, tcb fill interior] ([xshift=-2mm]interior.west)
+        -- (interior.north west) -- (interior.north east) -- ([xshift=2mm]interior.east) -- (interior.south east) -- (interior.south west) -- cycle;},
+    },
+  }
 ]
 
 \thispagestyle{empty}
@@ -49,10 +60,10 @@
 
 %----
   \posterbox[
-    adjusted title=Attributes \hint{ 5 | 10 / 20 / 30 / 50 },
+    adjusted title=Attributes,
     remember,
   ]{name=attributes,column=1,row=3,span=10,rowspan=4}{
-    \hspace{-0.5em}
+    \hspace{-0.7em}
     \renewcommand{\arraystretch}{1.5}
     \addtolength{\tabcolsep}{-0.53em}
     \begin{tabularx}{\linewidth}{Ycccccccccc}
@@ -66,12 +77,14 @@
     \showAttribute{Charisma}[-8pt]
     \hspace{2em}\footnotesize{\dicef{7}} & & \tiny{2} & \tiny{3} & \tiny{4--5} & \tiny{6--8} & \tiny{9--10} & \tiny{11} & \tiny{12} & \\
     \end{tabularx}
+    \tiny\hint{ 5 | 10 / 20 / 30 / 50 }
   }
 
 %----
 
   \posterbox[
     remember, blankest,interior engine=path,valign=center,
+    colback=white,
   ]{name=gumption,column=1,row=9,span=4,rowspan=8.2}{
 
     \begin{tikzpicture}[
@@ -101,7 +114,7 @@ circle label/.style = {
 
   }
 %----
-  \posterbox[adjusted title={Combat Skills \hint{ 10 / 20 / 40 }},
+  \posterbox[adjusted title={Combat Skills},
   remember,
   ]{name=melee,column=11,row=3,span=8,rowspan=4}{
     \renewcommand{\arraystretch}{1.4}
@@ -135,12 +148,14 @@ circle label/.style = {
         \emptySkill
       \fi
     \end{tabularx}
+    \par
+    \tiny\hint{ 10 / 20 / 40 }
   }
 
 %----
 
   \posterbox[
-  adjusted title=Items to Hand,
+  adjusted title=In-Hand,
   remember,
   ]{name=armoury,
   column=5,
@@ -148,7 +163,7 @@ circle label/.style = {
   span=22,
   rowspan=3}{
     \renewcommand{\arraystretch}{1.5}
-    \vspace{-1em}
+    \vspace{-0.5em}
     \begin{tabularx}{\linewidth}{p{.37\textwidth}YYYY}
       \hiderowcolors
       \setlength{\parskip}{3mm}
@@ -197,6 +212,7 @@ circle label/.style = {
     remember,
   ]
   {name=derived,column=2,row=6,span=18,rowspan=4}{
+    \vspace{1em}
     \addtolength{\tabcolsep}{-0.2em}
     \begin{tabularx}{\linewidth}{XXXX}
       \hiderowcolors
@@ -253,7 +269,7 @@ circle label/.style = {
 
 %-----
   \posterbox[
-  adjusted title={General Skills \hint{ 5 / 10 / 15 }},
+  adjusted title={General Skills},
   remember,
   ]
   {name=skills,column=19,row=3,span=8,rowspan=6}{
@@ -278,12 +294,13 @@ circle label/.style = {
       \emptySkill
 
     \end{tabularx}
+    \tiny\hint{ 5 / 10 / 15 }
   }
 
 
 %----
   \posterbox[
-    adjusted title=Backpack \hint{\glsentrytext{tn} to remove: \weeline},
+    adjusted title=Backpack,
     sidebyside,
     remember,
   ]
@@ -293,6 +310,8 @@ circle label/.style = {
     span=23,
     rowspan=3.7,
   }{%
+    \hint{\glsentrytext{tn} to remove: \weeline}
+    \par
     \iftoggle{examplecharacter}{\sffamily\characterEquipment\vspace{12em}}{%
       \vspace{1em}%
       \Repeat{5}{%
@@ -324,7 +343,7 @@ circle label/.style = {
   }
 
   \posterbox[
-    adjusted title=Knacks \hint{ 5 / 10 / 15/ 20 },
+    adjusted title=Knacks,
     remember,
   ]
   {name=knacks,
