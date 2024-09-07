@@ -117,27 +117,28 @@
 \newcommand{\lootTalisman}{%
   \iftoggle{genExamples}{}%
     {%
-      \ifnum\value{treasure}>9\setcounter{treasure}{1}\fi%
       \ifcase\value{treasure}\relax%
+      \or%
         \scrollOfFriendship%
-      \or%1
+      \or%
         \bloodCandle%
-      \or%2
+      \or%
         \verdantBerries%
-      \or%3
+      \or%
         \oceanPhial%
-      \or%3
+      \or%
         \wotWosFungus%
-      \or%4
+      \or%
         \hagFinger%
-      \or%4
+      \or%
         \safetyScroll%
-      \or%4
+      \or%
         \snacklet%
-      \or%2
+      \or%
         \minersWeed%
       \else%
         \homeScroll%
+        \setcounter{treasure}{0}%
       \fi%
       \ignorespaces\spellName%
       \setcounter{track}{\value{treasure}}%
