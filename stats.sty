@@ -292,30 +292,29 @@
 \newcommand{\adrenalinesurge}{%
   Adrenaline~Surge (+1 Damage, once per \ifnum\value{knacks}<2 combat\else round, \arabic{knacks} uses per combat\fi)%
 }
+
 \newcommand{\berserker}{%
   Berserker (+1 \glsentrytext{ap}. on round 2 of combat, +1 Damage. on round 3)%
 }
+
 \newcommand{\brawler}{%
-  Brawler
-  (+2 to unarmed attacks)
+  Brawler (+2 to unarmed attacks)
 }
 
 \newcommand{\charge}{%
-  Fast Charge
-  (+1 \glsentrytext{ap}, Attack, and Damage after charging 6 steps)%
+  Fast Charge (+1 \glsentrytext{ap}, Attack, and Damage after charging 6 steps)%
 }
 
 \newcommand{\cuttingswing}{%
-  Cutting Swing
-  (when an opponent hits 0 \glspl{hp}, damage transfers to the next opponent)%
+  Cutting Swing (when an opponent hits 0 \glspl{hp}, damage transfers to the next opponent)%
 }
+
 \newcommand{\dodger}{%
-  Dodger
-  (+\arabic{knacks} to dodge projectiles)%
+  Dodger (+\arabic{knacks} to dodge projectiles)%
 }
+
 \newcommand{\guardian}{%
-  Guardian
-  (spend 0 AP to guard someone, and gain +1 to guarding against attacks)%
+  Guardian (spend 0~\glsfmtplural{ap} to guard someone, and gain +1 to guarding against attacks)%
 }
 
 \newcommand{\laststand}{%
@@ -325,81 +324,77 @@
 
 \newcommand{\lucky}{%
   \addtocounter{fp}{4}%
-  Lucky (add 4 \glsentryshortpl{fp})
+  Lucky (add 4~\glsentryshortpl{fp})%
 }
 
 \newcommand{\mightydraw}{%
-  Mighty Draw %
-  \setcounter{encnum}{\value{knacks}}\roundUp{enc} (reduce cost to draw longbow by \arabic{encnum} \glspl{ap})
+  Mighty Draw \setcounter{encnum}{\value{knacks}}%
+  \divide\value{encnum}by 2%
+  (reduce cost to draw longbow by%
+  \ifnum\value{encnum}=0\stepcounter{encnum}\fi \arabic{encnum}~\glsfmtplural{ap})%
 }
+
 \newcommand{\perfectsneakattack}{%
-  Perfect Sneak Attack
-  (+\arabic{knacks} Damage for sneak attacks)
+  Perfect Sneak Attack (+\arabic{knacks} Damage for sneak attacks)%
 }
+
 \newcommand{\precisestrike}{%
-  Precise Strike
-  (+1 Attack when calculating \pgls{vitalShot})
+  Precise Strike (+1 Attack when calculating \pgls{vitalShot})%
 }
+
 \newcommand{\specialist}[1]{%
-  Specialist
-\iftoggle{examplecharacter}{ (+2 when using any #1)}{(#1)}%
+  Specialist \iftoggle{examplecharacter}{ (+2 when using any #1)}{(#1)}%
 }
 
 \newcommand{\stunningstrike}{%
-  Stunning Strike
-  (take -1 penalty, and opponent's AP reduces by half Damage)%
+  Stunning Strike (take -1 penalty, and opponent's AP reduces by half Damage)%
 }
+
 \newcommand{\snapshot}{%
-  Snap Draw
-  (Pay 0 AP to reload arrow or draw weapon)%
+  Snap Draw (Pay 0 \glsfmtplural{ap} to reload bow or draw weapon)%
 }
+
 \newcommand{\unstoppable}{%
   \addtocounter{hp}{2}%
   \addtocounter{freeHP}{2}%
-  Unstoppable
+  Unstoppable %
   (+2 \glsentryshortpl{hp}%
     \ifnum\value{Intelligence}>-5, and +\arabic{knacks} to any Medicine rolls to save them when dying%
   \fi)%
 }
 
 \newcommand{\vengeful}{%
-  Vengeful
-  (+2~\iftoggle{snapCaster}{Wits}{Charisma} after losing~HP)%
+  Vengeful (+2~\iftoggle{snapCaster}{Wits}{Charisma} after losing~\glsfmtplural{hp})%
 }
 
-\newcommand{\weaponmaster}[1][\weaponName]{%
-  \toggletrue{weaponMaster}%
-  Weapon Master
-  (+1 to #1 attacks)%
+\newcommand{\weaponmaster}{%
+  Weapon Master (+1 to \weaponName\ attacks)%
 }
 
 \newcommand{\autophage}{%
   \addtocounter{knacks}{1}%
-  Autophage
-  (cast with \glspl{ep} instead of \glspl{mp})%
+  Autophage (cast with \glspl{ep} instead of \glsfmtplural{mp})%
 }
 
 \newcommand{\snapcaster}{%
   \ifnum\value{Wits}>\value{Charisma}%
     \global\settoggle{snapCaster}{true}%
   \fi%
-  Snap Caster
-  (spells use Wits and cost 1 less \glsentrytext{ap})
+  Snap Caster (spells use Wits and cost 1 less \glsentrytext{ap})%
 }
 
 \newcommand{\ritualcaster}{%
   \addtocounter{knacks}{1}%
-  Ritual Caster
-  (spells use Intelligence, caster may spend 1 extra \gls{mp})
+  Ritual Caster (spells use Intelligence, caster may spend 1 extra \gls{mp})%
 }
 
 \newcommand{\fasthealer}{%
-  Fast Healer
-  (resting heals one more \glsentrytext{ep} or \glsentrytext{mp})%
+  Fast Healer (resting heals one more \glsentrytext{ep} or \glsentrytext{mp})%
 }
 
-\newcommand{\combatcaster}{Combat Caster}
-\newcommand\chosenEnemy[1]{Chosen Enemy (+1 against #1, -2 when trying to be friendly)}
+\newcommand{\chosenEnemy}[1]{%
+  Chosen Enemy (+1 against #1, -2 when trying to be friendly)%
+}
 
 % _ __   ___ _ __ ___  ___  _ __  
 %| '_ \ / _ \ '__/ __|/ _ \| '_ \ 
