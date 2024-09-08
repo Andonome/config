@@ -79,6 +79,7 @@
 \newcommand{\equipment}{}
 \newcommand{\Abilities}{}
 \newcommand{\addAbility}[1]{\edef\Abilities{\Abilities{}#1.  }}
+\newcommand{\Knacks}{}
 \newcommand{\Equipment}{}
 \newcommand{\addEquipment}[1]{\edef\Equipment{\Equipment{}#1, }}
 
@@ -121,7 +122,9 @@
   \foreach \k in {#5}{%
     \stepcounter{knacks}%
   }%
-  \renewcommand\showKnacks{#5}%
+  \setcounter{knacksPlusTwo}{\value{knacks}}%
+  \addtocounter{knacksPlusTwo}{2}%
+  \edef\Knacks{#5}%
   \foreach \s in {Air,Earth,Fate,Fire,Water}%
     {\ifnum\value{\s}>0 \addtocounter{mp}{3}\fi}%
   \renewcommand\equipment{#6}%
@@ -152,7 +155,7 @@
         \\
       \fi
       \ifnum\value{knacks}>0
-        \ent{Knacks} & \showKnacks \\
+        \ent{Knacks} & \Knacks \\
       \fi
       \ifdefempty{\Abilities}{}{%
         \ent{Abilities} & \Abilities \\
@@ -248,6 +251,7 @@
 \newcounter{toHit}
 \newcounter{dr}
 \newcounter{knacks}
+\newcounter{knacksPlusTwo}
 
 
 % Extras: MP hp fp
@@ -283,8 +287,6 @@
 % 
 
 
-\newcommand\showKnacks{}
-
 %%%%%%%%%%%%%%%%%%%%% Knacks
 %
 \newcommand{\adrenalinesurge}{%
@@ -315,9 +317,10 @@
   Guardian
   (spend 0 AP to guard someone, and gain +1 to guarding against attacks)%
 }
+
 \newcommand{\laststand}{%
   Last~Stand
-  (when losing \glspl{hp}, the character gains \setcounter{enc}{2}\addtocounter{enc}{\value{knacks}}\arabic{enc} AP)%
+  (when losing \glspl{hp}, the character gains \arabic{knacksPlusTwo}~\glspl{ap})%
 }
 
 \newcommand{\lucky}{%
@@ -326,8 +329,8 @@
 }
 
 \newcommand{\mightydraw}{%
-  Mighty Draw
-  \setcounter{enc}{\value{knacks}}\roundUp{enc} (reduce cost to draw longbow by \arabic{enc} AP)
+  Mighty Draw %
+  \setcounter{encnum}{\value{knacks}}\roundUp{enc} (reduce cost to draw longbow by \arabic{encnum} \glspl{ap})
 }
 \newcommand{\perfectsneakattack}{%
   Perfect Sneak Attack
@@ -352,6 +355,7 @@
 }
 \newcommand{\unstoppable}{%
   \addtocounter{hp}{2}%
+  \addtocounter{freeHP}{2}%
   Unstoppable
   (+2 \glsentryshortpl{hp}%
     \ifnum\value{Intelligence}>-5, and +\arabic{knacks} to any Medicine rolls to save them when dying%
