@@ -76,15 +76,11 @@
 \newtoggle{examplecharacter}
 \settoggle{examplecharacter}{false}
 \newcommand{\ent}[1]{\textbf{#1}}
-\newcommand{\test}{}
-\newcommand{\skills}{}
 \newcommand{\equipment}{}
-\newcommand{\abilities}{}
 \newcommand{\Abilities}{}
 \newcommand{\addAbility}[1]{\edef\Abilities{\Abilities{}#1.  }}
 \newcommand{\Equipment}{}
 \newcommand{\addEquipment}[1]{\edef\Equipment{\Equipment{}#1, }}
-\newcommand{\mods}{}
 
 \newcommand\showCR{}
 
@@ -287,11 +283,6 @@
 % 
 
 
-% magic
-\newcommand{\magicPath}{}
-
-\newcommand{\knacks}[1]{\gdef\showKnacks{#1}}
-
 \newcommand\showKnacks{}
 
 %%%%%%%%%%%%%%%%%%%%% Knacks
@@ -442,7 +433,6 @@
 \newcommand{\clean}{%
   \global\togglefalse{snapCaster}%
   \global\togglefalse{weaponMaster}%
-  \knacks{}%
   \foreach \s in {Air,Earth,Fate,Fire,Water,Projectiles,Melee,Brawl,Academics,Alchemy,Athletics,Caving,Crafts,Cultivation,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Stealth,Survival,Vigilance}%
     {\setcounter{\s}{0}}%
   \foreach \s in {encumbrance,dr,covering,weaponDamage,weaponBonus,weaponWeight,armourWeight,armourDR,armourWeight,fp,heft,weight,damage,knacks,mp,xpbonus,xp}%
