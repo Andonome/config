@@ -111,9 +111,15 @@
 
 \newcommand\setPlanetPositions[2]{
   \setCycle{#1}{#2}
-  \setcounter{ainumarPosition}{#1}
-  \multiply\value{ainumarPosition}by 30
-  \addtocounter{ainumarPosition}{#2}
+  \setcounter{ainumarPosition}{\value{cycle}}
+  \addtocounter{ainumarPosition}{-1}
+  \multiply\value{ainumarPosition}by 60
+  \setcounter{diceNo}{#2}% get day offset
+  \ifnum\value{diceNo}>15%
+    \addtocounter{diceNo}{-15}%
+  \fi%
+  \multiply\value{diceNo}by 2%
+  \addtocounter{ainumarPosition}{\value{diceNo}}
   \setcounter{fenestraPosition}{\value{ainumarPosition}}
   \setcounter{enc}{\value{cycle}}
   \addtocounter{enc}{-1}
