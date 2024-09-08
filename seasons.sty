@@ -133,18 +133,20 @@
   \begin{tikzpicture}
     \coordinate (S) at (0,0);
     \draw[\pageSideColor] (S) circle (3.1);% Orbit
-    \fill[\pageSideColor] (S)  circle (30pt);
+    \draw[\pageSideColor] (S) circle (1.1);% Orbit
     \foreach \m/\d in {#1}{
       \setPlanetPositions{\m}{\d}
       \coordinate (A) at (\arabic{ainumarPosition}:3);
-      \path (A) +(\arabic{fenestraPosition}:1) coordinate (F);
+      \path (A) +(\arabic{fenestraPosition}:1.2) coordinate (F);
       \draw[\pageSideColor] (S) -- (A) -- (F);
-      \draw[\pageSideColor] (A) circle (1);% Suborbit
-      \fill[\pageSideColor] (A.south)  circle (3pt);
-      \fill[\pageSideColor] (F.east) circle (1pt);
-      \addtocounter{fenestraPosition}{-90}
-      \coordinate [label={\rotatebox{\value{fenestraPosition}}{\scshape\Large\showCycle}}] (FN) at (F)+(0,0);
+      \draw[\pageSideColor] (A) circle (1.2);% Suborbit
+      \fill[\pageSideColor] (A.center)  circle (6pt);
+      \fill[black] (F.north) circle (2.5pt);
+      \setcounter{encnum}{\value{cycle}}
+      \stepcounter{encnum}
+      \coordinate [label={{\outline{\Roman{encnum} \Large\scshape\showCycle}}}] (FN) at (A);
     }
+    \fill[\pageSideColor] (S)  circle (25pt);
     %
   \end{tikzpicture}
 }
