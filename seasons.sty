@@ -134,7 +134,8 @@
       \draw[\pageSideColor] (A) circle (1);% Suborbit
       \fill[\pageSideColor] (A.south)  circle (3pt);
       \fill[\pageSideColor] (F.east) circle (1pt);
-      \coordinate [label=\outline{\showCycle}] (FN) at (F)+(2.3,2.3);
+      \addtocounter{fenestraPosition}{-90}
+      \coordinate [label={\rotatebox{\value{fenestraPosition}}{\scshape\Large\showCycle}}] (FN) at (F)+(0,0);
     }
     %
   \end{tikzpicture}
