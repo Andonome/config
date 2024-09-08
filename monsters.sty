@@ -694,10 +694,10 @@
         \glaive%
       \fi%
     }% SKILLS
-    {\ifodd\value{r3}
+    {\ifodd\value{r3}%
       \dodger%
     \else%
-      \perfectsneakattack
+      \perfectsneakattack%
     \fi, %
     \ifnum\value{noAppearing}>2%
       \adrenalinesurge%
@@ -784,16 +784,16 @@
     {{r3}{r2b}{r2c}}% BODY
     {{-1}{0}{-2}}% MIND
     {%
-      \ifodd\value{r3}
+      \ifodd\value{r3}%
         \set{Vigilance}{r2b}
         \set{Stealth}{r2c}
-      \else
+      \else%
         \set{Projectiles}{r2b}
         \set{Crafts}{r2c}
-      \fi
+      \fi%
       \set{Melee}{r2c}
-      \set{Survival}{r3c}
-      \ifcase\value{Strength}\relax%
+      \set{Survival}{r3c}%
+      \ifcase\value{Strength}%
         \javelin%
       \or%
         \spear%
@@ -802,14 +802,8 @@
         \partialleather%
       \fi%
     }% SKILLS
-    {%
-      \ifodd\value{r4b}
-        \brawler
-      \else
-        \weaponmaster
-      \fi
-    }% KNACKS
-    {\rations, \lootSmall}% EQUIPMENT
+    {\adrenalinesurge}% KNACKS
+    {ivory dagger}% EQUIPMENT
     {}% ABILITIES
 }
 
