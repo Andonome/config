@@ -6,7 +6,8 @@
 
 
 \newcommand\rations{%
-  \ifcase\value{treasure}%
+  \ifcase\value{treasure}\relax%
+  \or%
     smoked ham%
   \or%
     dried fruits%
