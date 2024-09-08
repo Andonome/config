@@ -124,7 +124,9 @@
   \setcounter{enc}{\value{cycle}}
   \addtocounter{enc}{-1}
   \multiply\value{enc}by 60
+  \addtocounter{enc}{-15}% Allow room for day to move things a bit.
   \addtocounter{fenestraPosition}{\value{enc}}
+  \addtocounter{fenestraPosition}{\value{diceNo}}
 }
 
 \newcommand\orrery[1][\month/\day]{
