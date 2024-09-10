@@ -27,7 +27,7 @@ LOCTEX: $(wildcard *.tex)
 HANDOUTS: config/CS.tex config/booklet.tex config/fold_front.tex config/fold_back.tex
 
 .PHONY: STYLE_FILES
-STYLE_FILES: config/$(wildcard *.sty)
+STYLE_FILES: $(wildcard config/*.sty)
 
 .PHONY: EXTERNAL
 EXTERNAL: $(wildcard $(DROSS)/*.glg) | $(DROSS)
