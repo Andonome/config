@@ -683,6 +683,7 @@
       \fi
       \set{Melee}{r2c}
       \set{Brawl}{r2b}
+      \set{Projectiles}{rn1t2}
       \set{Survival}{rn1t2}
       \set{Stealth}{rn3t3}
       \set{Larceny}{r2}
@@ -700,12 +701,15 @@
     \else%
       \perfectsneakattack%
     \fi, %
-    \ifnum\value{noAppearing}>2%
+    \ifnum\value{noAppearing}=1%
       \adrenalinesurge%
     \else%
       \lucky%
     \fi}% KNACKS
-    {dagger, \rations, \lootSmall}% EQUIPMENT
+    {dagger, \ifnum\value{Projectiles}>0%
+      \arabic{r4}~throwing knives, %
+    \fi%
+    \rations, \lootSmall}% EQUIPMENT
     {}% ABILITIES
 }
 
