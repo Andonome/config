@@ -76,7 +76,9 @@
 
   New song composition & \mkPrice{4}/ song \\
 
-  \footnotesize \composeHumanName, the Fence & \footnotesize 50\% and \tiny shhh \\
+  \ifodd\value{r4b}%
+    \tiny\composeHumanName, the Fence & \tiny 50\% and shhh\ldots \\
+  \fi%
 
 \end{nametable}
 
@@ -146,9 +148,9 @@
 
   Rat Soup & \mkPrice[cp]{2} \\
 
-  \ifodd\value{r4b}
-    \footnotesize \composeHumanName, the Fence & \footnotesize 50\% and \tiny shhh \\
-  \fi
+  \ifodd\value{r4b}%
+    \tiny\composeHumanName, the Fence & \tiny 50\% and shhh\ldots \\
+  \fi%
 \end{nametable}
 
 \renewcommand\npcsymbol{\glsentrysymbol{abderian}}
@@ -167,9 +169,6 @@
 
   Woodspy Soup & \mkPrice[cp]{4} \\
 
-  \ifodd\value{r4b}
-    \footnotesize \composeHumanName, the Fence & \footnotesize 50\% and \tiny shhh \\
-  \fi
 \end{nametable}
 
 \renewcommand\npcsymbol{\flourish}
