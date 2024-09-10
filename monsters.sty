@@ -311,15 +311,16 @@
       \fi
     }% SKILLS
     {%
-      \ifnum\value{Wits}>\value{Charisma}%
-        \snapcaster%
+      \ifnum\value{Charisma}<1%
+        \snapcaster, %
       \fi%
       \ifcase\value{r4b}\relax%
+      \or%
         \lucky%
       \or%
         \dodger%
       \or%
-        \specialist{rapier}%
+        \weaponmaster%
       \else%
         \fasthealer%
       \fi%
