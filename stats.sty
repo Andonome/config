@@ -652,10 +652,9 @@
   \\
   \end{tabularx}%
   \par\qquad%
-  \iftoggle{genExamples}%
-    {HP: \arabic{hp}
-    }%
-    {\Repeat{\value{hp}}{\Square}}%
+  HP:~\iftoggle{genExamples}%
+    {\arabic{hp}}%
+    {\hpStat}%
   \ifdefempty{\Abilities}{}{%
     \normalfont
     \par\textbf{Abilities:} \Abilities
