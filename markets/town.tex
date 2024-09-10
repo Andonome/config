@@ -76,8 +76,6 @@
 
   New song composition & \mkPrice{4}/ song \\
 
-  Cock fight & \mkPrice[cp]{4} \\
-
   \footnotesize \composeHumanName, the Fence & \footnotesize 50\% and \tiny shhh \\
 
 \end{nametable}
@@ -131,6 +129,10 @@
 \renewcommand\npcsymbol{\glsentrysymbol{abderian}}
 \begin{nametable}[Lc]{\composeHumanName's Tavern}
   \textbf{Hospitality} & \textbf{Cost} \\\hline
+
+  \ifodd\value{r3}\else
+  Cock fight! & --- \\
+  \fi
 
   Entrance and ale & \mkPrice[cp]{4} \\
 
