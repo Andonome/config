@@ -28,6 +28,7 @@
 \glssetcategoryattribute{profession}{glossnamefont}{textit}
 \glsdefpostdesc{profession}{.\\\textcolor{\pageSideColor}{\hrulefill}}
 \glssetcategoryattribute{profession}{noindex}{true}
+\glssetcategoryattribute{profession}{nonumberlist}{true}
 
 \glssetcategoryattribute{rank}{glossnamefont}{textbf}
 \glsdefpostdesc{rank}{.}
@@ -1520,6 +1521,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={Server},
   parent={templeOfPoison},
   category={profession},
+  sort={3},
   prefix={a\space},
   description={make food for the \glsentrytext{wheatGuild} all day, and every \glsentrytext{warden} has one in their employ},
 }
@@ -1637,6 +1639,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   prefix={a\space},
   parent={templeOfMisgenesis},
   category={profession},
+  sort={3},
   description={help with births, blessings, and beginnings of all kind.
   They protect the population from misgenesis -- the death which occurs before life.
   Nobody begins a business venture or party without a blessing from a Doula},
@@ -1703,6 +1706,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   nonumberlist,
   parent={templeOfJustice},
   category={profession},
+  sort={3},
   prefix={a\space},
   description={bear the heavy burden of enforcing laws, and maintaining the \glsentrytext{court}.
   Every \glsentrytext{village} with a couple of hundred souls has a keeper to keep them right, and collect payments for the vital service they provide},
@@ -1775,6 +1779,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   prefix={a\space},
   parent={templeOfFrost},
   category={profession},
+  sort={3},
   description={produce the best and warmest of clothes for \glsentrytext{cTwo}},
 }
 
