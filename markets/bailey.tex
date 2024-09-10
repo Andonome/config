@@ -25,9 +25,9 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
 
 \ifnum\value{r12}>8
 \noindent
-\renewcommand\npcsymbol{\glsentrysymbol{nulla}}
 \begin{minipage}{\linewidth}
-  \begin{nametable}[Xcc]{\glsentrysymbol{nulla}~At the \Glsentrytext{doulaShop}}
+  \renewcommand\npcsymbol{\glsentrysymbol{nulla}}
+  \begin{nametable}[Lcc]{At the \Glsentrytext{doulaShop}}
     \textbf{Things on shelves} & \textbf{Weight} & \textbf{Cost} \\\hline
     \rareMarketItem[9]{Air \Glsentrytext{ingredient}}{1}{23}%
     \rareMarketItem[9]{Fire \Glsentrytext{ingredient}}{1}{23}%
@@ -108,7 +108,7 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
   \end{nametable}
 \else
   \renewcommand\npcsymbol{\glsentrysymbol{sylf}}
-  \begin{nametable}[LXX]{Retired \Glsentrytext{ranger} \composeHumanName's Tents}
+  \begin{nametable}[Lcc]{Retired \Glsentrytext{ranger} \composeHumanName's Tents}
     \textbf{Size} & \textbf{Weight} & \textbf{Cost} \\\hline
     \rareMarketItem{Hardened half-yurt (\glsentrytext{dr} 4)}{3}{12}
     \rareMarketItem[7]{Backpack (\tn[10] to remove)}{0}{2}
