@@ -49,6 +49,22 @@
   \fi%
 }
 
+\newcommand\setSpellDamage{%
+  \iftoggle{Divergent}{%
+    \ifnum\value{encnum}=2
+      \conDmg{spellPlusTwo}%
+    \else%
+      \conDmg{spellPlusOne}%
+    \fi%
+  }{%
+    \ifnum\value{encnum}=1
+      \conDmg{spellPlusTwo}%
+    \else%
+      \conDmg{spellPlusOne}%
+    \fi%
+  }%
+}
+
 \newcommand\spellRange{}
 \newcommand\setRange{%
   \iftoggle{Distant}%
@@ -93,6 +109,8 @@
   \settoggle{Devious}{false}
 \newtoggle{Distant}
   \settoggle{Distant}{false}
+\newtoggle{Divergent}
+  \settoggle{Divergent}{false}
 \newtoggle{Duplicated}
   \settoggle{Duplicated}{false}
 \newtoggle{opposedSpell}
@@ -105,10 +123,12 @@
   \setcounter{spellTargets}{1}%
   \togglefalse{Devious}%
   \togglefalse{Distant}%
+  \togglefalse{Divergent}%
   \togglefalse{Duplicated}%
   \foreach \d in {#2}{%
     \ifdefstring{\d}{Devious}{\global\toggletrue{Devious}}{}%
     \ifdefstring{\d}{Distant}{\global\toggletrue{Distant}}{}%
+    \ifdefstring{\d}{Divergent}{\global\toggletrue{Divergent}}{}%
     \ifdefstring{\d}{Duplicated}{\global\toggletrue{Duplicated}}{}%
     \stepcounter{spellCost}%
   }%
@@ -118,17 +138,21 @@
     \addtocounter{spellPlusTwo}{2}%
   \setcounter{spellPlusThree}{\value{spellCost}}%
     \addtocounter{spellPlusThree}{3}%
-  \conDmg{spellPlusTwo}%
   \ifstrequal{#2}{}{\renewcommand\spellEnhancements{}}{\renewcommand\spellEnhancements{#2,\space}}%
   \renewcommand\spellAction{#3}%
   \renewcommand\spellSphere{#4}%
   % What bonus does the caster receive?  Some spells will display the caster's current Bonus, so we must calculate it.  We start by setting it sky-high, then for each element in {Earth,Fire}, et c. we check if this is lower than the current castingBonus, if (if so), lower the bonus.
+  \setcounter{encnum}{0}%
   \setcounter{castingBonus}{10}%
   \foreach \e in {#4}{%
     \ifnum\value{\e}<\value{castingBonus}%
       \setcounter{castingBonus}{\value{\e}}%
     \fi%
+    \stepcounter{encnum}%
   }{}%
+  % This encnum just counts how many elemental spheres were used.
+  % If we're using more than one element, and the spell is not Divergent, it means that the spell is using a high sphere, which changes the standard bonus from +2 to +1.
+  \setSpellDamage
   \iftoggle{snapCaster}{%
     \addtocounter{castingBonus}{\value{Wits}}%
   }{%
