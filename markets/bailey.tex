@@ -94,6 +94,21 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
 
 \end{nametable}
 
+\ifnum\value{r12}>8
+  \renewcommand\npcsymbol{\glsentrysymbol{sylf}}
+  \begin{nametable}[Lcc]{Retired \Glsentrytext{ranger} \composeHumanName's Tents}
+    \textbf{Size} & \textbf{Weight} & \textbf{Cost} \\\hline
+    \rareMarketItem{Hardened half-yurt (\glsentrytext{dr} 4)}{3}{12}
+    \rareMarketItem[7]{Backpack (\tn[10] to remove)}{0}{2}
+    \rareMarketItem{Backpack (\tn[7] to remove)}{0}{3}
+    \rareMarketItem{Bagpipes}{2}{7}
+    \rareMarketItem{Tent for 4}{4}{8}
+    \rareMarketItem{Tent for 3}{3}{6}
+    \rareMarketItem{Tent for 2}{2}{4}
+    \marketItem{Tent for 1}{1}{3}
+  \end{nametable}
+\fi
+
 \end{multicols}
 
 \begin{multicols}{2}
@@ -107,18 +122,6 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
     \showArmourPrice{\partiallisk}{31}%
   \end{nametable}
 \else
-  \renewcommand\npcsymbol{\glsentrysymbol{sylf}}
-  \begin{nametable}[Lcc]{Retired \Glsentrytext{ranger} \composeHumanName's Tents}
-    \textbf{Size} & \textbf{Weight} & \textbf{Cost} \\\hline
-    \rareMarketItem{Hardened half-yurt (\glsentrytext{dr} 4)}{3}{12}
-    \rareMarketItem[7]{Backpack (\tn[10] to remove)}{0}{2}
-    \rareMarketItem{Backpack (\tn[7] to remove)}{0}{3}
-    \rareMarketItem{Bagpipes}{2}{7}
-    \rareMarketItem{Tent for 4}{4}{8}
-    \rareMarketItem{Tent for 3}{3}{6}
-    \rareMarketItem{Tent for 2}{2}{4}
-    \marketItem{Tent for 1}{1}{3}
-  \end{nametable}
 \fi
 
 \columnbreak
@@ -147,24 +150,6 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
   \marketItem{Rope, 50'}{1}{3}
 
 \end{nametable}
-
-\end{multicols}
-
-\ifodd\value{r3}
-  \begin{nametable}[XXXXXc]{\composeHumanName's Weaponry}
-
-  \textbf{Name} & \textbf{Attack} & \textbf{Damage} & \textbf{\Glsfmtshort{ap} Cost} & \textbf{\Glsfmttext{weight}} & \textbf{Cost} \\\hline
-
-  \Dagger\weaponName & \arabic{weaponBonus} & \arabic{weaponDamage} & \arabic{heft} & \arabic{weaponWeight} & \mkPrice{2} \\
-
-  \shortsword\weaponName & \arabic{weaponBonus} & \arabic{weaponDamage} & \arabic{heft} & \arabic{weaponWeight} & \mkPrice{9} \\
-
-  \spear\weaponName & \arabic{weaponBonus} & \arabic{weaponDamage} & \arabic{heft} & \arabic{weaponWeight} & \mkPrice{7} \\
-
-  \longsword\weaponName & \arabic{weaponBonus} & \arabic{weaponDamage} & \arabic{heft} & \arabic{weaponWeight} & \mkPrice{11} \\
-
-  \end{nametable}
-\fi
 
 \renewcommand\npcsymbol{\glsentrysymbol{wrecan}}
 \ifnumcomp{\value{r4b}}{>}{2}{%
@@ -206,5 +191,23 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
     \end{boxtable}
   \fi
 }
+
+\end{multicols}
+
+\ifodd\value{r3}
+  \begin{nametable}[XXXXXc]{\composeHumanName's Weaponry}
+
+  \textbf{Name} & \textbf{Attack} & \textbf{Damage} & \textbf{\Glsfmtshort{ap} Cost} & \textbf{\Glsfmttext{weight}} & \textbf{Cost} \\\hline
+
+  \Dagger\weaponName & \arabic{weaponBonus} & \arabic{weaponDamage} & \arabic{heft} & \arabic{weaponWeight} & \mkPrice{2} \\
+
+  \shortsword\weaponName & \arabic{weaponBonus} & \arabic{weaponDamage} & \arabic{heft} & \arabic{weaponWeight} & \mkPrice{9} \\
+
+  \spear\weaponName & \arabic{weaponBonus} & \arabic{weaponDamage} & \arabic{heft} & \arabic{weaponWeight} & \mkPrice{7} \\
+
+  \longsword\weaponName & \arabic{weaponBonus} & \arabic{weaponDamage} & \arabic{heft} & \arabic{weaponWeight} & \mkPrice{11} \\
+
+  \end{nametable}
+\fi
 
 \stepcounter{diceNo}
