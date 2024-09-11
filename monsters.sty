@@ -652,6 +652,7 @@
     {{0}{0}{0}}% MIND
     {%
       \ifodd\value{r3}
+        \set{Cultivation}{r2c}
       \else
         \set{Melee}{r2b}
         \set{Crafts}{r2c}
@@ -665,7 +666,7 @@
         \Dagger
       \fi
     }% SKILLS
-    {\snapshot}% KNACKS
+    {}% KNACKS
     {\longbow, \ifodd\value{r3}\rations, \fi\lootSmall}% EQUIPMENT
     {}% ABILITIES
 }
