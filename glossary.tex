@@ -554,12 +554,31 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   The winner deals $1D6+$ Damage + Strength Bonus, and every +4 Damage converts to $1D6$},
 }
 
+\longnewglossaryentry{retreat}{
+  name={Retreat},
+  text={retreat},
+  prefix={a\space},
+  parent={combat},
+  type={mech},
+  nonumberlist,
+  description={works like any \glsentrytext{resistedaction}; both parties begin with \roll{Speed}{Athletics}.
+  If the players succeed with a Margin of 3 or more, the \glsfmtplural{pc} have escaped.
+  But if they succeed with a Margin below 3, they do not escape, but can selec the next \glsentrytext{area} the chase enters, and switch to any appropriate \glsentrytext{skill}.
+
+  For example, if the \glsfmtplural{pc} knew of a nearby bog, they could divert the chase there, and the default \glsentrytext{resistedaction} would use \roll{Speed}{Survival}; or they could try to navigate through a dense crowd with \roll{Speed}{Empathy}.
+
+  When players fail a roll to retreat, the pursuers can try to hound them into their choice of \glsentrytext{area}, and change the active \glsentrytext{skill}.
+  Or if the failure Margin reaches 3, the pursuers catch the \glsfmtplural{pc}.
+
+  Each roll inflicts 1~\glsentrytext{ep} on all involved},
+  }
+
 \longnewglossaryentry{area}{
   name={Areas},
   sort={Area},
   text={Area},
   prefix={an\space},
-  parent={region},
+  parent={retreat},
   type={mech},
   nonumberlist,
   description={give a rough unit for large spaces.
