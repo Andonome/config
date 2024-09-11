@@ -197,33 +197,22 @@ This collection is all you will need for this book.}
   prefix={a\space},
   parent={campaign},
   type={mech},
-  description={are \glsentrytext{bind}'s way of structuring stories.
-  The main events often begin off-scene, but send echoes towards the \glspl{pc}.
-  Side~Quests continuously prompt the \glspl{pc} to react to the situation, to hunt down trouble, or help out a struggling organization.
-
-  Many Side~Quests can run at the same time, which leads to the players seeing an active world, full of interconnected plots and threads},
+  description={are \glsentrytext{bind}'s way of weaving emergent stories.
+  Each one introduces itself to the \glsentrytext{gm} with a summary of its scenes, each segmented into \glsfmtplural{region}},
   }
 
 \longnewglossaryentry{segment}{
   name={Segments},
-  text={segment},
+  text={Segment},
   prefix={a\space},
   parent={sq},
-  symbol={\glsentrytext{sqn}},
   type={mech},
-  description={are like scenes in a story, but with restrictions.
+  description={describe events which can happen at any time, anywhere within their \glsentrytext{region}.
+  Some \glsfmtplural{sq} have all of their Segments in a single \glsentrytext{region}, while others have Segments which jump between \glsfmtplural{region}.
 
-  Each segment belongs to a particular \glsentrytext{region} in the \glsentrytext{campaign}; this means the segment can take place anywhere within that \glsentrytext{region}.
-  For example, a segment cannot take place `when the \glspl{pc} reach the lost temple', because they may not approach that temple.
-  However, it might take place `in the forest', if the \glspl{pc} could discover a lost temple anywhere in the forest.
-  
-  Segments never assume the results of a previous segment; so if one segment introduces a violent \glsentrytext{witch} to the \glspl{pc}, later scenes should not assume that the troupe have not killed the \glsentrytext{witch}.
+  Some Segments have a `\glsentrytext{squash}' symbol, meaning they should be run at the same time as the next available Segment in the \glsentrytext{region}.
 
-  And, of course, segments can comfortably split apart.
-  If the \glsentrytext{sq}'s first segment introduces a danger in the forest, while the second shows how the danger has infiltrated the town, then the troupe may search the forest for more information for a long time, without ever returning to town.
-  During this time, numberous other segments might emerge, but they will never find out what comes next in the \glsentrytext{sq} until they enter town.
-
-  Once been completed, the second segment in the \glsentrytext{sq} readies itself, and waits for the troupe to enter its \glsentrytext{region}},
+  Once the Segments concludes, it should be marked as done with a `\glsentrytext{sqr}\vphantom{\hspace{-.5em}\textbackslash}', and the next Segment in the same \glsentrytext{sq} becomes ready (`\glsentrytext{sqr}')},
   }
 
 \longnewglossaryentry{interval}{
@@ -304,33 +293,9 @@ This collection is all you will need for this book.}
   parent={sq},
   category={rules},
   nonumberlist,
-  description={are the broad areas in a particular \glsentrytext{campaign}, like `forest', `town', `roads', where each \glsentrytext{segment} lives.
-  Each Region should have its own \glsentrytext{segment}-list, where each has a box (`\glsentrytext{sqn}') showing it is not yet ready, or a ticked-box (`\glsentrytext{sqr}') once the \glsentrytext{gm} decides the previous \glsentrytext{segment} has concluded},
-  }
+  description={are broad types of areas, such as `Town', or `Forest'.
 
-\longnewglossaryentry{area}{
-  name={Areas},
-  sort={Area},
-  text={Area},
-  prefix={an\space},
-  parent={region},
-  type={mech},
-  category={rules},
-  nonumberlist,
-  description={give a rough unit for large spaces.
-  An area is a space made distinct by its features.
-  In the \glsentrytext{deep}, each cavern might count as an area, while out in the open plains a forest might be composed of the local areas: `the centre with the big, felled tree', `the river's fork', and `the griffins' nesting site'},
-  }
-
-\longnewglossaryentry{step}{
-  name={Steps},
-  text={step},
-  prefix={a\space},
-  parent={region},
-  type={mech},
-  nonumberlist,
-  description={provide a rough measure of space.
-  We can imagine it about a metre long, or as wide as the step on your gaming board, or any other length},
+  Whenever the \glsfmtplural{pc} go from one Region to another, the \glsentrytext{gm} checks for the next available \glsentrytext{segment} in that Region (marked `\glsentrytext{sqr}')},
   }
 
 % Actions
@@ -589,6 +554,19 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   The winner deals $1D6+$ Damage + Strength Bonus, and every +4 Damage converts to $1D6$},
 }
 
+\longnewglossaryentry{area}{
+  name={Areas},
+  sort={Area},
+  text={Area},
+  prefix={an\space},
+  parent={region},
+  type={mech},
+  nonumberlist,
+  description={give a rough unit for large spaces.
+  An area is a space made distinct by its features.
+  In the \glsentrytext{deep}, each cavern might count as an area, while out in the open plains a forest might be composed of the local areas: `the centre with the big, felled tree', `the river's fork', and `the griffins' nesting site'},
+  }
+
 \newacronym[
   description={give a rough estimate of a creature's combat abilities, and the value of any \glsentrytext{monster}'s corpse},
   shortplural={CRs},
@@ -648,6 +626,17 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   category={rules},
   nonumberlist,
   description={costs 1 \glsentrytext{ap}, and lets the character move three \glsfmtplural{step} plus their Athletics},
+}
+
+\longnewglossaryentry{step}{
+  name={Steps},
+  text={step},
+  prefix={a\space},
+  parent={ap},
+  type={mech},
+  nonumberlist,
+  description={provide a rough measure of space.
+  We can imagine it about a metre long, or as wide as the step on your gaming board, or any other length},
 }
 
 \newacronym[
