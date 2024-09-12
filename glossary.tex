@@ -258,17 +258,17 @@ This collection is all you will need for this book.}
 
 \newacronym[
   description={come from each character's Code.
-  Spend them to raise any \glsentrytext{trait}.
+  Spend XP to raise any \glsentrytext{trait}.
     \noindent
-    \begin{boxtable}
-         \textbf{Trait} & \textbf{Cost} \\
+    \begin{boxtable}[XYccc]
+         \textbf{Trait} & \textit{Remove Penalty}  & \textbf{First}  & \textbf{Second} & \textbf{Third}\\
          \hline
-         \glsentrytext{attribute} & $5\times2^{n-1} +5$  \\
-         \glsentrytext{skill}     & $5\times n$ \\
-         Knack                    & $5\times n$ \\
-         Combat \glsentrytext{skill} & $5\times 2^{n}$ \\
+         \glsentrytext{skill}      & --- &  5 & 10 & 15 \\
+         Knack                     & --- &  5 & 10 & 15 \\
+         Combat \glsfmttext{skill} & --- & 10 & 20 & 30 \\
+         \glsentrytext{attribute}  &   5 & 10 & 20 & 40 \\
     \end{boxtable}
-  Here `$n$' is the level purchased},
+  The racial limits adjust these numbers as usual},
   shortplural={XP},
   prefix={an\space},
   name={Experience Points (XP)},
