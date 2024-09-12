@@ -39,20 +39,16 @@
     \needspace{\value{enc}\baselineskip}%
     \showBoxes%
     }%
-  \ifdefempty{\NPCdescription}{\vspace{.5em}}{%
-    \begin{multicols}{2}%
-    \raggedright%
-    \textbf{Description:}~\NPCdescription\nobreak%
-    \par%
-    \textbf{Wants:}~\npcGoal%
-    \ifdefempty{\currentQuote}{}{\par%
+  \ifdefempty{\NPCdescription}{}{%
+    \textbf{Description:}~\NPCdescription.
+    \textbf{Wants:}~\npcGoal.
+    \ifdefempty{\currentQuote}{}{%
       \textbf{Quote:}~\textit{``\currentQuote''}%
     }%
+    \textbf{Mannerism:}~\mannerism.
     \par%
-    \textbf{Mannerism:}~\mannerism%
-    \end{multicols}%
     \vspace{1em}%
-  }%
+  }%1
 }
 
 %      _        _   
@@ -206,14 +202,12 @@
 }
 
 \newcommand\showBoxes{%
-  \begin{center}%
-  \renewcommand{\arraystretch}{0.9}%
   \ifnum\value{mp}>0%
-    \Repeat{\value{noAppearing}}{\hpStat~\mpStat\quad}%
+    {\centering\Repeat{\value{noAppearing}}{\hpStat~\mpStat\quad}}%
   \else%
-    \Repeat{\value{noAppearing}}{\hpStat\quad}%
+    {\centering\Repeat{\value{noAppearing}}{\hpStat\quad}}%
   \fi%
-  \end{center}%
+  \vfill\null\par%
 }
 
 \newcounter{wounds}
