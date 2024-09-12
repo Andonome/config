@@ -4,7 +4,6 @@
 
 % Header line above topic
 \renewcommand*{\glstopicPreSkip}{\bigLine\medskip\needspace{10\baselineskip}}
-%\renewcommand*{\glstopicSubPreLocSep}{~\textcolor{\pageSideColor}{\adforn{38}}~}
 \renewcommand*{\glstopicInit}{\setlength{\parskip}{10pt}}
 
 \newglossary*{people}{People}
@@ -1075,15 +1074,23 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 
 %%%%%%%%%%%%%%%% General Terms %%%%%%%%%%%%%%%%%%%%
 
+\longnewglossaryentry{cosmology}{
+  name={Cosmology},
+  text={cosmology},
+  nonumberlist,
+  description={every year, the \glsentrytext{ainumar} orbits the Sun, and every \glsentrytext{cycle}, we orbit the \glsentrytext{ainumar}},
+}
+
 \longnewglossaryentry{ainumar}{
-  name={Ainumar},
+  name={The Ainumar},
   text={Ainumar},
   plural={Ainumari},
-  sort={9},
-  category={indexed},
+  parent={cosmology},
   nonumberlist,
-  description={This massive planet has a raging storm across its face, much like our Jupiter.
-  Many think that the gods live here, planning how to kill people, and take their souls up to their houses.
+  description={shines brightly, in our sky.
+  At the end of each \glsentrytext{cycle}, it grows, massive, and you can see a storm raging across its face.
+  Many think that the gods live there, planning how to kill people, and take their souls up to their houses.
+
   Each god holds domain over a different death},
 }
 
@@ -1108,9 +1115,11 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={cycle},
   sort={Z},
   prefix={a\space},
-  parent={ainumar},
+  parent={cosmology},
   description={last for sixty days, after which \glsentrytext{fenestra} has travelled around the \glsentrytext{ainumar}.
-  Each cycle begins and ends with a violent \glsentrytext{wrath}, which marks a change in temperature for the next cycle.
+  Each cycle begins and ends with a violent \glsentrytext{storm}, which marks a change in temperature for the next cycle.
+
+  \orrery
 
   After six cycles, the \glsentrytext{ainumar} completes a revolution around the Sun, and a new year begins},
 }
@@ -1741,7 +1750,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   parent={templeOfJustice},
   category={rank},
   prefix={a\space},
-  description={count every \glsentrytext{cp} in an estate, keep their \glsentrytext{warden} up-to-date on recent affairs, and keep in contact with every \glsentrytext{guard} \glsentrytext{jotter} in the area, and ensure the \glsentrytext{wheatGuild} don't cause problems},
+  description={count every \glsfmtlongpl{cp} in their \glsentrytext{warden}'s, keep their \glsentrytext{warden} up-to-date on recent affairs, and keep in contact with every \glsentrytext{guard} \glsentrytext{jotter} in the area, and ensure the \glsentrytext{wheatGuild} don't cause problems},
 }
 
 \longnewglossaryentry{sunGuard}{
@@ -2052,7 +2061,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={wrath},
   prefix={a\space},
   type={mech},
-  parent={weather},
+  parent={cosmology},
   description={brings the face of the \glsentrytext{ainumar} up close at the end of each \glsentrytext{cycle}.
   As the face of the gods looks a dozen-times larger than usual, the ground quakes, lightning strikes, the wind rips houses apart, and tidal waves thrash at every shore.
   During this time, underground people venture deeper underground, while land-dwelling people often leave their houses in search of an empty space.
