@@ -202,12 +202,12 @@
 }
 
 \newcommand\showBoxes{%
+  \ifnum\value{noAppearing}=1\fpStat\qquad\fi%
   \ifnum\value{mp}>0%
-    {\centering\Repeat{\value{noAppearing}}{\hpStat~\mpStat\quad}}%
+    {\centering\Repeat{\value{noAppearing}}{\hpStat\quad\mpStat\qquad}}%
   \else%
     {\centering\Repeat{\value{noAppearing}}{\hpStat\quad}}%
   \fi%
-  \ifnum\value{noAppearing}=1\fpStat\fi
   \vfill\null\par%
 }
 
@@ -227,8 +227,7 @@
 }
 
 \newcommand\mpStat{%
-  \glsentrysymbol{alchemy}-%
-  \Repeat{\value{mp}}{\Circle}%
+  \Repeat{\value{mp}}{\glsentrysymbol{mp}}%
 }
 
 \newcommand\fpStat{%
