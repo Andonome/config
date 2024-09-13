@@ -221,9 +221,9 @@
 }
 
 \newcommand\hpStat{%
-  \Repeat{\value{weight}}{\LEFTcircle}%
-  \Repeat{\value{freeHP}}{\Circle}%
-  \Repeat{\value{wounds}}{\CIRCLE}%
+  \Repeat{\value{weight}}{\glsentrysymbol{weight}}%
+  \Repeat{\value{freeHP}}{\glsentrysymbol{hp}}%
+  \Repeat{\value{wounds}}{\makebox[0pt]{\hspace{.7em}\checked}\glsentrysymbol{hp}}%
 }
 
 \newcommand\mpStat{%
