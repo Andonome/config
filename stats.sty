@@ -207,6 +207,7 @@
   \else%
     {\centering\Repeat{\value{noAppearing}}{\hpStat\quad}}%
   \fi%
+  \ifnum\value{noAppearing}=1\fpStat\fi
   \vfill\null\par%
 }
 
@@ -228,6 +229,10 @@
 \newcommand\mpStat{%
   \glsentrysymbol{alchemy}-%
   \Repeat{\value{mp}}{\Circle}%
+}
+
+\newcommand\fpStat{%
+  \Repeat{\value{fp}}{\glsentrysymbol{fp}}%
 }
 
 %%%%%%%%%%%%%%%%%%%% Character Generation %%%%%%%%%%%%%%%%%%%%
