@@ -402,31 +402,20 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   sort={T2},
   type={mech},
   category={rules},
-  description={},
+  description={Journeys by road allow people to move 5~miles per \glsentrytext{interval}.
+  Each extra mile a character travels inflicts 1~\glsfmttext{ep}},
 }
 
 % Overland Journeys
 
-\longnewglossaryentry{journey}{
-  name={Journeys},
-  text={journey},
+\longnewglossaryentry{rambling}{
+  name={Forest Rambling},
+  text={rambling},
   prefix={a\space},
   parent={travel},
   type={mech},
   category={rules},
-  description={depends on the terrain.
-    Good roads provide a smooth journey, rough roads provide less, and deep forests can demand attention and problem-solving twice a mile.
-
-    Each \glsentrytext{interval}, the troupe can travel the initial distance easily.
-    Every mile after that adds another~\glsentrytext{ep}.
-
-    By default, characters might travel 10~miles per day, i.e. 5~miles in the morning, then 5~in the afternoon.
-    By evening, most stop at the first \glsentrytext{bothy} they see, and take time to cook, and potentially meet another travelling group moving in the opposite direction.
-
-    \marchingChart
-    An expedient troupe might add 2~miles each \glsentrytext{interval}, and eat nothing but dry rations, so they can march instead of cooking in the evening.
-    With 3~\glspl{interval} of movement, the troupe could travel 21~miles in total.
-    The night would allow them to remove 1~\glsentrytext{ep}, but the day would add 6 more, so they won't be moving like that for long},
+  description={reduces travel by 1~mile due to the thickets, ditches, and patches of marshland},
 }
 
 \longnewglossaryentry{vigil}{
@@ -2167,7 +2156,7 @@ While floods occur, everyone gains a +1 Bonus to their Water \glsentrytext{spher
   prefix={a\space},
   type={mech},
   parent={weather},
-  description={slows every \glsentrytext{journey} to half the standard speed.
+  description={slows every journey to half the standard speed.
   The added cold also inflicts 1~\glsentrytext{ep} each \glsentrytext{interval} a character spends exposed},
 }
 
