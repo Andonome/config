@@ -695,6 +695,24 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   nonumberlist,
   parent={combat},
   description={add to Attack and Damage.
+
+  \begin{boxtable}[lYYYY]
+  \textbf{\small Name} & \textbf{\small Att Bonus} & \textbf{\small Dam Bonus} & \textbf{\Glsfmtshort{ap} \small Cost} & \textbf{\Gls{weight}} \\\hline
+  \showWeapon{\Dagger} \\
+  \ifodd\value{r3}%
+    \showWeapon{\javelin}
+  \else%
+    \showWeapon{\quarterstaff}
+  \fi \\
+  \ifodd\value{r4}%
+    \showWeapon{\longsword}
+  \else%
+    \showWeapon{\shortsword}
+  \fi \\
+  \showWeapon{\roundshield} \\
+
+  \end{boxtable}
+
   Smaller weapons only cost 1~\glsentrytext{ap} to use, while larger weapons cost more, but also have bigger Bonuses},
 }
 
