@@ -550,6 +550,28 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   The winner deals $1D6+$ Damage + Strength Bonus, and every +4 Damage converts to $1D6$},
 }
 
+\longnewglossaryentry{statblock}{
+  name={Statblocks},
+  text={statblock},
+  prefix={a\space},
+  parent={combat},
+  type={mech},
+  description={for \glsfmtplural{npc} have the standard combat stats already worked out at the bottom.
+  This leaves you free to make use of unique \glsentrytext{attribute} + \glsentrytext{skill} combinations, or rely on the defaults.
+  The {\scshape Att} number shows the \glsentrytext{tn} players need to roll above in combat.
+  Any number listed beside the \glsentrytext{dr} shows the number required for \glsfmtplural{vitalShot}.
+  \setcounter{wounds}{1}
+
+  \ifodd\value{r3}%
+    \humansoldier
+  \else%
+    \dwarvensoldier
+  \fi%
+
+  Each creature has tick-boxes to track \glsfmtplural{hp}, with some marked the current \glsentrytext{weight} carried.
+  This \glsentrytext{npc} can take \arabic{freeHP} more \glsentrytext{weight} before penalties begin},
+  }
+
 \longnewglossaryentry{retreat}{
   name={Retreat},
   text={retreat},
