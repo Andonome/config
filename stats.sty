@@ -484,6 +484,7 @@
   \else%
     \set{att}{Brawl}%
   \fi%
+  \ifnum\value{att}<0\setcounter{att}{0}\fi%
   \addtocounter{att}{\value{Dexterity}}%
   \addtocounter{att}{\value{weaponBonus}}%
   \set{toHit}{att}%
