@@ -312,11 +312,13 @@
     }% SKILLS
     {%
       \ifnum\value{Charisma}<1%
-        \snapcaster, %
-      \fi%
+        \snapcaster%
+      \else%
+        \lucky%
+      \fi, %
       \ifcase\value{r4b}\relax%
       \or%
-        \lucky%
+        \charge%
       \or%
         \dodger%
       \or%
