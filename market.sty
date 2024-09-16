@@ -5,7 +5,10 @@
   \randomfour%
   \randomdozen%
   \setcounter{track}{#2}%
-  \ifnum\value{track}<4%
+  \ifnum\value{track}<7%
+    \ifnum\value{temperature}=0%
+      \addtocounter{track}{3}
+    \fi%
   \else%
     \addtocounter{track}{\value{r2}}%
     \ifnum\value{track}<14%
