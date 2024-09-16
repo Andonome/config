@@ -42,10 +42,10 @@
   \ifdefempty{\NPCdescription}{\vfill\null}{%
     \textbf{Description:}~\NPCdescription.
     \textbf{Wants:}~\npcGoal.
-    \ifdefempty{\currentQuote}{}{%
-      \textbf{Quote:}~\textit{``\currentQuote''}, %
-    }%
     \textbf{Mannerism:}~\mannerism.
+    \ifdefempty{\currentQuote}{}{%
+      \textbf{Quote:}~\textit{``\currentQuote''}%
+    }%
     \par%
     \vspace{1em}%
   }%1
