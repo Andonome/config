@@ -5,7 +5,6 @@
   \roundUp{cycle}
 
 \newcounter{fenestraYear}
-\setcounter{fenestraYear}{3}
 \setcounter{fenestraYear}{\year}
 \multiply\value{fenestraYear}by 4
 \newcounter{fenestraDay}
@@ -39,22 +38,22 @@
 
 \newcommand\showCycle[1][\value{cycle}]{%
   \ifcase#1%
-    \glsentrytext{cOne}%
+    \gls{cOne}%
     \renewcommand\cycleDesc{\glsentrydesc{cOne}}%
   \or%
-    \glsentrytext{cTwo}%
+    \gls{cTwo}%
     \renewcommand\cycleDesc{\glsentrydesc{cTwo}}%
   \or%
-    \glsentrytext{cThree}%
+    \gls{cThree}%
     \renewcommand\cycleDesc{\glsentrydesc{cThree}}%
   \or%
-    \glsentrytext{cFour}%
+    \gls{cFour}%
     \renewcommand\cycleDesc{\glsentrydesc{cFour}}%
   \or%
-    \glsentrytext{cFive}%
+    \gls{cFive}%
     \renewcommand\cycleDesc{\glsentrydesc{cFive}}%
   \else
-    \glsentrytext{cSix}%
+    \gls{cSix}%
     \renewcommand\cycleDesc{\glsentrydesc{cSix}}%
   \fi%
 }
