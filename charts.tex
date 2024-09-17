@@ -100,7 +100,7 @@
 
 \newcommand\descriptorTable{
   \toggletrue{Duplicated}
-  \begin{nametable}[c|LYL]{Descriptors}
+  \begin{boxtable}[c|LYL]
     \textbf{Lv.} & \textbf{Distant} & \textbf{Duplicated} & \textbf{Devious} \\\hline
     \setcounter{spellCost}{2}%
     \arabic{spellCost} & \setLongRange \spellRange & \setTargetsIfDuplicated \arabic{spellTargets} targets & 1~\showOnset \\
@@ -112,5 +112,5 @@
     \arabic{spellCost} & \setLongRange \spellRange & \setTargetsIfDuplicated \arabic{spellTargets} targets & 1~\showOnset \\
     \stepcounter{spellCost}
     \arabic{spellCost} & \setLongRange \spellRange & \setTargetsIfDuplicated \arabic{spellTargets} targets & 1~\showOnset \\
-  \end{nametable}
+  \end{boxtable}
 }
