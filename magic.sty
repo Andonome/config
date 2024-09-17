@@ -65,14 +65,10 @@
   }%
 }
 
-\newcommand\spellRange{}
-\newcommand\setRange{%
-  \iftoggle{Distant}%
-    {%
+\newcommand\setLongRange[1][spellCost]{%
       \ifcase\value{spellCost}\relax%
-      \renewcommand\spellRange{Error}%
       \or%
-      \renewcommand\spellRange{Error}%
+      \renewcommand\spellRange{20 \glspl{step}}%
       \or%
         \renewcommand\spellRange{greeting distance}%
       \or%
@@ -84,6 +80,13 @@
       \else%
         \renewcommand\spellRange{the horizon}%
       \fi%
+}
+
+\newcommand\spellRange{}
+\newcommand\setRange{%
+  \iftoggle{Distant}%
+    {%
+      \setLongRange%
     }%
     {%
       \setcounter{track}{24}%
@@ -116,11 +119,17 @@
 \newtoggle{opposedSpell}
   \settoggle{opposedSpell}{false}
 
+\newcommand\setTargetsIfDuplicated{%
+  \setcounter{spellTargets}{1}%
+  \iftoggle{Duplicated}{%
+    \foreach \i in {1,...,\arabic{spellCost}}%
+      {\multiply\value{spellTargets} by \value{spellCost}\addtocounter{spellTargets}{0}}%
+  }{}%
+}
 
 \newcommand\calcSpell[7]{%
   \renewcommand\spellName{#1}%
   \setcounter{spellCost}{1}%
-  \setcounter{spellTargets}{1}%
   \togglefalse{Devious}%
   \togglefalse{Distant}%
   \togglefalse{Divergent}%
