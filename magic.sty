@@ -172,10 +172,7 @@
   \renewcommand\spellSum{#6}%
   \renewcommand\spellNotes{#7}%
   \setRange%
-  \iftoggle{Duplicated}{%
-    \foreach \i in {1,...,\arabic{spellCost}}%
-      {\multiply\value{spellTargets} by \value{spellCost}\addtocounter{spellTargets}{0}}%
-  }{}%
+  \setTargetsIfDuplicated%
   \iftoggle{talisman}{%
     \index[talismans]{\textbf{#1} (\spellEnhancements\ \spellAction~\spellSphere) Range:~\spellRange, \ifnumcomp{\value{spellTargets}}{>}{1}{Area:~\arabic{spellTargets}, }{} \iftoggle{Devious}{Onset:~1~\showOnset, }{} Resisted by: \detokenize{#5}, Bonus:~\arabic{spellCost}. \spellSum|adfclosedflourishleft~p.~}%
   }{%
