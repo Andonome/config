@@ -978,11 +978,39 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   type={mech},
   category={rules},
   description={are the basic sentence-formulae which define spells.
-    They consist of one to five `descriptors', one action, and a target.
-    \descriptorTable
+    They consist of one to five `\glsfmtplural{descriptor}', one action, and a target.
+    \begin{boxtable}[YccL]
+         \textbf{Descriptors} & \textbf{Action} & \textbf{Target} & \textbf{Result} \\
+         \hline
+         ---                  & Wax             & Fire            & Candle Grows Bright   \\
+         Detailed             & Warp            & Water           & Water turns into an ice statue. \\
+         Distant, Duplicated  & Wane            & Fate, Air       & Targets at a distance ignore \glsentrytext{ep} Penalties. \\
+    \end{boxtable}
     If a mechanical effect needs a number, that number is 2 plus the cost when using an elemental \glsentrytext{sphere}, and 1 plus the cost when using a high \glsentrytext{sphere}.
     Each descriptor raises the \glsentrytext{mp} cost by~1},
 }
+
+\longnewglossaryentry{descriptor}{
+  name={Descriptors},
+  text={Descriptor},
+  prefix={a\space},
+  parent={invocation},
+  type={mech},
+  category={rules},
+  description={are fiddly.
+    Each one raises a spell's cost, and boosts one aspect.
+    But every time a spell's level increases, all Descriptors get a boost, which can lead to complications.
+    Distant spells cannot target anything nearby.
+    Duplicated spells continue finding targets until they have enough.
+    Devious spells wait for a long time, then the effects grow slowly.
+
+    \descriptorTable
+
+    Divergent spells use an opposing element, with exactly the same \glsentrytext{invocation}.
+    Detailed spells let the caster create precise instructions for a spell, but higher-level Detailed spells must show only something the caster has intimate knowledge of, so most come to resemble the caster's family, or past-times},
+}
+
+
 
 \longnewglossaryentry{witch}{
   name={Witch},
