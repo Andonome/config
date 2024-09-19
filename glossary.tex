@@ -98,59 +98,6 @@ And the monsters wander through a generous forest.}
   nonumberlist,
   ]{pdf}{pdf}{Printable Document Format}
 
-% Traits
-
-\longnewglossaryentry{trait}{
-  sort={T1.1},
-  name={Traits},
-  text={Trait},
-  prefix={a\space},
-  type={mech},
-  description={},
-  }
-
-\longnewglossaryentry{attribute}{
-  name={Attributes},
-  text={Attribute},
-  prefix={an\space},
-  type={mech},
-  parent={trait},
-  first={\textit{Attribute}},
-  description={describe the body and mind.
-    \par
-    \vspace{1em}
-    \noindent
-    \begin{minipage}{\linewidth}
-    \begin{description}
-      \item[Strength:]
-      muscle, brawn, toughness, height
-      \item[Dexterity:]
-      finesse, coördination, balance
-      \item[Speed:]
-      velocity, tendons, vim
-      \item[Intelligence:]
-      memory, logic, tenacity, cunning
-      \item[Wits:]
-      alacrity, levity, attention, acumen
-      \item[Charisma:]
-      gravitas, glamour, confidence, symmetry
-    \end{description}
-    \end{minipage}
-    Players can remove penalties with minimal \glsentrytext{xp} expenditure, but the price hike after that grows steeply},
-}
-
-\longnewglossaryentry{skill}{
-  name={Skills},
-  text={Skill},
-  prefix={a\space},
-  type={mech},
-  parent={trait},
-  nonumberlist,
-  description={each help with many different tasks, depending on the \glsentrytext{attribute} paired with.
-  \roll{Intelligence}{Larceny} lets the character open a door, while \roll{Dexterity}{Larceny} lets them pick a pocket},
-  }
-
-
 % Time
 
 \longnewglossaryentry{campaign}{
@@ -318,6 +265,61 @@ And the monsters wander through a generous forest.}
   prefix={an\space},
   description={When players want their \glsentrytext{pc} to attempt something risky, they roll $2D6$ plus \glsentrytext{attribute}, plus \glsentrytext{skill}},
 }
+
+% Traits
+
+\longnewglossaryentry{trait}{
+  sort={T1.1},
+  name={Traits},
+  text={Trait},
+  prefix={a\space},
+  type={mech},
+  parent={action},
+  description={define every character's limits},
+  }
+
+\longnewglossaryentry{attribute}{
+  name={Attributes},
+  text={Attribute},
+  prefix={an\space},
+  type={mech},
+  parent={trait},
+  first={\textit{Attribute}},
+  description={describe the body and mind.
+    \par
+    \vspace{1em}
+    \noindent
+    \begin{minipage}{\linewidth}
+    \begin{description}
+      \item[Strength:]
+      muscle, brawn, toughness, height
+      \item[Dexterity:]
+      finesse, coördination, balance
+      \item[Speed:]
+      velocity, tendons, vim
+      \item[Intelligence:]
+      memory, logic, tenacity, cunning
+      \item[Wits:]
+      alacrity, levity, attention, acumen
+      \item[Charisma:]
+      gravitas, glamour, confidence, symmetry
+    \end{description}
+    \end{minipage}
+    Players can remove penalties with minimal \glsentrytext{xp} expenditure, but the price hike after that grows steeply},
+}
+
+\longnewglossaryentry{skill}{
+  name={Skills},
+  text={Skill},
+  prefix={a\space},
+  type={mech},
+  parent={trait},
+  nonumberlist,
+  description={each help with many different tasks, depending on the \glsentrytext{attribute} paired with.
+  \roll{Intelligence}{Larceny} lets the character open a door, while \roll{Dexterity}{Larceny} lets them pick a pocket},
+  }
+
+
 
 \newacronym[
   description={means the number players need to roll on the dice to achieve a \emph{tie} with the task.
