@@ -64,4 +64,4 @@ graph:
 	make -Bind $(TARG) | make2graph | graph-easy --boxart
 
 print_%.pdf: %.pdf
-	pdfjam --longedge --landscape --paper a3paper --nup 1x1 --signature 12 $< -o $@
+	pdfjam --landscape --paper a3paper --nup 1x1 --signature 12 $< -o $@
