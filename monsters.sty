@@ -47,7 +47,7 @@
   {\quadruped}% ABILITIES
 }
 
-\newcommand{\chitincrawler}[1][\npc{\A}{Chitincrawler}]{
+\newcommand{\chitincrawler}[1][\npc{\ifnum\value{Strength}>4\F\else\M\fi\A}{Chitincrawler}]{
   \Animal{#1}%
   {{r4t5}{r0t1}{r3b}}% BODY
   {r4}% WITS
