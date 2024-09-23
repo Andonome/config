@@ -483,7 +483,11 @@
       \ifodd\value{r3b}
         \flail
       \else
-        \Dagger
+        \ifodd\value{rn4tn1}
+          \scythe
+        \else
+          \Dagger
+        \fi
       \fi
     }% SKILLS
     {\specialist{husbandry}}% KNACKS
