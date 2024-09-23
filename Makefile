@@ -26,10 +26,18 @@ resources.pdf: HANDOUTS STYLE_FILES | $(DROSS)
 	$(RUN) resources.tex
 	$(CP) $(DROSS)/resources.pdf resources.pdf
 
-booklet.pdf: STYLE_FILES HANDOUTS | $(DROSS)
+booklet.pdf: | STYLE_FILES HANDOUTS $(DROSS)
 	$(RUN) booklet.tex
 	$(RUN) booklet.tex
-	@pdfjam --angle 90 $(DROSS)/booklet.pdf --no-landscape --outfile $@
+	$(CP) $(DROSS)/booklet.pdf booklet.pdf
+
+/tmp/p_1.pdf: booklet.pdf
+	pdfjam --angle '90' $< 1 --outfile $@
+
+/tmp/p_2.pdf: booklet.pdf
+	pdfjam --angle '-90' $< 2 --outfile $@
+rules.pdf: /tmp/p_1.pdf /tmp/p_2.pdf
+	pdfunite $^ $@
 
 .PHONY: all clean
 all: docs.pdf booklet.pdf resources.pdf $(DROSS)/test.pdf 

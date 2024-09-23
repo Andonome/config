@@ -11,6 +11,4 @@ build:
     - if: $CI_COMMIT_BRANCH == "run"
   artifacts:
     paths:
-      - docs.pdf
-      - booklet.pdf
-      - resources.pdf
+      - "*.pdf"
