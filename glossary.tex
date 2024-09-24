@@ -11,6 +11,8 @@
 
 \renewcommand*{\glstopicInit}{\setlength{\parskip}{10pt}}
 
+\renewcommand{\glstopicTitleFont}{scshape}
+
 \newglossary*{people}{People}
 \glssetcategoryattribute{people}{indexonlyfirst}{true}
 
@@ -68,10 +70,11 @@
 
 %%%%%%%%%% Preambles %%%%%%%%%%
 
-\setglossarypreamble{From the safety of a town, this medieval world looks familiar, but people rarely go to war, and nobody has heard of a plague.
-Nobody goes hungry outside of a town, as all forests bloom with roots, fruits, and monsters.
+\setglossarypreamble{\label{fenestraGlosPreamble}%
+  From the safety of a town, this medieval world looks familiar, but people rarely go to war, and nobody has heard of a plague.
+  Nobody goes hungry outside of a town, as all forests bloom with roots, fruits, and monsters.
 
-And the monsters wander through a generous forest.}
+  And the monsters wander through a generous forest.}
 
 \setglossarypreamble[mech]{\label{glosPreamble}%
   Each of these books has its own selection of rules, made to fit.
