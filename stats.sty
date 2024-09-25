@@ -293,7 +293,7 @@
 }
 
 \newcommand{\berserker}{%
-  Berserker (+1 \glsentrytext{ap}. on round 2 of combat, +1 Damage. on round 3)%
+  Berserker (+1 \glsentrytext{ap} on round 2 of combat, +1 Damage on round 3)%
 }
 
 \newcommand{\brawler}{%
@@ -323,7 +323,7 @@
 
 \newcommand{\laststand}{%
   Last~Stand
-  (when losing \glspl{hp}, the character gains \arabic{knacksPlusTwo}~\glspl{ap})%
+  (when losing \glsfmtplural{hp}, the character gains \arabic{knacksPlusTwo}~\glsfmtplural{ap})%
 }
 
 \newcommand{\lucky}{%
@@ -376,7 +376,7 @@
 }
 
 \newcommand{\autophage}{%
-  Autophage (cast with \glspl{ep} instead of \glsfmtplural{mp})%
+  Autophage (cast with \glsfmtplural{ep} instead of \glsfmtplural{mp})%
 }
 
 \newcommand{\snapcaster}{%
@@ -745,7 +745,7 @@
   \conDmg{track}%
   \setcounter{enc}{\value{hp}}%
   \addtocounter{enc}{\value{hp}}%
-  \addAbility{Fiery breath (range: \arabic{enc} \glspl{step}, Dam: \showDam\ifnum\value{mp}>0\ plus 1 per \glsentrytext{mp} spent\fi)}%
+  \addAbility{Fiery breath (range: \arabic{enc} \glsfmtplural{step}, Dam: \showDam\ifnum\value{mp}>0\ plus 1 per \glsentrytext{mp} spent\fi)}%
 }
 
 % To fly, creatures should have Speed
@@ -776,13 +776,13 @@
   \setcounter{track}{10}%
   \addtocounter{track}{-\value{Speed}}%
   \addAbility{Stench (breathing in demands \roll{Strength}{Survival} check, \glsentrytext{tn}~\arabic{track},
-  or take 3~\glspl{ep})}%
+  or take 3~\glsfmtplural{ep})}%
 }
 
 \newcommand{\crazyGas}{%
   \setcounter{track}{4}%
   \addtocounter{track}{\value{Strength}}%
-  \addAbility{Gas (receive hallucinations and \arabic{track}~\glspl{ep} per round)}%
+  \addAbility{Gas (receive hallucinations and \arabic{track}~\glsfmtplural{ep} per round)}%
 }
 
 \newcommand{\quadruped}{%
