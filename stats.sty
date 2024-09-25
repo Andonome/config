@@ -301,7 +301,12 @@
 }
 
 \newcommand{\charge}{%
-  Fast Charge (+1 \glsentrytext{ap}, Attack, and Damage after charging 6 steps)%
+  Fast Charge (+1 to Attack and Damage after spending%
+  \ifnum\value{Athletics}>0%
+    1~\glsentrytext{ap} to move%
+  \else%
+    2~\glsfmtplural{ap} to move%
+  \fi)%
 }
 
 \newcommand{\cuttingswing}{%
