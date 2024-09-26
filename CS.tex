@@ -34,9 +34,6 @@
 
 \thispagestyle{empty}
 % reset damage so it calculates properly
-\setcounter{damage}{0}
-\setcounter{weaponBonus}{0}
-\setcounter{knacks}{0}
 
 %----
   \posterbox[
@@ -175,7 +172,7 @@ circle label/.style = {
       
     \iftoggle{examplecharacter}{
       \hline
-        \ifdefempty{\characterWeapon}{
+        \ifdefempty{\weaponName}{
           \\
           \\
         }{
@@ -197,7 +194,7 @@ circle label/.style = {
       \hiderowcolors
       \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{Covering} & \textbf{Weight} \\
       \iftoggle{examplecharacter}{
-        \ifdefempty{\characterArmour}{}{
+        \ifdefempty{\armourName}{}{
           \sffamily\characterArmour\armourName & \sffamily\arabic{armourDR} & \sffamily\arabic{covering} & \sffamily\arabic{armourWeight} \\
         }
       }{
@@ -229,24 +226,18 @@ circle label/.style = {
       &
       \iftoggle{examplecharacter}%
       {%
-        \addtocounter{Speed}{3}%
-        \sffamily\arabic{Speed}%
+        \sffamily\arabic{ap}%
       }%
       {\underline{\hspace{2em}}}
       &
       \iftoggle{examplecharacter}{\sffamily}{}2D6%
       \iftoggle{examplecharacter}% Bonus
       {%
-      \addtocounter{Melee}{\value{Dexterity}}%
-      \addtocounter{Melee}{\value{weaponBonus}}%
-        \sffamily\absNum{Melee}%
+        \sffamily\absNum{att}%
       }%
       {\underline{\hspace{2em}}} &
       \iftoggle{examplecharacter}% Damage
       {%
-        \addtocounter{damage}{\value{Strength}}%
-        \addtocounter{damage}{\value{weaponDamage}}%
-        \addtocounter{damage}{4}%
         \sffamily\dmg{damage}%
       }%
       {
@@ -316,7 +307,7 @@ circle label/.style = {
   }{%
     \hint{\glsentrytext{tn} to remove: \weeline}
     \par
-    \iftoggle{examplecharacter}{\sffamily\characterEquipment\vspace{12em}}{%
+    \iftoggle{examplecharacter}{\sffamily\equipment\vspace{12em}}{%
       \vspace{1em}%
       \Repeat{5}{%
         {\noindent\Repeat{5}{\Square} \lineDots}%
@@ -357,9 +348,7 @@ circle label/.style = {
   rowspan=3}{%
   \setlength{\parskip}{0mm}%
     \iftoggle{examplecharacter}{
-      \sffamily\knackOne
-
-      \sffamily\knackTwo
+      \sffamily\Knacks
     }{%
       \vspace{2em}%
       \lineDots[4]

@@ -90,6 +90,7 @@
 \newcommand\knackTwo{}
 
 \newcommand\charSpellList{}
+\newcommand\charSpells{}
 
 
 %%%%% Show Dots Commands %%%%%
@@ -193,6 +194,28 @@
   \settoggle{examplecharacter}{true}
   \settoggle{allyCharacter}{true}
   \input{ex_cs/#1.tex}
+  \input{config/CS.tex}
+  \input{config/backpage.tex}
+}
+
+\newenvironment{filledCS}[9]{
+  \resetCS
+  \settoggle{examplecharacter}{true}
+  \settoggle{allyCharacter}{true}
+  \renewcommand\name{#1}
+  \renewcommand\race{#2}
+  \renewcommand\concept{#3}
+  \renewcommand\code{#4}
+  \traits{}%
+    {#5}%
+    {#6}%
+    {%
+      #7
+    }%
+    {#8}% SKILLS
+    {#9}% KNACKS
+    {}% ABILITIES
+}{
   \input{config/CS.tex}
   \input{config/backpage.tex}
 }

@@ -24,7 +24,17 @@
 
 
 \iftoggle{examplecharacter}{
-  \charSpellList
+  \ifdefempty{\charSpells}{}{
+    \subsubsection*{Spells}
+    
+    Roll \iftoggle{snapCaster}{Wits}{Charisma} + \textit{Skill} to cast.
+    Spells cost a number of \glsfmtlongpl{mp} equal to their level `Requirements', and a number of \glsfmtlongpl{ap} equal to their Cost\iftoggle{snapCaster}{}{ +1}.
+
+    \begin{multicols}{2}
+      \charSpells
+    \end{multicols}
+  }
+
 }{
   \vspace{1em}
   \lineDots[26]
