@@ -40,6 +40,6 @@ rules.pdf: /tmp/p_1.pdf /tmp/p_2.pdf
 	pdfunite $^ $@
 
 .PHONY: all clean
-all: docs.pdf booklet.pdf resources.pdf $(DROSS)/test.pdf 
+all: docs.pdf rules.pdf resources.pdf $(DROSS)/test.pdf 
 clean:
 	$(CLEAN) images/wide.jpg
