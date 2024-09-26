@@ -208,43 +208,68 @@ circle label/.style = {
 
 %-----
   \posterbox[
-    blankest,interior engine=path, halign=center,valign=center,
-    opacityback=0,
+    adjusted title=\Glsentrytext{dr} / \textsc{Cov},
     remember,
   ]
-  {name=derived,column=2,row=6,span=18,rowspan=4}{
-    \vspace{1em}
-    \addtolength{\tabcolsep}{-0.2em}
-    \begin{tabularx}{\linewidth}{XXXX}
-      \hiderowcolors
-      \textbf{\Glsentrytext{dr} / \Glsentrytext{covering}} & \textbf{\Glsentrytext{ap}} &\textbf{Attack} & \textbf{Damage} \\
-      \vspace{3em}
-      \\
-      \\
-      \\
-      \iftoggle{examplecharacter}{\sffamily\arabic{armourDR}/ \arabic{covering}}{\underline{\hspace{2em}/\hspace{2em}}}
-      &
+  {name=derived,column=3,row=7,span=4,rowspan=1.8}{
+    \begin{tabularx}{\linewidth}{>{\centering\arraybackslash}X}
+      \small
+      \iftoggle{examplecharacter}{\sffamily\arabic{armourDR} / \arabic{covering}}{\underline{\hspace{2em}/\hspace{2em}}} \\ [0.25em]
+      \tiny (by Armour)
+    \end{tabularx}
+  }
+
+%-----
+  \posterbox[
+    adjusted title=\Glsentrytext{ap},
+    remember,
+  ]
+  {name=derived,column=7,row=7,span=4,rowspan=1.8}{
+    \begin{tabularx}{\linewidth}{>{\centering\arraybackslash}X}
+      \small
       \iftoggle{examplecharacter}%
       {%
         \sffamily\arabic{ap}%
       }%
-      {\underline{\hspace{2em}}}
-      &
+      {\underline{\hspace{2em}}} \\ [0.25em]
+      \tiny 3 + Speed
+    \end{tabularx}
+  }
+
+%-----
+  \posterbox[
+    adjusted title=Attack,
+    remember,
+  ]
+  {name=derived,column=11,row=7,span=4,rowspan=1.8}{
+    \begin{tabularx}{\linewidth}{>{\centering\arraybackslash}X}
+      \small
       \iftoggle{examplecharacter}{\sffamily}{}2D6%
       \iftoggle{examplecharacter}% Bonus
       {%
         \sffamily\absNum{att}%
       }%
-      {\underline{\hspace{2em}}} &
+      {\underline{\hspace{2em}}} \\ [0.25em]
+      \tiny 2D6 + Dex \par + Melee \par + \textsc{Att} Bonus
+    \end{tabularx}
+  }
+
+%-----
+  \posterbox[
+    adjusted title=Damage,
+    remember,
+  ]
+  {name=derived,column=15,row=7,span=4,rowspan=1.8}{
+    \begin{tabularx}{\linewidth}{>{\centering\arraybackslash}X}
+      \small
       \iftoggle{examplecharacter}% Damage
       {%
         \sffamily\dmg{damage}%
       }%
       {
         \underline{\hspace{1em}} D6+\underline{\hspace{1.5em}}
-      }
-      \\
-      \tiny (by Armour) & \tiny 3 + Speed & \tiny 2D6 + Dex \par + Melee \par + Weapon Bonus & \tiny 1D6 + Strength \par + Weapon  \\
+      } \\ [0.25em]
+      \tiny 1D6 + Strength \par + \textsc{Dam} Bonus
     \end{tabularx}
   }
 
