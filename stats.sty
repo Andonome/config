@@ -580,7 +580,9 @@
     }{}
     \iftoggle{genExamples}{%
       \ifnum\value{Intelligence}>-1%
-        \Glsentrytext{weight}~held~\arabic{weight},%
+        \ifnum\value{weight}>0%
+          \Glsentrytext{weight}~held~\arabic{weight},%
+        \fi%
       \fi%
     }{}
     {\hfil\small\textcolor{\pageSideColor}{\calculateXP}}%
@@ -604,15 +606,21 @@
       \multiply\value{attackXPtotal} by \value{ap}%
       \divide\value{attackXPtotal} by 50%
       \addtocounter{attackXPtotal}{-\value{heft}}%
+      \ifnum\value{mp}>0%
+        \ifnum\value{attackXPtotal}<\value{mp}%
+          \setcounter{attackXPtotal}{\value{mp}}%
+        \else%
+          \setcounter{enc}{\value{mp}}%
+          \divide\value{enc} by 2%
+          \addtocounter{attackXPtotal}{\value{enc}}%
+        \fi%
+      \fi%
       \setcounter{defenceXPtotal}{\value{hp}}%
       \multiply\value{defenceXPtotal} by \value{dr}%
       \divide\value{defenceXPtotal} by 10%
-      \setcounter{enc}{\value{mp}}%
-      \divide\value{enc} by 2%
-      \addtocounter{defenceXPtotal}{\value{enc}}%
       \addtocounter{xp}{\value{attackXPtotal}}%
       \addtocounter{xp}{\value{defenceXPtotal}}%
-      \ifnum\value{xp}<0\setcounter{xp}{0}\fi
+      \ifnum\value{xp}<0\setcounter{xp}{0}\fi%
       \glsentrytext{cr}~\arabic{xp}%
     }%
   }%
