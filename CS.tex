@@ -128,6 +128,8 @@ circle label/.style = {
       \skill{Projectiles}
       \ifnum\value{Fate}>0
         \skill{Fate}
+      \else
+        \emptySkill
       \fi
       \ifnum\value{Air}>0
         \skill{Air}
@@ -147,7 +149,6 @@ circle label/.style = {
       \ifnum\value{Water}>0
         \skill{Water}
       \else
-        \emptySkill
         \emptySkill
       \fi
     \end{tabularx}
