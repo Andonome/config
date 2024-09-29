@@ -4,11 +4,12 @@
 % won't understand the .aux file section headers which have \gls
 % commands. We resolve this with a little white lie.
 \newcommand\glsentrylongpl{}
-\newcommand\glsentrytext{}
+\newcommand\Glsentrytext[1]{\MakeUppercase#1}
+\newcommand\glsentrytext[1]{\MakeUppercase#1}
 \newcommand\Glsfmtplural[1]{\MakeUppercase#1s}
 \newcommand\Glsfmtlongpl[1]{\MakeUppercase#1s}
-\newcommand\Gls{}
-\newcommand\Glsfmttext{}
+\newcommand\Gls[1]{\MakeUppercase#1}
+\newcommand\Glsfmttext[1]{\MakeUppercase#1}
 \newcommand\gls{}
 \newcommand\glspl{}
 \newcommand\Glspl{}
