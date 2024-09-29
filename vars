@@ -37,6 +37,13 @@ qr.tex: README.md config/vars
 .switch-gls:
 	@touch .switch-gls
 
+
+images/extracted/:
+	mkdir -p $@
+	echo '*' > $@.gitignore
+images/extracted/inclusion.tex: images/extracted/
+	echo '\externaldocument{$(BOOK)}' > $@
+
 $(DROSS):
 	mkdir $(DROSS)
 
