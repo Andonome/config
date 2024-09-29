@@ -33,7 +33,7 @@ STYLE_FILES: $(wildcard config/*.sty)
 EXTERNAL: $(wildcard $(DROSS)/*.glg) | $(DROSS)
 
 qr.tex: README.md config/vars
-	@printf '\qrcode[height=.2\\textwidth]{$(QR_TARGET)}' > qr.tex
+	@printf '%s' '\qrcode[height=.2\textwidth]{$(QR_TARGET)}' > qr.tex
 .switch-gls:
 	@touch .switch-gls
 
@@ -42,7 +42,8 @@ images/extracted/:
 	mkdir -p $@
 	echo '*' > $@.gitignore
 images/extracted/inclusion.tex: images/extracted/
-	echo '\externaldocument{$(BOOK)}' > $@
+	printf '%s\n' '\externaldocument{$(BOOK)}' > $@
+	printf '%s\n' '\newcommand\bookTitle{$(TITLE)}' >> $@
 
 $(DROSS):
 	mkdir $(DROSS)
