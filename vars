@@ -43,7 +43,7 @@ images/extracted/:
 	echo '*' > $@.gitignore
 images/extracted/inclusion.tex: images/extracted/
 	printf '%s\n' '\externaldocument{$(BOOK)}' > $@
-	printf '%s\n' '\newcommand\bookTitle{$(TITLE)}' >> $@
+	printf '%s\n' '\newcommand\bookTitle{$(TITLE)}' | tr '_' ' ' >> $@
 
 $(DROSS):
 	mkdir $(DROSS)
