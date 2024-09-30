@@ -4,7 +4,12 @@
 
 %%%%% Alter topicmcols style
 
-\renewcommand*{\glstopicTitleFont}[1]{\textsc{\LARGE#1}\quad\textcolor{\pageSideColor}{\hrulefill\raisebox{-3pt}{\Large\hspace{-0.1em}\flourish}}}
+\renewcommand*{\glstopicTitleFont}[1]{%
+  \textsc{\bf\LARGE#1}\quad%
+  \textcolor{\pageSideColor}{%
+    \hrulefill\raisebox{-3pt}{\Large\hspace{-0.1em}\flourish}%
+  }%
+}
 
 % Header line above topic
 %\renewcommand*{\glstopicPreSkip}{\bigLine\medskip\needspace{10\baselineskip}}
