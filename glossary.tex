@@ -35,6 +35,9 @@
 \glsdefpostdesc{acronym}{.}
 \glsdefpostdesc{symbol}{.}
 
+\glssetcategoryattribute{exposition}{nonumberlist}{true}
+\glsdefpostdesc{endswithlist}{\qquad\adforn{72}~}
+
 \glssetcategoryattribute{profession}{glossnamefont}{textit}
 \glsdefpostdesc{profession}{.\\\textcolor{\pageSideColor}{\hrulefill}}
 \glssetcategoryattribute{profession}{noindex}{true}
@@ -228,11 +231,11 @@
          Knack                     & --- &  5 & 10 & 15 \\
          Combat \Glsfmttext{skill} & --- & 10 & 20 & 30 \\
          \Glsfmttext{attribute}  &   5 & 10 & 20 & 40 \\
-    \end{boxtable}
-  The racial \glsentrytext{attribute} Bonuses have no effect, so everyone pays the same for the last \glsentrytext{attribute} level},
+    \end{boxtable}},
   shortplural={XP},
   prefix={an\space},
   name={Experience Points (XP)},
+  category={endswithlist},
   parent={storypoint},
   nonumberlist,
   ]{xp}{XP}{Experience Point}
@@ -291,6 +294,7 @@
   text={Attribute},
   prefix={an\space},
   type={mech},
+  category={endswithlist},
   parent={trait},
   first={\textit{Attribute}},
   description={describe the body and mind.
@@ -312,8 +316,7 @@
       gravitas, glamour, confidence, symmetry
     \end{description}
     \end{minipage}
-
-    Every character uses these Attributes, but animals have no Intelligence or Charisma},
+  \par},
 }
 
 \longnewglossaryentry{skill}{
@@ -330,7 +333,7 @@
 
 \newacronym[
   description={means the number players need to roll on the dice to achieve a \emph{tie} with the task.
-    Rolling higher indicates they have their prize, rolling lower means some nasty outcome is upon them,
+    Rolling higher indicates they have their prize, rolling lower means some nasty outcome is upon them, and rolling a tie means both (or neither).
     \noindent
     \begin{boxtable}
          \textbf{TN} & \textbf{Difficulty} \\
@@ -340,10 +343,10 @@
          10 & Tricky -- find a good price in the market. \\
          12 & Professional -- fix the cart by Sundown. \\
          14 & Specialist -- Plan a three-storey stone building. \\
-    \end{boxtable}
-  and rolling a tie means both (or neither)},
+    \end{boxtable}},
   shortplural={TNs},
   sort={S1},
+  category={endswithlist},
   parent={action},
   prefix={a\space},
   ]{tn}{TN}{Tie Number}
