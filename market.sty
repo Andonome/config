@@ -25,11 +25,7 @@
 }
 
 \newcommand\marketItem[4][sp]{
-  \ifodd\value{track}%
-    \randomthree%
-    \randomfour%
-  \fi%
-  \randomdozen
+  \randomize%
   #2 &% Name
   #3 &% Weight
   \mkPrice[#1]{#4} % Price
