@@ -27,13 +27,8 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
 \noindent
 \begin{minipage}{\linewidth}
   \renewcommand\npcsymbol{\glsentrysymbol{nulla}}
-  \begin{nametable}[Lcc]{At the \Glsentrytext{doulaShop}}
+  \begin{nametable}[Lcc]{At \composeHumanName's \Glsentrytext{doulaShop}}
     \textbf{Things on shelves} & \textbf{Weight} & \textbf{Cost} \\\hline
-    \rareMarketItem[9]{Air \Glsentrytext{ingredient}}{1}{13}%
-    \rareMarketItem[9]{Fire \Glsentrytext{ingredient}}{1}{13}%
-    \rareMarketItem[9]{Earth \Glsentrytext{ingredient}}{1}{13}%
-    \rareMarketItem[9]{Water \Glsentrytext{ingredient}}{1}{13}%
-    \rareMarketItem[9]{Fate \Glsentrytext{ingredient}}{1}{13}%
     \rareMarketItem[9]{Air \Glsentrytext{boon}}{1}{24}%
     \rareMarketItem[9]{Fire \Glsentrytext{boon}}{1}{24}%
     \rareMarketItem[8]{Earth \Glsentrytext{boon}}{1}{24}%
@@ -41,13 +36,16 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
     \rareMarketItem[9]{Fate \Glsentrytext{boon}}{1}{24}%
     \marketItem{Cup of tea}{0}{0}%
   \end{nametable}
+  \setcounter{track}{\value{r12}}
+  \multiply\value{track} by 2%
+  \addtocounter{track}{\value{rn4tn1}}
+  \footnotesize She'll purchase any \glsentrytext{ingredient} for \arabic{track}~\glsfmtplural{sp}.
 \end{minipage}
 \fi
 
 \renewcommand\npcsymbol{\flourish}
 \ifodd\value{r3}\else
   \begin{boxtable}[Lc]
-
     \renewcommand\npcsymbol{\flourish}
     \textbf{Beasts} & \textbf{Cost} \\\hline
     Donkey & \mkPrice{4} \\
@@ -81,9 +79,7 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
 
   \ifodd\value{diceNo}
     Cart & 13 &  \mkPrice{13} \\
-
     Rushlights & 0 & \mkPrice[cp]{1} \\
-
   \else
     Boat for 6 & 16 &  \mkPrice{16} \\
   \fi
@@ -126,8 +122,9 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
 
 \columnbreak
 
+\randomize
 \renewcommand\npcsymbol{\glsentrysymbol{sable}}
-\begin{nametable}[Xcc]{At the Weavers, with \composeHumanName\ from the \glsentrytext{templeOfFrost}}
+\begin{nametable}[Xcc]{\composeHumanName\ the weaver}
 
   \textbf{Clothing} & \textbf{Weight} & \textbf{Cost} \\\hline
 
@@ -143,16 +140,12 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
   \hline
 
   \marketItem[cp]{Bandages}{0}{4}
-  \ifnum\value{r12}>10
-    \hline
-    \marketItem{Rope, 20'}{0}{2}
-  \fi
   \marketItem{Rope, 50'}{1}{3}
 
 \end{nametable}
 
-\renewcommand\npcsymbol{\glsentrysymbol{wrecan}}
 \ifnumcomp{\value{r4b}}{>}{2}{%
+  \renewcommand\npcsymbol{\glsentrysymbol{wrecan}}
   \begin{nametable}[XXXXc]{At \composeHumanName\ the Smith's}
     \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{\glsentrytext{covering}} & \textbf{Weight} & \textbf{Cost} \\\hline
     \ifnum\value{r12}>10
@@ -163,9 +156,9 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
 }{
   \ifnum\value{r12}>9
     \renewcommand\npcsymbol{\glsentrysymbol{sylf}}
-    \begin{nametable}[XYYYXl]{At \composeHumanName, the Fletcher's}
+    \begin{nametable}[lYYcYc]{At \composeHumanName, the Fletcher's}
 
-      \textbf{Projectile} & Attack Bonus & \textbf{Damage} & \textbf{\Gls{ap}} & \textbf{Weight} & \textbf{Cost} \\\hline
+      \textbf{Projectile} & \textbf{Att} & \textbf{Dam} & \textbf{\Gls{ap}} & \textbf{Weight} & \textbf{Cost} \\\hline
 
       Arrows  &  --- & --- & --- & --- & \mkPrice[cp]{18}  \\
 
@@ -173,22 +166,11 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
 
       \Glsfmttext{bow} &  +2  & +2 & 4~\glspl{ap} & 1  & \mkPrice{12}  \\
 
+      \ifodd\value{r3}\else
+      Bolt  &  --- & --- & --- & --- & \mkPrice[cp]{18}  \\
+      \Glsfmttext{crossbow} &  +2  & +2 & 1~\glspl{ap} & 3  & \mkPrice{18}  \\
+      \fi
     \end{nametable}
-  \else
-      \begin{boxtable}[LYYYXl]
-
-        \textbf{Projectile} & Attack Bonus & \textbf{Damage} & \textbf{\Gls{ap} Cost} & \textbf{Weight} & \textbf{Cost} \\\hline
-
-        Arrows  &  --- & --- & --- & --- & \mkPrice[cp]{18}  \\
-
-        \Glsfmttext{bow} &  +1  & +1 & 1 & 3~\glspl{ap} & \mkPrice{8}  \\
-        \hline
-
-        Bolt  &  --- & --- & --- & --- & \mkPrice[cp]{18}  \\
-
-        \Glsfmttext{crossbow} &  +2  & +2 & 1~\glspl{ap} & 3  & \mkPrice{18}  \\
-
-    \end{boxtable}
   \fi
 }
 

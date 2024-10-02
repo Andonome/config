@@ -20,7 +20,7 @@
 
   \hline
   \marketItem{Rope, 50'}{1}{2}
-  \rareMarketItem[5]{Silk rope, 50'}{0}{8}%
+  \rareMarketItem[8]{Silk rope, 50'}{0}{8}%
   \marketItem[cp]{Bandages}{0}{2}
   \ifnum\value{temperature}=0
     \marketItem[cp]{Rations for a day}{1}{5}
@@ -28,7 +28,6 @@
   \fi
 
 \end{nametable}
-
 
 \randomize
 \ifnum\value{r12}>7
@@ -44,7 +43,10 @@
     \rareMarketItem{Fate \Glsentrytext{boon}}{1}{24}%
     \marketItem{Cup of tea}{0}{0}%
   \end{nametable}
-
+  \setcounter{track}{\value{r12}}
+  \multiply\value{track} by 2%
+  \addtocounter{track}{\value{rn4tn1}}
+  \footnotesize She'll purchase any \glsentrytext{ingredient} for \arabic{track}~\glsfmtplural{sp}.
 \end{minipage}
 \fi
 
@@ -98,7 +100,7 @@
 
   Rushlights & 0 & \mkPrice[cp]{1} \\
 
-  Writing equipment & 0 & \mkPrice[cp]{20} \\
+  Writing equipment & 1 & \mkPrice[cp]{20} \\
 
   Tinder box & 0 & \mkPrice[cp]{3} \\
 
@@ -199,11 +201,18 @@
 
   \rareMarketItem[10]{Water \Glsentrytext{elixir}}{1}{24}%
 
-  \rareMarketItem[8]{Earth \Glsentrytext{elixir}}{1}{24}%
+  \rareMarketItem[7]{Earth \Glsentrytext{elixir}}{1}{24}%
 
   Medical supplies & 1 & \mkPrice{3} \\
 
 \end{nametable}
+
+{
+  \footnotesize
+  \noindent
+  They have $1D3$ of each item.
+  They purchase any \glsentrytext{ingredient} for \mkPrice{11} or \mkPrice{8} for any \glsentrytext{sphere} they already have.
+}
 
 \renewcommand\npcsymbol{\glsentrysymbol{paik}}
 \begin{nametable}[Lc]{\Glsentrytext{court}}
@@ -230,7 +239,7 @@
 \ifodd\value{r3}\else
   \begin{speechtext}
     \footnotesize
-    One copper in,
+    Three copper in,
 
     Ten gold out!
   \end{speechtext}
@@ -243,13 +252,13 @@
 
   \textbf{Name} & \textbf{Attack Bonus} & \textbf{Damage Bonus} & \textbf{\Glsfmtshort{ap} Cost} & \textbf{Weight} & \textbf{Cost} \\\hline
 
-  \Dagger\weaponName & \arabic{weaponBonus} & \arabic{weaponDamage} & \arabic{heft} & \arabic{weaponWeight} & \mkPrice{2} \\
+  \Dagger\weaponName & \arabic{weaponBonus} & \arabic{weaponDamage} & \arabic{heft} & \arabic{weaponWeight} & \mkPrice{4} \\
 
   \shortsword\weaponName & \arabic{weaponBonus} & \arabic{weaponDamage} & \arabic{heft} & \arabic{weaponWeight} & \mkPrice{9} \\
 
   \spear\weaponName & \arabic{weaponBonus} & \arabic{weaponDamage} & \arabic{heft} & \arabic{weaponWeight} & \mkPrice{7} \\
 
-  \longsword\weaponName & \arabic{weaponBonus} & \arabic{weaponDamage} & \arabic{heft} & \arabic{weaponWeight} & \mkPrice{11} \\
+  \longsword\weaponName & \arabic{weaponBonus} & \arabic{weaponDamage} & \arabic{heft} & \arabic{weaponWeight} & \mkPrice{13} \\
 
 \end{nametable}
 
@@ -260,9 +269,12 @@
 
   \Glsfmttext{bow} &  +2  & +2 & 4~\glspl{ap} & 1  & \mkPrice{11}  \\
 
-  \Glsfmttext{bow} &  +3  & +3 & 5~\glspl{ap} & 1  & \mkPrice{13}  \\
-
-  \Glsfmttext{bow} &  +4  & +4 & 6~\glspl{ap} & 1  & \mkPrice{15}  \\
+  \ifodd\value{r4b}%
+    \Glsfmttext{bow} &  +3  & +3 & 5~\glspl{ap} & 1  & \mkPrice{13}  \\
+  \fi
+  \ifodd\value{r3}\else
+    \Glsfmttext{bow} &  +4  & +4 & 6~\glspl{ap} & 1  & \mkPrice{15}  \\
+  \fi
 
   \hline
   Arrows  &  --- & --- & --- & --- & \mkPrice[cp]{16}  \\
@@ -275,7 +287,7 @@
 
 \begin{multicols}{2}
 \renewcommand\npcsymbol{\glsentrysymbol{wrecan}}
-\begin{nametable}[Xcccc]{At the \Glsentrytext{templeOfHate}}
+\begin{nametable}[Lcccc]{At the \Glsentrytext{templeOfHate}}
   \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{\glsentrytext{covering}} & \textbf{Weight} & \textbf{Cost} \\\hline
   \rareArmour[5]{\completechain}{24}%
   \rareArmour[6]{\partialplate}{36}%
@@ -284,7 +296,7 @@
 \end{nametable}
 
 \renewcommand\npcsymbol{\glsentrysymbol{wrecan}}
-\begin{nametable}[Xcccc]{At the Tanner's}
+\begin{nametable}[Lcccc]{At the Tanner's}
   \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{\glsentrytext{covering}} & \textbf{Weight} & \textbf{Cost} \\\hline
   \rareArmour[6]{\partiallisk}{40}%
   \rareArmour[8]{\completelisk}{50}%
