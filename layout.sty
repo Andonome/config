@@ -1040,11 +1040,12 @@ bookmarks=true]%
   \stepcounter{r4t6}%
   \stepcounter{r0t1}%
   \stepcounter{rn1t0}
-  \setcounter{rn4tn1}{\value{r4b}}
-  \addtocounter{rn4tn1}{-5}
+  \setcounter{rn4tn1}{\value{r4b}}%
+  \addtocounter{rn4tn1}{-5}%
   \setcounter{rn3t3}{\value{r3b}}%
   \setcounter{r12}{\value{r3c}}%
   \multiply\value{r12} by 3%
+  \addtocounter{r12}{\value{r4b}}%
   \addtocounter{r12}{\value{r2b}}%
   \ifodd\value{r3}%
     \stepcounter{r2b}%
