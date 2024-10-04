@@ -39,6 +39,11 @@ booklet.pdf: | STYLE_FILES HANDOUTS $(DROSS)
 rules.pdf: /tmp/p_1.pdf /tmp/p_2.pdf
 	pdfunite $^ $@
 
+markets.pdf: config/market.sty $(wildcard config/markets/*) | $(DROSS)
+	$(RUN) -jobname markets markets/all.tex
+	$(RUN) -jobname markets markets/all.tex
+	$(CP) $(DROSS)/$@ .
+
 .PHONY: all clean
 all: docs.pdf rules.pdf resources.pdf $(DROSS)/test.pdf 
 clean:
