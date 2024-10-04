@@ -1,10 +1,3 @@
-\randomthree
-\ifodd\value{r3}
-  \randomtwo
-\else
-  \randomthreeB
-\fi
-
 \section*{Town Market}
 
 \begin{multicols}{3}
@@ -29,12 +22,24 @@
 
 \end{nametable}
 
+\ifodd\value{diceNo}
+  \begin{speechtext}
+    \footnotesize
+    \ifnum\value{temperature}=0
+      Take a little seat by the fire, deary, then tell us the news.
+    \else
+      Welcome to the stitch `n bitch.
+      What's the news from the \glsfmtplural{broch}?
+    \fi
+  \end{speechtext}
+\fi
+
 \randomize
 \ifnum\value{r12}>7
 \noindent
 \begin{minipage}{\linewidth}
   \renewcommand\npcsymbol{\glsentrysymbol{nulla}}
-  \begin{nametable}[Lcc]{\composeHumanName's \glsentrytext{doulaShop}}
+  \begin{nametable}[Lcc]{\marketDoula's \glsentrytext{doulaShop}}
     \textbf{Things on shelves} & \textbf{Weight} & \textbf{Cost} \\\hline
     \rareMarketItem{Air \Glsentrytext{boon}}{1}{24}%
     \rareMarketItem{Fire \Glsentrytext{boon}}{1}{24}%
@@ -50,7 +55,7 @@
 \fi
 
 \renewcommand\npcsymbol{\flourish}
-\begin{nametable}[Xc]{\composeHumanName's Working Beasts}
+\begin{nametable}[Xc]{\marketBeastSeller's Working Beasts}
 
   \textbf{Beasts} & \textbf{Cost} \\\hline
   Horse & \mkPrice{20} \\
@@ -66,13 +71,13 @@
 \begin{nametable}[Lc]{Central Square}
 
   \textbf{Service} & \textbf{Cost} \\\hline
-  Boat trip with \ifnum\value{r3}=3 the \composeHumanName\ sisters\else \composeHumanName\fi & \mkPrice[cp]{14}/ mile \\
+  Boat trip with \ifnum\value{r3}=3 the \composeHumanName\ sisters\else \marketBoatman\fi & \mkPrice[cp]{14}/ mile \\
 
-  Performance by \composeHumanName, the Minstrel & \mkPrice[cp]{15}/ song \\
+  Performance by \marketBard, the Minstrel & \mkPrice[cp]{15}/ song \\
 
   New song composition & \mkPrice{4}/ song \\
 
-  \ifodd\value{r4b}%
+  \ifodd\value{r4}%
     \tiny\composeHumanName, the Fence\footnotemark[1]  & \tiny 50\% and shhh\ldots \\
   \fi%
 
@@ -115,7 +120,7 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
 
 
 \renewcommand\npcsymbol{\flourish}
-\begin{nametable}[Xc]{\composeHumanName's Inn}
+\begin{nametable}[Xc]{\marketInnOne}
 
   \textbf{Hospitality} & \textbf{Cost} \\\hline
 
@@ -134,10 +139,10 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
 \end{nametable}
 
 \renewcommand\npcsymbol{\glsentrysymbol{abderian}}
-\begin{nametable}[Lc]{\composeHumanName's Tavern}
+\begin{nametable}[Lc]{\marketTavernOne}
   \textbf{Hospitality} & \textbf{Cost} \\\hline
 
-  \ifodd\value{r3}\else
+  \ifodd\value{r3b}\else
   Cock fight! & --- \\
   \fi
 
@@ -154,12 +159,12 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
   Rat Soup & \mkPrice[cp]{2} \\
 
   \ifodd\value{r4b}%
-    \tiny\composeHumanName, the Fence\footnotemark[1] & \tiny 50\% and shhh\ldots \\
+    \tiny\marketFence, the Fence\footnotemark[1] & \tiny 50\% and shhh\ldots \\
   \fi%
 \end{nametable}
 
 \renewcommand\npcsymbol{\glsentrysymbol{abderian}}
-\begin{nametable}[Lc]{\composeHumanName's Tavern}
+\begin{nametable}[Lc]{\marketTavernTwo}
   \textbf{Hospitality} & \textbf{Cost} \\\hline
 
   Entrance and cider & \mkPrice[cp]{4} \\
@@ -176,8 +181,8 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
 
 \end{nametable}
 
-\renewcommand\npcsymbol{\flourish}
-\begin{nametable}[Xc]{\composeHumanName's Inn}
+\renewcommand\npcsymbol{\glsentrysymbol{abderian}}
+\begin{nametable}[Xc]{\marketInnTwo}
 
   \textbf{Hospitality} & \textbf{Cost} \\\hline
 
@@ -213,8 +218,7 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
 {
   \footnotesize
   \noindent
-  They have $1D3$ of each item.
-  They purchase any \glsentrytext{ingredient} for \mkPrice{11} or \mkPrice{8} for any \glsentrytext{sphere} they already have.
+  \Glsfmttext{mixer} \marketMixer\ has $1D3$ of each item and will purchase any \glsentrytext{ingredient} for \mkPrice{11} or \mkPrice{8} for any \glsentrytext{sphere} which the \glsentrytext{temple} currently lacks.
 }
 
 \renewcommand\npcsymbol{\glsentrysymbol{paik}}
@@ -251,7 +255,7 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
 \end{multicols}
 
 \renewcommand\npcsymbol{\glsentrysymbol{paik}}
-\begin{nametable}[XXXXXX]{Ex-\Gls{sunGuard} Arms Sales}
+\begin{nametable}[XXXXXX]{\Gls{sunGuard} Arms Sales}
 
   \textbf{Name} & \textbf{Attack Bonus} & \textbf{Damage Bonus} & \textbf{\Glsfmtshort{ap} Cost} & \textbf{Weight} & \textbf{Cost} \\\hline
 
@@ -287,6 +291,13 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
 
   \Glsfmttext{crossbow} &  +2  & +2 & 1~\glspl{ap} & 3  & \mkPrice{16}  \\
 \end{boxtable}
+
+\ifodd\value{r3c}\else
+  \begin{speechtext}
+    \footnotesize
+    \marketWeaponsSeller\ reminds you that all sales are final.
+  \end{speechtext}
+\fi
 
 \begin{multicols}{2}
 \renewcommand\npcsymbol{\glsentrysymbol{wrecan}}
