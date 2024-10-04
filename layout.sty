@@ -1211,9 +1211,9 @@ bookmarks=true]%
 
 \newenvironment{nametable}[2][cL]
   {
-    \rowcolors{2}{}{gray!10}\needspace{3em}
-    \begin{center}\npcsymbol~\titleFont\textbf{#2}~\npcsymbol\end{center}
-    \par\noindent
+    \rowcolors{2}{}{gray!10}\needspace{6em}%
+    \begin{center}\npcsymbol~\titleFont\textbf{#2}~\npcsymbol\end{center}%
+    \par\noindent\nobreak%
     \tabularx{\linewidth}{#1}
     \hline
   }%
