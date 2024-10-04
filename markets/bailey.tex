@@ -18,6 +18,9 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
 \composeHumanName, the archer & \mkPrice{1} per mile \\
 
 \composeHumanName, local guide & \mkPrice[cp]{50} per mile \\
+\ifodd\value{diceNo}\else
+  Boat-ride with \composeHumanName\ (free for \glspl{guard}) & \mkPrice[cp]{6} per mile \\
+\fi
 
 \end{boxtable}
 

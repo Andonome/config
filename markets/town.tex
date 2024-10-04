@@ -44,7 +44,6 @@
     \marketItem{Cup of tea}{0}{0}%
   \end{nametable}
   \setcounter{track}{\value{r12}}
-  \multiply\value{track} by 2%
   \addtocounter{track}{\value{rn4tn1}}
   \footnotesize She'll purchase any \glsentrytext{ingredient} for \arabic{track}~\glsfmtplural{sp}.
 \end{minipage}
@@ -74,23 +73,27 @@
   New song composition & \mkPrice{4}/ song \\
 
   \ifodd\value{r4b}%
-    \tiny\composeHumanName, the Fence & \tiny 50\% and shhh\ldots \\
+    \tiny\composeHumanName, the Fence\footnotemark[1]  & \tiny 50\% and shhh\ldots \\
   \fi%
 
 \end{nametable}
 
+\footnotetext{This item is illegal, and requires a \roll{Charisma}{Empathy} roll (\tn[10]), to gain trust along the line of people who lead to the real seller.
+The item requires one \glsfmttext{interval} to speak to everyone along the way.}
+
 \renewcommand\npcsymbol{\flourish}
-\begin{nametable}[Xcc]{At the Docks}
+\begin{nametable}[Lcc]{At the Docks}
 
   \textbf{Items} & \textbf{\Glsentrytext{weight}} & \textbf{Cost} \\\hline
+  \rareMarketItem{Griffin feathers Air \Glsentrytext{ingredient}\footnotemark[1]}{1}{13}%
+  \rareMarketItem{Bear's heart Fire \Glsentrytext{ingredient}\footnotemark[1]}{1}{13} %
+  \ifnum\value{temperature}=0\rareMarketItem{\Glsentrytext{basilisk} hide Earth \Glsentrytext{ingredient}\footnotemark[1]}{1}{13}\fi %
+  \rareMarketItem{\Glsentrytext{woodspy} beak Water \Glsentrytext{ingredient}\footnotemark[1]}{1}{13} %
+  \rareMarketItem{\ifnum\value{temperature}=0 Human blood from the \glsentrytext{court}\else Brown ooze\fi Fate \Glsentrytext{ingredient}\footnotemark[1]}{1}{14}
 
-  Lock-pick set & 1 & \mkPrice{10} \\
-  Fake \glsfmtplural{fodder} town-pass & 0 & \mkPrice{4} \\
-  \rareMarketItem{Air \Glsentrytext{ingredient}}{1}{13}%
-  \rareMarketItem{Fire \Glsentrytext{ingredient}}{1}{13}%
-  \rareMarketItem{Earth \Glsentrytext{ingredient}}{1}{13}%
-  \rareMarketItem{Water \Glsentrytext{ingredient}}{1}{13}%
-  \rareMarketItem{Fate \Glsentrytext{ingredient}}{1}{14}%
+  Lock-pick set\footnotemark[1] & 1 & \mkPrice{10} \\
+  Fake \glsfmtplural{fodder} town-pass\footnotemark[1] & 0 & \mkPrice{4} \\
+
 \end{nametable}
 
 \renewcommand\npcsymbol{\glsentrysymbol{yonder}}
@@ -151,7 +154,7 @@
   Rat Soup & \mkPrice[cp]{2} \\
 
   \ifodd\value{r4b}%
-    \tiny\composeHumanName, the Fence & \tiny 50\% and shhh\ldots \\
+    \tiny\composeHumanName, the Fence\footnotemark[1] & \tiny 50\% and shhh\ldots \\
   \fi%
 \end{nametable}
 
