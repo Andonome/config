@@ -991,24 +991,54 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   In any case, the results are the same -- unpredictable},
 }
 
+\longnewglossaryentry{witch}{
+  name={Witch},
+  text={witch},
+  plural={witches},
+  prefix={a\space},
+  type={mech},
+  parent={witchcraft},
+  description={simply means anyone who can natural speak to an elemental \glsentrytext{sphere} using their inner \glsentrytext{mp} store.
+  These people have no special uniform, and often hide their talents},
+}
+
 \newacronym[
   name={Mana Points (MP)},
   shortplural={MP},
   prefix={an\space},
   prefixfirst={a\space},
   symbol={\Square},
-  parent={witchcraft},
+  parent={witch},
   description={grant every \glsentrytext{witch} their power.
   When they run out, they gain one \glsentrytext{ep} for every point they cannot spend},
   ]{mp}{MP}{Mana Point}
+
+\longnewglossaryentry{invocation}{
+  name={Invocations},
+  text={Invocation},
+  prefix={an\space},
+  parent={witchcraft},
+  type={mech},
+  category={indexed},
+  description={are the basic sentence-formulae which define spells.
+    They consist of one to five `\glsfmtplural{descriptor}', one action, and a target.
+    \begin{boxtable}[YccL]
+         \textbf{Descriptors} & \textbf{Action} & \textbf{Target} & \textbf{Result} \\
+         \hline
+         ---                  & Wax             & Fire            & Candle Grows Bright   \\
+         Detailed             & Warp            & Water           & Water turns into an ice statue. \\
+         Distant, Duplicated  & Wane            & Fate, Air       & Targets at a distance ignore \glsentrytext{ep} Penalties. \\
+    \end{boxtable}
+    If a mechanical effect needs a number, that number is 2 plus the cost when using an Elemental \glsentrytext{sphere}, and 1 plus the cost when using a High \glsentrytext{sphere}.
+    Each descriptor raises the \glsentrytext{mp} cost by~1},
+}
 
 \longnewglossaryentry{spell}{
   name={Spells},
   text={spell},
   prefix={a\space},
-  parent={witchcraft},
+  parent={invocation},
   type={mech},
-  category={rules},
   description={have a mind of their own.
   Once cast, they endure until they burn through themselves, or something destroys them.
   To stop a Fire spell, someone must put the fire out, and if an angry \glsentrytext{witch} makes antlers grow on someone's head, the only way to `dispel' them is with a boning knife.
@@ -1021,26 +1051,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   Casters only select a spell's first target.
   The spell forks through the others like lightning, and may `arc' across any distances up to its original range.
   Water spells which hit a river will spread through the river, but a curse with an `area' of 4 will have to jump until it has found four people to inflict itself on},
-}
-
-\longnewglossaryentry{invocation}{
-  name={Invocations},
-  text={Invocation},
-  prefix={an\space},
-  parent={witchcraft},
-  type={mech},
-  category={rules},
-  description={are the basic sentence-formulae which define spells.
-    They consist of one to five `\glsfmtplural{descriptor}', one action, and a target.
-    \begin{boxtable}[YccL]
-         \textbf{Descriptors} & \textbf{Action} & \textbf{Target} & \textbf{Result} \\
-         \hline
-         ---                  & Wax             & Fire            & Candle Grows Bright   \\
-         Detailed             & Warp            & Water           & Water turns into an ice statue. \\
-         Distant, Duplicated  & Wane            & Fate, Air       & Targets at a distance ignore \glsentrytext{ep} Penalties. \\
-    \end{boxtable}
-    If a mechanical effect needs a number, that number is 2 plus the cost when using an elemental \glsentrytext{sphere}, and 1 plus the cost when using a high \glsentrytext{sphere}.
-    Each descriptor raises the \glsentrytext{mp} cost by~1},
 }
 
 \longnewglossaryentry{descriptor}{
@@ -1063,18 +1073,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
     Detailed spells let the caster create precise instructions for a spell, but higher-level Detailed spells must show only something the caster has intimate knowledge of, so most come to resemble the caster's family, or past-times},
 }
 
-
-
-\longnewglossaryentry{witch}{
-  name={Witch},
-  text={witch},
-  plural={witches},
-  prefix={a\space},
-  type={mech},
-  parent={witchcraft},
-  description={simply means anyone who can natural speak to an elemental \glsentrytext{sphere} using their inner \glsentrytext{mp} store.
-  These people have no special uniform, and often hide their talents},
-}
 
 \longnewglossaryentry{casting}{
   name={Castings},
@@ -1112,14 +1110,19 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   name={Spheres},
   text={Sphere},
   prefix={a\space},
-  parent={witchcraft},
+  parent={invocation},
   type={mech},
   description={divide the world into meaningful parts.
-  The five elemental Spheres are Fire, Air, Fate, Water, and Earth.
-  Each one can join with two neighbours to make one of the high Spheres; Light, Death, Mind, Life, and Force.
+  The five Elemental Spheres can join a neighbour to produce a high Sphere.
+
+  Fire and Earth make Force.
+  Earth and Water make Life.
+  Water and Fate make Mind.
+  Fate and Air make Death.
+  Air and Fire make Light.
 
   If a caster can think of a way to use any Sphere to stop an attack, they can enter combat as usual with their \roll{Charisma}{Sphere}, rolling at \glsentrytext{tn} 7 plus the \glsentrytext{npc}'s \roll{Dexterity}{Melee}.
-  A battle-ready \glsentrytext{witch} might encourage a warrior's torch to burn his own face off, or make him forget what he wanted to do a moment before his sword comes down},
+  A battle-ready \glsentrytext{witch} might encourage a warrior's torch to burn his own face off, or make him forget what he was doing even as he swings a sword},
 }
 
 \longnewglossaryentry{ingredient}{
