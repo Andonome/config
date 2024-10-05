@@ -217,5 +217,7 @@
     {}% ABILITIES
 }{
   \input{config/CS.tex}
-  \input{config/backpage.tex}
+  \iftoggle{allyCharacter}{
+    \input{config/backpage.tex}
+  }{}
 }
