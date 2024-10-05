@@ -174,10 +174,10 @@
   \setRange%
   \setTargetsIfDuplicated%
   \iftoggle{talisman}{%
-    \index[talismans]{\textbf{#1} (\spellEnhancements\ \spellAction~\spellSphere) Range:~\spellRange, \ifnumcomp{\value{spellTargets}}{>}{1}{Area:~\arabic{spellTargets}, }{} \iftoggle{Devious}{Onset:~1~\showOnset, }{} Resisted by: \detokenize{#5}, Bonus:~\arabic{spellCost}. \spellSum|adfclosedflourishleft~p.~}%
+    \index[talismans]{\textbf{#1} (\spellEnhancements\ \spellAction~\spellSphere) Range:~\spellRange, \ifnumcomp{\value{spellTargets}}{>}{1}{Targets:~\arabic{spellTargets}, }{} \iftoggle{Devious}{Onset:~1~\showOnset, }{} Resisted by: \detokenize{#5}, Bonus:~\arabic{spellCost}. \spellSum|adfclosedflourishleft~p.~}%
   }{%
     \iftoggle{fullSpells}{%
-      \index[spells]{\textbf{#1} {\sffamily (\spellEnhancements \spellAction~\spellSphere)} \textit{Cost:~\arabic{spellCost}, Range:~\spellRange, \ifnumcomp{\value{spellTargets}}{>}{1}{Area:~\arabic{spellTargets}, }{} \iftoggle{Devious}{Onset:~1~\showOnset, }{} Resisted by: \detokenize{#5}.} \spellSum|adfclosedflourishleft~p.~}%
+      \index[spells]{\textbf{#1} {\sffamily (\spellEnhancements \spellAction~\spellSphere)} \textit{Cost:~\arabic{spellCost}, Range:~\spellRange, \ifnumcomp{\value{spellTargets}}{>}{1}{Targets:~\arabic{spellTargets}, }{} \iftoggle{Devious}{Onset:~1~\showOnset, }{} Resisted by: \detokenize{#5}.} \spellSum|adfclosedflourishleft~p.~}%
       }{}%
   }%
 }
@@ -203,7 +203,7 @@
     \spellRange%
     \ifnumcomp{\value{spellTargets}}{>}{1}{
       \par
-      \textbf{\scshape Area:}
+      \textbf{\scshape Targets:}
       \arabic{spellTargets}%
     }{}
     \iftoggle{Devious}{%
@@ -234,7 +234,7 @@
   }. %
   \textbf{Range:}~\spellRange,
   \ifnum\value{spellTargets}>1%
-    \textbf{Area:}~\arabic{spellTargets},
+    \textbf{Targets:}~\arabic{spellTargets},
   \fi%
   \iftoggle{Devious}{%
     \textbf{Onset:} 1~\showOnset%
@@ -306,7 +306,7 @@
     }%
     Range: \spellRange%
     \ifnum\value{spellTargets}>1%
-      , Area of Effect:~\arabic{spellTargets}
+      , Targets:~\arabic{spellTargets}
     \else%
     \fi)}
     \end{minipage}
