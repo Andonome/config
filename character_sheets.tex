@@ -13,10 +13,16 @@
 \frontmatter
 
 \pagestyle{empty}
-\setcounter{pageDarkness}{50}
+\setcounter{pageDarkness}{30}
 \resetCS
 
-\input{CS.tex}
-\input{backpage.tex}
+\IfFileExists{.count.tex}%
+  {\input{.count.tex}}%
+  {\setcounter{track}{6}}
+
+\Repeat{\value{track}}{
+  \input{CS.tex}
+  \input{backpage.tex}
+}
 
 \end{document}

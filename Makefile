@@ -21,10 +21,10 @@ docs.pdf: images/wide.jpg STYLE_FILES | $(DROSS)
 	$(GLOS) docs
 	$(RUN) docs.tex
 	$(CP) $(DROSS)/docs.pdf docs.pdf
-resources.pdf: HANDOUTS STYLE_FILES | $(DROSS)
-	$(RUN) resources.tex
-	$(RUN) resources.tex
-	$(CP) $(DROSS)/resources.pdf resources.pdf
+character_sheets.pdf: HANDOUTS STYLE_FILES | $(DROSS)
+	$(RUN) character_sheets.tex
+	$(RUN) character_sheets.tex
+	$(CP) $(DROSS)/character_sheets.pdf character_sheets.pdf
 
 booklet.pdf: | STYLE_FILES HANDOUTS $(DROSS)
 	$(RUN) booklet.tex
@@ -45,6 +45,6 @@ markets.pdf: config/market.sty $(wildcard config/markets/*) | $(DROSS)
 	$(CP) $(DROSS)/$@ .
 
 .PHONY: all clean
-all: docs.pdf rules.pdf resources.pdf $(DROSS)/test.pdf 
+all: docs.pdf rules.pdf character_sheets.pdf $(DROSS)/test.pdf 
 clean:
-	$(CLEAN) images/wide.jpg
+	$(CLEAN) images/wide.jpg .count.tex
