@@ -1,3 +1,5 @@
+\ifodd\value{diceNo}
+
 \spell{Cold Steam}% Name
   {}% Enhancements
   {Wane}% Action
@@ -7,3 +9,17 @@
   {Torches struggle to keep aflame as an entire room can become soaked.
     When cast on a mostly-liquid creature, such as oozes, this spell deals \showDam~Damage.}
 
+\else
+
+\spell{Barrel Breaker}% Name
+  {}% Enhancements
+  {Warp}% Action
+  {Water}% Spheres
+  {ambient temperature}% Resist with
+  {Some body of liquid -- up to a barrel's worth -- instantly freezes solid}% Description
+  {Barrels full of liquid rearrange into the new shape, unless the barrel is full; when this happens, the barrel breaks.
+
+  Anyone wading through this frozen water becomes covered in clinging ice, which has \pgls{weight} of \arabic{spellPlusTwo}.}
+
+\fi
+\stepcounter{diceNo}

@@ -1,3 +1,5 @@
+\ifodd\value{diceNo}
+
 \spell{Acid Bath}% Name
   {Duplicated}% Enhancements
   {Warp}% Action
@@ -5,9 +7,26 @@
   {water's speed}% Resist with
   {`Disgusting', the caster shouts, and \arabic{spellTargets} barrels' worth of water become acidic (\showDam~Damage per round of total submersion)}% Description
   {
-    Armour or clothing of any type can remove an amount of Damage equal to its Covering rating, but if the Damage equals the armour's \gls{dr} then the armour degrades and begins to fall apart within \arabic{spellCost} rounds as leather straps and string degrade.
+    Armour or clothing of any type can remove an amount of Damage equal to its \gls{covering}, but if the Damage equals the armour's \gls{dr} then the armour degrades and begins to fall apart within \arabic{spellCost} rounds as leather straps and string degrade.
 
     Fast rivers, or wide waters dissipate the acid and reduce the Damage.
 	Splitting it into small receptacles reduces it by even more.
   }
 
+\else
+
+\spell{Ice Prison}% Name
+  {Detailed}% Enhancements
+  {Warp}% Action
+  {Water}% Spheres
+  {\roll{Speed}{Athletics}}% Resist with
+  {The caster tells any target in water to calm down, and the surrounding water forms clumps of ice, inflicting a \absNum{spellPlusTwo} Penalty to movement.
+  It also provides \gls{dr}~\arabic{spellPlusTwo}, but only has \pgls{covering} of \arabic{spellCost}.
+  Any Damage to the ice reduces each of its stats}% Description
+  {
+  If the target cannot move due to the ice, they count as entangled.
+
+  If the target manages to leave the water, the ice has \pgls{weight} of \arabic{spellPlusTwo} (while still inside the water, it floats).}
+
+\fi
+\stepcounter{diceNo}

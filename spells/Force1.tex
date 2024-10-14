@@ -1,3 +1,5 @@
+\ifodd\value{diceNo}
+
 \spell{Bolt}% Name
   {}% Enhancements
   {Wane}% Action
@@ -6,3 +8,17 @@
   {The caster shakes their head emphatically, and the target gain a +\arabic{spellPlusOne} Bonus to running}% Description
   {They feel suddenly lighter, as if being carried.
   However, this spell does not help with carrying heavy items.}
+
+\else
+
+\spell{Clambour}% Name
+  {}% Enhancements
+  {Warp}% Action
+  {Earth, Fire}% Spheres
+  {thickness of wall}% Resist with
+  {The caster explains someone's good qualities to a wall, and the person gains a \absNum{spellPlusOne} Bonus to climbing it}% Description
+  {
+  This spell works better on thick walls, as the caster manipulates the force of their weight into helping the climb, but thin surfaces, such as wood gives the spell \pgls{tn} of 10, while curtains would have \tn[12].}
+
+\fi
+\stepcounter{diceNo}
