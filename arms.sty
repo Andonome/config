@@ -27,6 +27,9 @@
   \setcounter{weaponBonus}{#3}%
   \setcounter{weaponDamage}{#4}%
   \setcounter{heft}{#4}%
+  \ifnum#4<0%
+    \roundUp{heft}%
+  \fi%
   \setcounter{weaponWeight}{#4}%
   \ifnum#3>-1% If the weapon's attack bonus is positive,
     \addtocounter{weaponWeight}{#3}% weight rating,
@@ -34,12 +37,12 @@
     \addtocounter{heft}{#3}% add it to the AP cost and 
     \roundUp{heft}% then the AP cost by 2.
   \fi%
-  #1%
   \addtocounter{att}{\value{weaponBonus}}%
   \ifnum\value{heft}<1\setcounter{heft}1\fi%
   \ifnum\value{weaponWeight}<#3\setcounter{weaponWeight}#3\fi%
   \ifnum\value{weaponWeight}<1\setcounter{weaponWeight}1\fi%
-  \ifnum#4<0\addtocounter{weaponWeight}{-1}\fi%
+  %\ifnum#4<0\addtocounter{weaponWeight}{-1}\fi%
+  #1%
   \renewcommand\weaponName{#2}%
 }
 
@@ -118,9 +121,9 @@
 \newcommand{\woodaxe}{\weapon[\addtocounter{heft}{1}]{Wood Axe}{1}{2}}
 
 % SHIELDS
-\newcommand{\buckler}{\weapon{Buckler}{2}{-2}}
-\newcommand{\roundshield}{\weapon{Round Shield}{2}{0}}
-\newcommand{\kiteshield}{\weapon{Kite Shield}{3}{0}}
+\newcommand{\buckler}{\weapon[\addtocounter{weaponWeight}{-1}]{Buckler}{2}{-4}}
+\newcommand{\roundshield}{\weapon{Round Shield}{2}{-2}}
+\newcommand{\kiteshield}{\weapon{Kite Shield}{3}{-1}}
 
 % RANGED WEAPONS
 \newcommand{\longbow}{Longbow}
