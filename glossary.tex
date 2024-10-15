@@ -584,9 +584,10 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   type={mech},
   category={rules},
   prefix={a\space},
-  description={It does not matter who initiates combat -- each character enters the standard \glsentrytext{resistedaction}.
-  The \glsentrytext{pc} rolls \roll{Dexterity}{Melee}, and the \glsentrytext{tn} equals 7 + the \glsentrytext{npc}'s \roll{Dexterity}{Melee}.
-  The winner deals $1D6+$ Damage + Strength Bonus, and every +4 Damage converts to $1D6$},
+  description={It does not matter who initiates an attack -- each character enters the standard \glsentrytext{resistedaction} and the winner deals Damage.
+  The \glsentrytext{pc} rolls \roll{Dexterity}{Melee} against \glsentrytext{tn} $7 +$ the \glsentrytext{npc}'s \roll{Dexterity}{Melee}.
+  Damage equals $1D6+$ + Strength Bonus, and every +4 Damage converts to $1D6$.
+  Rolling equal to the \glsentrytext{npc}'s \glsentrytext{tn} means the player can decide to both deal and receive Damage, or neither},
 }
 
 \longnewglossaryentry{statblock}{
@@ -595,9 +596,8 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   prefix={a\space},
   parent={combat},
   type={mech},
-  description={for \glsfmtplural{npc} have the standard combat stats already worked out at the bottom.
-  This leaves you free to make use of unique \glsentrytext{attribute} + \glsentrytext{skill} combinations, or rely on the defaults.
-  The {\scshape Att} number shows the \glsentrytext{tn} players need to roll above in combat.
+  description={for \glsfmtplural{npc} have the standard combat stats already worked out at the bottom for quick reference.
+  The `{\scshape Att}' number shows the \glsentrytext{tn} players need to roll above in combat.
   Any number listed beside the \glsentrytext{dr} shows the number required for \glsfmtplural{vitalShot}.
   \setcounter{wounds}{1}
 
@@ -607,7 +607,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
     \dwarvensoldier
   \fi%
 
-  Each creature has tick-boxes to track \glsfmtplural{hp}, with some marked the current \glsentrytext{weight} carried.
+  Each creature has tick-boxes to track \glsfmtplural{hp}, with \glsentrytext{weight} carried shown with the \glsentrytext{weight} symbol.
   This \glsentrytext{npc} can take \arabic{freeHP} more \glsentrytext{weight} before penalties begin},
   }
 
@@ -764,7 +764,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   nonumberlist,
   parent={combat},
   description={grant one extra \glsentrytext{ap} for each Margin rolled while planning.
-  The roll is \roll{Intelligence}{Combat}, against the opponent's \roll{Wits}{Combat}},
+  The roll is \roll{Intelligence}{Melee}, against the opponent's \roll{Wits}{Melee}},
 }
 
 \longnewglossaryentry{armour}{
