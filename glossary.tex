@@ -586,7 +586,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   prefix={a\space},
   description={It does not matter who initiates an attack -- each character enters the standard \glsentrytext{resistedaction} and the winner deals Damage.
   The \glsentrytext{pc} rolls \roll{Dexterity}{Melee} against \glsentrytext{tn} $7 +$ the \glsentrytext{npc}'s \roll{Dexterity}{Melee}.
-  Damage equals $1D6+$ + Strength Bonus, and every +4 Damage converts to $1D6$.
+  Damage equals $1D6+$ Strength Bonus, and every +4 Damage converts to $1D6$.
   Rolling equal to the \glsentrytext{npc}'s \glsentrytext{tn} means the player can decide to both deal and receive Damage, or neither},
 }
 
@@ -666,37 +666,29 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   prefix={a\space},
   parent={combat},
   type={mech},
+  sort={0},
   description={start when everyone wants to speak at once.
-  The \glsentrytext{gm} goes round the table clockwise as players commit to actions by spending \glsfmtplural{ap}},
+  Everyone starts with a number of \glsfmtplural{ap} equal to \roll{Speed}{3}.
+  The \glsentrytext{gm} goes round the table clockwise as players commit to actions by spending \glsfmtplural{ap}, and when nobody has positive \glsfmtplural{ap}, the round ends},
   }
 
 \newacronym[
-  description={measure how many actions someone can take in a round, based on how fast they can move and react.
-  Start with 3 AP, plus your Speed; put that many coins on your character sheet, and spend them each time you take an action},
+  description={measure how many actions someone can take during the combat \glsfmtplural{round}, based on how fast they can move and react.
+  Characters with more AP can interrupt those with fewer AP.
+  \vspace{1em}\newline
+  \hspace*{1em} During attacks, both sides of the \glsentrytext{resistedaction} must spend \glsfmtplural{ap}.
+  Negative \glsfmtplural{ap} becomes a Penalty to all actions; so if a character has 0 \glsfmtplural{ap}, and three others attack them, they must spend at least 1~\glsentrytext{ap} to defend, gaining a -1 Penalty after the first attack, and a -2 Penalty after the second},
   shortplural={AP},
   name={Action Points (AP)},
-  parent={combat},
+  parent={round},
   prefix={an\space},
   ]{ap}{AP}{Action Point}
-
-\longnewglossaryentry{quickaction}{
-  name={A Response Action},
-  text={Response Action},
-  sort={Response},
-  prefix={a\space},
-  parent={ap},
-  type={mech},
-  category={rules},
-  nonumberlist,
-  description={means the character must resist some \glsentrytext{resistedaction}.
-  If the \glsentrytext{ap} loss push them below 0, then every negative becomes a penalty to all action},
-}
 
 \longnewglossaryentry{running}{
   name={Running},
   text={running},
   prefix={a\space},
-  parent={ap},
+  parent={round},
   type={mech},
   category={rules},
   nonumberlist,
@@ -707,7 +699,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   name={Steps},
   text={step},
   prefix={a\space},
-  parent={ap},
+  parent={round},
   type={mech},
   nonumberlist,
   description={provide a rough measure of space.
@@ -748,7 +740,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   \else%
     \showWeapon{\shortsword}
   \fi \\
-  \showWeapon{\roundshield} \\
+  \showWeapon{\buckler} \\
 
   \end{boxtable}
 
