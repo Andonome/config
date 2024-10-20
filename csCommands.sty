@@ -188,16 +188,6 @@
   \renewcommand\charSpellList{}
 }
 
-
-\newcommand\printCharacter[1]{
-  \resetCS
-  \settoggle{examplecharacter}{true}
-  \settoggle{allyCharacter}{true}
-  \input{ex_cs/#1.tex}
-  \input{config/CS.tex}
-  \input{config/backpage.tex}
-}
-
 \newenvironment{filledCS}[9]{
   \resetCS
   \settoggle{examplecharacter}{true}
