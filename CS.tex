@@ -342,9 +342,15 @@ circle label/.style = {
       }%
       \tcblower
       \vspace{1em}%
-      \Repeat{5}{%
+      \Repeat{4}{%
         {\noindent\Repeat{5}{\Square} \lineDots}%
       }%
+      \par
+      \vspace{1em}%
+      \small
+      \glsentryshortpl{cp}\weeline \quad
+      \glsentryshortpl{sp}\weeline \quad
+      \glsentryshortpl{gp}\weeline \quad
     }
   }
 
@@ -401,19 +407,6 @@ circle label/.style = {
     \small Unspent:
   }
 
-
-  \posterbox[
-    remember, blankest, halign=center,valign=center,
-  ]{name=money,column=18,span=10,row=18,rowspan=1}{
-    \small
-    \vspace{-.5em}
-    \begin{tabularx}{\hsize}{XXX}
-      \hiderowcolors
-      \glsentryshortpl{cp}\weeline &
-      \glsentryshortpl{sp}\weeline &
-      \glsentryshortpl{gp}\weeline \\
-    \end{tabularx}
-  }
 
 %------
 \csComments
