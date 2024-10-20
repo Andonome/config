@@ -16,6 +16,9 @@
   },
 ]
 
+\draw [overlay,loosely dotted] ([xshift=-2em,yshift=-2em]current page.center) -- ([yshift=-2em]current page.west) ;
+\draw [overlay,loosely dotted] ([xshift=-3em]$(current page.center)!0.5!(current page.east)$) node[below=-2em] {$\ointclockwise$} -- ([xshift=-3em,yshift=10em]$(current page.north)!0.5!(current page.east)$) node[above=-2em] {$\ointclockwise$} ;
+
 
 \togglefalse{countedPage}
 \posterbox[%
