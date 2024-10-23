@@ -1188,12 +1188,9 @@
 
 \newcommand{\ghoul}[1][\npc{\T[\arabic{r12}]\D}{\arabic{r12} Ghouls}]{
   \Animal{#1}%
-  {{r3}{rn1t2}{0}}% BODY
+  {{r2c}{rn1t0}{0}}% BODY
   {r2}% WITS
   {%
-    \ifnum\value{noAppearing}>2
-      \set{Strength}{r2c}
-    \fi
     \set{Survival}{rn1t2}
     \set{Stealth}{r2b}
   }% SKILLS
@@ -1203,23 +1200,17 @@
 
 \newcommand{\ghast}[1][\npc{\D\Hu}{Ghast}]{
   \Person{#1}%
-    {{r2}{0}{0}}% BODY
+    {{r3c}{0}{0}}% BODY
     {{rn1t2}{-1}{0}}% MIND
     {%
-      \ifnum\value{noAppearing}<3
-        \set{Strength}{r3c}
-        \set{Brawl}{r3c}
-        \set{Melee}{rn3t3}
-        \set{Athletics}{r3b}
-      \else
-        \set{Melee}{r2b}
-        \set{Athletics}{rn1t2}
-      \fi
+      \set{Melee}{r2b}
+      \set{Athletics}{rn1t2}
       \ifodd\value{r3}
         \set{Survival}{rn1t2}
       \fi
       \set{Stealth}{r2b}
       \ifcase\value{Strength}\relax
+      \or
         \longsword
       \or
         \maul
