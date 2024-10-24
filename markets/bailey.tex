@@ -121,9 +121,9 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
     \showArmourPrice{\partiallisk}{31}%
   \end{nametable}
 \else
-\fi
-
 \columnbreak
+
+\fi
 
 \randomize
 \renewcommand\npcsymbol{\glsentrysymbol{sable}}
@@ -188,9 +188,13 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
 
   \Dagger\weaponName & \arabic{weaponBonus} & \arabic{weaponDamage} & \arabic{heft} & \arabic{weaponWeight} & \mkPrice{2} \\
 
-  \shortsword\weaponName & \arabic{weaponBonus} & \arabic{weaponDamage} & \arabic{heft} & \arabic{weaponWeight} & \mkPrice{9} \\
+  \ifnum\value{r3}=2%
+    \shortsword\weaponName & \arabic{weaponBonus} & \arabic{weaponDamage} & \arabic{heft} & \arabic{weaponWeight} & \mkPrice{9} \\
 
-  \spear\weaponName & \arabic{weaponBonus} & \arabic{weaponDamage} & \arabic{heft} & \arabic{weaponWeight} & \mkPrice{7} \\
+    \spear\weaponName & \arabic{weaponBonus} & \arabic{weaponDamage} & \arabic{heft} & \arabic{weaponWeight} & \mkPrice{7} \\
+  \fi
+
+  \quarterstaff\weaponName & \arabic{weaponBonus} & \arabic{weaponDamage} & \arabic{heft} & \arabic{weaponWeight} & \mkPrice{3} \\
 
   \longsword\weaponName & \arabic{weaponBonus} & \arabic{weaponDamage} & \arabic{heft} & \arabic{weaponWeight} & \mkPrice{11} \\
 
