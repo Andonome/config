@@ -1034,12 +1034,6 @@ bookmarks=true]%
   \stepcounter{r2}%
   \stepcounter{r3}%
   \stepcounter{r4}%
-  \stepcounter{r2t3}%
-  \stepcounter{r3t4}%
-  \stepcounter{r4t5}%
-  \stepcounter{r4t6}%
-  \stepcounter{r0t1}%
-  \stepcounter{rn1t0}
   \setcounter{rn4tn1}{\value{r4b}}%
   \addtocounter{rn4tn1}{-5}%
   \setcounter{rn3t3}{\value{r3b}}%
@@ -1051,11 +1045,20 @@ bookmarks=true]%
     \stepcounter{r2b}%
     \stepcounter{r3b}%
     \stepcounter{r2t4}
+    \stepcounter{r4t5}%
   \else%
     \multiply\value{rn3t3} by -1%
     \addtocounter{rn3t3}{0}%
-    \stepcounter{rn1t2}
+    \stepcounter{r3c}%
+    \stepcounter{r4t6}%
+    \stepcounter{r0t1}%
+    \stepcounter{rn1t0}
+  \fi%
+  \ifodd\value{r3b}%
     \stepcounter{r2c}%
+    \stepcounter{r3t4}%
+  \else%
+    \stepcounter{r2t3}%
     \stepcounter{r3c}%
     \stepcounter{r4b}%
   \fi%
@@ -1064,11 +1067,11 @@ bookmarks=true]%
   \foreach\c in {r3,r3b,r3c}%
     {\ifnum\value{\c}>3\setcounter{\c}{1}\fi}%
   \foreach\c in {r4,r4b}%
-    {\ifnum\value{\c}>4\setcounter{\c}{1}\fi}%
+    {\ifnum\value{\c}>4\setcounter{\c}{1}\stepcounter{rn1t2}\fi}%
   \ifnum\value{r0t1}>1\setcounter{r0t1}{0}\fi%
   \ifnum\value{rn1t0}>0\setcounter{rn1t0}{-1}\fi%
+  \ifnum\value{r2t3}>3\setcounter{r2t3}{2}\stepcounter{rn1t2}\fi%
   \ifnum\value{rn1t2}>2\setcounter{rn1t2}{-1}\fi%
-  \ifnum\value{r2t3}>3\setcounter{r2t3}{2}\fi%
   \ifnum\value{r2t4}>4\setcounter{r2t4}{2}\fi%
   \ifnum\value{r3t4}>4\setcounter{r3t4}{3}\fi%
   \ifnum\value{r4t5}>5\setcounter{r4t5}{4}\fi%
