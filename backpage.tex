@@ -4,6 +4,34 @@
 \stepcounter{diceNo2}
 \randomize
 
+\iftoggle{examplecharacter}{
+  \setcounter{age}{0}%
+  \foreach \x in {Strength,Dexterity,Speed,Intelligence,Wits,Charisma}{
+    \ifnum\value{\x}>0%
+      \addtocounter{age}{\value{\x}}%
+    \fi%
+  }
+  \ifStrSame{\race}{Dwarf}{
+    \multiply\value{age} by 2%
+    \addtocounter{age}{30}%
+  }{}%
+  \ifStrSame{\race}{Elf}{
+    \multiply\value{age} by 4%
+    \addtocounter{age}{60}%
+  }{}%
+  \ifStrSame{\race}{Gnoll}{
+    \addtocounter{age}{10}%
+  }{}%
+  \ifStrSame{\race}{Gnome}{
+    \multiply\value{age} by 4%
+    \addtocounter{age}{20}%
+  }{}%
+  \ifStrSame{\race}{Human}{
+    \multiply\value{age} by 4%
+    \addtocounter{age}{15}%
+  }{}%
+}{}
+
 \begin{tabularx}{\linewidth}{Xr}
   \hiderowcolors
     \randomize%
@@ -20,9 +48,13 @@
       ~\arabic{r12}%
     \fi
     \par
+    \textbf{Age:}
     \iftoggle{examplecharacter}{
+      \arabic{age}
+      \par
       \Huge \Glsfmtplural{storypoint}~\Repeat{5}{\Square}
     }{
+      \par
       \Huge \Glsfmtplural{storypoint}~\fadeout{8}{\Square}
     }
   &
@@ -34,7 +66,7 @@
 \ifdefempty{\charSpells}{
   \vspace{2em}
   \noindent
-  \lineDots[19]
+  \lineDots[18]
   \bigLine
   \vspace{2em}
 
