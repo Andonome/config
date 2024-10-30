@@ -1256,7 +1256,7 @@ bookmarks=true]%
   \needspace{2em}
   \refstepcounter{list}
   \subsubsection[#2]{%
-    \arabic{list}: \ifdefmacro{#2}{#2}{\MakeUppercase#2}%
+    \arabic{list}: \textbf{\ifdefmacro{#2}{#2}{\MakeUppercase#2}}%
   }
   \label{#1}%
 }
