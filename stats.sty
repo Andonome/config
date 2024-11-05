@@ -221,18 +221,28 @@
   \Repeat{\value{#1}}{\Square}%
 }
 
+\newcommand\boxDelimiter{%
+  \ifnum\value{track}>4%
+    \textperiodcentered\setcounter{track}{0}%
+  \fi%
+  \stepcounter{track}%
+}
+
 \newcommand\hpStat{%
-  \Repeat{\value{weight}}{\glsentrysymbol{weight}}%
-  \Repeat{\value{freeHP}}{\glsentrysymbol{hp}}%
-  \Repeat{\value{wounds}}{\text{$\vcenter{\hbox{\scalebox{1.1}{\otimes}}}$}}%
+  \setcounter{track}{0}%
+  \Repeat{\value{weight}}{\boxDelimiter\glsentrysymbol{weight}}%
+  \Repeat{\value{freeHP}}{\boxDelimiter\glsentrysymbol{hp}}%
+  \Repeat{\value{wounds}}{\boxDelimiter\text{$\vcenter{\hbox{\scalebox{1.1}{\otimes}}}$}}%
 }
 
 \newcommand\mpStat{%
-  \Repeat{\value{mp}}{\glsentrysymbol{mp}}%
+  \setcounter{track}{0}%
+  \Repeat{\value{mp}}{\boxDelimiter\glsentrysymbol{mp}}%
 }
 
 \newcommand\fpStat{%
-  \Repeat{\value{fp}}{\glsentrysymbol{fp}}%
+  \setcounter{track}{0}%
+  \Repeat{\value{fp}}{\boxDelimiter\glsentrysymbol{fp}}%
 }
 
 %%%%%%%%%%%%%%%%%%%% Character Generation %%%%%%%%%%%%%%%%%%%%
