@@ -315,7 +315,11 @@
       \ifnum\value{Charisma}<1%
         \snapcaster%
       \else%
-        \lucky%
+        \ifnum\value{Academics}>1%
+          \specialist{star lore}%
+        \else%
+          \lucky%
+        \fi%
       \fi, %
       \ifcase\value{r4b}\relax%
       \or%
@@ -325,10 +329,29 @@
       \or%
         \weaponmaster%
       \else%
-        \fasthealer%
+        \specialist{\Glsfmtplural{storm}}%
+      \fi, %
+      \ifnum\value{Academics}>1%
+        \specialist{tragic-romance tales}%
+      \else%
+        \ifnum\value{Cultivation}>1%
+          \specialist{thorny plants}%
+        \else%
+          \ifnum\value{Performance}>1%
+            \specialist{wood-flutes}%
+          \else%
+            \ifnum\value{Crafts}>0%
+              \specialist{silverworking}%
+            \else%
+              \specialist{bee-keeping}%
+            \fi%
+          \fi%
+        \fi%
       \fi%
     }% KNACKS
-    {\ifnum\value{Strength}=0%
+    {\ifnum\value{Performance}>1%
+      flute, %
+    \fi\ifnum\value{Strength}=0%
       \lootJewellery%
       \else%
       \ifodd\value{r4b}%
