@@ -16,7 +16,11 @@
     \textbf{Birthday:}
     \showCycle[\value{diceNo2}]~\arabic{r12}
     \par
-    \Huge \Glsfmtplural{storypoint}~\Repeat{5}{\Square}
+    \iftoggle{examplecharacter}{
+      \Huge \Glsfmtplural{storypoint}~\Repeat{5}{\Square}
+    }{
+      \Huge \Glsfmtplural{storypoint}~\fadeout{8}{\Square}
+    }
   &
     \includesvg[width=.35\textwidth]{config/logo}
   \\
