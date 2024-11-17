@@ -98,6 +98,15 @@ bookmarks=true]%
  }
 \ExplSyntaxOff
 
+\newcounter{fadeout}
+
+\newcommand*\fadeout[2]{%
+  \setcounter{track}{100}%
+  \setcounter{fadeout}{100}%
+  \divide\value{fadeout} by #1%
+  \Repeat{#1}{\textcolor{black!\arabic{track}!white}{#2}\addtocounter{track}{-\value{fadeout}}}%
+}
+
 % This function divides a number by two, and rounds it up.
 \newcommand\roundUp[1]{%
   \ifodd\value{#1}%
