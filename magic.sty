@@ -298,7 +298,7 @@
     \spellNotes
     \par
     \noindent
-    {\it(\iftoggle{opposedSpell}{%
+    {\it\raggedright(\iftoggle{opposedSpell}{%
       \addtocounter{castingBonus}{7}%
       Resisted by: \spellResistance\ (\tn[\arabic{castingBonus}]), %
     }{%
@@ -306,7 +306,7 @@
     }%
     Range: \spellRange%
     \ifnum\value{spellTargets}>1%
-      , Targets:~\arabic{spellTargets}
+      , Targets:~\arabic{spellTargets}%
     \else%
     \fi)}
     \end{minipage}
