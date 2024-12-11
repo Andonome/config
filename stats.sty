@@ -237,7 +237,9 @@
 
 \newcommand\mpStat{%
   \setcounter{track}{0}%
+  \addtocounter{mp}{-\value{spentMP}}%
   \Repeat{\value{mp}}{\boxDelimiter\glsentrysymbol{mp}}%
+  \Repeat{\value{spentMP}}{\boxDelimiter\XBox}%
 }
 
 \newcommand\fpStat{%
@@ -266,6 +268,7 @@
 % Extras: MP hp fp
 % Derived: dicenumber, dicebonus,
 \newcounter{mp}
+\newcounter{spentMP}
 \newcounter{hp}
 \newcounter{fp}
 \newcounter{numberofdice}
@@ -447,7 +450,7 @@
   \global\togglefalse{weaponMaster}%
   \foreach \s in {Air,Earth,Fate,Fire,Water,Projectiles,Melee,Brawl,Academics,Alchemy,Athletics,Caving,Crafts,Cultivation,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Stealth,Survival,Vigilance}%
     {\setcounter{\s}{0}}%
-  \foreach \s in {encumbrance,dr,covering,weaponDamage,weaponBonus,weaponWeight,armourDR,armourWeight,fp,heft,weight,damage,knacks,mp,xpbonus,xp}%
+  \foreach \s in {encumbrance,dr,covering,weaponDamage,weaponBonus,weaponWeight,armourDR,armourWeight,fp,heft,weight,damage,knacks,mp,spentMP,xpbonus,xp}%
     {\setcounter{\s}{0}}%
   \setcounter{noAppearing}{1}%
 }
