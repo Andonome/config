@@ -88,6 +88,17 @@
   \fi%
 }
 
+\newcommand\goblinLight{%
+  \ifcase\value{r3}\relax%
+    glowing belly from eating \glsfmtplural{glowshroom}%
+  \or%
+    shroom-candle%
+  \else%
+    fat candle%
+  \fi%
+  \stepcounter{r3}%
+}
+
 \newcommand{\lootSmall}{%
 	\iftoggle{genExamples}{%
 		\ifodd\value{r2}%

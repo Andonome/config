@@ -1082,8 +1082,10 @@
       \vengeful%
     \fi}% KNACKS
     {%
-      \ifnum\value{noAppearing}<4%
+      \ifnum\value{noAppearing}<3%
         \lootGoblin%
+      \else%
+        \goblinLight%
       \fi%
     }% EQUIPMENT
     {\ifnum\value{noAppearing}<3
@@ -1117,7 +1119,7 @@
       \ifodd\value{r4b}%
         \lootGoblin%
       \else%
-        empty man-sized sack%
+        \goblinLight%
       \fi%
     }% EQUIPMENT
     {\ifnum\value{noAppearing}<4
@@ -1191,6 +1193,9 @@
     {%
       \ifnum\value{r4b}=1%
         \lootGoblin%
+      \fi%
+      \ifnum\value{noAppearing}<3%
+        \goblinLight%
       \fi%
     }% EQUIPMENT
     {\ifnum\value{r3b}=1%
