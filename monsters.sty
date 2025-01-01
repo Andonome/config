@@ -1028,10 +1028,14 @@
     }% SKILLS
     {}% KNACKS
     {\rock, %
-    \ifnum\value{r3c}=3%
-      \rations%
+    \ifnum\value{noAppearing}<3%
+      \ifnum\value{r3c}=3%
+        \rations%
+      \else%
+        \lootGoblin%
+      \fi%
     \else%
-      \lootGoblin%
+      \goblinLight%
     \fi}% EQUIPMENT
     {\ifnum\value{noAppearing}<3%
       \ifodd\value{r2}%
