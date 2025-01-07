@@ -39,7 +39,7 @@
 \addtocounter{goblinLoot}{\value{r4}}
 
 \newcommand{\lootGoblin}{%
-  \ifnum\value{goblinLoot}>18%
+  \ifnum\value{goblinLoot}>20%
     \setcounter{goblinLoot}{0}%
   \else%
     \stepcounter{goblinLoot}%
@@ -66,6 +66,8 @@
   \or%
     tobacco pipe%
   \or%
+    \arabic{r2t3}~sacks%
+  \or%
     a horse's tail%
   \or%
     lump of clay with an ex-lover's bitemarks%
@@ -77,6 +79,8 @@
     tinder box%
   \or%
     ratking shaul%
+  \or%
+    empty~sack%
   \or%
     bag of 4 rocks%
   \or%
