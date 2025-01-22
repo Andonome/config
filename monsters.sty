@@ -525,8 +525,8 @@
     {{r2}{1}{0}}% BODY
     {{rn1t2}{-1}{0}}% MIND
     {%
-      \ifodd\value{r3}
-        \set{Melee}{1}
+      \ifodd\value{r3}\else
+        \set{Brawl}{1}
       \fi
       \set{Crafts}{r2b}
       \set{Empathy}{r2c}
