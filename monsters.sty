@@ -401,7 +401,7 @@
     {}% ABILITIES
 }
 
-\newcommand{\gnome}[1][\npc{\Gn\M}{Wandering Gnome}]{
+\newcommand{\gnome}[1][\npc{\Gn\ifodd\value{r2}\M\else\F\fi}{Wandering Gnome}]{
   \set{track}{r3c}
   \addtocounter{track}{-4}
   \Person{#1}%
@@ -419,12 +419,12 @@
       \fi
       \set{Survival}{rn3t3}
     }% SKILLS
-    {}% KNACKS
+    {\ifodd\value{r3}\specialist{cave navigation}\fi}% KNACKS
     {\lootMedium\ifodd\value{r12}, \lootGoblin\fi, \rations}% EQUIPMENT
     {}% ABILITIES
 }
 
-\newcommand{\gnomishsoldier}[1][\npc{\T[\arabic{r12}]\Gn\M}{Gnomish Soldiers}]{
+\newcommand{\gnomishsoldier}[1][\npc{\T[\arabic{r2t4}]\Gn\M}{Gnomish Soldiers}]{
   \set{track}{r3c}
   \addtocounter{track}{-3}
   \Person{#1}%
@@ -466,7 +466,7 @@
     {}% ABILITIES
 }
 
-\newcommand{\gnomishillusionist}[1][\npc{\Gn\M}{Gnomish Illusionist}]{
+\newcommand{\gnomishillusionist}[1][\npc{\Gn\ifodd\value{r2}\M\else\F\fi}{Gnomish Illusionist}]{
   \set{track}{r3c}
   \addtocounter{track}{-4}
   \Person{#1}%
@@ -880,7 +880,7 @@
     {}% ABILITIES
 }
 
-\newcommand\morphhuman[1][\npc{\Hu\R}{Mutated Farmer}]{
+\newcommand\morphhuman[1][\npc{\Hu\E\R}{Mutated Farmer}]{
   \Person{#1}%
     {{r3}{0}{0}}% BODY
     {{rn1t2}{-1}{0}}% MIND
