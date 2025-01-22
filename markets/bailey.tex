@@ -126,13 +126,17 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
 
   Itchy clothes & 1 & \mkPrice[cp]{30} \\
 
-  Travellers clothes & 1 & \ifnum\value{temperature}>0\mkPrice[cp]{60}\else\mkPrice[cp]{80}\fi \\
   \ifnum\value{r12}>8
     \marketItem{Orange Travelling Robes}{0}{20}
     \ifnum\value{r12}>11
       \marketItem{Red Travelling Robes}{0}{22}
     \fi
   \fi
+  \ifnumcomp{\value{temperature}}{>}{0}{
+    Travellers clothes & 0 & \mkPrice[cp]{60} \\
+  }{
+    Warm clothes & 1 & \mkPrice[cp]{95} \\
+  }
   \hline
 
   \marketItem[cp]{Bandages}{0}{4}
