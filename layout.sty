@@ -1105,12 +1105,20 @@ bookmarks=true]%
 }
 
 %%%%%%%%%%%%%%%%%%%% LAYOUT %%%%%%%%%%%%%%%%%%%%
+
+%%% Index
+
+\def\breakitem{\par\goodbreak\hangindent 40\p@}
+
 \makeindex[columns=3]
 
 \indexsetup{
   noclearpage,
   level=\section,
+  othercode={\let\item\breakitem},
 }
+
+%%%
 
 \raggedbottom
 
