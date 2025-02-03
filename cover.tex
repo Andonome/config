@@ -29,11 +29,11 @@
 
 \newcommand\placeTitle{%
   \node at (8,\value{titleHeight}+1) {\includegraphics[width=4cm]{svg-inkscape/logo_svg-tex.pdf}};
-  \node[fill=white,fill opacity=0.9,text opacity=1, rounded corners=5pt] at (8,\value{titleHeight}-0.5) {\Huge \bookTitle};
+  \node[fill=white,fill opacity=0.1,text opacity=1, rounded corners=9pt] at (8,\value{titleHeight}-0.5) {\Huge \bookTitle};
 }
 
 \newcommand\placeChap[2]{%
-  \node[fill=white,fill opacity=0.9,text opacity=.7, rounded corners=5pt] at (#1) {\pageref{#2}: \nameref{#2}};
+  \node[fill=white,fill opacity=0.5,text opacity=1, rounded corners=9pt] at (#1) {\pageref{#2}: \nameref{#2}};
 }
 
 \newcommand\backBlurb[1]{
