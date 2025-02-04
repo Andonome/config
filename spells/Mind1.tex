@@ -7,7 +7,7 @@
   {\roll{Wits}{Academics}}% Resist with
   {The caster addresses the target as the wrong name, and they lose their train of thought.
     They take a -\arabic{spellPlusOne} Penalty to Mental Attributes}% Description
-  {}
+  {If the target succeeds in any action, despite the Penalty, they can reduce the Penalty by~1, up to once per~\glsentrytext{interval}.}
 
 \else
 
@@ -16,14 +16,11 @@
   {Wax}% Action
   {Fate, Water}% Spheres
   {\roll{Wits}{Academics}}% Resist with
-  {The casters gives a compliment, and the target becomes enamoured with their current action, finding it hard to stop}% Description
-  {
-    The task always takes the form of a single verb -- `blacksmithing', `walking', `singing' -- never something convoluted like `the mission to kidnap the warden', or `finding the right paints for the colour of a Sunrise'.
+  {The caster complement's someone's work, and they find it hard to stop}% Description
+  {The task always takes the form of a single verb -- `blacksmithing', `walking', `singing' -- never something convoluted like `the mission to kidnap the \glsentrytext{warden}', or `finding the right paints for the colour of a Sunrise'.
 
-    \Glspl{npc} targeted by the spell can make a \roll{Wits}{Academics} roll, \tn[8], to break away from the task.
-    \Glspl{pc} afflicted by the spell cannot gain any further \glspl{xp} for the a full day (four \glspl{interval}), unless they complete the current \gls{interval} without wavering from their task.
-
-  Anyone sleeping almost certainly remains asleep, and any rolls to wake up suffer a -\arabic{spellPlusOne} penalty.}
+    Anyone can make a second roll to break from their task, with a +2~Bonus if continuing the task  would lead to serious consequences, and a +4 Bonus if the the task has become deadly.
+	Once the target breaks from the task, the spell ends.}
 
 \fi
 \stepcounter{diceNo}
