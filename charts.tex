@@ -66,9 +66,11 @@
 
   \showWeapon{\Dagger} \\
 
-  \showWeapon{\javelin} \\
-
-  \showWeapon{\longsword} \\
+  \ifodd\value{r4}
+    \showWeapon{\longsword} \\
+  \else
+    \showWeapon{\javelin} \\
+  \fi
 
   \showWeapon{\maul} \\
 
@@ -79,6 +81,12 @@
   \showWeapon{\spear} \\
 
   \showWeapon{\roundshield} \\
+
+  \ifodd\value{r4}
+    \showWeapon{\crapGlaive} \\
+  \else
+    \showWeapon{\crapRapier} \\
+  \fi
 
   \end{boxtable}
 }
