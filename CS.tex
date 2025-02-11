@@ -164,10 +164,10 @@ circle label/.style = {
   rowspan=3}{
     \renewcommand{\arraystretch}{1.5}
     \vspace{-0.5em}
-    \begin{tabularx}{\linewidth}{p{.37\textwidth}YYYY}
+    \begin{tabularx}{\linewidth}{p{.37\textwidth}YYY}
       \hiderowcolors
       \setlength{\parskip}{3mm}
-      \textbf{Weapon} & \textbf{\textsc{Att} Bonus} & \textbf{\textsc{Dam} Bonus} & \textbf{\Glsentrytext{ap} Cost} & \textbf{Weight} \\
+      \textbf{Weapon} & \textbf{\textsc{Att} Bonus} & \textbf{\textsc{Dam} Bonus} & \textbf{Weight} \\
       
     \iftoggle{examplecharacter}{
       \hline
@@ -175,12 +175,11 @@ circle label/.style = {
           \\
           \\
         }{
-          \sffamily\characterWeapon\weaponName & \sffamily\arabic{weaponBonus} & \sffamily\arabic{weaponDamage} & \sffamily\arabic{heft} & \sffamily\arabic{weaponWeight} \\
+          \sffamily\characterWeapon\weaponName & \sffamily\arabic{weaponBonus} & \sffamily\arabic{weaponDamage} & \sffamily\arabic{weaponWeight} \\
         }
     }{
       \Repeat{2}{
         \lightDots &
-        \Repeat{3}{\statCircle} &
         \Repeat{3}{\statCircle} &
         \Repeat{3}{\statCircle} &
         \Repeat{5}{\Large\Square} \\
