@@ -37,7 +37,6 @@ qr.tex: README.md config/vars
 .switch-gls:
 	@touch .switch-gls
 
-
 images/extracted/:
 	mkdir -p $@
 	echo '*' > $@.gitignore
@@ -48,27 +47,20 @@ images/extracted/inclusion.tex: images/extracted/
 $(DROSS):
 	mkdir $(DROSS)
 
-check:
+.PHONY: check
+check: ## Check you have the project dependencies
 	@command -v git >/dev/null || ( echo install git && exit 1 )
 	@command -v git-lfs >/dev/null || ( echo install git-lfs && exit 1 )
 	@command -v lualatex >/dev/null || ( echo install lualatex && exit 1 )
 	@command -v latexmk >/dev/null || ( echo install latexmk && exit 1 )
 	@command -v inkscape >/dev/null || ( echo install inkscape && exit 1 )
 
-help:
-	@echo 'BIND version $(VERSION)'
-	@echo ''
-	@echo 'Check you have the requirements with'
-	@echo '$$ make check'
-	@echo ''
-	@echo 'Compile with'
-	@echo '$$ make'
-	@echo ''
-	@echo 'Required tlmgr packages are in'
-	@echo 'config/Docker/tlmgrDeps.sh'
-	@echo ''
+help: ## Print the help message
+	@awk 'BEGIN {FS = ":.*?## "} /^[0-9a-zA-Z._-]+:.*?## / {printf "\033[36m%s\033[0m : %s\n", $$1, $$2}' $(MAKEFILE_LIST) | \
+		sort | \
+		column -s ':' -t
 
-graph:
+graph: ## Show a dependency graph (needs graph-easy and make2graph)
 	make -Bind $(TARG) | make2graph | graph-easy --boxart
 
 print_%.pdf: %.pdf
