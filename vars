@@ -14,7 +14,6 @@ COMPILER = latexmk -file-line-error -output-directory=$(DROSS) -pdflua -interact
 RELEASE = $(TITLE).pdf
 GLOS := makeglossaries -d $(DROSS)
 RUN := lualatex -output-directory $(DROSS) -shell-escape
-CLEAN := $(RM) -r $(DROSS) $(LOCAL_DROSS) qr.tex *.pdf .switch-gls svg-inkscape
 
 .PHONY: book
 book: $(RELEASE) ## Compile the pdf
@@ -40,6 +39,8 @@ qr.tex: README.md config/vars
 .switch-gls:
 	@touch .switch-gls
 
+output += qr.tex .switch-gls svg-inkscape
+
 images/extracted/:
 	mkdir -p $@
 	echo '*' > $@.gitignore
@@ -47,8 +48,12 @@ images/extracted/inclusion.tex: images/extracted/
 	printf '%s\n' '\externaldocument{$(BOOK)}' > $@
 	printf '%s\n' '\newcommand\bookTitle{$(TITLE)}' | tr '_' ' ' >> $@
 
+output += images/extracted/
+
 $(DROSS):
 	mkdir $(DROSS)
+
+output += $(DROSS)
 
 .PHONY: check
 check: ## Check you have the project dependencies
@@ -70,3 +75,12 @@ graph: ## Show a dependency graph (needs graph-easy and make2graph)
 
 print_%.pdf: %.pdf
 	pdfjam --landscape --paper a3paper --nup 1x1 --signature 12 $< -o $@
+
+output += $(targets)
+
+.PHONY: all
+all:  $(targets) ## All standard targets
+
+.PHONY: clean
+clean: ## Clean repo, including cross-reference files
+	$(RM) -r $(output)

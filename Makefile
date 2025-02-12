@@ -46,7 +46,5 @@ markets.pdf: config/market.sty $(wildcard config/markets/*) | $(DROSS) ## Price-
 	$(RUN) -jobname markets markets/all.tex
 	$(CP) $(DROSS)/$@ .
 
-.PHONY: all clean
-all: docs.pdf rules.pdf character_sheets.pdf $(DROSS)/test.pdf 
-clean:
-	$(CLEAN) images/wide.jpg .count.tex
+targets += docs.pdf rules.pdf character_sheets.pdf $(DROSS)/test.pdf markets.pdf
+output += images/wide.jpg
