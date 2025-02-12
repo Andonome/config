@@ -16,12 +16,14 @@ $(DROSS)/test.pdf: $(ALL_FILES) $(DROSS)
 	$(GLOS) test
 	$(RUN) test.tex
 
-docs.pdf: images/wide.jpg STYLE_FILES | $(DROSS)
+$(DBOOK): docs.pdf
+	$(CP) $< $@
+docs.pdf: images/wide.jpg STYLE_FILES | $(DROSS) ## Make documentation
 	$(RUN) docs.tex
 	$(GLOS) docs
 	$(RUN) docs.tex
 	$(CP) $(DROSS)/docs.pdf docs.pdf
-character_sheets.pdf: HANDOUTS STYLE_FILES | $(DROSS)
+character_sheets.pdf: HANDOUTS STYLE_FILES | $(DROSS) ## Character sheets
 	$(RUN) character_sheets.tex
 	$(RUN) character_sheets.tex
 	$(CP) $(DROSS)/character_sheets.pdf character_sheets.pdf
@@ -36,10 +38,10 @@ booklet.pdf: | STYLE_FILES HANDOUTS $(DROSS)
 
 /tmp/p_2.pdf: booklet.pdf
 	pdfjam --angle '-90' $< 2 --outfile $@
-rules.pdf: /tmp/p_1.pdf /tmp/p_2.pdf
+rules.pdf: /tmp/p_1.pdf /tmp/p_2.pdf ## One-page rules summary
 	pdfunite $^ $@
 
-markets.pdf: config/market.sty $(wildcard config/markets/*) | $(DROSS)
+markets.pdf: config/market.sty $(wildcard config/markets/*) | $(DROSS) ## Price-sheets for baileys and town
 	$(RUN) -jobname markets markets/all.tex
 	$(RUN) -jobname markets markets/all.tex
 	$(CP) $(DROSS)/$@ .
