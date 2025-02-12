@@ -79,7 +79,8 @@ print_%.pdf: %.pdf
 output += $(targets)
 
 .PHONY: all
-all:  $(targets) ## All standard targets
+all: ## All standard targets
+	make $(targets)
 
 .PHONY: clean
 clean: ## Clean repo, including cross-reference files
