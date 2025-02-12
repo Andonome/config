@@ -15,6 +15,8 @@ RELEASE = $(TITLE).pdf
 GLOS := makeglossaries -d $(DROSS)
 RUN := lualatex -output-directory $(DROSS) -shell-escape
 
+targets += check
+
 .PHONY: book
 book: $(RELEASE) ## Compile the pdf
 $(RELEASE): $(DBOOK)
@@ -62,8 +64,6 @@ check: ## Check you have the project dependencies
 	@command -v lualatex >/dev/null || ( echo install lualatex && exit 1 )
 	@command -v latexmk >/dev/null || ( echo install latexmk && exit 1 )
 	@command -v inkscape >/dev/null || ( echo install inkscape && exit 1 )
-
-targets += check
 
 help: ## Print the help message
 	@awk 'BEGIN {FS = ":.*?## "} /^[0-9a-zA-Z._-]+:.*?## / {printf "\033[36m%s\033[0m : %s\n", $$1, $$2}' $(MAKEFILE_LIST) | \
