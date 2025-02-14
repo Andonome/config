@@ -57,13 +57,12 @@ $(DROSS):
 
 output += $(DROSS)
 
+dependencies = git git-lfs lualatex latexmk inkscape
+
 .PHONY: check
 check: ## Check you have the project dependencies
-	@command -v git >/dev/null || ( echo install git && exit 1 )
-	@command -v git-lfs >/dev/null || ( echo install git-lfs && exit 1 )
-	@command -v lualatex >/dev/null || ( echo install lualatex && exit 1 )
-	@command -v latexmk >/dev/null || ( echo install latexmk && exit 1 )
-	@command -v inkscape >/dev/null || ( echo install inkscape && exit 1 )
+	@$(foreach program, $(dependencies), \
+	command -v $(program) >/dev/null || { echo install $(program) && exit 1 ;} ;)
 
 help: ## Print the help message
 	@awk 'BEGIN {FS = ":.*?## "} /^[0-9a-zA-Z._-]+:.*?## / {printf "\033[36m%s\033[0m : %s\n", $$1, $$2}' $(MAKEFILE_LIST) | \
