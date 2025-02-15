@@ -278,48 +278,53 @@ circle label/.style = {
     }
     %
     \setcounter{diceNo}{0}
-    \setcounter{track}{3}
+    \setcounter{list}{3}
     \Repeat{12}{
       \stepcounter{diceNo}%
-      \stepcounter{track}%
+      \stepcounter{list}%
       \posterbox[
       blankest,
-      ]{column=19,row=\arabic{track},span=10,rowspan=1}{%
-        \ifcase\value{diceNo}\relax%
-        \or%
-          \ifdefempty{\weaponName}{\lightDots}{%
-            {\sffamily\weaponName~Bonus\hfill}%
-          }%
-          \raisebox{4pt}{\showDots{weaponBonus}}%
-        \or%
-          \ifdefempty{\weaponName}{\lightDots}{%
-            {\qquad\sffamily Damage\hfill}%
-          }%
-          \raisebox{4pt}{\showDots{weaponDamage}}%
-        \or%
-          \ifdefempty{\armourName}{\lightDots\showDots{armourDR}}{%
-            {\sffamily \expandafter\MakeUppercase\armourName~\gls{dr}}%
-            \hfill\raisebox{4pt}{\showDots[5]{armourDR}}%
-          }
-        \or%
-          \ifdefempty{\armourName}{\lightDots\showDots{covering}}{%
-            {\qquad\sffamily \gls{covering}}%
-            \hfill\raisebox{4pt}{\showDots[5]{covering}}%
-          }
-        \or%
-          \ifdefempty{\equipment}{\lightDots}{%
-            \equipment%
-          }%
-        \else%
-          \ifnum\value{diceNo}<8%
-            \lightDots
+      ]{column=19,row=\arabic{list},span=10,rowspan=1}{%
+        \begin{tabularx}{\linewidth}{Lrr}
+          \ifcase\value{diceNo}\relax%
+          \or%
+            \ifdefempty{\weaponName}{\lightDots}{%
+              {\sffamily\weaponName~(\absNum{weaponBonus}/ \absNum{weaponDamage})\hfill}%
+              \setcounter{track}{\value{weaponWeight}}%
+            }%
+          \or%
+            \ifdefempty{\armourName}{\lightDots}{%
+              {\sffamily \expandafter\MakeUppercase\armourName}%
+              \setcounter{track}{\value{armourWeight}}%
+            }
+          \or%
+            \ifdefempty{\equipment}{\lightDots}{%
+              \begin{minipage}{.72\linewidth}
+                \sffamily\raggedright\equipment%
+              \end{minipage}
+              \setcounter{track}{\value{equipmentWeight}}%
+            }%
+          \else%
+            \ifnum\value{diceNo}<8%
+              \lightDots
+            \fi%
           \fi%
-        \fi%
-        \ifnum\value{hp}<\value{diceNo}%
-          \raggedleft\tikz \draw[dotted] (0,0) node[minimum size=15mm,draw,circle] {\textcolor{\pageSideColor}{\Large\Roman{diceNo}}};
-        \else
-          \raggedleft\tikz \draw[dotted] (0,0) node[minimum size=15mm,draw,circle] {\textcolor{\pageOppositeColor}{\Large\Roman{diceNo}}};
-        \fi
+        &
+          \ifnum\value{track}>0%
+            \glsentrysymbol{weight}~\arabic{track}%
+            \setcounter{track}{0}%
+          \fi%
+        &
+          \ifnum\value{hp}<\value{diceNo}%
+            \tikz \draw[dotted] (0,0) node[minimum size=15mm,draw,circle] {};
+          \else
+            \ifnum\value{weight}<\value{diceNo}%
+              \tikz \draw[dotted] (0,0) node[minimum size=15mm,draw,circle] {\textcolor{\pageOppositeColor}{\Large\Roman{diceNo}}};
+            \else%
+              \tikz \draw[dotted] (0,0) node[minimum size=15mm,draw,circle] {\textcolor{\pageSideColor}{\Large\Roman{diceNo}}};
+            \fi%
+          \fi
+        \end{tabularx}
       }
     }
 

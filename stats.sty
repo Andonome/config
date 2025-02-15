@@ -125,6 +125,9 @@
   \foreach \s in {Air,Earth,Fate,Fire,Water}%
     {\ifnum\value{\s}>0 \addtocounter{mp}{3}\fi}%
   \renewcommand\equipment{#6}%
+  \foreach \i in {#6}{%
+    \stepcounter{equipmentWeight}%
+  }
   #7%
   \computeStats%
   \computeEncumbrance%
@@ -279,6 +282,8 @@
 \newcounter{defenceXPtotal} %rem
 
 \newcounter{weight}
+\newcounter{equipmentWeight}
+  \setcounter{equipmentWeight}{0}
 \newcounter{maxWeight}
 \newcounter{ap}
 \newcounter{damage}
@@ -450,7 +455,7 @@
   \global\togglefalse{weaponMaster}%
   \foreach \s in {Air,Earth,Fate,Fire,Water,Projectiles,Melee,Brawl,Academics,Alchemy,Athletics,Caving,Crafts,Cultivation,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Stealth,Survival,Vigilance}%
     {\setcounter{\s}{0}}%
-  \foreach \s in {encumbrance,dr,covering,weaponDamage,weaponBonus,weaponWeight,armourDR,armourWeight,fp,heft,weight,damage,knacks,mp,spentMP,xpbonus,xp}%
+  \foreach \s in {encumbrance,dr,covering,weaponDamage,weaponBonus,weaponWeight,armourDR,armourWeight,fp,heft,weight,equipmentWeight,damage,knacks,mp,spentMP,xpbonus,xp}%
     {\setcounter{\s}{0}}%
   \setcounter{noAppearing}{1}%
 }
@@ -545,6 +550,7 @@
   \fi%
   \addtocounter{weight}{\value{weaponWeight}}%
   \addtocounter{weight}{\value{armourWeight}}%
+  \addtocounter{weight}{\value{equipmentWeight}}%
   \ifnum\value{weight}>\value{hp}%
     \addtocounter{encumbrance}{\value{weight}}%
     \addtocounter{encumbrance}{-\value{hp}}%
