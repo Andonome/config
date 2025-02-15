@@ -266,7 +266,7 @@
       \fi
     }% SKILLS
     {}% KNACKS
-    {\ifodd\value{r3}\lootGoblin, \lootJewellery\else\lootJewellery\fi, \lootJewellery}% EQUIPMENT
+    {\ifodd\value{r3}\lootGoblin \else\lootJewellery\fi and \lootJewellery}% EQUIPMENT
     {\mutation{r4b} \mutation{r4b} \mutation{r4b}}% ABILITIES
 }
 
@@ -420,7 +420,8 @@
       \set{Survival}{rn3t3}
     }% SKILLS
     {\ifodd\value{r3}\specialist{cave navigation}\fi}% KNACKS
-    {\lootMedium\ifodd\value{r12}, \lootGoblin\fi, \rations}% EQUIPMENT
+    {\ifodd\value{r12} \lootGoblin\ and \fi\ \rations.
+    \lootMedium\ hidden in \ifodd\value{r2} hat \else boots\fi}% EQUIPMENT
     {}% ABILITIES
 }
 
@@ -486,6 +487,7 @@
       \set{Air}{r2t3}
       \set{Fire}{r3}
       \set{Earth}{r3b}
+      \addtocounter{equipmentWeight}{-2}
     }% SKILLS
     {}% KNACKS
     {\lootMedium, \ifodd\value{r12}\lootGoblin\else\lootMagic\fi, \rations}% EQUIPMENT
@@ -515,7 +517,7 @@
       \fi
     }% SKILLS
     {\specialist{husbandry}}% KNACKS
-    {\lootSmall, \rations}% EQUIPMENT
+    {\lootSmall\ and \rations}% EQUIPMENT
     {}% ABILITIES
 }
 
@@ -807,7 +809,7 @@
       \ifodd\value{r4}%
         \lootBig%
         \ifodd\value{r4b}%
-          , \lootMagic, \rations%
+          , \lootMagic\ and \rations%
         \fi%
       \else%
         \lootGoblin%
@@ -1165,7 +1167,7 @@
       \fi
     }% SKILLS
     {}% KNACKS
-    {\ifodd\value{r3b}\lootGoblin, \fi\rations}% EQUIPMENT
+    {\ifodd\value{r3b}\lootGoblin\ and \fi\rations}% EQUIPMENT
     {\ifnum\value{noAppearing}=1
       \mutation{r4}%
     \fi}% ABILITIES
@@ -1598,7 +1600,7 @@
       \fi
     }% SKILLS
     {}% KNACKS
-    {\ifodd\value{r3}\lootGoblin, \lootJewellery\else\lootJewellery\fi, \lootJewellery}% EQUIPMENT
+    {\ifodd\value{r3}\lootGoblin, \lootJewellery\else\lootJewellery\fi\ and \lootJewellery}% EQUIPMENT
     {\mutation{r4b} \mutation{r4b} \mutation{r4b}}% ABILITIES
 }
 
