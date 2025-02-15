@@ -892,7 +892,9 @@
   \randomfour%
   \addtocounter{humanNameNo}{\value{r4}}%
   \ifnum\value{humanNameNo}>20\addtocounter{humanNameNo}{-20}\fi%
-  \expandafter\expandafter\ifcase\value{humanNameNo}\relax%
+  \ifcase\value{humanNameNo}\relax%
+  \or%
+    Fetter%
   \or%
     Grit%
   \or%
