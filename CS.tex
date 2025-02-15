@@ -76,7 +76,7 @@
     \showAttribute{Charisma}[-8pt]
     \hspace{2em}\footnotesize{\dicef{7}} & & \tiny{2} & \tiny{3} & \tiny{4--5} & \tiny{6--8} & \tiny{9--10} & \tiny{11} & \tiny{12} & \\
     \end{tabularx}
-    \tiny\hint{Cost: 5 | 10 / 20 / 40}
+    \hint{\tiny Cost: 5 | 10 / 20 / 40}
   }
 
 %----
@@ -146,7 +146,7 @@ circle label/.style = {
       \fi
     \end{tabularx}
     \par
-    \tiny\hint{Cost: 10 / 20 / 30 }
+    \hint{\tiny Cost: 10 / 20 / 30 }
   }
 
 %----
@@ -238,6 +238,7 @@ circle label/.style = {
       blankest,
       ]{column=19,row=\arabic{list},span=10,rowspan=1}{%
         \begin{tabularx}{\linewidth}{Lrr}
+          \hiderowcolors%
           \ifcase\value{diceNo}\relax%
           \or%
             \ifdefempty{\weaponName}{\lightDots}{%
@@ -310,7 +311,7 @@ circle label/.style = {
       \emptySkill
     \end{tabularx}
     \vspace{.3em}
-    \tiny\hint{Cost: 5 / 10 / 15 }
+    \hint{\tiny Cost: 5 / 10 / 15 }
   }
 
 
@@ -342,7 +343,7 @@ circle label/.style = {
   column=9,
   row=14,
   span=17,
-  rowspan=2.3}{%
+  rowspan=2.7}{%
     \vspace{1em}%
     \iftoggle{examplecharacter}{}{%
       \lineDots[4]
