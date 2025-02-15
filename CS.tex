@@ -223,9 +223,13 @@ circle label/.style = {
     ]{column=19,row=3,span=7,rowspan=1}{ 
       {\scshape\Large\qquad Equipment}
 
+      \hint{\tiny You can carry a total \glsentrytext{weight} equal to your \roll{Strength}{6}.
+      Each point above inflicts a -1~Penalty}
     }
     %
     \setcounter{diceNo}{0}
+    \setcounter{diceNo2}{0}
+    \setcounter{track}{0}
     \setcounter{list}{3}
     \Repeat{12}{
       \stepcounter{diceNo}%
@@ -264,7 +268,8 @@ circle label/.style = {
           \fi%
         &
           \ifnum\value{hp}<\value{diceNo}%
-            \tikz \draw[dotted] (0,0) node[minimum size=15mm,draw,circle] {};
+            \stepcounter{diceNo2}%
+            \tikz \draw[dotted] (0,0) node[minimum size=15mm,draw,circle] {\ifnum\value{hp}>0-\arabic{diceNo2}\fi};
           \else
             \ifnum\value{weight}<\value{diceNo}%
               \tikz \draw[dotted] (0,0) node[minimum size=15mm,draw,circle] {\textcolor{\pageOppositeColor}{\Large\Roman{diceNo}}};
