@@ -5,7 +5,7 @@
   poster   = {
     showframe=false,
     columns=30,
-    rows=18
+    rows=16
   },
   boxes    = {
     ornamented,
@@ -61,7 +61,7 @@
   \posterbox[
     adjusted title=Attributes,
     remember,
-  ]{name=attributes,column=1,row=3,span=10,rowspan=4}{
+  ]{name=attributes,column=1,row=3,span=10,rowspan=3.7}{
     \hspace{-0.7em}
     \renewcommand{\arraystretch}{1.5}
     \addtolength{\tabcolsep}{-0.53em}
@@ -82,9 +82,12 @@
 %----
 
   \posterbox[
-    remember, blankest,interior engine=path,valign=center,
+    remember,
+    blankest,
+    interior engine=path,
+    valign=center,
     colback=white,
-  ]{name=gumption,column=1,row=9,span=4,rowspan=8.2}{
+  ]{name=gumption,column=1,row=15,span=8,rowspan=2}{
 
     \begin{tikzpicture}[
 circle label/.style = {
@@ -99,23 +102,17 @@ circle label/.style = {
     }
     }
     ]
-     \path[circle label={FP = XP / 10 + Charisma}] (-1,3.2) arc (-90:360-90:1.1);
-      \draw[dotted] (-1,4.3) circle (1) node [align=left,text width=3.5em] {};
-     \path[circle label={HP = 6 + Strength}] (-1,0.6) arc (-90:360-90:1.1);
-      \draw[dotted] (-1,1.7) circle (1);
-     \path[circle label={Exhaustion Points}] (-1,-2) arc (-90:360-90:1.1);
-      \draw[dotted] (-1,-0.9) circle (1);
-     \path[circle label={MP = 3 x spheres}] (-1,-4.6) arc (-90:315-45:1.1);
-      \draw[dotted] (-1,-3.5) circle (1) node [align=left] {};
-     \path[circle label={Penalty}] (-1,-7.2) arc (-90:315-45:1.1);
-      \draw[dotted] (-1,-6.1) circle (1) node [align=left] {};
+     \path[circle label={FP = XP / 10 + Charisma}] (-1,0.6) arc (-90:360-90:1.1);
+      \draw[dotted] (-1,1.7) circle (1) node [align=left,text width=3.5em] {};
+     \path[circle label={MP = 3 x spheres}] (2,0.6) arc (-90:360-90:1.1);
+      \draw[dotted] (2,1.7) circle (1);
     \end{tikzpicture}
 
   }
 %----
   \posterbox[adjusted title={Combat Skills},
   remember,
-  ]{name=melee,column=11,row=3,span=8,rowspan=4}{
+  ]{name=melee,column=11,row=3,span=8,rowspan=3.7}{
     \renewcommand{\arraystretch}{1.4}
     \begin{tabularx}{\linewidth}{Xr@{}}
       \hiderowcolors
@@ -154,93 +151,63 @@ circle label/.style = {
 
 %----
 
-  \posterbox[
-  adjusted title=In-Hand,
-  remember,
-  ]{name=armoury,
-  column=5,
-  row=9,
-  span=22,
-  rowspan=3}{
-    \renewcommand{\arraystretch}{1.5}
-    \vspace{-0.5em}
-    \begin{tabularx}{\linewidth}{p{.37\textwidth}YYY}
-      \hiderowcolors
-      \setlength{\parskip}{3mm}
-      \textbf{Weapon} & \textbf{\textsc{Att} Bonus} & \textbf{\textsc{Dam} Bonus} & \textbf{Weight} \\
-      
-    \iftoggle{examplecharacter}{
-      \hline
-        \ifdefempty{\weaponName}{
-          \\
-          \\
-        }{
-          \sffamily\characterWeapon\weaponName & \sffamily\arabic{weaponBonus} & \sffamily\arabic{weaponDamage} & \sffamily\arabic{weaponWeight} \\
-        }
-    }{
-      \Repeat{2}{
-        \lightDots &
-        \Repeat{3}{\statCircle} &
-        \Repeat{3}{\statCircle} &
-        \Repeat{5}{\Large\Square} \\
-      }
-    }
-    \end{tabularx}
-
-    \vspace{1em}
-    \begin{tabularx}{\linewidth}{p{.4\textwidth}YYY}
-      \hiderowcolors
-      \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{Covering} & \textbf{Weight} \\
-      \iftoggle{examplecharacter}{
-        \ifdefempty{\armourName}{}{
-          \sffamily\characterArmour\armourName & \sffamily\arabic{armourDR} & \sffamily\arabic{covering} & \sffamily\arabic{armourWeight} \\
-        }
-      }{
-        \lightDots &
-        \Repeat{5}{\statCircle} &
-        \Repeat{5}{\statCircle} &
-        \Repeat{5}{\Large\Square} \\
-      }
-    \end{tabularx}
-  }
-
-%-----
-  \posterbox[
-    adjusted title=\Glsentrytext{dr} / \textsc{Cov},
-    remember,
-  ]
-  {name=derived,column=1,row=7,span=4,rowspan=1.8}{
-    \begin{tabularx}{\linewidth}{>{\centering\arraybackslash}X}
-      \hiderowcolors
-      \small
-      \iftoggle{examplecharacter}{\sffamily\arabic{armourDR} / \arabic{covering}}{\underline{\hspace{2em}/\hspace{2em}}} \\ [0.25em]
-      \tiny (by Armour)
-    \end{tabularx}
-  }
+%  \posterbox[
+%  adjusted title=In-Hand,
+%  remember,
+%  ]{name=armoury,
+%  column=5,
+%  row=9,
+%  span=22,
+%  rowspan=3}{
+%    \renewcommand{\arraystretch}{1.5}
+%    \vspace{-0.5em}
+%    \begin{tabularx}{\linewidth}{p{.37\textwidth}YYY}
+%      \hiderowcolors
+%      \setlength{\parskip}{3mm}
+%      \textbf{Weapon} & \textbf{\textsc{Att} Bonus} & \textbf{\textsc{Dam} Bonus} & \textbf{Weight} \\
+%      
+%    \iftoggle{examplecharacter}{
+%      \hline
+%        \ifdefempty{\weaponName}{
+%          \\
+%          \\
+%        }{
+%          \sffamily\characterWeapon\weaponName & \sffamily\arabic{weaponBonus} & \sffamily\arabic{weaponDamage} & \sffamily\arabic{weaponWeight} \\
+%        }
+%    }{
+%      \Repeat{2}{
+%        \lightDots &
+%        \Repeat{3}{\statCircle} &
+%        \Repeat{3}{\statCircle} &
+%        \Repeat{5}{\Large\Square} \\
+%      }
+%    }
+%    \end{tabularx}
+%
+%    \vspace{1em}
+%    \begin{tabularx}{\linewidth}{p{.4\textwidth}YYY}
+%      \hiderowcolors
+%      \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{Covering} & \textbf{Weight} \\
+%      \iftoggle{examplecharacter}{
+%        \ifdefempty{\armourName}{}{
+%          \sffamily\characterArmour\armourName & \sffamily\arabic{armourDR} & \sffamily\arabic{covering} & \sffamily\arabic{armourWeight} \\
+%        }
+%      }{
+%        \lightDots &
+%        \Repeat{5}{\statCircle} &
+%        \Repeat{5}{\statCircle} &
+%        \Repeat{5}{\Large\Square} \\
+%      }
+%    \end{tabularx}
+%  }
 
 %-----
-  \posterbox[
-    adjusted title=\Glsentrytext{ap},
-    remember,
-  ]
-  {name=derived,column=5,row=7,span=4,rowspan=1.8}{
-    \begin{tabularx}{\linewidth}{>{\centering\arraybackslash}X}
-      \small
-      \iftoggle{examplecharacter}%
-      {%
-        \sffamily\arabic{ap}%
-      }%
-      {\underline{\hspace{2em}}} \\ [0.25em]
-      \tiny 3 + Speed
-    \end{tabularx}
-  }
-
 %-----
   \posterbox[
     adjusted title=Attack,
     remember,
   ]
-  {name=derived,column=9,row=7,span=4,rowspan=1.8}{
+  {name=Attack,column=9,row=7,span=5,rowspan=1.8}{
     \begin{tabularx}{\linewidth}{>{\centering\arraybackslash}X}
       \small
       \iftoggle{examplecharacter}{\sffamily}{}2D6%
@@ -253,12 +220,25 @@ circle label/.style = {
     \end{tabularx}
   }
 
+  \posterbox[
+    adjusted title=\Glsentrytext{dr} / \textsc{Cov},
+    remember,
+  ]
+  {name=Armour,column=14,row=7,span=5,rowspan=1.8}{
+    \begin{tabularx}{\linewidth}{>{\centering\arraybackslash}X}
+      \hiderowcolors
+      \small
+      \iftoggle{examplecharacter}{\sffamily\arabic{armourDR} / \arabic{covering}}{\underline{\hspace{2em}/\hspace{2em}}} \\ [0.25em]
+      \tiny (by Armour)
+    \end{tabularx}
+  }
+
 %-----
   \posterbox[
     adjusted title=Damage,
     remember,
   ]
-  {name=derived,column=13,row=7,span=4,rowspan=1.8}{
+  {name=Damage,column=9,row=9,span=5,rowspan=1.8}{
     \begin{tabularx}{\linewidth}{>{\centering\arraybackslash}X}
       \small
       \iftoggle{examplecharacter}% Damage
@@ -272,18 +252,76 @@ circle label/.style = {
     \end{tabularx}
   }
 
-%----
+%-----
+  \posterbox[
+    adjusted title=\Glspl{ap},
+    remember,
+  ]
+  {name=AP,column=14,row=9,span=5,rowspan=1.8}{
+    \begin{tabularx}{\linewidth}{>{\centering\arraybackslash}X}
+      \small
+      \iftoggle{examplecharacter}%
+      {%
+        \sffamily\arabic{ap}%
+      }%
+      {\underline{\hspace{2em}}} \\ [0.25em]
+      \tiny 3 + Speed
+    \end{tabularx}
+  }
 
-    \setcounter{track}{7}
+%----
     \posterbox[
     blankest,
-    remember,
-    ]{name=track,column=27,row=3,span=2.8,rowspan=15.8}{ 
-      {\large
-        \vspace{1em}
-        \Repeat{14}{\tracker}
+    ]{column=19,row=3,span=7,rowspan=1}{ 
+      {\scshape\Large\qquad Equipment}
+
+    }
+    %
+    \setcounter{diceNo}{0}
+    \setcounter{track}{3}
+    \Repeat{12}{
+      \stepcounter{diceNo}%
+      \stepcounter{track}%
+      \posterbox[
+      blankest,
+      ]{column=19,row=\arabic{track},span=10,rowspan=1}{%
+        \ifcase\value{diceNo}\relax%
+        \or%
+          \ifdefempty{\weaponName}{\lightDots}{%
+            {\sffamily\weaponName~Bonus\hfill}%
+          }%
+          \raisebox{4pt}{\showDots{weaponBonus}}%
+        \or%
+          \ifdefempty{\weaponName}{\lightDots}{%
+            {\qquad\sffamily Damage\hfill}%
+          }%
+          \raisebox{4pt}{\showDots{weaponDamage}}%
+        \or%
+          \ifdefempty{\armourName}{\lightDots\showDots{armourDR}}{%
+            {\sffamily \expandafter\MakeUppercase\armourName~\gls{dr}}%
+            \hfill\raisebox{4pt}{\showDots[5]{armourDR}}%
+          }
+        \or%
+          \ifdefempty{\armourName}{\lightDots\showDots{covering}}{%
+            {\qquad\sffamily \gls{covering}}%
+            \hfill\raisebox{4pt}{\showDots[5]{covering}}%
+          }
+        \or%
+          \ifdefempty{\equipment}{\lightDots}{%
+            \equipment%
+          }%
+        \else%
+          \ifnum\value{diceNo}<8%
+            \lightDots
+          \fi%
+        \fi%
+        \ifnum\value{hp}<\value{diceNo}%
+          \raggedleft\tikz \draw[dotted] (0,0) node[minimum size=15mm,draw,circle] {\textcolor{\pageSideColor}{\Large\Roman{diceNo}}};
+        \else
+          \raggedleft\tikz \draw[dotted] (0,0) node[minimum size=15mm,draw,circle] {\textcolor{\pageOppositeColor}{\Large\Roman{diceNo}}};
+        \fi
       }
-      }
+    }
 
 
 %-----
@@ -291,7 +329,7 @@ circle label/.style = {
   adjusted title={General Skills},
   remember,
   ]
-  {name=skills,column=19,row=3,span=8,rowspan=6}{
+  {name=skills,column=1,row=7,span=8,rowspan=5.8}{
     \renewcommand{\arraystretch}{1.2}
     \begin{tabularx}{\linewidth}{Xr@{}}
 
@@ -311,78 +349,79 @@ circle label/.style = {
       \skill{Survival}
       \skill{Vigilance}
       \emptySkill
-
+      \emptySkill
     \end{tabularx}
+    \vspace{.3em}
     \tiny\hint{Cost: 5 / 10 / 15 }
   }
 
 
 %----
-  \posterbox[
-    adjusted title=Backpack,
-    sidebyside,
-    remember,
-  ]
-  {name=equipment,
-    column=6,
-    row=15,
-    span=23,
-    rowspan=3.7,
-  }{%
-    \hint{\glsentrytext{tn} to remove: \weeline}
-    \par
-    \iftoggle{examplecharacter}{\sffamily\equipment\vspace{12em}}{%
-      \vspace{1em}%
-      \Repeat{5}{%
-        {\noindent\Repeat{5}{\Square} \lineDots}%
-      }%
-      \tcblower
-      \vspace{1em}%
-      \Repeat{4}{%
-        {\noindent\Repeat{5}{\Square} \lineDots}%
-      }%
-      \par
-      \vspace{1em}%
-      \small
-      \glsentryshortpl{cp}\weeline \quad
-      \glsentryshortpl{sp}\weeline \quad
-      \glsentryshortpl{gp}\weeline \quad
-    }
-  }
+%  \posterbox[
+%    adjusted title=Backpack,
+%    sidebyside,
+%    remember,
+%  ]
+%  {name=equipment,
+%    column=6,
+%    row=15,
+%    span=23,
+%    rowspan=3.7,
+%  }{%
+%    \hint{\glsentrytext{tn} to remove: \weeline}
+%    \par
+%    \iftoggle{examplecharacter}{\sffamily\equipment\vspace{12em}}{%
+%      \vspace{1em}%
+%      \Repeat{5}{%
+%        {\noindent\Repeat{5}{\Square} \lineDots}%
+%      }%
+%      \tcblower
+%      \vspace{1em}%
+%      \Repeat{4}{%
+%        {\noindent\Repeat{5}{\Square} \lineDots}%
+%      }%
+%      \par
+%      \vspace{1em}%
+%      \small
+%      \glsentryshortpl{cp}\weeline \quad
+%      \glsentryshortpl{sp}\weeline \quad
+%      \glsentryshortpl{gp}\weeline \quad
+%    }
+%  }
 
 %---
-
-  \posterbox[
-    adjusted title=Abilities \& Conditions,
-    remember,
-  ]
-  {name=abilities,
-  column=5,
-  row=12,
-  span=11,
-  rowspan=3}{%
-    \vspace{2em}%
-    \iftoggle{examplecharacter}{}{%
-      \lineDots[4]
-    }%
-  }
 
   \posterbox[
     adjusted title=Knacks,
     remember,
   ]
   {name=knacks,
-  column=16,
-  row=12,
-  span=11,
-  rowspan=3}{%
+  column=9,
+  row=11,
+  span=17,
+  rowspan=2.7}{%
   \setlength{\parskip}{0mm}%
     \iftoggle{examplecharacter}{
       \sffamily\Knacks
     }{%
-      \vspace{2em}%
+      \vspace{1em}%
       \lineDots[4]
     }
+  }
+
+  \posterbox[
+    adjusted title=Abilities \& Conditions,
+    remember,
+  ]
+  {name=abilities,
+  column=9,
+  row=14,
+  span=17,
+  rowspan=2.3}{%
+    \vspace{1em}%
+    \iftoggle{examplecharacter}{}{%
+      \lineDots[4]
+    }%
   }
 
 %------
@@ -392,8 +431,8 @@ circle label/.style = {
   ]
   {name=xp,
   column=1,
-  row=17,
-  span=5,
+  row=13,
+  span=8,
   rowspan=1.7}{
 
   \setlength{\parskip}{0mm}

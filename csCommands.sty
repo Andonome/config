@@ -133,6 +133,12 @@
   \\%
 }
 
+\newcommand{\showDots}[2][3]{%
+  \setcounter{statCircles}{#1}%
+  \addtocounter{statCircles}{-\value{#2}}%
+  \Repeat{\value{#2}}{\statDot}\Repeat{\value{statCircles}}{\statCircle}%
+}
+
 \newcommand{\skill}[1]{
   \setcounter{statCircles}{3}
   \addtocounter{statCircles}{-\value{#1}}
