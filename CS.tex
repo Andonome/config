@@ -151,58 +151,6 @@ circle label/.style = {
 
 %----
 
-%  \posterbox[
-%  adjusted title=In-Hand,
-%  remember,
-%  ]{name=armoury,
-%  column=5,
-%  row=9,
-%  span=22,
-%  rowspan=3}{
-%    \renewcommand{\arraystretch}{1.5}
-%    \vspace{-0.5em}
-%    \begin{tabularx}{\linewidth}{p{.37\textwidth}YYY}
-%      \hiderowcolors
-%      \setlength{\parskip}{3mm}
-%      \textbf{Weapon} & \textbf{\textsc{Att} Bonus} & \textbf{\textsc{Dam} Bonus} & \textbf{Weight} \\
-%      
-%    \iftoggle{examplecharacter}{
-%      \hline
-%        \ifdefempty{\weaponName}{
-%          \\
-%          \\
-%        }{
-%          \sffamily\characterWeapon\weaponName & \sffamily\arabic{weaponBonus} & \sffamily\arabic{weaponDamage} & \sffamily\arabic{weaponWeight} \\
-%        }
-%    }{
-%      \Repeat{2}{
-%        \lightDots &
-%        \Repeat{3}{\statCircle} &
-%        \Repeat{3}{\statCircle} &
-%        \Repeat{5}{\Large\Square} \\
-%      }
-%    }
-%    \end{tabularx}
-%
-%    \vspace{1em}
-%    \begin{tabularx}{\linewidth}{p{.4\textwidth}YYY}
-%      \hiderowcolors
-%      \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{Covering} & \textbf{Weight} \\
-%      \iftoggle{examplecharacter}{
-%        \ifdefempty{\armourName}{}{
-%          \sffamily\characterArmour\armourName & \sffamily\arabic{armourDR} & \sffamily\arabic{covering} & \sffamily\arabic{armourWeight} \\
-%        }
-%      }{
-%        \lightDots &
-%        \Repeat{5}{\statCircle} &
-%        \Repeat{5}{\statCircle} &
-%        \Repeat{5}{\Large\Square} \\
-%      }
-%    \end{tabularx}
-%  }
-
-%-----
-%-----
   \posterbox[
     adjusted title=Attack,
     remember,
@@ -362,39 +310,6 @@ circle label/.style = {
 
 
 %----
-%  \posterbox[
-%    adjusted title=Backpack,
-%    sidebyside,
-%    remember,
-%  ]
-%  {name=equipment,
-%    column=6,
-%    row=15,
-%    span=23,
-%    rowspan=3.7,
-%  }{%
-%    \hint{\glsentrytext{tn} to remove: \weeline}
-%    \par
-%    \iftoggle{examplecharacter}{\sffamily\equipment\vspace{12em}}{%
-%      \vspace{1em}%
-%      \Repeat{5}{%
-%        {\noindent\Repeat{5}{\Square} \lineDots}%
-%      }%
-%      \tcblower
-%      \vspace{1em}%
-%      \Repeat{4}{%
-%        {\noindent\Repeat{5}{\Square} \lineDots}%
-%      }%
-%      \par
-%      \vspace{1em}%
-%      \small
-%      \glsentryshortpl{cp}\weeline \quad
-%      \glsentryshortpl{sp}\weeline \quad
-%      \glsentryshortpl{gp}\weeline \quad
-%    }
-%  }
-
-%---
 
   \posterbox[
     adjusted title=Knacks,
