@@ -2,11 +2,7 @@
   \setcounter{diceNo2}{r4}
 \fi
 \stepcounter{diceNo2}
-\ifnum\value{r12}<70
-  \addtocounter{r12}{17}
-\else
-  \randomize
-\fi
+\randomize
 
 \begin{tabularx}{\linewidth}{Xr}
   \hiderowcolors
@@ -14,7 +10,15 @@
     \setcounter{diceNo2}{\value{rn4tn1}}%
     \addtocounter{diceNo2}{5}%
     \textbf{Birthday:}
-    \showCycle[\value{diceNo2}]~\arabic{r12}
+    \showCycle[\value{diceNo2}]
+    \ifnum\value{mp}>0
+      1%
+    \else%
+      \randomize%
+      \ifodd\value{r2b}\multiply\value{r12} by 2\fi%
+      \ifodd\value{r3b}\multiply\value{r12} by 2\fi%
+      ~\arabic{r12}%
+    \fi
     \par
     \iftoggle{examplecharacter}{
       \Huge \Glsfmtplural{storypoint}~\Repeat{5}{\Square}
