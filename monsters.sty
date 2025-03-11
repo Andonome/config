@@ -53,15 +53,17 @@
   {r4}% WITS
   {%
     \set{Brawl}{r3t4}%
-    \set{Athletics}{r3b}%
+    \set{Athletics}{rn3t3}%
     \ifodd\value{r4}%
       \set{Vigilance}{r3c}%
     \fi%
     \set{Stealth}{rn1t2}%
     \setcounter{Survival}{\value{r3}}%
+    \setcounter{diceNo}{5}% DR is determined by diceNo counter.
+    \addtocounter{diceNo}{-\value{r3b}}% Reduce DR by Speed.
   }% SKILLS
   {}% KNACKS
-  {\octopod \web \hide{4}}% ABILITIES
+  {\octopod \web \hide{\arabic{diceNo}}}% ABILITIES
 }
 
 \newcommand{\griffin}[1][\npc{\A\T[\arabic{r2t3}]}{\arabic{noAppearing}~Griffins}]{
