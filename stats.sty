@@ -891,8 +891,10 @@
 \newcommand\humanNamePrefix{%
   \randomfour%
   \addtocounter{humanNameNo}{\value{r4}}%
-  \ifnum\value{humanNameNo}>20\addtocounter{humanNameNo}{-20}\fi%
+  \ifnum\value{humanNameNo}>21\addtocounter{humanNameNo}{-21}\fi%
   \ifcase\value{humanNameNo}\relax%
+  \or%
+    Stoor%
   \or%
     Fetter%
   \or%
@@ -941,8 +943,10 @@
 \newcommand\humanNameSuffix{%
   \randomthreeB%
   \addtocounter{humanNameSuffNo}{\value{r3b}}%
-  \ifnum\value{humanNameSuffNo}>21\addtocounter{humanNameSuffNo}{-21}\fi%
+  \ifnum\value{humanNameSuffNo}>22\addtocounter{humanNameSuffNo}{-22}\fi%
   \ifcase\value{humanNameSuffNo}\relax%
+  \or%
+    bloat%
   \or%
     itch%
   \or%
