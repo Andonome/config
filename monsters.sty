@@ -237,7 +237,7 @@
       \set{Earth}{r3b}
       \set{Fire}{rn3t3}
     }% SKILLS
-    {\ritualcaster}% KNACKS
+    {\ritualcaster, \manaWell}% KNACKS
     {\lootMagic}% EQUIPMENT
     {}% ABILITIES
 }
@@ -267,7 +267,12 @@
         \Dagger
       \fi
     }% SKILLS
-    {}% KNACKS
+    {\ifnum\value{Wits}>\value{Charisma}%
+      \snapcaster%
+    \else%
+      \manaWell%
+    \fi%
+    }% KNACKS
     {\ifodd\value{r3}\lootGoblin \else\lootJewellery\fi and \lootJewellery}% EQUIPMENT
     {\mutation{r4b} \mutation{r4b} \mutation{r4b}}% ABILITIES
 }
@@ -325,7 +330,7 @@
       \fi, %
       \ifcase\value{r4b}\relax%
       \or%
-        \charge%
+        \manaWell%
       \or%
         \dodger%
       \or%
@@ -1300,9 +1305,13 @@
     }% SKILLS
     {\ifnum\value{Wits}>\value{Charisma}%
       \snapcaster%
-    \fi%
+    \else%
+      \vengeful%
+    \fi, %
     \ifnum\value{Intelligence}>\value{Wits}
       \ritualcaster%
+    \else%
+      \manaWell%
     \fi%
     }% KNACKS
     {%
