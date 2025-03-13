@@ -121,6 +121,8 @@
   }%
   \setcounter{knacksPlusTwo}{\value{knacks}}%
   \addtocounter{knacksPlusTwo}{2}%
+  \setcounter{knacksHalved}{\value{knacks}}%
+  \roundUp{knacksHalved}%
   \edef\Knacks{#5}%
   \foreach \s in {Air,Earth,Fate,Fire,Water}%
     {\ifnum\value{\s}>0 \addtocounter{mp}{3}\fi}%
@@ -266,6 +268,7 @@
 \newcounter{dr}
 \newcounter{knacks}
 \newcounter{knacksPlusTwo}
+\newcounter{knacksHalved}
 
 
 % Extras: MP hp fp
@@ -350,10 +353,8 @@
 }
 
 \newcommand{\mightydraw}{%
-  Mighty Draw \setcounter{encnum}{\value{knacks}}%
-  \divide\value{encnum}by 2%
-  (reduce cost to draw longbow by%
-  \ifnum\value{encnum}=0\stepcounter{encnum}\fi \arabic{encnum}~\glsfmtplural{ap})%
+  Mighty Draw (reduce cost to draw longbow by%
+  \arabic{knacksHalved}~\glsfmtplural{ap})%
 }
 
 \newcommand{\perfectsneakattack}{%
