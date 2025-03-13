@@ -532,6 +532,10 @@
     \addtocounter{dr}{\value{armourDR}}%
   }%
   \addtocounter{fp}{\value{Charisma}}%
+  \ifnum\value{Fate}>0%
+    \addtocounter{fp}{\value{Fate}}%
+    \addtocounter{fp}{2}%
+  \fi%
 }
 
 \newcommand\computeEncumbrance{%
