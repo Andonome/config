@@ -613,14 +613,17 @@
       \ifodd\value{r3}
         \set{Melee}{1}
       \else
-        \set{Brawl}{r2c}
+        \set{Survival}{r3}
       \fi
-      \set{Academics}{r3}
+      \set{Academics}{rn1t2}
+      \set{Cultivation}{2}
       \set{Deceit}{r3b}
       \set{Medicine}{r2t3}
-      \set{Crafts}{r2c}
-      \set{Cultivation}{2}
-      \set{Survival}{rn1t2}
+      \ifodd\value{r3c}
+        \set{Crafts}{r2c}
+      \else
+        \set{Brawl}{r2c}
+      \fi
       \ifnum\value{Charisma}>1
         \set{Fate}{r3b}
         \set{Water}{rn1t2}
@@ -633,7 +636,16 @@
       \fi
     }% SKILLS
     {}% KNACKS
-    {\ifodd\value{r3}\lootSmall, \rations, \fi\rations, long scarf}% EQUIPMENT
+    {\ifcase\value{r3}\relax%
+    \or%
+      \lootSmall%
+    \or%
+      extra-long scarf%
+    \else%
+      satchel with \rations%
+    \fi%
+    , \rations\ and \rations%
+    }% EQUIPMENT
     {}% ABILITIES
 }
 
