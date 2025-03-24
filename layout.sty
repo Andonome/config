@@ -1381,6 +1381,11 @@ bookmarks=true]%
 %{\adforn{10}~\large\raggedright}{}{}
 %{}[][]
 
+\newcommand\printSideQuestsInRegion[1]{
+  \label{sqList:#1}
+  \printcontents[#1]{f}{2}{\setcounter{tocdepth}{3}}
+}
+
 \newcommand\printAllSideQuests[1]{
   \foreach \x in {#1}{
     \ifglsentryexists{\x}{%
