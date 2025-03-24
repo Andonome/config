@@ -1329,7 +1329,7 @@ bookmarks=true]%
   \subsubsection[%
     \setcounter{sqNoSpare}{\expandafter\thesqNo}%
     \bfseries#2 -- \mdseries#3]%
-    {\large{\scshape\thesqNo)}~\large#2\ \hint{#1}}
+    {\large{\scshape\thesqNo)}~\large#2\ \hint{\ifglsentryexists{#1}{\Glsfmttext{#1}}{#1}}}
   \settoggle{firstsq}{false}
   \stopcontents[#1]%
 }
@@ -1383,7 +1383,11 @@ bookmarks=true]%
 
 \newcommand\printAllSideQuests[1]{
   \foreach \x in {#1}{
-    \section*{\x}
+    \ifglsentryexists{\x}{%
+      \section*{\Glsfmttext{\x}}
+    }{%
+      \section*{\x}
+    }%
     \label{sq:\x}
     \printcontents[\x]{f}{2}{\setcounter{tocdepth}{3}}
   }
