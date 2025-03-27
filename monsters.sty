@@ -28,7 +28,7 @@
   {0}% WITS
   {
     \set{Brawl}{r3}
-    \set{Athletics}{r2}
+    \set{Athletics}{r2b}
     \set{Caving}{rn1t2}
   }% SKILLS
   {}% KNACKS
@@ -255,7 +255,7 @@
       \set{Performance}{r2t3}
       \set{Empathy}{r2c}
       \set{Seafaring}{2}
-      \set{Vigilance}{r2}
+      \set{Vigilance}{r2b}
       \set{Air}{rn1t2}
       \set{Fate}{r3c}
       \set{Water}{r2t3}
@@ -1131,8 +1131,8 @@
         \set{Melee}{rn1t2}
       \fi
       \set{Brawl}{rn1t2}
-      \set{Caving}{r2}
-      \set{Stealth}{r2}
+      \set{Caving}{r2b}
+      \set{Stealth}{r2c}
       \ifcase\value{Strength}
         \Dagger
       \or
@@ -1158,7 +1158,7 @@
 
 \newcommand{\undeadhobgoblin}[1][\npc{\T[\arabic{r12}]\D}{\arabic{r12} Undead Hobgoblins}]{
   \Person{#1}%
-    {{r3}{rn1t2}{r2}}% BODY
+    {{r3}{rn1t2}{r2c}}% BODY
     {{rn1t0}{rn1t0}{rn4tn1}}% MIND
     {%
       \set{Stealth}{r2}
@@ -1180,7 +1180,7 @@
       \set{Brawl}{r3c}
       \set{Caving}{r2}
       \ifodd\value{r3}
-        \ifodd\value{r2}
+        \ifodd\value{r2c}
           \largerock
         \else
           \maul
@@ -1354,7 +1354,7 @@
       \ifodd\value{r3}
         \set{Survival}{rn1t2}
       \else
-        \set{Caving}{r2}
+        \set{Caving}{r2c}
       \fi
       \set{Stealth}{r2b}
       \ifcase\value{Strength}\relax
@@ -1397,7 +1397,7 @@
       \else
         \set{Deceit}{r2}
       \fi
-      \set{Stealth}{r2b}
+      \set{Stealth}{r2c}
       \ifnum\value{Strength}>1
         \longsword
       \else
@@ -1513,12 +1513,12 @@
 
 \newcommand{\donkey}[1][\npc{\A}{Donkey}]{
   \Animal{#1}%
-  {{r2b}{r2}{r3}}% BODY
+  {{r2b}{r2c}{r3c}}% BODY
   {rn3t3}% WITS
   {
-    \set{Athletics}{r2b}
-    \set{Brawl}{r2c}
-    \set{Vigilance}{rn1t2}
+    \set{Athletics}{r2}
+    \set{Brawl}{rn1t2}
+    \set{Vigilance}{rn3t3}
   }% SKILLS
   {}% KNACKS
   {\hide{3} \quadruped}% ABILITIES
