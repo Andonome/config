@@ -303,14 +303,17 @@
         \set{Seafaring}{r3c}
         \set{Survival}{r3b}
       \fi
-      \ifnum\value{r3}>1
-        \set{Air}{rn1t2}
-        \set{Fate}{rn3t3}
-        \set{Water}{r2t3}
-        \set{Earth}{r3b}
-      \else
+      \ifnum\value{noAppearing}>1
         \set{Fate}{rn1t2}
         \set{Water}{track}
+      \else
+        \set{Air}{rn1t2}
+        \set{Fate}{rn3t3}
+        \set{Earth}{r3b}
+        \set{Water}{rn1t0}
+        \ifodd\value{r4}
+          \addtocounter{Water}{2}
+        \fi
       \fi
       \ifnum\value{Strength}=0
         \rapier
@@ -355,16 +358,17 @@
           \fi%
         \fi%
       \fi%
+      \addtocounter{equipmentWeight}{-2}
     }% KNACKS
     {\ifnum\value{Performance}>1%
       flute, %
     \fi\ifnum\value{Strength}=0%
       \lootJewellery%
-      \else%
+    \else%
       \ifodd\value{r4b}%
         \lootJewellery, \lootJewellery%
       \else%
-        \lootMedium%
+        tinderbox%
       \fi%
     \fi}% EQUIPMENT
     {}% ABILITIES
