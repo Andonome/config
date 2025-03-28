@@ -910,13 +910,23 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   first={Weight Rating},
   prefix={a\space},
   symbol={\text{$\vcenter{\hbox{\scalebox{1.1}{\ominus}}}$}},
-  sort={A},
   type={mech},
   nonumberlist,
   parent={equipment},
   description={Characters can carry items with a total Weight Rating equal to their \glsentrytext{hp} total.
   Each point beyond inflicts a -1 Penalty to all actions.
   Creatures have a \glsentrytext{weight} equal to their own \glsentrytext{hp}},
+}
+
+\longnewglossaryentry{ration}{
+  name={Rations},
+  text={ration},
+  prefix={a\space},
+  type={mech},
+  nonumberlist,
+  parent={equipment},
+  description={mean any food -- \rations, \rations, or \rations, all work the same.
+  Each day's food has a default \glsentrytext{weight} of~1, and failure to feed inflicts 2~\glsfmtplural{ep}},
 }
 
 \newacronym[
@@ -1179,7 +1189,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   spells given sentience, and function as long-term magical items.
   They frequently go awry, as they have a mind of their own, and their own wishes and values},
 }
-
 
 
 %%%%%%%%%%%%%%%% General Terms %%%%%%%%%%%%%%%%%%%%
