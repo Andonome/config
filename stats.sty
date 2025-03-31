@@ -901,7 +901,9 @@
 \newcommand\humanNamePrefix{%
   \randomfour%
   \addtocounter{humanNameNo}{\value{r4}}%
-  \ifnum\value{humanNameNo}>21\addtocounter{humanNameNo}{-21}\fi%
+  \ifnum\value{humanNameNo}>22%
+    \addtocounter{humanNameNo}{-22}%
+  \fi%
   \ifcase\value{humanNameNo}\relax%
   \or%
     Stoor%
@@ -909,6 +911,8 @@
     Fetter%
   \or%
     Scab%
+  \or%
+    Gank%
   \or%
     Grit%
   \or%
