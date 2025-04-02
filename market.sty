@@ -35,7 +35,7 @@
 
 \newcommand\rareMarketItem[4][9]{%
   \randomize%
-  \ifnumcomp{\value{r12}}{>}{#1}{\marketItem{#2}{#3}{#4}}{}%
+  \ifnumcomp{\value{r12}}{>}{#1}{#2 & #3 & \mkPrice{#4} \\}{}%
 }
 
 \newcommand\showArmourPrice[2]{%
