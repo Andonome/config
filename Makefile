@@ -1,3 +1,6 @@
+targets += docs.pdf rules.pdf character_sheets.pdf $(DROSS)/test.pdf markets.pdf
+output += images/wide.jpg booklet.pdf
+
 output: docs.pdf
 
 include vars
@@ -46,5 +49,3 @@ markets.pdf: config/market.sty $(wildcard config/markets/*) | $(DROSS) ## Price-
 	$(RUN) -jobname markets markets/all.tex
 	$(CP) $(DROSS)/$@ .
 
-targets += docs.pdf rules.pdf character_sheets.pdf $(DROSS)/test.pdf markets.pdf
-output += images/wide.jpg
