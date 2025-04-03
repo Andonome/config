@@ -204,9 +204,9 @@ bookmarks=true]%
 
 \newcommand*{\externalReferent}[1]{
   \newtoggle{#1}
-    \IfFileExists{../rubbish/#1.aux}{
-      \externaldocument{../rubbish/#1}%
-      \@addtofilelist{../rubbish/#1.aux}%
+    \externaldocument{rubbish/#1}%
+    \IfFileExists{rubbish/#1.aux}{
+      \@addtofilelist{rubbish/#1.aux}%
       \settoggle{#1}{true}%
     }%
     {\typeout{No file #1.}

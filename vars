@@ -7,13 +7,24 @@ COMPRESS = gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dNOPAUSE -dQUIET -dBAT
 CP := ln -f
 BOOK != basename "$(shell pwd)"
 TITLE != head -1 README.md | tail -c+3 | tr ' ' '_'
-LOCAL_DROSS := rubbish
-DROSS = ../$(LOCAL_DROSS)
+DROSS = rubbish
 DBOOK = $(DROSS)/$(BOOK).pdf
 COMPILER = latexmk -file-line-error -output-directory=$(DROSS) -pdflua -interaction=nonstopmode -halt-on-error -shell-escape -r config/.latexmkrc -jobname=$(BOOK)
 RELEASE = $(TITLE).pdf
 GLOS := makeglossaries -d $(DROSS)
 RUN := lualatex -output-directory $(DROSS) -shell-escape
+
+# 'EXTERNAL_REFERENTS' will usually include 'core', and 'judgement',
+# so these lines will include '../aux/core.aux' and copy it to
+# 'rubbish/core.aux'.
+AUX_DIR = ../aux_share
+AUX_EXTERNAL = $(foreach referent, $(EXTERNAL_REFERENTS), \
+			$(wildcard $(AUX_DIR)/$(referent).aux) \
+	)
+
+AUX_REFERENCES = $(patsubst $(AUX_DIR)/%.aux, $(DROSS)/%.aux, $(AUX_EXTERNAL))
+
+DEPS += $(AUX_REFERENCES)
 
 targets += check
 
@@ -23,6 +34,17 @@ $(RELEASE): $(DBOOK)
 	@$(CP) $< $@
 
 targets += $(RELEASE)
+
+$(AUX_DIR):
+	mkdir $@
+$(AUX_REFERENCES): $(DROSS)/%.aux: $(AUX_DIR)/%.aux | $(DROSS)
+	cp $< $@
+
+.PHONY: refs
+refs: $(AUX_DIR)/$(BOOK).aux
+$(AUX_DIR)/$(BOOK).aux: $(DROSS)/$(BOOK).aux | $(AUX_DIR)
+	cp $< $@
+$(DROSS)/$(BOOK).aux: $(DBOOK)
 
 .PHONY: LOCTEX
 LOCTEX: $(wildcard *.tex)
