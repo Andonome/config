@@ -1322,16 +1322,17 @@ bookmarks=true]%
   \vspace{1em}
 }
 
-\newcommand{\sqpart}[3]{
+\newcommand{\sqpart}[4][]{
   \vspace{1em}
   \refstepcounter{sqNo}
-  \resumecontents[#1]
+  \resumecontents[#2]
   \subsubsection[%
     \setcounter{sqNoSpare}{\expandafter\thesqNo}%
-    \bfseries#2 -- \mdseries#3]%
-    {\large{\scshape\thesqNo)}~\large#2\ \hint{\ifglsentryexists{#1}{\Glsfmttext{#1}}{#1}}}
+    \ifstrequal{#1}{}{}{(#1)~}%
+    \bfseries#3 -- \mdseries#4]%
+    {\large{\scshape\thesqNo)}~\large#3\ \hint{\ifglsentryexists{#2}{\Glsfmttext{#2}}{#2}}}
   \settoggle{firstsq}{false}
-  \stopcontents[#1]%
+  \stopcontents[#2]%
 }
 
 % Floating SQ ToCs
