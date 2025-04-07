@@ -1212,6 +1212,23 @@ bookmarks=true]%
   \end{figure*}
 }
 
+\newcommand\commentary[3][b]{
+  \begin{figure*}[#1!]
+    {\scshape\large Commentary}
+    \ifstrequal{#1}{b}{%
+      \bigLine
+    }{}
+    \begin{multicols}{2}
+    {\sf #2}
+    \par
+    #3
+    \end{multicols}
+    \ifstrequal{#1}{t}{%
+      \bigLine
+    }{}
+  \end{figure*}
+}
+
 \newenvironment{boxtable}[1][cL]
   {
     \vspace{0.5em}
