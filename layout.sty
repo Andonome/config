@@ -1214,13 +1214,13 @@ bookmarks=true]%
 
 \newcommand\playCommentary[3][b]{
   \begin{figure*}[#1!]
-    {\scshape\large Commentary}
     \ifstrequal{#1}{b}{%
       \bigLine
     }{}
     \begin{multicols}{2}
     {\sf #2}
     \par
+    \parindent2em%
     #3
     \end{multicols}
     \ifstrequal{#1}{t}{%
