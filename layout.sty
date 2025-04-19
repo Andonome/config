@@ -1180,21 +1180,6 @@ bookmarks=true]%
     \null
   }
 
-\newcommand\sideBySide[2]{
-  \end{multicols}
-  \vspace{-1em}
-  \begin{tcolorbox}[
-  ornamented,
-  sidebyside,
-  before lower={\parindent15pt},
-  ]
-  {\it#1}
-  \tcblower
-  {#2}
-  \end{tcolorbox}
-  \begin{multicols}{2}
-}
-
 \newcommand\boxPair[3][b]{
   \begin{figure*}[#1!]
     \ifstrequal{#1}{b}{%
