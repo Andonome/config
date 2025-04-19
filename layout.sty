@@ -1057,7 +1057,6 @@ bookmarks=true]%
   \else%
     \multiply\value{rn3t3} by -1%
     \addtocounter{rn3t3}{0}%
-    \stepcounter{r3c}%
     \stepcounter{r4t6}%
     \stepcounter{r0t1}%
     \stepcounter{rn1t0}
@@ -1067,11 +1066,10 @@ bookmarks=true]%
     \stepcounter{r3t4}%
   \else%
     \stepcounter{r2t3}%
-    \stepcounter{r3c}%
     \stepcounter{r4b}%
   \fi%
   \foreach\c in {r2,r2b,r2c}%
-    {\ifnum\value{\c}>2\setcounter{\c}{1}\fi}%
+    {\ifnum\value{\c}>2\setcounter{\c}{1}\stepcounter{r3c}\fi}%
   \foreach\c in {r3,r3b,r3c}%
     {\ifnum\value{\c}>3\setcounter{\c}{1}\fi}%
   \foreach\c in {r4,r4b}%
