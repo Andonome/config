@@ -127,9 +127,6 @@
   \foreach \s in {Air,Earth,Fate,Fire,Water}%
     {\ifnum\value{\s}>0 \addtocounter{mp}{3}\fi}%
   \renewcommand\equipment{#6}%
-  \foreach \i in {#6}{%
-    \stepcounter{equipmentWeight}%
-  }
   #7%
   \computeStats%
   \computeEncumbrance%
