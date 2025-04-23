@@ -456,8 +456,11 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   parent={travel},
   type={mech},
   category={rules},
+  short={Roll \roll{Wits}{Survival} at \glsentrytext{tn}~%
+  \ifcase\value{cycle}14\or 12\or 12\else 10\fi.%
+  Success means supplies for $1D6$ \glsfmtplural{ration}, but only once cooked (\roll{Intelligence}{Cultivation}, \glsentrytext{tn}~10)},
   description={can provide verdant supplies, easily, with just one \glsentrytext{interval} of foraging.
-  The player rolls \roll{Intelligence}{Survival} at \tn[12] (+2 Bonus during \glsentrytext{cFive}, -2 Penalty over \glsentrytext{cTwo}, and a -4 Penalty at night).
+  The player rolls \roll{Wits}{Survival} at \tn[12] (+2~Bonus during \glsentrytext{cFive}, -2~Penalty over \glsentrytext{cTwo}, and a -4~Penalty at night).
   Success means enough basic ingredients for $1D6$ days' food.
 
   However, preparing the meals requires an \roll{Intelligence}{Cultivation} roll at \tn[10]},
@@ -643,7 +646,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   }
 
 \newacronym[
-  description={give a rough estimate of a creature's combat abilities, and the value of any \glsentrytext{monster}'s corpse},
+  description={estimate of a creature's combat abilities, and the value of any \glsentrytext{monster}'s corpse},
   shortplural={CRs},
   prefix={a\space},
   name={Creature Ratings (CR)},
@@ -745,7 +748,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 
   \end{boxtable}
 
-  The \glsentrytext{ap}-cost to use a weapon equals its \glsentrytext{weight} (minimum of 1)},
+  The \glsentrytext{ap}-cost to use a weapon equals its \glsentrytext{weight} (minimum of~1)},
 }
 
 \longnewglossaryentry{ambush}{
