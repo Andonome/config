@@ -789,7 +789,8 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   nonumberlist,
   parent={armour},
   description={means how much \glsentrytext{armour} covers the body.
-  \Glsentrytext{armour} with `Covering 3' protects the torso and may have a helmet, while armour with `Covering 5' protects almost the entire body},
+  \Glsentrytext{armour} with `Covering 3' protects the torso and may have a helmet, while armour with `Covering 5' protects almost the entire body.
+  When \glsfmtplural{pc} fail a Combat roll by an amount equal to their Covering, the attack strikes an exposed spot, and their armour mitigates nothing},
 }
 
 \longnewglossaryentry{vitalShot}{
@@ -801,10 +802,12 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   type={mech},
   category={rules},
   parent={armour},
-  description={are attacks which equal a target's \glsentrytext{tn} plus their \glsentrytext{armour}'s \glsentrytext{covering}; this lets the attack ignore the \glsentrytext{armour}'s \glsentrytext{dr}, and deal direct Damage.
+  short={Attack which equal the \glsentrytext{tn} plus \glsentrytext{covering} ignore all \glsentrytext{dr}},
+  description={are attacks which bypass armour and strike soft flesh.
+  When an attack equals the \glsentrytext{tn} plus the enemy's \glsentrytext{covering}, it deals full Damage, ignoring \glsfmttext{dr}.
 
-  If a player needs to roll at \glsentrytext{tn}~10 to hit an opponent with `\glsentrytext{covering}~3', then they need to roll `13' to make a Vitals Shot.
-  This applies symmetrically; if the \glsentrytext{pc}'s armour has `\glsentrytext{covering}~5', and they miss by 5, then their opponent scores a Vitals Shot, and their armour counts for nothing, providing no \glsentrytext{dr}},
+  For example, the \glsfmtplural{pc} enter combat, and need to hit \glsentrytext{tn}~10.
+  Everyone's armour has \glsentrytext{covering}~3; so rolling `13' means a Vitals Shot with full Damage, rolling `12' means a hit (but \glsentrytext{dr} applies), rolling `9' means the \glsentrytext{pc} takes Damage, and rolling ($10 - 3 =$) `7' means the \glsentrytext{pc} takes full Damage},
   }
 
 \longnewglossaryentry{swarm}{
