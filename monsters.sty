@@ -547,7 +547,7 @@
         \Dagger
       \fi
     }% SKILLS
-    {\specialist{dyes}}% KNACKS
+    {\ifodd\value{r4}\specialist{dyes}\else\specialist{knots}\fi}% KNACKS
     {\lootSmall}% EQUIPMENT
     {}% ABILITIES
 }
@@ -555,8 +555,13 @@
 \newcommand{\humantrader}[1][\npc{\T[\arabic{r12}]\Hu}{\arabic{noAppearing}~Traders}]{
   \Person{#1}%
     {{r2}{0}{0}}% BODY
-    {{rn1t2}{0}{0}}% MIND
+    {{r0t1}{0}{rn3t3}}% MIND
     {%
+      \ifodd\value{r3c}
+        \set{Academics}{rn1t2}
+      \else
+        \set{Cultivation}{rn1t2}
+      \fi
       \ifodd\value{r3}
         \set{Melee}{r2b}
       \else
@@ -568,8 +573,6 @@
       \else
         \set{Deceit}{1}
       \fi
-      \set{Survival}{rn3t3}
-      \set{Cultivation}{rn1t2}
       \ifodd\value{r3b}
         \shortsword
       \else
@@ -584,8 +587,9 @@
 \newcommand{\humandiplomat}[1][\npc{\Hu\M}{The Diplomat}]{
   \Person{#1}%
     {{1}{0}{0}}% BODY
-    {{r2}{rn1t2}{rn3t3}}% MIND
+    {{r2}{rn1t2}{r2t3}}% MIND
     {%
+      \set{Academics}{1}
       \ifodd\value{r3}
         \set{Melee}{1}
       \else
@@ -594,7 +598,7 @@
       \fi
       \set{Deceit}{r2c}
       \ifodd\value{r3b}
-        \shortsword
+        \rapier
         \set{Survival}{2}
       \else
         \Dagger
@@ -743,12 +747,10 @@
       \set{Larceny}{r2}
       \ifcase\value{Strength}\relax%
       \or%
-        \shortsword%
-        \partialleather%
-      \or%
-        \longsword%
+        \Dagger%
       \else%
-        \glaive%
+        \maul%
+        \partialleather%
       \fi%
     }% SKILLS
     {\ifodd\value{r3}%
@@ -756,15 +758,17 @@
     \else%
       \perfectsneakattack%
     \fi, %
-    \ifnum\value{noAppearing}=1%
+    \ifnum\value{noAppearing}>1%
       \adrenalinesurge%
     \else%
       \lucky%
     \fi}% KNACKS
-    {dagger, \ifnum\value{Projectiles}>0%
-      \arabic{r4}~throwing knives, %
+    {\ifnum\value{Projectiles}>0%
+      \arabic{r2t3}~throwing knives %
+    \else%
+      \rations%
     \fi%
-    \rations\ and \lootSmall}% EQUIPMENT
+    and \lootSmall}% EQUIPMENT
     {}% ABILITIES
 }
 
@@ -821,10 +825,13 @@
         \Dagger
       \fi
       \set{Fire}{rn3t3}
-      \set{Earth}{r2c}
+      \set{Air}{r2c}
+      \set{Fate}{rn1t2}
     }% SKILLS
     {\ifnum\value{Wits}>\value{Charisma}%
       \snapcaster%
+    \else%
+      \ritualcaster%
     \fi}% KNACKS
     {%
       \ifodd\value{r4}%
