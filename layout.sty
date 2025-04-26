@@ -1202,23 +1202,25 @@ bookmarks=true]%
 }
 
 \newcommand\playCommentary[3][b]{
-  \begin{figure*}[#1!]
-    \ifstrequal{#1}{b}{%
+  \iftoggle{verbose}{
+    \begin{figure*}[#1!]
+      \ifstrequal{#1}{b}{%
+        \bigLine
+      }{}
+      \begin{multicols}{2}
+      {\sf #2}
+      \par
       \bigLine
-    }{}
-    \begin{multicols}{2}
-    {\sf #2}
-    \par
-    \bigLine
-    \parindent2em%
-    \par%
-    \noindent%
-    #3
-    \end{multicols}
-    \ifstrequal{#1}{t}{%
-      \bigLine
-    }{}
-  \end{figure*}
+      \parindent2em%
+      \par%
+      \noindent%
+      #3
+      \end{multicols}
+      \ifstrequal{#1}{t}{%
+        \bigLine
+      }{}
+    \end{figure*}
+  }{}
 }
 
 \newenvironment{boxtable}[1][cL]
