@@ -606,9 +606,9 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   \setcounter{wounds}{1}
 
   \ifodd\value{r3}%
-    \humansoldier
+    \humansoldier[\npc{\T[3]\Hu}{Human Soldiers}]
   \else%
-    \dwarvensoldier
+    \dwarvensoldier[\npc{\T[3]\Dw}{Dwarven Soldiers}]
   \fi%
 
   Each creature has tick-boxes to track \glsfmtplural{hp}, with \glsentrytext{weight} carried shown with the \glsentrytext{weight} symbol.
