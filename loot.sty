@@ -35,20 +35,18 @@
 }%
 
 \newcounter{goblinLoot}
-\setcounter{goblinLoot}{\value{r4}}
-\addtocounter{goblinLoot}{\value{r4}}
+\setcounter{goblinLoot}{\day}
 
 \newcommand{\lootGoblin}{%
-  \ifnum\value{goblinLoot}>20%
-    \setcounter{goblinLoot}{0}%
-  \else%
-    \stepcounter{goblinLoot}%
-  \fi%
+  \stepcounter{goblinLoot}%
   \ifcase\value{goblinLoot}\relax%
+  \or%
     \stepcounter{r4}%
     tinder box and \arabic{r4} candles%
   \or%
-    1~\gls{sp} from the far North%
+    1~\gls{sp} from the far North (hexagonal, depicts strange animal)%
+  \or%
+    1~\gls{sp} from the far South (looks like a crowned skull)%
   \or%
     pouch of long, dark, humanoid hair%
   \or%
@@ -88,7 +86,8 @@
   \or%
     1~\gls{gp} from the far \ifodd\value{r2}West (looks like a map)\else East (face looks like \ifodd\value{r4b} an elf\else a gnoll\fi?)\fi%
   \else%
-    empty wine bottle filled with dead spiders%
+    wine bottle filled with dead spiders%
+    \setcounter{goblinLoot}{0}%
   \fi%
 }
 
