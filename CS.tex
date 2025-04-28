@@ -253,6 +253,13 @@ circle label/.style = {
               \setcounter{track}{\value{armourWeight}}%
             }
           \or%
+            \ifdefempty{\rank}{\lightDots}{%
+              \begin{minipage}{.72\linewidth}
+                \sffamily\raggedright black tabard (+1~to~hide in~shadows)%
+              \end{minipage}
+              \setcounter{track}{0}%
+            }%
+          \or%
             \ifdefempty{\equipment}{\lightDots}{%
               \begin{minipage}{.72\linewidth}
                 \sffamily\raggedright\equipment%
