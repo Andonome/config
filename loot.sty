@@ -118,7 +118,7 @@
 			$3D6$%
 		\else%
 			$2D6$%
-		\fi~\glspl{sp}}{%
+		\fi~\glsfmtplural{sp}}{%
     \randomize%
 		\setcounter{gold}{\value{r12}}%
     \multiply\value{gold} by 3 \arabic{gold}~\glspl{sp}}%
@@ -166,27 +166,28 @@
     elemental \glsentrytext{boon}%
     }%
     {%
-      \ifnum\value{diceNo2}>10\setcounter{diceNo2}{1}\fi%
       \ifcase\value{diceNo2}\relax%
+      \or%
         auroch hooves%
-      \or%1
+      \or%
         sack of griffin feathers%
-      \or%2
+      \or%
         marching mushrooms%
-      \or%3
+      \or%
         Earth \gls{boon}%
-      \or%4
+      \or%
         Air \gls{boon}%
-      \or%5
+      \or%
         stirge queen in a phial%
-      \or%6
+      \or%
         woodspy beak%
-      \or%7
+      \or%
         Fire \gls{boon}%
-      \or%8
+      \or%
         Water \gls{boon}%
-      \else%9
+      \else%
         Fate \gls{boon}%
+        \setcounter{diceNo2}{0}%
       \fi%
       \stepcounter{diceNo2}%
     }%
@@ -196,31 +197,32 @@
 \iftoggle{genExamples}{jewellery worth~\ifodd\value{r2}$3D6$~\glspl{sp}\else$1D6+2$~\glspl{gp}\fi}%
 	{%
     \randomize%
-    \stepcounter{treasure}%
-    \ifnum\value{treasure}>10\addtocounter{treasure}{-10}\fi%
     \ifcase\value{treasure}\relax%
+    \or%
 			golden necklace worth~\arabic{r12}~\glspl{sp}%
-    \or%1
+    \or%
 			golden ring worth~\arabic{r12}~\glspl{sp}%
-    \or%2
+    \or%
       jewel encrusted dagger worth~\arabic{r12}~\glspl{sp}%
-    \or%3
+    \or%
       ornate silver earrings worth~1~\glspl{gp}%
-    \or%4
+    \or%
       gem encrusted broach worth~\arabic{r4b}~\glspl{gp}
-    \or%5
+    \or%
       saphire pendant worth~\arabic{r3b}~\glspl{gp}%
-    \or%6
+    \or%
       gem-encrusted headband, worth~\arabic{r4b}~\glspl{gp}%
-    \or%7
+    \or%
       gold-looking necklage made from fool's gold (worthless)%
-    \or%8
+    \or%
       gem-studded ring, worth~\arabic{r12}~\glspl{sp}%
-    \or%9
+    \or%
       signet ring, worth~\arabic{r2}~\glspl{gp}%
-    \else%10
+    \else%
       gem-studded ring, worth~\arabic{r12}~\glspl{sp}%
+      \setcounter{treasure}{0}%
     \fi%
+    \stepcounter{treasure}%
   }%
 }
 
