@@ -89,7 +89,7 @@ Words are needed after each subsection to avoid the boxes making problems.
 
 \end{multicols}
 
-\newcommand\showCounters{
+\newcommand\showCountersToSix{
   \arabic{r2} &
   \arabic{r2b} &
   \arabic{r2c} &
@@ -99,7 +99,12 @@ Words are needed after each subsection to avoid the boxes making problems.
   \arabic{r4} &
   \arabic{r4b} &
   \arabic{r6} &
-  \arabic{r6b} &
+  \arabic{r6b}
+  \randomize
+  \\
+}
+
+\newcommand\showCountersAfterSix{
   \arabic{r0t1} &
   \arabic{rn1t0} &
   \arabic{rn1t2} &
@@ -114,19 +119,27 @@ Words are needed after each subsection to avoid the boxes making problems.
   \\
 }
 
-\begin{tabular}{ccccccccccccccccccccc}
-  \textbf{r2} & \textbf{r2b} & \textbf{r2c} & \textbf{r3} & \textbf{r3b} & \textbf{r3c} & \textbf{r4} & \textbf{r4b} & \textbf{r6} & \textbf{r6b} & \textbf{r0t1} & \textbf{rn1t0} & \textbf{rn1t2} & \textbf{rn3t3} & \textbf{r2t3} & \textbf{r2t4} & \textbf{r3t4} & \textbf{r4t5} & \textbf{r4t6} & \textbf{r12} \\\hline
-  \showCounters
-  \showCounters
-  \showCounters
-  \showCounters
-  \showCounters
-  \showCounters
-  \showCounters
-  \showCounters
-  \showCounters
-  \showCounters
+\begin{tabular}{cccccccccc}
+  \hline
+  \textbf{r2} & \textbf{r2b} & \textbf{r2c} & \textbf{r3} & \textbf{r3b} & \textbf{r3c} & \textbf{r4} & \textbf{r4b} & \textbf{r6} & \textbf{r6b} \\\hline
+  \Repeat{8}{\showCountersToSix}
 \end{tabular}
+
+\vspace{2\baselineskip}%
+
+\begin{tabular}{cccccccccc}
+  \hline
+  \textbf{r0t1} & \textbf{rn1t0} & \textbf{rn1t2} & \textbf{rn3t3} & \textbf{r2t3} & \textbf{r2t4} & \textbf{r3t4} & \textbf{r4t5} & \textbf{r4t6} & \textbf{r12} \\\hline
+  \Repeat{8}{\showCountersAfterSix}
+\end{tabular}
+
+\Repeat{18}{%
+  \randomize%
+  \randomize%
+  \epsdice{\arabic{r6}}%
+  \epsdice[black]{\arabic{r6b}}%
+  \qquad%
+}%
 
 \mainmatter
 
