@@ -279,9 +279,9 @@ bookmarks=true]%
         \underline{\Large\scshape#3}
         \vspace{2\baselineskip}%
         \ifnum#1>1
+          \raggedcolumns%
           \begin{multicols}{#1}%
             \@starttoc{toc}%
-            \vfill\null%
           \end{multicols}%
         \else
           \@starttoc{toc}%
