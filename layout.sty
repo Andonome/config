@@ -929,6 +929,10 @@ bookmarks=true]%
   \setcounter{r4b}{\day}
   \divide\value{r4b} by 7
   \stepcounter{r4b}
+\newcounter{r6}
+  \setcounter{r6}{\month}
+\newcounter{r6b}
+  \setcounter{r6b}{\month}
 
 \newcounter{rn4tn1}
   \setcounter{rn4tn1}{-3}
@@ -1077,7 +1081,7 @@ bookmarks=true]%
   \foreach\c in {r2,r2b,r2c}%
     {\ifnum\value{\c}>2\setcounter{\c}{1}\stepcounter{r3c}\fi}%
   \foreach\c in {r3,r3b,r3c}%
-    {\ifnum\value{\c}>3\setcounter{\c}{1}\fi}%
+    {\ifnum\value{\c}>3\setcounter{\c}{1}\addtocounter{r6b}{-1}\fi}%
   \foreach\c in {r4,r4b}%
     {\ifnum\value{\c}>4\setcounter{\c}{1}\stepcounter{rn1t2}\fi}%
   \ifnum\value{r0t1}>1\setcounter{r0t1}{0}\fi%
@@ -1088,6 +1092,9 @@ bookmarks=true]%
   \ifnum\value{r3t4}>4\setcounter{r3t4}{3}\fi%
   \ifnum\value{r4t5}>5\setcounter{r4t5}{4}\fi%
   \ifnum\value{r4t6}>6\setcounter{r4t6}{4}\fi%
+  \ifnum\value{r6b}<1\setcounter{r6b}{6}\fi%
+  \setcounter{r6}{\value{rn1t2}}%
+  \addtocounter{r6}{\value{r2t4}}%
 }
 
 \newcommand\set[2]{%
