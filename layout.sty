@@ -266,11 +266,29 @@ bookmarks=true]%
 
 %%%%% Make table of contents two column
 
-\renewcommand\tableofcontents{%
+\renewcommand\tableofcontents[3]{%
     {
-      \begin{multicols}{2}
-        \@starttoc{toc}
-      \end{multicols}
+      \begin{tcolorbox}[%
+      ornamented,
+      fontupper={\ifcase#1\huge\or\Large\or\large\else\normalsize\fi},
+      title={\outline{\Huge#2}},
+      right=2em,
+      left=1em,
+      bottom=2em,
+      ]
+        \underline{\Large\scshape#3}
+        \vspace{2\baselineskip}%
+        \ifnum#1>1
+          \begin{multicols}{#1}%
+            \@starttoc{toc}%
+            \vfill\null%
+          \end{multicols}%
+        \else
+          \@starttoc{toc}%
+        \fi
+      \vfill\null%
+      \bigLine
+      \end{tcolorbox}
     }
 }
 
@@ -695,24 +713,19 @@ bookmarks=true]%
 
 %%%%% Section Formatting %%%%%
 
-\newcommand{\frontpage}[2][\expandafter\MakeUppercase \jobname]{
+\newcommand{\frontpage}[3][2]{
   \frontmatter
   \pagenumbering{gobble}
   \begin{titlepage}
     \centering
-    \includesvg[width=.2\textwidth]{config/logo}
+    \includesvg[width=.5\textwidth]{config/logo}
     \par
-    \vspace{-2em}
-    {\Huge\scshape\outline{#1}\par}
-    \vspace{2em}
-    {\large\scshape \underline{#2}\par}
-    \tableofcontents
-    \bigLine
+    \vspace{-6em}
+    \tableofcontents{#1}{#2}{#3}
     \flushright
     \vfill\null
     {\footnotesize \textcolor{\pageSideColor}{Printed \today, or \showCycle~\Roman{fenestraDay}}\par}
   \end{titlepage}
-  \cleardoublepage
   \frontmatter
 }
 
