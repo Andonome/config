@@ -657,102 +657,102 @@ Words are needed after each subsection to avoid the boxes making problems.
 
 \newcommand{\tests}{
 
-\chapter{Another Test}
+  \chapter{Another Test}
 
-\section{Test Section}
+  \section{Test Section}
 
-\begin{multicols}{2}
+  \begin{multicols}{2}
 
-\lipsum[\arabic{r4}]
+  \lipsum[\arabic{r4}]
 
-\artefact{The Bladder Skull}% Name
-  {Three human skulls, tied together with their guts, each stuffed with their own inflated bladder.
-  The Preservation spell cast upon it stops the bladders deflating.}% Body
-  {2}% Intelligence
-  {0}% Wits
-  {3}% Charisma
-  {to make everyone see as the dead see}% Mission
-  {Perservation}% Base Spell
-  {
-    \setcounter{Vigilance}{1}
-    \setcounter{Fate}{2}
-    \setcounter{Air}{2}
-    \setcounter{Water}{1}
-  }% Spheres
+  \artefact{The Bladder Skull}% Name
+    {Three human skulls, tied together with their guts, each stuffed with their own inflated bladder.
+    The Preservation spell cast upon it stops the bladders deflating.}% Body
+    {2}% Intelligence
+    {0}% Wits
+    {3}% Charisma
+    {to make everyone see as the dead see}% Mission
+    {Perservation}% Base Spell
+    {
+      \setcounter{Vigilance}{1}
+      \setcounter{Fate}{2}
+      \setcounter{Air}{2}
+      \setcounter{Water}{1}
+    }% Spheres
 
 
-\humanbard
+  \humanbard
 
-\humanthief
+  \humanthief
 
-\humanthief
+  \humanthief
 
-\lipsum[2]
+  \lipsum[2]
 
-\boxPair[t]{
-  \subsubsection{Box Pairs}
-  This is the \texttt{\textbackslash boxPair} command.
-  It lets a pair of anything sit at the bottom of the page.
-  The first argument sits in the left column, and the next in the right.
+  \boxPair[t]{
+    \subsubsection{Box Pairs}
+    This is the \texttt{\textbackslash boxPair} command.
+    It lets a pair of anything sit at the bottom of the page.
+    The first argument sits in the left column, and the next in the right.
 
-  The command works well if you have a creature box, like this griffin.
-}{
-    \griffin
+    The command works well if you have a creature box, like this griffin.
+  }{
+      \griffin
+  }
+
+  \subsection{Test subsection}
+  Words are needed after each subsection to avoid the boxes making problems.
+
+
+
+  \dragon
+
+  \showStdSpells
+
+  \settoggle{allyCharacter}{true}
+
+  \elf
+
+  \settoggle{examplecharacter}{true}
+
+  \lipsum[3]
+
+  \elf
+
+  \showStdSpells
+
+  \settoggle{allyCharacter}{false}
+
+  \subsubsection{Test sub-sub-section}
+
+  \lipsum[10]
+
+  \subsubsection{Test sub-sub-section again}
+
+  \subsection{Test subsection}
+  Words are needed after each subsection to avoid the boxes making problems.
+
+
+
+  \lipsum[2]
+
+  \elf
+
+  \showStdSpells
+
+  \settoggle{examplecharacter}{false}
+
+  \lipsum[10]
+
+  \section{Last Section}
+
+  \lipsum[3]
+
+  \end{multicols}
+
 }
 
-\subsection{Test subsection}
-Words are needed after each subsection to avoid the boxes making problems.
-
-
-
-\dragon
-
-\showStdSpells
-
-\settoggle{allyCharacter}{true}
-
-\elf
-
-\settoggle{examplecharacter}{true}
-
-\lipsum[3]
-
-\elf
-
-\showStdSpells
-
-\settoggle{allyCharacter}{false}
-
-\subsubsection{Test sub-sub-section}
-
-\lipsum[10]
-
-\subsubsection{Test sub-sub-section again}
-
-\subsection{Test subsection}
-Words are needed after each subsection to avoid the boxes making problems.
-
-
-
-\lipsum[2]
-
-\elf
-
-\showStdSpells
-
-\settoggle{examplecharacter}{false}
-
-\lipsum[10]
-
-\section{Last Section}
-
-\lipsum[3]
-
-\end{multicols}
-
-}
-
-\tableofcontents
+\tableofcontents{3}{Test Page}{With a lot of nonsense}
 
 \Repeat{2}{\tests}
 
