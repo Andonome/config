@@ -1,25 +1,25 @@
 \newcommand\mkPrice[2][sp]{%
   \randomize%
-  \setcounter{track}{#2}%
-  \ifnum\value{track}<7%
+  \setcounter{gold}{#2}%
+  \ifnum\value{gold}<7%
     \ifnum\value{temperature}=0%
-      \addtocounter{track}{3}
+      \addtocounter{gold}{3}
     \fi%
   \else%
-    \addtocounter{track}{\value{rn3t3}}%
-    \ifnum\value{track}<14%
-      \addtocounter{track}{\value{r3b}}%
-      \addtocounter{track}{\value{rn1t2}}%
+    \addtocounter{gold}{\value{rn3t3}}%
+    \ifnum\value{gold}<14%
+      \addtocounter{gold}{\value{r3b}}%
+      \addtocounter{gold}{\value{rn1t2}}%
     \else%
-      \ifnum\value{track}<34%
-        \addtocounter{track}{\value{r4t6}}%
+      \ifnum\value{gold}<34%
+        \addtocounter{gold}{\value{r4t6}}%
       \else%
-        \addtocounter{track}{\value{r12}}%
+        \addtocounter{gold}{\value{r12}}%
       \fi%
     \fi%
   \fi%
-  \ifnum0<\value{track}%
-    \arabic{track}~\glspl{#1}%
+  \ifnum0<\value{gold}%
+    \arabic{gold}~\glspl{#1}%
   \else%
     \textit{free}!
   \fi%

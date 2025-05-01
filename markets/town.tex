@@ -19,6 +19,9 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
   \marketItem[cp]{Sewing equipment}{0}{5}
   \marketItem{Rope, 50'}{1}{2}
   \rareMarketItem[10]{Silk rope, 50'}{0}{8}%
+  \rareMarketItem[7]{Green hat}{0}{4}%
+  \rareMarketItem[8]{Orange hat}{0}{5}%
+  \rareMarketItem[9]{Purple hat}{0}{7}%
   \marketItem[cp]{Bandages}{0}{2}
   \ifnum\value{temperature}=0
     \marketItem[cp]{Salty \rations}{1}{5}
@@ -90,21 +93,6 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
   \ifodd\value{r4}%
     \tiny\composeHumanName, the Fence\footnotemark[1]  & \tiny 50\% and shhh\ldots \\
   \fi%
-
-\end{nametable}
-
-\renewcommand\npcsymbol{\flourish}
-\begin{nametable}[Lcc]{At the Docks}
-
-  \textbf{Items} & \textbf{\Glsentrytext{weight}} & \textbf{Cost} \\\hline
-  \footnotesize Fake \glsfmtplural{fodder} town-pass\footnotemark[1] & 0 & \mkPrice{4} \\
-  \rareMarketItem{\footnotesize Air \Glsentrytext{ingredient} (\glsentrytext{griffin} wings)\footnotemark[1]}{1}{13}%
-  \rareMarketItem{\footnotesize Fire \Glsentrytext{ingredient} (bear's heart)\ifodd\value{r3}\footnotemark[1]\else\footnotemark[4]\fi}{1}{13} %
-  \ifnum\value{temperature}=0\rareMarketItem{\footnotesize Earth \Glsentrytext{ingredient} (\glsentrytext{basilisk} hide)\footnotemark[1]}{1}{13}\fi %
-  \rareMarketItem{\footnotesize Water \Glsentrytext{ingredient} (\glsentrytext{woodspy} beak)\ifodd\value{r3b}\footnotemark[1]\else\footnotemark[4]\fi}{1}{13} %
-  \rareMarketItem{\footnotesize Fate \Glsentrytext{ingredient} (\ifnum\value{temperature}=0 human blood from the \glsentrytext{court}\else brown ooze\fi)\footnotemark[1]}{1}{14}
-
-  \footnotesize Lock-pick set\footnotemark[1] & 1 & \mkPrice{10} \\
 
 \end{nametable}
 
@@ -292,6 +280,21 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
   \rareArmour[6]{\partialplate}{36}%
   \rareArmour[9]{\completeplate}{66}%
   \showArmourPrice{\partialchain}{14}%
+\end{nametable}
+
+\renewcommand\npcsymbol{\flourish}
+\begin{nametable}[Lcc]{At the Docks}
+
+  \textbf{Items} & \textbf{\Glsentrytext{weight}} & \textbf{Cost} \\\hline
+  Fake \glsfmtplural{fodder} town-pass\footnotemark[1] & 0 & \mkPrice{4} \\
+  \rareMarketItem{Air \Glsentrytext{ingredient} (\glsentrytext{griffin} wings)\footnotemark[1]}{1}{13}%
+  \rareMarketItem{Fire \Glsentrytext{ingredient} (bear's heart)\ifodd\value{r3}\footnotemark[1]\else\footnotemark[4]\fi}{1}{13} %
+  \ifnum\value{temperature}=0\rareMarketItem{Earth \Glsentrytext{ingredient} (\glsentrytext{basilisk} hide)\footnotemark[1]}{1}{13}\fi %
+  \rareMarketItem{Water \Glsentrytext{ingredient} (\glsentrytext{woodspy} beak)\ifodd\value{r3b}\footnotemark[1]\else\footnotemark[4]\fi}{1}{13} %
+  \rareMarketItem{Fate \Glsentrytext{ingredient} (\ifnum\value{temperature}=0 human blood from the \glsentrytext{court}\else brown ooze\fi)\footnotemark[1]}{1}{14}
+
+  Lock-pick set\footnotemark[1] & 1 & \mkPrice{10} \\
+
 \end{nametable}
 
 \renewcommand\npcsymbol{\glsentrysymbol{wrecan}}
