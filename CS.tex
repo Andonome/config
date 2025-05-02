@@ -40,6 +40,7 @@
   \posterbox[
     remember, blankest, halign=center,valign=center,
   ]{name=title,column=1,span=10}{
+    \vspace{\baselineskip}%
     \scshape
     \begin{tabularx}{\linewidth}{lXlXlX}
       \hiderowcolors
@@ -51,7 +52,7 @@
 
       \textbf{Concept:} & \iftoggle{examplecharacter}{\sffamily\concept}{\lightDots} &
       \textbf{Rank:} & \iftoggle{examplecharacter}{\sffamily\rank}{\lightDots} &
-      \textbf{Debt:} & \iftoggle{examplecharacter}{\sffamily\characterDebt}{\lightDots}
+      \textbf{Debt:} & \iftoggle{examplecharacter}{\textcolor{gray}{\sffamily\characterDebt}}{\lightDots}
       \\
       \\
     \end{tabularx}
@@ -61,7 +62,7 @@
   \posterbox[
     adjusted title=Attributes,
     remember,
-  ]{name=attributes,column=1,row=2,span=4,rowspan=3}{
+  ]{name=attributes,column=1,row=2,span=4,rowspan=2.9}{
     \renewcommand{\arraystretch}{1.2}
     \addtolength{\tabcolsep}{-0.53em}
     \begin{tabularx}{\linewidth}{rcccccccccc}
@@ -73,8 +74,10 @@
     \showAttribute{Intelligence}
     \showAttribute{Wits}
     \showAttribute{Charisma}[-8pt]
-    \hspace{2em}\footnotesize{\dicef{7}} & & \tiny{2} & \tiny{3} & \tiny{4--5} & \tiny{6--8} & \tiny{9--10} & \tiny{11} & \tiny{12} & \\
+    \iftoggle{examplecharacter}{\hspace{2em}\footnotesize{\dicef{7}} & & \tiny{2} & \tiny{3} & \tiny{4--5} & \tiny{6--8} & \tiny{9--10} & \tiny{11} & \tiny{12} & \\}{}
     \end{tabularx}
+    \par%
+    \vspace{2\baselineskip}%
     \hint{\tiny Cost: 5 | 10 / 20 / 40}
   }
 
@@ -99,14 +102,15 @@ circle label/.style = {
     }
     }
     ]
-     \path[circle label={FP = XP / 10 + Charisma}] (-1,0.6) arc (-90:360-90:1.1);
-      \draw[dotted] (-1,1.7) circle (1) node [align=left,text width=3.5em] {};
-     \path[circle label={MP = 3 x spheres}] (2,0.6) arc (-90:360-90:1.1);
-      \draw[dotted] (2,1.7) circle (1);
+     \hspace{2em}
+     \path[circle label={FP = XP / 10 + Charisma}] (0,0.6) arc (-90:360-90:1.1);
+      \draw[dotted] (0,1.7) circle (1) node [align=left,text width=3.5em] {};
+     \path[circle label={MP = 3 x spheres}] (3,0.6) arc (-90:360-90:1.1);
+      \draw[dotted] (3,1.7) circle (1);
     \end{tikzpicture}
 
   }
-%%----
+%----
   \posterbox[adjusted title={Combat Skills},
   remember,
   ]{name=melee,column=5,row=2,span=2.5,rowspan=3}{
@@ -153,183 +157,65 @@ circle label/.style = {
   row=5,
   span=3,
   rowspan=1}{%
+    \vspace{\baselineskip}%
     \scshape
     \begin{tabular}{lr}
       \hline
-      \Glsfmtplural{ap} & \iftoggle{examplecharacter}{\absNum{att}}{} \\
-      \hint{3 + Speed} \\
+      \Glsfmtplural{ap} & \iftoggle{examplecharacter}{\arabic{ap}}{} \\
+      \textcolor{gray}{\footnotesize $3 + Speed$} \\
       \hline
-      Att & \\
-      \hint{\roll{Dexterity}{Melee}} \\
+      Att & \iftoggle{examplecharacter}{\arabic{att}}{} \\
+      \textcolor{gray}{\footnotesize $Dexterity + Melee + Weapon$} \\
       \hline
-      Dam & \\
-      \hint{$1D6 + Strength + Weapon$} \\
+      Dam & \iftoggle{examplecharacter}{ \dmg{damage} }{} \\
+      \textcolor{gray}{\footnotesize $1D6 + Strength + Weapon$} \\
       \hline
-      \Glsfmttext{covering} & \\
+      \Glsfmttext{covering} & \iftoggle{examplecharacter}{\arabic{covering}}{} \\
       \\
       \hline
-      \Glsfmttext{dr} & \\
+      \Glsfmttext{dr} & \iftoggle{examplecharacter}{\arabic{armourDR}}{} \\
       \\
       \hline
     \end{tabular}
   }
 
 %----
-%
-%  \posterbox[
-%    adjusted title=Attack,
-%    remember,
-%  ]
-%  {name=Attack,column=9,row=7,span=5,rowspan=1.8}{
-%    \begin{tabularx}{\linewidth}{>{\centering\arraybackslash}X}
-%      \hiderowcolors%
-%      \small
-%      \iftoggle{examplecharacter}{\sffamily}{}2D6%
-%      \iftoggle{examplecharacter}% Bonus
-%      {%
-%        \sffamily\absNum{att}%
-%      }%
-%      {\underline{\hspace{2em}}} \\ [0.25em]
-%      \textcolor{\pageSideColor}{\small 2D6 + Dex + Melee + \textsc{Att} Bonus}
-%    \end{tabularx}
-%  }
-%
-%  \posterbox[
-%    adjusted title=\Glsentrytext{dr} / \textsc{Cov},
-%    remember,
-%  ]
-%  {name=Armour,column=14,row=7,span=5,rowspan=1.8}{
-%    \begin{tabularx}{\linewidth}{>{\centering\arraybackslash}X}
-%      \hiderowcolors
-%      \small
-%      \iftoggle{examplecharacter}{\sffamily\arabic{armourDR} / \arabic{covering}}{\underline{\hspace{2em}/\hspace{2em}}} \\ [0.25em]
-%      \textcolor{\pageSideColor}{\small (by Armour)}
-%    \end{tabularx}
-%  }
-%
-%%-----
-%  \posterbox[
-%    adjusted title=Damage,
-%    remember,
-%  ]
-%  {name=Damage,column=9,row=9,span=5,rowspan=1.8}{
-%    \begin{tabularx}{\linewidth}{>{\centering\arraybackslash}X}
-%      \hiderowcolors%
-%      \small
-%      \iftoggle{examplecharacter}% Damage
-%      {%
-%        \sffamily\dmg{damage}%
-%      }%
-%      {
-%        \underline{\hspace{1em}} D6+\underline{\hspace{1.5em}}
-%      } \\ [0.25em]
-%      \textcolor{\pageSideColor}{\small 1D6 + Strength + \textsc{Dam} Bonus}
-%    \end{tabularx}
-%  }
-%
-%%-----
-%  \posterbox[
-%    adjusted title=\Glspl{ap},
-%    remember,
-%  ]
-%  {name=AP,column=14,row=9,span=5,rowspan=1.8}{
-%    \begin{tabularx}{\linewidth}{>{\centering\arraybackslash}X}
-%      \hiderowcolors%
-%      \small
-%      \iftoggle{examplecharacter}%
-%      {%
-%        \sffamily\arabic{ap}%
-%      }%
-%      {\underline{\hspace{2em}}} \\ [0.25em]
-%      \textcolor{\pageSideColor}{\small 3 + Speed}
-%    \end{tabularx}
-%  }
-%
-%----
     \posterbox[
     blankest,
     ]{column=8,row=2,span=3,rowspan=1}{ 
+      \vspace{\baselineskip}%
       {\scshape\Large\qquad Equipment}
       \par
-      \hint{\tiny \glsentrylong{weight}%
-      }
+      \noindent%
+      \textcolor{gray}{\tiny \glsentrylong{weight}}%
     }
     %
     \setcounter{diceNo}{0}
     \setcounter{diceNo2}{0}
-    \setcounter{track}{0}
-    \setcounter{list}{1}
+    \setcounter{list}{2}
     \setcounter{encnum}{0}% Used to track horizontal position.
-    \Repeat{12}{
-      \stepcounter{diceNo}%
-      \stepcounter{list}%
-      \posterbox[
-      blankest,
-      ]{name=csCircles,column=\ifodd\value{diceNo}9\else10\fi,
-      row=\arabic{list},
-      span=1,
-      rowspan=1}{%
-      \lineDots[4] \tikz \draw[dotted] (0,0) node[minimum size=22mm,draw,circle] {\textcolor{\pageOppositeColor}{\Large\Roman{diceNo}}};
-%        \begin{tabularx}{\linewidth}{Lrr}
-%          \hiderowcolors%
-%          \ifcase\value{diceNo}\relax%
-%          \or%
-%            \ifdefempty{\weaponName}{\lightDots}{%
-%              {\sffamily\weaponName~(\absNum{weaponBonus}/ \absNum{weaponDamage})\hfill}%
-%              \setcounter{track}{\value{weaponWeight}}%
-%            }%
-%          \or%
-%            \ifdefempty{\armourName}{\lightDots}{%
-%              {\sffamily \expandafter\MakeUppercase\armourName}%
-%              \setcounter{track}{\value{armourWeight}}%
-%            }
-%          \or%
-%            \ifdefempty{\rank}{\lightDots}{%
-%              \begin{minipage}{.72\linewidth}
-%                \sffamily\raggedright black tabard (+1~to~hide in~shadows)%
-%              \end{minipage}
-%              \setcounter{track}{0}%
-%            }%
-%          \or%
-%            \ifdefempty{\equipment}{\lightDots}{%
-%              \begin{minipage}{.72\linewidth}
-%                \sffamily\raggedright\equipment%
-%              \end{minipage}
-%              \setcounter{track}{\value{equipmentWeight}}%
-%            }%
-%          \else%
-%            \ifnum\value{diceNo}<8%
-%              \lightDots
-%            \fi%
-%          \fi%
-%        &
-%          \ifnum\value{track}>0%
-%            \glsentrysymbol{weight}~\arabic{track}%
-%            \setcounter{track}{0}%
-%          \fi%
-%        &
-%          \ifodd\value{diceNo}%
-%            \setcounter{encnum}{2}
-%          \else%
-%            \setcounter{encnum}{0}
-%          \fi%
-%          \ifnum\value{hp}<\value{diceNo}%
-%            \stepcounter{diceNo2}%
-%            \def\csCircleContents{\ifnum\value{hp}>0-\arabic{diceNo2}\fi}%
-%          \else
-%            \ifnum\value{weight}<\value{diceNo}%
-%              \def\csCircleContents{\textcolor{\pageOppositeColor}{\Large\Roman{diceNo}}}%
-%            \else%
-%              \def\csCircleContents{\textcolor{\pageSideColor}{\Large\Roman{diceNo}}}%
-%            \fi%
-%          \fi
-%          \tikz \draw[dotted] (0,0) node[minimum size=22mm,draw,circle] {\textcolor{\pageOppositeColor}{\Large\Roman{diceNo}}};
-%          \\%
-%        \end{tabularx}
+    \iftoggle{examplecharacter}{
+      \ifdefempty{\equipment}{}{%
+        \placeCScircle{\equipment}
       }
+      \ifdefempty{\weaponName}{}{%
+        \placeCScircle{\weaponName~(\absNum{weaponBonus}/ \absNum{weaponDamage})}
+      }
+      \ifdefempty{\armourName}{}{%
+        \placeCScircle{\armourName}
+      }
+      \ifdefempty{\rank}{}{%
+        \placeCScircle{Black tabard (+1 to hide in~shadows)}
+      }
+    }{}
+    \whileboolexpr{
+      test {\ifnumcomp{\value{diceNo}}{<}{12}}%
+        }{
+       \placeCScircle{}
     }
 
 %-----
+
   \posterbox[
   adjusted title={General Skills},
   remember,
@@ -362,6 +248,8 @@ circle label/.style = {
 %----
   \posterbox[
     adjusted title={Knacks \& Abilities},
+    left=2em,
+    right=1em,
     remember,
   ]
   {name=knacks,
@@ -374,25 +262,10 @@ circle label/.style = {
       \sffamily\Knacks
     }{%
       \vspace{1em}%
-      \lineDots[4]
+      \lineDots[7]
     }
   }
 
-%  \posterbox[
-%    adjusted title=Abilities \& Conditions,
-%    remember,
-%  ]
-%  {name=abilities,
-%  column=9,
-%  row=14,
-%  span=17,
-%  rowspan=2.7}{%
-%    \vspace{1em}%
-%    \iftoggle{examplecharacter}{}{%
-%      \lineDots[4]
-%    }%
-%  }
-%
 %------
   \posterbox[
     adjusted title=XP,

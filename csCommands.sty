@@ -217,3 +217,40 @@
     \input{config/backpage.tex}
   }{}
 }
+
+\newcommand\placeCScircle[1]{
+  \stepcounter{diceNo}%
+  \stepcounter{list}%
+  \posterbox[
+    blankest,
+  ]{name=csCircles,
+  column=8,
+  row=\arabic{list},
+  span=1,
+  rowspan=3,
+  }{%
+    \ifodd\value{diceNo}%
+      \setcounter{r6}{9}%
+      \setcounter{r6b}{8}%
+    \else%
+      \setcounter{r6}{13}%
+      \setcounter{r6b}{12}%
+    \fi
+    \begin{picture}(50,40)(0,0)
+      \put(-20,30){\parbox{\value{r6}em}{\raggedright#1}}
+      \ifnum\value{diceNo}<10%
+        \put(-20,0){\parbox{\value{r6}em}{\lineDots}}
+      \fi%
+      \put(\arabic{r6b}0,-5){\tikz \draw[anchor=north, dotted] (0,0) node[minimum size=22mm,draw,circle] {\textcolor{\ifnum\value{diceNo}>\value{weight}%
+        \pageOppositeColor%
+      \else%
+        \pageSideColor%
+      \fi}{\Large\ifnum\value{diceNo}>\value{hp}%
+        \stepcounter{diceNo2}%
+        --\arabic{diceNo2}%
+      \else%
+        \Roman{diceNo}%
+      \fi}};}
+    \end{picture}
+  }
+}
