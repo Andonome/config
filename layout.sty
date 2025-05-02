@@ -454,6 +454,13 @@ bookmarks=true]%
   #1~+~#2%
 }
 
+\newcommand\setTN[3][0]{%
+  \setcounter{tn}{7}%
+  \addtocounter{tn}{#1}%
+  \addtocounter{tn}{\value{#2}}%
+  \addtocounter{tn}{\value{#3}}%
+}
+
 %%% The dice-face (\dicef) command shows an actual die, or multiple
 %%% dice, equal to a number.  The optional argument lets it show
 %%% as \large or similar.

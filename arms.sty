@@ -51,20 +51,44 @@
 
 \newcounter{secondWeaponWeight}
 
-\newcommand\rangedWeapon[4][0]{%
-  \setcounter{track}{7}%
-  \addtocounter{track}{#1}%
-  \addtocounter{track}{\value{Dexterity}}%
-  \addtocounter{track}{\value{Projectiles}}%
-  \addtocounter{equipmentWeight}{#3}%
-  \setcounter{enc}{#3}%
-  #2 (\glsentrytext{tn}~\arabic{track}, \dmg{enc}, \glsentrytext{ap}~{#4})%
+\newcommand\rangedWeapon[5][1]{%
+  #2 %
+  \addtocounter{equipmentWeight}{#1}%
+  \setTN[#3]{Dexterity}{Projectiles}%
+  (\glsentrytext{tn}~\arabic{tn}, \dmg{#4}, %
+  \ifnum#5>10% Indicate a crossbow with a VERY high reload time.
+    \setcounter{encnum}{#5}% Reload time is set to, e.g. '15' (meaning '5').
+    \addtocounter{encnum}{-10}% Let's make 15 --> 5
+    \addtocounter{encnum}{#1}% Weight adds to AP.
+    reload: \arabic{encnum}~\glsfmtplural{round}%
+  \else%
+    \glsfmtplural{ap}~Cost:~{#5}%
+  \fi)%
+}
+
+\newcommand{\rock}{%
+  \rangedWeapon{rock}%
+  {0}% Att
+  {1}% Dam
+  {2}% AP Cost
 }
 
 \newcommand\smolCrossBow{%
-  \rangedWeapon[2]{Crossbow}{6}{1}%
+  \rangedWeapon[2]{crossbow}%
+  {2}% Att
+  {0}% Dam
+  {15}% AP Cost
 }
 
+% RANGED WEAPONS
+\newcommand{\longbow}{%
+  \set{encnum}{Strength}%
+  \addtocounter{encnum}{2}%
+  \rangedWeapon[1]{longbow}%
+  {\arabic{Strength}}% Att
+  {Strength}% Dam
+  {\arabic{encnum}}% AP Cost
+}
 
 \newcommand\armour[4][]{
   \renewcommand\armourName{#2}% Name
@@ -102,7 +126,6 @@
 \newcommand{\maul}{\weapon{Maul}{1}{3}}
 \newcommand{\poleaxe}{\weapon{Poleaxe}{3}{3}}
 \newcommand{\quarterstaff}{\weapon{Quarterstaff}{3}{0}}
-\newcommand{\rock}{\rangedWeapon{rock}{3}{2}}
 \newcommand{\scythe}{\weapon[1]{Scythe}{-2}{2}}
 \newcommand{\shortsword}{\weapon{Shortsword}{1}{1}}
 \newcommand{\skillet}{\weapon[1]{Frying Pan}{1}{2}}
@@ -123,11 +146,6 @@
 \newcommand{\buckler}{\weapon{Buckler}{2}{-4}}
 \newcommand{\roundshield}{\weapon{Round Shield}{3}{-2}}
 \newcommand{\kiteshield}{\weapon{Kite Shield}{4}{-4}}
-
-% RANGED WEAPONS
-\newcommand{\longbow}{%
-  \rangedWeapon[\value{Strength}]{Longbow}{1}{1}%
-}
 
 
 % ARMOUR
