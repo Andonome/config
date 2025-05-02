@@ -677,6 +677,8 @@
   \set{Wits}{#6}
   #1
   \set{freeHP}{hp}
+  \setcounter{freeHP}{\value{hp}}%
+  \addtocounter{freeHP}{-\value{weight}}%
   \scshape
   \begin{tabularx}{.8\textwidth}{YYYY}
   \hiderowcolors
