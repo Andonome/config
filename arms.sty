@@ -56,8 +56,7 @@
   \addtocounter{track}{#1}%
   \addtocounter{track}{\value{Dexterity}}%
   \addtocounter{track}{\value{Projectiles}}%
-  \setcounter{secondWeaponWeight}{#3}%
-  \addtocounter{secondWeaponWeight}{-4}%
+  \addtocounter{equipmentWeight}{#3}%
   \setcounter{enc}{#3}%
   #2 (\glsentrytext{tn}~\arabic{track}, \dmg{enc}, \glsentrytext{ap}~{#4})%
 }
@@ -126,7 +125,10 @@
 \newcommand{\kiteshield}{\weapon{Kite Shield}{4}{-4}}
 
 % RANGED WEAPONS
-\newcommand{\longbow}{Longbow}
+\newcommand{\longbow}{%
+  \rangedWeapon[\value{Strength}]{Longbow}{1}{1}%
+}
+
 
 % ARMOUR
 
