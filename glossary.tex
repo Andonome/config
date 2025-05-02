@@ -502,17 +502,20 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   category={rules},
   description={means co\"ordinating the \glsentrytext{deep}, where long caverns spread like veins, the logistics of travel twist and invert, and the dangers change.
 
-    The players decides how many miles to cover, then roll \roll{Dexterity}{Caving}.
-    The \glsentrytext{tn} starts at 6, and each mile raises it by +2.
-
-    \begin{boxtable}[YYY]
-      \textbf{Miles} & \textbf{\glsentrytext{tn}} & \textbf{\Glsfmtplural{ep}} \\\hline
-      0  & 6 & 0/ 1 \\
-      1  & 8 & 1/ 2 \\
-      2  & 10 & 2/ 3 \\
-      3  & 12 & 3/ 4 \\
-    \end{boxtable}
-    On a tie, the entire group takes an extra \glsentrytext{ep} from skuffs and scrapes, and if the roll fails, the character walking at the front takes $1D6$~Damage from bashing their head, twisting their ankle, or falling down some hole},
+    \sidebox{
+      \begin{boxtable}[YYY]
+        \textbf{Miles} & \textbf{\Glsfmttext{tn}} & \textbf{Dam.} \\
+        \hline
+                 3     &               ---        & ---             \\
+                 4     &               8          & \dmg{4}         \\
+                 5     &               9          & \dmg{5}         \\
+                 6     &               10         & \dmg{6}         \\
+      \end{boxtable}
+    }
+    The dim light, scattered rocks, and strange environment limits travel to 3~miles per \glsfmttext{interval}.
+    Marching faster presents the danger of falling off something high, or knocking your head on something.
+    Sprinting through a cavern is practically insane.
+    Whoever walks at the front needs to make the \roll{Wits}{Caving} roll; failure inflicts Damage and cuts the journey to a mile, while a tie just inflicts Damage (and requires the \glsfmttext{gm} to note the approaching Damage for later)},
 }
 
 \longnewglossaryentry{blackWalking}{
@@ -522,8 +525,8 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   parent={caving},
   type={mech},
   category={rules},
-  description={means walking in the darkness.
-  It adds +2 to the \glsentrytext{tn} to travel, so even travelling a short distance becomes dangerous},
+  description={means walking through a cave in the darkness.
+  It reduces the standard travel rate by 2 miles, so characters can walk 1 mile over the \glsfmttext{interval}, or travel 3 miles and risk Damage},
 }
 
 \longnewglossaryentry{gagingCave}{
