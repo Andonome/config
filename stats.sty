@@ -89,7 +89,6 @@
 \newcommand\conDmg[1]{%
   \setcounter{numberofdice}{1}%
   \set{damagebonus}{#1}%
-  \addtocounter{damagebonus}{-4}%
   \whileboolexpr{%
     test {\ifnumcomp{\value{damagebonus}}{>}{3}}%
   }{%
@@ -520,7 +519,6 @@
   \addtocounter{ap}{3}%
   \addtocounter{ap}{-\value{encumbrance}}%
   \setcounter{damage}{\value{Strength}}%
-  \addtocounter{damage}{4}%
   \addtocounter{damage}{\value{weaponDamage}}%
   \iftoggle{allyCharacter}{}{%
     \addtocounter{covering}{\value{toHit}}%
