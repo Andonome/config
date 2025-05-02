@@ -196,10 +196,10 @@ circle label/.style = {
     \setcounter{encnum}{0}% Used to track horizontal position.
     \iftoggle{examplecharacter}{
       \ifdefempty{\equipment}{}{%
-        \placeCScircle{\equipment}
+        \placeCScircle{\expandafter\MakeUppercase\equipment}
       }
       \ifdefempty{\weaponName}{}{%
-        \placeCScircle{\weaponName~(\absNum{weaponBonus}/ \absNum{weaponDamage})}
+        \placeCScircle{\expandafter\MakeUppercase\weaponName~(\absNum{weaponBonus}/ \absNum{weaponDamage})}
       }
       \ifdefempty{\armourName}{}{%
         \placeCScircle{\expandafter\MakeUppercase\armourName}
