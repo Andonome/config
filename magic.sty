@@ -51,18 +51,20 @@
 
 \newcommand\setSpellDamage{%
   \iftoggle{Divergent}{%
-    \ifnum\value{encnum}=2
-      \conDmg{spellPlusTwo}%
-    \else%
-      \conDmg{spellPlusOne}%
+    \ifnum\value{encnum}=2%
+      \set{r6}{spellPlusTwo}%
+    \erse%
+      \set{r6}{spellPlusOne}%
     \fi%
   }{%
-    \ifnum\value{encnum}=1
-      \conDmg{spellPlusTwo}%
+    \ifnum\value{encnum}=1%
+      \set{r6}{spellPlusTwo}%
     \else%
-      \conDmg{spellPlusOne}%
+      \set{r6}{spellPlusOne}%
     \fi%
   }%
+  \addtocounter{r6}{-4}%
+  \conDmg{r6}%
 }
 
 \newcommand\setLongRange[1][spellCost]{%

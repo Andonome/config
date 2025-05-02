@@ -737,8 +737,7 @@
 }
 
 \newcommand{\acidSpray}{%
-  \setcounter{track}{4}%
-  \addtocounter{track}{\value{Strength}}%
+  \set{track}{Strength}%
   \setcounter{age}{7}%
   \addtocounter{age}{\value{Dexterity}}%
   \addtocounter{age}{\value{Projectiles}}%
@@ -749,7 +748,7 @@
 \newcommand{\acidBody}[1][Acidic]{%
   \toggletrue{perfectArmour}%
   \set{track}{Strength}%
-  \addtocounter{track}{3}%
+  \addtocounter{track}{-1}%
   \conDmg{track}%
   \addAbility{#1 body (inflict \showDam~Damage each turn of grappling)}%
 }
@@ -783,8 +782,7 @@
 }
 
 \newcommand{\fireBreath}{%
-  \setcounter{track}{4}%
-  \conDmg{track}%
+  \conDmg{0}%
   \setcounter{enc}{\value{hp}}%
   \addtocounter{enc}{\value{hp}}%
   \addAbility{Fiery breath (range: \arabic{enc} \glsfmtplural{step}, Dam: \showDam\ifnum\value{mp}>0\ plus 1 per \glsentrytext{mp} spent\fi)}%
@@ -855,7 +853,7 @@
 }
 
 \newcommand{\venom}{%
-  \conDmg{r4b}%
+  \conDmg{rn1t2}%
   \addAbility{Venom (grappling attack inflicts \showDam~\glsfmtlongpl{ep})}%
 }
 
