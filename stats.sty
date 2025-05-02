@@ -82,21 +82,29 @@
 
 \newcommand\showCR{}
 
+% NPCs who have '6 to crafting swords' sounds weird.
+% It should be '+6 to crafting swords'.
+% You can add a '+', but the NPC with '-3' will have '+-3 to crafting swords'.
+% What the hell is "+-3"???
+% So this just tests for numbers greater than negative numbers, and adds a '+'.
 \newcommand\absNum[1]{\ifnum\value{#1}>-1+\fi\arabic{#1}}
 
 % we calculate damage here because we can't display 1d6+6 damage - it has to turn into 2d6+2 damage.
 
 \newcommand\conDmg[1]{%
-  \setcounter{numberofdice}{1}%
-  \set{damagebonus}{#1}%
-  \whileboolexpr{%
+  \setcounter{numberofdice}{1}% start with 1D6.
+  \set{damagebonus}{#1}% E.g. 1D6 + 9.
+  \whileboolexpr{% But Damage over 3 converts to 1D6.
     test {\ifnumcomp{\value{damagebonus}}{>}{3}}%
   }{%
-    \addtocounter{damagebonus}{-4}%
-    \addtocounter{numberofdice}{1}%
+    \addtocounter{damagebonus}{-4}% So 1D6+9 --> 2D6 + 5.
+    \addtocounter{numberofdice}{1}% Then loop again, until we have 3D6+1.
   }%
 }
 
+% \conDmg{5} calculates the Damage, but does not show anything.
+% We show with \showDam.
+% This is separate, so that spells can carry their values over to the spell index properly.
 \newcommand\showDam{%
   \arabic{numberofdice}D6\ifnum\value{damagebonus}=0\else\absNum{damagebonus}\fi%
 }
