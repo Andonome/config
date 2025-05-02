@@ -202,7 +202,7 @@ circle label/.style = {
         \placeCScircle{\weaponName~(\absNum{weaponBonus}/ \absNum{weaponDamage})}
       }
       \ifdefempty{\armourName}{}{%
-        \placeCScircle{\armourName}
+        \placeCScircle{\expandafter\MakeUppercase\armourName}
       }
       \ifdefempty{\rank}{}{%
         \placeCScircle{Black tabard (+1 to hide in~shadows)}
