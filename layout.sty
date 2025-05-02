@@ -1068,10 +1068,6 @@ bookmarks=true]%
   \setcounter{rn4tn1}{\value{r4b}}%
   \addtocounter{rn4tn1}{-5}%
   \setcounter{rn3t3}{\value{r3b}}%
-  \setcounter{r12}{\value{r3c}}%
-  \multiply\value{r12} by 3%
-  \addtocounter{r12}{\value{r4b}}%
-  \addtocounter{r12}{\value{r2b}}%
   \ifodd\value{r3}%
     \stepcounter{r2b}%
     \stepcounter{r3b}%
@@ -1108,6 +1104,8 @@ bookmarks=true]%
   \ifnum\value{r6b}<1\setcounter{r6b}{6}\fi%
   \setcounter{r6}{\value{rn1t2}}%
   \addtocounter{r6}{\value{r2t4}}%
+  \setcounter{r12}{\value{r6}}%
+  \addtocounter{r12}{\value{r6b}}%
 }
 
 \newcommand\set[2]{%
