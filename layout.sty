@@ -1325,9 +1325,6 @@ bookmarks=true]%
 % the first side quest gets a ticked box in the toc.
 % the rest get an empty box, so the GM can tick it once it's ready.
 
-\newtoggle{firstsq}
-\settoggle{firstsq}{true}
-
 \newcommand{\sqtoc}{\printcontents[\sqarea]{l}{2}{\section*{Summaries}\setcounter{tocdepth}{3}}}
 
 % Change the to depth from 2 to 3 in order to output a miniature table of contents on all side quests
@@ -1348,7 +1345,6 @@ bookmarks=true]%
   \renewcommand{\sqName}{#2}
   \needspace{5em}
   \subsection[\it #2]{#2}
-  \settoggle{firstsq}{true}
   \setcounter{sqNo}{0}
   \foreach \area in {#1}%
     {\stopcontents[\area]}
@@ -1367,7 +1363,6 @@ bookmarks=true]%
     \ifstrequal{#1}{}{}{(#1)~}%
     \bfseries#3 -- \mdseries#4]%
     {\large{\scshape\thesqNo)}~\large#3\ \hint{\ifglsentryexists{#2}{\Glsfmttext{#2}}{#2}}}
-  \settoggle{firstsq}{false}
   \stopcontents[#2]%
 }
 
