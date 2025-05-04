@@ -1362,15 +1362,25 @@ bookmarks=true]%
     \setcounter{sqNoSpare}{\expandafter\thesqNo}%
     \ifstrequal{#1}{}{}{(#1)~}%
     \bfseries#3 -- \mdseries#4]%
-    {\large{\scshape\thesqNo)}~\large#3\ \hint{\ifglsentryexists{#2}{\Glsfmttext{#2}}{#2}}}
+    {\large{\scshape\ifnum\thesqNo<1 1\else \thesqNo\fi)}~\large#3\ \hint{\ifglsentryexists{#2}{\Glsfmttext{#2}}{#2}}}
   \stopcontents[#2]%
 }
 
-% Floating SQ ToCs
+% Floating SQ ToCs, e.g.:
+% Goblin Attacks!
+% 1 - Scouting - the PCs spot a goblin
+% 2 - Rude Awakening - A goblin raids the PCs food
+% 3 - Raiders Galore - Goblins raid a local bailey
 \titlecontents{tsubsubsection}
               [3em]
               {%
-                \contentspush{\scshape\large\arabic{sqNoSpare}~---~}%
+                \contentspush{\scshape\large%
+                \ifnum\thesqNoSpare=0 % The Side Quest no is set to 0 to stop
+                % the first part being ready.
+                  1%
+                \else%
+                  \thesqNoSpare%
+                \fi~---~}%
                 \thecontentslabel%
               }%
               {}%
@@ -1400,8 +1410,12 @@ bookmarks=true]%
                 \ifnum\thesqNoSpare=1%
                   \sqr\else\sqn%
                 \fi\quad%
-                Part~\thesqNoSpare:\quad%
-                  \raggedright%
+                \ifnum\thesqNoSpare>0%
+                  Part~\thesqNoSpare%
+                \else%
+                  Part~1%
+                \fi:\quad%
+                \raggedright%
                 }%
                 \thecontentslabel%
               }%
