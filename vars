@@ -107,8 +107,7 @@ printables: $(A3_pdfs)
 output += $(targets)
 
 .PHONY: all
-all: ## All standard targets
-	make $(targets)
+all: $(targets) ## All standard targets
 
 .PHONY: clean
 clean: ## Clean repo, including cross-reference files

@@ -5,7 +5,7 @@ variables:
 build:
   image: $LATEX_IMAGE
   script:
-    - make all
+    - make -j -O all
   rules:
     - if: $CI_COMMIT_BRANCH == "master"
     - if: $CI_COMMIT_BRANCH == "run"
