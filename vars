@@ -94,8 +94,15 @@ help: ## Print the help message
 graph: ## Show a dependency graph (needs graph-easy and make2graph)
 	make -Bind $(TARG) | make2graph | graph-easy --boxart
 
-print_%.pdf: %.pdf
+######## A3 12 signature pdfs ########
+A3_12_signature_%.pdf: %.pdf
 	pdfjam --landscape --paper a3paper --nup 1x1 --signature 12 $< -o $@
+
+pdfs += $(wildcard *.pdf)
+A3_pdfs = $(patsubst %.pdf, A3_12_signature_%.pdf, $(pdfs))
+
+.PHONY: printables
+printables: $(A3_pdfs)
 
 output += $(targets)
 
