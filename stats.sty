@@ -600,9 +600,17 @@
     \mbox{Dam \dmg{damage},\space}%
       \ifnumcomp{\value{dr}}{>}{0}{%
         \mbox{DR \arabic{dr}%
-        \iftoggle{perfectArmour}%
+          \iftoggle{perfectArmour}%
           {}%
-          {, Cov \arabic{covering}}, }%
+          {%
+            \iftoggle{allyCharacter}{%
+              , Cov \arabic{covering}%
+            }{%
+              ~(\arabic{covering}!)%
+            }%
+          }%
+          , %
+        }%
       }{}%
     \iftoggle{genExamples}{%
       HP~\arabic{hp},
