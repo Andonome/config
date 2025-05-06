@@ -482,16 +482,27 @@
 %% print the knacks
 %% print the equipment
 %
+
+\newcommand\showStatblockAttribute[1]{%
+  #1 \hfill \arabic{#1}%
+}
+
 \newcommand{\creaturestats}{
   \footnotesize
-  \begin{tabularx}{\textwidth}{lr@{\hskip 3em}lr@{\hskip 3em}lr}
+  \begin{tabularx}{.9\textwidth}{XXX}
   \hiderowcolors
-    Strength & \arabic{Strength} & Dexterity & \arabic{Dexterity} & Speed & \arabic{Speed} \\
-    \ifnum\value{Intelligence}>-6 Intelligence\fi &
-    \ifnum\value{Intelligence}>-6 \arabic{Intelligence}\fi &
-    Wits & \arabic{Wits} &
-    \ifnum\value{Charisma}>-6 Charisma\fi &
-    \ifnum\value{Charisma}>-6 \arabic{Charisma}\fi
+    \showStatblockAttribute{Strength} &
+    \showStatblockAttribute{Dexterity} &
+    \showStatblockAttribute{Speed}
+    \\
+    \ifnum\value{Intelligence}>-6
+      \showStatblockAttribute{Intelligence}
+    \fi
+    &
+    \showStatblockAttribute{Wits} &
+    \ifnum\value{Charisma}>-6
+      \showStatblockAttribute{Charisma}
+    \fi
     \\
   \end{tabularx}
 }
