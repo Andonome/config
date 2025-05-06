@@ -28,7 +28,7 @@ bookmarks=true]%
 \RequirePackage[T1]{fontenc} % 
 \RequirePackage{txfonts} % 
 \RequirePackage{starfont} % for creature symbols
-\RequirePackage{wasysym} % for sq checkboxes
+\RequirePackage{wasysym} % for segment checkboxes
 \RequirePackage{appendix}
 \RequirePackage{geometry} % changes page borders
   \geometry{margin=50pt}
@@ -319,7 +319,7 @@ bookmarks=true]%
 
 \newcounter{encnum}
 \setcounter{encnum}{1}
-\newcommand{\sqarea}{town}
+\newcommand{\region}{town}
 
 %%%%% Image Commands %%%%%
 
@@ -1316,8 +1316,8 @@ bookmarks=true]%
 
 %%%%% Side Quests
 
-\newcommand\declareSQareas[1]{
-  \foreach \area in {sq,#1}%
+\newcommand\declareRegions[1]{
+  \foreach \area in {segments,#1}%
     {\startcontents[\area]
     \stopcontents[\area]}
 }
@@ -1325,44 +1325,44 @@ bookmarks=true]%
 % the first side quest gets a ticked box in the toc.
 % the rest get an empty box, so the GM can tick it once it's ready.
 
-\newcommand{\sqtoc}{\printcontents[\sqarea]{l}{2}{\section*{Summaries}\setcounter{tocdepth}{3}}}
+\newcommand{\threadToc}{\printcontents[\region]{l}{2}{\section*{Summaries}\setcounter{tocdepth}{3}}}
 
 % Change the to depth from 2 to 3 in order to output a miniature table of contents on all side quests
-\newcommand{\sqminitoc}{%
-  \printcontents[sq]{t}{3}{\setcounter{tocdepth}{3}}%
+\newcommand{\threadMiniToc}{%
+  \printcontents[segments]{t}{3}{\setcounter{tocdepth}{3}}%
 }
 
-\newcounter{sqNo}
-\newcounter{sqNoSpare}
-\newcommand{\sqName}{}
+\newcounter{segNo}
+\newcounter{segNoSpare}
+\newcommand{\threadName}{}
 
-\newcommand{\sidequest}[2][]{
+\newcommand{\thread}[2][]{
   \vspace{1em}
   \par
-  \stopcontents[sq]
+  \stopcontents[segments]
   \foreach \area in {#1}%
     {\resumecontents[\area]}
-  \renewcommand{\sqName}{#2}
+  \renewcommand{\threadName}{#2}
   \needspace{5em}
   \subsection[\it #2]{#2}
-  \setcounter{sqNo}{0}
+  \setcounter{segNo}{0}
   \foreach \area in {#1}%
     {\stopcontents[\area]}
-  \startcontents[sq]
-  \sqminitoc%
+  \startcontents[segments]
+  \threadMiniToc%
   \bigLine
   \vspace{1em}
 }
 
-\newcommand{\sqpart}[4][]{
+\newcommand{\segment}[4][]{
   \vspace{1em}
-  \refstepcounter{sqNo}
+  \refstepcounter{segNo}
   \resumecontents[#2]
   \subsubsection[%
-    \setcounter{sqNoSpare}{\expandafter\thesqNo}%
+    \setcounter{segNoSpare}{\expandafter\thesegNo}%
     \ifstrequal{#1}{}{}{(#1)~}%
     \bfseries#3 -- \mdseries#4]%
-    {\large{\scshape\ifnum\thesqNo<1 1\else \thesqNo\fi)}~\large#3\ \hint{\ifglsentryexists{#2}{\Glsfmttext{#2}}{#2}}}
+    {\large{\scshape\ifnum\thesegNo<1 1\else \thesegNo\fi)}~\large#3\ \hint{\ifglsentryexists{#2}{\Glsfmttext{#2}}{#2}}}
   \stopcontents[#2]%
 }
 
@@ -1375,11 +1375,11 @@ bookmarks=true]%
               [3em]
               {%
                 \contentspush{\scshape\large%
-                \ifnum\thesqNoSpare=0 % The Side Quest no is set to 0 to stop
+                \ifnum\thesegNoSpare=0 % The Side Quest no is set to 0 to stop
                 % the first part being ready.
                   1%
                 \else%
-                  \thesqNoSpare%
+                  \thesegNoSpare%
                 \fi~---~}%
                 \thecontentslabel%
               }%
@@ -1394,7 +1394,7 @@ bookmarks=true]%
     \vspace{2\baselineskip}%
     \textcolor{\pageSideColor}{\adforn{54}}%
     \quad\large%
-    \setcounter{sqNo}{0}%
+    \setcounter{segNo}{0}%
   }%
   {}%
   {}%
@@ -1407,11 +1407,11 @@ bookmarks=true]%
               {%
                 \vspace{.3em}%
                 \contentspush{%
-                \ifnum\thesqNoSpare=1%
+                \ifnum\thesegNoSpare=1%
                   \sqr\else\sqn%
                 \fi\quad%
-                \ifnum\thesqNoSpare>0%
-                  Part~\thesqNoSpare%
+                \ifnum\thesegNoSpare>0%
+                  Part~\thesegNoSpare%
                 \else%
                   Part~1%
                 \fi:\quad%
@@ -1428,19 +1428,19 @@ bookmarks=true]%
 %{\adforn{10}~\large\raggedright}{}{}
 %{}[][]
 
-\newcommand\printSideQuestsInRegion[1]{
-  \label{sqList:#1}
+\newcommand\printThreadsInRegion[1]{
+  \label{threadList:#1}
   \printcontents[#1]{f}{2}{\setcounter{tocdepth}{3}}
 }
 
-\newcommand\printAllSideQuests[1]{
+\newcommand\printAllThreads[1]{
   \foreach \x in {#1}{
     \ifglsentryexists{\x}{%
       \section*{\Glsfmttext{\x}}
     }{%
       \section*{\x}
     }%
-    \label{sq:\x}
+    \label{threads:\x}
     \printcontents[\x]{f}{2}{\setcounter{tocdepth}{3}}
   }
   \vspace{2em}

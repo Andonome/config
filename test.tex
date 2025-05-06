@@ -145,35 +145,35 @@ Words are needed after each subsection to avoid the boxes making problems.
 
 \chapter{Side Quests}
 
-\declareSQareas{Slums,Artgate}
+\declareRegions{Slums,Artgate}
 
 Featuring losing \glspl{hp} beyond the \gls{edge}, possibly during \gls{cTwo}.
 
 \begin{multicols}{2}
 
-\sidequest{Cleaning Up}
+\thread{Cleaning Up}
 
 \lipsum[2]
 
-\sqpart{Slums}% AREA
+\segment{Slums}% AREA
 {Noisy Neighbours}% NAME
 {who celebrate their new baby all week}% SUMMARY
 
 \lipsum[3]
 
-\sqpart{Slums}% AREA
+\segment{Slums}% AREA
 {The Rally}% NAME
 {for equal rights for squirrels}% SUMMARY
 
 \lipsum[3]
 
-\sqpart{Artgate}% AREA
+\segment{Artgate}% AREA
 {The Proposal}% NAME
 {Countess Bleachclaw wants a quieter town}% SUMMARY
 
 \lipsum[3]
 
-\stopcontents[sq]
+\stopcontents[segments]
 
 \end{multicols}
 
@@ -181,11 +181,11 @@ Featuring losing \glspl{hp} beyond the \gls{edge}, possibly during \gls{cTwo}.
 
 \section*{Slums}
 
-\printSideQuestsInRegion{Slums}
+\printThreadsInRegion{Slums}
 
 \section*{Artgate}
 
-\printSideQuestsInRegion{Artgate}
+\printThreadsInRegion{Artgate}
 
 \handout{config/markets/town}
 
