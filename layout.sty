@@ -1314,7 +1314,7 @@ bookmarks=true]%
   \label{#1}%
 }
 
-%%%%% Side Quests
+%%%%% Threads
 
 \newcommand\declareRegions[1]{
   \foreach \area in {segments,#1}%
@@ -1322,12 +1322,12 @@ bookmarks=true]%
     \stopcontents[\area]}
 }
 
-% the first side quest gets a ticked box in the toc.
+% the first thread gets a ticked box in the toc.
 % the rest get an empty box, so the GM can tick it once it's ready.
 
 \newcommand{\threadToc}{\printcontents[\region]{l}{2}{\section*{Summaries}\setcounter{tocdepth}{3}}}
 
-% Change the to depth from 2 to 3 in order to output a miniature table of contents on all side quests
+% Change the to depth from 2 to 3 in order to output a miniature table of contents on all threads
 \newcommand{\threadMiniToc}{%
   \printcontents[segments]{t}{3}{\setcounter{tocdepth}{3}}%
 }
@@ -1375,7 +1375,7 @@ bookmarks=true]%
               [3em]
               {%
                 \contentspush{\scshape\large%
-                \ifnum\thesegNoSpare=0 % The Side Quest no is set to 0 to stop
+                \ifnum\thesegNoSpare=0 % The thread num is set to 0 to stop
                 % the first part being ready.
                   1%
                 \else%
