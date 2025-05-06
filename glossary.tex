@@ -159,7 +159,7 @@
   Characters heal a number of \glsfmtplural{hp} each week equal to half their current total (minimum 1), along with all \glsfmtplural{mp} and~\glsfmtplural{fp}},
   }
 
-\longnewglossaryentry{sq}{
+\longnewglossaryentry{thread}{
   name={Side Quests},
   text={Side~Quest},
   prefix={a\space},
@@ -173,14 +173,14 @@
   name={Segments},
   text={Segment},
   prefix={a\space},
-  parent={sq},
+  parent={thread},
   type={mech},
   description={describe events which can happen at any time, anywhere within their \glsentrytext{region}.
-  Some \glsfmtplural{sq} have all of their Segments in a single \glsentrytext{region}, while others have Segments which jump between \glsfmtplural{region}.
+  Some \glsfmtplural{thread} have all of their Segments in a single \glsentrytext{region}, while others have Segments which jump between \glsfmtplural{region}.
 
   Some Segments have a `\glsentrytext{squash}' symbol, meaning they should be run at the same time as the next available Segment in the \glsentrytext{region}.
 
-  Once the Segments concludes, it should be marked as done with a `\glsentrytext{sqr}\hspace{-.5em}\textbackslash~', and the next Segment in the same \glsentrytext{sq} becomes ready (`\glsentrytext{sqr}')},
+  Once the Segments concludes, it should be marked as done with a `\glsentrytext{sgr}\hspace{-.5em}\textbackslash~', and the next Segment in the same \glsentrytext{thread} becomes ready (`\glsentrytext{sgr}')},
   }
 
 \longnewglossaryentry{interval}{
@@ -257,12 +257,12 @@
   text={Region},
   prefix={a\space},
   type={mech},
-  parent={sq},
+  parent={thread},
   category={rules},
   nonumberlist,
   description={are broad types of areas, such as `Town', or `Forest'.
 
-  Whenever the \glsfmtplural{pc} go from one Region to another, the \glsentrytext{gm} checks for the next available \glsentrytext{segment} in that Region (marked `\glsentrytext{sqr}')},
+  Whenever the \glsfmtplural{pc} go from one Region to another, the \glsentrytext{gm} checks for the next available \glsentrytext{segment} in that Region (marked `\glsentrytext{sgr}')},
   }
 
 % Actions
@@ -2644,23 +2644,23 @@ While floods occur, everyone gains a +1 Bonus to their Water \glsentrytext{spher
   sort=ASquash,
   nonumberlist,
   name={\Vesta},
-  description={Play this \glsentrytext{sq} at the same time as the available one (i.e. not from the same \glsentrytext{sq})},
+  description={Play this \glsentrytext{thread} at the same time as the available one (i.e. not from the same \glsentrytext{thread})},
 }
 
-\newglossaryentry{sqn}{
+\newglossaryentry{sgn}{
   type=symbols,
-  sort=Asqn,
+  sort=Asgn,
   nonumberlist,
   name={\Square},
-  description={\Glsentrytext{sq} is not ready yet},
+  description={\Glsentrytext{thread} is not ready yet},
 }
 
-\newglossaryentry{sqr}{
+\newglossaryentry{sgr}{
   type=symbols,
-  sort=Asqr,
+  sort=Asgr,
   nonumberlist,
   name={\CheckedBox},
-  description={\Glsentrytext{sq} is ready},
+  description={\Glsentrytext{thread} is ready},
 }
 
 \newglossaryentry{vlg}{
@@ -2687,6 +2687,6 @@ While floods occur, everyone gains a +1 Bonus to their Water \glsentrytext{spher
 \newcommand{\Gn}{\gls{Gn}} % gnome
 \newcommand{\Nl}{\gls{Nl}} % gnoll
 \newcommand{\squash}{\gls{squash}} % multi-part side quest
-\newcommand{\sqr}{\glsentrytext{sqr}} % multi-part side quest
-\newcommand{\sqn}{\glsentrytext{sqn}} % multi-part side quest
+\newcommand{\sgr}{\glsentrytext{sgr}} % multi-part side quest
+\newcommand{\sgn}{\glsentrytext{sgn}} % multi-part side quest
 
