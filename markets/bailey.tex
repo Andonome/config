@@ -146,7 +146,7 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
     \showArmourPrice{\partialchain}{18}%
   \end{nametable}
 }{
-  \ifnum\value{r12}>9
+  \ifodd\value{r3}
     \renewcommand\npcsymbol{\glsentrysymbol{sylf}}
     \begin{nametable}[lYYcYc]{At \composeHumanName, the Fletcher's}
 
@@ -170,6 +170,10 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
   \begin{nametable}[lYcYc]{\composeHumanName's Weaponry}
 
   \textbf{Name} & \textbf{Attack} & \textbf{Damage} & \textbf{\Glsfmttext{weight}} & \textbf{Cost} \\\hline
+
+    \ifodd\value{r3}\else
+    Arrows  &  --- & --- &  $\frac{1}{10}$ & \mkPrice[cp]{28}  \\
+    \fi
 
   \showWeapon{\Dagger} & \mkPrice{2} \\
 
