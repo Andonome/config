@@ -92,7 +92,10 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
     Cart & 13 &  \mkPrice{13} \\
     Rushlights & 0 & \mkPrice[cp]{1} \\
   \else
-    Boat for 6 & 16 &  \mkPrice{16} \\
+    \setcounter{Strength}{\value{r6}}
+    \multiply\value{Strength} by 10
+    \addtocounter{Strength}{0}
+    Boat for \arabic{r6} & 1\arabic{r6} &  \mkPrice{\value{Strength}} \\
   \fi
 
   Tinder box & 0 & \mkPrice[cp]{3} \\
