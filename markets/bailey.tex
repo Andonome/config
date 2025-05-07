@@ -87,7 +87,11 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
 
   Tinder box & 0 & \mkPrice[cp]{3} \\
 
-  Torch & 1 & \mkPrice[cp]{11} \\
+  \ifodd\value{r2}
+    Lisk-fat
+  \else
+    Tar
+  \fi \glsfmttext{torch} & \ensuremath{\frac{1}{3}} & \mkPrice[cp]{11} \\
 
 \end{nametable}
 
