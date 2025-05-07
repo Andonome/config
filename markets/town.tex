@@ -22,7 +22,7 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
   \rareMarketItem[7]{Green hat}{0}{4}%
   \rareMarketItem[8]{Orange hat}{0}{5}%
   \rareMarketItem[9]{Purple hat}{0}{7}%
-  \marketItem[cp]{Bandages}{0}{2}
+  \marketItem[cp]{Rescue kit {\footnotesize (needle, bandages, whiskey~phial: +1~Bonus)}}{0}{11}
   \ifnum\value{temperature}=0
     \marketItem[cp]{Salty \rations}{1}{5}
     \hline
@@ -230,16 +230,18 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
 
   \rareMarketItem[7]{Earth \Glsentrytext{elixir}}{1}{24}%
 
-  Medical supplies (+1~Bonus) & 0 & \mkPrice[cp]{30} \\
+  \marketItem[cp]{Rescue kit {\footnotesize (needle, bandages, whiskey~phial: +1~Bonus)}}{0}{21}
 
-  Medical supplies (+2~Bonus) & 1 & \mkPrice{3} \\
+  \rareMarketItem[7]{Medical box {\footnotesize (everything included: +3~Bonus)}}{2}{9}%
+
+  \marketItem{Medical kit {\footnotesize (balms and ointments: +2~Bonus)}}{1}{3}
 
 \end{nametable}
 
 {
   \footnotesize
   \noindent
-  \Glsfmttext{mixer} \marketMixer\ has $1D3$ of each item and will purchase \glsentrytext{ingredient} for \glsfmtplural{sphere} which the \glsentrytext{temple} currently lacks for \mkPrice{12}.
+  \Glsfmttext{mixer} \marketMixer\ has $1D3$ of each item and will purchase \glsfmtplural{ingredient} for \glsfmtplural{sphere} which the \glsentrytext{temple} currently lacks for \mkPrice{12}.
 }
 
 \renewcommand\npcsymbol{\glsentrysymbol{paik}}
