@@ -4,6 +4,12 @@
   \section*{River \Glsfmttext{village} Market}
 \fi
 
+\ifodd\value{r3}
+  \togglefalse{marketBeasts}
+\else
+  \toggletrue{marketBeasts}
+\fi
+
 \noindent
 All purchases in \pgls{village} require a full morning or afternoon.
 Farmers chat, then barter, and finally refer the buyer to a neighbour.
@@ -37,17 +43,17 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
     \rareMarketItem[9]{Fate \Glsentrytext{boon}}{1}{24}%
     \marketItem{Cup of tea}{0}{0}%
   \end{nametable}
-  \setcounter{track}{\value{r12}}
   \multiply\value{track} by 2%
-  \addtocounter{track}{\value{rn4tn1}}
-  \footnotesize She'll purchase any \glsentrytext{ingredient} for \arabic{track}~\glsfmtplural{sp}.
+  \textit{I'll take any \glsentrytext{ingredient} for \arabic{r12}~\glsfmtplural{sp}%
+  \ifnum\value{r6b}=4%
+    and \pgls{sp} if you can bring my cat `Nothing' back.%
+  \fi.}
 \end{minipage}
 \fi
 
 \renewcommand\npcsymbol{\flourish}
-\ifodd\value{r3}\else
+\iftoggle{marketBeasts}{
   \begin{boxtable}[Lc]
-    \renewcommand\npcsymbol{\flourish}
     \textbf{Beasts} & \textbf{Cost} \\\hline
     Donkey & \mkPrice{4} \\
 
@@ -58,7 +64,9 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
     Hunting Dog & \mkPrice{4} \\
 
   \end{boxtable}
-\fi
+
+  {\footnotesize(\sffamily \roll{Wits}{Cultivation}, \glsfmttext{tn}~9 to check the animal stats)}
+}{}
 
 \begin{boxtable}[Lc]
 
@@ -210,5 +218,23 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
 \fi
 
 \end{multicols}
+
+\iftoggle{marketBeasts}{
+  \clearpage
+  \begin{multicols}{2}
+    \donkey
+
+    \horse
+    \columnbreak
+
+    \mule
+
+    \huntingdog
+
+    \ifnum\value{r12}=7
+      \cat
+    \fi
+  \end{multicols}
+}{}
 
 \stepcounter{diceNo}
