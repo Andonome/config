@@ -72,10 +72,12 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
 
   \textbf{Hospitality} & \textbf{Cost} \\\hline
 
+  \ifodd\value{r4}
   Bed in \composeHumanName's stable & \mkPrice{0} \\
 
   Hearty meal with the \composeHumanName\ family and \arabic{r12} kids & \ifnum\value{temperature}>0\mkPrice[cp]{2}\else\mkPrice[cp]{4}\fi \\
 
+  \fi
   Hardened \rations & \mkPrice[cp]{15} \\
 
   Salty \rations & \mkPrice[cp]{15} \\
