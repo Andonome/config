@@ -36,12 +36,12 @@ booklet.pdf: | STYLE_FILES HANDOUTS $(DROSS)
 	$(RUN) booklet.tex
 	$(CP) $(DROSS)/booklet.pdf booklet.pdf
 
-/tmp/p_1.pdf: booklet.pdf
+$(DROSS)/p_1.pdf: booklet.pdf | $(DROSS)
 	pdfjam --angle '90' $< 1 --outfile $@
 
-/tmp/p_2.pdf: booklet.pdf
+$(DROSS)/p_2.pdf: booklet.pdf | $(DROSS)
 	pdfjam --angle '-90' $< 2 --outfile $@
-rules.pdf: /tmp/p_1.pdf /tmp/p_2.pdf ## One-page rules summary
+rules.pdf: $(DROSS)/p_1.pdf $(DROSS)/p_2.pdf ## One-page rules summary
 	pdfunite $^ $@
 
 markets.pdf: config/market.sty $(wildcard config/markets/*) | $(DROSS) ## Price-sheets for baileys and town
