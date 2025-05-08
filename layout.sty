@@ -935,8 +935,6 @@ bookmarks=true]%
   \addtocounter{r2b}{-1}
 \newcounter{r2c}
   \setcounter{r2c}{2}
-\newcounter{r2d}
-  \setcounter{r2d}{1}
 \newcounter{r3}
 \setcounter{r3}{\month}
   \divide\value{r3} by 4
@@ -1011,13 +1009,6 @@ bookmarks=true]%
     \setcounter{r2c}{1}%
   \else%
     \stepcounter{r2c}%
-  \fi%
-}
-
-\newcommand{\randomtwoD}{%
-  \ifnum\value{r2d}>1%
-  \setcounter{r2d}{1}\else%
-  \stepcounter{r2d}%
   \fi%
 }
 
