@@ -180,23 +180,23 @@
       \addtocounter{age}{\value{\x}}%
     \fi%
   }%
-  \ifStrSame{\race}{Dwarf}{\addAbility{Tenacity: Half penalties from poison.}%
+  \ifStrSame{\race}{Dwarf}{\addAbility{Tenacity: Half penalties from poison}%
     \multiply\value{age} by 2%
     \addtocounter{age}{30}%
   }{}%
-  \ifStrSame{\race}{Elf}{\addAbility{Thermal Apathy: take no \glsentrylongpl{ep} from natural heat variations.}%
+  \ifStrSame{\race}{Elf}{\addAbility{Thermal Apathy: take no \glsentrylongpl{ep} from natural heat variations}%
     \multiply\value{age} by 4%
     \addtocounter{age}{60}%
   }{}%
-  \ifStrSame{\race}{Gnoll}{\addAbility{Teeth: grab and grapple in a single manoeuvre.}%
+  \ifStrSame{\race}{Gnoll}{\addAbility{Teeth: grab and grapple in a single manoeuvre}%
     \multiply\value{age} by 2%
     \addtocounter{age}{10}%
   }{}%
-  \ifStrSame{\race}{Gnomes}{\addAbility{Attentiveness: Roll 2D6+3 for \glsfmtplural{restingaction}.}%
+  \ifStrSame{\race}{Gnome}{\addAbility{Attentiveness: Roll 2D6+3 for \glsfmtplural{restingaction}}%
     \multiply\value{age} by 4%
     \addtocounter{age}{30}%
   }{}%
-  \ifStrSame{\race}{Human}{\addAbility{Marching Legs: each \glsentrylong{ep} spent to march gains an extra~mile.}%
+  \ifStrSame{\race}{Human}{\addAbility{Marching Legs: each \glsentrylong{ep} spent to march gains an extra~mile}%
     \multiply\value{age} by 4%
     \addtocounter{age}{15}%
   }{}%
