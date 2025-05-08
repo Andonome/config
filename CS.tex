@@ -245,6 +245,8 @@ circle label/.style = {
   }
 
 
+\setAgeAndAbilities
+
 %----
   \posterbox[
     adjusted title={Knacks \& Abilities},
@@ -260,11 +262,7 @@ circle label/.style = {
   \setlength{\parskip}{0mm}%
     \iftoggle{examplecharacter}{
       \sffamily
-      \ifStrSame{\race}{Dwarf}{Tenacity: Half penalties from poison}{}%
-      \ifStrSame{\race}{Elf}{Thermal Apathy: take no \glsentrylongpl{ep} from natural heat variations}{}%
-      \ifStrSame{\race}{Gnoll}{Teeth: grab and grapple in a single manoeuvre}{}%
-      \ifStrSame{\race}{Gnomes}{Attentiveness: Roll 2D6+3 for \glsfmtplural{restingaction}}{}%
-      \ifStrSame{\race}{Human}{Marching Legs: each \glsentrylong{ep} spent to march gains an extra~mile}{}%
+      \Abilities
       \par
       \vspace{2\baselineskip}
       \Knacks
