@@ -6,7 +6,8 @@
 
 \newcommand\setCycle[2]{%
   \setcounter{fenestraYear}{\year}%
-  \multiply\value{fenestraYear}by 4
+  \multiply\value{fenestraYear}by 4%
+  \addtocounter{fenestraYear}{0}%
   \setcounter{cycle}{#1}% Usually the current month's number, so March = 3.
   \whileboolexpr{%
     test {\ifnumcomp{\value{cycle}}{>}{3}}%
@@ -30,27 +31,27 @@
 
 \newcommand\showCycle[1][\value{cycle}]{%
   \ifcase#1%
-    \gls{cOne}%
+    \glsentrytext{cOne}%
     \renewcommand\cycleDesc{\glsentrydesc{cOne}}%
   \or%
-    \gls{cTwo}%
+    \glsentrytext{cTwo}%
     \renewcommand\cycleDesc{\glsentrydesc{cTwo}}%
   \or%
-    \gls{cThree}%
+    \glsentrytext{cThree}%
     \renewcommand\cycleDesc{\glsentrydesc{cThree}}%
   \or%
-    \gls{cFour}%
+    \glsentrytext{cFour}%
     \renewcommand\cycleDesc{\glsentrydesc{cFour}}%
   \or%
-    \gls{cFive}%
+    \glsentrytext{cFive}%
     \renewcommand\cycleDesc{\glsentrydesc{cFive}}%
-  \else
-    \gls{cSix}%
+  \else%
+    \glsentrytext{cSix}%
     \renewcommand\cycleDesc{\glsentrydesc{cSix}}%
   \fi%
 }
 
-\newcommand\setTemperature{
+\newcommand\setTemperature{%
   \ifcase\value{cycle}%
     \setcounter{temperature}{1}%
   \or%
