@@ -890,6 +890,10 @@
   \raggedright \ent{Spheres} & #1
 }
 
+% Argument 1 means 'number of mutations'.
+% Argument 2 means 'how serious is the mutation' (and takes a counter).
+% So '\mutation{r3t4}' = 'big mutation',
+% '\mutation[3]{r3c}' = '3 medium mutations'.
 \newcommand\mutation[2][1]{%
   \Repeat{#1}{%
     \ifcase\value{#2}\relax%
