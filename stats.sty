@@ -921,13 +921,7 @@
   \setcounter{humanNameSuffNo}{\value{r4}}
 
 \newcommand\humanNamePrefix{%
-  \randomfour%
-  \addtocounter{humanNameNo}{\value{r4}}%
-  \ifnum\value{humanNameNo}>22%
-    \addtocounter{humanNameNo}{-22}%
-  \fi%
-  \ifcase\value{humanNameNo}\relax%
-  \or%
+  \ifcase\value{humanNameNo}%
     Stoor%
   \or%
     Fetter%
@@ -975,15 +969,14 @@
     Keel%
   \else%
     Gout%
+    \setcounter{humanNameNo}{-1}%
   \fi%
+  \addtocounter{humanNameNo}{\value{r2c}}%
+  \stepcounter{r2c}%
 }
 
 \newcommand\humanNameSuffix{%
-  \randomthreeB%
-  \addtocounter{humanNameSuffNo}{\value{r3b}}%
-  \ifnum\value{humanNameSuffNo}>22\addtocounter{humanNameSuffNo}{-22}\fi%
-  \ifcase\value{humanNameSuffNo}\relax%
-  \or%
+  \ifcase\value{humanNameSuffNo}%
     bloat%
   \or%
     itch%
@@ -1001,6 +994,8 @@
     groat%
   \or%
     fen%
+  \or%
+    bilk%
   \or%
     nash%
   \or%
@@ -1025,9 +1020,13 @@
     fray%
   \or%
     rag%
+    \setcounter{humanNameSuffNo}{-1}%
   \else%
     blathe%
+    \setcounter{humanNameSuffNo}{-1}%
   \fi%
+  \addtocounter{humanNameSuffNo}{\value{r3c}}%
+  \stepcounter{r3c}%
 }
 
 \newcommand\composeHumanName{%
