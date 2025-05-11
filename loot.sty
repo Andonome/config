@@ -166,21 +166,20 @@
     elemental \glsentrytext{boon}%
     }%
     {%
+      \stepcounter{equipmentWeight}%
       \ifcase\value{diceNo2}\relax%
       \or%
-        auroch hooves%
+        sack of auroch hooves%
       \or%
-        sack of griffin feathers%
+        \glsfmtplural{marchingMushroom}%
       \or%
-        marching mushrooms%
+        Earth~\gls{boon}%
       \or%
-        Earth \gls{boon}%
-      \or%
-        Air \gls{boon}%
+        Air~\gls{boon}%
       \or%
         stirge queen in a phial%
       \or%
-        woodspy beak%
+        \glsfmttext{woodspy} beak%
       \or%
         Fire \gls{boon}%
       \or%
