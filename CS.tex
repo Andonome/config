@@ -106,9 +106,9 @@ circle label/.style = {
     }
     ]
      \hspace{2em}
-     \path[circle label={FP = XP / 10 + Charisma}] (0,-1) arc (-90:360-90:1.1);
+     \path[circle label={FP = XP / 10 + Charisma}] (0,-1) arc (-90:225-45:1);
       \draw[dotted] (0,0) circle (1) node [align=left,text width=3.5em] {};
-     \path[circle label={MP = 3 x spheres}] (0,-3.6) arc (-90:360-90:1.1);
+     \path[circle label={MP = 3 x spheres}] (0,-3.7) arc (-90:180-90:1);
       \draw[dotted] (0,-2.7) circle (1);
     \end{tikzpicture}
     \vspace{3em}
@@ -279,20 +279,24 @@ circle label/.style = {
   ]
   {name=xp,
   column=4,
-  row=16,
-  span=2.3,
-  rowspan=2.5}{
+  row=15,
+  span=2.55,
+  rowspan=2.8}{
     \vspace{-.85em}%
     \renewcommand{\arraystretch}{1.1}%
     \addtolength{\tabcolsep}{-0.55em}
-    \begin{tabular}{cccccccccc}
-      \Repeat{9}{\XPboxEmpty &}
-      \XPboxEmpty \\
-      \Repeat{5}{\XPboxSpent &}%
-      \Repeat{4}{\XPboxEmpty &}
-      \XPboxEmpty \\
-      \Repeat{9}{\Circle &}
-      \Circle \\
+    \begin{tabular}{rcccccccccc}
+      X: \Repeat{5}{&\Diamondblack }
+      \Repeat{5}{&\glsentrysymbol{fp}}%
+      \\
+      \hphantom{X:\space}\Repeat{10}{&\glsentrysymbol{fp}}%
+      \\
+      V: \Repeat{0}{&\XPboxSpent}%
+      \Repeat{0}{&\XPboxEarned}%
+      \Repeat{10}{&\XPboxEmpty}%
+      \\
+      I: & \Repeat{4}{ & \Circle &}
+      \\
     \end{tabular}
   }
 

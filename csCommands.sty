@@ -13,9 +13,9 @@
 \newcommand\csComments{}
 \newcommand\mapLabels{}
 
-\newcommand\XPboxEmpty{\large\Square}
-\newcommand\XPboxEarned{\Large\CheckedBox}
-\newcommand\XPboxSpent{\XBox}
+\newcommand\XPboxEmpty{\medcirc}
+\newcommand\XPboxEarned{\oslash}
+\newcommand\XPboxSpent{\otimes}
 
 \newcounter{Strength}
 \newcounter{Dexterity}
@@ -264,7 +264,7 @@
   }{%
     \begin{picture}(50,40)(0,0)
       \put(-20,30){\parbox{11em}{\raggedright#1}}
-      \ifnum\value{diceNo}<10%
+      \ifnum\value{diceNo}<9%
         \put(-20,0){\parbox{11em}{\lineDots}}
       \fi%
       \put(100,5){\tikz \draw[anchor=north, dotted] (0,0) node[minimum size=21mm,draw,circle] {\textcolor{\ifnum\value{diceNo}>\value{weight}%
