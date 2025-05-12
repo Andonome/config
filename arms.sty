@@ -66,9 +66,10 @@
 }
 
 \newcommand{\rock}{%
+  \set{track}{Strength}%
   \rangedWeapon{rock}%
   {0}% Att
-  {1}% Dam
+  {\arabic{track}}% Dam
   {2}% AP Cost
 }
 
