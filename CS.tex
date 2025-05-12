@@ -164,19 +164,19 @@ circle label/.style = {
     \scshape
     \begin{tabular}{lr}
       \hline
-      \Glsfmtlongpl{ap} & \iftoggle{examplecharacter}{\arabic{ap}}{} \\
+      \Glsfmtlongpl{ap} & \iftoggle{examplecharacter}{ \hspace{-3em} \arabic{ap}}{} \\
       \textcolor{gray}{\footnotesize $3 + Speed$} \\
       \hline
-      Attack & \iftoggle{examplecharacter}{\absNum{att}}{} \\
+      Attack & \iftoggle{examplecharacter}{ \hspace{-3em} \absNum{att}}{} \\
       \textcolor{gray}{\footnotesize $Dexterity + Melee + Weapon$} \\
       \hline
-      Damage & \iftoggle{examplecharacter}{ \dmg{damage} }{} \\
+      Damage & \iftoggle{examplecharacter}{ \hspace{-3em} \dmg{damage} }{} \\
       \textcolor{gray}{\footnotesize $1D6 + Strength + Weapon$} \\
       \hline
-      \Glsfmttext{covering} & \iftoggle{examplecharacter}{\arabic{covering}}{} \\
+      \Glsfmttext{covering} & \iftoggle{examplecharacter}{ \hspace{-3em} \arabic{covering}}{} \\
       \\
       \hline
-      \Glsfmtlong{dr} & \iftoggle{examplecharacter}{\arabic{armourDR}}{} \\
+      \Glsfmtlong{dr} & \iftoggle{examplecharacter}{ \hspace{-3em} \arabic{armourDR}}{} \\
       \\
       \hline
     \end{tabular}
