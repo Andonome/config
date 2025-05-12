@@ -280,14 +280,20 @@ circle label/.style = {
   {name=xp,
   column=4,
   row=16,
-  span=2,
+  span=2.3,
   rowspan=2.5}{
-
-  \setlength{\parskip}{0mm}
-    \small Total:
-    \iftoggle{examplecharacter}{\textcolor{gray}{50}}{}
-    \\ \\
-    \small Unspent:
+    \vspace{-.85em}%
+    \renewcommand{\arraystretch}{1.1}%
+    \addtolength{\tabcolsep}{-0.55em}
+    \begin{tabular}{cccccccccc}
+      \Repeat{9}{\XPboxEmpty &}
+      \XPboxEmpty \\
+      \Repeat{5}{\XPboxSpent &}%
+      \Repeat{4}{\XPboxEmpty &}
+      \XPboxEmpty \\
+      \Repeat{9}{\Circle &}
+      \Circle \\
+    \end{tabular}
   }
 
 
