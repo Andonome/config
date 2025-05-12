@@ -91,7 +91,7 @@
     interior engine=path,
     valign=center,
     colback=white,
-  ]{name=gumption,column=6,row=10,span=2,rowspan=5}{
+  ]{name=gumption,column=6,row=15,span=2,rowspan=5}{
     \begin{tikzpicture}[
 circle label/.style = {
         postaction={
@@ -111,7 +111,7 @@ circle label/.style = {
      \path[circle label={MP = 3 x spheres}] (0,-3.6) arc (-90:360-90:1.1);
       \draw[dotted] (0,-2.7) circle (1);
     \end{tikzpicture}
-    \vspace{1em}
+    \vspace{3em}
   }
 %----
   \posterbox[adjusted title={Combat Skills},
@@ -279,14 +279,14 @@ circle label/.style = {
   ]
   {name=xp,
   column=4,
-  row=15,
+  row=16,
   span=2,
-  rowspan=3}{
+  rowspan=2.5}{
 
   \setlength{\parskip}{0mm}
     \small Total:
     \iftoggle{examplecharacter}{\textcolor{gray}{50}}{}
-    \tcblower
+    \\ \\
     \small Unspent:
   }
 
