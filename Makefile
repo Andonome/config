@@ -8,7 +8,7 @@ include vars
 images:
 	mkdir images
 images/wide.jpg:| images
-	convert -size 100x60 xc:skyblue -fill white -stroke black  -draw "ellipse 50,30 40,20 45,270" images/wide.jpg
+	magick -size 100x60 xc:skyblue -fill white -stroke black  -draw "ellipse 50,30 40,20 45,270" images/wide.jpg
 
 ALL_FILES := LOCTEX STYLE_FILES | $(DROSS)
 
