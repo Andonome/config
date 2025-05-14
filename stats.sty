@@ -817,10 +817,13 @@
     \addtocounter{weight}{\value{Strength}}%
   \fi%
   \set{enc}{Speed}%
-  \addtocounter{enc}{\value{Air}}%
   \addAbility{Wings %
-  \ifnum\value{enc}<\value{weight}%
-    (can glide, but not fly)
+  \ifnum\value{Speed}<\value{weight}%
+    \ifnum\value{Air}>0%
+      (can fly by spending \pgls{mp})
+    \else%
+      (can glide, but not fly)
+    \fi%
   \else%
     \ifnum\value{enc}=\value{weight}%
       (moves at x4 speed, must run before takeoff)%
