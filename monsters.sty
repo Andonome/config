@@ -68,11 +68,11 @@
 
 \newcommand{\griffin}[1][\npc{\A\T[\arabic{r2t3}]}{\arabic{noAppearing}~Griffins}]{
   \Animal{#1}%
-  {{r2}{r2c}{r2b}}% BODY
+  {{r2}{r2c}{r3}}% BODY
   {2}% WITS
   {
     \set{Brawl}{2}
-    \set{Athletics}{r3}
+    \set{Athletics}{r3b}
     \set{Flight}{r3c}
     \set{Vigilance}{r2t3}
   }% SKILLS
@@ -146,11 +146,11 @@
       \set{Flight}{r3c}
       \set{Deceit}{r2c}
       \set{Vigilance}{3}
-      \set{Air}{rn1t0}
+      \set{Air}{r3b}
       \set{Fire}{r3}
       \set{Fate}{rn3t3}
       \set{Water}{rn1t2}
-      \set{Earth}{r3b}
+      \set{Earth}{rn1t0}
     }% SKILLS
     {%
       \ifnumcomp{\value{Wits}}{>}{\value{Charisma}}{\snapcaster}{\laststand},

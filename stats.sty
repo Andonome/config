@@ -693,6 +693,7 @@
   \clean
   \set{hp}{#3}
   \set{Dexterity}{#4}
+  \set{Strength}{-5}
   \set{toHit}{#4}
   \addtocounter{toHit}{10}
   \set{Speed}{#5}
@@ -812,20 +813,19 @@
 % DR.
 
 \newcommand{\flight}{%
-  \addtocounter{weight}{\value{maxWeight}}%
-  \setcounter{enc}{\value{dr}}%
-  \roundUp{enc}%
-  \addtocounter{enc}{\value{Strength}}%
-  \setcounter{track}{\value{Speed}}%
-  \addtocounter{track}{\value{Air}}%
+  \ifnum\value{Strength}>0%
+    \addtocounter{weight}{\value{Strength}}%
+  \fi%
+  \set{enc}{Speed}%
+  \addtocounter{enc}{\value{Air}}%
   \addAbility{Wings %
-  \ifnum\value{enc}>\value{track}%
+  \ifnum\value{enc}<\value{weight}%
     (can glide, but not fly)
   \else%
-    \ifnum\value{enc}=\value{track}%
-      (moves at x8 speed, must run before takeoff)%
+    \ifnum\value{enc}=\value{weight}%
+      (moves at x4 speed, must run before takeoff)%
     \else%
-      (moves at x8 speed)%
+      (moves at x4 speed)%
     \fi%
   \fi%
   }%
