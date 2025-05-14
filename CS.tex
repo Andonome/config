@@ -109,11 +109,11 @@ circle label/.style = {
      % For 17mm coins the arc needs a radius of 8.5mm. To create a small gap we choose 9mm.
      % The arc needs a starting position 9mm above the center of the circle.
      \path[circle label={FP = XP / 10 + Charisma}] (0,-9mm) arc (-90:360-90:9mm);
-      \draw[dotted] (0,0) node [align=left,text width=3.5em,minimum size=17mm,draw,circle] {};
+      \draw[dotted] (0,0) node [minimum size=17mm,draw,circle] {};
      % To have proper spacing between the two circles we place the second circle 22mm below
      % the first and adjust the position of the arc 9mm above at -31mm.
      \path[circle label={MP = 3 x spheres}] (0,-31mm) arc (-90:360-90:9mm);
-      \draw[dotted] (0,-22mm) node [align=left,text width=3.5em,minimum size=17mm,draw,circle] {};
+      \draw[dotted] (0,-22mm) node [minimum size=17mm,draw,circle] {};
     \end{tikzpicture}
     \vspace{3em}
   }
