@@ -54,14 +54,19 @@
 }{
   \subsubsection*{Spells}
   
-  Roll \iftoggle{snapCaster}{Wits}{Charisma} + \textit{Skill} to cast.
-  Spells cost a number of \glsfmtlongpl{mp} equal to their level `Requirements', and a number of \glsfmtlongpl{ap} equal to their Cost\iftoggle{snapCaster}{}{ +1}.
+  To cast a spell, spend
+  \iftoggle{snapCaster}{
+    \glspl{mp} and \glspl{ap} equal to the Requirements Cost, then roll
+    \roll{Wits}{the} \glsfmttext{sphere} listed.
+  }{
+    \glspl{mp} equal to the Requirements Cost, and the same number of \glspl{ap} plus~1 (so level 1 \glspl{spell} cost 2~\glspl{ap}),
+    then roll \roll{Charisma}{the} \glsfmttext{sphere} listed.
+  }
 
   \begin{multicols}{2}
     \charSpells
   \end{multicols}
 }
-
 
 {\huge Cause of Death \bigLine}
 \clearpage
