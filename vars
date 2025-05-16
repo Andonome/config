@@ -47,9 +47,8 @@ $(DROSS)/%.pdf: %.tex $(wildcard config/*.sty) | $(DROSS)/
 %.pdf: $(DROSS)/%.pdf
 	$(CP) $(DROSS)/$@ $@
 
-%.pdf: %/main.tex $(wildcard config/*sty) | $(DROSS)/
+$(DROSS)/%.pdf: %/main.tex $(wildcard config/*sty) | $(DROSS)/
 	$(COMPILER) -jobname=$(<D) $<
-	cp $(DROSS)/$@ $@
 
 $(AUX_REFERENCES): $(DROSS)/%.aux: $(AUX_DIR)/%.aux | $(DROSS)/
 	cp $< $@

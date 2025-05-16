@@ -21,6 +21,7 @@ $(DROSS)/test.pdf: $(wildcard *.sty) $(wildcard spells/*.tex) $(DROSS)/
 docs.pdf: images/extracted/wide.jpg ## Make documentation
 
 character_sheets.pdf: ## Character sheets
+markets.pdf: ## Current price sheets
 
 $(DROSS)/p_1.pdf: $(DROSS)/booklet.pdf
 	pdfjam --angle '90' $< 1 --outfile $@
