@@ -1,51 +1,31 @@
-targets += docs.pdf rules.pdf character_sheets.pdf $(DROSS)/test.pdf markets.pdf
-output += images/wide.jpg booklet.pdf
+pdfs += rules.pdf character_sheets.pdf $(DROSS)/test.pdf markets.pdf
 
 output: docs.pdf
 
 include vars
 
-images:
-	mkdir images
-images/wide.jpg:| images
-	magick -size 100x60 xc:skyblue -fill white -stroke black  -draw "ellipse 50,30 40,20 45,270" images/wide.jpg
+$(DROSS)/docs.pdf: images/extracted/wide.jpg
 
-ALL_FILES := LOCTEX STYLE_FILES | $(DROSS)
+dependence += magick
+
+images/extracted/wide.jpg: images/extracted/
+	magick -size 100x60 xc:skyblue -fill white -stroke black  -draw "ellipse 50,30 40,20 45,270" $@
 
 .PHONY: test
 test: $(DROSS)/test.pdf
-$(DROSS)/test.pdf: $(ALL_FILES) $(DROSS)
+$(DROSS)/test.pdf: $(wildcard *.sty) $(wildcard spells/*.tex) $(DROSS)/
 	$(RUN) test.tex
 	$(GLOS) test
 	$(RUN) test.tex
 
-$(DBOOK): docs.pdf
-	$(CP) $< $@
-docs.pdf: images/wide.jpg STYLE_FILES | $(DROSS) ## Make documentation
-	$(RUN) docs.tex
-	$(GLOS) docs
-	$(RUN) docs.tex
-	$(CP) $(DROSS)/docs.pdf docs.pdf
-character_sheets.pdf: HANDOUTS STYLE_FILES | $(DROSS) ## Character sheets
-	$(RUN) character_sheets.tex
-	$(RUN) character_sheets.tex
-	$(CP) $(DROSS)/character_sheets.pdf character_sheets.pdf
+docs.pdf: images/extracted/wide.jpg ## Make documentation
 
-booklet.pdf: | STYLE_FILES HANDOUTS $(DROSS)
-	$(RUN) booklet.tex
-	$(RUN) booklet.tex
-	$(CP) $(DROSS)/booklet.pdf booklet.pdf
+character_sheets.pdf: ## Character sheets
 
-$(DROSS)/p_1.pdf: booklet.pdf | $(DROSS)
+$(DROSS)/p_1.pdf: $(DROSS)/booklet.pdf
 	pdfjam --angle '90' $< 1 --outfile $@
-
-$(DROSS)/p_2.pdf: booklet.pdf | $(DROSS)
+$(DROSS)/p_2.pdf: $(DROSS)/booklet.pdf
 	pdfjam --angle '-90' $< 2 --outfile $@
 rules.pdf: $(DROSS)/p_1.pdf $(DROSS)/p_2.pdf ## One-page rules summary
 	pdfunite $^ $@
-
-markets.pdf: config/market.sty $(wildcard config/markets/*) | $(DROSS) ## Price-sheets for baileys and town
-	$(RUN) -jobname markets markets/all.tex
-	$(RUN) -jobname markets markets/all.tex
-	$(CP) $(DROSS)/$@ .
 

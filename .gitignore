@@ -1,8 +1,6 @@
-rubbish
 *.png
 *.jpeg
-*pdf
-images/wide.jpg
+*.pdf
 svg-inkscape/
 .switch-gls
 .count.tex

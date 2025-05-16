@@ -8,8 +8,8 @@ CP := ln -f
 BOOK != basename "$(shell pwd)"
 TITLE != head -1 README.md | tail -c+3 | tr ' ' '_'
 DROSS = rubbish
-DBOOK = $(DROSS)/$(BOOK).pdf
-COMPILER = latexmk -e '$$max_repeat=6' -file-line-error -output-directory=$(DROSS) -pdflua -interaction=nonstopmode -halt-on-error -shell-escape -r config/.latexmkrc -jobname=$(BOOK)
+DBOOK ?= $(DROSS)/$(BOOK).pdf
+COMPILER = latexmk -e '$$max_repeat=6' -file-line-error -output-directory=$(DROSS) -pdflua -interaction=nonstopmode -halt-on-error -shell-escape -r config/.latexmkrc
 RELEASE = $(TITLE).pdf
 GLOS := makeglossaries -d $(DROSS)
 RUN := lualatex -output-directory $(DROSS) -shell-escape
@@ -33,51 +33,47 @@ book: $(RELEASE) ## Compile the pdf
 $(RELEASE): $(DBOOK)
 	@$(CP) $< $@
 
-targets += $(RELEASE)
+$(DBOOK): main.tex
+	$(COMPILER) -jobname=$(BOOK) $<
 
-$(AUX_DIR):
+pdfs += $(RELEASE)
+
+%/:
 	mkdir $@
-$(AUX_REFERENCES): $(DROSS)/%.aux: $(AUX_DIR)/%.aux | $(DROSS)
+	echo '*' > $@.gitignore
+
+$(DROSS)/%.pdf: %.tex $(wildcard config/*.sty) | $(DROSS)/
+	$(COMPILER) -jobname=$(basename $(@F)) $<
+%.pdf: $(DROSS)/%.pdf
+	$(CP) $(DROSS)/$@ $@
+
+%.pdf: %/main.tex $(wildcard config/*sty) | $(DROSS)/
+	$(COMPILER) -jobname=$(<D) $<
+	cp $(DROSS)/$@ $@
+
+$(AUX_REFERENCES): $(DROSS)/%.aux: $(AUX_DIR)/%.aux | $(DROSS)/
 	cp $< $@
 
 .PHONY: refs
 refs: $(AUX_DIR)/$(BOOK).aux
-$(AUX_DIR)/$(BOOK).aux: $(DROSS)/$(BOOK).aux | $(AUX_DIR)
+$(AUX_DIR)/$(BOOK).aux: $(DROSS)/$(BOOK).aux | $(AUX_DIR)/
 	cp $< $@
 $(DROSS)/$(BOOK).aux: $(DBOOK)
 
-.PHONY: LOCTEX
-LOCTEX: $(wildcard *.tex)
-
-.PHONY: HANDOUTS
-HANDOUTS: config/CS.tex config/booklet.tex config/fold_front.tex config/fold_back.tex
-
-.PHONY: STYLE_FILES
-STYLE_FILES: $(wildcard config/*.sty)
-
-.PHONY: EXTERNAL
-EXTERNAL: $(wildcard $(DROSS)/*.glg) | $(DROSS)
-
 qr.tex: README.md config/vars
-	@printf '%s' '\qrcode[height=.2\textwidth]{$(QR_TARGET)}' > qr.tex
+	printf '%s' '\qrcode[height=.2\textwidth]{$(QR_TARGET)}' > qr.tex
 .switch-gls:
-	@touch .switch-gls
+	touch .switch-gls
 
 output += qr.tex .switch-gls svg-inkscape
 
-images/extracted/:
-	mkdir -p $@
-	echo '*' > $@.gitignore
 images/extracted/inclusion.tex: images/extracted/
 	printf '%s\n' '\externaldocument{$(BOOK)}' > $@
 	printf '%s\n' '\newcommand\bookTitle{$(TITLE)}' | tr '_' ' ' >> $@
 
 output += images/extracted/
 
-$(DROSS):
-	mkdir $(DROSS)
-
-output += $(DROSS)
+output += $(DROSS)/
 
 dependencies = git git-lfs lualatex latexmk inkscape
 
@@ -91,6 +87,7 @@ help: ## Print the help message
 		sort | \
 		column -s ':' -t
 
+.PHONY: graph
 graph: ## Show a dependency graph (needs graph-easy and make2graph)
 	make -Bind $(TARG) | make2graph | graph-easy --boxart
 
@@ -98,17 +95,16 @@ graph: ## Show a dependency graph (needs graph-easy and make2graph)
 A3_12_signature_%.pdf: %.pdf
 	pdfjam --landscape --paper a3paper --nup 1x1 --signature 12 $< -o $@
 
-pdfs += $(wildcard *.pdf)
 A3_pdfs = $(patsubst %.pdf, A3_12_signature_%.pdf, $(pdfs))
 
 .PHONY: printables
 printables: $(A3_pdfs)
 
-output += $(targets)
+output += $(pdfs)
 
 .PHONY: all
-all: $(targets) ## All standard targets
+all: $(pdfs) ## All standard targets
 
 .PHONY: clean
 clean: ## Clean repo, including cross-reference files
-	$(RM) -r $(output)
+	$(RM) -r $(output) $(wildcard *.pdf)
