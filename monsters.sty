@@ -16,7 +16,7 @@
   {{2}{-2}{1}}% BODY
   {1}% WITS
   {
-    \setcounter{Athletics}{2}
+    \set{Athletics}{r0t1}%
   }% SKILLS
   {}% KNACKS
   {\quadruped}% ABILITIES
@@ -41,7 +41,7 @@
   {r2}% WITS
   {
     \set{Brawl}{r2}
-    \setcounter{Athletics}{2}
+    \set{Athletics}{r0t1}%
   }% SKILLS
   {\charge, \unstoppable}% KNACKS
   {\quadruped}% ABILITIES
@@ -97,7 +97,7 @@
   {{-1}{r0t1}{r2b}}% BODY
   {0}% WITS
   {%
-    \set{Athletics}{2}%
+    \set{Athletics}{r2}%
     \set{Survival}{2}%
   }% SKILLS
   {}% KNACKS
@@ -111,7 +111,7 @@
   {r3b}% WITS
   {%
     \set{Brawl}{r2}
-    \set{Athletics}{2}
+    \set{Athletics}{rn1t2}
     \set{Stealth}{r4t6}
     \set{Survival}{r3}
     \set{Intelligence}{r3c}
@@ -1465,8 +1465,9 @@
     {%
       \ifnum\value{Intelligence}>1
         \set{Academics}{r3b}
+      \else
+        \set{Athletics}{r3b}
       \fi
-      \set{Athletics}{r3b}
       \set{Brawl}{rn1t2}
       \set{Caving}{r3c}
       \set{Empathy}{rn3t3}
@@ -1496,7 +1497,7 @@
   {{r3b}{rn1t2}{r2b}}% BODY
   {r2c}% WITS
   {
-    \set{Athletics}{1}
+    \set{Athletics}{rn1t2}
     \set{Vigilance}{r2}
   }% SKILLS
   {}% KNACKS
