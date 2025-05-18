@@ -135,8 +135,11 @@
     {\ifnum\value{\s}>0 \addtocounter{mp}{3}\fi}%
   \renewcommand\equipment{#6}%
   #7%
+  \foreach \s in {Athletics,Brawl,Melee}%
+    {\ifnum\value{\s}<0 \setcounter{\s}{0}\fi}%
   \computeStats%
   \computeEncumbrance%
+  \computeSprint%
 }
 
 \newcommand\statblock[1]{
@@ -281,6 +284,8 @@
 \newcounter{spentMP}
 \newcounter{hp}
 \newcounter{fp}
+\newcounter{sprint}
+\newcounter{movement}
 \newcounter{numberofdice}
 \newcounter{damagebonus}
 \newcounter{xp}
@@ -467,7 +472,9 @@
     {\setcounter{\s}{0}}%
   \foreach \s in {encumbrance,dr,covering,weaponDamage,weaponBonus,weaponWeight,armourDR,armourWeight,fp,heft,weight,equipmentWeight,damage,knacks,mp,spentMP,xpbonus,xp}%
     {\setcounter{\s}{0}}%
-  \setcounter{noAppearing}{1}%
+  \foreach \s in {noAppearing,sprint}%
+    {\setcounter{\s}{1}}%
+    \setcounter{movement}{3}%
 }
 
 %%       _   _        _ _           _            
@@ -588,6 +595,15 @@
   \addtocounter{weight}{-\value{encumbrance}}%
 }
 
+\newcommand\computeSprint{%
+  \addtocounter{movement}{\value{Athletics}}%
+  % Sprint should start at '1', or '2' for quadrupeds.
+  \multiply\value{movement}by\value{sprint}%
+  \set{sprint}{movement}%
+  \multiply\value{sprint}by\value{ap}%
+  \addtocounter{sprint}{0}%
+}
+
 %%     _               _        _
 %%  __| | ___ _ __ ___| |_ __ _| |_ ___ 
 %% / _` |/ _ \ '__/ __| __/ _` | __/ __|
@@ -623,6 +639,9 @@
           , %
         }%
       }{}%
+    \iftoggle{verbose}{%
+      Mv.~\arabic{movement}, %
+    }{}%
     \iftoggle{genExamples}{%
       HP~\arabic{hp},
       \ifnum\value{mp}>0%

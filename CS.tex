@@ -166,6 +166,7 @@ circle label/.style = {
   rowspan=2}{%
     \vspace{\baselineskip}%
     \scshape
+    \renewcommand{\arraystretch}{1}%
     \begin{tabular}{lr}
       \hline
       \Glsfmtlongpl{ap} & \iftoggle{examplecharacter}{ \hspace{-3em} \arabic{ap}}{} \\
@@ -181,6 +182,10 @@ circle label/.style = {
       \\
       \hline
       \Glsfmtlong{dr} & \iftoggle{examplecharacter}{ \hspace{-3em} \arabic{armourDR}}{} \\
+      \\
+      \hline
+      Sprint & \iftoggle{examplecharacter}{ \hspace{-3em} \arabic{sprint}}{} \\
+      \textcolor{gray}{\footnotesize $(3 + Athletics) \times \Glsfmtplural{ap}$} \\
       \\
       \hline
     \end{tabular}
@@ -283,7 +288,7 @@ circle label/.style = {
   ]
   {name=xp,
   column=4,
-  row=15,
+  row=16,
   span=2.55,
   rowspan=2.8}{
     \vspace{-.85em}%
