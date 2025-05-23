@@ -45,7 +45,7 @@
 %% It remains unterminated so you can add Costs.
 
 \newcommand\showWeapon[1]{%
-  #1 \weaponName & \absNum{weaponBonus} & \absNum{weaponDamage} & \arabic{weaponWeight}
+  #1 \weaponName & \absNum{weaponBonus} & \absNum{weaponDamage} & \ifnum\value{weaponWeight}<1$\frac{1}{3}$\else\arabic{weaponWeight}\fi
 }
 
 \newcounter{secondWeaponWeight}
@@ -110,7 +110,7 @@
 \newcommand{\chair}{\weapon{Chair}{2}{1}}
 \newcommand{\club}{\weapon{Club}{1}{1}}
 \newcommand{\cudgel}{\weapon{Cudgel}{0}{0}}
-\newcommand{\Dagger}{\weapon{Dagger}{0}{2}}
+\newcommand{\Dagger}{\weapon[-1]{Dagger}{0}{2}}
 \newcommand{\firepoker}{\weapon{Firepoker}{1}{0}}
 \newcommand{\flail}{\weapon{Flail}{0}{3}}
 \newcommand{\giantsword}{\weapon{Giant Sword}{4}{3}}

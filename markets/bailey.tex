@@ -185,6 +185,10 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
 
   \showWeapon{\Dagger} & \mkPrice{2} \\
 
+  \showWeapon{\flail} & \mkPrice{2} \\
+
+  \showWeapon{\weapon{Club}{\value{rn1t0}}{\value{rn1t2}}} & \mkPrice[cp]{3} \\
+
   \ifnum\value{r3}=2%
 
     \showWeapon{\shortsword} & \mkPrice{9} \\
@@ -193,6 +197,8 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
 
     \showWeapon{\weapon[1]{Glaive}{3}{2}} & \mkPrice{4} \\
   \else
+    \showWeapon{\javelin} & \mkPrice{4} \\
+
     \showWeapon{\glaive} & \mkPrice{9} \\
 
     \showWeapon{\roundshield} & \mkPrice{3} \\
