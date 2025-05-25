@@ -107,17 +107,21 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
 
   Copper bell & 0 & \mkPrice[cp]{30} \\
 
-  \rareMarketItem[14]{Lode stone}{0}{8}%
+  \rareMarketItem{Lode stone}{0}{8}%
 
-  \rareMarketItem[10]{Magnifying globe}{2}{4}%
+  \rareMarketItem{Magnifying globe}{2}{4}%
 
-  \rareMarketItem[12]{Magnifying glass}{1}{7}%
+  \rareMarketItem{Magnifying glass}{1}{7}%
 
-  \rareMarketItem[12]{Strange map}{0}{5}%
+  \rareMarketItem{Strange map}{0}{5}%
 
-  \rareMarketItem[7]{Oil-lantern}{1}{15}%
+  \rareMarketItem[6]{Gnomish lantern {\small(needs Gnomish lantern~oil)} }{1}{9}%
 
-  Lantern oil (3~hr.) & \ensuremath{\frac{1}{3}} & \mkPrice[cp]{30} \\
+  \rareMarketItem[7]{Gnomish lantern oil (1~hr.) }{ \ensuremath{\frac{1}{10}} }{1}%
+
+  \rareMarketItem[6]{Oil-lantern}{1}{15}%
+
+  Lantern oil (1~hr.) & \ensuremath{\frac{1}{3}} & \mkPrice[cp]{20} \\
 
   Rushlights & 0 & \mkPrice[cp]{1} \\
 
@@ -328,7 +332,7 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
   \rareMarketItem{Water \Glsentrytext{ingredient} (\glsentrytext{woodspy} beak)\ifodd\value{r3b}\footnotemark[1]\else\footnotemark[4]\fi}{1}{13} %
   \rareMarketItem{Fate \Glsentrytext{ingredient} (\ifnum\value{temperature}=0 human blood from the \glsentrytext{court}\else brown ooze\fi)\footnotemark[1]}{1}{14}
 
-  Lock-pick set\footnotemark[1] & 1 & \mkPrice{10} \\
+  Lock-pick set\ifodd\value{r2}\footnotemark[1]\else\footnotemark[4]\fi & 1 & \mkPrice{10} \\
 
 \end{nametable}
 
