@@ -760,9 +760,6 @@ bookmarks=true]%
 \setcounter{adf}{0}
 
 \newcommand\flourish{%
-  \ifnum\value{adf}>16%
-    \addtocounter{adf}{-16}%
-  \fi%
   \ifcase\value{adf}%
   \adforn{32}%
   \or%
@@ -797,6 +794,7 @@ bookmarks=true]%
   \adforn{52}%
   \else%
   \adforn{55}%
+  \setcounter{adf}{-1}%
   \fi%
   \stepcounter{adf}%
 }

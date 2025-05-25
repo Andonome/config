@@ -14,6 +14,7 @@
       \addtocounter{gold}{\value{r3b}}%
       \addtocounter{gold}{\value{rn1t2}}%
     \else%
+      \addtocounter{gold}{\value{r6}}%
       \ifnum\value{gold}<34%
         \addtocounter{gold}{\value{r4t6}}%
       \else%
@@ -36,7 +37,7 @@
   \\
 }
 
-\newcommand\rareMarketItem[4][9]{%
+\newcommand\rareMarketItem[4][7]{%
   \randomize%
   \ifnumcomp{\value{r12}}{>}{#1}{#2 & #3 & \mkPrice{#4} \\}{}%
 }
