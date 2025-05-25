@@ -255,6 +255,11 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
 
   Snacks & 3~\glsfmtplural{cp} \\
 
+  % Using this random counter just because nothing else is, and it won't change
+  % when other numbers randomize.
+  \addtocounter{spellPlusTwo}{\value{r6}}%
+  `The Spectacular' & 1\arabic{spellPlusTwo}~\glspl{cp} \\
+
   Bribery\footnote{Bribery is paid to \pgls{sunGuard}.}
   (petty crime) & \mkPrice{30} \\
 
@@ -373,6 +378,8 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
     Carrying weapons in town is illegal, so buy it and fuck off!
   \end{speechtext}
 \fi
+
+\fightAdvert
 
 \end{multicols}
 

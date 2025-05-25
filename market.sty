@@ -72,3 +72,117 @@
 \newcommand\marketArmourSeller{\composeHumanName}
 \newcommand\marketTanner{\composeHumanName}
 
+
+%%%%%% Adverts for the Pit of Justice %%%%%%
+
+\newcommand\randomWeapon{%
+  \ifcase\value{r4}\relax%
+  \or%
+    a spoon%
+  \or%
+    five shortswords%
+  \or%
+    a dagger and full plate armour%
+  \else%
+    just one rusted greatsword%
+  \fi%
+  \stepcounter{r4}
+  \stepcounter{r6b}
+}
+
+\newcommand\fightAdvert{%
+  \begin{tcolorbox}[ornamented,
+  adjusted title={Spectacular},
+  ]%
+  \it%
+  \center%
+  Come see \underline{the \Glsfmttext{court}}\qquad%
+  1\arabic{spellPlusTwo}~\glsfmtplural{cp}
+  \sc
+  \vspace{.8em}
+  \randomize%
+  \randomize%
+  \begin{tabularx}{\linewidth}{YcX}
+  \hiderowcolors
+  \raggedright
+  \large
+  \ifcase\value{r6}\relax%
+  \or%
+    \ifnum\value{temperature}>1%
+      \Pgls{crawler}%
+    \else%
+      A bear%
+    \fi%
+  \or%
+    A gaggle of \arabic{r4b}0~geese%
+  \or%
+    \arabic{r4t6}~blind men %
+    \ifodd\value{r3c}%
+      with glaives%
+    \else%
+      who think they have armour%
+    \fi%
+  \or%
+    A lonely robber with \randomWeapon%
+  \or%
+    A clean shaven dwarf%
+  \else%
+    \arabic{r4t6}~\gls{guard} deserters with \randomWeapon%
+  \fi%
+  &
+  \glsentrysymbol{paik} $\underbrace{\quad vs \quad}$ \glsentrysymbol{paik}
+  &
+  \large
+  \raggedleft
+  \ifcase\value{r12}\relax%
+  \or%
+    a gnomish illusionist (they never play fair!)%
+  \or%
+    \arabic{r2t4}~\glspl{griffin}%
+  \or%
+    \arabic{r4t6} \glspl{woodspy}%
+  \or%
+    1\arabic{r3t4}~blind men with \randomWeapon%
+  \or%
+    a lying \gls{seneschal}%
+  \or%
+    the `Undefeatable' \composeHumanName%
+  \or%
+    the last jester, wielding \randomWeapon%
+  \or%
+    \arabic{r6}~\gls{sunGuard} warriors%
+  \or%
+    \arabic{r2t4} disobedient youngsters%
+  \or%
+    `the Water-\gls{witch}'%
+  \else%
+    their own mother%
+  \fi%
+  \end{tabularx}%
+  \par
+  \vspace{-1em}
+  \it%
+  \ifcase\value{r6b}\relax%
+  \or%
+    \small Half price for %
+    \ifodd\value{r2b}%
+      couples%
+    \else%
+      the infirm%
+    \fi%
+  \or%
+    \ldots chained together%
+  \or%
+    \ldots over hot coals%
+  \or%
+    \ldots all covered in oils%
+  \or%
+    One rock per spectator%
+  \or%
+    in a battle of boats%
+  \else%
+    \ldots with a surprise \gls{woodspy}%
+  \fi%
+  {\large\Repeat{\value{r4b}}{!}}%
+  \end{tcolorbox}
+}
