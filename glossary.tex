@@ -58,7 +58,6 @@
 \glssetcategoryattribute{rules}{nonumberlist}{true}
 \glssetcategoryattribute{rules}{noindex}{true}
 \glssetcategoryattribute{rules}{glossnamefont}{textsc}
-\glssetcategoryattribute{abbreviation}{glossnamefont}{textit}
 
 \glsdefpostdesc{location}{.\textcolor{\pageSideColor}{\hrulefill\flourish}}
 \glssetcategoryattribute{location}{glossnamefont}{textsc}
@@ -69,8 +68,10 @@
 
 \IfFileExists{.switch-gls}{
   \setabbreviationstyle{long-short-sc-desc}
+  \setabbreviationstyle[acronym]{long-short-sc-desc}
 }{
   \setabbreviationstyle{short-sc-desc}
+  \setabbreviationstyle[acronym]{short-sc-desc}
 }
 
 %%%%%%%%%% Preambles %%%%%%%%%%
@@ -91,7 +92,6 @@
 \newacronym[
   description={a grunge-fantasy RPG, which has no house-rules, and never will},
   sort={T0},
-  name={BIND},
   nonumberlist,
   type={peeps},
 ]{bind}{BIND}{BIND Is Not DnD}
@@ -233,7 +233,7 @@
     \end{boxtable}},
   shortplural={XP},
   prefix={one\space},
-  name={Experience Points (XP)},
+  name={Experience Points},
   category={endswithlist},
   parent={storypoint},
   nonumberlist,
@@ -332,7 +332,6 @@
 
 \newacronym[
   description={means the number players need to roll on the dice to achieve a \emph{tie} with the task.
-    Rolling higher indicates they have their prize, rolling lower means some nasty outcome is upon them, and rolling a tie means both (or neither).
     \noindent
     \begin{boxtable}
          \textbf{TN} & \textbf{Difficulty} \\
@@ -342,11 +341,10 @@
          10 & Tricky -- find a good price in the market. \\
          12 & Professional -- fix the cart by Sundown. \\
          14 & Specialist -- Plan a three-storey stone building. \\
-    \end{boxtable}},
+    \end{boxtable}
+    Rolling over the Tie Number means they have their prize, rolling under means some nasty outcome is upon them, and rolling a tie means both (or neither)},
   shortplural={TNs},
   sort={S1},
-  category={endswithlist},
-  name={Tie Number (TN)},
   parent={action},
   prefix={a\space},
   ]{tn}{TN}{Tie Number}
@@ -651,7 +649,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   description={estimate of a creature's combat abilities, and the value of any \glsentrytext{monster}'s corpse},
   shortplural={CRs},
   prefix={a\space},
-  name={Creature Ratings (CR)},
+  name={Creature Ratings},
   nonumberlist,
   parent={statblock},
   ]{cr}{CR}{Combat Rating}
@@ -663,7 +661,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   prefixfirst={a\space},
   symbol={\text{$\vcenter{\hbox{\scalebox{0.8}{\bigcirc}}}$}},
   parent={statblock},
-  name={Health Points (HP)},
+  name={Health Points},
   ]{hp}{HP}{Health Point}
 
 \longnewglossaryentry{round}{
@@ -685,7 +683,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   \hspace*{1em} During attacks, both sides of the \glsentrytext{resistedaction} must spend \glsfmtplural{ap}.
   Negative \glsfmtplural{ap} becomes a Penalty to all actions; so if a character has 0 \glsfmtplural{ap}, and three others attack them, they must spend at least 1~\glsentrytext{ap} to defend, gaining a -1 Penalty after the first attack, and a -2 Penalty after the second},
   shortplural={AP},
-  name={Action Points (AP)},
+  name={Action Points},
   parent={round},
   prefix={an\space},
   ]{ap}{AP}{Action Point}
@@ -721,7 +719,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   prefixfirst={a\space},
   symbol={\Diamond},
   parent={combat},
-  name={Fate Points (FP)},
+  name={Fate Points},
   ]{fp}{FP}{Fate Point}
 
 \longnewglossaryentry{weapon}{
@@ -962,7 +960,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   shortplural={EP},
   prefix={an\space},
   parent={weight},
-  name={Exhaustion Points (EP)},
+  name={Exhaustion Points},
   ]{ep}{EP}{Exhaustion Point}
 
 \longnewglossaryentry{coin}{
@@ -1033,7 +1031,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 }
 
 \newacronym[
-  name={Mana Points (MP)},
+  name={Mana Points},
   shortplural={MP},
   prefix={an\space},
   prefixfirst={a\space},
@@ -1250,7 +1248,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 \newacronym[
   description={is the Gnomish art of measuring time.
   By its count, the current year is \arabic{fenestraYear}},
-  name={Gnomish Machine Time (GMT)},
   prefix={a\space},
   parent={cosmology},
   type={main},
