@@ -26,6 +26,7 @@ AUX_REFERENCES = $(patsubst $(AUX_DIR)/%.aux, $(DROSS)/%.aux, $(AUX_EXTERNAL))
 
 DEPS += $(wildcard config/*.sty)
 DEPS += $(AUX_REFERENCES)
+DEPS += $(wildcard *.tex)
 
 .PHONY: book
 book: $(RELEASE) ## Compile the pdf
