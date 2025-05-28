@@ -92,7 +92,7 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
 
 \end{boxtable}
 
-\begin{nametable}[Xcc]{\composeHumanName's Wood Salvage Goods}
+\begin{nametable}[Lcc]{\composeHumanName's Wood Salvage Goods}
 
   \textbf{Travel} & \textbf{Weight} & \textbf{Cost} \\\hline
 
@@ -149,7 +149,7 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
   \renewcommand\npcsymbol{\glsentrysymbol{wrecan}}
   \begin{nametable}[lYcYc]{At \composeHumanName\ the Smith's}
     \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{\glsentrytext{covering}} & \textbf{Weight} & \textbf{Cost} \\\hline
-    \ifnum\value{r12}>10
+    \ifnum\value{r12}>8
       \showArmourPrice{\completechain}{28}%
     \fi
     \showArmourPrice{\partialchain}{18}%
@@ -242,13 +242,10 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
   \marketItem{Rope, 50'}{1}{3}
 \end{nametable}
 
-\ifnum\value{cycle}=0
+\ifnum\value{cycle}=1\relax%
+\else%
   \addtocounter{r12}{4}
   \textit{I'll buy \glspl{ingredient} of Fate or Air for \arabic{r12}~\glsfmtplural{sp}.}
-\else
-  \ifnum\value{cycle}>1
-    \textit{I'll buy \glspl{ingredient} of Fate or Air for \arabic{r12}~\glsfmtplural{sp}.}
-  \fi
 \fi
 
 \end{multicols}
