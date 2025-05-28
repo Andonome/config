@@ -93,7 +93,8 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
   New song composition & \mkPrice{4}/ song \\
 
   \ifodd\value{r4}%
-    \tiny\composeHumanName, the Fence\footnotemark[1]  & \tiny 50\% and shhh\ldots \\
+    \stepcounter{r6}
+    \tiny\marketFence, the Fence\footnotemark[1] & \tiny \arabic{r6}0\% and shhh\ldots \\
   \fi%
 
 \end{nametable}
@@ -209,7 +210,8 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
   Rat Soup & \mkPrice[cp]{2} \\
 
   \ifodd\value{r4b}%
-    \tiny\marketFence, the Fence\footnotemark[1] & \tiny 50\% and shhh\ldots \\
+    \stepcounter{r6}
+    \tiny\marketFence, the Fence\footnotemark[1] & \tiny \arabic{r6}0\% and shhh\ldots \\
   \fi%
 \end{nametable}
 
@@ -273,7 +275,7 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
 
 \end{nametable}
 
-\footnotetext[4]{There is no item, just 1D6 thugs who want your money.}
+\footnotetext[4]{There is no sale, just 1D6 thugs who want your money.}
 
 \ifodd\value{r3}\else
   \begin{speechtext}
@@ -339,7 +341,7 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
   \rareMarketItem{Water \Glsentrytext{ingredient} (\glsentrytext{woodspy} beak)\ifodd\value{r3b}\footnotemark[1]\else\footnotemark[4]\fi}{1}{13} %
   \rareMarketItem{Fate \Glsentrytext{ingredient} (\ifnum\value{temperature}=0 human blood from the \glsentrytext{court}\else brown ooze\fi)\footnotemark[1]}{1}{14}
 
-  Lock-pick set\ifodd\value{r2}\footnotemark[1]\else\footnotemark[4]\fi & 1 & \mkPrice{10} \\
+  Lock-pick set\ifodd\value{r2}\footnotemark[1]\else\footnotemark[4]\fi (+\arabic{r2}~Bonus) & 0 & \mkPrice{10} \\
 
 \end{nametable}
 
