@@ -1,0 +1,165 @@
+\documentclass[10pt]{book}
+
+\usepackage{config/bind}
+
+\geometry{scale=1,
+  includefoot,
+  showframe,
+  margin=13pt,
+  marginparsep=0pt,
+  marginparwidth=0pt,
+  bottom=10pt,
+  paperwidth=74mm,
+  paperheight=105mm}
+
+\renewcommand\headrule{}
+%\rfoot{\thepage}
+%\lfoot{\thepage}
+\fancyfoot[O]{X\hfill\thepage}
+
+\settoggle{verbose}{true}
+
+\newcommand\showGls[1]{%
+  \vspace{1em}
+  \noindent%
+  {\scshape\bfseries\glsfmtname{#1}}
+  \glsentrydesc{#1}
+  \par
+}
+
+\fancypagestyle{booklet}{
+  \fancyfoot[C]{\thepage}
+  \fancyfoot[C]{XYXZZZZ\thepage}
+} 
+
+\pagestyle{empty}
+
+\renewcommand\footnoterule{}
+
+\begin{document}
+
+\frontmatter
+
+
+\small
+
+\begin{center}
+  \includesvg[width=.8\textwidth]{logo}
+  \par
+  \vspace{3\baselineskip}
+  {\Large\scshape The Rules-Light RPG$^{*}$}
+  \vfill\null
+  \ast\tiny It weighs 5 grams!
+\end{center}
+
+\pagebreak
+
+\input{config/start.tex}
+
+\pagebreak
+
+
+\pagestyle{booklet}
+\pagenumbering{Alph}
+
+\showGls{trait}
+
+\showGls{attribute}
+
+\showGls{skill}
+
+\showGls{equipment}
+
+\pagebreak[0]
+
+\null
+\rotatebox{-90}{\noindent\begin{minipage}{\textheight}
+\footnotesize
+  \begin{tabularx}{\linewidth}{X|LLL}
+    \hline
+    & \textbf{Intelligence} & \textbf{Wits} & \textbf{Charisma} \\\hline
+    \textbf{Academics} & Recalling facts & Resisting an enchantment spell & Storytelling \\
+    \textbf{Athletics} & Finding the easiest route to climb & Identifying optimal climbing conditions & Stage acrobatics \\
+    \textbf{Deceit} & Crafting a plausible lie & Making a quick excuse & Implausible lies \\
+    \textbf{Stealth} & Identifying the best hiding spot & Quickly hiding & Sleuthing a banquet, uninvited \\
+    \textbf{Survival} & Planning a new, hidden trail & Spotting a rare plant & Selling a map \\
+    \textbf{Vigilance} & Investigating a crime scene & Spotting an illusion spell & Hearing the best gossip \\
+    \hline
+  \end{tabularx}
+\end{minipage}}
+
+\pagebreak
+
+\rotatebox{-90}{\noindent\begin{minipage}{\textheight}
+  \footnotesize
+  \begin{tabularx}{\linewidth}{X|LLL}
+    \hline
+    & \textbf{Strength} & \textbf{Dexterity} & \textbf{Speed} \\\hline
+    \textbf{Academics} & Orating to a massive crowd & Forgery & Courier Runs \\
+    \textbf{Athletics} & Lifting heavy loads & Climbing & Sprinting \\
+    \textbf{Deceit} & Intimidation & Feigning an injury & Spreading a rumour across an entire town \\
+    \textbf{Stealth} & Hiding in a hay bail & Moving quietly & Escaping into a crowd \\
+    \textbf{Survival} & Brace against the wind & Running on rocky terrain & Fleeing a stampede \\
+    \textbf{Vigilance} & Keeping watch all night & Feeling for an exit in the dark & Searching a full forest for a particular tree \\
+    \hline
+  \end{tabularx}
+\end{minipage}}
+
+\pagebreak[0]
+\null
+
+\showGls{action}
+
+\showGls{tn}
+
+\showGls{resistedaction}
+
+\showGls{natural}
+
+\showGls{bandAct}
+
+\showGls{restingaction}
+
+\showGls{weight}
+
+\showGls{ep}
+
+\showGls{combat}
+
+\showGls{round}
+
+\showGls{ap}
+
+\showGls{hp}
+
+\showGls{armour}
+
+\showGls{dr}
+
+\showGls{covering}
+
+\showGls{fp}
+
+\showGls{retreat}
+
+\showGls{weapon}
+
+\showGls{vitalShot}
+
+\showGls{projectile}
+
+\showGls{bow}
+
+\showGls{impromptuThrownWeapons}
+
+\showGls{casting}
+
+\showGls{mp}
+
+\showGls{spell}
+
+\showGls{downtime}
+
+\showGls{interval}
+
+\end{document}

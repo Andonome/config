@@ -1,4 +1,4 @@
-pdfs += rules.pdf character_sheets.pdf $(DROSS)/test.pdf markets.pdf
+pdfs += character_sheets.pdf $(DROSS)/test.pdf markets.pdf
 
 output: docs.pdf
 
@@ -22,11 +22,4 @@ docs.pdf: images/extracted/wide.jpg ## Make documentation
 
 character_sheets.pdf: csCommands.sty CS.tex backpage.tex ## Character sheets
 markets.pdf: market.sty $(wildcard markets/*.tex) ## Current price sheets
-
-$(DROSS)/p_1.pdf: $(DROSS)/booklet.pdf
-	pdfjam --angle '90' $< 1 --outfile $@
-$(DROSS)/p_2.pdf: $(DROSS)/booklet.pdf
-	pdfjam --angle '-90' $< 2 --outfile $@
-rules.pdf: $(DROSS)/p_1.pdf $(DROSS)/p_2.pdf ## One-page rules summary
-	pdfunite $^ $@
 
