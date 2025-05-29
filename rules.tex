@@ -22,6 +22,13 @@
     \def\BGadjust{5mm, 5mm}
   \fi
   \begin{tikzpicture}[overlay,remember picture]
+    \ifnum\value{page}=10
+      \draw[gray, dotted] (-0.15,0) -- (-0.15,-10);
+    \fi
+    \ifnum\value{page}=14
+      \draw[gray, dotted] (-0.15,0) -- (-0.15,-10);
+      \draw[gray, dotted] (0,0) -- (5,0);
+    \fi
     \path 
       ++(\BGpageanchor)
       +(\BGadjust)
