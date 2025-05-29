@@ -1,47 +1,59 @@
-\documentclass[10pt]{book}
+\documentclass[10pt,twoside]{book}
 
 \usepackage{config/bind}
 
-\geometry{scale=1,
+\geometry{%
   includefoot,
   showframe,
-  margin=13pt,
-  marginparsep=0pt,
-  marginparwidth=0pt,
-  bottom=10pt,
+  margin=5mm,
+  marginparsep=10pt,
+  marginparwidth=10pt,
   paperwidth=74mm,
-  paperheight=105mm}
-
-\renewcommand\headrule{}
-%\rfoot{\thepage}
-%\lfoot{\thepage}
-\fancyfoot[O]{X\hfill\thepage}
-
-\settoggle{verbose}{true}
-
-\newcommand\showGls[1]{%
-  \vspace{1em}
-  \noindent%
-  {\scshape\bfseries\glsfmtname{#1}}
-  \glsentrydesc{#1}
-  \par
+  paperheight=105mm,
+  footskip=3mm,
 }
 
-\fancypagestyle{booklet}{
-  \fancyfoot[C]{\thepage}
-  \fancyfoot[C]{XYXZZZZ\thepage}
-} 
+\AddToHook{shipout/background}{%
+  \ifodd\value{page}
+    \def\BGpageanchor{current page.south east}
+    \def\BGadjust{-5mm, 5mm}
+  \else
+    \def\BGpageanchor{current page.south west}
+    \def\BGadjust{5mm, 5mm}
+  \fi
+  \begin{tikzpicture}[overlay,remember picture]
+    \path 
+      ++(\BGpageanchor)
+      +(\BGadjust)
+      node[
+        text centered,
+        text=black,
+        font=\titleFont,
+      ] {\thepage};
+  \end{tikzpicture}%
+}%
 
-\pagestyle{empty}
+\newcommand\showGls[1]{%
+  \needspace{1em}
+  \parindent10pt
+  \noindent%
+  {\scshape\bfseries\large\glsfmtname{#1}}
+  \glsentrydesc{#1}.
+  \par
+  \vspace{.7em}%
+}
 
-\renewcommand\footnoterule{}
+\newcommand\raggedGls[1]{%
+  \raggedright
+  \noindent%
+  {\scshape\bfseries\large\glsfmtname{#1}}
+  \glsentrydesc{#1}%
+}
 
 \begin{document}
 
 \frontmatter
-
-
-\small
+\pagenumbering{gobble}
 
 \begin{center}
   \includesvg[width=.8\textwidth]{logo}
@@ -54,25 +66,28 @@
 
 \pagebreak
 
-\input{config/start.tex}
+\begin{raggedright}
+  \input{config/start.tex}
+\end{raggedright}
 
 \pagebreak
 
+\pagenumbering{arabic}
 
-\pagestyle{booklet}
-\pagenumbering{Alph}
+\setcounter{page}{1}
+\pagestyle{plain}
+\small
 
 \showGls{trait}
 
-\showGls{attribute}
+\raggedGls{attribute}
 
-\showGls{skill}
+\vspace{.9em}
+\raggedGls{skill}.
 
+\vspace{.8em}
 \showGls{equipment}
 
-\pagebreak[0]
-
-\null
 \rotatebox{-90}{\noindent\begin{minipage}{\textheight}
 \footnotesize
   \begin{tabularx}{\linewidth}{X|LLL}
