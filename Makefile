@@ -1,5 +1,5 @@
 pdfs += character_sheets.pdf $(DROSS)/test.pdf markets.pdf
-pdfs += a7_rules.pdf 
+pdfs += rules.pdf 
 
 output: docs.pdf
 
@@ -49,4 +49,6 @@ $(DROSS)/a7_%.ps: $(DROSS)/%.ps
 $(DROSS)/a7_%.pdf: $(DROSS)/a7_%.ps
 	ps2pdf $< $@
 
+rules.pdf: $(DROSS)/a7_booklet.pdf
+	$(CP) $< $@
 
