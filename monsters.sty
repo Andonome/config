@@ -785,6 +785,9 @@
       \set{Empathy}{r2c}
       \set{Melee}{rn1t2}
       \set{Stealth}{rn3t3}
+      \ifodd\value{r4}
+        \set{Academics}{rn1t2}
+      \fi
       \set{Larceny}{r2}
       \set{Performance}{r3b}
       \ifcase\value{Strength}\relax%
