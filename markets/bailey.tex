@@ -10,15 +10,6 @@
   \toggletrue{marketBeasts}
 \fi
 
-\ifnum\value{fenestraDay}>57
-  \epigraph{Market closed for the \glsfmttext{storm}.}{}
-  \stepcounter{cycle}
-
-  These are the prices once everything opens:
-\else
-  \epigraph{\Glsfmttext{gmt}: \showCycle~\arabic{fenestraDay} (\showTemperature)}
-\fi
-
 \noindent
 \Glspl{village} have $1D6\times 10$ of each item with \glsentrytext{weight} 0, $2D6$ of each item with \glsentrytext{weight} 1, and $1D6$ of each heavier items.
 All purchases require a full morning or afternoon.
