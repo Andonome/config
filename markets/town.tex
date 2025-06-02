@@ -341,7 +341,12 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
   \rareMarketItem{Water \Glsentrytext{ingredient} (\glsentrytext{woodspy} beak)\ifodd\value{r3b}\footnotemark[1]\else\footnotemark[4]\fi}{1}{13} %
   \rareMarketItem{Fate \Glsentrytext{ingredient} (\ifnum\value{temperature}=0 human blood from the \glsentrytext{court}\else brown ooze\fi)\footnotemark[1]}{1}{14}
 
-  Lock-pick set\ifodd\value{r2}\footnotemark[1]\else\footnotemark[4]\fi (+\arabic{r2}~Bonus) & 0 & \mkPrice{10} \\
+  Lock-pick set%
+  \ifodd\value{r2}%
+    \footnotemark[1]%
+  \else%
+    \footnotemark[4]%
+  \fi (\absNum{rn1t2}) & 0 & \mkPrice{10} \\
 
 \end{nametable}
 
