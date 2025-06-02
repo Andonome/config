@@ -61,6 +61,7 @@
     \setcounter{Survival}{\value{r3}}%
     \setcounter{diceNo}{5}% DR is determined by diceNo counter.
     \addtocounter{diceNo}{-\value{r3b}}% Reduce DR by Speed.
+    \label{harvestCrawler}% See gls entry 'harvesting'
   }% SKILLS
   {}% KNACKS
   {\octopod \web \hide{\arabic{diceNo}}}% ABILITIES
@@ -87,6 +88,7 @@
   {
     \set{Brawl}{2}
     \set{Stealth}{r2t3}
+    \label{harvestDigger}% See gls entry 'harvesting'
   }% SKILLS
   {\adrenalinesurge, \perfectsneakattack}% KNACKS
   {\teeth \hide{2}}% ABILITIES
@@ -116,6 +118,7 @@
     \set{Survival}{r3}
     \set{Intelligence}{r3c}
     \addtocounter{Intelligence}{-6}
+    \label{harvestWoodspy}% See gls entry 'harvesting'
   }% SKILLS
   {}% KNACKS
   {\tentacles}% ABILITIES
@@ -129,6 +132,7 @@
   {
     \set{Athletics}{rn1t2}
     \set{Brawl}{r3c}
+    \label{harvestBasilisk}% See gls entry 'harvesting'
   }% SKILLS
   {\unstoppable}% KNACKS
   {\hide{r4t5} \hexapod \stench}% ABILITIES
@@ -1456,6 +1460,7 @@
   {
     \set{Athletics}{2}
     \set{Brawl}{r3c}
+    \label{harvestHulk}
   }% SKILLS
   {\unstoppable}% KNACKS
   {\hide{r4t5} \quadruped \stench}% ABILITIES
@@ -1650,6 +1655,7 @@
       \setcounter{Vigilance}{\value{r2c}}%
     \fi%
     \setcounter{Survival}{\value{r2}}%
+    \label{harvestWatcher}
   }% SKILLS
   {\unstoppable}% KNACKS
   {\crazyGas}% ABILITIES
@@ -1666,7 +1672,7 @@
 }
 
 \newcommand\stirgeSwarm{
-  \swarm[\flight]{Stirges}% Name
+  \swarm[\flight\label{harvestStirge}]{Stirges}% Name
   {\arabic{r12}}%
   {0}%
   {3}%
