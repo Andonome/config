@@ -8,15 +8,17 @@ mkdir -p /BIND/
 
 for b in $@; do
     git clone https://gitlab.com/bindrpg/$b
-    make -C $b all
+    make -C $b refs &
 done
 
+wait
 # The second compilation means the cross-references should work.
 
 for n in 1 2; do
     for b in $@; do
         make -C $b all
     done
+    wait
 done
 
 cp **/*.pdf /BIND/
