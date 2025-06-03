@@ -8,6 +8,7 @@
 tlmgr install \
 latex-bin \
 l3packages \
+biber \
 svn-prov \
 tools \
 fgruler bookcover \
