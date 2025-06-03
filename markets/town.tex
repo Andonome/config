@@ -277,7 +277,8 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
 
 \footnotetext[4]{There is no sale, just 1D6 thugs who want your money.}
 
-\ifodd\value{r3}\else
+\ifodd\value{r3}\relax\else
+  \null
   \begin{speechtext}
     \footnotesize
     Three copper in,

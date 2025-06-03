@@ -13,8 +13,14 @@
   footskip=3mm,
 }
 
+\setcounter{segNoSpare}{1}
+
+
 \AddToHook{shipout/background}{%
   \ifodd\value{page}
+  \shiftColours[\value{segNoSpare}]
+  \color{background}
+  \stepcounter{segNoSpare}
     \def\BGpageanchor{current page.south east}
     \def\BGadjust{-5mm, 5mm}
   \else

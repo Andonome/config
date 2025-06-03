@@ -132,8 +132,8 @@ bookmarks=true]%
 \definecolor{backgroundFive}{cmyk}{1, 0.7, 0, 0}
 \definecolor{backgroundSix}{cmyk}{0.12, 0.69, 0, 0.49}
 
-\newcommand*\shiftColours{%
-  \setcounter{track}{\thechapter}%
+\newcommand*\shiftColours[1][\thechapter]{%
+  \setcounter{track}{#1}%
   \whileboolexpr{ test {\ifnumcomp{\value{track}}{>}{6}} }%
     {\addtocounter{track}{-6}}
   \ifcase\value{track}\relax%
@@ -766,7 +766,7 @@ bookmarks=true]%
     \tableofcontents{#1}{#2}{#3}
     \flushright
     \vfill\null
-    {\footnotesize \textcolor{\pageSideColor}{Printed \today, or \showCycle~\Roman{fenestraDay}}\par}
+    {\footnotesize \textcolor{foreground}{Printed \today, or \showCycle~\Roman{fenestraDay}}\par}
   \end{titlepage}
   \frontmatter
 }
