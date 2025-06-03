@@ -119,42 +119,61 @@ bookmarks=true]%
 
 %%%% Colours %%%%%
 
+\newif\ifpride
+\pridetrue
+
 \globalcolorstrue
 
 \definecolor{background}{cmyk}{0, 0, 0, 0.1}
 \definecolor{foreground}{cmyk}{0, 0, 0, 0.9}
 
-\definecolor{backgroundOne}{cmyk}{0, 0.99, 0.99, 0.11}
-\definecolor{backgroundTwo}{cmyk}{0, 0.99, 0.99, 0.11}
-\definecolor{backgroundTwo}{cmyk}{0, 0.45, 1, 0}
-\definecolor{backgroundThree}{cmyk}{0, 0.7, 1, 0}
-\definecolor{backgroundFour}{cmyk}{1, 0, 0.7, 0.2}
-\definecolor{backgroundFive}{cmyk}{1, 0.7, 0, 0}
-\definecolor{backgroundSix}{cmyk}{0.12, 0.69, 0, 0.49}
+\newcounter{pageDarkness}
+\setcounter{pageDarkness}{50}
+
+\ifpride
+  \definecolor{backgroundOne}{cmyk}{0, 0.99, 0.99, 0.11}
+  \definecolor{backgroundTwo}{cmyk}{0, 0.99, 0.99, 0.11}
+  \definecolor{backgroundTwo}{cmyk}{0, 0.45, 1, 0}
+  \definecolor{backgroundThree}{cmyk}{0, 0.7, 1, 0}
+  \definecolor{backgroundFour}{cmyk}{1, 0, 0.7, 0.2}
+  \definecolor{backgroundFive}{cmyk}{1, 0.7, 0, 0}
+  \definecolor{backgroundSix}{cmyk}{0.12, 0.69, 0, 0.49}
+\fi
 
 \newcommand*\shiftColours[1][\thechapter]{%
-  \setcounter{track}{#1}%
-  \whileboolexpr{ test {\ifnumcomp{\value{track}}{>}{6}} }%
-    {\addtocounter{track}{-6}}
-  \ifcase\value{track}\relax%
-  \or%
-    \colorlet{background}{backgroundOne}%
-    \colorlet{foreground}{black}%
-  \or%
-    \colorlet{background}{backgroundTwo}%
-    \colorlet{foreground}{black}%
-  \or%
-    \colorlet{background}{backgroundThree}%
-    \colorlet{foreground}{black}%
-  \or%
-    \colorlet{background}{backgroundFour}%
-    \colorlet{foreground}{black!20!white!50}%
-  \or%
-    \colorlet{background}{backgroundFive}%
-    \colorlet{foreground}{black!20!white!50}%
+  \ifpride%
+    \setcounter{track}{#1}%
+    \whileboolexpr{ test {\ifnumcomp{\value{track}}{>}{6}} }%
+      {\addtocounter{track}{-6}}
+    \ifcase\value{track}\relax%
+    \or%
+      \colorlet{background}{backgroundOne}%
+      \colorlet{foreground}{black}%
+    \or%
+      \colorlet{background}{backgroundTwo}%
+      \colorlet{foreground}{black}%
+    \or%
+      \colorlet{background}{backgroundThree}%
+      \colorlet{foreground}{black}%
+    \or%
+      \colorlet{background}{backgroundFour}%
+      \colorlet{foreground}{black!20!white!50}%
+    \or%
+      \colorlet{background}{backgroundFive}%
+      \colorlet{foreground}{black!20!white!50}%
+    \else%
+      \colorlet{background}{backgroundSix}%
+      \colorlet{foreground}{black!20!white!50}%
+    \fi%
   \else%
-    \colorlet{background}{backgroundSix}%
-    \colorlet{foreground}{black!20!white!50}%
+    \setcounter{track}{100}%
+    \divide\value{track}by#1%
+    \colorlet{background}{white!10!black!\arabic{track}}%
+    \ifnum\thechapter<3%
+      \colorlet{foreground}{white!70!black!\thechapter}%
+    \else%
+      \colorlet{foreground}{black}%
+    \fi%
   \fi%
 }
 
@@ -182,7 +201,7 @@ bookmarks=true]%
 \newcounter{pageAlt}
 \setcounter{pageAlt}{100}
 
-\newcommand\pageSideColor{backgroundOne}
+\newcommand\pageSideColor{background}
 \newcommand\pageOppositeColor{black!\arabic{pageAlt}}
 
 \newtoggle{countedPage}
