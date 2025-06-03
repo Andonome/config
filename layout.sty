@@ -117,37 +117,72 @@ bookmarks=true]%
   \addtocounter{#1}{0}% Think this line's pointless? Try removing it and seeing what happens - I dare you.
 }
 
+%%%% Colours %%%%%
+
+\globalcolorstrue
+
+\definecolor{background}{cmyk}{0, 0, 0, 0.1}
+\definecolor{foreground}{cmyk}{0, 0, 0, 0.9}
+
+\definecolor{backgroundOne}{cmyk}{0, 0.99, 0.99, 0.11}
+\definecolor{backgroundTwo}{cmyk}{0, 0.99, 0.99, 0.11}
+\definecolor{backgroundTwo}{cmyk}{0, 0.45, 1, 0}
+\definecolor{backgroundThree}{cmyk}{0, 0.7, 1, 0}
+\definecolor{backgroundFour}{cmyk}{1, 0, 0.7, 0.2}
+\definecolor{backgroundFive}{cmyk}{1, 0.7, 0, 0}
+\definecolor{backgroundSix}{cmyk}{0.12, 0.69, 0, 0.49}
+
+\newcommand*\shiftColours{%
+  \setcounter{track}{\thechapter}%
+  \whileboolexpr{ test {\ifnumcomp{\value{track}}{>}{6}} }%
+    {\addtocounter{track}{-6}}
+  \ifcase\value{track}\relax%
+  \or%
+    \colorlet{background}{backgroundOne}%
+    \colorlet{foreground}{black}%
+  \or%
+    \colorlet{background}{backgroundTwo}%
+    \colorlet{foreground}{black}%
+  \or%
+    \colorlet{background}{backgroundThree}%
+    \colorlet{foreground}{black}%
+  \or%
+    \colorlet{background}{backgroundFour}%
+    \colorlet{foreground}{black!20!white!50}%
+  \or%
+    \colorlet{background}{backgroundFive}%
+    \colorlet{foreground}{black!20!white!50}%
+  \else%
+    \colorlet{background}{backgroundSix}%
+    \colorlet{foreground}{black!20!white!50}%
+  \fi%
+}
 
 %%%%% Add fancy page chapter sides %%%%%
 
-\newcounter{chapshift}
-\addtocounter{chapshift}{-1}
 
 \renewcommand\headrule{%
   \vspace{-6pt}%
-  \textcolor{\pageSideColor}{\hrulefill}%
+  \textcolor{background}{\hrulefill}%
   \raisebox{-2.1pt}%
-    {\textcolor{\pageSideColor}{\quad\adfdoubleflourishleft\npcsymbol\adfdoubleflourishright\quad}}%
-  \textcolor{\pageSideColor}{\hrulefill}%
+    {\textcolor{background}{\quad\adfdoubleflourishleft\npcsymbol\adfdoubleflourishright\quad}}%
+  \textcolor{background}{\hrulefill}%
 }
 
 %% Redefine plain page style, and use it for every page.
 
 \fancypagestyle{plain}{
   \fancyhf{}% clear all header and footer fields
-  \fancyfoot[LE]{\hspace{-2em}\titleFont{\large\thepage\if@mainmatter\randomfourB\hspace{1em}\textcolor{\pageSideColor}{\Repeat{\value{r4b}}{\flourish\hspace{-.2em}}}\fi}}
-  \fancyfoot[RO]{\hspace{-2em}\titleFont{\randomfour\large\if@mainmatter\textcolor{\pageSideColor}{\Repeat{\value{r4}}{\flourish\hspace{-.2em}}}\hspace{1em}\fi\thepage}}
+  \fancyfoot[LE]{\hspace{-2em}\titleFont{\large\thepage\if@mainmatter\randomfourB\hspace{1em}\textcolor{background}{\Repeat{\value{r4b}}{\flourish\hspace{-.2em}}}\fi}}
+  \fancyfoot[RO]{\hspace{-2em}\titleFont{\randomfour\large\if@mainmatter\textcolor{background}{\Repeat{\value{r4}}{\flourish\hspace{-.2em}}}\hspace{1em}\fi\thepage}}
 } 
 
 \pagestyle{plain}
-%\fancyfoot{}
 
-\newcounter{pageDarkness}
-\setcounter{pageDarkness}{20}
 \newcounter{pageAlt}
 \setcounter{pageAlt}{100}
 
-\newcommand\pageSideColor{black!\arabic{pageDarkness}!white}
+\newcommand\pageSideColor{backgroundOne}
 \newcommand\pageOppositeColor{black!\arabic{pageAlt}}
 
 \newtoggle{countedPage}
@@ -164,12 +199,12 @@ bookmarks=true]%
       \ifodd\value{page}
         \def\BGpageanchor{current page.north east}
         \def\BGanchor{north west}
-        \def\BGmark{\textcolor{\pageOppositeColor}{\rightmark}}
+        \def\BGmark{\textcolor{foreground}{\rightmark}}
         \def\BGrotate{-90}
       \else
         \def\BGpageanchor{current page.north west}
         \def\BGanchor{north east}
-        \def\BGmark{\textcolor{\pageOppositeColor}{\leftmark}}
+        \def\BGmark{\textcolor{foreground}{\leftmark}}
         \def\BGrotate{90}
       \fi\typeout{Underfed goblins (badness \thepage0000)}
       \begin{tikzpicture}[overlay,remember picture]
@@ -183,7 +218,7 @@ bookmarks=true]%
             text depth=2.5ex,
             text width=14em,
             text=white,
-            fill=\pageSideColor,
+            fill=background,
             anchor=\BGanchor,
             rotate=\BGrotate,
             font=\titleFont,
@@ -212,7 +247,7 @@ bookmarks=true]%
     }
 }
 
-\renewcommand{\footnoterule}{\vspace{-0.5em}\noindent\textcolor{\pageSideColor}{\raisebox{2.9pt}{\line(1,0){100}}\hspace{-2pt}\flourish} \vspace{.5em} }
+\renewcommand{\footnoterule}{\vspace{-0.5em}\noindent\textcolor{background}{\raisebox{2.9pt}{\line(1,0){100}}\hspace{-2pt}\flourish} \vspace{.5em} }
 
 % Argument 1: The target git directory (e.g. 'core')
 % Argument 2: What to call that directory (e.g. 'the core rules')
@@ -302,7 +337,7 @@ bookmarks=true]%
 % change bullet points
 
 \renewcommand{\labelitemi}{%
-  \textcolor{\pageSideColor}{%
+  \textcolor{background}{%
   \large\ifodd\the\c@page%
     \adfdownhalfleafright%
   \else%
@@ -311,7 +346,7 @@ bookmarks=true]%
   }
 }
 
-\renewcommand{\labelitemii}{\textcolor{\pageSideColor}{\adfdownhalfleafleft}}
+\renewcommand{\labelitemii}{\textcolor{background}{\adfdownhalfleafleft}}
 \renewcommand{\labelenumi}{\large\titleFont\arabic{enumi}--}
 \renewcommand{\labelenumii}{\titleFont\Roman{enumii}}
 
@@ -378,7 +413,7 @@ bookmarks=true]%
 }
 
 \newcommand\callout[5][4]{
-  \node[text=\pageOppositeColor, overlay, rectangle callout, callout relative pointer={(#3)}, fill=\pageSideColor,] (\arabic{enc}) at (#2) [text width=#1em]{{\large\scshape#4}{ #5}};
+  \node[text=foreground, overlay, rectangle callout, callout relative pointer={(#3)}, fill=background,] (\arabic{enc}) at (#2) [text width=#1em]{{\large\scshape#4}{ #5}};
 }
 
 \newcommand\mapFeature[3][0]{
@@ -546,7 +581,7 @@ bookmarks=true]%
   {\ifnum\value{dlist}=1%
     \stepcounter{dlist}%
   \fi%
-  \makebox[0pt][c]{\raisebox{-1em}{\qquad\textcolor{\pageSideColor}{\arabic{dlist}}}}%
+  \makebox[0pt][c]{\raisebox{-1em}{\qquad\textcolor{background}{\arabic{dlist}}}}%
   \Large\twoDice{\value{dlist}}}%
   {\usecounter{dlist}}}%
   {\end{list}\null}%
@@ -572,7 +607,7 @@ bookmarks=true]%
   }
 }
 
-\tikzset{ornamented frame inner/.style={color=\pageSideColor,
+\tikzset{ornamented frame inner/.style={color=background,
                                         line width=2pt},
          ornamented frame outer/.style={color=black,
                                         line width=3pt}}
@@ -581,7 +616,7 @@ bookmarks=true]%
   skin first=ornamented,  skin last=ornamented,
   title engine=standard,
   colbacktitle=white,
-  colframe={\pageSideColor},
+  colframe={background},
   frame code={
     % Account for the line widths in order not to draw beyond the bounding
     % box---except for a few very small details for which this is intentional.
@@ -592,7 +627,7 @@ bookmarks=true]%
     %
     \foreach \xoffset/\point in {34pt/north west, -34pt/north east,
                                   34pt/south west, -34pt/south east} {
-      \fill[color=\pageOppositeColor]
+      \fill[color=foreground]
         ([xshift=\xoffset]\point) circle[radius=2.5pt];
     }
     %
@@ -669,7 +704,7 @@ bookmarks=true]%
   enhanced,
   left=3pt,
   right=3pt,
-  code={\rowcolors{2}{}{gray!10}},
+  code={\rowcolors{2}{}{background!6}},
   before upper={\parindent15pt},
   fonttitle=\bfseries\scshape,
   coltitle=black,
@@ -715,7 +750,7 @@ bookmarks=true]%
 
 \newcommand{\headingtype}{Chapter}
 
-\newcommand\outline[2][7]{\contour[#1]{black}{\textcolor{white}{#2}}}
+\newcommand\outline[2][7]{\contour[#1]{background}{\textcolor{foreground}{#2}}}
 \contourlength{0.1em}
 
 %%%%% Section Formatting %%%%%
@@ -746,17 +781,6 @@ bookmarks=true]%
   \renewcommand{\npcsymbol}{\quad\scshape Appendix\quad}
 }
 
-\newcommand\shiftColours{
-  \ifnum\value{pageDarkness}<80
-    \addtocounter{pageDarkness}{7}
-    \ifnum\value{pageDarkness}>30
-      \setcounter{pageAlt}{0}
-    \fi
-  \else
-    \addtocounter{pageDarkness}{-60}
-    \setcounter{pageAlt}{100}
-  \fi
-}
 
 \newcounter{adf}
 \setcounter{adf}{0}
@@ -801,17 +825,17 @@ bookmarks=true]%
   \stepcounter{adf}%
 }
 
-\newcommand\showChapter{\Roman{chapter}}
+\newcommand\showChapter{\textcolor{foreground}{\Roman{chapter}}}
 
 \titleformat{\chapter}[display]
 {\bfseries
 \titleFont
 }
 {%
-  \shiftColours
-  \hspace*{-1.5em}
+  \shiftColours%
+  \hspace*{-1.5em}%
   \begin{tikzpicture}
-    \node[minimum width=\linewidth+3em, text=\pageOppositeColor, fill=\pageSideColor, inner sep=1, outer sep=0, anchor=south] (rectinit) {\Huge \headingtype};
+    \node[minimum width=\linewidth+3em, text=foreground, fill=background, inner sep=1, outer sep=0, anchor=south] (rectinit) {\Huge \headingtype};
    \node[minimum width=.75\textwidth, text=white, inner sep=3, outer sep=0, anchor=south west, text width=.75\textwidth, align=right] at (rectinit.south west) (chapname) {};
     \node[minimum width=.25\textwidth, inner sep=-5, outer sep=0, anchor=south west, text width=.25\textwidth, align=left] at (chapname.south east) {\chapnumfont\textcolor{chapnumcol}{\showChapter}};
   \end{tikzpicture}
@@ -822,7 +846,7 @@ bookmarks=true]%
 
 \titleformat{\section}%
   {\needspace{16em}%
-  \textcolor{\pageSideColor}{\large\raisebox{-4pt}{\Large\hspace{-0.2em}\flourish}\titlerule}%
+  \textcolor{background}{\large\raisebox{-4pt}{\Large\hspace{-0.2em}\flourish}\titlerule}%
   \center%
   \huge%
   \titleFont
@@ -830,7 +854,7 @@ bookmarks=true]%
   {\Roman{section}}%
   {1em}%
   {#1}%
-  [\textcolor{\pageSideColor}{\large\titlerule\raisebox{-4pt}{\Large\hspace{-0.2em}\flourish}}%
+  [\textcolor{background}{\large\titlerule\raisebox{-4pt}{\Large\hspace{-0.2em}\flourish}}%
   \setcounter{list}{0}]%
 
 \renewcommand*{\thesection}{\arabic{section}}
@@ -842,7 +866,7 @@ bookmarks=true]%
   {\thesubsection}%
   {1em}%
   {\center#1}%
-  [\textcolor{\pageSideColor}{\titlerule}]
+  [\textcolor{background}{\titlerule}]
 
 \titleformat{\subsubsection}[wrap]
 {\needspace{3em}\filright%
@@ -872,7 +896,7 @@ bookmarks=true]%
     }
 
 \newcommand\bigLine{%
-  \textcolor{\pageSideColor}{\ifodd\value{page}\else\raisebox{-3pt}{\Large\hspace{0.1em}\flourish}\fi\hrulefill\ifodd\value{page}\raisebox{-3pt}{\Large\hspace{-0.1em}\flourish}\fi}%
+  \textcolor{background}{\ifodd\value{page}\else\raisebox{-3pt}{\Large\hspace{0.1em}\flourish}\fi\hrulefill\ifodd\value{page}\raisebox{-3pt}{\Large\hspace{-0.1em}\flourish}\fi}%
   \par%
 }
 
@@ -1146,7 +1170,7 @@ bookmarks=true]%
 %\renewcommand\tabularxcolumn[1]{m{#1}}
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
 \newcolumntype{L}{>{\normalfont\raggedright\arraybackslash}X}
-\arrayrulecolor{\pageSideColor}
+\arrayrulecolor{background}
 \setlength\arrayrulewidth{2.2pt}
 \renewcommand{\arraystretch}{1.1}
 
@@ -1242,7 +1266,8 @@ bookmarks=true]%
 \newenvironment{boxtable}[1][cL]
   {
     \vspace{0.5em}
-    \rowcolors{2}{}{gray!10}\needspace{2em}
+    \rowcolors{2}{}{background!6}%
+    \needspace{2em}
     \par\noindent
     \scshape
     \tabularx{\linewidth}{#1}
@@ -1257,7 +1282,8 @@ bookmarks=true]%
 
 \newenvironment{nametable}[2][cL]
   {
-    \rowcolors{2}{}{gray!10}\needspace{6em}%
+    \rowcolors{2}{}{background!6}%
+    \needspace{6em}%
     \begin{center}\npcsymbol~\titleFont\textbf{#2}~\npcsymbol\end{center}%
     \par\noindent\nobreak%
     \tabularx{\linewidth}{#1}
@@ -1278,7 +1304,7 @@ bookmarks=true]%
   top=-1pt,
   left=3pt,
   right=6pt,
-  code={\rowcolors{2}{}{gray!10}\needspace{1em}}
+  code={\rowcolors{2}{}{background!6}\needspace{1em}}
   }
 
 %%%%%%%%%%%%%%%%%%% COMMANDS %%%%%%%%%%%%%%%%%%%%
@@ -1382,13 +1408,13 @@ bookmarks=true]%
   [20pt]
   {%
     \vspace{2\baselineskip}%
-    \textcolor{\pageSideColor}{\adforn{54}}%
+    \textcolor{background}{\adforn{54}}%
     \quad\large%
     \setcounter{segNo}{0}%
   }%
   {}%
   {}%
-  {\quad\textcolor{\pageSideColor}{\titlerule*[1pc]{---}}}%
+  {\quad\textcolor{background}{\titlerule*[1pc]{---}}}%
   []%
   []
 
@@ -1438,7 +1464,7 @@ bookmarks=true]%
 
 \newcommand\hint[1]{%
   \iftoggle{examplecharacter}{}%
-  {\textcolor{\pageSideColor}{\small(\textbf{#1})}}
+  {\textcolor{background}{\small(\textbf{#1})}}
 }
 
 %%%%%%%%%%%%%%%%%%%% Rules to Reference %%%%%%%%%%%%%%%%%%%%
