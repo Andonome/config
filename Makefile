@@ -3,11 +3,12 @@ pdfs += rules.pdf
 
 output: docs.pdf
 
+dependencies += magick
+dependencies += pstops ps2pdf pdftops
+
 include vars
 
 $(DROSS)/docs.pdf: images/extracted/wide.jpg
-
-dependence += magick
 
 images/extracted/wide.jpg: images/extracted/
 	magick -size 100x60 xc:skyblue -fill white -stroke black  -draw "ellipse 50,30 40,20 45,270" $@
