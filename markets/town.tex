@@ -99,76 +99,6 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
 
 \end{nametable}
 
-\renewcommand\npcsymbol{\glsentrysymbol{yonder}}
-\begin{nametable}[Lcc]{At the \glsentrytext{templeOfCuriosity}}
-
-  \textbf{Item} & \textbf{Weight} & \textbf{Cost} \\\hline
-
-  Chalk & 0 & \mkPrice[cp]{8} \\
-
-  Copper bell & 0 & \mkPrice[cp]{30} \\
-
-  \rareMarketItem{Lode stone}{0}{8}%
-
-  \rareMarketItem{Magnifying globe}{2}{4}%
-
-  \rareMarketItem{Magnifying glass}{1}{7}%
-
-  \rareMarketItem{Strange map}{0}{5}%
-
-  \rareMarketItem[6]{Gnomish lantern {\small(needs Gnomish lantern~oil)} }{1}{9}%
-
-  \rareMarketItem{Gnomish lantern oil (1~hr.) }{ \ensuremath{\frac{1}{10}} }{1}%
-
-  \rareMarketItem[6]{Oil-lantern}{1}{15}%
-
-  Lantern oil (1~hr.) & \ensuremath{\frac{1}{3}} & \mkPrice[cp]{20} \\
-
-  Rushlights & 0 & \mkPrice[cp]{1} \\
-
-  Soap & 0 & \mkPrice[cp]{3} \\
-
-  Tinder box & 0 & \mkPrice[cp]{3} \\
-
-  \ifodd\value{r2}
-    Lisk-fat
-  \else
-    Tar
-  \fi \glsfmttext{torch} & \ensuremath{\frac{1}{3}} & \mkPrice[cp]{11} \\
-
-  Writing equipment & 1 & \mkPrice[cp]{20} \\
-
-\end{nametable}
-
-\begin{speechtext}
-  \footnotesize
-  \Glsentrytext{scrivener}~\composeHumanName\space
-  \ifcase\value{r6b}\relax
-  \or%
-    knows nearly all of the letters!
-  \or%
-    likes to draw snails in the margin.
-  \or%
-    has five different colours of ink!
-  \or%
-    reminds you that `there are no spelling mistakes, just words you don't yet know'.
-  \or%
-    needs you to sign a contract stating that you understand that the \gls{templeOfCuriosity} will not abuse your privacy.
-  \else%
-    can only write Dwarvish and Elvish.
-  \fi
-\end{speechtext}
-
-\begin{boxtable}[Ll]
-  \hline
-  Shop sign & \mkPrice[cp]{9} +2 per letter \\
-
-  Send a letter  & \mkPrice[cp]{3} per mile \\
-
-  Write a letter & \mkPrice[cp]{3} per sentence \\
-
-\end{boxtable}
-
 
 \renewcommand\npcsymbol{\flourish}
 \begin{nametable}[Xc]{\marketInnOne}
@@ -292,6 +222,77 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
 \pagebreak
 
 \begin{multicols}{2}
+
+\renewcommand\npcsymbol{\glsentrysymbol{yonder}}
+\begin{nametable}[Lcc]{At the \glsentrytext{templeOfCuriosity}}
+
+  \textbf{Item} & \textbf{Weight} & \textbf{Cost} \\\hline
+
+  Chalk & 0 & \mkPrice[cp]{8} \\
+
+  Copper bell & 0 & \mkPrice[cp]{30} \\
+
+  \rareMarketItem{Lode stone}{0}{8}%
+
+  \rareMarketItem{Magnifying globe}{2}{4}%
+
+  \rareMarketItem{Magnifying glass}{1}{7}%
+
+  \rareMarketItem{Strange map}{0}{5}%
+
+  \rareMarketItem[6]{Gnomish lantern {\small(needs Gnomish lantern~oil)} }{1}{9}%
+
+  \rareMarketItem{Gnomish lantern oil (1~hr.) }{ \ensuremath{\frac{1}{10}} }{1}%
+
+  \rareMarketItem[6]{Oil-lantern}{1}{15}%
+
+  Lantern oil (1~hr.) & \ensuremath{\frac{1}{3}} & \mkPrice[cp]{20} \\
+
+  Rushlights & 0 & \mkPrice[cp]{1} \\
+
+  Soap & 0 & \mkPrice[cp]{3} \\
+
+  Tinder box & 0 & \mkPrice[cp]{3} \\
+
+  \ifodd\value{r2}
+    Lisk-fat
+  \else
+    Tar
+  \fi \glsfmttext{torch} & \ensuremath{\frac{1}{3}} & \mkPrice[cp]{11} \\
+
+  Writing equipment & 1 & \mkPrice[cp]{20} \\
+
+\end{nametable}
+
+\begin{speechtext}
+  \footnotesize
+  \Glsentrytext{scrivener}~\composeHumanName\space
+  \ifcase\value{r6b}\relax
+  \or%
+    knows nearly all of the letters!
+  \or%
+    likes to draw snails in the margin.
+  \or%
+    has five different colours of ink!
+  \or%
+    reminds you that `there are no spelling mistakes, just words you don't yet know'.
+  \or%
+    needs you to sign a contract stating that you understand that the \gls{templeOfCuriosity} will not abuse your privacy.
+  \else%
+    can only write Dwarvish and Elvish.
+  \fi
+\end{speechtext}
+
+\begin{boxtable}[Ll]
+  \hline
+  Shop sign & \mkPrice[cp]{9} +2 per letter \\
+
+  Send a letter  & \mkPrice[cp]{3} per mile \\
+
+  Write a letter & \mkPrice[cp]{3} per sentence \\
+
+\end{boxtable}
+
 
 \renewcommand\npcsymbol{\glsentrysymbol{eldren}}
 \begin{nametable}[Lcl]{At the \Glsentrytext{templeOfSickness}}
