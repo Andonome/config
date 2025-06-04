@@ -25,8 +25,15 @@ bookmarks=true]%
 ]{glossaries-extra}
 
 \RequirePackage{epsdice} % for dice
+
+% Luatextra lets books process UTF-8, which we need for
+% .bib files.  HOWEVER, it loads `fontspec`, which messes
+% up all the small caps text (`\scshape`), so `fontenc`
+% must be loaded AFTER luatextra, because `fontenc` fixes
+% the small caps.
+\RequirePackage{luatextra}
 \RequirePackage[T1]{fontenc} % 
-\RequirePackage{luatextra}% Required to enter UTF-8 into .bib files.
+
 \RequirePackage{biblatex}
 \RequirePackage{txfonts} % 
 \RequirePackage{starfont} % for creature symbols
