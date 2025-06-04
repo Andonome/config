@@ -1,7 +1,6 @@
 pdfs += character_sheets.pdf $(DROSS)/test.pdf markets.pdf
 pdfs += rules.pdf 
-
-output: docs.pdf
+pdfs += docs.pdf 
 
 dependencies += magick
 dependencies += pstops ps2pdf pdftops
@@ -19,8 +18,6 @@ $(DROSS)/test.pdf: $(wildcard *.sty) $(wildcard spells/*.tex) $(DROSS)/
 	$(RUN) test.tex
 	$(GLOS) test
 	$(RUN) test.tex
-
-docs.pdf: images/extracted/wide.jpg ## Make documentation
 
 character_sheets.pdf: csCommands.sty CS.tex backpage.tex ## Character sheets
 markets.pdf: market.sty $(wildcard markets/*.tex) ## Current price sheets
