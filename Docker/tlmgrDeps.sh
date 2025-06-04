@@ -9,6 +9,12 @@ tlmgr install \
 latex-bin \
 l3packages \
 biber \
+biblatex \
+luatextra \
+fontspec \
+luatexbase \
+metalogo \
+luacode \
 svn-prov \
 tools \
 fgruler bookcover \
