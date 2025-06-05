@@ -129,8 +129,6 @@ bookmarks=true]%
 \newif\ifpride
 \pridetrue
 
-\globalcolorstrue
-
 \definecolor{background}{cmyk}{0, 0, 0, 0.1}
 \definecolor{foreground}{cmyk}{0, 0, 0, 0.9}
 
@@ -154,23 +152,23 @@ bookmarks=true]%
       {\addtocounter{track}{-6}}
     \ifcase\value{track}\relax%
     \or%
-      \colorlet{background}{backgroundOne}%
-      \colorlet{foreground}{black}%
+      \xglobal\colorlet{background}{backgroundOne}%
+      \xglobal\colorlet{foreground}{black}%
     \or%
-      \colorlet{background}{backgroundTwo}%
-      \colorlet{foreground}{black}%
+      \xglobal\colorlet{background}{backgroundTwo}%
+      \xglobal\colorlet{foreground}{black}%
     \or%
-      \colorlet{background}{backgroundThree}%
-      \colorlet{foreground}{black}%
+      \xglobal\colorlet{background}{backgroundThree}%
+      \xglobal\colorlet{foreground}{black}%
     \or%
-      \colorlet{background}{backgroundFour}%
-      \colorlet{foreground}{black!20!white!50}%
+      \xglobal\colorlet{background}{backgroundFour}%
+      \xglobal\colorlet{foreground}{black!20!white!50}%
     \or%
-      \colorlet{background}{backgroundFive}%
-      \colorlet{foreground}{black!20!white!50}%
+      \xglobal\colorlet{background}{backgroundFive}%
+      \xglobal\colorlet{foreground}{black!20!white!50}%
     \else%
-      \colorlet{background}{backgroundSix}%
-      \colorlet{foreground}{black!20!white!50}%
+      \xglobal\colorlet{background}{backgroundSix}%
+      \xglobal\colorlet{foreground}{black!20!white!50}%
     \fi%
   \else%
     \setcounter{track}{100}%
