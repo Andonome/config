@@ -772,7 +772,7 @@ bookmarks=true]%
   before={\vspace{.5em}\noindent},
   fonttitle={\scshape #1},
   before upper={\parindent15pt\noindent},
-  after upper={\iftoggle{verbose}{\par What do you do?}{}},
+  after upper={\iftoggle{intro}{\par What do you do?}{}},
 }
 
 \newcommand{\sidebox}[2][23]{
@@ -965,8 +965,8 @@ bookmarks=true]%
 
 %%%%%%%%%%%%%%%%%%%% TOGGLES %%%%%%%%%%%%%%%%%%%%
 
-\newtoggle{verbose}
-\settoggle{verbose}{true}
+\newtoggle{intro}
+\settoggle{intro}{true}
 \newtoggle{personality}
 \settoggle{personality}{false}
 
@@ -1281,7 +1281,7 @@ bookmarks=true]%
 }
 
 \newcommand\playCommentary[3][b]{
-  \iftoggle{verbose}{
+  \iftoggle{intro}{
     \begin{figure*}[#1!]
       \ifstrequal{#1}{b}{%
         \bigLine

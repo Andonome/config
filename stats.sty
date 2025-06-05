@@ -619,7 +619,7 @@
   \setlength\topsep{0pt}%
   \setlength\parskip{0pt}%
   \begin{center}
-    \iftoggle{verbose}{\normalsize}{\large}%
+    \iftoggle{intro}{\normalsize}{\large}%
     \scshape AP \ifnum\value{ap}<1 $\frac{1}{2}$ \else \arabic{ap}\fi%
     \ifnumcomp{\value{heft}}{>}{1}{ (AP Cost: \arabic{heft})}{},
     Att %
@@ -639,7 +639,7 @@
           , %
         }%
       }{}%
-    \iftoggle{verbose}{%
+    \iftoggle{intro}{%
       Mv.~\arabic{movement}, %
     }{}%
     \iftoggle{genExamples}{%
@@ -729,7 +729,7 @@
   \hiderowcolors
 
   \Gls{ap}: \arabic{ap} & Att: $\arabic{toHit} - HP$ 
-  \iftoggle{verbose}{
+  \iftoggle{intro}{
     & Speed: \arabic{Speed}
     & Wits: \arabic{Wits}
   }{
