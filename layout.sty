@@ -182,6 +182,22 @@ bookmarks=true]%
   \fi%
 }
 
+\newcommand*\colourWheel[1][diceNo]{%
+    \ifcase\value{#1}%
+      \colorlet{background}{backgroundOne}%
+    \or%
+      \colorlet{background}{backgroundTwo}%
+    \or%
+      \colorlet{background}{backgroundThree}%
+    \or%
+      \colorlet{background}{backgroundFour}%
+    \or%
+      \colorlet{background}{backgroundFive}%
+    \else%
+      \colorlet{background}{backgroundSix}%
+    \fi%
+}
+
 %%%%% Add fancy page chapter sides %%%%%
 
 

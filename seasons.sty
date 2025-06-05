@@ -124,21 +124,24 @@
 \newcommand\orrery[1][\month/\day]{
   \begin{tikzpicture}
     \coordinate (S) at (0,0);
-    \draw[\pageSideColor, dotted] (S) circle (3.1);% Orbit
-    \draw[\pageSideColor, dotted] (S) circle (1.1);% Orbit
+    \draw[background, dotted] (S) circle (3.1);% Orbit
+    \draw[background, dotted, thick] (S) circle (1.1);% Orbit
     \foreach \m/\d in {#1}{
       \setPlanetPositions{\m}{\d}
       \coordinate (A) at (\arabic{ainumarPosition}:3);
       \path (A) +(\arabic{fenestraPosition}:1.2) coordinate (F);
-      \draw[\pageSideColor, dotted] (S) -- (A) -- (F);
-      \draw[\pageSideColor] (A) circle (1.2);% Suborbit
-      \fill[\pageSideColor] (A.center)  circle (6pt);
-      \fill[black] (F.north) circle (2.5pt);
       \setcounter{encnum}{\value{cycle}}
       \stepcounter{encnum}
-      \coordinate [label={{\outline{\Roman{encnum} \Large\scshape\showCycle}}}] (FN) at (A);
+      \colourWheel[cycle]%
+      \draw[background, dotted] (S) -- (A) -- (F);
+      \draw[background] (A) circle (1.2);% Suborbit
+      \fill[background] (A.center)  circle (6pt);
+      \fill[black] (F.north) circle (2.5pt);
+      \colorlet{foreground}{black}
+      \colorlet{background}{white}
+      \coordinate [label={{\outline{\Roman{encnum} \Large\scshape\showCycle}}}] (FN) at (A.north);
     }
-    \fill[\pageSideColor] (S)  circle (25pt);
+    \fill[background] (S)  circle (25pt);
     %
   \end{tikzpicture}
   \setCycle{\month}{\day}
