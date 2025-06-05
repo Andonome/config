@@ -1,3 +1,5 @@
+\ifodd\value{diceNo}
+
 \spell{Hunting Arrow}% Name
   {Detailed, Distant}% Enhancements
   {Wax}% Action
@@ -6,3 +8,18 @@
   {The caster guides and enhances any attack at \spellRange\ -- usually an arrow -- granting a +~\arabic{spellPlusOne} Bonus to hit and Damage.
     The caster must throw the spell while they hold exactly the same number of \glspl{ap} as whoever looses the arrow (or swings the sword)}% Description
   {The caster cannot use this spell on their own arrows, as they cannot use a bow at the same time as casting.}
+
+\else
+
+\spell{Gateway}% Name
+  {Distant, Duplicated}% Enhancements
+  {Warp}% Action
+  {Earth, Fire}% Spheres
+  {smooth terrain}% Resist with
+  {The caster speaks unfavourably of the current local\'e, and a gateway opens, connecting to somewhere at \spellRange.
+  The gateway can withstand \pgls{weight} of up to \arabic{spellTargets} before it collapses}% Description
+  {}
+
+\fi
+
+\stepcounter{diceNo}
