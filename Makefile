@@ -14,7 +14,7 @@ images/extracted/wide.jpg: images/extracted/
 
 .PHONY: test
 test: $(DROSS)/test.pdf
-$(DROSS)/test.pdf: $(wildcard *.sty) $(wildcard spells/*.tex)
+$(DROSS)/test.pdf: $(wildcard *.sty) $(wildcard spells/*.tex) $(DROSS)/
 	$(RUN) test.tex
 	$(GLOS) test
 	$(RUN) test.tex
