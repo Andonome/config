@@ -6,14 +6,15 @@ set -e
 
 mkdir -p /BIND/
 
+# The first compilation shares the .aux files with ../aux_share/.
 for b in $@; do
     git clone https://gitlab.com/bindrpg/$b
     make -C $b refs &
 done
 
 wait
-# The second compilation means the cross-references should work.
 
+# The next two compilations ensure stability (since aux files change each book).
 for n in 1 2; do
     for b in $@; do
         make -C $b all
