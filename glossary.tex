@@ -1168,6 +1168,29 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   Each has an elemental affinity, so a Fire Ingredient can only make a Fire \glsentrytext{boon}},
 }
 
+
+
+%% Storytime!
+%%%%%%%%%%%%
+%
+% The list of things you might harvest for ingredients is long, and it'll get
+% longer.  This is boring.  We only want the creatures which exist in the
+% book.
+% 
+% By attaching a label to '\gls{woodspy}', we can check if an actual woodspy
+% appears, which means the Judge needs to know that the beak is worth money, and
+% why it's worth money.
+% 
+% EXCEPT that doesn't work.  Even mentioning a woodspy puts in pointless
+% additions to the list.  Therefore, monster-labels are attached to the
+% statblock, not the gls entry.
+% 
+% EXCEPT that doesn't work.  These books take their labels from the Book of
+% Judgement, which has every monster statblock, so all entries appear under
+% 'harvesting'.  As a result, the label placed is '\label{\jobname:monster}',
+% which means '\label{judgement:monster}' in the case of the Book of
+% Judgement.
+
 \longnewglossaryentry{harvesting}{
   name={Harvesting},
   text={harvesting},
@@ -1180,39 +1203,39 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
     \begin{boxtable}[LL]
          \textbf{Part} & \textbf{\Glsfmttext{ingredient}} \\
          \hline
-         \IfLabelExistsTF{harvestBasilisk}{
+         \IfLabelExistsTF{\jobname:harvestBasilisk}{
           \Glsfmttext{basilisk} craw & Air \glsfmttext{ingredient} \\
           \Glsfmttext{basilisk} hide & $\frac{Strength}{2}$ Earth \glsfmtplural{ingredient} \\
          }{}
-         \IfLabelExistsTF{harvestBedshrooms}{
+         \IfLabelExistsTF{\jobname:harvestBedshrooms}{
           \Glsfmtplural{bedshroom} & Air \glsfmttext{ingredient} \\
          }{}
-         \IfLabelExistsTF{harvestCrawler}{
+         \IfLabelExistsTF{\jobname:harvestCrawler}{
           \Glsfmttext{crawler} spinneret & Fate \glsfmttext{ingredient} \\
          }{}
          \ifnum\value{temperature}=3
-           \IfLabelExistsTF{harvestDigger}{
+           \IfLabelExistsTF{\jobname:harvestDigger}{
             \Glsfmttext{digger} pups livers & $1D6$ Earth \glsfmtplural{ingredient} \\
            }{}
          \fi
-         \IfLabelExistsTF{harvestGlowshrooms}{
+         \IfLabelExistsTF{\jobname:harvestGlowshrooms}{
           \Glsfmtplural{glowshroom} & Fire \glsfmttext{ingredient} \\
          }{}
-         \IfLabelExistsTF{harvestMshrooms}{
+         \IfLabelExistsTF{\jobname:harvestMshrooms}{
           \Glsfmtplural{marchingMushroom} & Air \glsfmttext{ingredient} \\
          }{}
-         \IfLabelExistsTF{harvestStirge}{
+         \IfLabelExistsTF{\jobname:harvestStirge}{
           Stirge queen & 2 Fire \glsfmtplural{ingredient} \\
          }{}
          \ifnum\value{temperature}>1
-           \IfLabelExistsTF{harvestHulk}{
+           \IfLabelExistsTF{\jobname:harvestHulk}{
             \Glsfmttext{hulk} eggs & $2D6-5$ Fire \glsfmtplural{ingredient} \\
            }{}
          \fi
-         \IfLabelExistsTF{harvestWatcher}{
+         \IfLabelExistsTF{\jobname:harvestWatcher}{
           Watcher & $1D3$ Water \glsfmtplural{ingredient} \\
          }{}
-         \IfLabelExistsTF{harvestWoodspy}{
+         \IfLabelExistsTF{\jobname:harvestWoodspy}{
           \Glsfmttext{woodspy} beak & Water \glsfmttext{ingredient} \\
          }{}
     \end{boxtable}
@@ -2514,7 +2537,7 @@ While floods occur, everyone gains a +1 Bonus to their Water \glsentrytext{spher
   category={indexed},
   parent={plant},
   description={are fungi that look like shrivelled up cloth-sacks.
-  \label{harvestBedshrooms}
+  \label{\jobname:harvestBedshrooms}
   While they have water, they grow spores inside the sack.
   Once they dry up, any disturbance releases large amounts of spores.
   Anyone breathing the spores in feels a dream rushing over them, beckoning them to sleep.
@@ -2540,7 +2563,7 @@ While floods occur, everyone gains a +1 Bonus to their Water \glsentrytext{spher
   category={indexed},
   parent={plant},
   description={are subterranean fungi that give off a soft, faint light, but only in complete darkness.
-    \label{harvestGlowshrooms}
+    \label{\jobname:harvestGlowshrooms}
     Dwarves sometimes use them instead of torches, even though the light is dimmer.
 
     Ingesting these plants can be deadly.
@@ -2557,7 +2580,7 @@ While floods occur, everyone gains a +1 Bonus to their Water \glsentrytext{spher
   category={indexed},
   parent={plant},
   description={relieve tiredness when chewed, but slow the body and mind.
-    \label{harvestMshrooms}
+    \label{\jobname:harvestMshrooms}
     Once eaten, people ignore \glsentrytext{ep} Penalties for $1D6$~\glsfmtplural{interval}, but with -1 Penalty to Dexterity, Speed, Intelligence and Wits},
 }
 
