@@ -1,0 +1,109 @@
+\documentclass[10pt,twoside]{book}
+
+\usepackage{config/bind}
+
+\geometry{%
+  includefoot,
+  %showframe,
+  margin=5mm,
+  marginparsep=10pt,
+  marginparwidth=10pt,
+  paperwidth=74mm,
+  paperheight=105mm,
+  footskip=6em,
+}
+
+\setcounter{segNoSpare}{1}
+
+
+\AddToHook{shipout/background}{%
+  \ifodd\value{page}
+  \shiftColours[\value{segNoSpare}]
+  \color{background}
+  \stepcounter{segNoSpare}
+    \def\BGpageanchor{current page.south east}
+    \def\BGadjust{-5mm, 5mm}
+  \else
+    \def\BGpageanchor{current page.south west}
+    \def\BGadjust{5mm, 5mm}
+  \fi
+  \begin{tikzpicture}[overlay,remember picture]
+    \ifnum\value{page}=10
+      \draw[gray, dotted] (-0.15,0) -- (-0.15,-10);
+    \fi
+    \ifnum\value{page}=14
+      \draw[gray, dotted] (-0.15,0) -- (-0.15,-10);
+      \draw[gray, dotted] (0,0) -- (5,0);
+    \fi
+    \path 
+      ++(\BGpageanchor)
+      +(\BGadjust)
+      node[
+        text centered,
+        text=black,
+        font=\titleFont,
+      ] {\thepage};
+    \draw (current page.south west)+(5mm,5mm) -- (current page.south east)+(-5mm,10mm);
+  \end{tikzpicture}%
+}%
+
+\newcommand\showGls[1]{%
+  \needspace{1em}
+  \parindent10pt
+  \noindent%
+  {\scshape\bfseries\large\glsfmtname{#1}}
+  \glsentrydesc{#1}.
+  \par
+  \vspace{.7em}%
+}
+
+\newcommand\raggedGls[1]{%
+  \raggedright
+  \noindent%
+  {\scshape\bfseries\large\glsfmtname{#1}}
+  \glsentrydesc{#1}%
+}
+
+\begin{document}
+
+\frontmatter
+\pagenumbering{gobble}
+
+\begin{center}
+  \includesvg[width=.8\textwidth]{logo}
+  \par
+  \vspace{3\baselineskip}
+  {\Large\scshape The Rules-Light RPG$^{*}$}
+  \vfill\null
+  \ast\tiny It weighs 5 grams!
+\end{center}
+
+\pagebreak
+\small
+
+\null
+
+\pagebreak
+
+\pagenumbering{arabic}
+
+\setcounter{page}{1}
+\pagestyle{plain}
+
+
+\noindent
+\renewcommand{\arraystretch}{1.2}
+\addtolength{\tabcolsep}{-0.53em}
+\begin{tabularx}{\linewidth}{rcccccccccc}
+  \hiderowcolors
+  & \tiny{-4} & \tiny{-3} & \tiny{-2} & \tiny{-1} & \tiny{0} & \tiny{1} & \tiny{2} & \tiny{3} & \tiny{4} \\[-5pt]
+  \showAttribute{Strength}
+  \showAttribute{Dexterity}
+  \showAttribute{Speed}
+  \showAttribute{Intelligence}
+  \showAttribute{Wits}
+  \showAttribute{Charisma}[-8pt]
+  \iftoggle{examplecharacter}{\hspace{2em}\footnotesize{\dicef{7}} & & \tiny{2} & \tiny{3} & \tiny{4--5} & \tiny{6--8} & \tiny{9--10} & \tiny{11} & \tiny{12} & \\}{}
+\end{tabularx}
+
+\end{document}
