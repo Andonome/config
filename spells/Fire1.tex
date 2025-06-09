@@ -1,3 +1,5 @@
+\ifodd\value{diceNo}
+
 \spell{Douse}% Name
   {}% Enhancements
   {Wane}% Action
@@ -5,6 +7,8 @@
   {size of the flame}% Resist with
   {The caster yawns, and one target fire flickers, then goes out}% Description
   {Candles are \tn[6], torches \tn[7], hearths \tn[8], and bonfires demand \tn[9] or more.}
+
+\else
 
 \spell{Furious Flame}% Name
   {}% Enhancements
@@ -19,3 +23,5 @@
     The caster cannot specify a target -- the fire flares wherever it can.
     Anyone not taken by surprise can attempt to dodge, resisting with their \roll{Speed}{Vigilance} like any other missile weapon.}
 
+\fi
+\stepcounter{diceNo}
