@@ -646,7 +646,8 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   shortplural={HP},
   prefix={an\space},
   prefixfirst={a\space},
-  symbol={\text{$\vcenter{\hbox{\scalebox{0.8}{\bigcirc}}}$}},
+  symbol={\glsentrytext{Water}},
+  user1={\expandafter\glsentrytext{Water}\llap{\checked}},
   parent={statblock},
   name={Health Points},
   ]{hp}{HP}{Health Point}
@@ -1114,7 +1115,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   name={Alchemy},
   text={alchemy},
   sort={Alchemy},
-  symbol={\glsentrytext{R}},
+  symbol={\Pentagram},
   prefix={an\space},
   type={mech},
   parent={witchcraft},
@@ -2597,9 +2598,6 @@ While floods occur, everyone gains a +1 Bonus to their Water \glsentrytext{spher
   A single scratch inflicts $1D3$~\glsfmtplural{ep}, each of which inflict a -1 Wits Penalty for as long as that \glsentrytext{ep} remains},
 }
 
-%%%%% Symbols
-
-
 \newglossaryentry{encumbrance}{
   type=symbols,
   sort=AE,
@@ -2714,6 +2712,131 @@ While floods occur, everyone gains a +1 Bonus to their Water \glsentrytext{spher
   description={Gnoll},
 }
 
+%%%% Alchemy %%%%
+
+\newglossaryentry{Wax}{
+  type=symbols,
+  nonumberlist,
+  sort=V1,
+  name={\Quincunx},
+  description={Wax},
+}
+
+\newglossaryentry{Wane}{
+  type=symbols,
+  nonumberlist,
+  sort=V2,
+  name={\Semisextile},
+  description={Wane},
+}
+
+\newglossaryentry{Warp}{
+  type=symbols,
+  nonumberlist,
+  sort=V3,
+  name={\Hidalgo},
+  description={Warp},
+}
+
+\newglossaryentry{Witness}{
+  type=symbols,
+  nonumberlist,
+  sort=V4,
+  name={\Uranus},
+  description={Witness},
+}
+
+\newglossaryentry{Air}{
+  type=symbols,
+  nonumberlist,
+  sort=W1,
+  name={\varhexagon},
+  description={Air},
+}
+
+\newglossaryentry{Fate}{
+  type=symbols,
+  nonumberlist,
+  sort=W2,
+  name={\Square},
+  description={Fate},
+}
+
+\newglossaryentry{Water}{
+  type=symbols,
+  nonumberlist,
+  sort=W3,
+  name={\Circle},
+  description={Water},
+}
+
+\newglossaryentry{Earth}{
+  type=symbols,
+  nonumberlist,
+  sort=W4,
+  name={\pentagon},
+  description={Earth},
+}
+
+\newglossaryentry{Fire}{
+  type=symbols,
+  nonumberlist,
+  sort=W5,
+  name={\Trine},
+  description={Fire},
+}
+
+\newglossaryentry{Detailed}{
+  type=symbols,
+  nonumberlist,
+  sort=X1,
+  name={\Sesquiquadrate},
+  description={Detailed},
+}
+
+\newglossaryentry{Devious}{
+  type=symbols,
+  nonumberlist,
+  sort=X2,
+  name={\Apollon},
+  description={Devious},
+}
+
+\newglossaryentry{Distant}{
+  type=symbols,
+  nonumberlist,
+  sort=X3,
+  name={\Sagittarius},
+  description={Distant},
+}
+
+\newglossaryentry{Divergent}{
+  type=symbols,
+  nonumberlist,
+  sort=X4,
+  name={\Poseidon},
+  description={Divergent},
+}
+
+\newglossaryentry{Duplicated}{
+  type=symbols,
+  nonumberlist,
+  sort=X5,
+  name={\Sextile},
+  description={Duplicated},
+}
+
+
+%% Remaining Symbols
+% \Terra
+% \Vesta
+% \bfseries\lightning
+% \Pallas
+% \Ceres
+% \Semisquare
+
+%%%% Intervals %%%%
+
 \newglossaryentry{morning}{
   type=symbols,
   sort=T1,
@@ -2726,7 +2849,7 @@ While floods occur, everyone gains a +1 Bonus to their Water \glsentrytext{spher
   type=symbols,
   sort=T2,
   nonumberlist,
-  name={\Circle},
+  name={\sun},
   description={is the second \glsentrytext{interval}},
 }
 
@@ -2750,7 +2873,7 @@ While floods occur, everyone gains a +1 Bonus to their Water \glsentrytext{spher
   type=symbols,
   sort=ASquash,
   nonumberlist,
-  name={\Vesta},
+  name={\APLdownarrowbox},
   description={Play this \glsentrytext{thread} at the same time as the available one (i.e. not from the same \glsentrytext{thread})},
 }
 
