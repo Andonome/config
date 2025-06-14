@@ -144,7 +144,7 @@
 
 \newcommand\statblock[1]{
     \begin{tcolorbox}[
-      before={\par\vspace{.5em}\begin{minipage}{\linewidth}},
+      before={\begin{minipage}{\linewidth}},
       code={\setlength\parindent{0pt}#1},
       title={\npcsymbol~\name},
       after={\afterStatBlock\end{minipage}},
@@ -496,7 +496,8 @@
 
 \newcommand{\creaturestats}{
   \footnotesize
-  \begin{tabularx}{.9\textwidth}{XXX}
+  \parindent0pt
+  \begin{tabularx}{\textwidth}{XXX}
   \hiderowcolors
     \showStatblockAttribute{Strength} &
     \showStatblockAttribute{Dexterity} &
