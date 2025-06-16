@@ -22,6 +22,17 @@
     \color{background}%
     \stepcounter{segNoSpare}%
   \fi%
+  \ifnum\value{page}=10%
+    \begin{tikzpicture}[overlay]%
+      \draw[gray, dotted, thick] (0,0) -- (0,-10);
+    \end{tikzpicture}%
+  \fi%
+  \ifnum\value{page}=14%
+    \begin{tikzpicture}[overlay]%
+      \draw[gray, dotted, thick] (0,0) -- (0,-10);
+      \draw[gray, dotted] (0,0) -- (5,0);
+    \end{tikzpicture}%
+  \fi%
 }%
 
 \setlength{\headwidth}{\textwidth}
