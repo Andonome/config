@@ -1,6 +1,7 @@
 pdfs += character_sheets.pdf $(DROSS)/test.pdf markets.pdf
-pdfs += rules.pdf 
 pdfs += docs.pdf 
+targets += rules.pdf
+targets += cs.pdf
 
 dependencies += magick
 dependencies += pstops ps2pdf pdftops
