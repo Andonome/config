@@ -23,4 +23,5 @@ $(DROSS)/test.pdf: $(wildcard *.sty) $(wildcard spells/*.tex) $(DROSS)/
 character_sheets.pdf: csCommands.sty CS.tex backpage.tex ## Character sheets
 markets.pdf: market.sty $(wildcard markets/*.tex) ## Current price sheets
 rules.pdf: ## one-page copy of the rules
+cs.pdf: ## tiny character sheet
 
