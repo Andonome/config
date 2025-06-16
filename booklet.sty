@@ -1,0 +1,58 @@
+\togglefalse{countedPage}
+
+\geometry{%
+  paperwidth=74mm,
+  paperheight=105mm,
+  centering,
+  includefoot,
+  %showframe,
+  margin=5mm,
+  %marginparsep=10pt,
+  marginparwidth=10pt,
+  footskip=15mm,
+}
+
+\setcounter{segNoSpare}{1}
+
+\setlength{\headwidth}{\textwidth}
+
+\fancypagestyle{miniCS}{
+  \pagenumbering{arabic}
+  \fancyhf{} %Clear Everything.
+  \fancyfoot[RO]{\thepage} %Page Number
+  \fancyfoot[LO]{\stateEquipment}
+  \fancyfoot[LE]{\thepage\space\stateEquipment}
+  \renewcommand{\footrulewidth}{.3pt}
+  %\fancyfoot[LO]{\thepage}
+} 
+
+\newcommand*\stateEquipment{%
+  \bfseries
+  \ifcase\value{page}\relax%
+  \or\relax%
+  \or%
+    Left:%
+  \or%
+    Right:%
+  \else%
+    Pack:%
+  \fi%
+  \mdseries\lineDots%
+}
+
+\newcommand\showGls[1]{%
+  \needspace{1em}
+  \parindent10pt
+  \noindent%
+  {\scshape\bfseries\large\glsfmtname{#1}}
+  \glsentrydesc{#1}.
+  \par
+  \vspace{.7em}%
+}
+
+\newcommand\raggedGls[1]{%
+  \raggedright
+  \noindent%
+  {\scshape\bfseries\large\glsfmtname{#1}}
+  \glsentrydesc{#1}%
+}
