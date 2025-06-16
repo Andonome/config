@@ -4,26 +4,34 @@
   paperwidth=74mm,
   paperheight=105mm,
   centering,
-  includefoot,
-  %showframe,
+  showframe,
+  footskip=1mm,
   margin=5mm,
-  %marginparsep=10pt,
-  marginparwidth=10pt,
-  footskip=15mm,
 }
 
 \setcounter{segNoSpare}{1}
 
 \setlength{\headwidth}{\textwidth}
 
+\fancypagestyle{minizine}{
+  \pagenumbering{arabic}
+  \fancyhf{}% Clear Everything.
+  \fancyfoot[RO]{\footnotesize\flourish\flourish\small\space\thepage}
+  \fancyfoot[LE]{\small\thepage\space\footnotesize\flourish\flourish}
+} 
+
 \fancypagestyle{miniCS}{
   \pagenumbering{arabic}
-  \fancyhf{} %Clear Everything.
-  \fancyfoot[RO]{\thepage} %Page Number
+  \fancyhf{} % Clear Everything.
+  \fancyfoot[RO]{\thepage}
   \fancyfoot[LO]{\stateEquipment}
   \fancyfoot[LE]{\thepage\space\stateEquipment}
   \renewcommand{\footrulewidth}{.3pt}
-  %\fancyfoot[LO]{\thepage}
+  \newgeometry{
+    footskip=15mm,
+    includefoot,
+    margin=5mm,
+  }
 } 
 
 \newcommand*\stateEquipment{%
@@ -56,3 +64,8 @@
   {\scshape\bfseries\large\glsfmtname{#1}}
   \glsentrydesc{#1}%
 }
+
+
+\pagenumbering{gobble}
+\pagestyle{empty}
+

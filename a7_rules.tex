@@ -5,9 +5,6 @@
 
 \begin{document}
 
-\frontmatter
-\pagenumbering{gobble}
-
 \begin{center}
   \includesvg[width=.8\textwidth]{logo}
   \par
@@ -17,19 +14,15 @@
   \ast\tiny It weighs 5 grams!
 \end{center}
 
-\pagebreak
 \small
+\pagebreak
 
 \begin{raggedright}
   \input{config/start.tex}
 \end{raggedright}
 
 \pagebreak
-
-\pagenumbering{arabic}
-
-\setcounter{page}{1}
-\pagestyle{plain}
+\pagestyle{minizine}
 
 \showGls{trait}
 
