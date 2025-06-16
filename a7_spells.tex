@@ -1,83 +1,15 @@
 \documentclass[10pt,twoside]{book}
 
 \usepackage{config/bind}
-
-\geometry{%
-  includefoot,
-  %showframe,
-  margin=5mm,
-  marginparsep=10pt,
-  marginparwidth=10pt,
-  paperwidth=74mm,
-  paperheight=105mm,
-  footskip=3mm,
-}
-
-\setcounter{segNoSpare}{1}
-
-\AddToHook{shipout/background}{%
-  \ifodd\value{page}
-  \shiftColours[\value{segNoSpare}]
-  \color{background}
-  \stepcounter{segNoSpare}
-    \def\BGpageanchor{current page.south east}
-    \def\BGadjust{-5mm, 5mm}
-  \else
-    \def\BGpageanchor{current page.south west}
-    \def\BGadjust{5mm, 5mm}
-  \fi
-  \begin{tikzpicture}[overlay,remember picture]
-    \ifnum\value{page}=10
-      \draw[gray, dotted] (-0.15,0) -- (-0.15,-10);
-    \fi
-    \ifnum\value{page}=14
-      \draw[gray, dotted] (-0.15,0) -- (-0.15,-10);
-      \draw[gray, dotted] (0,0) -- (5,0);
-    \fi
-    \path 
-      ++(\BGpageanchor)
-      +(\BGadjust)
-      node[
-        text centered,
-        text=black,
-        font=\titleFont,
-      ] {\thepage};
-  \end{tikzpicture}%
-}%
-
-\newcommand\showGls[1]{%
-  \needspace{1em}
-  \parindent10pt
-  \noindent%
-  {\scshape\bfseries\large\glsfmtname{#1}}
-  \glsentrydesc{#1}.
-  \par
-  \vspace{.7em}%
-}
-
-\newcommand\raggedGls[1]{%
-  \raggedright
-  \noindent%
-  {\scshape\bfseries\large\glsfmtname{#1}}
-  \glsentrydesc{#1}%
-}
+\usepackage{config/booklet}
 
 \begin{document}
 
-\frontmatter
-\pagenumbering{gobble}
+\miniCover{Spell Book}%
+  {}%
 
-\begin{center}
-  \par
-  \vspace{7\baselineskip}
-  \par
-  {\Huge\scshape\outline{Spell Book}}
-  \par
-  \vfill\null
-\end{center}
 
 \pagebreak
-\small
 
 \setcounter{r2}{\month}
 \setcounter{r2b}{\day}
@@ -91,8 +23,8 @@
 \orrery[\value{r2}/\value{r2b}, \value{r3}/\value{r3b}]
 
 \pagebreak
-\setcounter{page}{1}
-\pagestyle{plain}
+
+\pagestyle{minizine}
 
 \input{config/spells/Air1.tex}
 
