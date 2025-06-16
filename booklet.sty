@@ -16,7 +16,6 @@
 
 \setcounter{segNoSpare}{1}
 
-
 \AddToHook{shipout/background}{%
   \ifodd\value{page}%
     \shiftColours[\value{segNoSpare}]%
@@ -89,6 +88,24 @@
     #2
   \end{center}
   \small
+}
+
+\newenvironment{selectPath}%
+  {%
+    \begin{description}%
+    \setlength\itemsep{.2em}
+    \raggedright
+  }%
+  { \end{description} }
+
+\newcommand\willYe[3]{%
+  \item[#1]
+  #2
+  \ifstrequal{#3}{}{}{({\scshape\ifnum\value{list}<3 turn to \fi part~\vref{#3}})}
+}
+
+\newcommand\goTo[1]{
+  ({Turn to part~\vref{#1}})
 }
 
 \pagenumbering{gobble}
