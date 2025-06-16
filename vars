@@ -36,6 +36,27 @@ $(RELEASE): $(DBOOK)
 $(DBOOK): main.tex $(DEPS)
 	$(COMPILER) -jobname=$(BOOK) $<
 
+# Story time!
+# If the page count for the book is 54, then it'll get a miniature rulebook and
+# maybe a character sheet or handout at the end, bringing the page count up to
+# 58.  But the A3 version has 12-page signatures, which means 2 blank pages. 
+# Oh no!  We need to add more copies of things (and put the first one aside for
+# later).
+# 
+# So 58 % 12 leaves 10 remaining pages.
+# 12 - 10 shows we need two more pages.
+# But then the formula sometimes works out as '12 - 0', which means needing 12
+# more pages (nonsense!), so we find the remainder again, and 12%12 = 0.
+# 
+# The extra pages will always be double-facing, so we can half what's left (and
+# add the one put aside earlier).
+
+config/$(DROSS)/.count.tex: $(DBOOK)
+	page_count="$$(pdfinfo $(DBOOK) | grep -m1 '^Pages:' | awk '{print $$2}')" && \
+		pages_required=$$(( 12-( page_count + 4 )%12 )) && \
+		cs_required=$$(( pages_required%12 / 2 + 1 )) && \
+		echo "\setcounter{track}{$$cs_required}" > $@
+
 pdfs += $(RELEASE)
 
 %/:
