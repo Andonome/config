@@ -13,6 +13,7 @@
 
 \hfuzz=5.002pt 
 \emergencystretch 2em
+\setlength\columnsep{8pt}
 
 \setcounter{segNoSpare}{1}
 
@@ -47,29 +48,44 @@
 \fancypagestyle{miniCS}{
   \pagenumbering{arabic}
   \fancyhf{} % Clear Everything.
-  \fancyfoot[RO]{\thepage}
   \fancyfoot[LO]{\stateEquipment}
-  \fancyfoot[LE]{\thepage\space\stateEquipment}
-  \renewcommand{\footrulewidth}{.3pt}
+  \fancyfoot[LE]{\stateEquipment}
   \newgeometry{
     footskip=15mm,
     includefoot,
     margin=5mm,
-  }
+  }%
 } 
 
 \newcommand*\stateEquipment{%
-  \bfseries
   \ifcase\value{page}\relax%
   \or\relax%
   \or%
-    Left:%
+    \textbf{Left:}
+    \ifdefempty{\weaponName}{\lineDots}{%
+      \expandafter\MakeUppercase\weaponName~(\absNum{weaponBonus}/ \absNum{weaponDamage}: \glsentrysymbol{weight} \arabic{weaponWeight})
+    }
   \or%
-    Right:%
+    \textbf{Right:}
+    \ifdefempty{\armourName}{\lineDots}{%
+      \expandafter\MakeUppercase\armourName
+    }
+  \or%
+    \textbf{Pack:}
+    \ifdefempty{\equipment}{\lineDots}{%
+      \expandafter\MakeUppercase\equipment
+    }
   \else%
-    Pack:%
+    \ifnum\thepage>\value{hp}%
+      \glsentrysymbol{weight}
+    \fi%
+    \lineDots
   \fi%
-  \mdseries\lineDots%
+}
+
+\newcommand*\zineTitle[1]{%
+  \noindent
+  {\normalsize\scshape#1}%
 }
 
 \newcommand\showGls[1]{%

@@ -5,47 +5,42 @@
 
 \begin{document}
 
-\miniCover{Character Sheet}%
-  {}%
+\miniCover{\ifdefempty{\name}{\lineDots}{\name}}%
+  {\par\vfill\null\scshape
+  care of \lineDots
+  }%
 
 \pagebreak
 
-\newcommand*\frontCSNote[2]{
-  \large
-  \scshape
-  \noindent
+\newcommand*\frontCSNote[2]{%
+  \large%
+  \scshape%
   #1:
-  \iftoggle{examplecharacter}{\quad#2}{\lineDots}
-  \par
+  &
+  \iftoggle{examplecharacter}{ \pencilWriting{#2} }{ \lineDots }
+  \\
 }
 
-\frontCSNote{Name}{\name}
+\noindent
+\begin{tabularx}{.9\linewidth}{XX}
+  \hiderowcolors
+  \frontCSNote{Concept}{\concept}
 
-\frontCSNote{Race}{\race}
+  \frontCSNote{Race}{\race}
 
-\frontCSNote{Concept}{\concept}
+  \frontCSNote{Rank}{\rank}
 
-\frontCSNote{Rank}{\rank}
+  \frontCSNote{Debt}{\characterDebt}
 
-\frontCSNote{Debt}{\characterDebt}
-
-\frontCSNote{Debt}{\characterDebt}
-
-{
-  \large
-  \noindent
-  {\scshape
-  Birthday:}
-  \showCycle,
-  \arabic{fenestraDay}
-}
-
+  \scshape\large Birthday:
+  &
+    \pencilWriting{\showCycle, \arabic{fenestraDay}}
+  \\
+\end{tabularx}
 
 \pagebreak
 
 \pagestyle{miniCS}
-
-\frontCSNote{Player}{\lineDots}
 
 \begin{center}
   \addtolength{\tabcolsep}{-0.55em}
@@ -71,12 +66,16 @@
 \bigLine
 
 \begin{multicols}{2}
-  \Glsfmtplural{fp}:\lineDots
+  \noindent
+  \Glsfmtplural{fp}:
+  \iftoggle{examplecharacter}{\quad\arabic{fp}}{\lineDots}
 
-  \Glsfmtplural{mp}:\lineDots
+  \Glsfmtplural{mp}:
+  \iftoggle{examplecharacter}{\quad\arabic{mp}}{\lineDots}
 \end{multicols}
 
-Code: \lineDots
+\noindent
+{\scshape\normalsize Code:} \lineDots
 
 \pagebreak
 
@@ -94,40 +93,74 @@ Code: \lineDots
   \showAttribute{Speed}
   \showAttribute{Intelligence}
   \showAttribute{Wits}
-  \showAttribute{Charisma}[-8pt]
-  \iftoggle{examplecharacter}{\hspace{2em}\footnotesize{\dicef{7}} & & \tiny{2} & \tiny{3} & \tiny{4--5} & \tiny{6--8} & \tiny{9--10} & \tiny{11} & \tiny{12} & \\}{}
+  \showAttribute{Charisma}
+  \iftoggle{examplecharacter}{}{\hspace{2em}\footnotesize{\dicef{7}} & & \tiny{2} & \tiny{3} & \tiny{4--5} & \tiny{6--8} & \tiny{9--10} & \tiny{11} & \tiny{12} & \\}
 \end{tabularx}
 
 \medskip
 
+\noindent
 \bigLine
 
 \begin{multicols}{2}
-  \parindent0pt
-  \vspace{5mm}
-  \par
-  Brawl\dotfill\Repeat{3}{\statCircle}
-  \par
-  Combat\dotfill\Repeat{3}{\statCircle}
-  \par
-  Projectiles\dotfill\Repeat{3}{\statCircle}
-  \par
-  \columnbreak
-  Fate\dotfill\Repeat{3}{\statCircle}
-  \par
-  Air\dotfill\Repeat{3}{\statCircle}
-  \par
-  Fire\dotfill\Repeat{3}{\statCircle}
-  \par
-  Earth\dotfill\Repeat{3}{\statCircle}
-  \par
-  Water\dotfill\Repeat{3}{\statCircle}
+\small
+\noindent
+\begin{tabularx}{\linewidth}{Xr}
+  \skill{Academics}
+  \skill{Athletics}
+  \skill{Caving}
+  \skill{Crafts}
+  \skill{Cultivation}
+  \skill{Deceit}
+\end{tabularx}
+
+\columnbreak
+
+\noindent
+\begin{tabularx}{\linewidth}{Xr}
+  \skill{Empathy}
+  \skill{Medicine}
+  \skill{Performance}
+  \skill{Larceny}
+  \skill{Seafaring}
+  \skill{Stealth}
+  \skill{Vigilance}
+\end{tabularx}
+
 \end{multicols}
 
 \pagebreak
 
-\scshape\small
+\begin{multicols}{2}
+
+\zineTitle{Combat}
+
+\noindent
+\begin{tabularx}{\linewidth}{Xr}
+  \skill{Brawl}
+  \skill{Melee}
+  \skill{Projectiles}
+\end{tabularx}
+
+\columnbreak
+
+\noindent
+\begin{tabularx}{\linewidth}{Xr}
+  \skill{Fate}
+  \skill{Air}
+  \skill{Fire}
+  \skill{Earth}
+  \skill{Water}
+\end{tabularx}
+
+\end{multicols}
+
+\noindent
+\bigLine
+
 \renewcommand{\arraystretch}{1}%
+\scshape\footnotesize
+\noindent
 \begin{tabular}{lr}
   \Glsfmtlongpl{ap} & \iftoggle{examplecharacter}{ \hspace{-3em} \arabic{ap}}{} \\
   \textcolor{gray}{\footnotesize $3 + Speed$} \\
@@ -148,65 +181,29 @@ Code: \lineDots
   \textcolor{gray}{\footnotesize $(3 + Athletics) \times \Glsfmtplural{ap}$} \\
 \end{tabular}
 
+\pagebreak
+
+\zineTitle{Abilities}
 
 \pagebreak
 
-\begin{multicols}{2}
-  \parindent0pt
-  \vspace{5mm}
-  Academics\dotfill\Repeat{3}{\statCircle}
-  \par
-  Athletics\dotfill\Repeat{3}{\statCircle}
-  \par
-  Caving\dotfill\Repeat{3}{\statCircle}
-  \par
-  %\columnbreak
-  Crafts\dotfill\Repeat{3}{\statCircle}
-  \par
-  Cultivation\dotfill\Repeat{3}{\statCircle}
-  \par
-  Deceit\dotfill\Repeat{3}{\statCircle}
-  \par
-  Empathy\dotfill\Repeat{3}{\statCircle}
-  \par
-  Medicine\dotfill\Repeat{3}{\statCircle}
-  \par
-  Performance\dotfill\Repeat{3}{\statCircle}
-  \par
-  Larceny\dotfill\Repeat{3}{\statCircle}
-  \par
-  Seafaring\dotfill\Repeat{3}{\statCircle}
-  \par
-  Stealth\dotfill\Repeat{3}{\statCircle}
-  \par
-  Vigilance\dotfill\Repeat{3}{\statCircle}
-\end{multicols}
-
-\medskip
-
-\bigLine
-
-Abilities
+\zineTitle{Knacks}
 
 \pagebreak
 
-Knacks
-
+\zineTitle{Story} \Square
 \pagebreak
 
-Story \Square
+\zineTitle{Story} \Square
 \pagebreak
 
-Story \Square
+\zineTitle{Story} \Square
 \pagebreak
 
-Story \Square
+\zineTitle{Story} \Square
 \pagebreak
 
-Story \Square
-\pagebreak
-
-Story \Square
+\zineTitle{Story} \Square
 \pagebreak
 
 Notes
