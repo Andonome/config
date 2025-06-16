@@ -1,51 +1,46 @@
-\documentclass[10pt,twoside]{book}
+\documentclass[10pt]{book}
 
 \usepackage{config/bind}
 
 \geometry{%
+  paperwidth=74mm,
+  paperheight=105mm,
+  centering,
   includefoot,
   %showframe,
   margin=5mm,
-  marginparsep=10pt,
+  %marginparsep=10pt,
   marginparwidth=10pt,
-  paperwidth=74mm,
-  paperheight=105mm,
-  footskip=6em,
+  footskip=15mm,
 }
 
 \setcounter{segNoSpare}{1}
 
+\setlength{\headwidth}{\textwidth}
 
-\AddToHook{shipout/background}{%
-  \ifodd\value{page}
-  \shiftColours[\value{segNoSpare}]
-  \color{background}
-  \stepcounter{segNoSpare}
-    \def\BGpageanchor{current page.south east}
-    \def\BGadjust{-5mm, 5mm}
-  \else
-    \def\BGpageanchor{current page.south west}
-    \def\BGadjust{5mm, 5mm}
-  \fi
-  \begin{tikzpicture}[overlay,remember picture]
-    \ifnum\value{page}=10
-      \draw[gray, dotted] (-0.15,0) -- (-0.15,-10);
-    \fi
-    \ifnum\value{page}=14
-      \draw[gray, dotted] (-0.15,0) -- (-0.15,-10);
-      \draw[gray, dotted] (0,0) -- (5,0);
-    \fi
-    \path 
-      ++(\BGpageanchor)
-      +(\BGadjust)
-      node[
-        text centered,
-        text=black,
-        font=\titleFont,
-      ] {\thepage};
-    \draw (current page.south west)+(5mm,5mm) -- (current page.south east)+(-5mm,10mm);
-  \end{tikzpicture}%
-}%
+\fancypagestyle{miniCS}{
+  \pagenumbering{arabic}
+  \fancyhf{} %Clear Everything.
+  \fancyfoot[RO]{\thepage} %Page Number
+  \fancyfoot[LO]{\stateEquipment}
+  \fancyfoot[LE]{\thepage\space\stateEquipment}
+  \renewcommand{\footrulewidth}{.3pt}
+  %\fancyfoot[LO]{\thepage}
+} 
+
+\newcommand*\stateEquipment{%
+  \bfseries
+  \ifcase\value{page}\relax%
+  \or\relax%
+  \or%
+    Left:%
+  \or%
+    Right:%
+  \else%
+    Pack:%
+  \fi%
+  \mdseries\lineDots%
+}
 
 \newcommand\showGls[1]{%
   \needspace{1em}
@@ -68,28 +63,87 @@
 
 \frontmatter
 \pagenumbering{gobble}
+\pagestyle{empty}
 
 \begin{center}
   \includesvg[width=.8\textwidth]{logo}
   \par
   \vspace{3\baselineskip}
-  {\Large\scshape The Rules-Light RPG$^{*}$}
+  {\Large\scshape Character Sheet}
   \vfill\null
-  \ast\tiny It weighs 5 grams!
 \end{center}
 
 \pagebreak
-\small
+\newcommand*\frontCSNote[2]{
+  \large
+  \scshape
+  \noindent
+  #1:
+  \iftoggle{examplecharacter}{\quad#2}{\lineDots}
+  \par
+}
 
-\null
+\frontCSNote{Name}{\name}
+
+\frontCSNote{Race}{\race}
+
+\frontCSNote{Concept}{\concept}
+
+\frontCSNote{Rank}{\rank}
+
+\frontCSNote{Debt}{\characterDebt}
+
+\frontCSNote{Debt}{\characterDebt}
+
+{
+  \large
+  \noindent
+  {\scshape
+  Birthday:}
+  \showCycle,
+  \arabic{fenestraDay}
+}
+
 
 \pagebreak
 
-\pagenumbering{arabic}
+\pagestyle{miniCS}
 
-\setcounter{page}{1}
-\pagestyle{plain}
+\frontCSNote{Player}{\lineDots}
 
+\begin{center}
+  \addtolength{\tabcolsep}{-0.55em}
+  {\large\scshape\Glsfmtlongpl{xp}}
+  \par
+  \vspace{5mm}
+  \begin{tabular}{rcccccccccc}
+    X: \Repeat{5}{&\Diamondblack }
+    \Repeat{5}{&\glsentrysymbol{fp}}%
+    \\
+    \hphantom{X:\space}\Repeat{10}{&\glsentrysymbol{fp}}%
+    \\
+    V: \Repeat{0}{&\XPboxSpent}%
+    \Repeat{0}{&\XPboxEarned}%
+    \Repeat{10}{&\XPboxEmpty}%
+    \\
+    I: \Repeat{5}{ & \Circle &}
+    \\
+  \end{tabular}
+\end{center}
+
+\bigLine
+
+\begin{multicols}{2}
+  \Glsfmtplural{fp}:\lineDots
+
+  \Glsfmtplural{mp}:\lineDots
+\end{multicols}
+
+Code: \lineDots
+
+\pagebreak
+
+\small
 
 \noindent
 \renewcommand{\arraystretch}{1.2}
@@ -97,6 +151,7 @@
 \begin{tabularx}{\linewidth}{rcccccccccc}
   \hiderowcolors
   & \tiny{-4} & \tiny{-3} & \tiny{-2} & \tiny{-1} & \tiny{0} & \tiny{1} & \tiny{2} & \tiny{3} & \tiny{4} \\[-5pt]
+  \par
   \showAttribute{Strength}
   \showAttribute{Dexterity}
   \showAttribute{Speed}
@@ -105,5 +160,129 @@
   \showAttribute{Charisma}[-8pt]
   \iftoggle{examplecharacter}{\hspace{2em}\footnotesize{\dicef{7}} & & \tiny{2} & \tiny{3} & \tiny{4--5} & \tiny{6--8} & \tiny{9--10} & \tiny{11} & \tiny{12} & \\}{}
 \end{tabularx}
+
+\medskip
+
+\bigLine
+
+\begin{multicols}{2}
+  \parindent0pt
+  \vspace{5mm}
+  \par
+  Brawl\dotfill\Repeat{3}{\statCircle}
+  \par
+  Combat\dotfill\Repeat{3}{\statCircle}
+  \par
+  Projectiles\dotfill\Repeat{3}{\statCircle}
+  \par
+  \columnbreak
+  Fate\dotfill\Repeat{3}{\statCircle}
+  \par
+  Air\dotfill\Repeat{3}{\statCircle}
+  \par
+  Fire\dotfill\Repeat{3}{\statCircle}
+  \par
+  Earth\dotfill\Repeat{3}{\statCircle}
+  \par
+  Water\dotfill\Repeat{3}{\statCircle}
+\end{multicols}
+
+\pagebreak
+
+\scshape\small
+\renewcommand{\arraystretch}{1}%
+\begin{tabular}{lr}
+  \Glsfmtlongpl{ap} & \iftoggle{examplecharacter}{ \hspace{-3em} \arabic{ap}}{} \\
+  \textcolor{gray}{\footnotesize $3 + Speed$} \\
+  \hline
+  Attack & \iftoggle{examplecharacter}{ \hspace{-3em} \absNum{att}}{} \\
+  \textcolor{gray}{\footnotesize $Dexterity + Melee + Weapon$} \\
+  \hline
+  Damage & \iftoggle{examplecharacter}{ \hspace{-3em} \dmg{damage} }{} \\
+  \textcolor{gray}{\footnotesize $1D6 + Strength + Weapon$} \\
+  \hline
+  \Glsfmttext{covering} & \iftoggle{examplecharacter}{ \hspace{-3em} \arabic{covering}}{} \\
+  \\
+  \hline
+  \Glsfmtlong{dr} & \iftoggle{examplecharacter}{ \hspace{-3em} \arabic{armourDR}}{} \\
+  \\
+  \hline
+  Sprint & \iftoggle{examplecharacter}{ \hspace{-3em} \arabic{sprint}}{} \\
+  \textcolor{gray}{\footnotesize $(3 + Athletics) \times \Glsfmtplural{ap}$} \\
+\end{tabular}
+
+
+\pagebreak
+
+\begin{multicols}{2}
+  \parindent0pt
+  \vspace{5mm}
+  Academics\dotfill\Repeat{3}{\statCircle}
+  \par
+  Athletics\dotfill\Repeat{3}{\statCircle}
+  \par
+  Caving\dotfill\Repeat{3}{\statCircle}
+  \par
+  %\columnbreak
+  Crafts\dotfill\Repeat{3}{\statCircle}
+  \par
+  Cultivation\dotfill\Repeat{3}{\statCircle}
+  \par
+  Deceit\dotfill\Repeat{3}{\statCircle}
+  \par
+  Empathy\dotfill\Repeat{3}{\statCircle}
+  \par
+  Medicine\dotfill\Repeat{3}{\statCircle}
+  \par
+  Performance\dotfill\Repeat{3}{\statCircle}
+  \par
+  Larceny\dotfill\Repeat{3}{\statCircle}
+  \par
+  Seafaring\dotfill\Repeat{3}{\statCircle}
+  \par
+  Stealth\dotfill\Repeat{3}{\statCircle}
+  \par
+  Vigilance\dotfill\Repeat{3}{\statCircle}
+\end{multicols}
+
+\medskip
+
+\bigLine
+
+Abilities
+
+\pagebreak
+
+Knacks
+
+\pagebreak
+
+Story \Square
+\pagebreak
+
+Story \Square
+\pagebreak
+
+Story \Square
+\pagebreak
+
+Story \Square
+\pagebreak
+
+Story \Square
+\pagebreak
+
+Notes
+\pagebreak
+
+\null
+\pagebreak
+
+\null
+
+\pagebreak
+
+\scshape\large
+Cause of Death
 
 \end{document}
