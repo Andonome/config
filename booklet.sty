@@ -11,6 +11,15 @@
 
 \setcounter{segNoSpare}{1}
 
+
+\AddToHook{shipout/background}{%
+  \ifodd\value{page}%
+    \shiftColours[\value{segNoSpare}]%
+    \color{background}%
+    \stepcounter{segNoSpare}%
+  \fi%
+}%
+
 \setlength{\headwidth}{\textwidth}
 
 \fancypagestyle{minizine}{
