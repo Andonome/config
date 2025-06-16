@@ -245,6 +245,7 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
 \iftoggle{marketBeasts}{
   \clearpage
   \begin{multicols}{2}
+    \settoggle{allyCharacter}{true}
     \donkey
 
     \horse
@@ -258,6 +259,33 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
       \cat
     \fi
   \end{multicols}
-}{}
+}{
+  \ifnum\value{r12}=8
+    \begin{multicols}{2}
+    \begin{speechtext}
+    {\Large\Nl}
+    Old \ifodd\value{r2}man\else woman\fi,
+    your sweat stinks of scared.
+    Trade for a new friend to
+    \ifodd\value{r2c}
+      show you courage?
+    \else
+      lick the fear from your face?
+    \fi
+    \end{speechtext}
+    \columnbreak
+    Six gnolls have dropped by to trade.
+    Their dogs cost \mkPrice{5} worth of food, weapons, or \glspl{ingredient} (\glspl{coin} are not accepted), and the new family must show they understand how to take care of the dogs (\roll{Intelligence}{Cultivation} at \tn[8]) and provide a good name.
+    \end{multicols}
+
+    \pagebreak
+    \begin{multicols}{2}
+      \settoggle{allyCharacter}{true}
+      \wardog[\npc{\F\A}{Dog: \weeline}]
+      \columnbreak
+      \wardog[\npc{\M\A}{Dog: \weeline}]
+    \end{multicols}
+  \fi
+}
 
 \stepcounter{diceNo}
