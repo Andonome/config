@@ -40,6 +40,7 @@
     \showBoxes%
     }%
   \ifdefempty{\NPCdescription}{\vfill\null}{%
+    \par%
     \raggedright%
     \textbf{Description:}~\NPCdescription.
     \textbf{Wants:}~\npcGoal.
@@ -47,9 +48,8 @@
     \ifdefempty{\currentQuote}{}{%
       \textbf{Quote:}~\textit{``\currentQuote''}%
     }%
-    \par%
-    \vspace{1em}%
-  }%1
+    \medskip
+  }%
 }
 
 %      _        _   
@@ -145,7 +145,7 @@
 \newcommand\statblock[1]{
     \begin{tcolorbox}[
       before={\begin{minipage}{\linewidth}},
-      code={\setlength\parindent{0pt}#1},
+      code={\setlength\parindent{0pt}#1\par\medskip},
       title={\npcsymbol~\name},
       after={\afterStatBlock\end{minipage}},
       ornamented,
@@ -221,7 +221,6 @@
   \else%
     {\centering\Repeat{\value{noAppearing}}{\hpStat\quad}}%
   \fi%
-  \vfill\null\par%
 }
 
 \newcounter{wounds}
