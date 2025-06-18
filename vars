@@ -141,7 +141,7 @@ layout = 16:
 
 # The layout lists page indexes, so '0' means 'page 1', and '0L' means 'page 1
 # but turn 90 degrees to the left'
-layout += 4L(1w,0h)+12L(1w,0.25h)+15L(1w,0.5h)+0L(1w,0.75h)+3R(0w,0.25h)+11R(0w,0.5h)+8R(0w,0.75h)+7R(0w,1h),
+layout += 3L(1w,0h)+12L(1w,0.25h)+15L(1w,0.5h)+0L(1w,0.75h)+4R(0w,0.25h)+11R(0w,0.5h)+8R(0w,0.75h)+7R(0w,1h),
 
 # The first block ends with a comma, which indicates that we are working on the
 # back-page.
