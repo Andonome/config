@@ -942,6 +942,63 @@
   }%
 }
 
+%%%%%%% Animal Reactions %%%%%%%
+
+\newcommand\animalCry{call}
+
+\newcommand\animalReactions[1][\value{r4}]{%
+  \setcounter{track}{-1}%
+  \addtocounter{track}{#1}
+  \setcounter{diceNo}{0}%
+  \Repeat{6}{%
+    \randomize%
+    \stepcounter{diceNo}%
+    \epsdice[black]{\value{diceNo}}:~%
+    \animalBehaviours%
+    \ifnum\value{diceNo}<6, \fi%
+    \addtocounter{track}{\value{r3c}}%
+  }
+}
+
+\newcommand\animalBehaviours{%
+  \ifcase\value{track}%
+    bite nearest person%
+  \or%
+    loud \animalCry%
+  \or%
+    sleeps (reroll at night)%
+  \or%
+    steal food%
+  \or%
+    stare into distance%
+  \or%
+    ignores everyone%
+  \or%
+    request food%
+  \or%
+    quiet noises%
+  \or%
+    shit%
+  \or%
+    investigate area%
+  \or%
+    roll on back%
+  \or%
+    expressive tail%
+  \or%
+    politely greet everyone%
+  \or%
+    affectionate nuzzle%
+  \or%
+    copy nearest person%
+  \or%
+    playful%
+  \else%
+    walk in defensive circles around pack%
+    \setcounter{track}{0}%
+  \fi%
+}
+
 %%%%%%%%%%%%%%%%%%%% Human Names
 
 \newcounter{humanNameNo}

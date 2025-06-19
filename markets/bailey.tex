@@ -244,19 +244,27 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
 
 \iftoggle{marketBeasts}{
   \clearpage
+  Cut your animal out.
+  Roll for its actions each \gls{interval} it's awake.
   \begin{multicols}{2}
     \settoggle{allyCharacter}{true}
     \donkey
+    \animalReactions
 
     \horse
+    \animalReactions
     \columnbreak
 
     \mule
+    \animalReactions[\value{r6}]
 
     \huntingdog
+    \animalReactions[3]
 
     \ifnum\value{r12}=7
       \cat
+      \renewcommand\animalCry{mew}
+      \animalReactions
     \fi
   \end{multicols}
 }{
@@ -280,10 +288,13 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
 
     \pagebreak
     \begin{multicols}{2}
+      \renewcommand\animalCry{growl}
       \settoggle{allyCharacter}{true}
       \wardog[\npc{\F\A}{Dog: \weeline}]
+      \animalReactions
       \columnbreak
       \wardog[\npc{\M\A}{Dog: \weeline}]
+      \animalReactions
     \end{multicols}
   \fi
 }
