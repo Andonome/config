@@ -143,6 +143,63 @@
   {\scshape The End#1}
 }
 
+\renewcommand{\thread}[2][]{
+  \stopcontents[segments]
+  \foreach \area in {#1}%
+    {\resumecontents[\area]}
+  \renewcommand{\threadName}{#2}
+  \needspace{2em}
+  \subsection[\it #2]{\large#2}
+  \setcounter{segNo}{0}
+  \foreach \area in {#1}%
+    {\stopcontents[\area]}
+  \startcontents[segments]
+}
+
+\titleformat{\subsection}
+  {\titleFont%
+  \normalsize}%
+  {\thesubsection}%
+  {.2em}%
+  {\center#1}%
+  [\textcolor{background}{\titlerule}]
+
+\titleformat{\subsubsection}[wrap]
+{\filright%
+\titleFont%
+\normalsize\centering}
+{}{.5em}{#1}
+
+\titlespacing{\subsubsection}
+{7pc}{1.5ex plus .1ex minus .2ex}{.5pc}
+
+\titlecontents{fsubsubsection}
+              [5em]
+              {%
+                \hspace{-1.5em}%
+                \contentspush{%
+                \ifnum\thesegNoSpare=1%
+                  \sgr\else\sgn%
+                \fi~%
+                \ifnum\thesegNoSpare>0%
+                  ~\thesegNoSpare%
+                \else%
+                  ~1%
+                \fi:~%
+                }%
+                \thecontentslabel%
+              }%
+              {}%
+              {}%
+              { \enspace\titlerule*[1pc]{.}\bfseries\large\contentspage }%
+              []%
+
+\newcommand\bookletThreads[1]{
+  \medskip
+  \smash{\hspace{-2em}\underline{\scshape\Glsfmtname{#1}}}
+  \printThreadsInRegion{#1}
+}
+
 \pagenumbering{gobble}
 \pagestyle{empty}
 
