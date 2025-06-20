@@ -5,10 +5,14 @@
 
 \begin{document}
 
-\miniCover{\ifdefempty{\name}{\lineDots}{\name}}%
-  {\par\vfill\null\scshape
-  care of \lineDots
-  }%
+\miniCover{%
+  \par\vspace{3em}%
+  \ifdefempty{\name}{\bigLine}{\name}%
+}%
+{%
+  \vfill\null\scshape
+  entrusted to \lineDots
+}%
 
 \pagebreak
 
@@ -65,6 +69,7 @@
 
 \bigLine
 
+\vspace{5mm}
 \begin{multicols}{2}
   \noindent
   \Glsfmtplural{fp}:
@@ -131,29 +136,14 @@
 
 \pagebreak
 
-\begin{multicols}{2}
-
-\zineTitle{Combat}
-
 \noindent
-\begin{tabularx}{\linewidth}{Xr}
-  \skill{Brawl}
-  \skill{Melee}
-  \skill{Projectiles}
+\begin{tabularx}{\linewidth}{Xr@{\hskip 1.2em}Xr}
+  \zineTitle{Combat}    & & \showSkill{Fate} \\
+                        & & \showSkill{Air} \\
+  \showSkill{Brawl}       & \showSkill{Fire} \\
+  \showSkill{Melee}       & \showSkill{Earth} \\
+  \showSkill{Projectiles} & \showSkill{Water} \\
 \end{tabularx}
-
-\columnbreak
-
-\noindent
-\begin{tabularx}{\linewidth}{Xr}
-  \skill{Fate}
-  \skill{Air}
-  \skill{Fire}
-  \skill{Earth}
-  \skill{Water}
-\end{tabularx}
-
-\end{multicols}
 
 \noindent
 \bigLine
