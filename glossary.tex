@@ -182,6 +182,18 @@
   Once the Segments concludes, it should be marked as done with a `\glsentrytext{sgr}\hspace{-.5em}\textbackslash~', and the next Segment in the same \glsentrytext{thread} becomes ready (`\glsentrytext{sgr}')},
   }
 
+\newcommand\manaRegenChart{
+  \begin{boxtable}[Lc|Lc]
+  \textbf{Location} & \textbf{\glspl{mp}} & \textbf{Cover} & \textbf{\glspl{mp}}  \\
+  \hline
+  Underground & 1 & Partial armour  & -1 \\
+  Indoors     & 2 & Complete armour & -2 \\
+  Outdoors    & 3 & Submerged       & -3 \\
+  Storm       & 4 & Entombed        & -4 \\
+  \hline
+  \end{boxtable}
+}
+
 \longnewglossaryentry{interval}{
   name={Intervals},
   text={Interval},
@@ -567,6 +579,17 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 }
 
 %%%%% Combat
+
+\newcommand\stackingDamageChart{
+  \begin{boxtable}[l|YYYYYYYYYYYY]
+
+    \hline
+    \textbf{Damage Bonus} & -3    & \dots & 0   & \dots & +3    & +4  & \dots & +7    & +8  & \dots & +10 \\
+    \textbf{Damage Roll}  & 1D6-3 & \dots & 1D6 & \dots & 1D6+3 & 2D6 & \dots & 2D6+3 & 3D6 & \dots & 3D6+2 \\
+    \hline
+
+  \end{boxtable}
+}
 
 \longnewglossaryentry{combat}{
   sort={T1.4},
@@ -1070,6 +1093,24 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   Casters only select a spell's first target.
   The spell forks through the others like lightning, and may `arc' across any distances up to its original range.
   A curse which affects `4 targets' will strike the first person aimed at, and then affect the nearest 3; but a Water spell with `4 targets' which hits a river will simply affect 4 \glsfmtplural{step} along the river},
+}
+
+
+\newcommand\descriptorTable{
+  \toggletrue{Duplicated}
+  \begin{boxtable}[c|YYY]
+    \textbf{Lv.} & \textbf{Distant} & \textbf{Duplicated} & \textbf{Devious} \\\hline
+    \setcounter{spellCost}{2}%
+    \arabic{spellCost} & \setLongRange \spellRange & \setTargetsIfDuplicated \arabic{spellTargets} targets & 1~\showOnset \\
+    \stepcounter{spellCost}
+    \arabic{spellCost} & \setLongRange \spellRange & \setTargetsIfDuplicated \arabic{spellTargets} targets & 1~\showOnset \\
+    \stepcounter{spellCost}
+    \arabic{spellCost} & \setLongRange \spellRange & \setTargetsIfDuplicated \arabic{spellTargets} targets & 1~\showOnset \\
+    \stepcounter{spellCost}
+    \arabic{spellCost} & \setLongRange \spellRange & \setTargetsIfDuplicated \arabic{spellTargets} targets & 1~\showOnset \\
+    \stepcounter{spellCost}
+    \arabic{spellCost} & \setLongRange \spellRange & \setTargetsIfDuplicated \arabic{spellTargets} targets & 1~\showOnset \\
+  \end{boxtable}
 }
 
 \longnewglossaryentry{descriptor}{
