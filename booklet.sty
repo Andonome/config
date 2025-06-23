@@ -21,24 +21,6 @@
 
 \setcounter{segNoSpare}{1}
 
-\AddToHook{shipout/background}{%
-  \ifodd\value{page}%
-    \shiftColours[\value{segNoSpare}]%
-    \color{background}%
-    \stepcounter{segNoSpare}%
-  \fi%
-  \ifnum\value{page}=10%
-    \begin{tikzpicture}[overlay]%
-      \draw[gray, dotted, thick] (0,0) -- (0,-10);
-    \end{tikzpicture}%
-  \fi%
-  \ifnum\value{page}=14%
-    \begin{tikzpicture}[overlay]%
-      \draw[gray, dotted, thick] (0,0) -- (0,-10);
-      \draw[gray, dotted] (0,0) -- (5,0);
-    \end{tikzpicture}%
-  \fi%
-}%
 
 \setlength{\headwidth}{\textwidth}
 
@@ -47,17 +29,54 @@
   \fancyhf{}% Clear Everything.
   \fancyfoot[RO]{\footnotesize\flourish\flourish\small\space\thepage}
   \fancyfoot[LE]{\small\thepage\space\footnotesize\flourish\flourish}
+  \AddToHook{shipout/background}{%
+    \ifodd\value{page}%
+      \shiftColours[\value{segNoSpare}]%
+      \color{background}%
+      \stepcounter{segNoSpare}%
+    \fi%
+    \ifnum\value{page}=10%
+      \begin{tikzpicture}[overlay]%
+        \draw[gray, dotted, thick] (0,0) -- (0,-10);
+      \end{tikzpicture}%
+    \fi%
+    \ifnum\value{page}=14%
+      \begin{tikzpicture}[overlay]%
+        \draw[gray, dotted, thick] (0,0) -- (0,-10);
+        \draw[gray, dotted] (0,0) -- (5,0);
+      \end{tikzpicture}%
+    \fi%
+  }%
 } 
 
 \fancypagestyle{miniCS}{
+  \setlength{\headwidth}{\textwidth}
   \pagenumbering{arabic}
   \fancyhf{} % Clear Everything.
   \fancyfoot[LO]{\stateEquipment}
   \fancyfoot[LE]{\stateEquipment}
   \newgeometry{
-    footskip=15mm,
+    footskip=12mm,
     includefoot,
     margin=5mm,
+  }%
+  \AddToHook{shipout/background}{%
+    \ifodd\value{page}%
+      \shiftColours[\value{segNoSpare}]%
+      \color{background}%
+      \stepcounter{segNoSpare}%
+    \fi%
+    \ifnum\value{page}=10%
+      \begin{tikzpicture}[overlay]%
+        \draw[gray, dotted, thick] (0,0) -- (12,0);
+      \end{tikzpicture}%
+    \fi%
+    \ifnum\value{page}=11%
+      \begin{tikzpicture}[overlay]%
+        \draw[gray, dotted, thick] (0,0) -- (10,0);
+        \draw[gray, dotted] (0,0) -- (0,-5);
+      \end{tikzpicture}%
+    \fi%
   }%
 } 
 

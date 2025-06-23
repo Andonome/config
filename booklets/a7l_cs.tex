@@ -1,12 +1,17 @@
-\documentclass[10pt]{book}
+\documentclass[10pt,landscape]{book}
 
 \usepackage{config/bind}
 \usepackage{config/booklet}
 
+\geometry{%
+  paperwidth=105mm,
+  paperheight=74mm,
+}
+
 \begin{document}
 
 \miniCover{%
-  \par\vspace{3em}%
+  \par\vspace{1em}%
   \ifdefempty{\name}{\bigLine}{\name}%
 }%
 {%
@@ -26,8 +31,9 @@
 }
 
 \noindent
-\begin{tabularx}{.9\linewidth}{XX}
+\begin{tabularx}{.9\linewidth}{lX}
   \hiderowcolors
+  \\
   \frontCSNote{Concept}{\concept}
 
   \frontCSNote{Race}{\race}
@@ -46,6 +52,7 @@
 
 \pagestyle{miniCS}
 
+\begin{multicols}{2}
 \begin{center}
   \addtolength{\tabcolsep}{-0.55em}
   {\large\scshape\Glsfmtlongpl{xp}}
@@ -67,17 +74,25 @@
   \end{tabular}
 \end{center}
 
+\columnbreak
+
+\null
+
+\vspace{2em}
+
+\Glsfmtplural{fp}:
+\iftoggle{examplecharacter}{\quad\arabic{fp}}{\lineDots}
+
+\vspace{2em}
+
+\Glsfmtplural{mp}:
+\iftoggle{examplecharacter}{\quad\arabic{mp}}{\lineDots}
+
+\end{multicols}
+
 \bigLine
 
-\vspace{5mm}
-\begin{multicols}{2}
-  \noindent
-  \Glsfmtplural{fp}:
-  \iftoggle{examplecharacter}{\quad\arabic{fp}}{\lineDots}
-
-  \Glsfmtplural{mp}:
-  \iftoggle{examplecharacter}{\quad\arabic{mp}}{\lineDots}
-\end{multicols}
+\vspace{2em}
 
 \noindent
 {\scshape\normalsize Code:} \lineDots
@@ -101,53 +116,29 @@
   \showAttribute{Charisma}
   \iftoggle{examplecharacter}{}{\hspace{2em}\footnotesize{\dicef{7}} & & \tiny{2} & \tiny{3} & \tiny{4--5} & \tiny{6--8} & \tiny{9--10} & \tiny{11} & \tiny{12} & \\}
 \end{tabularx}
-
-\medskip
-
+\vspace{-2em}
 \noindent
-\bigLine
-
-\begin{multicols}{2}
-\small
-\noindent
-\begin{tabularx}{\linewidth}{Xr}
-  \skill{Academics}
-  \skill{Athletics}
-  \skill{Caving}
-  \skill{Crafts}
-  \skill{Cultivation}
-  \skill{Deceit}
+\begin{tabularx}{\linewidth}{Xr@{\hskip 1.2em}Xr@{\hskip 1.2em}Xr}
+%  \zineTitle{Combat}    & & \showSkill{Fate} \\
+%                        & & \showSkill{Air} \\
+  \showSkill{Brawl}       & \showSkill{Fire}  & \showSkill{Air} \\
+  \showSkill{Melee}       & \showSkill{Earth} & \showSkill{Fate} \\
+  \showSkill{Projectiles} & \showSkill{Water} & \emptySkill
 \end{tabularx}
 
-\columnbreak
-
-\noindent
-\begin{tabularx}{\linewidth}{Xr}
-  \skill{Empathy}
-  \skill{Medicine}
-  \skill{Performance}
-  \skill{Larceny}
-  \skill{Seafaring}
-  \skill{Stealth}
-  \skill{Vigilance}
-\end{tabularx}
-
-\end{multicols}
+%\noindent
+%\bigLine
 
 \pagebreak
 
-\noindent
-\begin{tabularx}{\linewidth}{Xr@{\hskip 1.2em}Xr}
-  \zineTitle{Combat}    & & \showSkill{Fate} \\
-                        & & \showSkill{Air} \\
-  \showSkill{Brawl}       & \showSkill{Fire} \\
-  \showSkill{Melee}       & \showSkill{Earth} \\
-  \showSkill{Projectiles} & \showSkill{Water} \\
-\end{tabularx}
+%\medskip
+%
+%\noindent
+%\bigLine
 
-\noindent
-\bigLine
+\pagebreak
 
+\begin{multicols}{2}
 \renewcommand{\arraystretch}{1}%
 \scshape\footnotesize
 \noindent
@@ -170,6 +161,26 @@
   Sprint & \iftoggle{examplecharacter}{ \hspace{-3em} \arabic{sprint}}{} \\
   \textcolor{gray}{\footnotesize $(3 + Athletics) \times \Glsfmtplural{ap}$} \\
 \end{tabular}
+
+\noindent
+\begin{tabularx}{\linewidth}{Xr}
+  \skill{Academics}
+  \skill{Athletics}
+  \skill{Caving}
+  \skill{Crafts}
+  \skill{Cultivation}
+  \skill{Deceit}
+  \skill{Empathy}
+  \skill{Medicine}
+  \skill{Performance}
+  \skill{Larceny}
+  \skill{Seafaring}
+  \skill{Stealth}
+  \skill{Vigilance}
+  \emptySkill
+\end{tabularx}
+
+\end{multicols}
 
 \pagebreak
 

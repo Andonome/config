@@ -154,11 +154,19 @@ layout += 5L(1w,0h)+10L(1w,0.25h)+9L(1w,0.5h)+6L(1w,0.75h)+2R(0w,0.25h)+13R(0w,0
 # 'make' adds spaces between variables, but `pstops` will not be happy with those spaces.
 a7_layout != printf '%s' '$(layout)' | tr -d ' '
 
-$(DROSS)/a7_%.ps: $(DROSS)/a7_%.pdf
+landscape_layout = 16:
+landscape_layout += 3(0.5w,0h)+12(0.5w,0.25h)+15(0.5w,0.5h)+0(0.5w,0.75h)+4(0w,0.0h)+11(0w,0.25h)+8(0w,0.5h)+7(0w,0.75h),
+landscape_layout += 5(0.5w,0h)+10(0.5w,0.25h)+9(0.5w,0.5h)+6(0.5w,0.75h)+2(0w,0h)+13(0w,0.25h)+14(0w,0.5h)+1(0w,0.75h)
+a7_landscape_layout != printf '%s' '$(landscape_layout)' | tr -d ' '
+
+$(DROSS)/a7%.ps: $(DROSS)/a7%.pdf
 	pdftops $< $@
 
 $(DROSS)/onepage_%.ps: $(DROSS)/a7_%.ps
 	pstops -pa4 '$(a7_layout)' $< $@
+
+$(DROSS)/onepage_%.ps: $(DROSS)/a7l_%.ps
+	pstops -pa4 '$(a7_landscape_layout)' $< $@
 
 $(DROSS)/onepage_%.pdf: $(DROSS)/onepage_%.ps
 	ps2pdf $< $@
