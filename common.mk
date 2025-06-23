@@ -36,6 +36,8 @@ $(RELEASE): $(DBOOK)
 $(DBOOK): main.tex $(DEPS)
 	$(COMPILER) -jobname=$(BOOK) $<
 
+vpath %.tex config/share
+
 # Story time!
 # If the page count for the book is 54, then it'll get a miniature rulebook and
 # maybe a character sheet or handout at the end, bringing the page count up to
