@@ -80,7 +80,7 @@ $(AUX_DIR)/$(BOOK).aux: $(DROSS)/$(BOOK).aux | $(AUX_DIR)/
 	cp $< $@
 $(DROSS)/$(BOOK).aux: $(DBOOK)
 
-qr.tex: README.md config/vars
+qr.tex: README.md
 	printf '%s' '\qrcode[height=.2\textwidth]{$(QR_TARGET)}' > qr.tex
 .switch-gls:
 	touch .switch-gls

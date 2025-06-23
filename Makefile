@@ -6,7 +6,7 @@ targets += cs.pdf
 dependencies += magick
 dependencies += pstops ps2pdf pdftops
 
-include vars
+include shared.mk
 
 $(DROSS)/docs.pdf: images/extracted/wide.jpg
 
