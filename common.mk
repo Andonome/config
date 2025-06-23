@@ -138,6 +138,8 @@ printables: $(A3_pdfs)
 
 ######## A7 pdf booklets ########
 
+vpath a7%.tex booklets
+
 # The A7 booklet has 16 pages to the signature
 layout = 16:
 
