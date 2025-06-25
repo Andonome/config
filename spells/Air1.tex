@@ -19,9 +19,10 @@
   {With a torrent of viscious swear-words, a pocket of foul air forms and inflicts \arabic{spellPlusTwo}~\glspl{ep} to anyone who inhales it}% Description
   {
     The fog only covers \pgls{step} -- enough for a doorway, or small tunnel.
-    It dissipates after a couple of turns, or less if wind is present.
+    It dissipates after a couple of \glspl{round}, or less if wind is present.
+    Anyone can smell the fog and hold their breath when moving slowly, but anyone distracted or hurried must make a \roll{Wits}{Vigilance} roll against 7 plus the caster's Bonus to notice the dangerous smell.
 
-    Casting the spell outdoors raises the \gls{tn} by 1, casting it on a windy day raises it by 3, and casting the spell in a storm raises the \gls{tn} by~5.
+    Casting the spell outdoors raises the \gls{tn} to 9, casting it on a windy day raises it to 12, and casting the spell in a storm sets the \gls{tn} to~18.
   }
 
 \else
@@ -31,8 +32,23 @@
   {Wax}% Action
   {Air}% Spheres
   {\roll{Strength}{Athletics}}% Resist with
-  {As the caster shouts `\textit{back}', a blast of air pushes the target back, and they lose \arabic{spellPlusTwo}~\glspl{ap} minus their Strength Bonus}% Description
-  {}
+  {As the caster shouts `\textit{back}', a blast of air pushes the target back, and they lose \arabic{spellPlusTwo}~\glspl{ap} and get pushed back \arabic{spellPlusTwo} \glspl{step} minus their Strength Bonus}% Description
+  {
+  \begin{exampletext}
+    \setcounter{track}{3}
+    \addtocounter{track}{-\value{spellPlusTwo}}
+    A man with Strength~+4 would be pushed back
+    \ifnum\value{track}>0%
+      \arabic{track}%
+    \else%
+      0~\glspl{step}%
+    \fi,
+    while a gnome with Strength~-2 would be pushed back
+    \setcounter{track}{-2}
+    \addtocounter{track}{-\value{spellPlusTwo}}
+    \arabic{track}~\glspl{step}.
+  \end{exampletext}
+  }
 
 \fi
 \stepcounter{diceNo}
