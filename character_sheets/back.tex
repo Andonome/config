@@ -10,20 +10,7 @@
     }{%
       \textbf{Birthday:} %
     }%
-    \randomize%
-    \showCycle[\value{r6}] %
-    \ifnum\value{mp}>0%
-      \setcounter{r2}{57}%
-      \addtocounter{r2}{\value{r3}}%
-      \Roman{r2}%
-    \else%
-      \randomize%
-      \addtocounter{r6}{-1}%
-      \multiply\value{r6}by 10%
-      \addtocounter{r6}{\value{r4t6}}%
-      \addtocounter{r6}{\value{rn3t3}}
-      \Roman{r6}%
-    \fi
+    \randomBirthday
     \par
     \iftoggle{examplecharacter}{
       \Huge \Glsfmtplural{storypoint}~\Repeat{5}{\Square}

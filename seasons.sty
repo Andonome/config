@@ -121,6 +121,24 @@
   \addtocounter{fenestraPosition}{\value{diceNo}}
 }
 
+\newcommand\randomBirthday{%
+  \randomize%
+  \addtocounter{r6b}{-1}%
+  \showCycle[\value{r6b}] %
+  \ifnum\value{mp}>0%
+    \setcounter{r2}{57}%
+    \addtocounter{r2}{\value{r3}}%
+    \Roman{r2}%
+  \else%
+    \set{track}{r6}%
+    \addtocounter{track}{-1}%
+    \multiply\value{track}by 10%
+    \addtocounter{track}{\value{rn1t2}}%
+    \addtocounter{track}{\value{r6b}}%
+  \fi%
+  \arabic{track}%
+}
+
 \newcommand\orrery[1][\month/\day]{
   \begin{tikzpicture}
     \coordinate (S) at (0,0);
