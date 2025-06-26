@@ -223,6 +223,9 @@
   \Needspace{3\baselineskip}
   \smash{\hspace{-2em}\underline{\scshape\ifglsentryexists{#1}{\Glsfmttext{#1}}{#1}}}
   \printThreadsInRegion{#1}
+  \ifnum\the\c@page=3%
+    \pagestyle{minizine}%
+  \fi%
 }
 
 \pagenumbering{gobble}
