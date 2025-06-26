@@ -221,7 +221,7 @@
 \newcommand\bookletThreads[1]{
   \medskip
   \Needspace{3\baselineskip}
-  \smash{\hspace{-2em}\underline{\scshape\Glsfmtname{#1}}}
+  \smash{\hspace{-2em}\underline{\scshape\ifglsentryexists{#1}{\Glsfmttext{#1}}{#1}}}
   \printThreadsInRegion{#1}
 }
 
