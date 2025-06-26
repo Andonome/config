@@ -134,11 +134,12 @@
 
 
 \newcommand\miniCover[2]{
+  \vspace{\baselineskip}
+  \hfill\includesvg[width=.3\textwidth]{config/logo}
   \begin{center}
-    \includesvg[width=.8\textwidth]{config/logo}
     \par
-    \vspace{3\baselineskip}
-    {\Large\scshape#1}
+    \vspace{2\baselineskip}
+    {\Huge\scshape#1}
     #2
   \end{center}
   \small
@@ -219,6 +220,7 @@
 
 \newcommand\bookletThreads[1]{
   \medskip
+  \Needspace{3\baselineskip}
   \smash{\hspace{-2em}\underline{\scshape\Glsfmtname{#1}}}
   \printThreadsInRegion{#1}
 }
