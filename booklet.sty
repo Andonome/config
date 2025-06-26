@@ -135,6 +135,14 @@
 
 \newcommand\miniCover[2]{
   \vspace{\baselineskip}
+  \begin{tikzpicture}[overlay, remember picture]%
+    \path 
+      ++(current page.north east)
+      +(-3mm, -3mm)
+      node[
+        font=\titleFont,
+      ] {\glsentrysymbol{yonder}};
+  \end{tikzpicture}%
   \hfill\includesvg[width=.3\textwidth]{config/logo}
   \begin{center}
     \par
@@ -142,6 +150,15 @@
     {\Huge\scshape#1}
     #2
   \end{center}
+  \clearpage
+  \begin{tikzpicture}[overlay, remember picture]%
+    \path 
+      ++(current page.north west)
+      +(3mm, -3mm)
+      node[
+        font=\titleFont,
+      ] {\glsentrysymbol{yonder}};
+  \end{tikzpicture}%
   \small
 }
 
