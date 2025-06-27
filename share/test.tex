@@ -774,4 +774,22 @@ Words are needed after each subsection to avoid the boxes making problems.
 
 \Repeat{2}{\tests}
 
+\filledCS%
+  {Proskuff}% NAME
+  {Human}% RACE
+  {Loner}% CONCEPT
+  {Conqueror}% CODE
+  {{0}{-1}{0}}% BODY
+  {{1}{0}{1}}% MIND
+  {%
+    \renewcommand\characterDebt{100~\glsfmtplural{sp}}
+    \renewcommand\rank{Fodder}
+    \setcounter{Academics}{2}
+    \setcounter{Cultivation}{1}
+    \setcounter{Air}{2}
+    \shortsword
+  }% SKILLS
+  {\specialist{locks}}% KNACKS
+  {a bag of flour, chalk, and an unopened letter from home.}% EQUIPMENT
+
 \end{document}
