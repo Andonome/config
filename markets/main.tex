@@ -20,4 +20,28 @@
 \input{config/markets/town.tex}
 \cleardoublepage
 
+% Add markets for after 3 weeks
+\setcounter{r2}{\month}
+\setcounter{r2b}{\day}
+\ifnum\value{r2b}>21
+  \addtocounter{r2b}{-21}
+  \stepcounter{r2}
+  \ifnum\value{r2}>12
+    \setcounter{r2}{1}
+  \fi
+\fi
+\setCycle{\value{r2}}{\value{r2b}}
+
+\colourWheel[r6]
+\input{config/markets/bailey.tex}
+
+\cleardoublepage
+\colourWheel[r6]
+\input{config/markets/bailey.tex}
+
+\cleardoublepage
+\colourWheel[r6]
+\input{config/markets/town.tex}
+\cleardoublepage
+
 \end{document}
