@@ -232,7 +232,7 @@
   \renewcommand\charSpellList{}
 }
 
-\newenvironment{filledCS}[9]{
+\newcommand\filledCS[9]{
   \resetCS
   \settoggle{examplecharacter}{true}
   \settoggle{allyCharacter}{true}
@@ -249,7 +249,6 @@
     {#8}% SKILLS
     {#9}% KNACKS
     {}% ABILITIES
-}{
   \colourWheel[r6]
   \input{config/character_sheets/front.tex}
   \iftoggle{allyCharacter}{
