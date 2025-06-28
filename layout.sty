@@ -127,7 +127,12 @@ bookmarks=true]%
 %%%% Colours %%%%%
 
 \newif\ifpride
-\pridetrue
+\pridefalse
+\ifnum\month=8
+  \ifnum\day<8
+    \pridetrue
+  \fi
+\fi
 
 \definecolor{background}{cmyk}{0, 0, 0, 0.1}
 \definecolor{foreground}{cmyk}{0, 0, 0, 0.9}
@@ -183,6 +188,7 @@ bookmarks=true]%
 }
 
 \newcommand*\colourWheel[1][diceNo]{%
+  \ifpride%
     \ifcase\value{#1}%
       \colorlet{background}{backgroundOne}%
     \or%
@@ -196,6 +202,7 @@ bookmarks=true]%
     \else%
       \colorlet{background}{backgroundSix}%
     \fi%
+  \fi%
 }
 
 %%%%% Add fancy page chapter sides %%%%%
