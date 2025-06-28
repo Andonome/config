@@ -422,6 +422,24 @@ bookmarks=true]%
   \label{#2}
 }
 
+\newcommand{\sideMap}[4][5]{
+  \begin{wrapfigure}{I}{.#1\linewidth}
+  \label{#2}
+  \begin{tikzpicture}
+      \node[anchor=south west,inner sep=0] (image) at (0,0) {\pic{#2}};
+      \begin{scope}[
+          x={(image.south east)},
+          y={(image.north west)}
+      ]
+          \foreach \mNum/\mX/\mY in {#3}{
+            \mapLegend{\outline{\mNum}}{\mX}{\mY}{}
+          }
+      \end{scope}
+  \end{tikzpicture}
+  {\it#4}
+  \end{wrapfigure}
+}
+
 \newcommand{\widePic}[2][b]{
   \begin{figure*}[#1!]
     \setcounter{enc}{0}
