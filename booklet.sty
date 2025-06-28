@@ -21,10 +21,12 @@
 
 \setcounter{segNoSpare}{1}
 
-
 \setlength{\headwidth}{\textwidth}
 
+\renewcommand{\labelenumi}{\arabic{enumi}. }
+
 \fancypagestyle{minizine}{
+  \fontsize{9}{10}\selectfont
   \pagenumbering{arabic}
   \fancyhf{}% Clear Everything.
   \fancyfoot[RO]{\footnotesize\flourish\flourish\small\space\thepage}
@@ -50,6 +52,7 @@
 } 
 
 \fancypagestyle{miniCS}{
+  \fontsize{9}{10}\selectfont
   \setlength{\headwidth}{\textwidth}
   \pagenumbering{arabic}
   \fancyhf{} % Clear Everything.
@@ -155,7 +158,6 @@
         font=\titleFont,
       ] {\glsentrysymbol{yonder}};
   \end{tikzpicture}%
-  \small
 }
 
 \newenvironment{selectPath}%
@@ -242,4 +244,5 @@
 
 \pagenumbering{gobble}
 \pagestyle{empty}
+
 
