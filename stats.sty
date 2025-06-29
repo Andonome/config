@@ -181,7 +181,9 @@
       }%
       \end{tabularx}
       \tcblower%%%%%%%%%%%%%%%%%%%%
+      \begin{center}
       \derivedstats\null
+      \end{center}
     \end{tcolorbox}
 }
 
@@ -618,7 +620,6 @@
 \newcommand{\derivedstats}{%
   \setlength\topsep{0pt}%
   \setlength\parskip{0pt}%
-  \begin{center}
     \iftoggle{intro}{\normalsize}{\small}%
     \scshape AP \ifnum\value{ap}<1 $\frac{1}{2}$ \else \arabic{ap}\fi%
     \ifnumcomp{\value{heft}}{>}{1}{ (AP Cost: \arabic{heft})}{},
@@ -656,7 +657,6 @@
       \fi%
     }{}
     {\hfil\small\textcolor{\pageSideColor}{\calculateXP}}%
-  \end{center}
 }
 %
 %
