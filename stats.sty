@@ -625,9 +625,9 @@
     \ifnumcomp{\value{heft}}{>}{1}{ (AP Cost: \arabic{heft})}{},
     Att %
     \iftoggle{allyCharacter}{$2D6$\absNum{att}}{\arabic{toHit}},\space%
-    \mbox{Dam \dmg{damage},\space}%
+    \mbox{Dam \dmg{damage}}%
       \ifnumcomp{\value{dr}}{>}{0}{%
-        \mbox{DR \arabic{dr}%
+        , \mbox{DR \arabic{dr}%
           \iftoggle{perfectArmour}%
           {}%
           {%
@@ -637,26 +637,25 @@
               ~(\arabic{covering}!)%
             }%
           }%
-          , %
         }%
       }{}%
     \iftoggle{intro}{%
-      Mv.~\arabic{movement}, %
+      , Mv.~\arabic{movement}%
     }{}%
     \iftoggle{genExamples}{%
-      \glsfmtplural{hp}~\arabic{hp},
+      , \glsfmtplural{hp}~\arabic{hp}%
       \ifnum\value{mp}>0%
-        \glsfmtplural{mp}~\arabic{mp},
+        , \glsfmtplural{mp}~\arabic{mp}%
       \fi%
-    }{}
+    }{}%
     \iftoggle{genExamples}{%
       \ifnum\value{Intelligence}>-1%
         \ifnum\value{weight}>0%
-          \Glsentrytext{weight}~held~\arabic{weight},%
+          , \Glsentrytext{weight}~held~\arabic{weight}%
         \fi%
       \fi%
     }{}
-    {\hfil\small\textcolor{\pageSideColor}{\calculateXP}}%
+    {\hfil\small\textcolor{\pageSideColor}{\calculateXP}\par}%
 }
 %
 %
