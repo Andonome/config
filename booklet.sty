@@ -242,7 +242,77 @@
   \fi%
 }
 
+
+\renewcommand{\ent}[1]{\scriptsize\textbf{#1}}
+
+\renewcommand\statblock[1]{
+      \begin{figure*}[tb!]
+      \begin{minipage}{\linewidth}
+      \small
+      #1%
+      \colorlet{background}{white!25!black}%
+      \begin{tabularx}{\linewidth}{@{}r@{\hskip.8em}L@{}}\hline%
+      \ent{\normalsize\npcsymbol} & \ent{\name}%
+      \ifdefempty{\NPCdescription}{~}{%
+        --- \NPCdescription, \mannerism.  Wants \npcGoal.
+      }%
+      \hfill\calculateXP \\\hline%
+      \ent{\Glsfmtplural{attribute}} &
+        \footnotesize
+        {\scshape\footnotesize Str}~\arabic{Strength},
+        {\scshape\footnotesize Dex}~\arabic{Dexterity},
+        {\scshape\footnotesize Spd}~\arabic{Speed},
+        \ifnum\value{Intelligence}>-6%
+          {\scshape\footnotesize Int}~\arabic{Intelligence},
+        \fi%
+        {\scshape\footnotesize Wts}~\arabic{Wits}%
+        \ifnum\value{Charisma}>-6%
+          , {\scshape\footnotesize Cha}~\arabic{Charisma}
+        \fi%
+        %\foreach \s in {Strength,Dexterity,Speed,Intelligence,Wits,Charisma}%
+        %  {\ifnum\value{\s}>-6\s~\arabic{\s}\quad\fi}
+      \\
+      \ent{Skills} & \showSkills
+      \ifnum\value{mp}>0%
+        \foreach \s in {Air,Earth,Fate,Fire,Water}%
+          {\ifnum\value{\s}>0 \s~\arabic{\s}, \fi}
+      \fi
+      \\
+      \ifdefempty{\Abilities}{
+        \ifnum\value{knacks}>0
+          \ent{Knacks} & \Knacks \\
+        \fi
+      }{%
+        \ent{Abilities} & \Abilities%
+        \ifnum\value{knacks}>0
+          \Knacks
+        \fi
+        \\
+      }
+      \ifdefempty{\equipment}{}{%
+        \ent{Equipment} &
+        \ifdefempty{\weaponName}{}{%
+          \weaponName, %
+        }%
+        \ifdefempty{\armourName}{}{%
+          \armourName, %
+        }%
+        \equipment.
+        \\
+      }%
+      \hline
+      \end{tabularx}
+      \ifnum\value{xp}>0
+        \par\toggletrue{examplecharacter}% Stop CR showing
+        \derivedstats%
+        \ifnum\value{noAppearing}=1\hfill\else\par\fi%
+        \showBoxes%
+        \color{background}\hrulefill
+      \fi
+      \end{minipage}
+      \end{figure*}
+}
+
 \pagenumbering{gobble}
 \pagestyle{empty}
-
 
