@@ -87,23 +87,23 @@
   \ifcase\value{page}\relax%
   \or\relax%
   \or%
-    \textbf{Left:}
+    \underline{Left:}
     \ifdefempty{\weaponName}{\lineDots}{%
       \expandafter\MakeUppercase\weaponName~(\absNum{weaponBonus}/ \absNum{weaponDamage}: \glsentrysymbol{weight} \arabic{weaponWeight})
     }
   \or%
-    \textbf{Right:}
+    \underline{Right:}
     \ifdefempty{\armourName}{\lineDots}{%
       \expandafter\MakeUppercase\armourName
     }
   \or%
-    \textbf{Pack:}
+    \underline{Pack:}
     \ifdefempty{\equipment}{\lineDots}{%
       \expandafter\MakeUppercase\equipment
     }
   \else%
     \ifnum\thepage>\value{hp}%
-      \glsentrysymbol{weight}
+      \glsentrysymbol{weight}~\underline{\hspace{5em}}
     \fi%
     \lineDots
   \fi%
