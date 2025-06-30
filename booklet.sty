@@ -71,13 +71,13 @@
     \fi%
     \ifnum\value{page}=7%
       \begin{tikzpicture}[overlay, remember picture]%
-        \draw[gray, dotted, thick] (current page.south west) -- (current page.south east);
+        \draw[black, dashed, thick] (current page.south west) -- (current page.south east);
       \end{tikzpicture}%
     \fi%
     \ifnum\value{page}=14%
       \begin{tikzpicture}[overlay, remember picture]%
-        \draw[gray, dotted, thick] (current page.north west) -- (current page.north east);
-        \draw[gray, dotted] (current page.north east) -- (current page.south east);
+        \draw[black, dashed, thick] (current page.north west) -- (current page.north east);
+        \draw[black, dashed] (current page.north east) -- (current page.south east);
       \end{tikzpicture}%
     \fi%
   }%
