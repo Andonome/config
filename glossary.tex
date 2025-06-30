@@ -1236,11 +1236,11 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
           \Glsfmttext{basilisk} craw & Air \glsfmttext{ingredient} \\
           \Glsfmttext{basilisk} hide & $\frac{Strength}{2}$ Earth \glsfmtplural{ingredient} \\
          }{}
+         \IfLabelExistsTF{\jobname:harvestBear}{
+          Bear's heart & Fire \glsfmttext{ingredient} \\
+         }{}
          \IfLabelExistsTF{\jobname:harvestBedshrooms}{
           \Glsfmtplural{bedshroom} & Air \glsfmttext{ingredient} \\
-         }{}
-         \IfLabelExistsTF{\jobname:harvestCrawler}{
-          \Glsfmttext{crawler} spinneret & Fate \glsfmttext{ingredient} \\
          }{}
          \ifnum\value{temperature}=3
            \IfLabelExistsTF{\jobname:harvestDigger}{
@@ -1252,6 +1252,9 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
          }{}
          \IfLabelExistsTF{\jobname:harvestMshrooms}{
           \Glsfmtplural{marchingMushroom} & Air \glsfmttext{ingredient} \\
+         }{}
+         \IfLabelExistsTF{\jobname:harvestCrawler}{
+          \Glsfmttext{crawler} spinneret & Fate \glsfmttext{ingredient} \\
          }{}
          \IfLabelExistsTF{\jobname:harvestStirge}{
           Stirge queen & 2 Fire \glsfmtplural{ingredient} \\
