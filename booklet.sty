@@ -52,9 +52,11 @@
 } 
 
 \fancypagestyle{miniCS}{
+  \setlength{\tabcolsep}{0.1em}
+  \pagenumbering{arabic}
+  \setcounter{page}{1}
   \fontsize{9}{10}\selectfont
   \setlength{\headwidth}{\textwidth}
-  \pagenumbering{arabic}
   \fancyhf{} % Clear Everything.
   \fancyfoot[LO]{\stateEquipment}
   \fancyfoot[LE]{\stateEquipment}
@@ -82,6 +84,14 @@
     \fi%
   }%
 } 
+
+\newcommand*\frontCSNote[2]{%
+  \large%
+  \scshape%
+  #1:
+  &
+  \iftoggle{examplecharacter}{ \pencilWriting{#2} }{ \lineDots }
+}
 
 \newcommand*\stateEquipment{%
   \ifcase\value{page}\relax%
@@ -133,6 +143,7 @@
 
 
 \newcommand\miniCover[2]{
+  \pagestyle{empty}
   \vspace{\baselineskip}
   \begin{tikzpicture}[overlay, remember picture]%
     \path 
@@ -314,5 +325,4 @@
 }
 
 \pagenumbering{gobble}
-\pagestyle{empty}
 
