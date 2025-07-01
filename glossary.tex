@@ -1232,6 +1232,9 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
     \begin{boxtable}[LL]
          \textbf{Part} & \textbf{\Glsfmttext{ingredient}} \\
          \hline
+         \IfLabelExistsTF{\jobname:harvestAuroch}{
+          Auroch hooves & Earth \glsfmttext{ingredient} \\
+         }{}
          \IfLabelExistsTF{\jobname:harvestBasilisk}{
           \Glsfmttext{basilisk} craw & Air \glsfmttext{ingredient} \\
           \Glsfmttext{basilisk} hide & $\frac{Strength}{2}$ Earth \glsfmtplural{ingredient} \\
