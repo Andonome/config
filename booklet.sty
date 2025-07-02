@@ -122,6 +122,7 @@
 \newcommand*\zineTitle[1]{%
   \noindent
   {\normalsize\scshape#1}%
+  \par\vspace{1em}\noindent
 }
 
 \newcommand\showGls[1]{%
@@ -322,6 +323,29 @@
       \fi
       \end{minipage}
       \end{figure*}
+}
+
+\renewcommand\filledCS[9]{
+  \resetCS
+  \settoggle{examplecharacter}{true}
+  \settoggle{allyCharacter}{true}
+  \renewcommand\name{#1}
+  \renewcommand\race{#2}
+  \renewcommand\concept{#3}
+  \renewcommand\code{#4}
+  \traits{}%
+    {#5}%
+    {#6}%
+    {%
+      #7
+    }%
+    {#8}% SKILLS
+    {#9}% KNACKS
+    {}% ABILITIES
+  \setAgeAndAbilities
+  \addtocounter{fp}{5}
+  \colourWheel[r6]
+  \input{config/booklets/cs.tex}
 }
 
 \pagenumbering{gobble}

@@ -14,6 +14,7 @@
 
 \end{tabularx}
 
+\noindent
 \begin{tabularx}{.9\linewidth}{lXlX}
   \frontCSNote{Race}{\race}
   &
@@ -23,7 +24,12 @@
   &
   \scshape\large Birthday:
   &
-    \pencilWriting{\randomBirthday}
+    \iftoggle{examplecharacter}{%
+      \set{track}{fenestraYear}%
+      \addtocounter{track}{-\value{age}}%
+      \arabic{track}, %
+    }{}%
+    \randomBirthday
   \\
 \end{tabularx}
 
@@ -164,10 +170,12 @@
 \pagebreak
 
 \zineTitle{Abilities}
+\Abilities
 
 \pagebreak
 
 \zineTitle{Knacks}
+\Knacks
 
 \pagebreak
 
@@ -196,8 +204,7 @@ Notes
 
 \pagebreak
 
-\scshape\large
-Cause of Death
+\zineTitle{Cause of Death}
 
 \clearpage
 
