@@ -1,10 +1,33 @@
 \section*{Town Market}
 
-\footnotetext[1]{This item is illegal, and requires a \roll{Charisma}{Empathy} roll (\tn[10]), to gain trust along the line of people who lead to the real seller.
-The item requires one \glsfmttext{interval} to speak to everyone along the way.}
-\stepcounter{footnote}
-
 \begin{multicols}{3}
+
+\renewcommand\npcsymbol{\glsentrysymbol{paik}}
+\begin{nametable}[Lc]{\Glsentrytext{court}}
+  \textbf{Service} & \textbf{Cost} \\\hline
+  Front-row seat & 6~\glsfmtplural{cp} \\
+
+  Back-row seat & 3~\glsfmtplural{cp} \\
+
+  Rotten tomatoes & 1~\glsfmttext{cp} \\
+
+  Snacks & 3~\glsfmtplural{cp} \\
+
+  % Using this random counter just because nothing else is, and it won't change
+  % when other numbers randomize.
+  \addtocounter{spellPlusTwo}{\value{r6}}%
+  `The Spectacular' & 1\arabic{spellPlusTwo}~\glspl{cp} \\
+
+  Bribery\footnote{Bribery is paid to \pgls{sunGuard}.}
+  (petty crime) & \mkPrice{30} \\
+
+  Bribery (minor crime) & \mkPrice{60} \\
+
+  Show of good faith (medium crime)
+  \footnote{This gets you a +2 Bonus during the trial.}
+  & \mkPrice{80} \\
+
+\end{nametable}
 
 \renewcommand\npcsymbol{\glsentrysymbol{sable}}
 \begin{nametable}[Lcc]{At the \glsentrytext{templeOfFrost}}
@@ -94,7 +117,7 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
 
   \ifodd\value{r4}%
     \stepcounter{r6}
-    \tiny\marketFence, the Fence\footnotemark[1] & \tiny \arabic{r6}0\% and shhh\ldots \\
+    \tiny\marketFence, the Fence\footnotemark & \tiny \arabic{r6}0\% and shhh\ldots \\
   \fi%
 
 \end{nametable}
@@ -141,9 +164,12 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
 
   \ifodd\value{r4b}%
     \stepcounter{r6}
-    \tiny\marketFence, the Fence\footnotemark[1] & \tiny \arabic{r6}0\% and shhh\ldots \\
+    \tiny\marketFence, the Fence\footnotemark & \tiny \arabic{r6}0\% and shhh\ldots \\
   \fi%
 \end{nametable}
+
+\footnotetext{This item is illegal, and requires a \roll{Charisma}{Empathy} roll (\tn[10]), to gain trust along the line of people who lead to the real seller.
+The item requires one \glsfmttext{interval} to speak to everyone along the way.}
 
 \renewcommand\npcsymbol{\glsentrysymbol{abderian}}
 \begin{nametable}[Lc]{\marketTavernTwo}
@@ -178,34 +204,6 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
 
 \end{nametable}
 
-\renewcommand\npcsymbol{\glsentrysymbol{paik}}
-\begin{nametable}[Lc]{\Glsentrytext{court}}
-  \textbf{Service} & \textbf{Cost} \\\hline
-  Front-row seat & 6~\glsfmtplural{cp} \\
-
-  Back-row seat & 3~\glsfmtplural{cp} \\
-
-  Rotten tomatoes & 1~\glsfmttext{cp} \\
-
-  Snacks & 3~\glsfmtplural{cp} \\
-
-  % Using this random counter just because nothing else is, and it won't change
-  % when other numbers randomize.
-  \addtocounter{spellPlusTwo}{\value{r6}}%
-  `The Spectacular' & 1\arabic{spellPlusTwo}~\glspl{cp} \\
-
-  Bribery\footnote{Bribery is paid to \pgls{sunGuard}.}
-  (petty crime) & \mkPrice{30} \\
-
-  Bribery (minor crime) & \mkPrice{60} \\
-
-  Show of good faith (medium crime)
-  \footnote{This gets you a +2 Bonus during the trial.}
-  & \mkPrice{80} \\
-
-\end{nametable}
-
-\footnotetext[4]{There is no sale, just 1D6 thugs who want your money.}
 
 \ifodd\value{r3}\relax\else
   \null
@@ -332,23 +330,24 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
   \showArmourPrice{\partialchain}{14}%
 \end{nametable}
 
+\ifodd\value{r4}
+  \stepcounter{footnote}
+  \footnotetext{There is no sale, just $1D6$ thugs who want your money.}
+\fi
+
 \renewcommand\npcsymbol{\flourish}
 \begin{nametable}[Lcc]{At the Docks}
 
   \textbf{Items} & \textbf{\Glsentrytext{weight}} & \textbf{Cost} \\\hline
-  Fake \glsfmtplural{fodder} town-pass\footnotemark[1] & 0 & \mkPrice{4} \\
-  \rareMarketItem{Air \Glsentrytext{ingredient} (\glsentrytext{griffin} wings)\footnotemark[1]}{1}{13}%
-  \rareMarketItem{Fire \Glsentrytext{ingredient} (bear's heart)\ifodd\value{r3}\footnotemark[1]\else\footnotemark[4]\fi}{1}{13} %
-  \ifnum\value{temperature}=0\rareMarketItem{Earth \Glsentrytext{ingredient} (\glsentrytext{basilisk} hide)\footnotemark[1]}{1}{13}\fi %
-  \rareMarketItem{Water \Glsentrytext{ingredient} (\glsentrytext{woodspy} beak)\ifodd\value{r3b}\footnotemark[1]\else\footnotemark[4]\fi}{1}{13} %
-  \rareMarketItem{Fate \Glsentrytext{ingredient} (\ifnum\value{temperature}=0 human blood from the \glsentrytext{court}\else brown ooze\fi)\footnotemark[1]}{1}{14}
+  Fake \glsfmtplural{fodder} town-pass\footnotemark[\value{footnote}] & 0 & \mkPrice{4} \\
+  \rareMarketItem{Air \Glsentrytext{ingredient} (\glsentrytext{griffin} wings)\footnotemark[\value{footnote}]}{1}{13}%
+  \rareMarketItem{Fire \Glsentrytext{ingredient} (bear's heart)\footnotemark[\value{footnote}]}{1}{13} %
+  \ifnum\value{temperature}=0\rareMarketItem{Earth \Glsentrytext{ingredient} (\glsentrytext{basilisk} hide)\footnotemark[\value{footnote}]}{1}{13}\fi %
+  \rareMarketItem{Water \Glsentrytext{ingredient} (\glsentrytext{woodspy} beak)\footnotemark[\value{footnote}]}{1}{13} %
+  \rareMarketItem{Fate \Glsentrytext{ingredient} (\ifnum\value{temperature}=0 human blood from the \glsentrytext{court}\else brown ooze\fi)\footnotemark[\value{footnote}]}{1}{14}
 
-  Lock-pick set%
-  \ifodd\value{r2}%
-    \footnotemark[1]%
-  \else%
-    \footnotemark[4]%
-  \fi (\absNum{rn1t2}) & 0 & \mkPrice{10} \\
+  Lock-pick set\footnotemark[\value{footnote}]%
+  (\absNum{rn1t2}) & 0 & \mkPrice{10} \\
 
 \end{nametable}
 
@@ -423,3 +422,4 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
     \marketWeaponsSeller\ reminds you that all sales are final.
   \end{speechtext}
 \fi
+
