@@ -1,20 +1,20 @@
 \ifodd\value{diceNo}
 
+\spell{Hateful Cry}% Name
+  {Distant}% Enhancements
+  {Wane}% Action
+  {Fate}% Spheres
+  {\roll{Charisma}{Survival}}% Resist with
+  {With a fast insult (`\textit{oi, \ifcase\value{r4}pitmonger\or spiderchow\or sheep-guard\else copperworth\fi'}), one target at \spellRange{} loses \showDam~\glspl{fp}}% Description
+  {}
+
 \spell{Mass Blessing}% Name
   {Duplicated}% Enhancements
   {Wax}% Action
   {Fate}% Spheres
   {current \glspl{fp}}% Resist with
   {The mage blesses the targets with high hopes for their future, bestowing \showDam~\glspl{fp} immediately}% Description
-  {Those who already have \glspl{fp} receive the blessing after those with more, and are in general more difficult to give further blessings to.}
-
-\spell{Hateful Cry}% Name
-  {Distant}% Enhancements
-  {Wane}% Action
-  {Fate}% Spheres
-  {\roll{Charisma}{Survival}}% Resist with
-  {With a fast insult (`\textit{oi, \ifcase\value{r4}fuckwit\or spiderchow\or sheep-guard\else copperworth\fi'}), one target at \spellRange{} loses \showDam~\glspl{fp}}% Description
-  {}
+  {Those with more \glspl{fp} receive the blessing after those with fewer.}
 
 \else
 

@@ -1,13 +1,5 @@
 \ifodd\value{diceNo}
 
-\spell{Little Blessing}% Name
-  {}% Enhancements
-  {Wax}% Action
-  {Fate}% Spheres
-  {\roll{Strength}{Brawl}}% Resist with
-  {With a short pep-talk for an underdog, and a pun about size, the target gains \showDam~\glspl{fp}}% Description
-  {}
-
 \spell{Curse}% Name
   {}% Enhancements
   {Wane}% Action
@@ -17,20 +9,6 @@
     The target then loses \showDam~\glspl{fp}}% Description
   {}
 
-\else
-
-\spell{Twisted Fate}% Name
-  {}% Enhancements
-  {Warp}% Action
-  {Fate}% Spheres
-  {\roll{Charisma}{Cultivation}}% Resist with
-  {The caster hexes the target with death on the road, hoping they will not meet their destination.
-    Within $1D6$ \glspl{interval}, the target meets with a monstrous encounter}% Description
-  {
-    \Glspl{npc} targeted by this spell will survive if only their \gls{cr} value is greater than the monster they would encounter.
-    Otherwise, they meet a gruesome fate on the road.
-  }
-
 \spell{Fathom}% Name
   {}% Enhancements
   {Witness}% Action
@@ -38,6 +16,45 @@
   {\roll{Charisma}{Deceit}}% Resist with
   {With a short interaction, and some questions about family, the caster discerns if the target has any special fate}% Description
   {The spell produces only `yes' (if the target carries \glspl{fp}), or `no' (if they do not), without further details.}
+
+\else
+
+\spell{Little Blessing}% Name
+  {}% Enhancements
+  {Wax}% Action
+  {Fate}% Spheres
+  {\roll{Strength}{Brawl}}% Resist with
+  {With a short pep-talk for an underdog, and a pun about size, the target gains \showDam~\glspl{fp}}% Description
+  {}
+
+\spell{Twisted Fate}% Name
+  {}% Enhancements
+  {Warp}% Action
+  {Fate}% Spheres
+  {\roll{Charisma}{Cultivation}}% Resist with
+  {The \gls{witch} wishes someone a `fun day', and the next \glsfmttext{segment} occurs with next one after, meaning two \glsfmtplural{segment} at once}% Description
+  {
+    If someone targets \pgls{npc} with this \gls{spell}, any number of things can happen.
+    \begin{dlist}
+      \item
+      \Pgls{monster} attacks the \gls{npc}.
+      If the \gls{npc}'s \gls{cr} is less than $1D6\times2$, they meet death on the road.
+      \item
+      The \gls{npc} finds an urgent task.
+      They disappear for a year, returning with an extravagant tale.
+      \item
+      The \gls{npc} becomes embroiled in the \glspl{pc}' business.
+      They receive the next available \glsfmttext{segment} instead of the players.
+      That \glsfmttext{segment} is missed entirely, and the \gls{gm} must approximate what occured, and allow the \glspl{pc} to hear about the results later.
+      \item
+      The \gls{npc} becomes enmeshed in the current \glsfmttext{thread}.
+      Each subsequent \glsfmttext{segment} features this \gls{npc} in some way (though perhaps just by mention).
+      \item
+      The \gls{npc} gains an ally (select any other \gls{npc}).
+      \item
+      The \gls{npc} comes into sudden wealth, gaining $1D6 \times 2$~\glspl{gp}.
+    \end{dlist}
+  }
 
 \fi
 \stepcounter{diceNo}
