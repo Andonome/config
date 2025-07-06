@@ -1245,6 +1245,9 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
          \IfLabelExistsTF{\jobname:harvestBedshrooms}{
           \Glsfmtplural{bedshroom} & Air \glsfmttext{ingredient} \\
          }{}
+         \IfLabelExistsTF{\jobname:harvestGriffin}{
+          \Glsfmttext{griffin} wings & 1 Air \glsfmttext{ingredient} each \\
+         }{}
          \ifnum\value{temperature}=3
            \IfLabelExistsTF{\jobname:harvestDigger}{
             \Glsfmttext{digger} pups livers & $1D6$ Earth \glsfmtplural{ingredient} \\
