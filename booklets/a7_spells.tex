@@ -8,42 +8,32 @@
 \miniCover{Spell Book}%
   {}%
 
-
-\pagebreak
-
-\setcounter{r2}{\month}
-\setcounter{r2b}{\day}
-\setcounter{r3}{\month}
-\setcounter{r3b}{\month}
-\addtocounter{r2b}{14}
-\ifnum\value{r2b}>30
-  \addtocounter{r2b}{-30}
-  \addtocounter{r3b}{1}
-\fi
-\orrery[\value{r2}/\value{r2b}, \value{r3}/\value{r3b}]
-
+\null
 \pagebreak
 
 \pagestyle{minizine}
 
-\input{config/spells/Air1.tex}
+\setcounter{Air}{0}
+\setcounter{Fire}{1}
+\setcounter{Earth}{1}
+\setcounter{Water}{1}
+\setcounter{Fate}{0}
+\setHighSpheres
 
-\input{config/spells/Air1.tex}
+%\stepcounter{diceNo}
 
-\input{config/spells/Air2.tex}
+\foreach \x in {Air,Earth,Fire,Water,Fate,Mind,Death,Light,Force,Life}{%
+  \ifnum\value{\x}>0%
+    \input{config/spells/\x1.tex}%
+    \ifnum\value{\x}>1%
+      \input{config/spells/\x2.tex}%
+    \fi%
+  \fi%
+}
 
-\input{config/spells/Air2.tex}
+\foreach \x in {2,3,4,5,6,7,8,9,10,11,12,13}{%
+  \ifnum\thepage<14\clearpage\null\fi
+}
 
-\input{config/spells/Fire1.tex}
-
-\input{config/spells/Fire1.tex}
-
-\input{config/spells/Light1.tex}
-
-\input{config/spells/Light1.tex}
-
-\input{config/spells/Light2.tex}
-
-\input{config/spells/Light2.tex}
 
 \end{document}
