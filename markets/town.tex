@@ -230,6 +230,12 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
 
   Copper bell & 0 & \mkPrice[cp]{30} \\
 
+  \ifnum\value{temperature}>0
+    Fresh
+  \else
+    Pressed
+  \fi flowers & 0 & \mkPrice[cp]{2} \\
+
   \rareMarketItem{Lode stone}{0}{8}%
 
   \rareMarketItem{Magnifying globe}{2}{4}%
