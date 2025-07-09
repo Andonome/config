@@ -9,7 +9,16 @@ BOOK != basename "$(shell pwd)"
 TITLE != head -1 README.md | tail -c+3 | tr ' ' '_'
 DROSS = rubbish
 DBOOK ?= $(DROSS)/$(BOOK).pdf
-COMPILER = latexmk -e '$$max_repeat=6' -file-line-error -output-directory=$(DROSS) -pdflua -interaction=nonstopmode -halt-on-error -shell-escape -r config/.latexmkrc
+COMPILER = latexmk \
+	-e '$$max_repeat=6' \
+	-file-line-error \
+	-output-directory=$(DROSS) \
+	-pdflua \
+	-interaction=nonstopmode \
+	-halt-on-error \
+	-shell-escape \
+	-r config/.latexmkrc
+
 RELEASE = $(TITLE).pdf
 GLOS := makeglossaries -d $(DROSS)
 RUN := lualatex -output-directory $(DROSS) -shell-escape
