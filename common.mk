@@ -174,7 +174,22 @@ $(DROSS)/onepage_%.pdf: $(DROSS)/onepage_%.ps
 %.pdf: $(DROSS)/onepage_%.pdf
 	$(CP) $< $@
 
+####### Spell Books #############
+# Each a7l_cs.pdf character generates spell books in $(DROSS)/Spells-*.tex
+
+mini_cs_spheres = $(wildcard $(DROSS)/Spells-*.tex)
+
+mini_spell_tex = $(patsubst $(DROSS)/Spells-%.tex, booklets/a7_%-Spellbook.tex, $(mini_cs_spheres) )
+
+mini_spell_pdf = $(patsubst $(DROSS)/Spells-%.tex, %-Spellbook.pdf, $(mini_cs_spheres) )
+
+$(mini_spell_tex): booklets/a7_%-Spellbook.tex: $(DROSS)/Spells-%.tex config/booklets/a7_spells.tex | booklets/
+	sed '/begin{document}/a \\\input{$<}' config/booklets/a7_spells.tex > $@
+
+targets += $(mini_spell_pdf)
+
 #################################
+
 
 targets += $(pdfs)
 output += $(targets)

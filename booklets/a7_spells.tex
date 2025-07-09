@@ -3,6 +3,22 @@
 \usepackage{config/bind}
 \usepackage{config/booklet}
 
+
+\randomize
+\randomize
+\ifodd\value{r4}
+  \set{Air}{r2}
+\else
+  \set{Fire}{r3}
+\fi
+
+\ifodd\value{r4b}
+  \set{Earth}{r3b}
+\else
+  \set{Water}{r2b}
+\fi
+\set{Fate}{r2c}
+
 \begin{document}
 
 \miniCover{Spell Book}%
@@ -13,17 +29,13 @@
 
 \pagestyle{minizine}
 
-\setcounter{Air}{0}
-\setcounter{Fire}{1}
-\setcounter{Earth}{1}
-\setcounter{Water}{1}
-\setcounter{Fate}{0}
 \setHighSpheres
 
 %\stepcounter{diceNo}
 
 \foreach \x in {Air,Earth,Fire,Water,Fate,Mind,Death,Light,Force,Life}{%
   \ifnum\value{\x}>0%
+    \input{config/spells/\x1.tex}%
     \input{config/spells/\x1.tex}%
     \ifnum\value{\x}>1%
       \input{config/spells/\x2.tex}%

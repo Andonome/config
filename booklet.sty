@@ -331,14 +331,13 @@
 \newwrite\spellbooks
 
 \newcommand\writeSpheres{%
-  \immediate\openout\spellbooks=\name-spells.tex
+  \immediate\openout\spellbooks=Spells-\name.tex
   \setHighSpheres
   \foreach \s in {Light,Death,Life,Mind,Force,Earth,Air,Fire,Water,Fate}%
     {
       \immediate\write\spellbooks{\unexpanded{\setcounter}{\s}\arabic{\s}}
     }
 }
-
 
 \renewcommand\filledCS[9]{
   \resetCS
