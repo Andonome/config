@@ -52,7 +52,7 @@
 
 \newcommand{\chitincrawler}[1][\npc{\ifnum\value{Strength}>4\F\else\M\fi\A}{\Glsfmttext{crawler}}]{
   \Animal{#1}%
-  {{r4t5}{r0t1}{r3b}}% BODY
+  {{r4t5}{r0t1}{rn1t2}}% BODY
   {r4}% WITS
   {%
     \set{Brawl}{r3t4}%
@@ -60,6 +60,12 @@
     \ifodd\value{r4}%
       \set{Vigilance}{r3c}%
     \fi%
+    \ifcase\value{temperature}
+      \addtocounter{weight}{3}
+    \or
+    \else
+      \stepcounter{Speed}
+    \fi
     \set{Stealth}{rn1t2}%
     \setcounter{Survival}{\value{r3}}%
     \setcounter{diceNo}{5}% DR is determined by diceNo counter.
@@ -113,7 +119,7 @@
 
 \newcommand{\woodspy}[1][\npc{\E}{Woodspy}]{
   \Animal{#1}%
-  {{r3t4}{r2c}{r2b}}% BODY
+  {{r3t4}{rn1t2}{r2b}}% BODY
   {r3b}% WITS
   {%
     \set{Brawl}{r2}
@@ -122,6 +128,13 @@
     \set{Survival}{r3}
     \set{Intelligence}{r3c}
     \addtocounter{Intelligence}{-6}
+    \ifcase\value{temperature}
+      \addtocounter{weight}{2}
+    \or\relax
+    \else
+      \stepcounter{Speed}
+      \stepcounter{Athletics}
+    \fi
     \label{\jobname:harvestWoodspy}% See gls entry 'harvesting'
   }% SKILLS
   {}% KNACKS
@@ -129,13 +142,21 @@
 }
 
 
-\newcommand{\basilisk}[1][\npc{\A}{Basilisk}]{
+\newcommand{\basilisk}[1][\npc{\A}{\Glsfmttext{basilisk}}]{
   \Animal{#1}%
-  {{r4t6}{r2b}{r3}}% BODY
+  {{r4t6}{r2b}{rn1t2}}% BODY
   {r2c}% WITS
   {
-    \set{Athletics}{rn1t2}
+    \set{Athletics}{r2}
     \set{Brawl}{r3c}
+    \ifcase\value{temperature}
+      \addtocounter{weight}{2}
+    \or
+      \stepcounter{Speed}
+    \else
+      \stepcounter{Speed}
+      \stepcounter{Athletics}
+    \fi
     \label{\jobname:harvestBasilisk}% See gls entry 'harvesting'
   }% SKILLS
   {\unstoppable}% KNACKS
