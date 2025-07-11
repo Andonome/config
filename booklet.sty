@@ -175,6 +175,48 @@
   \end{tikzpicture}%
 }
 
+\newcommand\randomCYOAcharacter[2][\npc{\Hu}{\composeHumanName}]{
+  \Person{#1}%
+    {{rn1t2}{r3}{r0t1}}% BODY
+    {{r3c}{rn1t2}{rn3t3}}% MIND
+    {%
+      \addtocounter{Dexterity}{-2}
+      \addtocounter{Intelligence}{-2}
+      \addtocounter{Wits}{-1}
+      %%%%%%%%%%%%%%
+      \ifodd\value{fenestraDay}
+        \set{Projectiles}{1}
+        \set{Larceny}{2}
+        \ifodd\month
+          \stepcounter{Melee}
+        \else
+          \set{Athletics}{2}
+          \set{Caving}{1}
+        \fi
+      \else
+        \set{Melee}{1}
+        \set{Brawl}{1}
+        \set{Vigilance}{1}
+        \ifodd\month
+          \set{Crafts}{2}
+          \set{Survival}{1}
+        \else
+          \set{Stealth}{2}
+          \set{Seafaring}{1}
+        \fi
+      \fi
+      \ifodd\day
+        \set{Deceit}{1}
+      \else
+        \set{Academics}{1}
+      \fi
+      \addtocounter{fp}{5}
+    }% SKILLS
+    {}% KNACKS
+    {#2}% EQUIPMENT
+    {}% ABILITIES
+}
+
 \newenvironment{selectPath}%
   {%
     \begin{description}%
