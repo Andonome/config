@@ -76,7 +76,7 @@
   {\octopod \web \hide{\arabic{diceNo}}}% ABILITIES
 }
 
-\newcommand{\griffin}[1][\npc{\A\T[\arabic{r2t3}]}{\arabic{noAppearing}~Griffins}]{
+\newcommand{\griffin}[1][\npc{\A\T[\arabic{r2t3}]}{\arabic{noAppearing}~\Glsfmtplural{griffin}}]{
   \Animal{#1}%
   {{r2}{r2c}{r3}}% BODY
   {2}% WITS
@@ -91,7 +91,7 @@
   {\quadruped \flight}% ABILITIES
 }
 
-\newcommand{\mouthdigger}[1][\npc{\A}{Mouthdigger}]{
+\newcommand{\mouthdigger}[1][\npc{\A}{\Glsfmttext{digger}}]{
   \Animal{#1}%
   {{2}{r0t1}{r2c}}% BODY
   {0}% WITS
@@ -103,7 +103,7 @@
   {\adrenalinesurge, \perfectsneakattack}% KNACKS
   {\teeth \hide{2}}% ABILITIES
 }
-%
+
 \newcommand{\wolf}[1][\npc{\A\T[\arabic{r12}]}{\arabic{r12} Wolves}]{
   \Animal{#1}%
   {{-1}{r0t1}{r2b}}% BODY
@@ -116,8 +116,7 @@
   {\teeth, \quadruped}% ABILITIES
 }
 
-
-\newcommand{\woodspy}[1][\npc{\E}{Woodspy}]{
+\newcommand{\woodspy}[1][\npc{\E}{\Glsfmttext{woodspy}}]{
   \Animal{#1}%
   {{r3t4}{rn1t2}{r2b}}% BODY
   {r3b}% WITS
