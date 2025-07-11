@@ -70,7 +70,7 @@
 \newcommand\setLongRange[1][spellCost]{%
       \ifcase\value{spellCost}\relax%
       \or%
-      \renewcommand\spellRange{20 \glspl{step}}%
+      \renewcommand\spellRange{up to 20 \glspl{step}}%
       \or%
         \renewcommand\spellRange{greeting distance}%
       \or%
@@ -96,7 +96,7 @@
       \ifnum\value{track}<1%
         \renewcommand\spellRange{touch}%
       \else%
-        \renewcommand\spellRange{\arabic{track}~steps}%
+        \renewcommand\spellRange{up to \arabic{track}~steps}%
       \fi%
     }%
 }
