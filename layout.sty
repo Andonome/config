@@ -177,11 +177,11 @@ bookmarks=true]%
   \else%
     \setcounter{track}{100}%
     \divide\value{track}by#1%
-    \colorlet{background}{white!10!black!\arabic{track}}%
+    \xglobal\colorlet{background}{white!10!black!\arabic{track}}%
     \ifnum\thechapter<3%
-      \colorlet{foreground}{white!70!black!\thechapter}%
+      \xglobal\colorlet{foreground}{white!70!black!\thechapter}%
     \else%
-      \colorlet{foreground}{black}%
+      \xglobal\colorlet{foreground}{black}%
     \fi%
   \fi%
 }
