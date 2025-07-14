@@ -311,7 +311,8 @@
       \begin{tabularx}{\linewidth}{@{}r@{\hskip.8em}L@{}}\hline%
       \ent{\normalsize\npcsymbol} & \ent{\name}%
       \ifdefempty{\NPCdescription}{~}{%
-        --- \NPCdescription, \mannerism.  \textbf{Wants:}~\npcGoal.
+        --- \NPCdescription, \mannerism.  \textbf{Wants:}~\npcGoal.%
+        \ifdefempty{\currentQuote}{}{\textbf{Quote:}~\textit{``\currentQuote''}}%
       }%
       \hfill\calculateXP \\\hline%
       \ent{\Glsfmtplural{attribute}} &
