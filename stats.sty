@@ -671,8 +671,9 @@
   %%% = Attack (TN) * Dam + max((spd-hef),mp)^2
   \iftoggle{allyCharacter}{}{%
     \iftoggle{examplecharacter}{}{%
-      \setcounter{attackXPtotal}{\value{toHit}}%
-      \multiply\value{attackXPtotal} by \value{damage}%
+      \setcounter{attackXPtotal}{\value{damage}}%
+      \addtocounter{attackXPtotal}{4}%
+      \multiply\value{attackXPtotal} by \value{toHit}%
       \multiply\value{attackXPtotal} by \value{ap}%
       \divide\value{attackXPtotal} by 50%
       \addtocounter{attackXPtotal}{-\value{heft}}%
