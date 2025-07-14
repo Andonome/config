@@ -29,6 +29,16 @@
   \textcolor{background}{\ifodd\value{page}\else\raisebox{-3pt}{\normalsize\hspace{0.1em}\flourish}\fi\hrulefill\ifodd\value{page}\raisebox{-3pt}{\normalsize\hspace{-0.1em}\flourish}\fi}%
 }
 
+\let\olditemize\itemize%
+\let\endolditemize\enditemize%
+\renewenvironment{itemize}%
+  {\begin{olditemize}%
+     \setlength{\parskip}{0pt}}%
+  {\end{olditemize}}
+
+% Make quotes take less space.
+\patchcmd{\quotation}{\rightmargin}{\leftmargin 1em \rightmargin}{}{}
+
 \fancypagestyle{minizine}{
   \fontsize{9}{10}\selectfont
   \pagenumbering{arabic}
