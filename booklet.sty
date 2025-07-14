@@ -25,6 +25,10 @@
 
 \renewcommand{\labelenumi}{\arabic{enumi}. }
 
+\renewcommand\bigLine{%
+  \textcolor{background}{\ifodd\value{page}\else\raisebox{-3pt}{\normalsize\hspace{0.1em}\flourish}\fi\hrulefill\ifodd\value{page}\raisebox{-3pt}{\normalsize\hspace{-0.1em}\flourish}\fi}%
+}
+
 \fancypagestyle{minizine}{
   \fontsize{9}{10}\selectfont
   \pagenumbering{arabic}
