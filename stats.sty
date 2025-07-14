@@ -667,8 +667,10 @@
 %% /_/\_\_|    
 %%  
 \newcommand{\calculateXP}{%
-  %%% Now to get the XP value of the creature's attack ability.
-  %%% = Attack (TN) * Dam + max((spd-hef),mp)^2
+  %%% Now to get the CR rating.
+  %%% We start with the attack value.
+  %%%    ( Attack (TN) * Dam + AP ) / 50 - 'AP Cost'
+  %%%    (if MP is higher than this, just use MP)
   \iftoggle{allyCharacter}{}{%
     \iftoggle{examplecharacter}{}{%
       \setcounter{attackXPtotal}{\value{damage}}%
@@ -686,9 +688,12 @@
           \addtocounter{attackXPtotal}{\value{enc}}%
         \fi%
       \fi%
+    %%% Same again, but for defence.
+    %%% HP * DR / 10
       \setcounter{defenceXPtotal}{\value{hp}}%
       \multiply\value{defenceXPtotal} by \value{dr}%
       \divide\value{defenceXPtotal} by 10%
+    %%%  Add attack and defence totals.
       \addtocounter{xp}{\value{attackXPtotal}}%
       \addtocounter{xp}{\value{defenceXPtotal}}%
       \ifnum\value{xp}<0\setcounter{xp}{0}\fi%
