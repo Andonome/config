@@ -2,7 +2,11 @@
 
 \RequirePackage[table]{xcolor}
 \RequirePackage[copies]{contour}
-\RequirePackage{imakeidx}% for spell summaries
+\RequirePackage[splitindex]{imakeidx}% for spell summaries
+  \typeout{Writing index file \jobname.idx}% We need to notify latexmk that
+  % splitindex needs to be run.  It hears 'Writing index file...' in the
+  % output, and runs the commands in the .latexmkrc
+
 \RequirePackage{xr-hyper}
 \RequirePackage[
 pdfstartpage=1,

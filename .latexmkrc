@@ -10,3 +10,13 @@
         if ($silent) { unshift @args, "-q"; }
         return system "makeglossaries", "-d", $path, $base_name; 
     }
+
+$makeindex = 'internal splitindex2 %S %D %R %B %O';
+$clean_ext .= " %R-*.ind %R-*.idx %R-*.ilg %R-*.ind";
+
+sub splitindex2 {
+  my ($source, $dest, $root, $base, @opts) = @_;
+  my $ret1 = system( "makeindex", $source );
+  my $ret2 = system( "splitindex", $source );
+  return $ret1 || $ret2;
+}
