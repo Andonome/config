@@ -43,6 +43,7 @@ hyperref \
 glossaries \
 glossaries-extra \
 imakeidx \
+splitindex \
 infwarerr \
 koma-script \
 trimspaces \
