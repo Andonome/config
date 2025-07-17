@@ -665,6 +665,21 @@ Words are needed after each subsection to avoid the boxes making problems.
 \noindent
 \lipsum
 
+\artefact{The Bladder Skull}% Name
+  {Three human skulls, tied together with their guts, each stuffed with their own inflated bladder.
+  The Preservation spell cast upon it stops the bladders deflating.}% Body
+  {2}% Intelligence
+  {0}% Wits
+  {3}% Charisma
+  {to make everyone see as the dead see}% Mission
+  {Perservation}% Base Spell
+  {
+    \setcounter{Vigilance}{1}
+    \setcounter{Fate}{2}
+    \setcounter{Air}{2}
+    \setcounter{Water}{1}
+  }% Spheres
+
 \end{multicols}
 
 \newcommand{\tests}{
@@ -675,22 +690,30 @@ Words are needed after each subsection to avoid the boxes making problems.
 
   \begin{multicols}{2}
 
-  \lipsum[\arabic{r4}]
+  \begin{itemize}
+    \item
+    \composeHumanName
+    \item
+    \composeHumanName
+    \item
+    \composeHumanName
+    \item
+    \composeHumanName
+    \item
+    \composeHumanName
+    \item
+    \composeHumanName
+    \item
+    \composeHumanName
+    \item
+    \composeHumanName
+    \item
+    \composeHumanName
+    \item
+    \composeHumanName
+  \end{itemize}
 
-  \artefact{The Bladder Skull}% Name
-    {Three human skulls, tied together with their guts, each stuffed with their own inflated bladder.
-    The Preservation spell cast upon it stops the bladders deflating.}% Body
-    {2}% Intelligence
-    {0}% Wits
-    {3}% Charisma
-    {to make everyone see as the dead see}% Mission
-    {Perservation}% Base Spell
-    {
-      \setcounter{Vigilance}{1}
-      \setcounter{Fate}{2}
-      \setcounter{Air}{2}
-      \setcounter{Water}{1}
-    }% Spheres
+  \lipsum[\arabic{r4}]
 
 
   \humanbard
