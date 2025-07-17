@@ -1012,8 +1012,10 @@
 
 \newcounter{humanNameNo}
   \setcounter{humanNameNo}{\value{r12}}
+  \addtocounter{humanNameNo}{\value{r12}}
 \newcounter{humanNameSuffNo}
   \setcounter{humanNameSuffNo}{\value{r4}}
+  \addtocounter{humanNameSuffNo}{\value{r3}}
 
 \newcommand\humanNamePrefix{%
   \ifcase\value{humanNameNo}%
@@ -1094,8 +1096,8 @@
     Gout%
     \setcounter{humanNameNo}{-1}%
   \fi%
-  \addtocounter{humanNameNo}{\value{r2c}}%
-  \stepcounter{r2c}%
+  \addtocounter{humanNameNo}{\value{r3c}}%
+  \stepcounter{r3c}%
 }
 
 \newcommand\humanNameSuffix{%
@@ -1178,8 +1180,7 @@
     blathe%
     \setcounter{humanNameSuffNo}{-1}%
   \fi%
-  \addtocounter{humanNameSuffNo}{\value{r3c}}%
-  \stepcounter{r3c}%
+  \addtocounter{humanNameSuffNo}{\value{r4}}%
 }
 
 \newcommand\composeHumanName{%
