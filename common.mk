@@ -137,10 +137,10 @@ report: $(text_shadows) ## Check for missing references and repetition in all pd
 	@grep --color=always -nE '(\b\S+\b)\s+\b\1\b' $^ || echo "No problems found."
 
 ######## A3 12 signature pdfs ########
-A3_12_signature_%.pdf: %.pdf
+%_A3_12_signature.pdf: %.pdf
 	pdfjam --landscape --paper a3paper --nup 1x1 --signature 12 $< -o $@
 
-A3_pdfs = $(patsubst %.pdf, A3_12_signature_%.pdf, $(pdfs))
+A3_pdfs = $(patsubst %.pdf, %_A3_12_signature.pdf, $(pdfs))
 
 .PHONY: printables
 printables: $(A3_pdfs)
