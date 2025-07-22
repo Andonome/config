@@ -53,6 +53,7 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
 
 \renewcommand\npcsymbol{\flourish}
 \iftoggle{marketBeasts}{
+  \begin{minipage}{\linewidth}
   \begin{boxtable}[Lc]
     \textbf{Beasts} & \textbf{Cost} \\\hline
     Donkey & \mkPrice{4} \\
@@ -66,6 +67,7 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
   \end{boxtable}
 
   {\footnotesize(\sffamily \roll{Wits}{Cultivation}, \glsfmttext{tn}~9 to check the animal stats)}
+  \end{minipage}
 }{}
 
 \begin{boxtable}[Lc]
