@@ -52,18 +52,18 @@
 \newcommand\setSpellDamage{%
   \iftoggle{Divergent}{%
     \ifnum\value{encnum}=2%
-      \set{r6}{spellPlusTwo}%
+      \set{age}{spellPlusTwo}%
     \else%
-      \set{r6}{spellPlusOne}%
+      \set{age}{spellPlusOne}%
     \fi%
   }{%
     \ifnum\value{encnum}=1%
-      \set{r6}{spellPlusTwo}%
+      \set{age}{spellPlusTwo}%
     \else%
-      \set{r6}{spellPlusOne}%
+      \set{age}{spellPlusOne}%
     \fi%
   }%
-  \addtocounter{r6}{-4}%
+  \addtocounter{age}{-4}%
   \conDmg{r6}%
 }
 
