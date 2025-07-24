@@ -1197,3 +1197,9 @@
   #1%
 }
 
+\newcommand\assignHumanName[1][\currentName]{%
+  \edef#1{\humanNamePrefix\humanNameSuffix}%
+  \addtocounter{humanNameNo}{\value{r2}}%
+  \addtocounter{humanNameSuffNo}{\value{r3c}}%
+}
+

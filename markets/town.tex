@@ -430,12 +430,30 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
 
 \end{nametable}
 
-\ifodd\value{r3b}
-  \begin{speechtext}
-    \footnotesize
+\begin{speechtext}
+  \footnotesize
+  \ifcase\value{r4}\relax
+  \or
+    I could have been \ifodd\value{r2} a carter grapher --- it's just scribble, scribble\else \pgls{armourer} --- tap-tap-tap all day\fi, easy.
+    I just wanted a proper job, you know?
+  \or
+    Anyone speak
+    \ifodd\value{r3}%
+      Dwarvish%
+    \else
+      Gnomish%
+    \fi?
+    We can pay \mkPrice{2} for a translator for that shifty little shit-stain in the cells, below.
+    I've been at him for hours, and I reckon he's saying that he's ready to talk.
+  \or
+    You look like a sly one!
+    There's a reward out on `\marketFence'.
+    Stolen goods.
+    \mkPrice[gp]{3} reward if you can name where the git's doing business today, and wait for my boys to confirm.
+  \else
     Carrying weapons in town is illegal, so buy it and fuck off!
-  \end{speechtext}
-\fi
+  \fi
+\end{speechtext}
 
 \fightAdvert
 
