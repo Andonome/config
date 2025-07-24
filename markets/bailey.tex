@@ -124,6 +124,13 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
     \showArmourPrice{\completeleather}{11}%
     \showArmourPrice{\partiallisk}{31}%
   \end{nametable}
+  \ifodd\value{cycle}\else
+    \begin{speechtext}
+      \footnotesize
+      I got \mkPrice{18} if you happen to have \arabic{armourWeight} Earth \glspl{ingredient} to make some good armour.
+      I can't use less, and I don't want more.
+    \end{speechtext}
+  \fi
 \else
   \renewcommand\npcsymbol{\glsentrysymbol{sylf}}
   \begin{nametable}[Lcc]{Retired \Glsentrytext{ranger} \composeHumanName's Tents}

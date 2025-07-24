@@ -31,49 +31,6 @@
 
 \end{nametable}
 
-\renewcommand\npcsymbol{\glsentrysymbol{sable}}
-\begin{nametable}[Lcc]{At the \glsentrytext{templeOfFrost}}
-
-  \textbf{Clothing} & \textbf{Weight} & \textbf{Cost} \\\hline
-
-  \marketItem{Orange Samite Robes}{0}{15}
-  \marketItem{Red Samite Robes}{0}{17}
-  \marketItem{Purple Travelling Robes}{0}{23}
-
-  \hline
-  \marketItem[cp]{Sewing equipment}{0}{5}
-  \marketItem{Rope, 50'}{1}{2}
-  \rareMarketItem[9]{Silk rope, 50'}{0}{8}%
-  \rareMarketItem[7]{Green hat}{0}{4}%
-  \rareMarketItem{Orange hat}{0}{5}%
-  \rareMarketItem{Purple hat}{0}{7}%
-  \marketItem[cp]{Rescue kit {\footnotesize (needle, bandages, whiskey~phial: +1~Bonus)}}{0}{11}
-  \ifnum\value{temperature}=0
-    \marketItem[cp]{Salty \rations}{1}{5}
-    \hline
-    \marketItem[cp]{Warm clothes}{2}{57}
-  \else
-    \hline
-    \marketItem[cp]{Brown cassock}{0}{57}
-  \fi
-  \ifnum\value{temperature}=3
-    \marketItem[cp]{Wide-brimmed hat}{0}{57}
-  \fi
-
-\end{nametable}
-
-\ifodd\value{diceNo}
-  \begin{speechtext}
-    \footnotesize
-    \ifnum\value{temperature}=0
-      Take a little seat by the fire, deary, then tell us the news.
-    \else
-      Welcome to the stitch `n bitch.
-      What's the news from the \glsfmtplural{broch}?
-    \fi
-  \end{speechtext}
-\fi
-
 \randomize
 \ifnum\value{r12}>7
 \noindent
@@ -90,7 +47,10 @@
 
     Blessing {\small (1D6+1 \glsfmtplural{fp})} & -- & `\textit{as you please}' \\
   \end{nametable}
-  \footnotesize She'll purchase \glsfmtplural{ingredient} of Fate for \mkPrice{9}.
+  \begin{speechtext}
+    \footnotesize
+    I'll buy one Fate \glsentrytext{ingredient} for \arabic{r12}~\glsfmtplural{sp}, but no more than one.
+  \end{speechtext}
 \end{minipage}
 \fi
 
@@ -219,9 +179,59 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
 
 \end{multicols}
 
-\pagebreak
-
 \begin{multicols}{2}
+
+\begin{minipage}{\linewidth}
+\renewcommand\npcsymbol{\glsentrysymbol{sable}}
+\begin{nametable}[Lcc]{At the \glsentrytext{templeOfFrost}}
+
+  \textbf{Clothing} & \textbf{Weight} & \textbf{Cost} \\\hline
+
+  \marketItem{Orange Samite Robes}{0}{15}
+  \marketItem{Red Samite Robes}{0}{17}
+  \marketItem{Purple Travelling Robes}{0}{23}
+
+  \hline
+  \marketItem[cp]{Sewing equipment}{0}{5}
+  \marketItem{Rope, 50'}{1}{2}
+  \rareMarketItem[9]{Silk rope, 50'}{0}{8}%
+  \rareMarketItem[7]{Green hat}{0}{4}%
+  \rareMarketItem{Orange hat}{0}{5}%
+  \rareMarketItem{Purple hat}{0}{7}%
+  \marketItem[cp]{Rescue kit {\footnotesize (needle, bandages, whiskey~phial: +1~Bonus)}}{0}{11}
+  \ifnum\value{temperature}=0
+    \marketItem[cp]{Salty \rations}{1}{5}
+    \hline
+    \marketItem[cp]{Warm clothes}{2}{57}
+  \else
+    \hline
+    \marketItem[cp]{Brown cassock}{0}{57}
+  \fi
+  \ifnum\value{temperature}=3
+    \marketItem[cp]{Wide-brimmed hat}{0}{57}
+  \fi
+
+\end{nametable}
+
+\begin{speechtext}
+  \footnotesize
+  \ifcase\value{cycle}=0
+    Got any Fate or Air \glsfmtplural{ingredient}?
+    We'll pay \mkPrice{9}, happily.
+  \or
+    Take a little seat by the fire, deary, then tell us the news.
+  \or
+    Help yourself to some ale, but don't take the piss.
+    That's the bucket on the left (we need it for the dyes).
+  \or
+    Welcome to the stitch `n bitch.
+    What's the news from the \glsfmtplural{broch}?
+  \else
+    Got any Fate or Air \glsfmtplural{ingredient}?
+    We'll pay \mkPrice{3}, happily.
+  \fi
+\end{speechtext}
+\end{minipage}
 
 \renewcommand\npcsymbol{\glsentrysymbol{yonder}}
 \begin{nametable}[Lcc]{At the \glsentrytext{templeOfCuriosity}}
@@ -274,6 +284,24 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
 
 \end{nametable}
 
+\ifodd\value{r3}
+  \begin{speechtext}
+    \footnotesize
+    The \glsfmttext{templeOfCuriosity} can pay \mkPrice{8} for Air \glspl{ingredient}, and \mkPrice{8} for Fire.
+  \end{speechtext}
+\fi
+
+\begin{minipage}{\linewidth}
+\begin{boxtable}[Ll]
+  \hline
+  Shop sign & \mkPrice[cp]{9} +2 per letter \\
+
+  Send a letter  & \mkPrice[cp]{3} per mile \\
+
+  Write a letter & \mkPrice[cp]{3} per sentence \\
+
+\end{boxtable}
+
 \begin{speechtext}
   \footnotesize
   \Glsentrytext{scrivener}~\composeHumanName\space
@@ -289,20 +317,11 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
   \or%
     needs you to sign a contract stating that you understand that the \gls{templeOfCuriosity} will not abuse your privacy.
   \else%
-    can only write Dwarvish and Elvish.
+    can only write \ifodd\day Dwarvish \else Gnomish \fi and Elvish.
   \fi
 \end{speechtext}
 
-\begin{boxtable}[Ll]
-  \hline
-  Shop sign & \mkPrice[cp]{9} +2 per letter \\
-
-  Send a letter  & \mkPrice[cp]{3} per mile \\
-
-  Write a letter & \mkPrice[cp]{3} per sentence \\
-
-\end{boxtable}
-
+\end{minipage}
 
 \renewcommand\npcsymbol{\glsentrysymbol{eldren}}
 \begin{nametable}[Lcl]{At the \Glsentrytext{templeOfSickness}}
@@ -333,14 +352,25 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
   \Glsfmttext{mixer} \marketMixer\ has $1D3$ of each item and will purchase \glsfmtplural{ingredient} for \glsfmtplural{sphere} which the \glsentrytext{temple} currently lacks for \mkPrice{12}.
 }
 
-\renewcommand\npcsymbol{\glsentrysymbol{wrecan}}
-\begin{nametable}[Lcccc]{At the \Glsentrytext{templeOfHate}}
-  \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{\glsentrytext{covering}} & \textbf{Weight} & \textbf{Cost} \\\hline
-  \rareArmour[5]{\completechain}{24}%
-  \rareArmour[6]{\partialplate}{36}%
-  \rareArmour[9]{\completeplate}{66}%
-  \showArmourPrice{\partialchain}{14}%
-\end{nametable}
+\vspace{\baselineskip}
+\begin{minipage}{\linewidth}
+  \renewcommand\npcsymbol{\glsentrysymbol{wrecan}}
+  \begin{nametable}[Lcccc]{At the \Glsentrytext{templeOfHate}}
+    \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{\glsentrytext{covering}} & \textbf{Weight} & \textbf{Cost} \\\hline
+    \rareArmour[5]{\completechain}{24}%
+    \rareArmour[6]{\partialplate}{36}%
+    \rareArmour[9]{\completeplate}{66}%
+    \showArmourPrice{\partialchain}{14}%
+  \end{nametable}
+  \ifodd\value{r3}
+    \begin{speechtext}
+      \footnotesize
+      The \glsfmttext{templeOfHate} can pay \mkPrice{8} for Earth \glspl{ingredient}.
+    \end{speechtext}
+  \fi
+\end{minipage}
+
+\vspace{\baselineskip}
 
 \ifodd\value{r4}
   \stepcounter{footnote}
