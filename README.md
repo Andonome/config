@@ -50,6 +50,8 @@ Edit 'main.tex', and input your tex files by writing `\include{my_file.tex}`.
 
 [docs]: https://gitlab.com/bindrpg/config/-/jobs/artifacts/master/raw/docs.pdf?job=build
 [rules]: https://gitlab.com/bindrpg/config/-/jobs/artifacts/master/raw/rules.pdf?job=build
+[markets]: https://gitlab.com/bindrpg/config/-/jobs/artifacts/master/raw/markets.pdf?job=build
 [cs]: https://gitlab.com/bindrpg/config/-/jobs/artifacts/master/raw/character_sheets.pdf?job=build
+[mini_cs]: https://gitlab.com/bindrpg/config/-/jobs/artifacts/master/raw/cs.pdf?job=build
 [issues board]: https://gitlab.com/bindrpg/config/-/issues/
 [issues email]: mailto:contact-project+bindrpg-config-16527104-issue-@incoming.gitlab.com
