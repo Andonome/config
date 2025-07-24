@@ -43,11 +43,20 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
     \rareMarketItem[9]{Fate \Glsentrytext{boon}}{1}{24}%
     \marketItem{Cup of tea}{0}{0}%
   \end{nametable}
-  \multiply\value{track} by 2%
-  \textit{I'll take any \glsentrytext{ingredient} for \arabic{r12}~\glsfmtplural{sp}%
-  \ifnum\value{r6b}=4%
-    and \pgls{sp} if you can bring my cat `Nothing' back.%
-  \fi.}
+
+    \itshape
+    \small
+    I'll take any \glsentrytext{ingredient} for \arabic{r12}~\glsfmtplural{sp}%
+    \ifcase\value{r6b}\relax%
+      and \pgls{sp} if you can bring my cat `Nothing' back.%
+    \else%
+      and if yous ever need something in town,
+      \footnotesize
+      my cousin \composeHumanName\ lives on a nice,
+      \scriptsize
+      wee patch just outside the gates, so just tell her I sent yous and yous can drop your arms off with her, and pick them back up the moment you leave.
+      Best not get in trouble with those \glspl{sunGuard}, eh?
+    \fi
 \end{minipage}
 \fi
 
