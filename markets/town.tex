@@ -27,32 +27,18 @@
 
   Show of good faith (medium crime)
   \footnote{This gets you a +2 Bonus during the trial.}
-  \stepcounter{footnote}
   & \mkPrice{80} \\
 
 \end{nametable}
 
-\randomize
-\ifnum\value{r12}>7
-\noindent
-\begin{minipage}{\linewidth}
-  \renewcommand\npcsymbol{\glsentrysymbol{nulla}}
-  \begin{nametable}[LcX]{\marketDoula's \glsentrytext{doulaShop}}
-    \textbf{Things on shelves} & \textbf{Weight} & \textbf{Cost} \\\hline
-    \rareMarketItem{Air \Glsentrytext{boon}}{1}{24}%
-    \rareMarketItem{Fire \Glsentrytext{boon}}{1}{24}%
-    \rareMarketItem{Earth \Glsentrytext{boon}}{1}{24}%
-    \rareMarketItem{Water \Glsentrytext{boon}}{1}{24}%
-    \rareMarketItem{Fate \Glsentrytext{boon}}{1}{24}%
-    \marketItem{Cup of tea}{0}{0}%
-
-    Blessing {\small (1D6+1 \glsfmtplural{fp})} & -- & `\textit{as you please}' \\
-  \end{nametable}
+\ifodd\value{r3}\relax\else
+  \null
   \begin{speechtext}
     \footnotesize
-    I'll buy one Fate \glsentrytext{ingredient} for \arabic{r12}~\glsfmtplural{sp}, but no more than one.
+    Three copper in,
+
+    Ten gold out!
   \end{speechtext}
-\end{minipage}
 \fi
 
 \renewcommand\npcsymbol{\flourish}
@@ -69,6 +55,7 @@
 
 \end{nametable}
 
+\stepcounter{footnote}
 \begin{nametable}[Lc]{Central Square}
 
   \textbf{Service} & \textbf{Cost} \\\hline
@@ -80,7 +67,7 @@
 
   \ifodd\value{r4}%
     \stepcounter{r6}
-    \tiny\marketFence, the Fence\footnotemark & \tiny \arabic{r6}0\% and shhh\ldots \\
+    \tiny\marketFence, the Fence\footnotemark[\thefootnote] & \tiny \arabic{r6}0\% and shhh\ldots \\
   \fi%
 
 \end{nametable}
@@ -127,12 +114,11 @@
 
   \ifodd\value{r4b}%
     \stepcounter{r6}
-    \tiny\marketFence, the Fence\footnotemark & \tiny \arabic{r6}0\% and shhh\ldots \\
+    \tiny\marketFence, the Fence\footnotemark[\thefootnote] & \tiny \arabic{r6}0\% and shhh\ldots \\
   \fi%
 \end{nametable}
 
-\footnotetext{This item is illegal, and requires a \roll{Charisma}{Empathy} roll (\tn[10]), to gain trust along the line of people who lead to the real seller.
-The item requires one \glsfmttext{interval} to speak to everyone along the way.}
+\footnotetext{Gaining trust requires a \roll{Charisma}{Empathy} at \tn[8].}
 
 \renewcommand\npcsymbol{\glsentrysymbol{abderian}}
 \begin{nametable}[Lc]{\marketTavernTwo}
@@ -167,16 +153,31 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
 
 \end{nametable}
 
+\stepcounter{footnote}%
 
-\ifodd\value{r3}\relax\else
-  \null
+\randomize
+\ifnum\value{r12}>7
+\noindent
+\begin{minipage}{\linewidth}
+  \renewcommand\npcsymbol{\glsentrysymbol{nulla}}
+  \begin{nametable}[LcX]{\marketDoula's \glsentrytext{doulaShop}}
+    \textbf{Things on shelves} & \textbf{Weight} & \textbf{Cost} \\\hline
+    \rareMarketItem{Air \Glsentrytext{boon}}{1}{24}%
+    \rareMarketItem{Fire \Glsentrytext{boon}}{1}{24}%
+    \rareMarketItem{Earth \Glsentrytext{boon}}{1}{24}%
+    \rareMarketItem{Water \Glsentrytext{boon}}{1}{24}%
+    \rareMarketItem{Fate \Glsentrytext{boon}}{1}{24}%
+    \marketItem{Cup of tea}{0}{0}%
+
+    Blessing {\small (1D6+1 \glsfmtplural{fp})} & -- & \scriptsize`\textit{as you please}' \\
+  \end{nametable}
   \begin{speechtext}
     \footnotesize
-    Three copper in,
-
-    Ten gold out!
+    I'll buy one Fate \glsentrytext{ingredient} for \arabic{r12}~\glsfmtplural{sp}, but no more than one.
   \end{speechtext}
+\end{minipage}
 \fi
+
 
 \end{multicols}
 
@@ -184,6 +185,7 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
 
 \begin{multicols}{2}
 
+\noindent
 \begin{minipage}{\linewidth}
   \renewcommand\npcsymbol{\glsentrysymbol{eldren}}
   \begin{nametable}[Lcl]{At the \Glsentrytext{templeOfSickness}}
@@ -281,6 +283,8 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
 
 \end{nametable}
 
+\begin{minipage}{\linewidth}
+
 \ifodd\value{r3}
   \begin{speechtext}
     \footnotesize
@@ -288,7 +292,6 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
   \end{speechtext}
 \fi
 
-\begin{minipage}{\linewidth}
 \begin{boxtable}[Ll]
   \hline
   Shop sign & \mkPrice[cp]{9} +2 per letter \\
@@ -319,6 +322,32 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
 \end{speechtext}
 
 \end{minipage}
+
+\ifcase\value{r4}\relax
+\or
+  \ifcase\value{cycle}
+    \footnotetext{His Eternal Majesty, Sundew Eye-Eye, will give you \mkPrice{3} discount if you acknowledge him as the rightful heir to the Shattered Castle, and Rex of all \glsfmttext{fenestra}.}
+  \or
+    \footnotetext{By the time you arrive, the river has frozen, and everyone's too busy smashing the ice to acknowledge you.  Roll \roll{Strength}{Survival} at \tn[8] to help out over the \glsfmttext{interval}.}
+  \or
+    \footnotetext{\composeHumanName\ looks a bit \emph{off}.
+    Roll \roll{Wits}{Medicine} at \glsfmttext{tn}~10.
+    On a tie you contract `corpse hands', which slowly paralyses you (take a -1~Penalty to Dexterity every three \glsfmtplural{interval} until immobile, then the reverse).
+    On a failure, you pass the disease onto the \glsfmttext{pc} with the highest \glsfmtplural{fp}.}
+  \or
+    \footnotetext{You find a patch of screechmoss growing underneath the docks.  Roll \roll{Dexterity}{Survival} at \glsfmttext{tn}~10 to gain an Earth~\glsfmttext{ingredient}.}
+  \else
+    \footnotetext{The docks are full of stirges.  Everyone runs away or sails on immediately.  All sales are cancelled.}
+  \fi
+\or
+  \footnotetext{There is no sale, just $1D6$ thugs who want your money.}
+\or
+  \footnotetext{\composeHumanName\ points out the obvious \gls{sunGuard} standing behind a bush, hoping to witness the illegal sale.
+  You'll have to come back tonight.}
+\else
+  \footnotetext{This item is illegal, and requires a \roll{Charisma}{Empathy} roll (\tn[10]), to gain trust along the line of people who lead to the real seller.
+  The item requires one \glsfmttext{interval} to speak to everyone along the way.}
+\fi
 
 \vspace{\baselineskip}
 
@@ -394,11 +423,6 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
 
 \vspace{\baselineskip}
 
-\ifodd\value{r4}
-  \stepcounter{footnote}
-  \footnotetext{There is no sale, just $1D6$ thugs who want your money.}
-\fi
-
 \renewcommand\npcsymbol{\glsentrysymbol{wrecan}}
 \begin{nametable}[Lcccc]{At the Tanner's}
   \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{\glsentrytext{covering}} & \textbf{Weight} & \textbf{Cost} \\\hline
@@ -408,6 +432,10 @@ The item requires one \glsfmttext{interval} to speak to everyone along the way.}
   \showArmourPrice{\completeleather}{11}%
 \end{nametable}
 
+\end{multicols}
+
+\bigLine
+\begin{multicols}{2}
 
 \renewcommand\npcsymbol{\glsentrysymbol{paik}}
 \begin{nametable}[lYYYc]{\Gls{sunGuard} Arms Sales}
