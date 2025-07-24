@@ -1096,8 +1096,7 @@
     Gout%
     \setcounter{humanNameNo}{-1}%
   \fi%
-  \addtocounter{humanNameNo}{\value{r3c}}%
-  \stepcounter{r3c}%
+  \addtocounter{humanNameNo}{\value{r2c}}%
 }
 
 \newcommand\humanNameSuffix{%
@@ -1190,10 +1189,11 @@
     blathe%
     \setcounter{humanNameSuffNo}{-1}%
   \fi%
-  \addtocounter{humanNameSuffNo}{\value{r4}}%
+  \addtocounter{humanNameSuffNo}{\value{r3c}}%
 }
 
-\newcommand\composeHumanName{%
-  \humanNamePrefix\humanNameSuffix%
+\newcommand\composeHumanName[1][\currentName]{%
+  \edef#1{\humanNamePrefix\humanNameSuffix}%
+  #1%
 }
 
