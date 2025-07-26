@@ -1192,6 +1192,8 @@
   \addtocounter{humanNameSuffNo}{\value{r3c}}%
 }
 
+\newcommand\currentName{Bob}
+
 \newcommand\composeHumanName[1][\currentName]{%
   \edef#1{\humanNamePrefix\humanNameSuffix}%
   #1%

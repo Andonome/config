@@ -389,7 +389,7 @@
 \newwrite\spellbooks
 
 \newcommand\writeSpheres{%
-  \immediate\openout\spellbooks=Spells-\name.tex
+  \immediate\openout\spellbooks=Spells-\currentName.tex
   \setHighSpheres
   \foreach \s in {Light,Death,Life,Mind,Force,Earth,Air,Fire,Water,Fate}%
     {
@@ -399,6 +399,7 @@
 
 \renewcommand\filledCS[9]{
   \resetCS
+  \assignHumanName
   \settoggle{examplecharacter}{true}
   \settoggle{allyCharacter}{true}
   \renewcommand\name{#1}
