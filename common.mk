@@ -195,12 +195,19 @@ mini_spell_pdf = $(patsubst $(DROSS)/Spells-%.tex, %-Spellbook.pdf, $(mini_cs_sp
 $(mini_spell_tex): booklets/a7_%-Spellbook.tex: $(DROSS)/Spells-%.tex config/booklets/a7_spells.tex | booklets/
 	sed '/begin{document}/a \\\input{$<}' config/booklets/a7_spells.tex > $@
 
-targets += $(mini_spell_pdf)
+zines += $(mini_spell_pdf)
+
+####### Phone Zines #############
+
+screen_zines = $(patsubst %.pdf, a7_%.pdf, $(zines) )
+
+.PHONY: screenz
+screenz: $(screen_zines) ## Screen-readable booklets
 
 #################################
 
-
 targets += $(pdfs)
+targets += $(zines)
 output += $(targets)
 
 .PHONY: all
