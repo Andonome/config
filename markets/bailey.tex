@@ -12,9 +12,10 @@
 \fi
 
 \noindent
-\Glspl{village} have $1D6\times 10$ of each item with \glsentrytext{weight} 0, $2D6$ of each item with \glsentrytext{weight} 1, and $1D6$ of each heavier items.
 All purchases require a full morning or afternoon.
 Farmers chat, then barter, and finally refer the buyer to a neighbour.
+Supplies are limited.%
+\footnote{\Glspl{village} have $1D6\times 10$ of each item with \pgls{weight} less than 1, $2D6$ of each item with \glsentrytext{weight} 1, and $1D6$ of each heavier items.}
 
 \begin{multicols}{3}
 
@@ -261,7 +262,40 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
   \textit{I'll buy \glspl{ingredient} of Fate or Air for \arabic{r12}~\glsfmtplural{sp}.}
 \fi
 
-\end{multicols}
+\iftoggle{marketBeasts}{
+  \end{multicols}
+}{
+  \ifnum\value{r12}=8
+    \begin{speechtext}
+    {\Large\Nl}
+    Old \ifodd\value{r2}man\else woman\fi,
+    your sweat stinks of scared.
+    Trade for a new friend to
+    \ifodd\value{r2c}
+      show you courage?
+    \else
+      lick the fear from your face?
+    \fi
+    \end{speechtext}
+    Six gnolls have dropped by to trade.
+    Their dogs cost \mkPrice{5} worth of food, weapons, or \glspl{ingredient} (\glspl{coin} are not accepted), and the new family must show they understand how to take care of the dogs (\roll{Intelligence}{Cultivation} at \tn[8]) and provide a good name.
+  \end{multicols}
+
+    \pagebreak
+    \begin{multicols}{2}
+      \renewcommand\animalCry{growl}
+      \settoggle{allyCharacter}{true}
+      \wardog[\npc{\F\A}{Dog: \weeline}]
+      \animalReactions
+      \columnbreak
+      \wardog[\npc{\M\A}{Dog: \weeline}]
+      \animalReactions
+    \end{multicols}
+  \else
+    \end{multicols}
+  \fi
+}
+
 
 \iftoggle{marketBeasts}{
   \clearpage
@@ -288,36 +322,6 @@ Farmers chat, then barter, and finally refer the buyer to a neighbour.
       \animalReactions
     \fi
   \end{multicols}
-}{
-  \ifnum\value{r12}=8
-    \begin{multicols}{2}
-    \begin{speechtext}
-    {\Large\Nl}
-    Old \ifodd\value{r2}man\else woman\fi,
-    your sweat stinks of scared.
-    Trade for a new friend to
-    \ifodd\value{r2c}
-      show you courage?
-    \else
-      lick the fear from your face?
-    \fi
-    \end{speechtext}
-    \columnbreak
-    Six gnolls have dropped by to trade.
-    Their dogs cost \mkPrice{5} worth of food, weapons, or \glspl{ingredient} (\glspl{coin} are not accepted), and the new family must show they understand how to take care of the dogs (\roll{Intelligence}{Cultivation} at \tn[8]) and provide a good name.
-    \end{multicols}
-
-    \pagebreak
-    \begin{multicols}{2}
-      \renewcommand\animalCry{growl}
-      \settoggle{allyCharacter}{true}
-      \wardog[\npc{\F\A}{Dog: \weeline}]
-      \animalReactions
-      \columnbreak
-      \wardog[\npc{\M\A}{Dog: \weeline}]
-      \animalReactions
-    \end{multicols}
-  \fi
-}
+}{}
 
 \stepcounter{diceNo}
