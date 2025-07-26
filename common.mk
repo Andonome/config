@@ -178,7 +178,7 @@ $(DROSS)/onepage_%.ps: $(DROSS)/a7l_%.ps
 	pstops -pa4 '$(a7_landscape_layout)' $< $@
 
 $(DROSS)/onepage_%.pdf: $(DROSS)/onepage_%.ps
-	ps2pdf $< $@
+	ps2pdf -dPDFSETTINGS=/prepress $< $@
 
 %.pdf: $(DROSS)/onepage_%.pdf
 	$(CP) $< $@
