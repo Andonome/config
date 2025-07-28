@@ -1,10 +1,53 @@
-\section*{Town Market}
+\section*{Town Gate \hint{\showCycle}}
 
-\hint{\showCycle}
+\begin{multicols}{2}
+
+{\sffamily \Glspl{sunGuard} inspect everyone entering the gate.}
+
+\begin{exampletext}
+\ifcase\value{temperature}
+  This is a nice place, for nice people.
+  So turn back round, and find \pgls{basilisk} to hibernate with.
+\or
+  No \glspl{guard} allowed.
+  Go fuck \pgls{crawler}!
+\or
+  I'm feeling extra nice today.
+  10~\glspl{sp}, and the lot of you can get in.
+\else
+  G'day, {\tiny hic} sirs\ldots
+  Mum--ma'am.
+  {\tiny hic}
+\fi
+\end{exampletext}
+
+\townArmoury
+
+\townDocks
+
+\townHealers
+
+\townTanner
+
+\townWeavers
+
+\townGuardArms
+
+\fightAdvert
+
+\end{multicols}
+
+\townGuardProjectiles
+
+\bigLine
 
 \begin{multicols}{3}
 
-\townPitOfJustice
+\docksNote
+
+\townCuriosity
+
+\rotatebox{\value{rn1t2}}{\townSignage}
 
 \townBeasts
 
@@ -18,42 +61,12 @@
 
 \innTwo
 
+\townPitOfJustice
+
 \randomize
 \ifnum\value{r12}>7
-  \townDoula
+  \rotatebox{-2}{\townDoula}
 \fi
 
 \end{multicols}
 
-\bigLine
-
-\begin{multicols}{2}
-
-\townHealers
-
-\townDocks
-
-\townCuriosity
-
-\townSignage
-
-\townBeasts
-
-\townTanner
-
-\townWeavers
-
-\townArmoury
-
-\end{multicols}
-
-\bigLine
-\begin{multicols}{2}
-
-\townGuardArms
-
-\fightAdvert
-
-\end{multicols}
-
-\townGuardProjectiles
