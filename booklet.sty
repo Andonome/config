@@ -423,11 +423,12 @@
 
 %%%% Set individual equipment items.
 
+\newcommand\equipi{}
+\newcommand\equipii{}
+\newcommand\equipiii{}
+\newcommand\equipiv{}
+
 \newcommand\splitEquipment{
-  \def\equipi{}
-  \def\equipii{}
-  \def\equipiii{}
-  \def\equipiv{}
 
   \renewcommand{\do}[1]{%
     \ifcase\thetrack
@@ -448,31 +449,33 @@
 
 %%%%%
 \renewcommand\filledCS[9]{
-  \resetCS
-  \assignHumanName
-  \settoggle{examplecharacter}{true}
-  \settoggle{allyCharacter}{true}
-  \renewcommand\name{#1}
-  \renewcommand\race{#2}
-  \renewcommand\concept{#3}
-  \renewcommand\code{#4}
-  \traits{}%
-    {#5}%
-    {#6}%
-    {%
-      #7
-    }% SKILLS
-    {#8}% KNACKS
-    {#9}% EQUIPMENT
-    {}% ABILITIES
-  \setAgeAndAbilities
+  {
+    \resetCS
+    \assignHumanName
+    \settoggle{examplecharacter}{true}
+    \settoggle{allyCharacter}{true}
+    \renewcommand\name{#1}
+    \renewcommand\race{#2}
+    \renewcommand\concept{#3}
+    \renewcommand\code{#4}
+    \traits{}%
+      {#5}%
+      {#6}%
+      {%
+        #7
+      }% SKILLS
+      {#8}% KNACKS
+      {#9}% EQUIPMENT
+      {}% ABILITIES
+    \setAgeAndAbilities
 
-  \addtocounter{fp}{5}
-  \ifnum\value{mp}>0
-    \vphantom{\writeSpheres}
-  \fi
-  \colourWheel[r6]
-  \input{config/booklets/cs.tex}
+    \addtocounter{fp}{5}
+    \ifnum\value{mp}>0
+      \vphantom{\writeSpheres}
+    \fi
+    \colourWheel[r6]
+    \input{config/booklets/cs.tex}
+  }
 }
 
 \tcbset{breakable}
