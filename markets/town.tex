@@ -37,31 +37,7 @@
 
 \townSignage
 
-\ifcase\value{r4}\relax
-\or
-  \ifcase\value{cycle}
-    \footnotetext{His Eternal Majesty, Sundew Eye-Eye, will give you \mkPrice{3} discount if you acknowledge him as the rightful heir to the Shattered Castle, and Rex of all \glsfmttext{fenestra}.}
-  \or
-    \footnotetext{By the time you arrive, the river has frozen, and everyone's too busy smashing the ice to acknowledge you.  Roll \roll{Strength}{Survival} at \tn[8] to help out over the \glsfmttext{interval}.}
-  \or
-    \footnotetext{\composeHumanName\ looks a bit \emph{off}.
-    Roll \roll{Wits}{Medicine} at \glsfmttext{tn}~10.
-    On a tie you contract `corpse hands', which slowly paralyses you (take a -1~Penalty to Dexterity every three \glsfmtplural{interval} until immobile, then the reverse).
-    On a failure, you pass the disease onto the \glsfmttext{pc} with the highest \glsfmtplural{fp}.}
-  \or
-    \footnotetext{You find a patch of screechmoss growing underneath the docks.  Roll \roll{Dexterity}{Survival} at \glsfmttext{tn}~10 to gain an Earth~\glsfmttext{ingredient}.}
-  \else
-    \footnotetext{The docks are full of stirges.  Everyone runs away or sails on immediately.  All sales are cancelled.}
-  \fi
-\or
-  \footnotetext{There is no sale, just $1D6$ thugs who want your money.}
-\or
-  \footnotetext{\composeHumanName\ points out the obvious \gls{sunGuard} standing behind a bush, hoping to witness the illegal sale.
-  You'll have to come back tonight.}
-\else
-  \footnotetext{This item is illegal, and requires a \roll{Charisma}{Empathy} roll (\tn[10]), to gain trust along the line of people who lead to the real seller.
-  The item requires one \glsfmttext{interval} to speak to everyone along the way.}
-\fi
+\townBeasts
 
 \townTanner
 

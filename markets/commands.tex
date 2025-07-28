@@ -21,10 +21,14 @@
       \else%
         and if yous ever need something in town,
         \footnotesize
-        my cousin \composeHumanName\ lives on a nice,
-        \scriptsize
-        wee patch just outside the gates, so just tell her I sent yous and yous can drop your arms off with her, and pick them back up the moment you leave.
-        Best not get in trouble with those \glspl{sunGuard}, eh?
+        \ifnum\thefootnote>3
+          my cousin \composeHumanName\ lives on a nice,
+          \scriptsize
+          wee patch just outside the gates, so just tell her I sent yous and yous can drop your arms off with her, and pick them back up the moment you leave.
+          Best not get in trouble with those \glspl{sunGuard}, eh?
+        \else
+          say hello to \marketFence\ from his old aunty, okay?
+        \fi
       \fi
   \end{minipage}
 }
@@ -36,9 +40,23 @@
 
     \composeHumanName, local guide & \mkPrice[cp]{50} per mile \\
     \ifodd\value{diceNo}\else
-      Boat-ride with \composeHumanName\ (free for \glspl{guard}) & \mkPrice[cp]{6} per mile \\
+      Boat-ride with \composeHumanName%
+      \ifodd\value{fenestraDay}%
+        \stepcounter{footnote}
+        \footnotemark[\thefootnote]
+      \fi
+      & \mkPrice[cp]{6} per mile \\
     \fi
   \end{boxtable}
+  \ifodd\value{diceNo}\else
+    \ifodd\value{fenestraDay}
+      \ifnum\thefootnote<3
+        \footnotetext{\it Need something in town?  If yous can fit in the barrels, I can drop yous off inside for \pgls{sp} each.}
+      \else
+        \footnotetext{\it Free for \glspl{guard}.}
+      \fi
+    \fi
+  \fi
 }
 
 \newcommand\beastSellers{
@@ -349,7 +367,6 @@
 }
 
 \newcommand\townSquare{
-  \stepcounter{footnote}
   \begin{nametable}[Lc]{Central Square}
 
     \textbf{Service} & \textbf{Cost} \\\hline
@@ -361,6 +378,7 @@
 
     \ifodd\value{r4}%
       \stepcounter{r6}
+      \stepcounter{footnote}
       \tiny\composeHumanName, the Fence\footnotemark[\thefootnote] & \tiny \arabic{r6}0\% and shhh\ldots \\
     \fi%
 
@@ -409,12 +427,14 @@
 
     \ifodd\value{r4b}%
       \stepcounter{r6}
+      \stepcounter{footnote}%
       \tiny\marketFence, the Fence\footnotemark[\thefootnote] & \tiny \arabic{r6}0\% and shhh\ldots \\
     \fi%
   \end{nametable}
 
-  \footnotetext{Gaining trust requires a \roll{Charisma}{Empathy} at \tn[8].}
-  \stepcounter{footnote}%
+  \ifodd\value{r4b}%
+    \footnotetext{Gaining trust requires a \roll{Charisma}{Empathy} at \tn[8].}
+  \fi
 }
 
 \newcommand\tavernTwo{
@@ -511,6 +531,7 @@
 }
 
 \newcommand\townDocks{
+  \stepcounter{footnote}%
   \renewcommand\npcsymbol{\flourish}
   \begin{nametable}[Lcc]{At the Docks\footnotemark[\value{footnote}]}
 
@@ -525,6 +546,35 @@
     Lock-pick set%
     (\absNum{rn1t2}) & 0 & \mkPrice{10} \\
   \end{nametable}
+}
+
+\newcommand\docksNote{
+  \ifcase\value{r4}\relax
+  \or
+    \ifcase\value{cycle}
+      \footnotetext{His Eternal Majesty, Sundew Eye-Eye, will give you \mkPrice{3} discount if you acknowledge him as the rightful heir to the Shattered Castle, and Rex of all \glsfmttext{fenestra}.}
+    \or
+      \footnotetext{By the time you arrive, the river has frozen, and everyone's too busy smashing the ice to acknowledge you.  Roll \roll{Strength}{Survival} at \tn[8] to help out over the \glsfmttext{interval}.}
+    \or
+      \footnotetext{\composeHumanName\ looks a bit \emph{off}.
+      Roll \roll{Wits}{Medicine} at \glsfmttext{tn}~10.
+      On a tie you contract `corpse hands', which slowly paralyses you (take a -1~Penalty to Dexterity every three \glsfmtplural{interval} until immobile, then the reverse).
+      On a failure, you also pass the disease onto the \glsfmttext{pc} with the highest \glsfmtplural{fp}.}
+    \or
+      \footnotetext{You find a patch of screechmoss growing underneath the docks.  Roll \roll{Dexterity}{Survival} at \glsfmttext{tn}~10 to gain an Earth~\glsfmttext{ingredient}.}
+    \else
+      \footnotetext{The docks are full of stirges.  Everyone runs away or sails on immediately.  All sales are cancelled.}
+    \fi
+  \or
+    \footnotetext{There is no sale, just $1D6$ thugs who want your money.}
+  \or
+    \footnotetext{\composeHumanName\ points out the obvious \gls{sunGuard} standing behind a bush, hoping to witness the illegal sale.
+    You'll have to come back tonight.}
+  \else
+    \footnotetext{This item is illegal, and requires a \roll{Charisma}{Empathy} roll (\tn[10]), to gain trust along the line of people who lead to the real seller.
+    The item requires one \glsfmttext{interval} to speak to everyone along the way.}
+  \fi
+
 }
 
 \newcommand\townCuriosity{
