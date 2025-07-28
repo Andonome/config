@@ -133,7 +133,7 @@
   \edef\Knacks{#5}%
   \foreach \s in {Air,Earth,Fate,Fire,Water}%
     {\ifnum\value{\s}>0 \addtocounter{mp}{3}\fi}%
-  \renewcommand\equipment{#6}%
+  \renewcommand*\equipment{#6}%
   #7%
   \foreach \s in {Athletics,Brawl,Melee}%
     {\ifnum\value{\s}<0 \setcounter{\s}{0}\fi}%

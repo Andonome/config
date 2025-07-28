@@ -119,17 +119,32 @@
   \or%
     \underline{Left:}
     \ifdefempty{\weaponName}{\lineDots}{%
-      \expandafter\MakeUppercase\weaponName~(\absNum{weaponBonus}/ \absNum{weaponDamage}: \glsentrysymbol{weight} \arabic{weaponWeight})
+      \pencilWriting{\expandafter\MakeUppercase\weaponName~(\absNum{weaponBonus}/ \absNum{weaponDamage}: \glsentrysymbol{weight} \arabic{weaponWeight})}
     }
   \or%
     \underline{Right:}
     \ifdefempty{\armourName}{\lineDots}{%
-      \expandafter\MakeUppercase\armourName
+      \pencilWriting{\expandafter\MakeUppercase\armourName}
     }
   \or%
-    \underline{Pack:}
-    \ifdefempty{\equipment}{\lineDots}{%
-      \expandafter\MakeUppercase\equipment
+    \underline{Pack:}\quad%
+    \ifdefempty{\equipi}{\lineDots}{%
+      \pencilWriting{\equipi}
+    }
+  \or%
+    \underline{\hspace{4em}:}
+    \ifdefempty{\equipii}{\lineDots}{%
+      \pencilWriting{\equipii}
+    }
+  \or%
+    \underline{\hspace{4em}:}
+    \ifdefempty{\equipiii}{\lineDots}{%
+      \pencilWriting{\equipiii}
+    }
+  \or%
+    \underline{\hspace{4em}:}
+    \ifdefempty{\equipiv}{\lineDots}{%
+      \pencilWriting{\equipiv}
     }
   \else%
     \ifnum\thepage>\value{hp}%
@@ -406,6 +421,32 @@
     }
 }
 
+%%%% Set individual equipment items.
+
+\newcommand\splitEquipment{
+  \def\equipi{}
+  \def\equipii{}
+  \def\equipiii{}
+  \def\equipiv{}
+
+  \renewcommand{\do}[1]{%
+    \ifcase\thetrack
+      \renewcommand\equipi{##1}%
+    \or
+      \renewcommand\equipii{##1}
+    \or
+      \renewcommand\equipiii{##1}
+    \else%
+      \renewcommand\equipiv{##1}
+    \fi%
+    \stepcounter{track}%
+  }%
+  \setcounter{track}{0}%
+  \expandafter\docsvlist\expandafter{\equipment}
+}
+
+
+%%%%%
 \renewcommand\filledCS[9]{
   \resetCS
   \assignHumanName
@@ -420,11 +461,12 @@
     {#6}%
     {%
       #7
-    }%
-    {#8}% SKILLS
-    {#9}% KNACKS
+    }% SKILLS
+    {#8}% KNACKS
+    {#9}% EQUIPMENT
     {}% ABILITIES
   \setAgeAndAbilities
+
   \addtocounter{fp}{5}
   \ifnum\value{mp}>0
     \vphantom{\writeSpheres}
