@@ -4,180 +4,24 @@
 
 \begin{multicols}{3}
 
-\renewcommand\npcsymbol{\glsentrysymbol{paik}}
-\begin{nametable}[Lc]{\Glsentrytext{court}}
-  \textbf{Service} & \textbf{Cost} \\\hline
-  Front-row seat & 6~\glsfmtplural{cp} \\
+\townPitOfJustice
 
-  Back-row seat & 3~\glsfmtplural{cp} \\
+\townBeasts
 
-  Rotten tomatoes & 1~\glsfmttext{cp} \\
+\townSquare
 
-  Snacks & 3~\glsfmtplural{cp} \\
+\innOne
 
-  % Using this random counter just because nothing else is, and it won't change
-  % when other numbers randomize.
-  \addtocounter{spellPlusTwo}{\value{r6}}%
-  `The Spectacular' & 1\arabic{spellPlusTwo}~\glspl{cp} \\
+\tavernOne
 
-  Bribery\footnote{Bribery is paid to \pgls{sunGuard}.}
-  (petty crime) & \mkPrice{30} \\
+\tavernTwo
 
-  Bribery (minor crime) & \mkPrice{60} \\
-
-  Show of good faith (medium crime)
-  \footnote{This gets you a +2 Bonus during the trial.}
-  & \mkPrice{80} \\
-
-\end{nametable}
-
-\ifodd\value{r3}\relax\else
-  \null
-  \begin{speechtext}
-    \footnotesize
-    Three copper in,
-
-    Ten gold out!
-  \end{speechtext}
-\fi
-
-\renewcommand\npcsymbol{\flourish}
-\begin{nametable}[Xc]{\marketBeastSeller's Working Beasts}
-
-  \textbf{Beasts} & \textbf{Cost} \\\hline
-  Horse & \mkPrice{20} \\
-
-  Mule & \mkPrice{24} \\
-
-  Hunting Dog & \mkPrice{5} \\
-
-  Donkey & \mkPrice{2} \\
-
-\end{nametable}
-
-\stepcounter{footnote}
-\begin{nametable}[Lc]{Central Square}
-
-  \textbf{Service} & \textbf{Cost} \\\hline
-  Boat trip with \ifnum\value{r3}=3 the \composeHumanName\ sisters\else \marketBoatman\fi & \mkPrice[cp]{14}/ mile \\
-
-  Performance by \marketBard, the Minstrel & \mkPrice[cp]{15}/ song \\
-
-  New song composition & \mkPrice{4}/ song \\
-
-  \ifodd\value{r4}%
-    \stepcounter{r6}
-    \tiny\composeHumanName, the Fence\footnotemark[\thefootnote] & \tiny \arabic{r6}0\% and shhh\ldots \\
-  \fi%
-
-\end{nametable}
-
-
-\renewcommand\npcsymbol{\flourish}
-\begin{nametable}[Xc]{\marketInnOne}
-
-  \textbf{Hospitality} & \textbf{Cost} \\\hline
-
-  Hearty Meal & \mkPrice[cp]{5} \\
-
-  \ifnum\value{temperature}>0
-    Fresh \rations & \mkPrice[cp]{3} \\
-  \fi
-
-  Hardened \rations & \mkPrice[cp]{4} \\
-
-  Rat Soup & \mkPrice[cp]{2} \\
-
-  Basic room & \mkPrice[cp]{20} \\
-
-\end{nametable}
-
-\renewcommand\npcsymbol{\glsentrysymbol{abderian}}
-\begin{nametable}[Lc]{\marketTavernOne}
-  \textbf{Hospitality} & \textbf{Cost} \\\hline
-
-  \ifodd\value{r3b}\else
-  Cock fight! & --- \\
-  \fi
-
-  Entrance and ale & \mkPrice[cp]{4} \\
-
-  \ifnum\value{temperature}>0
-    Sweet \rations & \mkPrice[cp]{4} \\
-  \fi
-
-  Savoury \rations & \mkPrice[cp]{5} \\
-
-  Hearty Meal & \mkPrice[cp]{5} \\
-
-  Rat Soup & \mkPrice[cp]{2} \\
-
-  \ifodd\value{r4b}%
-    \stepcounter{r6}
-    \tiny\marketFence, the Fence\footnotemark[\thefootnote] & \tiny \arabic{r6}0\% and shhh\ldots \\
-  \fi%
-\end{nametable}
-
-\footnotetext{Gaining trust requires a \roll{Charisma}{Empathy} at \tn[8].}
-
-\renewcommand\npcsymbol{\glsentrysymbol{abderian}}
-\begin{nametable}[Lc]{\marketTavernTwo}
-  \textbf{Hospitality} & \textbf{Cost} \\\hline
-
-  Entrance and cider & \mkPrice[cp]{4} \\
-
-  \ifnum\value{temperature}>0
-    Sweet \rations & \mkPrice[cp]{4} \\
-  \fi
-
-  Savoury \rations & \mkPrice[cp]{5} \\
-
-  Hearty Meal & \mkPrice[cp]{5} \\
-
-  Woodspy Soup & \mkPrice[cp]{4} \\
-
-\end{nametable}
-
-\renewcommand\npcsymbol{\glsentrysymbol{abderian}}
-\begin{nametable}[Xc]{\marketInnTwo}
-
-  \textbf{Hospitality} & \textbf{Cost} \\\hline
-
-  Entrance and wine & \mkPrice[cp]{14} \\
-
-  Hearty Meal & \mkPrice[cp]{6} \\
-
-  Nice room & \mkPrice[cp]{20} \\
-
-  Fancy room & \mkPrice[cp]{80} \\
-
-\end{nametable}
-
-\stepcounter{footnote}%
+\innTwo
 
 \randomize
 \ifnum\value{r12}>7
-\noindent
-\begin{minipage}{\linewidth}
-  \renewcommand\npcsymbol{\glsentrysymbol{nulla}}
-  \begin{nametable}[LcX]{\marketDoula's \glsentrytext{doulaShop}}
-    \textbf{Things on shelves} & \textbf{Weight} & \textbf{Cost} \\\hline
-    \rareMarketItem{Air \Glsentrytext{boon}}{1}{24}%
-    \rareMarketItem{Fire \Glsentrytext{boon}}{1}{24}%
-    \rareMarketItem{Earth \Glsentrytext{boon}}{1}{24}%
-    \rareMarketItem{Water \Glsentrytext{boon}}{1}{24}%
-    \rareMarketItem{Fate \Glsentrytext{boon}}{1}{24}%
-    \marketItem{Cup of tea}{0}{0}%
-
-    Blessing {\small (1D6+1 \glsfmtplural{fp})} & -- & \scriptsize`\textit{as you please}' \\
-  \end{nametable}
-  \begin{speechtext}
-    \footnotesize
-    I'll buy one Fate \glsentrytext{ingredient} for \arabic{r12}~\glsfmtplural{sp}, but no more than one.
-  \end{speechtext}
-\end{minipage}
+  \townDoula
 \fi
-
 
 \end{multicols}
 
@@ -185,143 +29,13 @@
 
 \begin{multicols}{2}
 
-\noindent
-\begin{minipage}{\linewidth}
-  \renewcommand\npcsymbol{\glsentrysymbol{eldren}}
-  \begin{nametable}[Lcl]{At the \Glsentrytext{templeOfSickness}}
+\townHealers
 
-    \textbf{Cure} & \textbf{\Glsentrytext{weight}} & \textbf{Cost} \\\hline
+\townDocks
 
-    \rareMarketItem{Fate \Glsentrytext{elixir} (only \arabic{r3} left)}{1}{24}%
+\townCuriosity
 
-    \rareMarketItem[9]{Air \Glsentrytext{elixir} (only \arabic{r3} left)}{1}{24}%
-
-    \rareMarketItem{Fire \Glsentrytext{elixir} (only \arabic{r3} left)}{1}{24}%
-
-    \rareMarketItem[10]{Water \Glsentrytext{elixir} (only \arabic{r3} left)}{1}{24}%
-
-    \rareMarketItem{Earth \Glsentrytext{elixir} (only \arabic{r3} left)}{1}{24}%
-
-    \marketItem[cp]{Rescue kit {\footnotesize (needle, bandages, whiskey~phial: +1~Bonus)}}{0}{21}
-
-    \rareMarketItem[7]{Medical box {\footnotesize (everything included: +3~Bonus)}}{2}{9}%
-
-    \marketItem{Medical kit {\footnotesize (balms and ointments: +2~Bonus)}}{1}{3}
-
-  \end{nametable}
-
-  \begin{speechtext}
-    \footnotesize
-    \Glsfmttext{mixer} \marketMixer\ says to tell you that we'll purchase any \glsfmtplural{ingredient} for \mkPrice{12} if we're out of stock.
-  \end{speechtext}
-\end{minipage}
-
-\renewcommand\npcsymbol{\flourish}
-\begin{nametable}[Lcc]{At the Docks}
-
-  \textbf{Items} & \textbf{\Glsentrytext{weight}} & \textbf{Cost} \\\hline
-  Fake \glsfmtplural{fodder} town-pass\footnotemark[\value{footnote}] & 0 & \mkPrice{4} \\
-  \rareMarketItem{Air \Glsentrytext{ingredient} (\glsentrytext{griffin} wings)\footnotemark[\value{footnote}]}{1}{13}%
-  \rareMarketItem{Fire \Glsentrytext{ingredient} (bear's heart)\footnotemark[\value{footnote}]}{1}{13} %
-  \ifnum\value{temperature}=0\rareMarketItem{Earth \Glsentrytext{ingredient} (\glsentrytext{basilisk} hide)\footnotemark[\value{footnote}]}{1}{13}\fi %
-  \rareMarketItem{Water \Glsentrytext{ingredient} (\glsentrytext{woodspy} beak)\footnotemark[\value{footnote}]}{1}{13} %
-  \rareMarketItem{Fate \Glsentrytext{ingredient} (\ifnum\value{temperature}=0 human blood from the \glsentrytext{court}\else brown ooze\fi)\footnotemark[\value{footnote}]}{1}{14}
-
-  Lock-pick set\footnotemark[\value{footnote}]%
-  (\absNum{rn1t2}) & 0 & \mkPrice{10} \\
-
-\end{nametable}
-
-\renewcommand\npcsymbol{\glsentrysymbol{yonder}}
-\begin{nametable}[Lcc]{At the \glsentrytext{templeOfCuriosity}}
-
-  \textbf{Item} & \textbf{Weight} & \textbf{Cost} \\\hline
-
-  Chalk & 0 & \mkPrice[cp]{8} \\
-
-  Copper bell & 0 & \mkPrice[cp]{30} \\
-
-  \ifnum\value{temperature}>0
-    Fresh
-  \else
-    Pressed
-  \fi flowers & 0 & \mkPrice[cp]{2} \\
-
-  \rareMarketItem{Lode stone}{0}{8}%
-
-  \rareMarketItem{Magnifying globe}{2}{4}%
-
-  \rareMarketItem{Magnifying glass}{1}{7}%
-
-  \rareMarketItem{Strange map}{0}{5}%
-
-  \rareMarketItem[10]{Brown gnomish hat}{0}{1}%
-  \rareMarketItem[10]{Yellow gnomish hat}{0}{3}%
-  \rareMarketItem[10]{Green gnomish hat}{0}{3}%
-  \rareMarketItem[10]{Red gnomish hat}{0}{2}%
-  \rareMarketItem[6]{Gnomish lantern {\small(needs Gnomish lantern~oil)} }{1}{9}%
-
-  \rareMarketItem{Gnomish lantern oil (1~hr.) }{ \ensuremath{\frac{1}{10}} }{1}%
-
-  \rareMarketItem[6]{Oil-lantern}{1}{15}%
-
-  Lantern oil (1~hr.) & \ensuremath{\frac{1}{3}} & \mkPrice[cp]{20} \\
-
-  Rushlights & 0 & \mkPrice[cp]{1} \\
-
-  Soap & 0 & \mkPrice[cp]{3} \\
-
-  Tinder box & 0 & \mkPrice[cp]{3} \\
-
-  \ifodd\value{r2}
-    Lisk-fat
-  \else
-    Tar
-  \fi \glsfmttext{torch} & \ensuremath{\frac{1}{3}} & \mkPrice[cp]{11} \\
-
-  Writing equipment & 1 & \mkPrice[cp]{20} \\
-
-\end{nametable}
-
-\begin{minipage}{\linewidth}
-
-\ifodd\value{r3}
-  \begin{speechtext}
-    \footnotesize
-    The \glsfmttext{templeOfCuriosity} can pay \mkPrice{8} for Air \glspl{ingredient}, and \mkPrice{8} for Fire.
-  \end{speechtext}
-\fi
-
-\begin{boxtable}[Ll]
-  \hline
-  Shop sign & \mkPrice[cp]{9} +2 per letter \\
-
-  Send a letter  & \mkPrice[cp]{3} per mile \\
-
-  Write a letter & \mkPrice[cp]{3} per sentence \\
-
-\end{boxtable}
-
-\begin{speechtext}
-  \footnotesize
-  \Glsentrytext{scrivener}~\composeHumanName\space
-  \ifcase\value{r6b}\relax
-  \or%
-    knows nearly all of the letters!
-  \or%
-    likes to draw snails in the margin.
-  \or%
-    has five different colours of ink!
-  \or%
-    reminds you that `there are no spelling mistakes, just words you don't yet know'.
-  \or%
-    needs you to sign a contract stating that you understand that the \gls{templeOfCuriosity} will not abuse your privacy.
-  \else%
-    can only write \ifodd\day Dwarvish \else Gnomish \fi and Elvish.
-  \fi
-\end{speechtext}
-
-\end{minipage}
+\townSignage
 
 \ifcase\value{r4}\relax
 \or
@@ -349,171 +63,21 @@
   The item requires one \glsfmttext{interval} to speak to everyone along the way.}
 \fi
 
-\vspace{\baselineskip}
+\townTanner
 
-\begin{minipage}{\linewidth}
-\renewcommand\npcsymbol{\glsentrysymbol{sable}}
-\begin{nametable}[Lcc]{At the \glsentrytext{templeOfFrost}}
+\townWeavers
 
-  \textbf{Clothing} & \textbf{Weight} & \textbf{Cost} \\\hline
-
-  \marketItem{Orange Samite Robes}{0}{15}
-  \marketItem{Red Samite Robes}{0}{17}
-  \marketItem{Purple Travelling Robes}{0}{23}
-
-  \hline
-  \marketItem[cp]{Sewing equipment}{0}{5}
-  \marketItem{Rope, 50'}{1}{2}
-  \rareMarketItem[9]{Silk rope, 50'}{0}{8}%
-  \rareMarketItem[7]{Green hat}{0}{4}%
-  \rareMarketItem{Orange hat}{0}{5}%
-  \rareMarketItem{Purple hat}{0}{7}%
-  \marketItem[cp]{Rescue kit {\footnotesize (needle, bandages, whiskey~phial: +1~Bonus)}}{0}{11}
-  \ifnum\value{temperature}=0
-    \marketItem[cp]{Salty \rations}{1}{5}
-    \hline
-    \marketItem[cp]{Warm clothes}{2}{57}
-  \else
-    \hline
-    \marketItem[cp]{Brown cassock}{0}{57}
-  \fi
-  \ifnum\value{temperature}=3
-    \marketItem[cp]{Wide-brimmed hat}{0}{57}
-  \fi
-
-\end{nametable}
-
-\begin{speechtext}
-  \footnotesize
-  \ifcase\value{cycle}=0
-    Got any Fate or Air \glsfmtplural{ingredient}?
-    We'll pay \mkPrice{9}, happily.
-  \or
-    Warm those hands by the fire, deary, then tell us the news from the \glsfmttext{lonelyRoad}.
-  \or
-    Help yourself to some ale, but don't take the piss.
-    That's the bucket on the left (we need it for the dyes).
-  \or
-    Welcome to the stitch `n bitch.
-    What's the news from the \glsfmtplural{broch}?
-  \else
-    Got any Fate or Air \glsfmtplural{ingredient}?
-    We'll pay \mkPrice{3}, happily.
-  \fi
-\end{speechtext}
-\end{minipage}
-
-\vspace{\baselineskip}
-\begin{minipage}{\linewidth}
-  \renewcommand\npcsymbol{\glsentrysymbol{wrecan}}
-  \begin{nametable}[Lcccc]{At the \Glsentrytext{templeOfHate}}
-    \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{\glsentrytext{covering}} & \textbf{Weight} & \textbf{Cost} \\\hline
-    \rareArmour[5]{\completechain}{24}%
-    \rareArmour[6]{\partialplate}{36}%
-    \rareArmour[9]{\completeplate}{66}%
-    \showArmourPrice{\partialchain}{14}%
-  \end{nametable}
-  \ifodd\value{r3}
-    \begin{speechtext}
-      \footnotesize
-      The \glsfmttext{templeOfHate} can pay \mkPrice{8} for Earth \glspl{ingredient}.
-    \end{speechtext}
-  \fi
-\end{minipage}
-
-\vspace{\baselineskip}
-
-\renewcommand\npcsymbol{\glsentrysymbol{wrecan}}
-\begin{nametable}[Lcccc]{At the Tanner's}
-  \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{\glsentrytext{covering}} & \textbf{Weight} & \textbf{Cost} \\\hline
-  \rareArmour[6]{\partiallisk}{40}%
-  \rareArmour[8]{\completelisk}{50}%
-  \showArmourPrice{\partialleather}{5}%
-  \showArmourPrice{\completeleather}{11}%
-\end{nametable}
+\townArmoury
 
 \end{multicols}
 
 \bigLine
 \begin{multicols}{2}
 
-\renewcommand\npcsymbol{\glsentrysymbol{paik}}
-\begin{nametable}[lYYYc]{\Gls{sunGuard} Arms Sales}
-
-  \textbf{Name} & \textbf{Attack Bonus} & \textbf{Damage Bonus} & \textbf{Weight} & \textbf{Cost} \\\hline
-
-  \showWeapon{\Dagger} & \mkPrice{4} \\
-
-  \showWeapon{\glaive} & \mkPrice{10} \\
-
-  \showWeapon{\greataxe} & \mkPrice{9} \\
-
-  \showWeapon{\greatsword} & \mkPrice{15} \\
-
-  \showWeapon{\shortsword} & \mkPrice{9} \\
-
-  \showWeapon{\spear} & \mkPrice{7} \\
-
-  \showWeapon{\longsword} & \mkPrice{13} \\
-
-\end{nametable}
-
-\begin{speechtext}
-  \footnotesize
-  \ifcase\value{r4}\relax
-  \or
-    I could have been \ifodd\value{r2} a carter grapher --- it's just scribble, scribble\else \pgls{armourer} --- tap-tap-tap all day\fi, easy.
-    I just wanted a proper job, you know?
-  \or
-    Anyone speak
-    \ifodd\value{r3}%
-      Dwarvish%
-    \else
-      Gnomish%
-    \fi?
-    We can pay \mkPrice{2} for a translator for that shifty little shit-stain in the cells, below.
-    I've been at him for hours, and I reckon he's saying that he's ready to talk.
-  \or
-    You look like a sly one!
-    There's a reward out on `\marketFence'.
-    Stolen goods.
-    \mkPrice[gp]{3} reward if you can name where the git's doing business today, and wait for my boys to confirm.
-  \else
-    Carrying weapons in town is illegal, so buy it and fuck off!
-  \fi
-\end{speechtext}
+\townGuardArms
 
 \fightAdvert
 
 \end{multicols}
 
-\begin{boxtable}[LYYYXl]
-  \textbf{Projectile} & \textbf{Attack Bonus} & \textbf{Damage} & \textbf{\Gls{ap} Cost} & \textbf{Weight} & \textbf{Cost} \\\hline
-
-  \Glsfmttext{bow} &  +1  & +1 & 3~\glspl{ap} & 1  & \mkPrice{9}  \\
-
-  \Glsfmttext{bow} &  +2  & +2 & 4~\glspl{ap} & 1  & \mkPrice{11}  \\
-
-  \ifodd\value{r4b}%
-    \Glsfmttext{bow} &  +3  & +3 & 5~\glspl{ap} & 1  & \mkPrice{13}  \\
-  \fi
-  \ifodd\value{r3}\else
-    \Glsfmttext{bow} &  +4  & +4 & 6~\glspl{ap} & 1  & \mkPrice{15}  \\
-  \fi
-
-  \hline
-  Arrows  &  --- & --- & --- & --- & \mkPrice[cp]{16}  \\
-
-  Bolt  &  --- & --- & --- & --- & \mkPrice[cp]{18}  \\
-  \hline
-
-  \Glsfmttext{crossbow} &  +2  & +2 & 1~\glspl{ap} & 3  & \mkPrice{16}  \\
-\end{boxtable}
-
-\ifodd\value{r3c}\else
-  \begin{speechtext}
-    \footnotesize
-    \marketWeaponsSeller\ reminds you that all sales are final.
-  \end{speechtext}
-\fi
-
+\townGuardProjectiles

@@ -20,241 +20,43 @@ Supplies are limited.%
 \begin{multicols}{3}
 
 \ifnum\value{r12}>8
-\noindent
-\begin{minipage}{\linewidth}
-  \renewcommand\npcsymbol{\glsentrysymbol{nulla}}
-  \begin{nametable}[Lcc]{At \composeHumanName's \Glsentrytext{doulaShop}}
-    \textbf{Things on shelves} & \textbf{Weight} & \textbf{Cost} \\\hline
-    \rareMarketItem[9]{Air \Glsentrytext{boon}}{1}{24}%
-    \rareMarketItem[9]{Fire \Glsentrytext{boon}}{1}{24}%
-    \rareMarketItem[8]{Earth \Glsentrytext{boon}}{1}{24}%
-    \rareMarketItem[9]{Water \Glsentrytext{boon}}{1}{24}%
-    \rareMarketItem[9]{Fate \Glsentrytext{boon}}{1}{24}%
-    \marketItem{Cup of tea}{0}{0}%
-  \end{nametable}
-
-    \itshape
-    \small
-    I'll take any \glsentrytext{ingredient} for \arabic{r12}~\glsfmtplural{sp} %
-    \ifcase\value{r6b}\relax%
-      and \pgls{sp} extra if you can bring my cat `Nothing' back.%
-    \else%
-      and if yous ever need something in town,
-      \footnotesize
-      my cousin \composeHumanName\ lives on a nice,
-      \scriptsize
-      wee patch just outside the gates, so just tell her I sent yous and yous can drop your arms off with her, and pick them back up the moment you leave.
-      Best not get in trouble with those \glspl{sunGuard}, eh?
-    \fi
-\end{minipage}
+  \doulaCottage
 \fi
 
-\begin{boxtable}[Lc]
-
-\textbf{Services} & \textbf{Cost} \\\hline
-\composeHumanName, the archer & \mkPrice{1} per mile \\
-
-\composeHumanName, local guide & \mkPrice[cp]{50} per mile \\
-\ifodd\value{diceNo}\else
-  Boat-ride with \composeHumanName\ (free for \glspl{guard}) & \mkPrice[cp]{6} per mile \\
-\fi
-
-\end{boxtable}
+\baileyServices
 
 \renewcommand\npcsymbol{\flourish}
 \iftoggle{marketBeasts}{
-  \begin{minipage}{\linewidth}
-  \begin{boxtable}[Lc]
-    \textbf{Beasts} & \textbf{Cost} \\\hline
-    Donkey & \mkPrice{4} \\
-
-    Horse & \mkPrice{20} \\
-
-    Mule & \mkPrice{23} \\
-
-    Hunting Dog & \mkPrice{4} \\
-
-  \end{boxtable}
-
-  {\footnotesize\sffamily \roll{Wits}{Cultivation} to judge the animals at \tn[9].
-  If you roll over, turn the page over and look at the animals on the back.
-  If you roll a tie, ask the \gls{gm} three questions about the \glsfmtplural{statblock}.}
-  \end{minipage}
+  \beastSellers
 }{}
 
-\begin{boxtable}[Lc]
+\baileyHospitality
 
-  \textbf{Hospitality} & \textbf{Cost} \\\hline
-
-  \ifodd\value{r4}
-  Bed in \composeHumanName's stable & \mkPrice{0} \\
-
-  Hearty meal with the \composeHumanName\ family and \arabic{r12} kids & \ifnum\value{temperature}>0\mkPrice[cp]{2}\else\mkPrice[cp]{4}\fi \\
-
-  \fi
-  Hardened \rations & \mkPrice[cp]{15} \\
-
-  Salty \rations & \mkPrice[cp]{15} \\
-
-\end{boxtable}
-
-\begin{nametable}[Lcc]{\composeHumanName's Wood Salvage Goods}
-
-  \textbf{Travel} & \textbf{Weight} & \textbf{Cost} \\\hline
-
-  \ifodd\value{diceNo}
-    Cart & 13 &  \mkPrice{13} \\
-    Rushlights & 0 & \mkPrice[cp]{1} \\
-  \else
-    \setcounter{Strength}{\value{r6}}
-    \multiply\value{Strength} by 10
-    \addtocounter{Strength}{0}
-    Boat for \arabic{r6} & 1\arabic{r6} &  \mkPrice{\value{Strength}} \\
-  \fi
-
-  Tinder box & 0 & \mkPrice[cp]{3} \\
-
-  \rareMarketItem[9]{Magic beans}{0}{4}
-
-  \ifodd\value{r2}
-    Lisk-fat
-  \else
-    Tar
-  \fi \glsfmttext{torch} & \ensuremath{\frac{1}{3}} & \mkPrice[cp]{11} \\
-  Lantern oil (1~hr.) & \ensuremath{\frac{1}{3}} & \mkPrice[cp]{15} \\
-
-\end{nametable}
+\baileySalvage
 
 \end{multicols}
 
 \begin{multicols}{2}
 
 \ifnum\value{r4b}>2
-  \begin{nametable}[Xcccc]{At \composeHumanName\ the Tanner's}
-    \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{\glsentrytext{covering}} & \textbf{Weight} & \textbf{Cost} \\\hline
-    \showArmourPrice{\partialleather}{5}%
-    \showArmourPrice{\completeleather}{11}%
-    \showArmourPrice{\partiallisk}{31}%
-  \end{nametable}
-  \ifodd\value{cycle}\else
-    \begin{speechtext}
-      \footnotesize
-      I got \mkPrice{18} if you happen to have \arabic{armourWeight} Earth \glspl{ingredient} to make some good armour.
-      I can't use less, and I don't want more.
-    \end{speechtext}
-  \fi
+  \baileyTanner
 \else
-  \renewcommand\npcsymbol{\glsentrysymbol{sylf}}
-  \begin{nametable}[Lcc]{Retired \Glsentrytext{ranger} \composeHumanName's Tents}
-    \textbf{Size} & \textbf{Weight} & \textbf{Cost} \\\hline
-    \rareMarketItem{`Stuck lock repair tools' (\absNum{r2}~Bonus) \tiny be cool or no sale, okay?}{0}{7}
-    \rareMarketItem{Hardened half-yurt (\glsentrytext{dr} 4)}{3}{12}
-    \rareMarketItem[5]{Backpack (\tn[10] to remove)}{0}{2}
-    \rareMarketItem{Backpack (\tn[7] to remove)}{0}{3}
-    \rareMarketItem{Bagpipes}{2}{7}
-    \rareMarketItem{Tent for 4}{4}{8}
-    \rareMarketItem{Tent for 3}{3}{6}
-    \rareMarketItem{Tent for 2}{2}{4}
-    \marketItem{Tent for 1}{1}{3}
-  \end{nametable}
+  \baileyRanger
 \fi
 
 \ifnumcomp{\value{r4b}}{>}{2}{%
-  \renewcommand\npcsymbol{\glsentrysymbol{wrecan}}
-  \begin{nametable}[lYcYc]{At \composeHumanName\ the Smith's}
-    \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{\glsentrytext{covering}} & \textbf{Weight} & \textbf{Cost} \\\hline
-    \ifnum\value{r12}>8
-      \showArmourPrice{\completechain}{28}%
-    \fi
-    \showArmourPrice{\partialchain}{18}%
-  \end{nametable}
+  \baileySmith
 }{
   \ifodd\value{r3}
-    \renewcommand\npcsymbol{\glsentrysymbol{sylf}}
-    \begin{nametable}[lYYcYc]{At \composeHumanName, the Fletcher's}
-
-      \textbf{Projectile} & \textbf{Att} & \textbf{Dam} & \textbf{\Gls{ap}} & \textbf{Weight} & \textbf{Cost} \\\hline
-
-      Arrows  &  --- & --- & --- & --- & \mkPrice[cp]{18}  \\
-
-      \Glsfmttext{bow} &  +1  & +1 & 3~\glspl{ap} & 1  & \mkPrice{8}  \\
-
-      \Glsfmttext{bow} &  +2  & +2 & 4~\glspl{ap} & 1  & \mkPrice{12}  \\
-
-      \ifodd\value{r3}\else
-      Bolt  &  --- & --- & --- & --- & \mkPrice[cp]{18}  \\
-      \Glsfmttext{crossbow} &  +2  & +2 & 1~\glspl{ap} & 3  & \mkPrice{18}  \\
-      \fi
-    \end{nametable}
+    \baileyFletcher
   \fi
 }
 
 \ifodd\value{r3}
-  \begin{nametable}[lYcYc]{\composeHumanName's Weaponry}
-
-  \textbf{Name} & \textbf{Attack} & \textbf{Damage} & \textbf{\Glsfmttext{weight}} & \textbf{Cost} \\\hline
-
-    \ifodd\value{r3}\else
-    Arrows  &  --- & --- &  $\frac{1}{10}$ & \mkPrice[cp]{28}  \\
-    \fi
-
-  \showWeapon{\Dagger} & \mkPrice{2} \\
-
-  \showWeapon{\flail} & \mkPrice{2} \\
-
-  \showWeapon{\weapon{Club}{\value{rn1t0}}{\value{rn1t2}}} & \mkPrice[cp]{3} \\
-
-  \showWeapon{\spear} & \mkPrice{6} \\
-
-  \ifnum\value{r3}=2%
-
-    \showWeapon{\shortsword} & \mkPrice{9} \\
-
-    \showWeapon{\weapon[1]{Glaive}{3}{2}} & \mkPrice{4} \\
-  \else
-    \showWeapon{\javelin} & \mkPrice{4} \\
-
-    \showWeapon{\glaive} & \mkPrice{9} \\
-
-    \showWeapon{\roundshield} & \mkPrice{3} \\
-  \fi
-
-    \showWeapon{\quarterstaff} & \mkPrice{2} \\
-
-    \showWeapon{\weapon[1]{Longsword}{2}{2}} & \mkPrice{9} \\
-
-  \ifodd\value{r4b}%
-    \showWeapon{\buckler} & \mkPrice{3} \\
-  \fi
-
-  \end{nametable}
+  \baileyArms
 \fi
 
-\renewcommand\npcsymbol{\glsentrysymbol{sable}}
-\begin{nametable}[Xcc]{\composeHumanName\ the weaver}
-
-  \textbf{Clothing} & \textbf{Weight} & \textbf{Cost} \\\hline
-
-  \Glsentrytext{dawnDolly} & 2 & \mkPrice[cp]{10} \\
-
-  Itchy clothes & 1 & \mkPrice[cp]{30} \\
-
-  \ifnum\value{r12}>8
-    \marketItem{Orange Travelling Robes}{0}{20}
-    \ifnum\value{r12}>11
-      \marketItem{Red Travelling Robes}{0}{22}
-    \fi
-  \fi
-  \ifnumcomp{\value{temperature}}{>}{0}{
-    Travellers clothes & 0 & \mkPrice[cp]{60} \\
-  }{
-    Warm clothes & 1 & \mkPrice[cp]{95} \\
-  }
-  \hline
-
-  \marketItem[cp]{Rescue kit {\footnotesize (needle, bandages, whiskey~phial: +1~Bonus)}}{0}{21}
-  \marketItem{Rope, 50'}{1}{3}
-\end{nametable}
+\baileyWeaver
 
 \ifnum\value{cycle}=1\relax%
 \else%
@@ -266,30 +68,12 @@ Supplies are limited.%
   \end{multicols}
 }{
   \ifnum\value{r12}=8
-    \begin{speechtext}
-    {\Large\Nl}
-    Old \ifodd\value{r2}man\else woman\fi,
-    your sweat stinks of scared.
-    Trade for a new friend to
-    \ifodd\value{r2c}
-      show you courage?
-    \else
-      lick the fear from your face?
-    \fi
-    \end{speechtext}
-    Six gnolls have dropped by to trade.
-    Their dogs cost \mkPrice{5} worth of food, weapons, or \glspl{ingredient} (\glspl{coin} are not accepted), and the new family must show they understand how to take care of the dogs (\roll{Intelligence}{Cultivation} at \tn[8]) and provide a good name.
+  \gnollSellers
   \end{multicols}
 
     \pagebreak
     \begin{multicols}{2}
-      \renewcommand\animalCry{growl}
-      \settoggle{allyCharacter}{true}
-      \wardog[\npc{\F\A}{Dog: \weeline}]
-      \animalReactions
-      \columnbreak
-      \wardog[\npc{\M\A}{Dog: \weeline}]
-      \animalReactions
+      \gnollDogShow
     \end{multicols}
   \else
     \end{multicols}
@@ -299,29 +83,7 @@ Supplies are limited.%
 
 \iftoggle{marketBeasts}{
   \clearpage
-  Cut your animal out.
-  Roll for its actions each \gls{interval} it's awake.
-  \begin{multicols}{2}
-    \settoggle{allyCharacter}{true}
-    \donkey
-    \animalReactions
-
-    \horse
-    \animalReactions
-    \columnbreak
-
-    \mule
-    \animalReactions[\value{r6}]
-
-    \huntingdog
-    \animalReactions[3]
-
-    \ifnum\value{r12}=7
-      \cat
-      \renewcommand\animalCry{mew}
-      \animalReactions
-    \fi
-  \end{multicols}
+  \showBeastMarket
 }{}
 
 \stepcounter{diceNo}
