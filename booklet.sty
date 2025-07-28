@@ -139,6 +139,8 @@
   \fi%
 }
 
+\setcounter{bookLevel}{1}
+
 \newcommand*\zineTitle[1]{%
   \noindent
   {\normalsize\scshape#1}%
@@ -177,7 +179,8 @@
         font=\titleFont,
       ] {\glsentrysymbol{yonder}};
   \end{tikzpicture}%
-  \hfill\includesvg[width=.3\textwidth]{config/logo}
+  \hfill\includesvg[width=.3\textwidth]{config/logo}%
+  {\huge~\Roman{bookLevel}}
   \begin{center}
     \par
     \vspace{2\baselineskip}
