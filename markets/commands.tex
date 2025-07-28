@@ -213,7 +213,7 @@
 
 \newcommand\baileyWeaver{
   \renewcommand\npcsymbol{\glsentrysymbol{sable}}
-  \begin{nametable}[Xcc]{\composeHumanName\ the weaver}
+  \begin{nametable}[Lcc]{\composeHumanName\ the weaver}
 
     \textbf{Clothing} & \textbf{Weight} & \textbf{Cost} \\\hline
 
@@ -469,6 +469,7 @@
 
       Blessing {\small (1D6+1 \glsfmtplural{fp})} & -- & \scriptsize`\textit{as you please}' \\
     \end{nametable}
+    \vspace{-1\baselineskip}
     \begin{speechtext}
       \footnotesize
       I'll buy one Fate \glsentrytext{ingredient} for \arabic{r12}~\glsfmtplural{sp}, but no more than one.
@@ -678,7 +679,6 @@
 }
 
 \newcommand\townArmoury{
-  \vspace{\baselineskip}
   \begin{minipage}{\linewidth}
     \renewcommand\npcsymbol{\glsentrysymbol{wrecan}}
     \begin{nametable}[Lcccc]{At the \Glsentrytext{templeOfHate}}
@@ -695,7 +695,6 @@
       \end{speechtext}
     \fi
   \end{minipage}
-  \vspace{\baselineskip}
 }
 
 \newcommand\townTanner{
@@ -780,13 +779,6 @@
 
     \Glsfmttext{crossbow} &  +2  & +2 & 1~\glspl{ap} & 3  & \mkPrice{16}  \\
   \end{boxtable}
-
-  \ifodd\value{r3c}\else
-    \begin{speechtext}
-      \footnotesize
-      \marketWeaponsSeller\ reminds you that all sales are final.
-    \end{speechtext}
-  \fi
 }
 
 
