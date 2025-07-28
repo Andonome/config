@@ -129,7 +129,7 @@
   \begin{nametable}[Lcc]{Retired \Glsentrytext{ranger} \composeHumanName's Tents}
     \textbf{Size} & \textbf{Weight} & \textbf{Cost} \\\hline
     \rareMarketItem{`Stuck lock repair tools' (\absNum{r2}~Bonus) \tiny be cool or no sale, okay?}{0}{7}
-    \rareMarketItem{Hardened half-yurt (\glsentrytext{dr} 4)}{3}{12}
+    \rareMarketItem{Hardened half-yurt (\glsentrytext{dr} \arabic{r6})}{3}{12}
     \rareMarketItem[5]{Backpack (\tn[10] to remove)}{0}{2}
     \rareMarketItem{Backpack (\tn[7] to remove)}{0}{3}
     \rareMarketItem{Bagpipes}{2}{7}
@@ -511,19 +511,18 @@
 
 \newcommand\townDocks{
   \renewcommand\npcsymbol{\flourish}
-  \begin{nametable}[Lcc]{At the Docks}
+  \begin{nametable}[Lcc]{At the Docks\footnotemark[\value{footnote}]}
 
     \textbf{Items} & \textbf{\Glsentrytext{weight}} & \textbf{Cost} \\\hline
-    Fake \glsfmtplural{fodder} town-pass\footnotemark[\value{footnote}] & 0 & \mkPrice{4} \\
-    \rareMarketItem{Air \Glsentrytext{ingredient} (\glsentrytext{griffin} wings)\footnotemark[\value{footnote}]}{1}{13}%
-    \rareMarketItem{Fire \Glsentrytext{ingredient} (bear's heart)\footnotemark[\value{footnote}]}{1}{13} %
-    \ifnum\value{temperature}=0\rareMarketItem{Earth \Glsentrytext{ingredient} (\glsentrytext{basilisk} hide)\footnotemark[\value{footnote}]}{1}{13}\fi %
-    \rareMarketItem{Water \Glsentrytext{ingredient} (\glsentrytext{woodspy} beak)\footnotemark[\value{footnote}]}{1}{13} %
-    \rareMarketItem{Fate \Glsentrytext{ingredient} (\ifnum\value{temperature}=0 human blood from the \glsentrytext{court}\else brown ooze\fi)\footnotemark[\value{footnote}]}{1}{14}
+    Fake \glsfmtplural{fodder} town-pass & 0 & \mkPrice{4} \\
+    \rareMarketItem{Air \Glsentrytext{ingredient} (\glsentrytext{griffin} wings)}{1}{13}%
+    \rareMarketItem{Fire \Glsentrytext{ingredient} (bear's heart)}{1}{13} %
+    \ifnum\value{temperature}=0\rareMarketItem{Earth \Glsentrytext{ingredient} (\glsentrytext{basilisk} hide)}{1}{13}\fi %
+    \rareMarketItem{Water \Glsentrytext{ingredient} (\glsentrytext{woodspy} beak)}{1}{13} %
+    \rareMarketItem{Fate \Glsentrytext{ingredient} (\ifnum\value{temperature}=0 human blood from the \glsentrytext{court}\else brown ooze\fi)}{1}{14}
 
-    Lock-pick set\footnotemark[\value{footnote}]%
+    Lock-pick set%
     (\absNum{rn1t2}) & 0 & \mkPrice{10} \\
-
   \end{nametable}
 }
 
