@@ -37,15 +37,16 @@ The roll is \roll{Intelligence}{Crafts} at \tn[10], and a tie means the result i
 
 \setHighSpheres
 
-%\stepcounter{diceNo}
-
 \foreach \x in {Air,Earth,Fire,Water,Fate,Mind,Death,Light,Force,Life}{%
   \ifnum\value{\x}>0%
     \input{config/spells/\x1.tex}%
     \input{config/spells/\x1.tex}%
-    \ifnum\value{\x}>1%
+    \ifnum\thepage<12
       \input{config/spells/\x2.tex}%
-    \fi%
+      \ifnum\value{\x}>1%
+        \input{config/spells/\x3.tex}%
+      \fi%
+    \fi
   \fi%
 }
 
