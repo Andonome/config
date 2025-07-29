@@ -61,6 +61,41 @@
   \fi
 }
 
+\newcommand\butcherStall{
+  \renewcommand\npcsymbol{\flourish}
+  \begin{nametable}[Lcccc]{At \composeHumanName\ the Butcher's\footnote{\sffamily The butcher buys bodies at half the value of their \gls{cr} in \glspl{sp}.}}
+    \textbf{Rations} & \textbf{Cost} \\\hline
+    \ifnum\value{r12}>8
+      Smoked auroch & \mkPrice[cp]{20} \\
+    \else
+      Boar ears & \mkPrice[cp]{17} \\
+    \fi
+    \ifodd\thediceNo
+      Fresh fish (keeps for a day) & \mkPrice[cp]{6} \\
+    \else
+      \ifodd\thetrack
+        Fishcakes & \mkPrice[cp]{17} \\
+      \else
+        \ifnum\thetemperature>1
+          \Glsfmttext{crawler} pat\'e \& crackers & \mkPrice[cp]{17} \\
+        \else
+          \Gls{digger} feet & \mkPrice[cp]{9} \\
+        \fi
+      \fi
+    \fi
+    \ifnum\value{r12}=8
+      Deer jerky  & \mkPrice[cp]{18} \\
+    \fi
+  \end{nametable}
+  \ifnum\thetemperature>2
+    Smoked \gls{basilisk} strips & \mkPrice[cp]{4} \\
+  \fi
+  \vspace{-\baselineskip}
+  \begin{speechtext}
+    Got anything interesting for the shop?
+  \end{speechtext}
+}
+
 \newcommand\beastSellers{
   \begin{minipage}{\linewidth}
   \begin{boxtable}[Lc]
