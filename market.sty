@@ -6,7 +6,9 @@
   \setcounter{gold}{#2}%
   \ifnum\value{gold}<7%
     \ifnum\value{temperature}=0%
-      \addtocounter{gold}{3}
+      \ifnum\value{gold}>0
+        \addtocounter{gold}{3}
+      \fi
     \fi%
   \else%
     \addtocounter{gold}{\value{rn3t3}}%
@@ -60,7 +62,6 @@
 \newcommand\marketWeaver{\composeHumanName}
 \newcommand\marketDoula{\composeHumanName}
 \newcommand\marketBeastSeller{\composeHumanName}
-\newcommand\marketBoatman{\composeHumanName}
 \newcommand\marketBard{\composeHumanName}
 \newcommand\marketInnOne{\composeHumanName's Inn}
 \newcommand\marketInnTwo{\composeHumanName's Inn}
@@ -71,6 +72,7 @@
 \newcommand\marketArmourSeller{\composeHumanName}
 \newcommand\marketTanner{\composeHumanName}
 
+\assignHumanName[\marketBoatman]
 \assignHumanName[\marketFence]
 
 %%%%%% Adverts for the Pit of Justice %%%%%%

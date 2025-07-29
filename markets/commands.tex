@@ -40,12 +40,14 @@
 
     \composeHumanName, local guide & \mkPrice[cp]{50} per mile \\
     \ifodd\value{diceNo}\else
-      Boat-ride with \composeHumanName%
+      Boat-ride down-river with \marketBoatman%
       \ifodd\value{fenestraDay}%
         \stepcounter{footnote}
         \footnotemark[\thefootnote]
       \fi
+      (free for \glspl{guard})
       & \mkPrice[cp]{6} per mile \\
+      Boat-ride up-river with \composeHumanName\  & \mkPrice[cp]{16} per mile \\
     \fi
   \end{boxtable}
   \ifodd\value{diceNo}\else
@@ -160,13 +162,34 @@
 
 \newcommand\baileySmith{
   \renewcommand\npcsymbol{\glsentrysymbol{wrecan}}
-  \begin{nametable}[lYcYc]{At \composeHumanName\ the Smith's}
+  \begin{nametable}[Lcccc]{At \composeHumanName\ the Smith's}
     \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{\glsentrytext{covering}} & \textbf{Weight} & \textbf{Cost} \\\hline
     \ifnum\value{r12}>8
       \showArmourPrice{\completechain}{28}%
     \fi
+    \ifnum\value{r12}>9
+      \showArmourPrice{\partialplate}{38}%
+    \fi
+    \ifnum\thefenestraDay>50
+      \ifodd\year
+        \showArmourPrice{Gnome-sized \partialchain}{18}%
+      \else
+        \showArmourPrice{Gnoll-shaped \partialchain}{18}%
+      \fi
+    \fi
     \showArmourPrice{\partialchain}{18}%
   \end{nametable}
+  \vspace{-\baselineskip}
+  \begin{speechtext}
+    \ifodd\value{r4b}
+        I mostly make armour for humans, but if you need anything else, just give me a couple of days and I can make adjustments.
+    \else
+      What's it today?
+      Some horseshoes?
+      Ha!  Just kidding\ldots
+      We like to have fun here.
+    \fi
+  \end{speechtext}
 }
 
 \newcommand\baileyFletcher{
