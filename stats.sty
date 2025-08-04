@@ -667,35 +667,28 @@
 %% /_/\_\_|    
 %%  
 \newcommand{\calculateXP}{%
-  %%% Now to get the CR rating.
-  %%% We start with the attack value.
-  %%%    ( Attack (TN) * Dam + AP ) / 50 - 'AP Cost'
-  %%%    (if MP is higher than this, just use MP)
   \iftoggle{allyCharacter}{}{%
     \iftoggle{examplecharacter}{}{%
+      %%% Now to get the CR rating.
+      %%% We start with the attack value.
+      %%% Attack XP = (Damage + AP) x (Attack - AP Cost)
       \setcounter{attackXPtotal}{\value{damage}}%
       \addtocounter{attackXPtotal}{4}%
-      \multiply\value{attackXPtotal} by \value{toHit}%
-      \multiply\value{attackXPtotal} by \value{ap}%
-      \divide\value{attackXPtotal} by 50%
-      \addtocounter{attackXPtotal}{-\value{heft}}%
-      \ifnum\value{mp}>0%
-        \ifnum\value{attackXPtotal}<\value{mp}%
-          \setcounter{attackXPtotal}{\value{mp}}%
-        \else%
-          \setcounter{enc}{\value{mp}}%
-          \divide\value{enc} by 2%
-          \addtocounter{attackXPtotal}{\value{enc}}%
-        \fi%
-      \fi%
-    %%% Same again, but for defence.
-    %%% HP * DR / 10
+      \addtocounter{attackXPtotal}{\value{ap}}%
+      \setcounter{track}{\value{toHit}}%
+      \addtocounter{track}{-\value{heft}}%
+      \multiply\value{attackXPtotal} by \value{track}%
+      %%% Now the defence rating:
+      %%% Defence XP = (DR +1) x (HP + MP)
+      \setcounter{track}{\value{dr}}%
+      \stepcounter{track}%
       \setcounter{defenceXPtotal}{\value{hp}}%
-      \multiply\value{defenceXPtotal} by \value{dr}%
-      \divide\value{defenceXPtotal} by 10%
-    %%%  Add attack and defence totals.
-      \addtocounter{xp}{\value{attackXPtotal}}%
+      \addtocounter{defenceXPtotal}{\value{mp}}%
+      \multiply\value{defenceXPtotal} by \value{track}%
+      \setcounter{xp}{\value{attackXPtotal}}%
       \addtocounter{xp}{\value{defenceXPtotal}}%
+      \addtocounter{xp}{-40}%
+      \divide\value{xp} by 10%
       \ifnum\value{xp}<0\setcounter{xp}{0}\fi%
       \glsentrytext{cr}~\arabic{xp}%
     }%
