@@ -3,7 +3,6 @@
 %key: Name
 %type: Name,Knacks line
 %type: Strength,Dexterity,Speed,Wits,Projectiles,Melee,Brawl,Academics,Athletics,Caving,Crafts,Cultivation,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Stealth,Survival,Vigilance int
-%unique: Strength Dexterity Speed Wits
 
 Name: auroch
 Strength: 2
