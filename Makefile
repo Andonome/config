@@ -29,10 +29,10 @@ rules.pdf: ## one-page copy of the rules
 cs.pdf: ## tiny character sheet
 
 statblocks.pdf: statblocks.tex ## statblocks generated from share/Monster.rec
-statblocks.tex: share/template_head.tex share/template.tex share/Monster.rec
+statblocks.tex: recfiles/template_head.tex recfiles/animal.tex recfiles/person.tex recfiles/Monster.rec
 	cp $< $@
-	recsel -t Monster share/Monster.rec | recfmt --file=share/template.tex >> $@
-	recsel -t NPC share/Monster.rec | recfmt --file=share/people.tex >> $@
+	recsel -t Monster recfiles/Monster.rec | recfmt --file=recfiles/animal.tex >> $@
+	recsel -t NPC recfiles/Monster.rec | recfmt --file=recfiles/person.tex >> $@
 	printf '%s\n' '\end{multicols}' >> $@
 	printf '%s\n' '\end{document}' >> $@
 
