@@ -30,7 +30,8 @@ cs.pdf: ## tiny character sheet
 statblocks.pdf: share/statblocks.tex ## statblocks generated from share/Monster.rec
 share/statblocks.tex: share/template_head.tex share/template.tex share/Monster.rec
 	cp $< $@
-	recsel share/Monster.rec | recfmt --file=share/template.tex >> $@
+	recsel -t Monster share/Monster.rec | recfmt --file=share/template.tex >> $@
+	recsel -t NPC share/Monster.rec | recfmt --file=share/people.tex >> $@
 	printf '%s\n' '\end{multicols}' >> $@
 	printf '%s\n' '\end{document}' >> $@
 
