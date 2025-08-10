@@ -68,12 +68,12 @@
     \fi
     \set{Stealth}{rn1t2}%
     \setcounter{Survival}{\value{r3}}%
-    \setcounter{diceNo}{5}% DR is determined by diceNo counter.
-    \addtocounter{diceNo}{-\value{r3b}}% Reduce DR by Speed.
+    \setcounter{age}{5}% DR is determined by age counter.
+    \addtocounter{age}{-\value{r3b}}% Reduce DR by Speed.
     \label{\jobname:harvestCrawler}% See gls entry 'harvesting'
   }% SKILLS
   {}% KNACKS
-  {\octopod \web \hide{\arabic{diceNo}}}% ABILITIES
+  {\octopod \web \hide{\arabic{age}}}% ABILITIES
 }
 
 \newcommand{\griffin}[1][\npc{\A\T[\arabic{r2t3}]}{\arabic{noAppearing}~\Glsfmtplural{griffin}}]{
