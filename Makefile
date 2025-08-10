@@ -4,7 +4,7 @@ zines += rules.pdf
 zines += spells.pdf
 targets += cs.pdf
 pdfs += statblocks.pdf
-output += share/statblocks.tex
+output += statblocks.tex
 
 dependencies += magick
 dependencies += pstops ps2pdf pdftops
@@ -28,8 +28,8 @@ markets.pdf: market.sty $(wildcard markets/*.tex) ## Current price sheets
 rules.pdf: ## one-page copy of the rules
 cs.pdf: ## tiny character sheet
 
-statblocks.pdf: share/statblocks.tex ## statblocks generated from share/Monster.rec
-share/statblocks.tex: share/template_head.tex share/template.tex share/Monster.rec
+statblocks.pdf: statblocks.tex ## statblocks generated from share/Monster.rec
+statblocks.tex: share/template_head.tex share/template.tex share/Monster.rec
 	cp $< $@
 	recsel -t Monster share/Monster.rec | recfmt --file=share/template.tex >> $@
 	recsel -t NPC share/Monster.rec | recfmt --file=share/people.tex >> $@
