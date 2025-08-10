@@ -3,6 +3,8 @@ pdfs += docs.pdf
 zines += rules.pdf
 zines += spells.pdf
 targets += cs.pdf
+pdfs += statblocks.pdf
+output += share/statblocks.tex
 
 dependencies += magick
 dependencies += pstops ps2pdf pdftops
@@ -25,4 +27,11 @@ character_sheets.pdf: csCommands.sty $(wildcard $(DROSS)/.count.tex) ## Characte
 markets.pdf: market.sty $(wildcard markets/*.tex) ## Current price sheets
 rules.pdf: ## one-page copy of the rules
 cs.pdf: ## tiny character sheet
+
+statblocks.pdf: share/statblocks.tex ## statblocks generated from share/Monster.rec
+share/statblocks.tex: share/template_head.tex share/template.tex share/Monster.rec
+	cp $< $@
+	recsel share/Monster.rec | recfmt --file=share/template.tex >> $@
+	printf '%s\n' '\end{multicols}' >> $@
+	printf '%s\n' '\end{document}' >> $@
 

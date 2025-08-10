@@ -1,0 +1,21 @@
+%rec: Monster
+%mandatory: Name Strength Dexterity Speed Wits
+%key: Name
+%type: Name line
+%type: Strength,Dexterity,Speed,Wits int
+%unique: Strength Dexterity Speed Wits
+
+Name: auroch
+Strength: 2
+Dexterity: -2
+Speed: 1
+Wits: 1
+Abilities: \quadruped
+
+Name: raknid
+Strength: 4
+Dexterity: 0
+Speed: 1
+Wits: 2
+Abilities: \octopod \web \hide{4}
+
