@@ -41,9 +41,9 @@ Abilities: \octopod \web \hide{4}
 
 %rec: NPC
 %mandatory: Name Symbols Strength Dexterity Speed Intelligence Wits Charisma Projectiles Melee Brawl Academics Athletics Caving Crafts Cultivation Deceit Empathy Flight Medicine Performance Larceny Seafaring Stealth Survival Vigilance
-%allowed: Aftertext Knacks Abilities Equipment Weapon
+%allowed: Aftertext Description Mannerism Wants Knacks Abilities Equipment Weapon
 %key: Name
-%type: Name,Symbols,Knacks,Equipment,Weapon line
+%type: Name,Symbols,Description,Mannerism,Wants,Knacks,Equipment,Weapon line
 %type: Strength,Dexterity,Speed,Intelligence,Wits,Charisma,Projectiles,Melee,Brawl,Academics,Athletics,Caving,Crafts,Cultivation,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Stealth,Survival,Vigilance int
 
 Name: Human
@@ -69,6 +69,40 @@ Deceit: 0
 Empathy: 0
 Flight: 0
 Medicine: 1
+Performance: 0
+Larceny: 0
+Seafaring: 0
+Stealth: 0
+Survival: 0
+Vigilance: 0
+
+Name: Gnome
+Symbols: \glsentrysymbol{yonder}\M\Gn
+Aftertext: This spicy gnome has extra fields --- a description, a mannerism, and want.
++ However, \textbf{all} three of these fields should be set, or none.
+Description: Short
+Mannerism: Looks up your nose
+Wants: to make the world's greatest sandwich
+Weapon: \Dagger
+Equipment: \rations, \lootSmall
+Strength: -2
+Dexterity: 1
+Speed: 0
+Intelligence: 1
+Wits: 0
+Charisma: 0
+Projectiles: 0
+Melee: 0
+Brawl: 0
+Academics: 1
+Athletics: 0
+Caving: 1
+Crafts: 0
+Cultivation: 0
+Deceit: 0
+Empathy: 0
+Flight: 0
+Medicine: 0
 Performance: 0
 Larceny: 0
 Seafaring: 0
