@@ -40,14 +40,16 @@ Vigilance: 0
 Abilities: \octopod \web \hide{4}
 
 %rec: NPC
-%mandatory: Name Symbols Strength Dexterity Speed Intelligence Wits Charisma Projectiles Melee Brawl Academics Athletics Caving Crafts Cultivation Deceit Empathy Flight Medicine Performance Larceny Seafaring Stealth Survival Vigilance
+%mandatory: Name Gender Symbols Strength Dexterity Speed Intelligence Wits Charisma Projectiles Melee Brawl Academics Athletics Caving Crafts Cultivation Deceit Empathy Flight Medicine Performance Larceny Seafaring Stealth Survival Vigilance
 %allowed: Aftertext Description Mannerism Wants Knacks Abilities Equipment Weapon
 %key: Name
 %type: Name,Symbols,Description,Mannerism,Wants,Knacks,Equipment,Weapon line
 %type: Strength,Dexterity,Speed,Intelligence,Wits,Charisma,Projectiles,Melee,Brawl,Academics,Athletics,Caving,Crafts,Cultivation,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Stealth,Survival,Vigilance int
+%type: Gender enum E F M
 
 Name: Human
-Symbols: \F\Hu
+Gender: F
+Symbols: \Hu
 Aftertext: One standard-issue human.
 Weapon: \Dagger
 Equipment: \rations, \lootSmall
@@ -77,7 +79,8 @@ Survival: 0
 Vigilance: 0
 
 Name: Gnome
-Symbols: \glsentrysymbol{yonder}\M\Gn
+Gender: M
+Symbols: \glsentrysymbol{yonder}\Gn
 Aftertext: This spicy gnome has extra fields --- a description, a mannerism, and want.
 + However, \textbf{all} three of these fields should be set, or none.
 Description: Short
