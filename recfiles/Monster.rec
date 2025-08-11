@@ -1,10 +1,14 @@
+
 %rec: Monster
 %doc: ...or just any animal.
+%key: Name
 %mandatory: Name Strength Dexterity Speed Wits Projectiles Brawl Athletics Caving Deceit Empathy Flight Stealth Survival Vigilance
 %allowed: Aftertext Knacks Abilities
-%key: Name
+%typedef: attribute range -6 7
+%typedef: skill range 0 4
 %type: Name,Knacks line
-%type: Strength,Dexterity,Speed,Wits,Projectiles,Brawl,Athletics,Caving,Deceit,Empathy,Flight,Stealth,Survival,Vigilance int
+%type: Strength,Dexterity,Speed,Wits attribute
+%type: Projectiles,Brawl,Athletics,Caving,Deceit,Empathy,Flight,Stealth,Survival,Vigilance skill
 
 Name: auroch
 Strength: 2
@@ -42,11 +46,14 @@ Abilities: \octopod \web \hide{4}
 
 %rec: NPC
 %doc: Always the real monsters...
+%key: Name
 %mandatory: Name Gender Symbols Strength Dexterity Speed Intelligence Wits Charisma Projectiles Melee Brawl Academics Athletics Caving Crafts Cultivation Deceit Empathy Flight Medicine Performance Larceny Seafaring Stealth Survival Vigilance
 %allowed: Aftertext Description Mannerism Wants Knacks Abilities Equipment Weapon
-%key: Name
+%typedef: attribute range -6 7
+%typedef: skill range 0 4
 %type: Name,Symbols,Description,Mannerism,Wants,Knacks,Equipment,Weapon line
-%type: Strength,Dexterity,Speed,Intelligence,Wits,Charisma,Projectiles,Melee,Brawl,Academics,Athletics,Caving,Crafts,Cultivation,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Stealth,Survival,Vigilance int
+%type: Strength,Dexterity,Speed,Intelligence,Wits,Charisma attribute
+%type: Projectiles,Melee,Brawl,Academics,Athletics,Caving,Crafts,Cultivation,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Stealth,Survival,Vigilance skill
 %type: Gender enum E F M
 
 Name: Human
