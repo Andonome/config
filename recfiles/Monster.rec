@@ -83,7 +83,7 @@ Vigilance: 0
 Name: Gnome
 Gender: M
 Symbols: \glsentrysymbol{yonder}\Gn
-Aftertext: This spicy gnome has extra fields --- a description, a mannerism, and want.
+Aftertext: This spicy gnome has extra fields --- a description, a mannerism, and a want.
 + However, \textbf{all} three of these fields should be set, or none.
 Description: Short
 Mannerism: Looks up your nose
