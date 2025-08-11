@@ -6,9 +6,9 @@ targets += cs.pdf
 pdfs += statblocks.pdf
 output += statblocks.tex
 
-dependencies += magick
-dependencies += pstops ps2pdf pdftops
-dependencies += recsel
+dependencies += magick# from the imagemagick package
+dependencies += pstops ps2pdf pdftops# usually in cups or psutils
+dependencies += recsel# from recutils
 
 include common.mk
 
