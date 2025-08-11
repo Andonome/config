@@ -7,6 +7,7 @@ output += statblocks.tex
 
 dependencies += magick
 dependencies += pstops ps2pdf pdftops
+dependencies += recsel
 
 include common.mk
 
