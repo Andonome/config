@@ -111,7 +111,10 @@ dependencies += git git-lfs lualatex latexmk inkscape
 .PHONY: check
 check: ## Check you have the project dependencies
 	@$(foreach program, $(dependencies), \
-	command -v $(program) >/dev/null || { echo install $(program) && exit 1 ;} ;)
+	command -v $(program) >/dev/null || { printf '%s ' 'install' ;\
+		grep -hoP 'depend.+\K$(program).+' $(MAKEFILE_LIST) | tr '#' ':' ;\
+		exit 1 ;} ;\
+	)
 
 help: ## Print the help message
 	@awk 'BEGIN {FS = ":.*?## "} /^[0-9a-zA-Z._-]+:.*?## / {printf "\033[36m%s\033[0m : %s\n", $$1, $$2}' $(MAKEFILE_LIST) | \
