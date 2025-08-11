@@ -172,33 +172,23 @@
 }
 
 \newcommand{\lootMagic}{%
+  \stepcounter{equipmentWeight}%
   \iftoggle{genExamples}{%
     elemental \glsentrytext{boon}%
     }%
     {%
-      \stepcounter{equipmentWeight}%
-      \ifcase\value{diceNo2}\relax%
+      \ifcase\value{r6}\relax%
       \or%
-        sack of auroch hooves%
-      \or%
-        \glsfmtplural{marchingMushroom}%
+        Water~\gls{boon}%
       \or%
         Earth~\gls{boon}%
       \or%
         Air~\gls{boon}%
       \or%
-        stirge queen in a phial%
-      \or%
-        \glsfmttext{woodspy} beak%
-      \or%
-        Fire \gls{boon}%
-      \or%
-        Water \gls{boon}%
+        Fire~\gls{boon}%
       \else%
-        Fate \gls{boon}%
-        \setcounter{diceNo2}{0}%
+        Fate~\gls{boon}%
       \fi%
-      \stepcounter{diceNo2}%
     }%
 }
 
