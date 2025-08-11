@@ -1,7 +1,9 @@
 %rec: Monster
 %doc: ...or just any animal.
 %key: Name
-%mandatory: Name Strength Dexterity Speed Wits Projectiles Brawl Athletics Caving Deceit Empathy Flight Stealth Survival Vigilance
+%mandatory: Name Strength Dexterity Speed Wits
++ Projectiles Brawl
++ Athletics Caving Deceit Empathy Flight Stealth Survival Vigilance
 %allowed: Aftertext Knacks Abilities
 %typedef: attribute range -6 7
 %typedef: skill range 0 4
@@ -46,15 +48,21 @@ Abilities: \octopod \web \hide{4}
 %rec: NPC
 %doc: Always the real monsters...
 %key: Name
-%mandatory: Name Gender Symbols Strength Dexterity Speed Intelligence Wits Charisma Earth Air Fire Water Fate Projectiles Melee Brawl Academics Athletics Caving Crafts Cultivation Deceit Empathy Flight Medicine Performance Larceny Seafaring Stealth Survival Vigilance
-%allowed: Aftertext Description Mannerism Wants Quote Knacks Abilities Equipment Weapon
+%mandatory: Name Gender Symbols
++ Strength Dexterity Speed Intelligence Wits Charisma
++ Earth Air Fire Water Fate
++ Projectiles Melee Brawl
++ Academics Athletics Caving Crafts Cultivation Deceit Empathy Flight Medicine Performance Larceny Seafaring Stealth Survival Vigilance
+%allowed: Aftertext Description Mannerism Wants Quote
++ Knacks Abilities Equipment Weapon
 %typedef: attribute range -6 7
 %typedef: skill range 0 4
 %type: Name,Symbols,Description,Mannerism,Wants,Quote,Knacks,Equipment,Weapon line
 %type: Strength,Dexterity,Speed,Intelligence,Wits,Charisma attribute
 %type: Earth,Air,Fire,Water,Fate,Projectiles,Melee,Brawl,Academics,Athletics,Caving,Crafts,Cultivation,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Stealth,Survival,Vigilance skill
 %type: Gender enum E F M
-%constraint: Quote != '' || Description != '' || Mannerism != '' || Wants != '' => #Description && #Mannerism && #Wants
+%constraint: Quote != '' || Description != '' || Mannerism != '' || Wants != '' =>
++ #Description && #Mannerism && #Wants
 
 Name: Human
 Gender: F
