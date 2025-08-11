@@ -1,4 +1,3 @@
-
 %rec: Monster
 %doc: ...or just any animal.
 %key: Name
@@ -48,14 +47,14 @@ Abilities: \octopod \web \hide{4}
 %doc: Always the real monsters...
 %key: Name
 %mandatory: Name Gender Symbols Strength Dexterity Speed Intelligence Wits Charisma Earth Air Fire Water Fate Projectiles Melee Brawl Academics Athletics Caving Crafts Cultivation Deceit Empathy Flight Medicine Performance Larceny Seafaring Stealth Survival Vigilance
-%allowed: Aftertext Description Mannerism Wants Knacks Abilities Equipment Weapon
+%allowed: Aftertext Description Mannerism Wants Quote Knacks Abilities Equipment Weapon
 %typedef: attribute range -6 7
 %typedef: skill range 0 4
-%type: Name,Symbols,Description,Mannerism,Wants,Knacks,Equipment,Weapon line
+%type: Name,Symbols,Description,Mannerism,Wants,Quote,Knacks,Equipment,Weapon line
 %type: Strength,Dexterity,Speed,Intelligence,Wits,Charisma attribute
 %type: Earth,Air,Fire,Water,Fate,Projectiles,Melee,Brawl,Academics,Athletics,Caving,Crafts,Cultivation,Deceit,Empathy,Flight,Medicine,Performance,Larceny,Seafaring,Stealth,Survival,Vigilance skill
 %type: Gender enum E F M
-%constraint: Description != '' || Mannerism != '' || Wants != '' => #Description && #Mannerism && #Wants
+%constraint: Quote != '' || Description != '' || Mannerism != '' || Wants != '' => #Description && #Mannerism && #Wants
 
 Name: Human
 Gender: F
@@ -128,6 +127,46 @@ Empathy: 0
 Flight: 0
 Medicine: 0
 Performance: 0
+Larceny: 0
+Seafaring: 0
+Stealth: 0
+Survival: 0
+Vigilance: 0
+
+Name: Elf
+Gender: E
+Symbols: \El
+Description: Elfin
+Mannerism: Looks up facts in books
+Wants: to tell people about the real facts
+Quote: Did you know\ldots?
+Weapon: \Dagger
+Equipment: \rations, \lootMagic
+Strength: -1
+Dexterity: 0
+Speed: 0
+Intelligence: 0
+Wits: 1
+Charisma: 0
+Knacks: \specialist{Human History}
+Earth: 1
+Air: 0
+Fire: 0
+Water: 1
+Fate: 0
+Projectiles: 0
+Melee: 0
+Brawl: 0
+Academics: 2
+Athletics: 0
+Caving: 0
+Crafts: 0
+Cultivation: 0
+Deceit: 1
+Empathy: 0
+Flight: 0
+Medicine: 0
+Performance: 2
 Larceny: 0
 Seafaring: 0
 Stealth: 0
