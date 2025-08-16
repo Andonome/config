@@ -1,4 +1,5 @@
-\providecommand\glossarytitle{Lexicon}
+\newglossary*{world}{Fenestra}%
+\def\glsdefaulttype{world}%
 
 \GlsXtrEnablePreLocationTag{page~}{pages~}
 
@@ -1370,8 +1371,20 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 \longnewglossaryentry{fenestra}{
   name={Fenestra},
   nonumberlist,
+  type={quiet},
   description={This land, where elves, gnolls, and humans look up at trees, like ants moving through blades of grass.
   Predators larger than a horse hunt deer and people in the same way, so everyone travels together, and well-armed},
+}
+
+\longnewglossaryentry{lonelyRoad}{
+  name={The Lonely Road},
+  sort={Lonely Road},
+  text={lonely road},
+  prefix={a\space},
+  category={location},
+  description={the liminal space between civilization and the \glsentrytext{edge}.
+  One side of the road holds farms, and the other \glsfmtplural{monster}.
+  But roads are made by walking, so the \glsfmtplural{guard} keep walking, because every step pushes back the forest a finger},
 }
 
 \newacronym[
@@ -1379,7 +1392,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   By its count, the current year is \arabic{fenestraYear}},
   prefix={a\space},
   parent={cosmology},
-  type={main},
+  type={\glsdefaulttype},
 ]{gmt}{GMT}{Gnomish Machine Time}
 
 \longnewglossaryentry{cycle}{
@@ -1402,21 +1415,10 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   first={Edge of Civilization},
   prefix={an\space},
   category={location},
-  parent={fenestra},
+  parent={lonelyRoad},
   description={lies one footstep off the \glsentrytext{lonelyRoad}, and surrounds every outer \glsentrytext{village}.
   Beyond this point, only dark forests, empty tundra, and hungry beasts wait.
   When people travel off-road, they have gone beyond the Edge},
-}
-
-\longnewglossaryentry{lonelyRoad}{
-  name={The Lonely Road},
-  sort={Lonely Road},
-  text={lonely road},
-  prefix={a\space},
-  category={location},
-  parent={fenestra},
-  description={means any road between settlements.
-  Going from one town to the next means a long journey through untamed territory},
 }
 
 \longnewglossaryentry{lonelyTavern}{
@@ -1435,6 +1437,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   sort={Trade Tongue},
   category={indexed},
   parent={lonelyRoad},
+  type={\glsdefaulttype},
   description={lets people trade, despite not sharing much of a common language.
   It has about two hundred words, so people have to indicate what they want to say by lumping words together.
   E.g. `cow' might be `white-water animal', and cheese could be `rock of white-water animal'},
@@ -1446,7 +1449,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   sort={Labyrinth},
   prefix={a\space},
   category={location},
-  parent={fenestra},
+  parent={lonelyRoad},
   description={is the network of frigid, nearly lifeless caverns, which sits beneath much of \glsentrytext{fenestra}},
 }
 
@@ -1456,7 +1459,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   sort={Blight},
   prefix={a\space},
   category={location},
-  parent={fenestra},
+  parent={lonelyRoad},
   description={is an area too full of goblins for anyone to live.
   Most blights have at least one cave or portal to the underground goblin realm},
 }
@@ -1504,7 +1507,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={fiend},
   prefix={a\space},
   symbol={\glsentrytext{vlg}},
-  parent={fenestra},
+  parent={lonelyRoad},
   category={indexed},
   description={live outside any civilization, which makes them the enemy.
   Many know magic, others hold armies.
@@ -1577,7 +1580,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   name={Monsters},
   text={monster},
   prefix={a\space},
-  parent={fenestra},
+  parent={lonelyRoad},
   symbol={\glssymbol{sylf}},
   description={wander slowly, looking for deer, auroch, or anything they can eat.
   When they hear people, the noises and lights excite them, and they instinctively begin to stalk.
@@ -1654,7 +1657,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   name={The Undead},
   text={undead},
   prefix={an\space},
-  parent={fenestra},
+  parent={lonelyRoad},
   symbol={\glsentrytext{D}},
   description={are souls trapped in a dead body \glsentrytext{witchcraft}.
   Each one is deaf and blind, but they can see the light that comes from every living soul.
@@ -2600,7 +2603,7 @@ While floods occur, everyone gains a +1 Bonus to their Water \glsentrytext{spher
   text={plant},
   prefix={a\space},
   symbol={\adfhangingflatleafleft},
-  parent={fenestra},
+  parent={lonelyRoad},
   description={within \glsentrytext{fenestra} can grow large, strange, and deadly},
 }
 
