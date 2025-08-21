@@ -1,90 +1,33 @@
-\shiftColours[\value{r6}]
-\ifodd\value{diceNo}
-  \section*{\Glsfmttext{village} Market}
-\else
-  \section*{River \Glsfmttext{village} Market}
-\fi
-\hint{\showCycle}
+%%%%% Make the Random Bailey %%%%%
+\composeBailey
 
-\ifodd\value{r3}
-  \togglefalse{marketBeasts}
-\else
-  \toggletrue{marketBeasts}
-\fi
+\section*{\baileyname}
 
-\noindent
+\baileydesc
+
 All purchases require a full morning or afternoon.
 Farmers chat, then barter, and finally refer the buyer to a neighbour.
-Supplies are limited.%
-\footnote{\Glspl{village} have $1D6\times 10$ of each item with \pgls{weight} less than 1, $2D6$ of each item with \glsentrytext{weight} 1, and $1D6$ of each heavier items.}
 
 \begin{multicols}{3}
 
-\ifnum\value{r12}>8
-  \doulaCottage
-\fi
-
-\baileyServices
-
-\renewcommand\npcsymbol{\flourish}
-\iftoggle{marketBeasts}{
-  \beastSellers
-}{}
-
-\baileyHospitality
-
-\baileySalvage
+\baileymarkets
 
 \end{multicols}
 
 \begin{multicols}{2}
 
-\ifnum\value{r4b}>2
-  \baileyTanner
-\else
-  \baileyRanger
-\fi
+\baileymarketsWide
 
-\ifnumcomp{\value{r4b}}{>}{2}{%
-  \baileySmith
-}{
-  \ifodd\value{r3}
-    \baileyFletcher
-  \fi
-}
+\end{multicols}
 
-\ifodd\value{r3}
-  \baileyArms
-\fi
+\vfill
+{\hfill\sffamily After the night falls\ldots}
 
-\baileyWeaver
+\clearpage
 
-\ifnum\value{cycle}=1\relax%
-\else%
-  \addtocounter{r12}{4}
-  \textit{I'll buy \glspl{ingredient} of Fate or Air for \arabic{r12}~\glsfmtplural{sp}.}
-\fi
+\begin{multicols}{2}
 
-\iftoggle{marketBeasts}{
-  \end{multicols}
-}{
-  \ifnum\value{r12}=8
-  \gnollSellers
-  \end{multicols}
+\baileyback
 
-    \pagebreak
-    \begin{multicols}{2}
-      \gnollDogShow
-    \end{multicols}
-  \else
-    \end{multicols}
-  \fi
-}
+\end{multicols}
 
-
-\iftoggle{marketBeasts}{
-  \clearpage
-  \showBeastMarket
-}{}
-
-\stepcounter{diceNo}
