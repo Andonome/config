@@ -46,6 +46,7 @@
 
 \newcounter{goblinLoot}
 \setcounter{goblinLoot}{\day}
+\divide\value{goblinLoot} by 4
 
 \newcommand{\lootGoblin}{%
   \stepcounter{goblinLoot}%

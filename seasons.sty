@@ -166,4 +166,17 @@
 }
 
 
+\newcommand\advanceTheDate[1][10]{%
+  \addtocounter{fenestraDay}{#1}%
+  \ifnum\thefenestraDay>60%
+    \addtocounter{fenestraDay}{-60}%
+    \stepcounter{cycle}%
+    \ifnum\thecycle>5%
+      \setcounter{cycle}{0}%
+      \stepcounter{fenestraYear}%
+    \fi%
+    \setTemperature%
+  \fi%
+}
+
 \setCycle{\month}{\day}

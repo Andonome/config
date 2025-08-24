@@ -5,7 +5,7 @@
 \newcommand\baileyback{}
 
 \newcommand\addChunkOfBailey{%
-  \ifcase\value{r6}\relax\or%
+  \ifcase\value{segNoSpare}\relax\or%
     \appto{\name}{copper}%
     \appto{\baileydesc}{Copper spikes crown the outer wall.  }%
     \appto{\baileymarketsWide}{\baileyArms}%
@@ -74,14 +74,13 @@
     \appto{\baileymarketsWide}{\baileySmith}%
   \fi%
   \appto{\baileymarkets}{\par}%
-  \addtocounter{r6}{\value{r2}}
 }
 
 %%%% The daily bailey  must have text on both sides of the page, so people can
 %    orient themselves by it when printing booklets.
 
 \newcommand\afterBaileyEvent{%
-  \ifcase\value{r6}\relax%
+  \ifcase\value{goblinLoot}\relax%
   \or% 1
     \appto{\baileyback}{%
       The next evening, people with long, pointed ears arrive from beyond the \gls{edge} to sell.
@@ -182,7 +181,9 @@
         \griffin[\npc{\T[\value{r2t4}]\A}{\arabic{r2t4}~\Glspl{griffin}}]
       }%
     \fi
+    \setcounter{goblinLoot}{0}%
   \fi%
+  \addtocounter{goblinLoot}{\value{r2}}%
 }
 
 \newcommand\baileyWell{
@@ -247,6 +248,8 @@
   \end{minipage}
 }
 
+\setcounter{segNoSpare}{\value{r6}}
+
 \newcommand\composeBailey{
   \stepcounter{diceNo}
   \renewcommand\name{}
@@ -254,8 +257,13 @@
   \renewcommand\baileymarkets{}
   \renewcommand\baileymarketsWide{\baileyFletcher\par}
   \renewcommand\baileyback{}
+  \ifnum\value{segNoSpare}>6% This counter determines which chunk of bailey-descrption is used.
+    \setcounter{segNoSpare}{1}%
+  \else%
+    \stepcounter{segNoSpare}%
+  \fi%
   \addChunkOfBailey
-  \addtocounter{r6}{\value{r2}}
+  \addtocounter{segNoSpare}{\value{r3}}
   \addChunkOfBailey
 
   \appto{\baileymarkets}{%
@@ -874,6 +882,7 @@
       \Glsfmttext{mixer} \marketMixer\ says to tell you that we'll purchase any \glsfmtplural{ingredient} for \mkPrice{12} if we're out of stock.
     \end{speechtext}
   \end{minipage}
+  \null\par
 }
 
 \newcommand\townDocks{
@@ -1014,8 +1023,8 @@
       can only write \ifodd\day Dwarvish \else Gnomish \fi and Elvish.
     \fi
   \end{speechtext}
-
   \end{minipage}
+  \null\par
 }
 
 \newcommand\townWeavers{
@@ -1072,6 +1081,7 @@
     \fi
   \end{speechtext}
   \end{minipage}
+  \null\par
 }
 
 \newcommand\townArmoury{
@@ -1091,6 +1101,7 @@
       \end{speechtext}
     \fi
   \end{minipage}
+  \null\par
 }
 
 \newcommand\townTanner{
