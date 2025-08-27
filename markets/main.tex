@@ -12,38 +12,11 @@
 \input{config/markets/bailey.tex}
 
 \cleardoublepage
+\advanceTheDate
 \input{config/markets/bailey.tex}
 
 \cleardoublepage
 \input{config/markets/town.tex}
 \cleardoublepage
-
-% Check markets after 3 weeks
-\setcounter{r4}{\value{cycle}}
-\setcounter{r2}{\month}
-\setcounter{r2b}{\day}
-\ifnum\value{r2b}>21
-  \addtocounter{r2b}{-21}
-  \stepcounter{r2}
-  \ifnum\value{r2}>12
-    \setcounter{r2}{1}
-  \fi
-\else
-  \addtocounter{r2b}{7}
-\fi
-
-\setCycle{\value{r2}}{\value{r2b}}
-% If we're in a new cycle, print the new markets.
-\ifnum\value{cycle}=\value{r4}
-\else
-  \input{config/markets/bailey.tex}
-
-  \cleardoublepage
-  \input{config/markets/bailey.tex}
-
-  \cleardoublepage
-  \input{config/markets/town.tex}
-  \cleardoublepage
-\fi
 
 \end{document}
