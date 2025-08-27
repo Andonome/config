@@ -197,6 +197,17 @@ $(mini_spell_tex): booklets/a7_%-Spellbook.tex: $(DROSS)/Spells-%.tex config/boo
 
 zines += $(mini_spell_pdf)
 
+### Standard Zine Header ###
+
+define zineheader#
+\documentclass[10pt,twoside]{book}
+\usepackage{config/bind}\usepackage{config/booklet}
+\externalReferent{core}
+\externalReferent{stories}
+\externalReferent{judgement}
+\begin{document}
+endef
+
 ####### Phone Zines #############
 
 screen_zines = $(patsubst %.pdf, a7_%.pdf, $(zines) )
