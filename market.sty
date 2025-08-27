@@ -1,3 +1,10 @@
+\fancypagestyle{market}{
+  \togglefalse{countedPage}
+  \renewcommand{\headrule}{}
+  \fancyhf{}% clear all header and footer fields
+  \fancyhead[RO]{\vspace{-2em}\scshape\showCycle}
+}
+
 \newtoggle{marketBeasts}
 \settoggle{marketBeasts}{false}
 
