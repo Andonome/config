@@ -310,15 +310,20 @@ bookmarks=true]%
 
 \newcounter{pagebak}
 
-\newcommand\handout[1]{
+\newcommand\handout[2][empty]{
   \cleardoublepage
   \togglefalse{countedPage}
   \setcounter{pagebak}{\thepage}
-  \pagestyle{empty}
-  \randomtwo
-  \randomthreeC
+  \AddToHook{shipout/background}{%
+    \begin{tikzpicture}[overlay,remember picture]
+      \coordinate (northgate) at (current page.north west);
+      \coordinate (westgate) at (current page.south west);
+      \coordinate (eastgate) at (current page.south east);
+    \end{tikzpicture}
+  }%
+  \pagestyle{#1}
   \settoggle{examplecharacter}{true}
-  \input{#1.tex}
+  \input{#2.tex}
   \settoggle{examplecharacter}{false}
   \cleardoublepage
   \ifodd\thepage
