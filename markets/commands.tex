@@ -196,6 +196,8 @@
       Proper \showTemperature\ today.
     \fi
     \ifodd\value{r3}
+      \rotatebox{\value{rn1t2}}{Any news from town?}
+      \rotatebox{\value{rn1t2}}{\footnotesize Sorry\ldots I forgot yous can't go in\ldots}
     \else
       \rotatebox{\value{rn1t2}}{Remember and buy some rope.}
       \rotatebox{\value{rn1t2}}{If you don' have it, you'll need it.}
@@ -241,9 +243,19 @@
       \thefenestraYear\ was bad for \ifodd\year carrots\else barley\fi, and bad for \ifodd\thefenestraDay wine\else beets\fi.
     \fi
     }
-    \ifodd\thefenestraDay%
-      {\tiny When I grow up, I'll be \pgls{guard}.}
-    \fi
+    \ifcase\value{r6}\relax\or%
+      {\tiny If I grow up, I want to be \pgls{guard}.}
+    \or%
+      {\tiny Mum says you have to give me 3~\glspl{cp} right now.}
+    \or%
+      {\tiny Did you ever saw \pgls{crawler} smoking a pipe?}
+    \or%
+      {\tiny How many \glspl{basilisk} did you killed?}
+    \or%
+      {\tiny \Pgls{crawler} ate my \ifodd\thefenestraDay grampa \else granny \fi last \gls{cFour}.  Can you kill it for me?}
+    \else%
+      {\tiny You get to be \pgls{guard} killing people first, then \glspl{monster} my mum said.}
+    \fi%
   \end{speechtext}
   \end{minipage}
 }
@@ -342,7 +354,6 @@
         \stepcounter{footnote}
         \footnotemark[\thefootnote]
       \fi
-      (free for \glspl{guard})
       & \mkPrice[cp]{6} per mile \\
       Boat-ride up-river with \composeHumanName\  & \mkPrice[cp]{16} per mile \\
     \fi
