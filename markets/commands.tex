@@ -682,7 +682,7 @@
 
 \newcommand\townPitOfJustice{
   \renewcommand\npcsymbol{\glsentrysymbol{paik}}
-  \begin{nametable}[Lc]{\Glsentrytext{court}}
+  \begin{nametable}[Lc]{\pinLocation[1,-1]{Pit}\Glsentrytext{court}}
     \textbf{Service} & \textbf{Cost} \\\hline
     Front-row seat & 6~\glsfmtplural{cp} \\
 
@@ -720,7 +720,7 @@
 
 \newcommand\townBeasts{
   \renewcommand\npcsymbol{\flourish}
-  \begin{nametable}[Xc]{\marketBeastSeller's Working Beasts}
+  \begin{nametable}[Xc]{\marketBeastSeller's Working Beasts\pinLocation{Beasts}}
 
     \textbf{Beasts} & \textbf{Cost} \\\hline
     Horse & \mkPrice{20} \\
@@ -751,11 +751,13 @@
     \fi%
 
   \end{nametable}
+  \pinLocation{Square}
+  \pinLocation[5,0]{SquareRight}
 }
 
 \newcommand\innOne{
   \renewcommand\npcsymbol{\flourish}
-  \begin{nametable}[Xc]{\marketInnOne}
+  \begin{nametable}[Xc]{\pinLocation{InnOne}\marketInnOne}
     \textbf{Hospitality} & \textbf{Cost} \\\hline
 
     Hearty Meal & \mkPrice[cp]{5} \\
@@ -806,6 +808,7 @@
 }
 
 \newcommand\tavernTwo{
+  \pinLocation[5.5,1]{Crossroad}
   \renewcommand\npcsymbol{\glsentrysymbol{abderian}}
   \begin{nametable}[Lc]{\marketTavernTwo}
     \textbf{Hospitality} & \textbf{Cost} \\\hline
@@ -826,7 +829,7 @@
 }
 
 \newcommand\innTwo{
-  \renewcommand\npcsymbol{\glsentrysymbol{abderian}}
+  \renewcommand\npcsymbol{\pinLocation[2,0]{InnTwo}\glsentrysymbol{abderian}}
   \begin{nametable}[Xc]{\marketInnTwo}
 
     \textbf{Hospitality} & \textbf{Cost} \\\hline
@@ -846,7 +849,7 @@
   \noindent
   \begin{minipage}{\linewidth}
     \renewcommand\npcsymbol{\glsentrysymbol{nulla}}
-    \begin{nametable}[LcX]{\marketDoula's \glsentrytext{doulaShop}}
+    \begin{nametable}[LcX]{\pinLocation{Doula}\marketDoula's \glsentrytext{doulaShop}}
       \textbf{Things on shelves} & \textbf{Weight} & \textbf{Cost} \\\hline
       \rareMarketItem{Air \Glsentrytext{boon}}{1}{24}%
       \rareMarketItem{Fire \Glsentrytext{boon}}{1}{24}%
@@ -869,7 +872,7 @@
   \noindent
   \begin{minipage}{\linewidth}
     \renewcommand\npcsymbol{\glsentrysymbol{eldren}}
-    \begin{nametable}[Lcl]{At the \Glsentrytext{templeOfSickness}}
+    \begin{nametable}[Lcl]{\pinLocation{Healers}At the \Glsentrytext{templeOfSickness}}
 
       \textbf{Cure} & \textbf{\Glsentrytext{weight}} & \textbf{Cost} \\\hline
 
@@ -901,8 +904,9 @@
 
 \newcommand\townDocks{
   \stepcounter{footnote}%
+  \pinLocation[5,-1]{Crossroad}
   \renewcommand\npcsymbol{\flourish}
-  \begin{nametable}[Lcc]{At the Docks\footnotemark[\value{footnote}]}
+  \begin{nametable}[Lcc]{At the Docks\footnotemark[\value{footnote}]\pinLocation{Docks}}
 
     \textbf{Items} & \textbf{\Glsentrytext{weight}} & \textbf{Cost} \\\hline
     Fake \glsfmtplural{fodder} town-pass & 0 & \mkPrice{4} \\
@@ -948,7 +952,7 @@
 
 \newcommand\townCuriosity{
   \renewcommand\npcsymbol{\glsentrysymbol{yonder}}
-  \begin{nametable}[Lcc]{At the \glsentrytext{templeOfCuriosity}}
+  \begin{nametable}[Lcc]{At the \glsentrytext{templeOfCuriosity}\pinLocation{Library}}
 
     \textbf{Item} & \textbf{Weight} & \textbf{Cost} \\\hline
 
@@ -1043,10 +1047,10 @@
 
 \newcommand\townWeavers{
   \vspace{\baselineskip}
-
+  
   \begin{minipage}{\linewidth}
   \renewcommand\npcsymbol{\glsentrysymbol{sable}}
-  \begin{nametable}[Lcc]{At the \glsentrytext{templeOfFrost}}
+  \begin{nametable}[Lcc]{At the \glsentrytext{templeOfFrost}\pinLocation{Weavers}}
 
     \textbf{Clothing} & \textbf{Weight} & \textbf{Cost} \\\hline
 
@@ -1101,26 +1105,30 @@
 \newcommand\townArmoury{
   \begin{minipage}{\linewidth}
     \renewcommand\npcsymbol{\glsentrysymbol{wrecan}}
-    \begin{nametable}[Lcccc]{At the \Glsentrytext{templeOfHate}}
+    \begin{nametable}[Lcccc]{At the \Glsentrytext{templeOfHate}\pinLocation[1,0]{Armoury}}
       \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{\glsentrytext{covering}} & \textbf{Weight} & \textbf{Cost} \\\hline
       \rareArmour[5]{\completechain}{24}%
       \rareArmour[6]{\partialplate}{36}%
       \rareArmour[9]{\completeplate}{66}%
       \showArmourPrice{\partialchain}{14}%
     \end{nametable}
-    \ifodd\value{r3}
-      \begin{speechtext}
-        \footnotesize
+    \begin{speechtext}
+      \footnotesize
+      \ifodd\value{r3}
         The \glsfmttext{templeOfHate} can pay \mkPrice{8} for Earth \glspl{ingredient}.
-      \end{speechtext}
-    \fi
+      \else
+        We do signet rings for \mkPrice[gp]{2}.
+        Custom design to suit your personality, and you can get one in silver, lead, or gnome-plated bronze.
+        \Gls{coin} up-front, and ten days wait.
+      \fi
+    \end{speechtext}
   \end{minipage}
   \null\par
 }
 
 \newcommand\townTanner{
   \renewcommand\npcsymbol{\glsentrysymbol{wrecan}}
-  \begin{nametable}[Lcccc]{At the Tanner's}
+  \begin{nametable}[Lcccc]{At the Tanner's\pinLocation[2,-1]{Tanners}}
     \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{\glsentrytext{covering}} & \textbf{Weight} & \textbf{Cost} \\\hline
     \rareArmour[6]{\partiallisk}{40}%
     \rareArmour[8]{\completelisk}{50}%

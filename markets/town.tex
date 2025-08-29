@@ -19,6 +19,7 @@
   Mum--ma'am.
   {\tiny hic}
 \fi
+\pinLocation{guardgate}
 \end{exampletext}
 
 \townArmoury
@@ -31,6 +32,12 @@
 
 \townTanner
 
+\begin{tikzpicture}[overlay,remember picture]
+  \draw[marketpath] (northgate) -- (guardgate) -- (Healers);
+  \draw[marketpath] (Weavers) -- (current page.south west);
+  \draw[marketpath] (Crossroad) -- (Tanners) -- (Weavers);
+  \draw[marketpath] (Healers) -- (Crossroad) -- (Armoury);
+\end{tikzpicture}
 \townGuardArms
 
 \fightAdvert
@@ -66,7 +73,17 @@
 \randomize
 \ifnum\value{r12}>7
   \rotatebox{-2}{\townDoula}
+  \begin{tikzpicture}[overlay,remember picture]
+    \draw[marketpath] (current page.south east) -- (Doula) -- (Crossroad);
+  \end{tikzpicture}
 \fi
+
+\begin{tikzpicture}[overlay,remember picture]
+  \draw[marketpath] (Library) -- (InnTwo) -- (current page.south east);
+  \draw[marketpath] (Beasts) -- (InnTwo);
+  \draw[marketpath] (Square) -- (SquareRight) -- (Crossroad) -- (Pit);
+  \draw[marketpath] (InnOne) -- (Crossroad);
+\end{tikzpicture}
 
 \end{multicols}
 

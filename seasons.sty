@@ -18,12 +18,15 @@
   \multiply\value{cycle}by 2% April = 2, June = 6
   \addtocounter{cycle}{-2}% April = 0, June = 4
   \setcounter{fenestraDay}{#2}%
-  \ifnum\value{fenestraDay}>15%
-    \addtocounter{fenestraDay}{-15}%
+  \ifnum\value{fenestraDay}>15
+    \addtocounter{fenestraDay}{-16}%
     \stepcounter{cycle}%
   \fi%
   \multiply\value{fenestraDay}by 4%
-  \addtocounter{fenestraDay}{-3}%
+  \addtocounter{fenestraDay}{-\value{r3}}%
+  \ifnum\thefenestraDay<0%
+    \setcounter{fenestraDay}{1}%
+  \fi%
   \setTemperature%
 }
 

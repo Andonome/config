@@ -3,7 +3,17 @@
   \renewcommand{\headrule}{}
   \fancyhf{}% clear all header and footer fields
   \fancyhead[RO]{\vspace{-2em}\scshape\showCycle}
+  \AddToHook{shipout/background}{%
+    \begin{tikzpicture}[overlay,remember picture]
+      \coordinate (northgate) at (current page.north west);
+      \coordinate (westgate) at (current page.south west);
+      \coordinate (eastgate) at (current page.south east);
+    \end{tikzpicture}
 }
+
+}
+
+\tikzstyle{marketpath} = [background, very thick, dashed, very nearly transparent]
 
 \newtoggle{marketBeasts}
 \settoggle{marketBeasts}{false}
@@ -58,6 +68,10 @@
 \newcommand\rareArmour[3][9]{%
   \ifnumcomp{\value{r12}}{>}{#1}{ \showArmour{#2} & \mkPrice{#3} \\ }{}%
   \randomize%
+}
+
+\newcommand\pinLocation[2][0,0]{%
+  \tikz [overlay,remember picture] \coordinate (#2) at (#1);%
 }
 
 %%%%% Seller Names
