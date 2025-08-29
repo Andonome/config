@@ -22,7 +22,7 @@
     \appto{\name}{nut}%
     \appto{\baileydesc}{Walnut tree grow around the farmland in a grand circle.
     They say walnuts keep the \gls{edge} at bay.  }%
-    \renewcommand\rations{walnut cake}
+    \appto{\baileymarkets}{\renewcommand\rations{walnut \ifodd\value{r2}cake\else roast\fi}}%
     \appto{\baileymarketsWide}{}
   \or%
     \appto{\name}{stank}%
