@@ -93,7 +93,19 @@
     \ifnum\thetemperature>1
       \appto{\baileyback}{%
         That night, \pgls{crawler} arrives, climbs over the wall, and feels around the houses for an opening.
-        Everyone remains still, and by the morning, it leaves.
+        \ifcase\value{r4}\relax\or%
+          Distant screams come soon after, as it enters a home.
+          \ifodd\value{r2}%
+            The rest of the \gls{village} stay inside.
+            {\par\sffamily In the morning, remove the last seller.}
+          \else%
+            Half the \gls{village} come out, with \glspl{torch} and spears to block its escape.
+          \fi%
+        \or%
+          It pads along the roof where the \glspl{pc} sleep, then leaves soon after.
+        \else%
+          Everyone remains still, and by the morning, it leaves.
+        \fi
 
         \chitincrawler
       }%
@@ -118,7 +130,9 @@
     }%
   \or% 4
     \appto{\baileyback}{%
-      In the dark, two little lights pass quietly between houses; two young people have crept out to meet each other in secret, and everyone in \baileyname\ pretends not to hear them.
+      \begin{boxtext}
+        In the dark, two little lights pass quietly between houses; two young people have crept out to meet each other in secret, and everyone in \baileyname\ pretends not to hear them.
+      \end{boxtext}
     }%
   \or% 5
     \appto{\baileyback}{%
@@ -154,9 +168,9 @@
     \ifnum\thefenestraDay>50
       \appto{\baileyback}{%
         The next day, everyone in \baileyname\ begins fussing about the impending \gls{storm}.
-        They discuss the rooves, possible flooding, and the possibility of placing buckets of water to prepare for lightning strikes setting something on fire.
+        They discuss the rooves, possible flooding, and placing buckets of water to prepare for lightning strikes setting something on fire.
 
-        Attempting any further business takes two \glspl{interval}.
+        Attempting any further business takes two \glspl{interval} until \gls{storm} subsides.
       }%
     \else
       \appto{\baileyback}{%
@@ -195,6 +209,9 @@
     \ifodd\value{r12}
       Proper \showTemperature\ today.
     \fi
+    \ifnum\thefenestraDay>50
+      \Gls{grummel}'s on his way, brewing up some mischief as usual and we're all underprepared.
+    \fi
     \ifodd\value{r3}
       \rotatebox{\value{rn1t2}}{Any news from town?}
       \rotatebox{\value{rn1t2}}{\footnotesize Sorry\ldots I forgot yous can't go in\ldots}
@@ -203,7 +220,7 @@
       \rotatebox{\value{rn1t2}}{If you don' have it, you'll need it.}
     \fi
 
-    \flushright
+    \raggedleft
     \ifodd\day
       \footnotesize
       Why don't the \glspl{guard} make weapons?
@@ -217,7 +234,7 @@
     {\sl
     \ifcase\thecycle
       Last week, out with the traders, I heard this little bell from the forest.
-      Want to know where it was?
+      But that's none of my business\ldots
     \or
       \Gls{sable} can go fuck an icicle.
       What kind of god makes snow and just lies in it?
@@ -246,7 +263,7 @@
     \ifcase\value{r6}\relax\or%
       {\tiny If I grow up, I want to be \pgls{guard}.}
     \or%
-      {\tiny Mum says you have to give me 3~\glspl{cp} right now.}
+      {\tiny Mum says you have to give me 3~\glsentrylongpl{cp} right now.}
     \or%
       {\tiny Did you ever saw \pgls{crawler} smoking a pipe?}
     \or%
@@ -432,7 +449,7 @@
     \ifodd\value{r4}
     Bed in \composeHumanName's stable & \mkPrice{0} \\
 
-    Hearty meal with the \composeHumanName\ family and \arabic{r12} kids & \ifnum\value{temperature}>0\mkPrice[cp]{2}\else\mkPrice[cp]{4}\fi \\
+    Hearty meal with the \composeHumanName\ family and \arabic{r12} kids & \ifnum\value{temperature}=0\mkPrice[cp]{8}\else\mkPrice[cp]{2}\fi \\
 
     \fi
     Hardened \rations & \mkPrice[cp]{15} \\
