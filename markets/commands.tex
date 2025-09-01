@@ -80,11 +80,10 @@
 %    orient themselves by it when printing booklets.
 
 \newcommand\afterBaileyEvent{%
+  \addtocounter{goblinLoot}{\value{r2}}%
   \ifcase\value{goblinLoot}\relax%
   \or% 1
     \appto{\baileyback}{%
-      The next evening, people with long, pointed ears arrive from beyond the \gls{edge} to sell.
-
       \gnollSellers
 
       \gnollDogShow
@@ -197,7 +196,6 @@
     \fi
     \setcounter{goblinLoot}{0}%
   \fi%
-  \addtocounter{goblinLoot}{\value{r2}}%
 }
 
 \newcommand\baileyWell{
@@ -728,7 +726,7 @@
   \end{nametable}
 
   \ifodd\value{r3}\relax\else
-    \null
+    \vspace{-1em}
     \begin{speechtext}
       \footnotesize
       Three copper in,
@@ -918,6 +916,7 @@
 
     \end{nametable}
 
+    \vspace{-1\baselineskip}
     \begin{speechtext}
       \footnotesize
       \Glsfmttext{mixer} \marketMixer\ says to tell you that we'll purchase any \glsfmtplural{ingredient} for \mkPrice{12} if we're out of stock.
@@ -940,7 +939,7 @@
     \rareMarketItem{Water \Glsentrytext{ingredient} (\glsentrytext{woodspy} beak)}{1}{13} %
     \rareMarketItem{Fate \Glsentrytext{ingredient} (\ifnum\value{temperature}=0 human blood from the \glsentrytext{court}\else brown ooze\fi)}{1}{14}
 
-    Lock-pick set%
+    Lock-pick set %
     (\absNum{rn1t2}) & 0 & \mkPrice{10} \\
   \end{nametable}
 }
@@ -1107,6 +1106,7 @@
 
   \end{nametable}
 
+  \vspace{-1\baselineskip}
   \begin{speechtext}
     \footnotesize
     \ifcase\value{cycle}=0
