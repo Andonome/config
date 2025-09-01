@@ -1,3 +1,5 @@
+\Repeat{5}{\randomize}
+
 %%%%%%%%%% Compose a Bailey %%%%%%%%%%
 \newcommand\baileydesc{}
 \newcommand\baileymarkets{}
@@ -80,7 +82,7 @@
 %    orient themselves by it when printing booklets.
 
 \newcommand\afterBaileyEvent{%
-  \addtocounter{goblinLoot}{\value{r2}}%
+  \addtocounter{goblinLoot}{\value{r3}}%
   \ifcase\value{goblinLoot}\relax%
   \or% 1
     \appto{\baileyback}{%
@@ -317,11 +319,45 @@
 
   \edef\baileyname{\expandafter\MakeUppercase\name}
 
+  \ifnum\value{r12}=2%
+    \appto{\baileyback}{\baileyGnomeStall}%
+  \fi%
+
   \afterBaileyEvent
   \colourWheel[r6]
 }
 
 %%%%%%%%%% Bailey Markets %%%%%%%%%%
+
+\newcommand\baileyGnomeStall{
+  \begin{boxtext}
+    A gentle wrapping comes at the gate at Sunset, though nobody saw anything approach.
+    It knocks at the door in a rhythmic, musical pattern.
+  \end{boxtext}
+
+  The tiny woman with a long nose enters with a large rucksack.
+  She cannot carry all she has, so she is willing to sell two items.
+
+  The \lootTalisman\ costs \mkPrice[gp]{10}.
+
+  \showTalisman
+
+  The \lootTalisman\ costs \mkPrice[gp]{10}.
+
+  \showTalisman
+
+  The \lootTalisman\ costs \mkPrice[gp]{10}.
+
+  \showTalisman
+
+  The next day, she plans her journey to town.
+
+  \bigLine
+  \vspace{1\baselineskip}
+  {\sffamily Later\ldots}
+
+  \vspace{1\baselineskip}
+}
 
 \newcommand\doulaCottage{
   \noindent
@@ -570,14 +606,14 @@
 
       \textbf{Projectile} & \textbf{Att} & \textbf{Dam} & \textbf{\Gls{ap}} & \textbf{Weight} & \textbf{Cost} \\\hline
 
-      Arrows  &  --- & --- & --- & --- & \mkPrice[cp]{18}  \\
+      Arrows  &  --- & --- & --- & $\frac{1}{10}$   & \mkPrice[cp]{18}  \\
 
       \Glsfmttext{bow} &  +1  & +1 & 3~\glspl{ap} & 1  & \mkPrice{8}  \\
 
       \Glsfmttext{bow} &  +2  & +2 & 4~\glspl{ap} & 1  & \mkPrice{12}  \\
 
       \ifodd\value{r3}\else
-      Bolt  &  --- & --- & --- & --- & \mkPrice[cp]{18}  \\
+      Bolt  &  --- & --- & --- & $\frac{1}{10}$ & \mkPrice[cp]{18}  \\
       \Glsfmttext{crossbow} &  +2  & +2 & 1~\glspl{ap} & 3  & \mkPrice{18}  \\
       \fi
     \end{nametable}
@@ -1039,7 +1075,10 @@
   \ifodd\value{r3}
     \begin{speechtext}
       \footnotesize
-      The \glsfmttext{templeOfCuriosity} can pay \mkPrice{8} for Air \glspl{ingredient}, and \mkPrice{8} for Fire.
+      The \glsfmttext{templeOfCuriosity} can pay \mkPrice{8} for Air \glspl{ingredient}, and \mkPrice{8} for Fire.%
+      \ifodd\value{r3c}\else%
+        \footnote{And we'll be informing the \glspl{jotter} about this sale, so remember to pay the 50\% tax.}
+      \fi
     \end{speechtext}
   \fi
 }
@@ -1239,9 +1278,9 @@
     \fi
 
     \hline
-    Arrows  &  --- & --- & --- & --- & \mkPrice[cp]{16}  \\
+    Arrows  &  --- & --- & --- & $\frac{1}{10}$ & \mkPrice[cp]{16}  \\
 
-    Bolt  &  --- & --- & --- & --- & \mkPrice[cp]{18}  \\
+    Bolt  &  --- & --- & --- & $\frac{1}{10}$  & \mkPrice[cp]{18}  \\
     \hline
 
     \Glsfmttext{crossbow} &  +2  & +2 & 1~\glspl{ap} & 3  & \mkPrice{16}  \\
