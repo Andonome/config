@@ -57,8 +57,8 @@
 }
 
 \newcommand\rareMarketItem[4][7]{%
+  \ifnumcomp{\value{r12}}{>}{#1}{#2 & #3 & \mkPrice{#4} \\}{\randomize}%
   \randomize%
-  \ifnumcomp{\value{r12}}{>}{#1}{#2 & #3 & \mkPrice{#4} \\}{}%
 }
 
 \newcommand\showArmourPrice[2]{%
