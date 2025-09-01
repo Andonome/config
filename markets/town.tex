@@ -50,22 +50,23 @@
 
 \townGuardProjectiles
 
-\bigLine
-
-\begin{multicols}{3}
+\begin{multicols}{3}[\bigLine]
 
 \docksNote
 
 \townCuriosity
 
+\vspace{-1\baselineskip}
 \rotatebox{\value{rn1t2}}{\townSignage}
 
 \townBeasts
 
 \townSquare
 
+\vspace{-1\baselineskip}
 \innOne
 
+\vspace{-1\baselineskip}
 \tavernOne
 
 \tavernTwo
@@ -74,21 +75,22 @@
 
 \townPitOfJustice
 
-\begin{tikzpicture}[overlay,remember picture]
-  \draw[marketpath] (current page.south east) -- (TavernTwo) -- (Beasts);
-  \draw[marketpath] (TavernOne) -- (Crossroad) -- (TavernTwo);
-  \draw[marketpath] (Library) -- (Square) -- (SquareRight);
-  \draw[marketpath] (Crossroad) -- (Pit) -- (SquareRight) -- (InnTwo);
-  \draw[marketpath] (Pit) -- (InnOne);
-\end{tikzpicture}
-
 \randomize
 \ifnum\value{r12}>7
   \rotatebox{-2}{\townDoula}
+  \vspace{-2\baselineskip}
   \begin{tikzpicture}[overlay,remember picture]
     \draw[marketpath] (Doula) -- (Crossroad);
   \end{tikzpicture}
 \fi
 
-\end{multicols}
+\vspace{-2\baselineskip}
+\begin{tikzpicture}[overlay,remember picture]
+  \draw[marketpath] (current page.south east) -- (TavernTwo) -- (Beasts);
+  \draw[marketpath] (TavernOne) -- (Crossroad) -- (TavernTwo);
+  \draw[marketpath] (Library) -- (Square) -- (SquareRight);
+  \draw[marketpath] (Crossroad) -- (Pit) -- (SquareRight);
+  \draw[marketpath] (Pit) -- (InnOne);
+\end{tikzpicture}
 
+\end{multicols}

@@ -284,7 +284,10 @@
   \renewcommand\name{}
   \renewcommand\baileydesc{}
   \renewcommand\baileymarkets{}
-  \renewcommand\baileymarketsWide{\baileyFletcher\par}
+  \renewcommand\baileymarketsWide{%
+    \baileyServices\par%
+    \baileyFletcher\par%
+  }
   \renewcommand\baileyback{}
   \ifnum\value{segNoSpare}>6% This counter determines which chunk of bailey-descrption is used.
     \setcounter{segNoSpare}{1}%
@@ -296,7 +299,6 @@
   \addChunkOfBailey
 
   \appto{\baileymarkets}{%
-    \baileyServices\par%
     \baileyHospitality\par%
     \baileySalvage\par%
   }
@@ -505,7 +507,9 @@
       Boat for \arabic{r6} & 1\arabic{r6} &  \mkPrice{\value{Strength}} \\
     \fi
 
-    \rareMarketItem[9]{Magic beans}{0}{4}
+    \rareMarketItem[10]{Magic beans%
+      \footnote{`Magic', like `friendship is magic'.}
+    }{0}{4}
 
     Tinder box & 0 & \mkPrice[cp]{3} \\
 
@@ -914,10 +918,10 @@
     \renewcommand\npcsymbol{\glsentrysymbol{nulla}}
     \begin{nametable}[LcX]{\pinLocation{Doula}\marketDoula's \glsentrytext{doulaShop}}
       \textbf{Things on shelves} & \textbf{Weight} & \textbf{Cost} \\\hline
-      \rareMarketItem[7]{Air \Glsentrytext{boon}}{1}{24}%
-      \rareMarketItem[7]{Fire \Glsentrytext{boon}}{1}{24}%
-      \rareMarketItem[7]{Earth \Glsentrytext{boon}}{1}{24}%
-      \rareMarketItem[7]{Water \Glsentrytext{boon}}{1}{24}%
+      \rareMarketItem[8]{Air \Glsentrytext{boon}}{1}{24}%
+      \rareMarketItem[8]{Fire \Glsentrytext{boon}}{1}{24}%
+      \rareMarketItem[8]{Earth \Glsentrytext{boon}}{1}{24}%
+      \rareMarketItem[8]{Water \Glsentrytext{boon}}{1}{24}%
       \rareMarketItem[7]{Fate \Glsentrytext{boon}}{1}{24}%
       \marketItem{Cup of tea}{0}{0}%
 
@@ -1070,6 +1074,7 @@
   \end{nametable}
 
   \ifodd\value{r3}
+    \vspace{-1\baselineskip}
     \begin{speechtext}
       \footnotesize
       The \glsfmttext{templeOfCuriosity} can pay \mkPrice{8} for Air \glspl{ingredient}, and \mkPrice{8} for Fire.%
