@@ -32,15 +32,19 @@
 
 \townTanner
 
-\begin{tikzpicture}[overlay,remember picture]
-  \draw[marketpath] (northgate) -- (guardgate) -- (Healers);
-  \draw[marketpath] (Weavers) -- (current page.south west);
-  \draw[marketpath] (Crossroad) -- (Tanners) -- (Weavers);
-  \draw[marketpath] (Healers) -- (Crossroad) -- (Armoury);
-\end{tikzpicture}
 \townGuardArms
 
 \fightAdvert
+
+\begin{tikzpicture}[overlay,remember picture]
+  \draw[marketpath] (northgate) -- (guardgate) -- (Alley) -- (Armoury);
+  \draw[marketpath] (GuardArms) -- (Crossroad) -- (Docks);
+  \draw[marketpath] (Tanners) -- (guardgate);
+  \draw[marketpath] (Weavers) -- (Crossroad) -- (Alley);
+  \draw[marketpath] (Sidestreet) -- (Weavers);
+  \draw[marketpath] (Sidestreet) -- (current page.south west);
+\end{tikzpicture}
+
 
 \end{multicols}
 
@@ -70,20 +74,21 @@
 
 \townPitOfJustice
 
+\begin{tikzpicture}[overlay,remember picture]
+  \draw[marketpath] (current page.south east) -- (TavernTwo) -- (Beasts);
+  \draw[marketpath] (TavernOne) -- (Crossroad) -- (TavernTwo);
+  \draw[marketpath] (Library) -- (Square) -- (SquareRight);
+  \draw[marketpath] (Crossroad) -- (Pit) -- (SquareRight) -- (InnTwo);
+  \draw[marketpath] (Pit) -- (InnOne);
+\end{tikzpicture}
+
 \randomize
 \ifnum\value{r12}>7
   \rotatebox{-2}{\townDoula}
   \begin{tikzpicture}[overlay,remember picture]
-    \draw[marketpath] (current page.south east) -- (Doula) -- (Crossroad);
+    \draw[marketpath] (Doula) -- (Crossroad);
   \end{tikzpicture}
 \fi
-
-\begin{tikzpicture}[overlay,remember picture]
-  \draw[marketpath] (Library) -- (InnTwo) -- (current page.south east);
-  \draw[marketpath] (Beasts) -- (InnTwo);
-  \draw[marketpath] (Square) -- (SquareRight) -- (Crossroad) -- (Pit);
-  \draw[marketpath] (InnOne) -- (Crossroad);
-\end{tikzpicture}
 
 \end{multicols}
 
