@@ -476,7 +476,15 @@
 
     Tinder box & 0 & \mkPrice[cp]{3} \\
 
-    \rareMarketItem[9]{Magic beans}{0}{4}
+    \ifcase\value{rn3t3}
+      Stubby%
+    \or%
+      Decorative%
+    \or%
+      Ivory%
+    \else%
+      Long%
+    \fi~pipe & 0 & \mkPrice[cp]{3} \\
 
     \ifodd\value{r2}
       Lisk-fat
