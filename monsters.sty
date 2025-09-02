@@ -1490,20 +1490,43 @@
   {\hide{r4t5} \quadruped \stench}% ABILITIES
 }
 
-\newcommand{\sporeFolk}[1][\npc{\A\Pl\E}{Spore Folk}]{
+\newcommand{\sporeFolk}[1][\NPC{\A\Pl\E}% Symbol
+  {Spore Folk}% Name
+  {\ifodd\thediceNo%
+    Seeping%
+  \else%
+    Bulbous%
+  \fi, %
+  \ifcase\theXenomology\relax\or%
+    brown%
+  \else%
+    orange%
+  \fi, %
+  \ifcase\theCaving%
+    green mound%
+  \or%
+    humanoid fungal swirls%
+  \else%
+    mushroom-man%
+  \fi%
+  }% Description
+  {\ifodd\thexp faceless staring\else playing with water\fi}% Mannerism
+  {\ifodd\thexp to eat moss\else to collect rocks\fi}% Wants
+  ]{
   \Person{#1}%
     {{r4}{r4t5}{rn4tn1}}% BODY
     {{rn3t3}{rn4tn1}{rn3t3}}% MIND
     {%
       \ifnum\value{Intelligence}>1
         \set{Academics}{r3b}
+        \set{Xenomology}{rn1t2}
       \else
         \set{Athletics}{r3b}
+        \set{Stealth}{rn1t2}
       \fi
       \set{Brawl}{rn1t2}
       \set{Caving}{r3c}
       \set{Empathy}{rn3t3}
-      \set{Xenomology}{rn1t2}
       \ifnum\value{Intelligence}<-1
         \setcounter{Intelligence}{-6}
         \setcounter{Charisma}{-6}
