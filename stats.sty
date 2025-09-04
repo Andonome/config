@@ -952,13 +952,13 @@
 \newcommand\animalReactions[1][\value{r4}]{%
   \setcounter{track}{-1}%
   \addtocounter{track}{#1}
-  \setcounter{diceNo}{0}%
+  \setcounter{age}{0}%
   \Repeat{6}{%
     \randomize%
-    \stepcounter{diceNo}%
-    \epsdice[black]{\value{diceNo}}:~%
+    \stepcounter{age}%
+    \epsdice[black]{\value{age}}:~%
     \animalBehaviours%
-    \ifnum\value{diceNo}<6, \fi%
+    \ifnum\value{age}<6, \fi%
     \addtocounter{track}{\value{r3c}}%
   }
 }

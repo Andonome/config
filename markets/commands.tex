@@ -305,7 +305,7 @@
 
   % Baileys without a river should have a well.
   \ifodd\thediceNo
-    \appto{\baileymarkets}{\baileyWell}
+    \appto{\baileymarkets}{\null\par\baileyWell}
   \else
     \ifodd\value{r4b}
       \appto{\baileydesc}{Men are fixing boats by the shallow river.  One introduces himself as `\marketBoatman'.  }
