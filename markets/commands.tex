@@ -691,6 +691,13 @@
     \marketItem[cp]{Rescue kit {\footnotesize (needle, bandages, whiskey~phial: +1~Bonus)}}{0}{21}
     \marketItem{Rope, 50'}{1}{3}
   \end{nametable}
+  \ifodd\value{r3}\relax\else
+    \vspace{-1em}
+    \begin{speechtext}
+      \footnotesize
+      Today is a good day to dye.
+    \end{speechtext}
+  \fi
 }
 
 \newcommand\gnollSellers{
