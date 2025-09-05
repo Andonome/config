@@ -489,6 +489,10 @@
 
     Salty \rations & \mkPrice[cp]{15} \\
 
+    \ifnum\thetemperature>1
+      Fresh \rations & \mkPrice[cp]{15} \\
+    \fi
+
   \end{boxtable}
 }
 
