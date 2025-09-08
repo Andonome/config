@@ -122,19 +122,19 @@
 
 \pagebreak
 
-\begin{multicols}{2}
+\begin{multicols}{3}
 \renewcommand{\arraystretch}{1}%
 \scshape\footnotesize
 \noindent
 \begin{tabular}{lr}
   \Glsfmtlongpl{ap} & \iftoggle{examplecharacter}{ \hspace{-3em} \arabic{ap}}{} \\
-  \textcolor{gray}{\footnotesize $3 + Speed$} \\
+  \textcolor{gray}{\scriptsize $3 + Speed$} \\
   \hline
   Attack & \iftoggle{examplecharacter}{ \hspace{-3em} \absNum{att}}{} \\
-  \textcolor{gray}{\footnotesize $Dexterity + Melee + Weapon$} \\
+  \textcolor{gray}{\scriptsize $Dexterity + Melee + Weapon$} \\
   \hline
   Damage & \iftoggle{examplecharacter}{ \hspace{-3em} \dmg{damage} }{} \\
-  \textcolor{gray}{\footnotesize $1D6 + Strength + Weapon$} \\
+  \textcolor{gray}{\scriptsize $1D6 + Strength + Weapon$} \\
   \hline
   \Glsfmttext{covering} & \iftoggle{examplecharacter}{ \hspace{-3em} \arabic{covering}}{} \\
   \\
@@ -148,6 +148,10 @@
 
 \vspace{2em}
 \hint{5/ 10/ 15}
+
+\columnbreak
+\null
+\columnbreak
 
 \noindent
 \begin{tabularx}{\linewidth}{Xr}
