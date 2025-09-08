@@ -411,6 +411,51 @@
       \end{figure*}
 }
 
+\renewcommand\swarm[6][]%
+{
+  \begin{figure*}[tb!]
+  \begin{minipage}{\linewidth}
+  \small
+  \randomize
+  \clean
+  \renewcommand\name{#2}
+  \set{hp}{#3}
+  \set{Dexterity}{#4}
+  \set{Strength}{-5}
+  \set{toHit}{#4}
+  \addtocounter{toHit}{10}
+  \set{Speed}{#5}
+  \set{ap}{#5}
+  \addtocounter{ap}{3}
+  \setcounter{dr}{8}
+  \set{Wits}{#6}
+  #1
+  \set{freeHP}{hp}
+  \setcounter{freeHP}{\value{hp}}%
+  \addtocounter{freeHP}{-\value{weight}}%
+  \scshape
+  \begin{tabularx}{\textwidth}{rL}\hline
+  \rowcolors{2}{}{background!6}
+  \ent{\normalsize\glsentrysymbol{swarm}} & \ent{\name} 
+    \hfil\textcolor{\pageSideColor}{\scriptsize\calculateXP} \\\hline
+  \Gls{ap}: \arabic{ap} & Att: $\arabic{toHit} - HP$
+  \iftoggle{intro}{
+    \quad
+    Speed: \arabic{Speed},
+    \quad
+    Wits: \arabic{Wits}
+  }{
+    Dam: 1
+  }
+  \\
+  \ent{Abilities} & \Abilities \\
+  \hline
+  \end{tabularx}%
+  \end{minipage}
+  \par\hpStat
+  \end{figure*}
+}
+
 \newwrite\spellbooks
 
 \newcommand\writeSpheres{%
