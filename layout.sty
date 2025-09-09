@@ -804,12 +804,11 @@ bookmarks=true]%
   },
 }
 
-\newtcolorbox{boxtext}[1][]{
+\newtcolorbox{boxtext}[1][What do you do?]{
   colback=white,
   before={\par\vspace{.5em}\noindent},
-  fonttitle={\scshape #1},
   before upper={\parindent15pt\noindent},
-  after upper={\iftoggle{intro}{\par What do you do?}{}},
+  after upper={\iftoggle{intro}{\par #1}{}},
 }
 
 \newcommand{\sidebox}[2][23]{

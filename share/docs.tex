@@ -18,10 +18,8 @@
 \subsection{All about Dragons}
 
 \begin{boxtext}
-
-As you embark upon your first adventure, you summon your first monster with a simple backstroke.
-You write down \verb"\dragon", and behold!
-
+  As you embark upon your first adventure, you summon your first monster with a simple backstroke.
+  You write down \verb"\dragon", and behold!
 \end{boxtext}
 
 \dragon[\npc{\T[4]\E}{\arabic{noAppearing} Dragons}]
@@ -153,9 +151,20 @@ Then we have \verb"\begin{exampletext}" for example:
 
 \end{exampletext}
 
-\begin{boxtext}
-  And of course\ldots BOXTEXT!
+\begin{verbatim}
 
+\begin{boxtext}[The end?]
+  And of course\ldots BOXTEXT!
+  The optional argument changes the default
+  ending of `what do you do?'.
+\end{boxtext}
+
+\end{verbatim}
+
+\begin{boxtext}[The end?]
+  And of course\ldots BOXTEXT!
+  The optional argument changes the default
+  ending of `what do you do?'.
 \end{boxtext}
 
 \subsubsection{Showing Dice}
