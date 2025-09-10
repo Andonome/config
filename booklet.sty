@@ -1,3 +1,9 @@
+% The 'random' human names in all the modules will be identical, unless we push
+% the counters which determine the names.
+\randomize
+\addtocounter{humanNameNo}{-1}
+\addtocounter{humanNameSuffNo}{\value{r12}}
+
 \togglefalse{countedPage}
 \togglefalse{intro}
 
