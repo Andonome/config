@@ -129,9 +129,8 @@
   \addtocounter{r6b}{-1}%
   \showCycle[\value{r6b}]~%
   \ifnum\value{mp}>0%
-    \setcounter{r2}{57}%
-    \addtocounter{r2}{\value{r3}}%
-    \Roman{r2}%
+    \set{track}{57}%
+    \addtocounter{track}{\value{r3}}%
   \else%
     \set{track}{r6}%
     \addtocounter{track}{-1}%
