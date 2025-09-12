@@ -198,6 +198,14 @@
     \fi
     \setcounter{goblinLoot}{0}%
   \fi%
+  \setcounter{enc}{\month}\addtocounter{enc}{\day}%
+  \ifnum\theenc<4%
+    \appto{\baileyback}{%
+      \bigLine
+      \ldots and before first light, \Gls{fodder}~\fodderVagrant\ sneaks out the back, and away.
+      \humanthief[\npc{\M\Hu}{\fodderVagrant}]
+    }%
+  \fi%
 }
 
 \newcommand\baileyWell{
@@ -479,10 +487,17 @@
 
     \textbf{Hospitality} & \textbf{Cost} \\\hline
 
-    \ifodd\value{r4}
-    Bed in \composeHumanName's stable & \mkPrice{0} \\
 
-    Hearty meal with the \composeHumanName\ family and \arabic{r12} kids & \ifnum\value{temperature}=0\mkPrice[cp]{8}\else\mkPrice[cp]{2}\fi \\
+    \ifodd\value{r4}
+      Bed in \composeHumanName's stable%
+      \setcounter{enc}{\month}\addtocounter{enc}{\day}%
+      \ifnum\theenc<4%
+        { \footnotesize with \Gls{fodder}~\fodderVagrant\scriptsize\ hidden in straw,
+        \tiny a deserter with $\dicef{6} \times \dicef{6} \times \dicef{6}$~\glspl{sp} left of the \glspl{coin} he stole from \pgls{broch}, hidden in the forest. }%
+      \fi%
+      & \mkPrice{0} \\
+
+      Hearty meal with the \composeHumanName\ family and \arabic{r12} kids & \ifnum\value{temperature}=0\mkPrice[cp]{8}\else\mkPrice[cp]{2}\fi \\
 
     \fi
     Hardened \rations & \mkPrice[cp]{15} \\
