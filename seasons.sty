@@ -1,6 +1,4 @@
 
-\newcounter{fenestraYear}
-\newcounter{fenestraDay}
 
 \newcommand\cycleDesc{}
 
@@ -167,18 +165,17 @@
   \setCycle{\month}{\day}
 }
 
-
 \newcommand\advanceTheDate[1][11]{%
-  \addtocounter{fenestraDay}{#1}%
-  \ifnum\thefenestraDay>60%
-    \addtocounter{fenestraDay}{-60}%
-    \stepcounter{cycle}%
-    \ifnum\thecycle>5%
-      \setcounter{cycle}{0}%
-      \stepcounter{fenestraYear}%
+  \foreach \x in {1,...,#1}{
+    \ifnum\thefenestraDay>59%
+      \stepcounter{cycle}%
+      \ifnum\thecycle>5%
+        \stepcounter{fenestraYear}%
+      \fi%
     \fi%
-    \setTemperature%
-  \fi%
+    \stepcounter{fenestraDay}%
+  }%
+  \setTemperature%
 }
 
 \setCycle{\month}{\day}
