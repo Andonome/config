@@ -1204,8 +1204,8 @@ bookmarks=true]%
   \ifnum\value{r4t5}>5\setcounter{r4t5}{4}\fi%
   \ifnum\value{r4t6}>6\setcounter{r4t6}{4}\fi%
   \ifnum\value{r6b}<1\setcounter{r6b}{6}\fi%
-  \setcounter{r6}{\value{rn1t2}}%
-  \addtocounter{r6}{\value{r2t4}}%
+  \addtocounter{r6}{\value{r2c}}%
+  \ifnum\value{r6}>6\setcounter{r6}{\value{r3c}}\fi%
   \setcounter{r12}{\value{r6}}%
   \addtocounter{r12}{\value{r6b}}%
 }
