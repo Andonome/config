@@ -1063,12 +1063,14 @@ bookmarks=true]%
 
 \newcounter{rn4tn1}
   \setcounter{rn4tn1}{-3}
-\newcounter{rn1t0}
+\newcounter{rn1t0}[r3b]
   \setcounter{rn1t0}{-1}
 \newcounter{r0t1}
   \setcounter{r0t1}{0}
 \newcounter{r2t3}
   \setcounter{r2t3}{2}
+\newcounter{r0t3}[r2t3]
+  \setcounter{r0t3}{\month}
 \newcounter{r2t4}
   \setcounter{r2t4}{2}
 \newcounter{r3t4}
@@ -1185,7 +1187,6 @@ bookmarks=true]%
     \addtocounter{rn3t3}{0}%
     \stepcounter{r4t6}%
     \stepcounter{r0t1}%
-    \stepcounter{rn1t0}
   \fi%
   \ifodd\value{r3b}%
     \stepcounter{r2c}%
@@ -1193,15 +1194,15 @@ bookmarks=true]%
   \else%
     \stepcounter{r2t3}%
     \stepcounter{r4b}%
+    \setcounter{rn1t0}{-1}%
   \fi%
   \foreach\c in {r2,r2b,r2c}%
-    {\ifnum\value{\c}>2\setcounter{\c}{1}\stepcounter{r3c}\fi}%
+    {\ifnum\value{\c}>2\setcounter{\c}{1}\stepcounter{r3c}\stepcounter{r0t3}\fi}%
   \foreach\c in {r3,r3b,r3c}%
     {\ifnum\value{\c}>3\setcounter{\c}{1}\addtocounter{r6b}{-1}\fi}%
   \foreach\c in {r4,r4b}%
     {\ifnum\value{\c}>4\setcounter{\c}{1}\stepcounter{rn1t2}\fi}%
   \ifnum\value{r0t1}>1\setcounter{r0t1}{0}\fi%
-  \ifnum\value{rn1t0}>0\setcounter{rn1t0}{-1}\fi%
   \ifnum\value{r2t3}>3\setcounter{r2t3}{2}\stepcounter{rn1t2}\fi%
   \ifnum\value{rn1t2}>2\setcounter{rn1t2}{-1}\fi%
   \ifnum\value{r2t4}>4\setcounter{r2t4}{2}\fi%

@@ -118,7 +118,7 @@
 
 \newcommand{\woodspy}[1][\npc{\E}{\Glsfmttext{woodspy}}]{
   \Animal{#1}%
-  {{r3t4}{rn1t2}{r2b}}% BODY
+  {{r3t4}{r0t3}{r2b}}% BODY
   {r3b}% WITS
   {%
     \set{Brawl}{r4t5}
@@ -144,7 +144,7 @@
 \newcommand{\basilisk}[1][\npc{\A}{\Glsfmttext{basilisk}}]{
   \Animal{#1}%
   {{r4t6}{r2b}{rn1t2}}% BODY
-  {r2c}% WITS
+  {rn1t2}% WITS
   {
     \set{Athletics}{r2}
     \set{Brawl}{r3c}
@@ -273,7 +273,7 @@
 \newcommand{\dryad}[1][\npc{\E\El}{Dryad}]{
   \Person{#1}%
     {{rn3t3}{r3}{r3c}}% BODY
-    {{r2t3}{r3b}{r3t4}}% MIND
+    {{r2t3}{r0t3}{r3t4}}% MIND
     {%
       \set{Brawl}{r3b}
       \set{Melee}{r2}
@@ -312,7 +312,7 @@
   \addtocounter{track}{-\value{r2c}}
   \Person{#1}%
     {{age}{r3b}{r3c}}% BODY
-    {{r3}{r4b}{rn3t3}}% MIND
+    {{r3}{r0t3}{rn3t3}}% MIND
     {%
       \set{Brawl}{rn1t2}
       \ifodd\value{r2c}
@@ -943,7 +943,7 @@
 
 \newcommand\morphhuman[1][\npc{\Hu\E\R}{Mutated Farmer}]{
   \Person{#1}%
-    {{r3}{0}{0}}% BODY
+    {{r0t3}{0}{0}}% BODY
     {{rn1t2}{-1}{0}}% MIND
     {%
       \ifodd\value{r3}
@@ -1206,7 +1206,7 @@
 
 \newcommand{\ogre}[1][\npc{\N\M}{Ogre}]{
   \Person{#1}%
-    {{r4t6}{rn1t2}{r3}}% BODY
+    {{r4t6}{rn1t2}{r0t3}}% BODY
     {{rn4tn1}{rn3t3}{r3c}}% MIND
     {%
       \addtocounter{Charisma}{-5}
