@@ -648,11 +648,15 @@
     Arrows  &  --- & --- &  $\frac{1}{10}$ & \mkPrice[cp]{28}  \\
     \fi
 
+  \ifodd\value{r4b}%
+    \showWeapon{\buckler} & \mkPrice{3} \\
+  \fi
+
   \showWeapon{\Dagger} & \mkPrice{2} \\
 
   \showWeapon{\flail} & \mkPrice{2} \\
 
-  \showWeapon{\weapon{Club}{\value{rn1t0}}{\value{rn1t2}}} & \mkPrice[cp]{3} \\
+  \showWeapon{\weapon{Gnarly club}{\value{rn1t0}}{\value{rn1t2}}} & \mkPrice[cp]{6} \\
 
   \showWeapon{\spear} & \mkPrice{6} \\
 
@@ -671,11 +675,11 @@
 
     \showWeapon{\quarterstaff} & \mkPrice{2} \\
 
-    \showWeapon{\weapon[1]{Longsword}{2}{2}} & \mkPrice{9} \\
+  \showWeapon{\weapon[1]{Longsword}{2}{2}} & \mkPrice{9} \\
 
-  \ifodd\value{r4b}%
-    \showWeapon{\buckler} & \mkPrice{3} \\
-  \fi
+  \showWeapon{\weapon{Waxed club}{\value{rn1t0}}{\value{rn1t2}}} & \mkPrice[cp]{6} \\
+
+  \showWeapon{\woodaxe} & \mkPrice{4} \\
 
   \end{nametable}
 }
