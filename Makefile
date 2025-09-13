@@ -1,6 +1,7 @@
 pdfs += character_sheets.pdf $(DROSS)/test.pdf markets.pdf
 pdfs += docs.pdf 
 zines += rules.pdf
+zines += spells.pdf
 targets += cs.pdf
 
 dependencies += magick
