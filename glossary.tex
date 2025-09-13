@@ -7,7 +7,7 @@
 
 \renewcommand*{\glstopicTitleFont}[1]{%
   \textsc{\bf\LARGE#1}\quad%
-  \textcolor{\pageSideColor}{%
+  \textcolor{background}{%
     \hrulefill\raisebox{-3pt}{\Large\hspace{-0.1em}\flourish}%
   }%
 }
@@ -40,7 +40,7 @@
 \glsdefpostdesc{endswithlist}{\qquad}
 
 \glssetcategoryattribute{profession}{glossnamefont}{textit}
-\glsdefpostdesc{profession}{.\\\textcolor{\pageSideColor}{\hrulefill}}
+\glsdefpostdesc{profession}{.\\\textcolor{background}{\hrulefill}}
 \glssetcategoryattribute{profession}{noindex}{true}
 \glssetcategoryattribute{profession}{nonumberlist}{true}
 
@@ -60,7 +60,7 @@
 \glssetcategoryattribute{rules}{noindex}{true}
 \glssetcategoryattribute{rules}{glossnamefont}{textsc}
 
-\glsdefpostdesc{location}{.\textcolor{\pageSideColor}{\hrulefill\flourish}}
+\glsdefpostdesc{location}{.\textcolor{background}{\hrulefill\flourish}}
 \glssetcategoryattribute{location}{glossnamefont}{textsc}
 
 \makeglossaries

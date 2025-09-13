@@ -1,6 +1,6 @@
 \newcommand{\lineDots}[1][1]{%
   \foreach \n in {1,...,#1}%
-    {\leavevmode\cleaders\hb@xt@1.5em{\hss \textcolor{\pageSideColor}{.}\hss }\hfill\kern\z@\par\vspace{1em}\noindent}%
+    {\leavevmode\cleaders\hb@xt@1.5em{\hss \textcolor{background}{.}\hss }\hfill\kern\z@\par\vspace{1em}\noindent}%
   }
 
 \newcommand\race{}
@@ -105,7 +105,7 @@
 \newcommand\statCircle[1][\large]{{#1\textbf{\Circle}}}
 \newcommand\statDot[1][\large]{#1\textbf{\CIRCLE}}
 \newcommand\currentCircle{}
-\newcommand{\weeline}{\textcolor{\pageSideColor}{\line(1,0){30} \hspace{.6cm}}}
+\newcommand{\weeline}{\textcolor{background}{\line(1,0){30} \hspace{.6cm}}}
 
 \newcommand\showAttribute[1]{
   \setcounter{track}{-4}%
@@ -276,9 +276,9 @@
         \put(-20,0){\parbox{11em}{\lineDots}}
       \fi%
       \put(100,5){\tikz \draw[anchor=north, dotted] (0,0) node[minimum size=21mm,draw,circle] {\textcolor{\ifnum\value{diceNo}>\value{weight}%
-        \pageOppositeColor%
+        foreground%
       \else%
-        \pageSideColor%
+        background%
       \fi}{\Large\ifnum\value{diceNo}>\value{hp}%
         \stepcounter{diceNo2}%
         --\arabic{diceNo2}%
