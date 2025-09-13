@@ -30,7 +30,7 @@
 
 %%% State a Cycle's name.
 
-\newcommand\showCycle[1][\value{cycle}]{%
+\newcommand*\showCycle[1][\value{cycle}]{%
   \ifcase#1%
     \glsentrytext{cOne}%
     \renewcommand\cycleDesc{\glsentrydesc{cOne}}%
