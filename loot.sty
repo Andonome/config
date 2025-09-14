@@ -107,13 +107,18 @@
 }
 
 \newcommand\goblinLight{%
-  \ifcase\value{r3}\relax%
-  \or%
-    glowing belly from eating \glsfmtplural{glowshroom}%
-  \or%
-    shroom-candle%
+  \ifodd\value{r3}%
+    \ifglsused{glowshroom}{%
+      glowing belly from eating \glsfmtplural{glowshroom}%
+    }{%
+      glow-worms in a phial%
+    }%
   \else%
-    fat candle%
+    \ifglsused{torch}{%
+      \gls{torch}%
+    }{%
+      fat candle%
+    }%
   \fi%
 }
 
