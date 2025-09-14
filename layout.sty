@@ -646,7 +646,12 @@ bookmarks=true]%
 
 \newcounter{dlist}
 \newenvironment{dlist}%
-  {\raggedright\begin{list}{\Large\dicef{\value{dlist}}}{\usecounter{dlist}}}%
+  {\raggedright\begin{list}{\raisebox{-2pt}{\large\dicef{\value{dlist}}}}{\usecounter{dlist}}%
+  \setlength{\itemindent}{0pt}%
+  \setlength{\itemsep}{1pt}%
+  \setlength{\topsep}{0pt} %
+  \setlength{\partopsep}{1pt}%
+  }%
   {\end{list}\null}%
 
 \newenvironment{dlistDouble}%
