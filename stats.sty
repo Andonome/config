@@ -232,7 +232,8 @@
 \setcounter{freeHP}{0}
 
 \newcommand\boxStat[1]{%
-  \Repeat{\value{#1}}{\Square}%
+  \ifltxcounter{#1}{\setcounter{adf}{\value{#1}}}{\setcounter{adf}{#1}}%
+  \Repeat{\value{adf}}{\stepcounter{track}\ifnum\thetrack>4\textperiodcentered\setcounter{track}{0}\fi\Square}%
 }
 
 \newcommand\boxDelimiter{%
