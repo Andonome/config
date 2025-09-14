@@ -467,7 +467,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   type={mech},
   category={rules},
   long={Roll \roll{Wits}{Survival} at \glsentrytext{tn}~%
-  \ifcase\value{cycle}14\or 12\or 12\else 10\fi.%
+  \ifcase\thetemperature 14\or 12\else 10\fi.%
   Success means supplies for $1D6$ \glsfmtplural{ration}, but only once cooked (\roll{Intelligence}{Cultivation}, \glsentrytext{tn}~10)},
   description={can provide verdant supplies, easily, with just one \glsentrytext{interval} of foraging.
   The player rolls \roll{Wits}{Survival} at \tn[12] (+2~Bonus during \glsentrytext{cFive}, -2~Penalty over \glsentrytext{cTwo}, and a -4~Penalty at night).
