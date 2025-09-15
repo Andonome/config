@@ -580,7 +580,31 @@
     {}% ABILITIES
 }
 
-\newcommand{\humantrader}[1][\npc{\T[\arabic{r12}]\Hu}{\arabic{noAppearing}~Traders}]{
+\newcommand{\humantrader}[1][\NPC{%
+    \ifcase\value{rn3t3}\glsentrysymbol{sable}\or\glsentrysymbol{abderian}\else\fi%
+    \ifodd\thepage\F\else\M\fi\Hu%
+  }% Symbol
+  {Trader \composeHumanName}% Name
+  {\ifcase\value{r3}\relax\or%
+    missing%
+  \or%
+    rotten%
+  \else%
+    oversized%
+  \fi\ %
+  \ifcase\value{r3b}\relax\or%
+    fingers%
+  \or%
+    teeth%
+  \else%
+    eyeball%
+  \fi%
+  }% Description
+  {\ifcase\value{r4}\relax\or jumps at shadows\or raspy voice\or monotone voice\else angry tone\fi, %
+  but \ifodd\theadf always smiles\else laughs like a pig\fi}% Mannerism
+  {to \ifodd\theStrength make connections \else complain about people \fi%
+  \ifodd\value{r0t1}in high places\else in faraway lands\fi}% Wants
+  ]{
   \Person{#1}%
     {{r2}{0}{0}}% BODY
     {{r0t1}{0}{rn3t3}}% MIND
@@ -590,24 +614,29 @@
       \else
         \set{Cultivation}{rn1t2}
       \fi
-      \ifodd\value{r3}
-        \set{Melee}{r2b}
-      \else
+      \ifodd\value{r3b}
         \set{Projectiles}{r2b}
+      \else
+        \set{Melee}{r2b}
       \fi
       \set{Crafts}{1}
       \ifodd\value{r4}
         \set{Empathy}{1}
       \else
-        \set{Deceit}{1}
+        \set{Deceit}{r2c}
       \fi
-      \ifodd\value{r3b}
+      \ifodd\value{r3c}
         \shortsword
       \else
         \Dagger
       \fi
     }% SKILLS
-    {\specialist{cartography}}% KNACKS
+    {\ifcase\value{r0t3}\chosenEnemy{\glsfmtplural{griffin}}%
+    \or\specialist{cartography}%
+    \or\specialist{wooden chests}%
+    \or\specialist{horses}%
+    \or\specialist{silver}%
+    \else\specialist{mules}\fi}% KNACKS
     {\ifnum\value{Projectiles}>1\longbow, \fi\lootMedium\ and \rations}% EQUIPMENT
     {}% ABILITIES
 }
@@ -638,8 +667,7 @@
     {}% ABILITIES
 }
 
-
-\newcommand{\doula}[1][\npc{\Hu\F}{Doula}]{
+\newcommand{\doula}[1][\npc{\Hu\F}{\Glsfmttext{doula}}]{
   \Person{#1}%
     {{rn1t0}{r2}{-1}}% BODY
     {{r3}{r2b}{rn3t3}}% MIND
