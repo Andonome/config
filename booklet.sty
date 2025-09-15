@@ -314,6 +314,13 @@
 \titlespacing{\subsubsection}
 {7pc}{1.5ex plus .1ex minus .2ex}{.5pc}
 
+\titleformat{\paragraph}[runin]
+{\selectfont\bfseries}{\theparagraph}{1em}{#1}
+
+% This '*1' in the third bracket decreases spacing before the paragraph.
+% \titlespacing*{\paragraph}
+% {0pt}{*1}{1em}
+
 \titlecontents{fsubsubsection}
               [2em]
               {%
