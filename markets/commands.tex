@@ -429,32 +429,27 @@
 
 \newcommand\butcherStall{
   \renewcommand\npcsymbol{\flourish}
-  \begin{nametable}[Lc]{At \composeHumanName\ the Butcher's\footnote{\sffamily The butcher buys bodies at half the value of their \gls{cr} in \glspl{sp}, or a quarter if he already has some.}}
-    \textbf{Rations} & \textbf{Cost} \\\hline
-    \ifnum\value{r12}>8
-      Smoked auroch & \mkPrice[cp]{20} \\
-    \else
-      Boar ears & \mkPrice[cp]{17} \\
-    \fi
+  \begin{nametable}[Lcc]{At \composeHumanName\ the Butcher's\footnote{\sffamily The butcher buys bodies at half the value of their \gls{cr} in \glspl{sp}, or a quarter if he already has some.}}
+    \textbf{Rations} & \textbf{Weight} & \textbf{Cost} \\\hline
+    \ifnum\value{r12}>8%
+      \marketItem[cp]{Smoked auroch}{1}{20}%
+    \else%
+      \marketItem[cp]{Boar ears}{1}{17}%
+    \fi%
     \ifodd\thediceNo
-      Fresh fish (keeps for a day) & \mkPrice[cp]{6} \\
+      \marketItem[cp]{Fresh fish \small(keeps~for a~day)}{1}{6}%
     \else
-      \ifodd\thetrack
-        Fishcakes & \mkPrice[cp]{17} \\
-      \else
-        \ifnum\thetemperature>1
-          \Glsfmttext{crawler} pat\'e \& crackers & \mkPrice[cp]{17} \\
-        \else
-          \Gls{digger} feet & \mkPrice[cp]{9} \\
-        \fi
-      \fi
+      \marketItem[cp]{Fishcakes}{1}{17}%
+    \fi%
+    \ifcase\thetemperature%
+      \marketItem[cp]{Kale salad}{1}{14}%
+    \or%
+      \marketItem[cp]{\small\Glsfmttext{crawler} pat\'e \& crackers }{1}{17}%
+    \or%
+      \marketItem[cp]{\small\Gls{digger} \ifodd\thefenestraDay feet\else liver\fi}{1}{9}%
+    \else%
+      \marketItem[cp]{Smoked \gls{basilisk} strips}{1}{18}%
     \fi
-    \ifnum\value{r12}=8
-      Deer jerky  & \mkPrice[cp]{18} \\
-    \fi
-  \ifnum\thetemperature>2
-    Smoked \gls{basilisk} strips & \mkPrice[cp]{4} \\
-  \fi
   \end{nametable}
   \vspace{-\baselineskip}
   \begin{speechtext}
@@ -463,16 +458,17 @@
 }
 
 \newcommand\beastSellers{
+  \noindent%
   \begin{minipage}{\linewidth}
   \begin{boxtable}[Lc]
     \textbf{Beasts} & \textbf{Cost} \\\hline
-    Donkey & \mkPrice{4} \\
+    \marketService{Donkey}{4}
 
-    Horse & \mkPrice{20} \\
+    \marketService{Horse}{20}
 
-    Mule & \mkPrice{23} \\
+    \marketService{Mule}{23}
 
-    Hunting Dog & \mkPrice{4} \\
+    \marketService{Hunting dog}{4}
 
   \end{boxtable}
 
@@ -483,12 +479,11 @@
 }
 
 \newcommand\baileyHospitality{
-  \begin{boxtable}[Lc]
+  \renewcommand\npcsymbol{\flourish}
+  \begin{nametable}[Lc]{Hospitality}
 
     \textbf{Hospitality} & \textbf{Cost} \\\hline
 
-
-    \ifodd\value{r4}
       Bed in \composeHumanName's stable%
       \setcounter{enc}{\month}\addtocounter{enc}{\day}%
       \ifnum\theenc<4%
@@ -498,15 +493,19 @@
       & \mkPrice{0} \\
 
       Hearty meal with the \composeHumanName\ family and \arabic{r12} kids & \ifnum\value{temperature}=0\mkPrice[cp]{8}\else\mkPrice[cp]{2}\fi \\
+  \end{nametable}
+}
 
-    \fi
-    Hardened \rations & \mkPrice[cp]{15} \\
+\newcommand\baileyRations{
+  \begin{boxtable}[Lcc]
+    \textbf{Food} & \textbf{Weight} & \textbf{Cost} \\\hline
+    \ifnum\thetemperature>1%
+      \marketItem[cp]{Fresh \rations}{1}{15}
+    \fi%
 
-    Salty \rations & \mkPrice[cp]{15} \\
+    \marketItem[cp]{Hardened \rations}{1}{15}
 
-    \ifnum\thetemperature>1
-      Fresh \rations & \mkPrice[cp]{15} \\
-    \fi
+    \marketItem[cp]{Salty \rations}{1}{15}
 
   \end{boxtable}
 }
@@ -517,12 +516,13 @@
     \textbf{Travel} & \textbf{Weight} & \textbf{Cost} \\\hline
 
     \ifodd\value{diceNo}
-      Cart & 13 &  \mkPrice{13} \\
-      Rushlights & 0 & \mkPrice[cp]{1} \\
+      \marketItem{Cart}{13}{13}
+      \marketItem[cp]{Rushlights}{0}{1}
     \else
       \setcounter{Strength}{\value{r6}}
       \multiply\value{Strength} by 10
       \addtocounter{Strength}{0}
+      $1 \times$
       Boat for \arabic{r6} & 1\arabic{r6} &  \mkPrice{\value{Strength}} \\
     \fi
 
@@ -530,23 +530,28 @@
       \footnote{`Magic', like `friendship is magic'.}
     }{0}{4}
 
-    Tinder box & 0 & \mkPrice[cp]{3} \\
+    \marketItem[cp]{Tinder box}{0}{3}
 
-    \ifcase\value{rn3t3}
-      Stubby%
-    \or%
-      Decorative%
-    \or%
-      Ivory%
-    \else%
-      Long%
-    \fi~pipe & 0 & \mkPrice[cp]{3} \\
+    \marketItem[cp]{%
+      \ifcase\value{rn3t3}
+        Stubby%
+      \or%
+        Decorative%
+      \or%
+        Ivory%
+      \else%
+        Long%
+      \fi\ pipe
+    }{0}{3}
 
+    $\arabic{r12}\times$
     \ifodd\value{r2}
       Lisk-fat
     \else
       Tar
     \fi \glsfmttext{torch} & \ensuremath{\frac{1}{3}} & \mkPrice[cp]{11} \\
+
+    $\arabic{r12}\times$
     Lantern oil (1~hr.) & \ensuremath{\frac{1}{3}} & \mkPrice[cp]{15} \\
 
   \end{nametable}
@@ -555,7 +560,7 @@
 \newcommand\baileyTanner{
   \noindent
   \begin{minipage}{\linewidth}
-  \begin{nametable}[Xcccc]{At \composeHumanName\ the Tanner's}
+  \begin{nametable}[lYccY]{At \composeHumanName\ the Tanner's}
     \textbf{Armour} & \textbf{\Glsentrytext{dr}} & \textbf{\glsentrytext{covering}} & \textbf{Weight} & \textbf{Cost} \\\hline
     \showArmourPrice{\partialleather}{5}%
     \showArmourPrice{\completeleather}{11}%
@@ -575,7 +580,7 @@
   \renewcommand\npcsymbol{\glsentrysymbol{sylf}}
   \begin{nametable}[Lcc]{Retired \Glsentrytext{ranger} \composeHumanName's Tents}
     \textbf{Size} & \textbf{Weight} & \textbf{Cost} \\\hline
-    \rareMarketItem{`Stuck lock repair tools' (\absNum{r2}~Bonus) \tiny be cool or no sale, okay?}{0}{7}
+    \rareMarketItem{`Stuck lock repair tools' \small(\absNum{r2}~Bonus) \tiny be cool or no sale, okay?}{0}{7}
     \rareMarketItem{Hardened half-yurt (\glsentrytext{dr} \arabic{r6})}{3}{12}
     \rareMarketItem[5]{Backpack (\tn[10] to remove)}{0}{1}
     \rareMarketItem{Backpack (\tn[7] to remove)}{0}{2}
@@ -626,14 +631,19 @@
 
       \textbf{Projectile} & \textbf{Att} & \textbf{Dam} & \textbf{\Gls{ap}} & \textbf{Weight} & \textbf{Cost} \\\hline
 
+      $\arabic{r12}0\times$
       Arrows  &  --- & --- & --- & $\frac{1}{10}$   & \mkPrice[cp]{18}  \\
 
+      $\arabic{r6}\times$
       \Glsfmttext{bow} &  +1  & +1 & 3~\glspl{ap} & 1  & \mkPrice{8}  \\
 
+      $\arabic{r6}\times$
       \Glsfmttext{bow} &  +2  & +2 & 4~\glspl{ap} & 1  & \mkPrice{12}  \\
 
       \ifodd\value{r3}\else
+      $\arabic{r3}0\times$
       Bolt  &  --- & --- & --- & $\frac{1}{10}$ & \mkPrice[cp]{18}  \\
+      $\arabic{r3}\times$
       \Glsfmttext{crossbow} &  +2  & +2 & 1~\glspl{ap} & 3  & \mkPrice{18}  \\
       \fi
     \end{nametable}
@@ -645,40 +655,55 @@
   \textbf{Name} & \textbf{Attack} & \textbf{Damage} & \textbf{\Glsfmttext{weight}} & \textbf{Cost} \\\hline
 
     \ifodd\value{r3}\else
-    Arrows  &  --- & --- &  $\frac{1}{10}$ & \mkPrice[cp]{28}  \\
+      $\arabic{r12}0\times$
+      Arrows  &  --- & --- &  $\frac{1}{10}$ & \mkPrice[cp]{28}  \\
     \fi
 
   \ifodd\value{r4b}%
+    $\arabic{r12}0\times$
     \showWeapon{\buckler} & \mkPrice{3} \\
   \fi
 
+  $\arabic{r12}\times$
   \showWeapon{\Dagger} & \mkPrice{2} \\
 
+  $\arabic{r12}\times$
   \showWeapon{\flail} & \mkPrice{2} \\
 
+  $\arabic{r3}\times$
   \showWeapon{\weapon{Gnarly club}{\value{rn1t0}}{\value{rn1t2}}} & \mkPrice[cp]{6} \\
 
+  $\arabic{r6}\times$
   \showWeapon{\spear} & \mkPrice{6} \\
 
   \ifnum\value{r3}=2%
 
+    $\arabic{r3b}\times$
     \showWeapon{\shortsword} & \mkPrice{9} \\
 
+    $\arabic{r3b}\times$
     \showWeapon{\weapon[1]{Glaive}{3}{2}} & \mkPrice{4} \\
   \else
+    $\arabic{r6}\times$
     \showWeapon{\javelin} & \mkPrice{4} \\
 
+    $\arabic{r6b}\times$
     \showWeapon{\glaive} & \mkPrice{9} \\
 
+    $\arabic{r6}\times$
     \showWeapon{\roundshield} & \mkPrice{3} \\
   \fi
 
+    $\arabic{r12}\times$
     \showWeapon{\quarterstaff} & \mkPrice{2} \\
 
+  $\arabic{r2}\times$
   \showWeapon{\weapon[1]{Longsword}{2}{2}} & \mkPrice{9} \\
 
+  $\arabic{r2}\times$
   \showWeapon{\weapon{Waxed club}{\value{rn1t0}}{\value{rn1t2}}} & \mkPrice[cp]{6} \\
 
+  $\arabic{r6}\times$
   \showWeapon{\woodaxe} & \mkPrice{4} \\
 
   \end{nametable}
@@ -690,9 +715,9 @@
 
     \textbf{Clothing} & \textbf{Weight} & \textbf{Cost} \\\hline
 
-    \Glsentrytext{dawnDolly} & 2 & \mkPrice[cp]{10} \\
+    \marketItem[cp]{ \Glsentrytext{dawnDolly} }{2}{10}
 
-    Itchy clothes & 1 & \mkPrice[cp]{30} \\
+    \marketItem[cp]{ Itchy clothes }{1}{30}
 
     \ifnum\value{r12}>8
       \marketItem{Orange Travelling Robes}{0}{20}
@@ -700,11 +725,11 @@
         \marketItem{Red Travelling Robes}{0}{22}
       \fi
     \fi
-    \ifnumcomp{\value{temperature}}{>}{0}{
-      Travellers clothes & 0 & \mkPrice[cp]{60} \\
-    }{
-      Warm clothes & 1 & \mkPrice[cp]{95} \\
-    }
+    \ifnumcomp{\value{temperature}}{>}{0}{%
+      \marketItem[cp]{Travellers clothes}{0}{60}
+    }{%
+      \marketItem[cp]{Warm clothes}{0}{90}
+    }%
     \hline
 
     \marketItem[cp]{Rescue kit {\footnotesize (needle, bandages, whiskey~phial: +1~Bonus)}}{0}{21}
@@ -814,16 +839,14 @@
 \newcommand\townBeasts{
   \renewcommand\npcsymbol{\flourish}
   \begin{nametable}[Xc]{\marketBeastSeller's Working Beasts\pinLocation{Beasts}}
-
     \textbf{Beasts} & \textbf{Cost} \\\hline
-    Horse & \mkPrice{20} \\
+    \marketService{Donkey}{4}
 
-    Mule & \mkPrice{24} \\
+    \marketService{Horse}{20}
 
-    Hunting Dog & \mkPrice{5} \\
+    \marketService{Mule}{23}
 
-    Donkey & \mkPrice{2} \\
-
+    \marketService{Hunting dog}{4}
   \end{nametable}
 }
 
@@ -861,9 +884,13 @@
 
     Hardened \rations & \mkPrice[cp]{4} \\
 
-    Rat Soup & \mkPrice[cp]{2} \\
-
-    Basic room & \mkPrice[cp]{20} \\
+    $\arabic{r0t3}\times$
+    Basic room%
+    \ifnum\value{r0t3}=0%
+      \footnote{No more room tonight.
+      Maybe try up the road?}
+    \fi%
+    & \mkPrice[cp]{20} \\
   \end{nametable}
 }
 
@@ -890,7 +917,16 @@
 
     Hearty Meal & \mkPrice[cp]{5} \\
 
-    Rat Soup & \mkPrice[cp]{2} \\
+    Rat Soup%
+    \ifcase\value{rn3t3}\relax\or%
+      \footnote{Hand picked!}
+    \or%
+      \footnote{Very trendy, as evidenced by two posh boys eating it in the corner.}
+    \else%
+      \footnote{$\frac{1}{\epsdice{6}}$ chance of Mindflash Syndrome.}
+    \fi%
+    & \mkPrice[cp]{2} \\
+
 
     \ifodd\value{r4b}%
       \stepcounter{r6}
@@ -935,8 +971,10 @@
 
     Hearty Meal & \mkPrice[cp]{6} \\
 
-    Nice room & \mkPrice[cp]{20} \\
+    $\arabic{r6}\times$
+    Nice room & \mkPrice[cp]{30} \\
 
+    $\arabic{r6}\times$
     Fancy room & \mkPrice[cp]{80} \\
 
   \end{nametable}
@@ -1007,13 +1045,15 @@
   \begin{nametable}[Lcc]{At the Docks\footnotemark[\value{footnote}]\pinLocation[-3,0]{Docks}}
 
     \textbf{Items} & \textbf{\Glsentrytext{weight}} & \textbf{Cost} \\\hline
-    Fake \glsfmtplural{fodder} town-pass & 0 & \mkPrice{4} \\
+    $\arabic{r12}\times$
+    Fake \glsfmtplural{fodder} town-pass & 0 & \mkPrice{3} \\
     \rareMarketItem{Air \Glsentrytext{ingredient} (\glsentrytext{griffin} wings)}{1}{13}%
     \rareMarketItem{Fire \Glsentrytext{ingredient} (bear's heart)}{1}{13} %
     \ifnum\value{temperature}=0\rareMarketItem{Earth \Glsentrytext{ingredient} (\glsentrytext{basilisk} hide)}{1}{13}\fi %
     \rareMarketItem{Water \Glsentrytext{ingredient} (\glsentrytext{woodspy} beak)}{1}{13} %
     \rareMarketItem{Fate \Glsentrytext{ingredient} (\ifnum\value{temperature}=0 human blood from the \glsentrytext{court}\else brown ooze\fi)}{1}{14}
 
+    $\arabic{r2}\times$
     Lock-pick set %
     (\absNum{rn1t2}) & 0 & \mkPrice{10} \\
   \end{nametable}
@@ -1079,26 +1119,32 @@
     \rareMarketItem[10]{Yellow gnomish hat}{0}{3}%
     \rareMarketItem[10]{Green gnomish hat}{0}{3}%
     \rareMarketItem[10]{Red gnomish hat}{0}{2}%
-    \rareMarketItem[6]{Gnomish lantern {\small(needs Gnomish lantern~oil)} }{1}{9}%
+    \rareMarketItem[6]{Gnomish lantern {\footnotesize(needs Gnomish lantern~oil)} }{1}{9}%
 
     \rareMarketItem{Gnomish lantern oil (1~hr.) }{ \ensuremath{\frac{1}{10}} }{1}%
 
     \rareMarketItem[6]{Oil-lantern}{1}{15}%
 
+    $\arabic{r12}0\times$
     Lantern oil (1~hr.) & \ensuremath{\frac{1}{3}} & \mkPrice[cp]{20} \\
 
+    $\arabic{r12}0\times$
     Rushlights & 0 & \mkPrice[cp]{1} \\
 
-    Soap & 0 & \mkPrice[cp]{3} \\
+    $\arabic{r12}0\times$
+    Soap & $\frac{1}{3}$ & \mkPrice[cp]{3} \\
 
+    $\arabic{r12}0\times$
     Tinder box & 0 & \mkPrice[cp]{3} \\
 
+    $\arabic{r6}\arabic{r12}\times$
     \ifodd\value{r2}
       Lisk-fat
     \else
       Tar
     \fi \glsfmttext{torch} & \ensuremath{\frac{1}{3}} & \mkPrice[cp]{11} \\
 
+    $\arabic{r4}\arabic{r12}\times$
     Writing equipment & 1 & \mkPrice[cp]{20} \\
 
   \end{nametable}
@@ -1222,8 +1268,10 @@
     \end{nametable}
     \begin{speechtext}
       \footnotesize
-      \ifcase\value{r3}\relax\or%
-        The \glsfmttext{templeOfHate} can pay \mkPrice{8} for Earth \glspl{ingredient}.
+      \ifcase\value{r4}\relax\or%
+        The \glsfmttext{templeOfHate} can pay \mkPrice{12} for Earth \glspl{ingredient}.
+      \or%
+        We can adjust the sizes for dwarves and larger elves, but it can take weeks, depending on how much the armour's covering.
       \or%
         Each purchase comes with a quarter bushel for your pipe.
       \else%
@@ -1252,18 +1300,25 @@
 
     \textbf{Name} & \textbf{Attack Bonus} & \textbf{Damage Bonus} & \textbf{Weight} & \textbf{Cost} \\\hline
 
+    $\arabic{r12}0\times$
     \showWeapon{\Dagger} & \mkPrice{4} \\
 
+    $\arabic{r12}\times$
     \showWeapon{\glaive} & \mkPrice{10} \\
 
+    $\arabic{r12}\times$
     \showWeapon{\greataxe} & \mkPrice{9} \\
 
+    $\arabic{r12}\times$
     \showWeapon{\greatsword} & \mkPrice{15} \\
 
+    $\arabic{r12}\times$
     \showWeapon{\shortsword} & \mkPrice{9} \\
 
+    $\arabic{r12}\times$
     \showWeapon{\spear} & \mkPrice{7} \\
 
+    $\arabic{r12}\times$
     \showWeapon{\longsword} & \mkPrice{13} \\
 
   \end{nametable}
@@ -1298,23 +1353,30 @@
   \begin{boxtable}[LYYYXl]
     \textbf{Projectile} & \textbf{Attack Bonus} & \textbf{Damage} & \textbf{\Gls{ap} Cost} & \textbf{Weight} & \textbf{Cost} \\\hline
 
+    $\arabic{r6}\times$
     \Glsfmttext{bow} &  +1  & +1 & 3~\glspl{ap} & 1  & \mkPrice{9}  \\
 
+    $\arabic{r12}\times$
     \Glsfmttext{bow} &  +2  & +2 & 4~\glspl{ap} & 1  & \mkPrice{11}  \\
 
     \ifodd\value{r4b}%
+      $\arabic{r3}\times$
       \Glsfmttext{bow} &  +3  & +3 & 5~\glspl{ap} & 1  & \mkPrice{13}  \\
     \fi
     \ifodd\value{r3}\else
+      $\arabic{r2}\times$
       \Glsfmttext{bow} &  +4  & +4 & 6~\glspl{ap} & 1  & \mkPrice{15}  \\
     \fi
 
     \hline
+    $\arabic{r12}0\times$
     Arrows  &  --- & --- & --- & $\frac{1}{10}$ & \mkPrice[cp]{16}  \\
 
+    $\arabic{r6}0\times$
     Bolt  &  --- & --- & --- & $\frac{1}{10}$  & \mkPrice[cp]{18}  \\
     \hline
 
+    $\arabic{r12}\times$
     \Glsfmttext{crossbow} &  +2  & +2 & 1~\glspl{ap} & 3  & \mkPrice{16}  \\
   \end{boxtable}
 }
