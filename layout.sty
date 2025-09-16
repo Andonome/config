@@ -240,41 +240,43 @@ bookmarks=true]%
 
 \newcommand\foliage{%
   %\thetemperature/\thecycle:%
-  \ifnum\thefenestraDay>57%
-    \glsentrysymbol{storm}%
-  \else%
-    \Repeat{5}{%
-      \setcounter{adf}{\value{r12}}%
-      \randomize\small%
-      \ifnum\value{r0t3}>\thetemperature% Pick a random number, not larger than the temperature.
-      \else% (\arabic{r0t3})
-        \ifcase\value{r0t3}%
-          \ifodd\value{r3b}%
-            \hspace{0.5em}%
-          \else%
-            \seasonSym%
-          \fi%
-        \or%
-          \addtocounter{adf}{9}%
-          \adforn{\value{adf}}%
-        \or%
-          \ifodd\value{r2b}%
-            \addtocounter{adf}{22}%
-            \adforn{\value{adf}}%
-            \addtocounter{adf}{\value{r6}}%
-            \hspace{-.2em}\raisebox{3pt}{\adforn{\value{adf}}}%
-          \else%
-            \large%
-          \fi%
-        \else%
-          \stepcounter{adf}%
-          \adforn{\value{adf}}%
+  {%
+    \ifnum\thefenestraDay>57%
+      \glsentrysymbol{storm}%
+    \else%
+      \Repeat{5}{%
+        \randomize\small%
+        \ifnum\value{r0t3}>\thetemperature% Pick a random number, not larger than the temperature.
+        \else% (\arabic{r0t3})
           \setcounter{adf}{\value{r12}}%
-          \hspace{-.1em}\raisebox{-1pt}{\Large\adforn{\value{adf}}}%
+          \ifcase\value{r0t3}%
+            \ifodd\value{r3b}%
+              \hspace{0.5em}%
+            \else%
+              \seasonSym%
+            \fi%
+          \or%
+            \addtocounter{adf}{19}%
+            \adforn{\value{adf}}%
+          \or%
+            \ifodd\value{r2b}%
+              \addtocounter{adf}{55}%
+              \adforn{\value{adf}}%
+              \addtocounter{adf}{\value{r6}}%
+              \hspace{-.2em}\raisebox{3pt}{\adforn{\value{adf}}}%
+            \else%
+              \large%
+            \fi%
+          \else%
+            \stepcounter{adf}%
+            \adforn{\value{adf}}%
+            \setcounter{adf}{\value{r12}}%
+            \hspace{-.1em}\raisebox{-1pt}{\Large\adforn{\value{adf}}}%
+          \fi%
         \fi%
-      \fi%
-    }%
-  \fi%
+      }%
+    \fi%
+  }%
 }
 
 \fancypagestyle{plain}{
