@@ -220,7 +220,62 @@ bookmarks=true]%
   \textcolor{background}{\hrulefill}%
 }
 
-%% Redefine plain page style, and use it for every page.
+%\if@mainmatter\randomfourB\hspace{1em}\textcolor{background}{\Repeat{\value{r4b}}{\flourish\hspace{-.2em}}}\fi
+
+\newcommand\seasonSym{%
+  \ifcase\thecycle%
+    \glsentrysymbol{yonder}%
+  \or%
+    \glsentrysymbol{sable}%
+  \or%
+    \glsentrysymbol{wrecan}%
+  \or%
+    \glsentrysymbol{abderian}%
+  \or%
+    \glsentrysymbol{sylf}%
+  \else%
+    \glsentrysymbol{eldren}%
+  \fi%
+}
+
+\newcommand\foliage{%
+  %\thetemperature/\thecycle:%
+  \ifnum\thefenestraDay>57%
+    \glsentrysymbol{storm}%
+  \else%
+    \Repeat{5}{%
+      \setcounter{adf}{\value{r12}}%
+      \randomize\small%
+      \ifnum\value{r0t3}>\thetemperature% Pick a random number, not larger than the temperature.
+      \else% (\arabic{r0t3})
+        \ifcase\value{r0t3}%
+          \ifodd\value{r3b}%
+            \hspace{0.5em}%
+          \else%
+            \seasonSym%
+          \fi%
+        \or%
+          \addtocounter{adf}{9}%
+          \adforn{\value{adf}}%
+        \or%
+          \ifodd\value{r2b}%
+            \addtocounter{adf}{22}%
+            \adforn{\value{adf}}%
+            \addtocounter{adf}{\value{r6}}%
+            \hspace{-.2em}\raisebox{3pt}{\adforn{\value{adf}}}%
+          \else%
+            \large%
+          \fi%
+        \else%
+          \stepcounter{adf}%
+          \adforn{\value{adf}}%
+          \setcounter{adf}{\value{r12}}%
+          \hspace{-.1em}\raisebox{-1pt}{\Large\adforn{\value{adf}}}%
+        \fi%
+      \fi%
+    }%
+  \fi%
+}
 
 \fancypagestyle{plain}{
   \fancyhf{}% clear all header and footer fields

@@ -49,8 +49,8 @@
   \fontsize{9}{10}\selectfont
   \pagenumbering{arabic}
   \fancyhf{}% Clear Everything.
-  \fancyfoot[RO]{\footnotesize\flourish\flourish\small\space\thepage}
-  \fancyfoot[LE]{\small\thepage\space\footnotesize\flourish\flourish}
+  \fancyfoot[LE]{\small\thepage\space{\foliage}}
+  \fancyfoot[RO]{\raggedleft\small{\foliage}\space\thepage}
   \AddToHook{shipout/background}{%
     \ifodd\value{page}%
       \shiftColours[\value{segNoSpare}]%
