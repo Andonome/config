@@ -165,17 +165,21 @@
   \setCycle{\month}{\day}
 }
 
-\newcommand\advanceTheDate[1][11]{%
-  \foreach \x in {1,...,#1}{
+\newcommand\stepDate{%
     \ifnum\thefenestraDay>59%
       \stepcounter{cycle}%
       \ifnum\thecycle>5%
         \stepcounter{fenestraYear}%
       \fi%
+      \setTemperature%
     \fi%
     \stepcounter{fenestraDay}%
+}
+
+\newcommand\advanceTheDate[1][11]{%
+  \foreach \x in {1,...,#1}{%
+    \stepDate%
   }%
-  \setTemperature%
 }
 
 \setCycle{\month}{\day}
