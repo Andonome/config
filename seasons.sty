@@ -180,6 +180,20 @@
   \foreach \x in {1,...,#1}{%
     \stepDate%
   }%
+  {%
+    \setcounter{pageDarkness}{\thetemperature}%
+    \multiply\value{pageDarkness} by \value{pageDarkness}%
+    \multiply\value{pageDarkness} by 10%
+    \addtocounter{pageDarkness}{10}%
+    \divide\value{fenestraDay} by 6%
+    \addtocounter{pageDarkness}{\thefenestraDay}%
+    \xglobal\colorlet{background}{black!\thepageDarkness!white}%
+    \ifnum\thepageDarkness>35%
+      \xglobal\colorlet{foreground}{black!5!white}%
+    \else%
+      \xglobal\colorlet{foreground}{black}%
+    \fi%
+  }%
 }
 
 \setCycle{\month}{\day}

@@ -214,10 +214,11 @@ bookmarks=true]%
 
 \renewcommand\headrule{%
   \vspace{-6pt}%
-  \textcolor{background}{\hrulefill}%
+  \color{background}%
+  \hrulefill%
   \raisebox{-2.1pt}%
-    {\textcolor{background}{\quad\adfdoubleflourishleft\npcsymbol\adfdoubleflourishright\quad}}%
-  \textcolor{background}{\hrulefill}%
+    {\quad\adfdoubleflourishleft\npcsymbol\adfdoubleflourishright\quad}%
+  \hrulefill%
 }
 
 %\if@mainmatter\randomfourB\hspace{1em}\textcolor{background}{\Repeat{\value{r4b}}{\flourish\hspace{-.2em}}}\fi
@@ -244,6 +245,7 @@ bookmarks=true]%
     \ifnum\thefenestraDay>57%
       \glsentrysymbol{storm}%
     \else%
+      \color{background}%
       \Repeat{5}{%
         \randomize\small%
         \ifnum\value{r0t3}>\thetemperature% Pick a random number, not larger than the temperature.
@@ -973,7 +975,6 @@ bookmarks=true]%
 \titleFont
 }
 {%
-  \shiftColours%
   \hspace*{-1.5em}%
   \begin{tikzpicture}
     \node[minimum width=\linewidth+3em, text=foreground, fill=background, inner sep=1, outer sep=0, anchor=south] (rectinit) {\Huge \headingtype};
@@ -1038,7 +1039,6 @@ bookmarks=true]%
 
 \newcommand\bigLine{%
   \textcolor{background}{\ifodd\value{page}\else\raisebox{-3pt}{\Large\hspace{0.1em}\flourish}\fi\hrulefill\ifodd\value{page}\raisebox{-3pt}{\Large\hspace{-0.1em}\flourish}\fi}%
-  \par%
 }
 
 %%%%% NPC Names

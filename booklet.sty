@@ -52,11 +52,6 @@
   \fancyfoot[LE]{\small\thepage\space{\foliage}}
   \fancyfoot[RO]{\raggedleft\small{\foliage}\space\thepage}
   \AddToHook{shipout/background}{%
-    \ifodd\value{page}%
-      \shiftColours[\value{segNoSpare}]%
-      \color{background}%
-      \stepcounter{segNoSpare}%
-    \fi%
     \ifnum\value{page}=10%
       \begin{tikzpicture}[overlay, remember picture]%
         \draw[gray, dashed, thick] (current page.north west) -- (current page.south west);
@@ -92,11 +87,6 @@
     margin=5mm,
   }%
   \AddToHook{shipout/background}{%
-    \ifodd\value{page}%
-      \shiftColours[\value{segNoSpare}]%
-      \color{background}%
-      \stepcounter{segNoSpare}%
-    \fi%
     \ifnum\value{page}=7%
       \begin{tikzpicture}[overlay, remember picture]%
         \draw[black, dashed, thick] (current page.south west) -- (current page.south east);
