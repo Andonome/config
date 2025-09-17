@@ -878,7 +878,16 @@
   \begin{nametable}[Lc]{\pinLocation[-1.2,0]{Sidestreet}\marketInnOne's Inn}
     \textbf{Hospitality} & \textbf{Cost} \\\hline
 
-    Hearty Meal & \mkPrice[cp]{5} \\
+    \ifcase\value{r0t3}%
+      Not-dog
+    \or%
+      I-can't-believe-it's-not
+    \or%
+      Two-copper
+    \else%
+      Mushroom
+    \fi%
+    stew & \mkPrice[cp]{4} \\
 
     \ifnum\value{temperature}>0
       Fresh \rations & \mkPrice[cp]{3} \\
@@ -924,7 +933,11 @@
 
     Savoury \rations & \mkPrice[cp]{5} \\
 
-    Hearty Meal & \mkPrice[cp]{5} \\
+    \ifodd\fenestraDay
+      Horse
+    \else
+      Lamb
+    \fi Stew & \mkPrice[cp]{5} \\
 
     Rat Soup%
     \ifcase\value{rn3t3}\relax\or%
@@ -963,7 +976,7 @@
 
     Savoury \rations & \mkPrice[cp]{5} \\
 
-    Hearty Meal & \mkPrice[cp]{5} \\
+    Milky Stew & \mkPrice[cp]{5} \\
 
     Woodspy Soup & \mkPrice[cp]{4} \\
 
@@ -978,7 +991,11 @@
 
     Entrance and wine & \mkPrice[cp]{14} \\
 
-    Hearty Meal & \mkPrice[cp]{6} \\
+    \ifodd\thefenestraDay
+      Hoof soup
+    \else
+      Oat stew
+    \fi & \mkPrice[cp]{6} \\
 
     $\arabic{r6}\times$
     Nice room & \mkPrice[cp]{30} \\
