@@ -225,17 +225,41 @@ bookmarks=true]%
 
 \newcommand\seasonSym{%
   \ifcase\thecycle%
-    \glsentrysymbol{yonder}%
+    \ifodd\value{r3}%
+      \adforn{42}
+    \else%
+      \glsentrysymbol{yonder}%
+    \fi%
   \or%
-    \glsentrysymbol{sable}%
+    \ifodd\value{r3}%
+      \adforn{14}
+    \else%
+      \glsentrysymbol{sable}%
+    \fi%
   \or%
-    \glsentrysymbol{wrecan}%
+    \ifodd\value{r3}%
+      \adforn{1}
+    \else%
+      \glsentrysymbol{wrecan}%
+    \fi%
   \or%
-    \glsentrysymbol{abderian}%
+    \ifodd\value{r3}%
+      \adforn{60}
+    \else%
+      \glsentrysymbol{abderian}%
+    \fi%
   \or%
-    \glsentrysymbol{sylf}%
+    \ifodd\value{r3}%
+      \adforn{64}
+    \else%
+      \glsentrysymbol{sylf}%
+    \fi%
   \else%
-    \glsentrysymbol{eldren}%
+    \ifodd\value{r3}%
+      \adforn{12}
+    \else%
+      \glsentrysymbol{eldren}%
+    \fi%
   \fi%
 }
 
@@ -258,8 +282,12 @@ bookmarks=true]%
               \seasonSym%
             \fi%
           \or%
-            \addtocounter{adf}{19}%
-            \adforn{\value{adf}}%
+            \ifodd\value{r3}%
+              \addtocounter{adf}{19}%
+              \adforn{\value{adf}}%
+            \else%
+              \npcsymbol%
+            \fi%
           \or%
             \ifodd\value{r2b}%
               \addtocounter{adf}{55}%
