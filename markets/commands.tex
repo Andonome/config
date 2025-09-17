@@ -875,7 +875,7 @@
 
 \newcommand\innOne{
   \renewcommand\npcsymbol{\flourish\pinLocation{InnOne}}
-  \begin{nametable}[Xc]{\pinLocation[-1.2,0]{Sidestreet}\marketInnOne}
+  \begin{nametable}[Lc]{\pinLocation[-1.2,0]{Sidestreet}\marketInnOne's Inn}
     \textbf{Hospitality} & \textbf{Cost} \\\hline
 
     Hearty Meal & \mkPrice[cp]{5} \\
@@ -894,6 +894,13 @@
     \fi%
     & \mkPrice[cp]{20} \\
   \end{nametable}
+
+  \ifodd\value{r3}\else
+    \begin{speechtext}
+      \footnotesize%
+      \marketInnOne\ died last \gls{cThree} (\ifodd\thefenestraDay\pgls{griffin}\else\pgls{crawler}\fi\ ate \ifodd\month him\else her\fi), but the sign's been paid for, so\ldots
+    \end{speechtext}
+  \fi
 }
 
 \newcommand\tavernOne{
