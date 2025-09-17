@@ -915,6 +915,7 @@ bookmarks=true]%
 }
 
 \newcommand\startappendix{
+  \setCycle{\month}{\day}
   \backmatter
   \appendix
   \renewcommand{\headingtype}{APPENDIX}
@@ -1526,7 +1527,8 @@ bookmarks=true]%
 }
 
 \newcommand{\segment}[4][]{
-  \vspace{1em}
+  \vspace{.3em}
+  \advanceTheDate[5]
   \refstepcounter{segNo}
   \resumecontents[#2]
   \subsubsection[%
