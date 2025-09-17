@@ -860,9 +860,9 @@
     \textbf{Service} & \textbf{Cost} \\\hline
     Boat trip with \ifnum\value{r3}=3 the \composeHumanName\ sisters\else \marketBoatman\fi & \mkPrice[cp]{14}/ mile \\
 
-    Performance by \marketBard, the Minstrel & \mkPrice[cp]{15}/ song \\
+    Performance by \marketBard, the Minstrel & \mkPrice[cp]{0} \\
 
-    New song composition & \mkPrice{4}/ song \\
+    New song composition & \mkPrice{4} \\
 
     \ifodd\value{r4}%
       \stepcounter{r6}
@@ -1115,6 +1115,8 @@
     \else
       Pressed
     \fi flowers & 0 & \mkPrice[cp]{2} \\
+
+    \rareMarketItem[10]{Elf whistle}{0}{4}%
 
     \rareMarketItem{Lode stone}{0}{8}%
 
