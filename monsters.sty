@@ -1544,7 +1544,7 @@
   \else%
     Bulbous%
   \fi, %
-  \ifcase\theXenomology\relax\or%
+  \ifcase\theCaving\relax\or%
     brown%
   \else%
     orange%
@@ -1583,17 +1583,18 @@
       \fi
     \label{\jobname:harvestSporefolk}% See gls entry 'harvesting'
     }% SKILLS
-    {\ifcase\value{rn3t3}%
+    {\ifcase\theCharisma\relax\or%
       \guardian%
     \or%
-      \berserker%
-    \else%
+      \specialist{lake ripples}%
+    \or%
       \lucky%
+    \else%
+      \unstoppable%
     \fi}% KNACKS
     {}% EQUIPMENT
     {\mutation[2]{r4b}}% ABILITIES
 }
-
 
 \newcommand{\horse}[1][\npc{\A}{Horse}]{
   \Animal{#1}%
