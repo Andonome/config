@@ -558,8 +558,27 @@
     {}% ABILITIES
 }
 
-
-\newcommand{\humanmaid}[1][\npc{\Hu\F}{Maid}]{
+\newcommand{\humanmaid}[1][\NPC{\F\Hu}% Symbol
+  {\composeHumanName, maid}% Name
+  {\ifcase\value{r3}\relax\or%
+    brown%
+  \or%
+    yellow%
+  \else%
+    red%
+  \fi\ %
+  \ifcase\value{r3b}\relax\or%
+    stains on apron%
+  \or%
+    gunk in hair%
+  \else%
+    grease on forearms%
+  \fi%
+  }% Description
+  {\ifodd\value{r2b} picks at\else cleans\fi\ %
+  \ifcase\value{r3c}\relax\or hair\or teeth\else nose\fi}% Mannerism
+  {to \ifodd\value{r3c} find better \ifodd\value{r2c} knives\else salt\fi\else marry well\fi}% Wants
+  ]{
   \Person{#1}%
     {{r2}{1}{0}}% BODY
     {{rn1t2}{-1}{0}}% MIND
