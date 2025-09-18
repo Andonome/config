@@ -46,7 +46,6 @@
 \patchcmd{\quotation}{\rightmargin}{\leftmargin 1em \rightmargin}{}{}
 
 \fancypagestyle{minizine}{
-  \fontsize{9}{10}\selectfont
   \pagenumbering{arabic}
   \fancyhf{}% Clear Everything.
   \fancyfoot[LE]{\small\thepage\space{\foliage}}
@@ -76,7 +75,6 @@
   \setlength{\tabcolsep}{0.1em}
   \pagenumbering{arabic}
   \setcounter{page}{1}
-  \fontsize{9}{10}\selectfont
   \setlength{\headwidth}{\textwidth}
   \fancyhf{} % Clear Everything.
   \fancyfoot[LO]{\stateEquipment}
@@ -207,6 +205,7 @@
         font=\titleFont,
       ] {\glsentrysymbol{yonder}};
   \end{tikzpicture}%
+  \fontsize{9}{10}\selectfont%
 }
 
 \newcommand\randomCYOAcharacter[2][\npc{\Hu}{\composeHumanName}]{
