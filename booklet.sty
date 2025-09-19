@@ -161,6 +161,7 @@
   \parindent10pt
   \noindent%
   {\scshape\bfseries\large\glsfmtname{#1}}
+  \ifglshasparent{#1}{}{\bigLine\par\noindent}%
   \glsentrydesc{#1}.
   \par
   \vspace{.7em}%
