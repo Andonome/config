@@ -1007,10 +1007,10 @@
 %%%%%%%%%%%%%%%%%%%% Human Names
 
 \newcounter{humanNameNo}
-  \setcounter{humanNameNo}{\value{r12}}
+  \setcounter{humanNameNo}{\month}
   \addtocounter{humanNameNo}{\value{r12}}
 \newcounter{humanNameSuffNo}
-  \setcounter{humanNameSuffNo}{\value{r4}}
+  \setcounter{humanNameSuffNo}{\day}
   \addtocounter{humanNameSuffNo}{\value{r3}}
 
 \newcommand\humanNamePrefix{%
@@ -1027,6 +1027,8 @@
   \or%
     Grit%
   \or%
+    Dank%
+  \or%
     Craw%
   \or%
     Rank%
@@ -1036,6 +1038,8 @@
     Scour%
   \or%
     Shear%
+  \or%
+    Curt%
   \or%
     Shrew%
   \or%
@@ -1079,8 +1083,6 @@
   \or%
     Soot%
   \or%
-    Moc%
-  \or%
     Mink%
   \or%
     Glib%
@@ -1092,7 +1094,7 @@
     Gout%
     \setcounter{humanNameNo}{-1}%
   \fi%
-  \addtocounter{humanNameNo}{\value{r2c}}%
+  \addtocounter{humanNameNo}{\value{r3b}}%
 }
 
 \newcommand\humanNameSuffix{%
@@ -1173,6 +1175,8 @@
   \or%
     roud%
   \or%
+    grip%
+  \or%
     botch%
   \or%
     kludge%
@@ -1197,7 +1201,7 @@
 
 \newcommand\assignHumanName[1][\currentName]{%
   \edef#1{\humanNamePrefix\humanNameSuffix}%
-  \addtocounter{humanNameNo}{\value{r2}}%
+  \addtocounter{humanNameNo}{\value{r6}}%
   \addtocounter{humanNameSuffNo}{\value{r3c}}%
 }
 
