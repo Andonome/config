@@ -938,9 +938,13 @@
 
     Savoury \rations & \mkPrice[cp]{5} \\
 
-    \ifodd\thefenestraDay
+    \ifcase\thetemperature%
+      `Hoarse'
+    \or%
       Horse
-    \else
+    \or%
+      Everything
+    \else%
       Lamb
     \fi Stew & \mkPrice[cp]{5} \\
 
