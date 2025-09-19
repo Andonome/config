@@ -467,13 +467,14 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   type={mech},
   category={rules},
   long={Roll \roll{Wits}{Survival} at \glsentrytext{tn}~%
-  \ifcase\thetemperature 14\or 12\else 10\fi.%
-  Success means supplies for $1D6$ \glsfmtplural{ration}, but only once cooked (\roll{Intelligence}{Cultivation}, \glsentrytext{tn}~10)},
+  \ifcase\thetemperature 14\or 12\else 10\fi, and reduce travelling speed by a mile.%
+  Success means one day's worth of raw food or $1D3$ days' food once cooked (\roll{Intelligence}{Cultivation}, \glsentrytext{tn}~10)},
   description={can provide verdant supplies, easily, with just one \glsentrytext{interval} of foraging.
-  The player rolls \roll{Wits}{Survival} at \tn[12] (+2~Bonus during \glsentrytext{cFive}, -2~Penalty over \glsentrytext{cTwo}, and a -4~Penalty at night).
-  Success means enough basic ingredients for $1D6$ days' food.
+  The troupe slows their travelling speed by a mile, then rolls \roll{Wits}{Survival} at \tn[12] (+2~Bonus during \glsentrytext{cFive}, -2~Penalty over \glsentrytext{cTwo}, and a -4~Penalty at night).
 
-  However, preparing the meals requires an \roll{Intelligence}{Cultivation} roll at \tn[10]},
+  Success means enough basic ingredients for a day's worth of raw food, or $1D3$ days' worth of cooked food.
+  Preparing the meals requires an \roll{Intelligence}{Cultivation} roll at \tn[10].
+  Failure means no food, and a tie means no food, but the troupe don't reduce their walking speed},
 }
 
 \longnewglossaryentry{navigation}{
