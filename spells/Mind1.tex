@@ -4,11 +4,20 @@
   {}% Enhancements
   {Wane}% Action
   {Fate, Water}% Spheres
-  {\roll{Wits}{Academics}}% Resist with
+  {\roll{Wits}{Deceit}}% Resist with
   {The \gls{witch} begins criticising how someone is doing something, and the target takes a -\arabic{spellPlusOne}~Penalty to that Mind \gls{attribute} plus \gls{skill} pair}% Description
-  {If the target is not doing anything covered by a Mind \gls{attribute}, the spell has no effect.
+  {
+    The spell persists until the target succeeds in any standard \gls{action} using that pair of \glspl{trait}.
+    For example, \gls{foraging} uses \roll{Wits}{Survival}, so the target of a \textit{Knit Pick} \gls{spell} would endure the -2~Penalty until they succeed in \gls{foraging}, or some other action which uses \roll{Wits}{Survival}.
+    If the target is not doing anything clearly covered by a Mind \gls{attribute}, the \gls{spell} has no effect.
 
-  The spell persists until the target succeeds in any action using that pair of \glspl{trait}.}
+    \iftoggle{intro}{%
+      \begin{exampletext}
+        The old phrase, `\textit{lose your cards, and the mind follows}' originates from \pgls{witch} who would undermine people trying to quickly count cards.
+        Once the \gls{spell} diminished their quick calculations, all other enchantments slipped into their minds easily.
+      \end{exampletext}
+    }{}%
+  }
 
 \else
 
