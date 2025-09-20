@@ -10,7 +10,6 @@
   \ifcase\value{segNoSpare}\relax\or%
     \appto{\name}{copper}%
     \appto{\baileydesc}{Copper spikes crown the outer wall.  }%
-    \appto{\baileymarketsWide}{\baileyArms}%
   \or%
     \ifodd\thefenestraDay
       \appto{\name}{what}%
@@ -37,6 +36,7 @@
   \or%
     \appto{\name}{mill}%
     \appto{\baileydesc}{%
+    \appto{\baileymarketsWide}{\baileyArms}%
       \ifodd\thediceNo%
         A windmill stands at the side, with an old woman watching your approach from a window.
       \else%
