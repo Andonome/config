@@ -79,6 +79,26 @@
 \newcommand{\Knacks}{}
 \newcommand{\Equipment}{}
 \newcommand{\addEquipment}[1]{\edef\Equipment{\Equipment{}#1, }}
+\newcommand\mount{}
+\newcommand\Mount[7]{%
+  \renewcommand\mount{%
+    \ent{#1} &
+    \scshape Str #2,
+    \scshape Dex #3,
+    \scshape Spd #4,
+    \scshape Wts #5.
+    \ifnum#6>0\normalfont Athletics~#6, \fi#7\quad%
+    \setcounter{adf}{#4}\addtocounter{adf}{3}%
+    \glsfmtplural{ap}~\theadf,
+    \setcounter{adf}{#6}\addtocounter{adf}{3}%
+    \multiply\value{adf} by 2%
+    Mv.~\theadf%
+    \setcounter{adf}{6}%
+    \addtocounter{adf}{#2}%
+    \par%
+    \Repeat{\thenoAppearing}{\scriptsize\boxStat{adf}\quad}
+  }%
+}
 
 \newcommand\showCR{}
 
@@ -178,6 +198,10 @@
           \armourName, %
         }%
         \equipment.
+        \\
+      }%
+      \ifdefempty{\mount}{}{%
+        \mount \\
       }%
       \end{tabularx}
       \tcblower%%%%%%%%%%%%%%%%%%%%
