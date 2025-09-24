@@ -50,14 +50,11 @@
 
 \newcounter{goblinLoot}
 \setcounter{goblinLoot}{\day}
-\divide\value{goblinLoot} by 4
 
 \newcommand{\lootGoblin}{%
   \stepcounter{goblinLoot}%
-  \ifcase\value{goblinLoot}\relax%
-  \or%
-    \stepcounter{r4}%
-    tinder box and \arabic{r4} candles%
+  \ifcase\value{goblinLoot}\relax\or%
+    tinder box and \arabic{r2t4} candles%
   \or%
     1~\gls{sp} from the far North (hexagonal, depicts strange animal)%
   \or%
@@ -68,6 +65,8 @@
     rotten mushrooms%
   \or%
     tiny brass bell%
+  \or%
+    swaddled baby (\glsentrysymbol{hp})%
   \or%
     flask of lantern oil%
   \or%
@@ -85,7 +84,7 @@
   \or%
     lump of clay with an ex-lover's bitemarks%
   \or%
-    20' of rope%
+    rope (6 \glspl{step} long)%
   \or%
     polished sphere of snow-white quartz%
   \or%
@@ -95,9 +94,9 @@
   \or%
     empty~sack%
   \or%
-    bag of 4 rocks%
+    bag of \arabic{r2t4}~rocks%
   \or%
-    lock-picking set%
+    lock-picking set (+\arabic{rn3t3})%
   \or%
     1~\gls{gp} from the far \ifodd\value{r2}West (looks like a map)\else East (face looks like \ifodd\value{r4b} an elf\else a gnoll\fi?)\fi%
   \else%

@@ -1127,7 +1127,11 @@
       \fi
       \set{Brawl}{rn1t2}
       \set{Caving}{r2}
-      \set{Stealth}{r2c}
+      \ifodd\value{r3b}
+        \set{Stealth}{r2b}
+      \else
+        \set{Larceny}{r2b}
+      \fi
       \ifnum\value{Strength}>-2
         \javelin
       \else
@@ -1135,10 +1139,9 @@
       \fi
     }% SKILLS
     {}% KNACKS
-    {\rock, %
-    \ifnum\value{noAppearing}<3%
-      \ifnum\value{r3c}=3%
-        \rations%
+    {\ifnum\value{noAppearing}<3%
+      \ifnum\theProjectiles>0%
+        \rock%
       \else%
         \lootGoblin%
       \fi%
@@ -1178,6 +1181,15 @@
       \fi
       \set{Caving}{r3c}
       \set{Stealth}{r2}
+      \ifcase\value{r0t3}
+        \set{Performance}{r2c}
+      \or
+        \set{Empathy}{r2c}
+      \or
+        \set{Medicine}{r2c}
+      \else
+        \set{Xenomology}{r2c}
+      \fi
       \set{Fire}{rn3t3}
       \set{Earth}{r2}
       \set{Water}{rn1t2}
