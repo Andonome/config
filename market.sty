@@ -49,8 +49,10 @@
 }
 
 \newcommand\marketItem[4][sp]{%
-  \randomize%
-  $\ifcase#3\arabic{r3}\arabic{r6}\or\arabic{r12}\else\arabic{r6}\fi\times$~%
+  \ifnum#4>0%
+    \randomize%
+    $\ifcase#3\arabic{r3}\arabic{r6}\or\arabic{r12}\else\arabic{r6}\fi\times$~%
+  \fi%
   #2
   &% Name
   #3 &% Weight
@@ -59,8 +61,10 @@
 }
 
 \newcommand\marketService[3][sp]{%
-  \randomize%
-  $\ifnum#3>15 \arabic{r2b}\else\arabic{r6}\fi\times$
+  \ifnum#3>0%
+    \randomize%
+    $\ifnum#3>15 \arabic{r2b}\else\arabic{r6}\fi\times$
+  \fi%
   #2
   &% Name
   \mkPrice[#1]{#3} % Price
