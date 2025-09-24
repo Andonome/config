@@ -31,8 +31,8 @@
     \appto{\baileymarketsWide}{\baileyTanner}%
   \or%
     \appto{\name}{broch}%
-    \appto{\baileydesc}{The \gls{village} retains the \gls{broch} which founded the area, though nowadays a retired \gls{ranger} lives there.  }%
-    \appto{\baileymarkets}{\baileyRanger\par}
+    \appto{\baileydesc}{The \gls{village} retains the \gls{broch} which founded the area, though nowadays a retired \gls{thane} lives there.  }%
+    \appto{\baileymarkets}{\baileyThane\par}
   \or%
     \appto{\name}{mill}%
     \appto{\baileydesc}{%
@@ -592,6 +592,18 @@
     \rareMarketItem{Tent for 3}{3}{6}
     \rareMarketItem{Tent for 2}{2}{4}
     \marketItem{Tent for 1}{1}{3}
+  \end{nametable}
+}
+
+\newcommand\baileyThane{
+  \renewcommand\npcsymbol{\glsentrysymbol{sylf}}
+  \begin{nametable}[Lc]{Retired \Glsentrytext{thane} \composeHumanName's Broch}
+    \textbf{Service} & \textbf{Cost} \\\hline
+    \marketService{\Gls{fodder} town pass}{1}
+    \ifnum\value{r4}=2%
+      Fencing & \arabic{r3}0\% \\
+    \fi%
+    \marketService{Stories of way back when\ldots}{0}
   \end{nametable}
 }
 
