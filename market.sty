@@ -49,6 +49,7 @@
 }
 
 \newcommand\marketItem[4][sp]{%
+  \small%
   \ifnum#4>0%
     \randomize%
     $\ifcase#3\arabic{r3}\arabic{r6}\or\arabic{r12}\else\arabic{r6}\fi\times$~%
@@ -73,6 +74,7 @@
 
 \newcommand\rareMarketItem[4][7]{%
   \ifnumcomp{\value{r12}}{>}{#1}{%
+    \small%
     $\ifnum#1<9 \arabic{r3c}\else 1\fi\times$
     #2 & #3 & \mkPrice{#4} \\%
   }{\randomize}%
@@ -87,6 +89,7 @@
 
 \newcommand\rareArmour[3][9]{%
   \ifnumcomp{\value{r12}}{>}{#1}{%
+    \small%
     $\ifnum#1<7 \arabic{r2}\else \arabic{r3c}\fi\times$~%
     \showArmour{#2} & \mkPrice{#3} \\%
   }{}%
