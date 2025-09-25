@@ -545,6 +545,9 @@
         Long%
       \fi\ pipe
     }{0}{3}
+    \ifodd\thefenestraDay\else
+      \marketItem[cp]{Tobacco}{0}{3}
+    \fi
 
     $\arabic{r12}\times$
     \ifodd\value{r2}
@@ -597,11 +600,15 @@
 
 \newcommand\baileyThane{
   \renewcommand\npcsymbol{\glsentrysymbol{sylf}}
-  \begin{nametable}[Lc]{Retired \Glsentrytext{thane} \composeHumanName's Broch}
-    \textbf{Service} & \textbf{Cost} \\\hline
-    \marketService{\Gls{fodder} town pass}{1}
+  \begin{nametable}[LL]{Retired \Glsentrytext{thane} \composeHumanName's Broch}
+    \textbf{Favour} & \textbf{Cost} \\\hline
+    \textit{Need a town pass?} & \textit{Sing us a song!} \\
+    \textit{Fancy a shot of whiskey?} & \textit{Got any grub for the dogs?} \\
+    \ifodd\thefenestraDay
+      \footnotesize\textit{\marketBoatman'll get yous into town free if I ask} & \textit{Got something for my pipe?} \\
+    \fi
     \ifnum\value{r4}=2%
-      Fencing & \arabic{r3}0\% \\
+      Discrete item sales & \arabic{r3}0\% \\
     \fi%
     \marketService{Stories of way back when\ldots}{0}
   \end{nametable}
