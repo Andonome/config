@@ -10,6 +10,9 @@
   \ifcase\value{segNoSpare}\relax\or%
     \appto{\name}{copper}%
     \appto{\baileydesc}{Copper spikes crown the outer wall.  }%
+    \ifnum\thecycle>2%
+      \appto{\baileymarkets}{\baileyRations}%
+    \fi%
   \or%
     \ifodd\thefenestraDay
       \appto{\name}{what}%
@@ -756,8 +759,16 @@
       \marketItem[cp]{Warm clothes}{0}{90}
     }%
     \hline
+    \textbf{Kit} & \textbf{Weight} & \textbf{Cost} \\\hline
 
     \marketItem[cp]{Rescue kit {\footnotesize (needle, bandages, whiskey~phial: +1~Bonus)}}{0}{21}
+    \ifnum\thetemperature=0%
+      \marketItem[cp]{Salty \rations}{1}{15}
+      \ifodd\thefenestraDay%
+        \marketItem[cp]{Pickled beets}{1}{15}
+      \fi%
+      \marketItem[cp]{Hardened \rations}{1}{15}
+    \fi%
     \marketItem{Rope (15~\glspl{step} long)}{1}{3}
   \end{nametable}
   \ifodd\value{r3}\relax\else
