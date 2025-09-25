@@ -691,11 +691,13 @@
   $\arabic{r12}\times$
   \showWeapon{\flail} & \mkPrice{2} \\
 
-  $\arabic{r3}\times$
-  \showWeapon{\weapon{Gnarly club}{\value{rn1t0}}{\value{rn1t2}}} & \mkPrice[cp]{6} \\
-
-  $\arabic{r6}\times$
-  \showWeapon{\spear} & \mkPrice{6} \\
+  \ifodd\value{r3b}
+    $\arabic{r3}\times$
+    \showWeapon{\weapon{Gnarly club}{\value{rn1t0}}{\value{rn1t2}}} & \mkPrice[cp]{6} \\
+  \else
+    $\arabic{r6}\times$
+    \showWeapon{\spear} & \mkPrice{6} \\
+  \fi
 
   \ifnum\value{r3}=2%
 
@@ -718,11 +720,13 @@
     $\arabic{r12}\times$
     \showWeapon{\quarterstaff} & \mkPrice{2} \\
 
-  $\arabic{r2}\times$
-  \showWeapon{\weapon[1]{Longsword}{2}{2}} & \mkPrice{9} \\
-
-  $\arabic{r2}\times$
-  \showWeapon{\weapon{Waxed club}{\value{rn1t0}}{\value{rn1t2}}} & \mkPrice[cp]{6} \\
+  \ifodd\thehumanNameNo
+    $\arabic{r2}\times$
+    \showWeapon{\weapon[1]{Longsword}{2}{2}} & \mkPrice{9} \\
+  \else
+    $\arabic{r2}\times$
+    \showWeapon{\weapon{Waxed club}{\value{rn1t0}}{\value{rn1t2}}} & \mkPrice[cp]{6} \\
+  \fi
 
   $\arabic{r6}\times$
   \showWeapon{\woodaxe} & \mkPrice{4} \\
