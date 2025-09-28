@@ -626,7 +626,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   \fi%
 
   Each creature has tick-boxes to track \glsfmtplural{hp}, with \glsentrytext{weight} carried shown with the \glsentrytext{weight} symbol.
-  This \glsentrytext{npc} can take \arabic{freeHP} more \glsentrytext{weight} before penalties begin},
+  This \glsentrytext{npc} can take \arabic{freeHP} more \glsentrytext{weight} before receiving a -1 \glsfmtplural{attribute}~Penalty},
   }
 
 \longnewglossaryentry{retreat}{
@@ -936,12 +936,14 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   type={mech},
   nonumberlist,
   parent={equipment},
-  long={Characters can carry a total Weight equal to their current \glsfmtplural{hp}; every Point beyond becomes a Penalty to all actions},
+  long={Once characters carry a total Weight equal to their current \glsfmtplural{hp}, they take a -1~Penalty to all \glsfmtplural{attribute}.
+  Once the weight equals double their \glsfmtplural{hp} the Penalty risess to -2, and so on},
   description={estimates how easily someone can carry an item, given its mass, and how bulky it feels.
-  Characters can carry a total Weight Rating equal to their current \glsfmtplural{hp}.
-  Each point beyond inflicts a -1~Penalty to all actions.
+  Each time a character carries a total Weight equal to their \glsfmtplural{hp}, they suffer a -1~Penalty to all \glsfmtplural{action}.
+  So a character with 5~\glsfmtplural{hp} who has items with a total Weight of 6 would have a -1~Penalty to all \glsfmtplural{action}.
+  When they lose 2~\glsfmtplural{hp}, the Penalty rises to -2.
 
-  Creatures have a total \glsentrytext{weight} equal to their maximum \glsentrytext{hp} plus the Weight of any items they carry},
+  Creatures' bodies have a Weight equal to their maximum $\glsfmtplural{hp} \times 3$ plus the Weight of all items carried},
 }
 
 \longnewglossaryentry{ration}{
@@ -971,7 +973,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 
 \newacronym[
   description={measure how tired, hungry, and fed-up characters feel.
-  Each EP has a \glsentrytext{weight} of~1},
+  Each EP has \glsfmttext{weight}~1},
   shortplural={EP},
   prefix={an\space},
   parent={weight},
@@ -1301,7 +1303,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
     Failure ruins everything.
     A tie means you must use the parts immediately or they spoil.
 
-    The dressed meat has a total \glsentrytext{weight} equal to double the creature's \glsfmtlongpl{hp}},
+    The dressed meat has \pglsfmtshort{weight}\glsentrytext{weight} equal to the creature's \glsfmtlongpl{hp} (not including \glsfmtplural{ingredient})},
 }
 
 \longnewglossaryentry{boon}{
