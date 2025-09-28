@@ -65,9 +65,10 @@
 
 \makeglossaries
 
-% We only want to show full descriptions (e.g. 'PC (Player Character)') in some books. These books make the file '.switch-gls', but most use nothing.
+% We only want to show full descriptions (e.g. 'PC (Player Character)') in some
+% books. If this file exists, the book switches to full acronyms.
 
-\IfFileExists{.switch-gls}{
+\IfFileExists{rubbish/\jobname-switch-gls}{
   \setabbreviationstyle{short-sc-long-desc}
   \setabbreviationstyle[acronym]{short-sc-long-desc}
 }{

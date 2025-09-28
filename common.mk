@@ -74,6 +74,9 @@ pdfs += $(RELEASE)
 	mkdir $@
 	echo '*' > $@.gitignore
 
+$(DROSS)/$(BOOK)-switch-gls:| $(DROSS)/
+	touch $@
+
 $(DROSS)/%.pdf: %.tex $(wildcard config/*.sty) | $(DROSS)/
 	$(COMPILER) -jobname=$(basename $(@F)) $<
 %.pdf: $(DROSS)/%.pdf
@@ -93,10 +96,8 @@ $(DROSS)/$(BOOK).aux: $(DBOOK)
 
 qr.tex: README.md
 	printf '%s' '\qrcode[height=.2\textwidth]{$(QR_TARGET)}' > qr.tex
-.switch-gls:
-	touch .switch-gls
 
-output += qr.tex .switch-gls svg-inkscape
+output += qr.tex svg-inkscape
 
 images/extracted/inclusion.tex: images/extracted/
 	printf '%s\n' '\externaldocument{$(BOOK)}' > $@
