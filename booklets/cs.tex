@@ -8,20 +8,12 @@
 }%
 
 \noindent
-\begin{tabularx}{.9\linewidth}{lX}
-  \hiderowcolors
+\begin{tabularx}{.9\linewidth}{XlXX}
   \frontCSNote{Concept}{\concept} \\
-
-\end{tabularx}
-
-\noindent
-\begin{tabularx}{.9\linewidth}{lXlX}
   \frontCSNote{Race}{\race}
   &
   \frontCSNote{Rank}{\rank}
   \\
-  \frontCSNote{Debt}{\characterDebt}
-  &
   \scshape\large Birthday:
   &
     \raggedright
@@ -30,10 +22,19 @@
       \addtocounter{track}{-\value{age}}%
       \small\arabic{track}, %
     }{}%
-    \randomBirthday
+    {\randomBirthday }
+  &
+  \frontCSNote{Body \Glsfmttext{weight}}{ \set{track}{hp}\multilply\value{track} by 3 \thetrack }
+  \iftoggle{examplecharacter}{}{ \hint{$= \glsfmttext{hp} \times 3$} }
+  \\
+  \frontCSNote{Code}{\code}
+  &
+  \frontCSNote{Debt}{\characterDebt}
   \\
 \end{tabularx}
 
+\lineDots
+\lineDots
 
 \pagebreak
 
@@ -80,12 +81,20 @@
 
 \end{multicols}
 
-\bigLine
+\begin{multicols}{2}[\bigLine]
 
-\vspace{2em}
+\begin{tabularx}{\linewidth}{Lc}
+  \textbf{\Glsfmttext{weight} Carried} & \textbf{Penalty} \\\hline
+  \hint{ = \glsentryplural{hp}}
+  & -1 \\
+  \hint{ = $2\times \glsentryplural{hp} $}
+  & -2 \\
+  \hint{ = $2\times \glsentryplural{hp} $}
+  & -3 \\
+\end{tabularx}
 
-\noindent
-{\scshape\normalsize Code:} \lineDots
+
+\end{multicols}
 
 \pagebreak
 
