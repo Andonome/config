@@ -83,14 +83,25 @@
 
 \begin{multicols}{2}[\bigLine]
 
+\setcounter{track}{0}
 \begin{tabularx}{\linewidth}{Lc}
-  \textbf{\Glsfmttext{weight} Carried} & \textbf{Penalty} \\\hline
-  \hint{ = \glsentryplural{hp}}
-  & -1 \\
-  \hint{ = $2\times \glsentryplural{hp} $}
-  & -2 \\
-  \hint{ = $2\times \glsentryplural{hp} $}
-  & -3 \\
+  %\showrowcolors
+  \textbf{\Glsfmttext{weight} Limits} & \textbf{Penalty} \\\hline
+  \Repeat{4}{%
+    \stepcounter{track}%
+    \iftoggle{examplecharacter}%
+      {%
+        \multiply\value{hp} by \thetrack%
+        \pencilWriting{ \thehp }
+      }%
+      {}%
+    \hint{ = $\thetrack \times \glsentryplural{hp}$ }
+    & -\thetrack \\
+  }
+  %\hint{ = $2\times \glsentryplural{hp} $}
+  %& -2 \\
+  %\hint{ = $3\times \glsentryplural{hp} $}
+  %& -3 \\
 \end{tabularx}
 
 
