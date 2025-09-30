@@ -1,9 +1,8 @@
 \miniCover{%
-  \par\vspace{1em}%
-  \ifdefempty{\name}{\bigLine}{\name}%
+  \ifdefempty{\name}{\par\vspace{1em}\bigLine}{\name}%
 }%
 {%
-  \vfill\null\scshape
+  \vfill\null\scshape%
   entrusted to \lineDots
 }%
 
@@ -14,7 +13,7 @@
   &
   \frontCSNote{Rank}{\rank}
   \\
-  \scshape\large Birthday:
+  \scshape\normalsize Birthday:
   &
     \raggedright
     \iftoggle{examplecharacter}{%
@@ -33,7 +32,8 @@
   \\
 \end{tabularx}
 
-\lineDots
+\vspace{.5\baselineskip}
+\noindent
 \lineDots
 
 \pagebreak
