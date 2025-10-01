@@ -778,7 +778,7 @@
     \glsentrysymbol{paik}%
     \ifodd\thediceNo\F\else\M\fi\Hu%
   }% Symbol
-  {\Glsfmttext{seneschal} \composeHumanName}% Name
+  {\Glsfmttext{seneschal}~\ifodd\thediceNo\composePoshFemale\else\composePoshMale\fi}% Name
   {\ifodd\value{r2c}tense\else wide\fi~%
   \ifodd\value{r2}eyes\else mouth\fi,
   \seasonColour~%
