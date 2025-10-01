@@ -74,7 +74,7 @@ pdfs += $(RELEASE)
 	mkdir $@
 	echo '*' > $@.gitignore
 
-$(DROSS)/$(BOOK)-switch-gls:| $(DROSS)/
+$(DROSS)/%-switch-gls:| $(DROSS)/
 	touch $@
 
 $(DROSS)/%.pdf: %.tex $(wildcard config/*.sty) | $(DROSS)/
