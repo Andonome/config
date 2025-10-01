@@ -1048,6 +1048,90 @@
   \setcounter{humanNameSuffNo}{\day}
   \addtocounter{humanNameSuffNo}{\value{r3}}
 
+\newcommand\poshFemale{%
+  \ifcase\value{humanNameNo}%
+    Anodyne%
+  \or%
+    Detrita%
+  \or%
+    Soporific%
+  \or%
+    Throng%
+  \or%
+    Disring%
+  \or%
+    Endema%
+  \or%
+    Senofage%
+  \or%
+    Cuspadore%
+  \or%
+    Carnyx%
+  \or%
+    Maledict%
+  \or%
+    Unctious%
+  \or%
+    Carntol%
+  \or%
+    Ethel%
+  \or%
+    Fextol%
+  \or%
+    Tepal%
+  \or%
+    Sefal%
+  \or%
+    Suetin%
+  \else%
+    Auspic
+  \fi%
+}
+
+\newcommand\poshMale{%
+  \ifcase\value{humanNameNo}%
+    Vantage%
+  \or%
+    Cuffmain%
+  \or%
+    Narcos%
+  \or%
+    Lambatives%
+  \or%
+    Lincture%
+  \or%
+    Dispen%
+  \or%
+    Acrostic%
+  \or%
+    Grawlix%
+  \or%
+    Topiary%
+  \or%
+    Coreolis%
+  \or%
+    Caligin%
+  \or%
+    Artix%
+  \or%
+    Elegiac%
+  \or%
+    Fractious%
+  \or%
+    Calyx%
+  \or%
+    Seance%
+  \or%
+    Voynich%
+  \or%
+    Aspid%
+  \else%
+    Perspic%
+    \setcounter{humanNameNo}{-1}%
+  \fi%
+}
+
+
 \newcommand\humanNamePrefix{%
   \ifcase\value{humanNameNo}%
     Stoor%
@@ -1238,5 +1322,17 @@
   \edef#1{\humanNamePrefix\humanNameSuffix}%
   \addtocounter{humanNameNo}{\value{r6}}%
   \addtocounter{humanNameSuffNo}{\value{r3c}}%
+}
+
+\newcommand\composePoshFemale[1][\currentName]{%
+  \edef#1{\poshFemale\null}%
+  #1%
+  \stepcounter{humanNameNo}%
+}
+
+\newcommand\composePoshMale[1][\currentName]{%
+  \edef#1{\poshMale\null}%
+  #1%
+  \stepcounter{humanNameSuffNo}%
 }
 

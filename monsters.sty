@@ -699,7 +699,10 @@
     {}% ABILITIES
 }
 
-\newcommand{\humandiplomat}[1][\npc{\Hu\M}{The Diplomat}]{
+\newcommand{\humandiplomat}[1][%
+  \npc{\Hu\ifodd\value{r2}\F\else\M\fi}% Symbol
+  {\ifodd\value{r2}\composePoshFemale\else\composePoshMale\fi}]%
+  {%
   \Person{#1}%
     {{1}{0}{0}}% BODY
     {{r2}{rn1t2}{r2t3}}% MIND
