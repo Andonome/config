@@ -1536,17 +1536,32 @@
   {rn4tn1}% Wits
 }
 
-\newcommand{\umberhulk}[1][\npc{\A}{\Glsfmttext{hulk}}]{
+\newcommand{\umberhulk}[1][%
+  \npc{\A\ifodd\value{r2}\F\else\M\fi}% Symbols
+  {\Glsfmttext{hulk}}]{
   \Animal{#1}%
   {{r4t6}{r3b}{rn1t2}}% BODY
   {r2c}% WITS
   {
-    \set{Athletics}{2}
+    \set{Athletics}{rn1t2}
     \set{Brawl}{r3c}
+    \ifodd\value{r2}\else
+      \set{Flight}{rn1t2}
+      \ifnum\thetemperature=3
+        \addtocounter{Speed}{1}
+      \fi
+    \fi
     \label{\jobname:harvestHulk}
   }% SKILLS
-  {\unstoppable}% KNACKS
-  {\hide{r4t5} \quadruped \stench}% ABILITIES
+  {\ifodd\value{r2}\charge\else\unstoppable\fi}% KNACKS
+  {\hide{r4t5} \quadruped
+  \ifodd\value{r2}%
+    \stench%
+  \else%
+    \ifnum\thetemperature=3%
+      \flight%
+    \fi%
+  \fi}% ABILITIES
 }
 
 \newcommand{\sporeFolk}[1][\NPC{\A\Pl\E}% Symbol
