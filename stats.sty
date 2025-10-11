@@ -1048,86 +1048,87 @@
   \setcounter{humanNameSuffNo}{\day}
   \addtocounter{humanNameSuffNo}{\value{r3}}
 
-\newcommand\poshFemale{%
+\newcommand\poshPref{%
   \ifcase\value{humanNameNo}%
-    Anodyne%
+    Ano%
   \or%
-    Detrita%
+    Cor%
   \or%
-    Soporific%
+    Frey%
   \or%
-    Throng%
+    Ethe%
   \or%
-    Disring%
+    Col\"eo%
   \or%
-    Endema%
+    Von%
   \or%
-    Senofage%
+    Graw%
   \or%
-    Cuspadore%
+    Dia%
   \or%
-    Carnyx%
+    Nar%
   \or%
-    Maledict%
+    Cal%
   \or%
-    Unctious%
+    Tas%
   \or%
-    Carntol%
+    Lef%
   \or%
-    Ethel%
+    Fen%
   \or%
-    Fextol%
+    Soon%
   \or%
-    Tepal%
+    Vis%
   \or%
-    Sefal%
+    Sen%
   \or%
-    Suetin%
+    Mal%
+  \or%
+    Zan%
+  \or%
+    Vanta%
+  \or%
+    Egre%
+  \or%
+    Pera%
+  \or%
+    Auspi%
   \else%
-    Auspic%
+    Kr\"eo%
+    \setcounter{humanNameNo}{-1}%
+  \fi%
+  \addtocounter{humanNameNo}{\value{r3b}}%
+}
+
+\newcommand\femaleSuffix{%
+  \ifcase\value{r6}%
+    lox%
+  \or%
+    fage%
+  \or%
+    ry%
+  \or%
+    fal%
+  \or%
+    gin%
+  \else%
+    s%
   \fi%
 }
 
-\newcommand\poshMale{%
-  \ifcase\value{humanNameNo}%
-    Vantage%
+\newcommand\maleSuffix{%
+  \ifcase\value{r6b}%
+    pry%
   \or%
-    Cuffmain%
+    tol%
   \or%
-    Narcos%
+    dix%
   \or%
-    Lambatives%
+    dore%
   \or%
-    Lincture%
-  \or%
-    Dispen%
-  \or%
-    Acrostic%
-  \or%
-    Grawlix%
-  \or%
-    Topiary%
-  \or%
-    Coreolis%
-  \or%
-    Caligin%
-  \or%
-    Artix%
-  \or%
-    Elegiac%
-  \or%
-    Fractious%
-  \or%
-    Calyx%
-  \or%
-    Seance%
-  \or%
-    Voynich%
-  \or%
-    Aspid%
+    ture%
   \else%
-    Perspic%
-    \setcounter{humanNameNo}{-1}%
+    cane%
   \fi%
 }
 
@@ -1329,14 +1330,12 @@
 }
 
 \newcommand\composePoshFemale[1][\currentName]{%
-  \edef#1{\poshFemale\null}%
+  \edef#1{\poshPref\femaleSuffix}%
   #1%
-  \stepcounter{humanNameNo}%
 }
 
 \newcommand\composePoshMale[1][\currentName]{%
-  \edef#1{\poshMale\null}%
+  \edef#1{\poshPref\maleSuffix}%
   #1%
-  \stepcounter{humanNameSuffNo}%
 }
 
