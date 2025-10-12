@@ -216,7 +216,8 @@
       The wind brings \glspl{mp}, and each point goes towards whoever has the most empty \glspl{mp}.
     \end{itemize}
     \manaRegenChart
-    Each day, everyone must eat and sleep, or take two~\glsfmtplural{ep}},
+    Each day, everyone must eat and sleep.
+    Failing either inflicts 3~\glsfmtplural{ep}},
 }
 
 % Stories
@@ -226,7 +227,7 @@
   text={Story Point},
   type={mech},
   prefix={a\space},
-  parent={campaign},
+  parent={pc},
   description={allow players to declare that some part of their backstory arrives on scene to help the situation.
   This could be knowing an ally, an obscure fact, or another language.
 
@@ -249,7 +250,7 @@
   prefix={one\space},
   name={Experience Points},
   category={endswithlist},
-  parent={storypoint},
+  parent={pc},
   nonumberlist,
   ]{xp}{XP}{Experience Point}
 
@@ -258,7 +259,7 @@
   prefix={a\space},
   type={mech},
   category={rules},
-  parent={storypoint},
+  parent={pc},
   description={is the collection of allies the player has introduced.
   Once the \glsentrytext{pc} dies, the player takes their next \glsentrytext{pc} from the pool},
 }
