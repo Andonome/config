@@ -899,18 +899,25 @@ bookmarks=true]%
 \newcommand\boxEnd{}
 
 \newenvironment{boxtext}[1][What do you do?]%
-  {\renewcommand\boxEnd{#1}
-  \needspace{3\baselineskip}
-  \bigLine%
-  \vspace{0.2\baselineskip}
-  \hrule
-  \vspace{0.7\baselineskip}%
-  \sffamily}%
-  {\iftoggle{intro}{\\\boxEnd\quad}{}%
-  \null\hrulefill \\[-0.5\baselineskip]
-  \bigLine%
-  \\}%
-
+  {%
+    \null
+    \rightskip=1em%
+    \renewcommand\boxEnd{#1}%
+    \ifstrequal{#1}{}{}{\preto{\boxEnd}{\par\vspace{0.1em}}}
+    \needspace{4\baselineskip}%
+    \hfill\rule[12pt]{0.5\linewidth}{0.3pt}\\[-6pt]%
+    \sffamily%
+    \color{black}%
+  }%
+  {%
+    \iftoggle{intro}{\boxEnd}{}%
+    \quad%
+    \rightskip=0em%
+    \bigLine\\[-2pt]%
+    \nobreak\null\nobreak\hrulefill%
+    \break%
+    \par
+  }%
 
 \newcommand{\sidebox}[2][23]{
     \needspace{4em}
@@ -1019,6 +1026,7 @@ bookmarks=true]%
    \node[minimum width=.75\textwidth, text=white, inner sep=3, outer sep=0, anchor=south west, text width=.75\textwidth, align=right] at (rectinit.south west) (chapname) {};
     \node[minimum width=.25\textwidth, inner sep=-5, outer sep=0, anchor=south west, text width=.25\textwidth, align=left] at (chapname.south east) {\chapnumfont\textcolor{chapnumcol}{\showChapter}};
   \end{tikzpicture}
+  \color{darkgray}% All text is a little feint, so that the black text pops.  This has not been tested yet.
 }
 {0pt}
 {\Huge#1}
@@ -1055,7 +1063,7 @@ bookmarks=true]%
 {}{.5em}{#1}
 
 \titlespacing{\subsubsection}
-{9pc}{1.5ex plus .1ex minus .2ex}{1pc}
+{9pc}{1.6ex plus 0.9ex minus 1.2ex}{1.3pc}
 
 %%%%% Character Sheet Tracker
 
@@ -1523,7 +1531,7 @@ bookmarks=true]%
 
 \newcommand{\mapentry}[2][]{
   \needspace{2em}
-  \vspace{1em}%
+  %\vspace{1em}%
   \refstepcounter{list}
   \subsubsection[#2]{%
     \arabic{list}: \textbf{\ifdefmacro{#2}{#2}{\MakeUppercase#2}}%
