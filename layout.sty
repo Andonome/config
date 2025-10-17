@@ -896,12 +896,21 @@ bookmarks=true]%
   },
 }
 
-\newtcolorbox{boxtext}[1][What do you do?]{
-  colback=white,
-  before={\par\vspace{.5em}\noindent},
-  before upper={\parindent15pt\noindent},
-  after upper={\iftoggle{intro}{\par #1}{}},
-}
+\newcommand\boxEnd{}
+
+\newenvironment{boxtext}[1][What do you do?]%
+  {\renewcommand\boxEnd{#1}
+  \needspace{3\baselineskip}
+  \bigLine%
+  \vspace{0.2\baselineskip}
+  \hrule
+  \vspace{0.7\baselineskip}%
+  \sffamily}%
+  {\iftoggle{intro}{\\\boxEnd\quad}{}%
+  \null\hrulefill \\[-0.5\baselineskip]
+  \bigLine%
+  \\}%
+
 
 \newcommand{\sidebox}[2][23]{
     \needspace{4em}
@@ -1068,6 +1077,13 @@ bookmarks=true]%
 
 \newcommand\bigLine{%
   \textcolor{background}{\ifodd\value{page}\else\raisebox{-3pt}{\Large\hspace{0.1em}\flourish}\fi\hrulefill\ifodd\value{page}\raisebox{-3pt}{\Large\hspace{-0.1em}\flourish}\fi}%
+}
+
+\newcommand\rightLine{%
+  %\hrulefill\\%
+  %\vspace{-0.5\baselineskip}%
+  \noindent\hrulefill\raisebox{-3pt}{\Large\hspace{-0.1em}\foliage}\\%
+  \noindent\hrulefill\raisebox{-3pt}\\%
 }
 
 %%%%% NPC Names
@@ -1507,6 +1523,7 @@ bookmarks=true]%
 
 \newcommand{\mapentry}[2][]{
   \needspace{2em}
+  \vspace{1em}%
   \refstepcounter{list}
   \subsubsection[#2]{%
     \arabic{list}: \textbf{\ifdefmacro{#2}{#2}{\MakeUppercase#2}}%
