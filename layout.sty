@@ -905,9 +905,8 @@ bookmarks=true]%
 
 \newenvironment{boxtext}[1][What do you do?]%
   {%
-    \null
-    \rightskip=1em%
     \renewcommand\boxEnd{#1}%
+    \rightskip=1em%
     \ifstrequal{#1}{}{}{\preto{\boxEnd}{\par\vspace{0.1em}}}
     \needspace{4\baselineskip}%
     \hfill\rule[12pt]{0.5\linewidth}{0.3pt}\\[-6pt]%
@@ -918,7 +917,7 @@ bookmarks=true]%
     \iftoggle{intro}{\boxEnd}{}%
     \quad%
     \bigLine\\[-2pt]%
-    \nobreak\null\nobreak\hrulefill%
+    \null\nobreak\hrulefill%
     \break%
     \par
   }%
