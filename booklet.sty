@@ -346,9 +346,9 @@
       \small
       #1%
       \colorlet{background}{white!25!black}%
+      \setcounter{rownum}{0}% Reset row counter, so the first line is always white.
       \begin{tabularx}{\linewidth}{@{}r@{\hskip.8em}L@{}}\hline%
-      \hiderowcolors%
-      \rowcolors{2}{}{background!6}
+      \showrowcolors%
       \ent{\normalsize\npcsymbol} & \ent{\name}%
       \ifdefempty{\NPCdescription}{~}{%
         --- \NPCdescription, \mannerism.  \textbf{Wants:}~\npcGoal.%
