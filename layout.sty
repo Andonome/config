@@ -1423,6 +1423,18 @@ bookmarks=true]%
   \noindent\ignorespaces}{%
   \par\smallskip}
 
+\renewenvironment{quotation}{%
+  \par%
+  \smallskip
+  \rmfamily\itshape%
+  \ifodd\the\c@page%
+    \leftskip=2em\rightskip=1em%
+  \else%
+    \leftskip=1em\rightskip=2em%
+  \fi%
+  \noindent\ignorespaces}{%
+  \par\smallskip}
+
 \newcommand*\@NoIndentAfter{%
     \@ifnextchar\par{%
         \def\par{%
