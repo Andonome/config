@@ -164,8 +164,8 @@
 
 \newcommand\statblock[1]{
     \begin{tcolorbox}[
-      before={\begin{minipage}{\linewidth}},
-      code={\setlength\parindent{0pt}#1\par\medskip},
+      before={\medskip\begin{minipage}{\linewidth}},
+      code={\setlength\parindent{0pt}#1},
       title={\npcsymbol~\name},
       after={\afterStatBlock\end{minipage}},
       ornamented,
