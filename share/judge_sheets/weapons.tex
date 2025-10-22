@@ -6,7 +6,9 @@
   \begin{multicols}{2}
     \weaponsChart
 
-    \hitLocation
+    \iftoggle{judgement}{
+      \hitLocation
+    }{}
 
     \improvisedWeaponsChart
 
