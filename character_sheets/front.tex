@@ -189,38 +189,6 @@ circle label/.style = {
     \end{tabular}
   }
 
-%----
-    \posterbox[
-    blankest,
-    ]{column=8,row=1,span=3,rowspan=2}{ 
-      \vspace{\baselineskip}%
-      {\scshape\Large\qquad Equipment}%
-    }
-    %
-    \setcounter{diceNo}{0}
-    \setcounter{diceNo2}{0}
-    \setcounter{list}{1}
-    \setcounter{encnum}{0}% Used to track horizontal position.
-    \iftoggle{examplecharacter}{
-      \ifdefempty{\equipment}{}{%
-        \placeCScircle{\expandafter\MakeUppercase\equipment}
-      }
-      \ifdefempty{\weaponName}{}{%
-        \placeCScircle{\expandafter\MakeUppercase\weaponName~(\absNum{weaponBonus}/ \absNum{weaponDamage})}
-      }
-      \ifdefempty{\armourName}{}{%
-        \placeCScircle{\expandafter\MakeUppercase\armourName}
-      }
-      \ifdefempty{\rank}{}{%
-        \placeCScircle{Black tabard (+1 to hide in~shadows)}
-      }
-    }{}
-    \whileboolexpr{
-      test {\ifnumcomp{\value{diceNo}}{<}{12}}%
-        }{
-       \placeCScircle{}
-    }
-
 %-----
 
   \posterbox[
@@ -277,6 +245,38 @@ circle label/.style = {
       \lineDots[8]
     }
   }
+
+%----
+    \posterbox[
+    blankest,
+    ]{column=8,row=1,span=3,rowspan=2}{ 
+      \vspace{\baselineskip}%
+      {\scshape\Large\qquad Equipment}%
+    }
+    %
+    \setcounter{diceNo}{0}
+    \setcounter{diceNo2}{0}
+    \setcounter{list}{1}
+    \setcounter{encnum}{0}% Used to track horizontal position.
+    \iftoggle{examplecharacter}{
+      \ifdefempty{\equipment}{}{%
+        \placeCScircle{\expandafter\MakeUppercase\equipment}
+      }
+      \ifdefempty{\weaponName}{}{%
+        \placeCScircle{\expandafter\MakeUppercase\weaponName~(\absNum{weaponBonus}/ \absNum{weaponDamage})}
+      }
+      \ifdefempty{\armourName}{}{%
+        \placeCScircle{\expandafter\MakeUppercase\armourName}
+      }
+      \ifdefempty{\rank}{}{%
+        \placeCScircle{Black tabard (+1 to hide in~shadows)}
+      }
+    }{}
+    \whileboolexpr{
+      test {\ifnumcomp{\value{diceNo}}{<}{12}}%
+        }{
+       \placeCScircle{}
+    }
 
 %------
   \posterbox[
