@@ -905,6 +905,7 @@ bookmarks=true]%
 
 \newenvironment{boxtext}[1][What do you do?]%
   {%
+    \bigskip
     \renewcommand\boxEnd{#1}%
     \rightskip=1em%
     \ifstrequal{#1}{}{}{\preto{\boxEnd}{\par\vspace{0.1em}}}
