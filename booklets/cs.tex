@@ -26,7 +26,7 @@
   \frontCSNote{Body \Glsfmttext{weight}}{ \set{track}{hp}\multiply\value{track} by 3 \thetrack }
   \iftoggle{examplecharacter}{}{ \hint{$= \glsfmttext{hp} \times 3$} }
   \\
-  \frontCSNote{Code}{\code}
+  Code: & \iftoggle{examplecharacter}{ \code }{ \lineDots }
   &
   \frontCSNote{Debt}{\characterDebt}
   \\
@@ -34,7 +34,13 @@
 
 \vspace{.5\baselineskip}
 \noindent
-\lineDots
+\ifStrSame{\code}{}{%
+  \lineDots
+  \lineDots
+}{%
+  Gain \glspl{xp} for:
+  \showCodeValues
+}
 
 \pagebreak
 
