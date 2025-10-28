@@ -869,6 +869,7 @@
   \fi%
   \addAbility{Wings %
   \setcounter{enc}{\value{Speed}}%
+  \addtocounter{enc}{\value{Flight}}%
   \ifnum\value{enc}<\value{weight}%
     \ifnum\value{Air}>0%
       (can fly by spending \pgls{mp})
