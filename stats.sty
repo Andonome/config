@@ -75,7 +75,10 @@
 \newcommand{\ent}[1]{\textbf{#1}}
 \newcommand{\equipment}{}
 \newcommand{\Abilities}{}
-\newcommand{\addAbility}[1]{\edef\Abilities{\Abilities{}#1.  }}
+\newcommand{\addAbility}[1]{%
+  \ifdefempty{\Abilities}{}{\appto{\Abilities}{, }}%
+  \appto{\Abilities}{#1}%
+}
 \newcommand{\Knacks}{}
 \newcommand{\Equipment}{}
 \newcommand{\addEquipment}[1]{\edef\Equipment{\Equipment{}#1, }}
@@ -187,7 +190,7 @@
         \ent{Knacks} & \Knacks \\
       \fi
       \ifdefempty{\Abilities}{}{%
-        \ent{Abilities} & \Abilities \\
+        \ent{Abilities} & \Abilities. \\
       }
       \ifdefempty{\equipment}{}{%
         \ent{Equipment} &
@@ -864,9 +867,9 @@
   \ifnum\value{Strength}>0%
     \addtocounter{weight}{\value{Strength}}%
   \fi%
-  \set{enc}{Speed}%
   \addAbility{Wings %
-  \ifnum\value{Speed}<\value{weight}%
+  \setcounter{enc}{\value{Speed}}%
+  \ifnum\value{enc}<\value{weight}%
     \ifnum\value{Air}>0%
       (can fly by spending \pgls{mp})
     \else%
@@ -883,16 +886,18 @@
 }
 
 \newcommand{\stench}{%
+  \addAbility{%
   \setcounter{track}{10}%
   \addtocounter{track}{-\value{Speed}}%
-  \addAbility{Stench (breathing in demands \roll{Strength}{Survival} check, \glsentrytext{tn}~\arabic{track},
+  Stench (breathing in demands \roll{Strength}{Survival} check, \glsentrytext{tn}~\arabic{track},
   or take 3~\glsfmtplural{ep})}%
 }
 
 \newcommand{\crazyGas}{%
+  \addAbility{%
   \setcounter{track}{4}%
   \addtocounter{track}{\value{Strength}}%
-  \addAbility{Gas (receive hallucinations and \arabic{track}~\glsfmtplural{ep} per round)}%
+  Gas (receive hallucinations and \arabic{track}~\glsfmtplural{ep} per round)}%
 }
 
 \newcommand{\quadruped}{%
@@ -922,18 +927,21 @@
   \set{enc}{track}%
   \roundUp{enc}%
   \addtocounter{weight}{\value{enc}}%
-  \addAbility{\arabic{track}~tentacles (grapple up to \arabic{enc} opponents without going prone)}%
+  \addAbility{%
+  \arabic{track}~tentacles (grapple up to \arabic{enc} opponents without going prone)}%
 }
 
 \newcommand{\venom}{%
+  \addAbility{%
   \conDmg{rn1t2}%
-  \addAbility{Venom (grappling attack inflicts \showDam~\glsfmtlongpl{ep})}%
+  Venom (grappling attack inflicts \showDam~\glsfmtlongpl{ep})}%
 }
 
 \newcommand{\web}{%
+  \addAbility{%
   \setcounter{track}{8}%
   \addtocounter{track}{\value{Strength}}%
-  \addAbility{Web (\roll{Strength}{Athletics}, \glsentrytext{tn}~\arabic{track} to break free for 1~\glsentrytext{ap})}%
+  Web (\roll{Strength}{Athletics}, \glsentrytext{tn}~\arabic{track} to break free for 1~\glsentrytext{ap})}%
   \ifnum\value{Strength}>0%
     \addtocounter{weight}{\value{Strength}}%
   \fi%
