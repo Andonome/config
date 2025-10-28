@@ -1547,18 +1547,20 @@
     \set{Brawl}{r3c}
     \ifodd\value{r2}\else
       \set{Flight}{rn1t2}
+      \addtocounter{Speed}{1}
+      \addtocounter{Strength}{-1}
       \ifnum\thetemperature=3
         \addtocounter{Speed}{1}
       \fi
     \fi
     \label{\jobname:harvestHulk}
   }% SKILLS
-  {\ifodd\value{r2}\charge\else\unstoppable\fi}% KNACKS
+  {\ifodd\value{r2}\unstoppable\else\charge\fi}% KNACKS
   {\hide{r4t5} \quadruped
   \ifodd\value{r2}%
     \stench%
   \else%
-    \ifnum\thetemperature=3%
+    \ifnum\thetemperature>2%
       \flight%
     \fi%
   \fi}% ABILITIES
