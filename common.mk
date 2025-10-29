@@ -39,8 +39,16 @@ DEPS += $(wildcard *.tex)
 
 .PHONY: book
 book: $(RELEASE) ## Compile the pdf
-$(RELEASE): $(DBOOK)
+ifeq (${backpages},)
+  $(RELEASE): $(DBOOK)
 	@$(CP) $< $@
+else
+  $(RELEASE): $(DBOOK) $(backpages)
+	pdfjam --pdftitle $(TITLE) --pdfsubject "BIND RPG" \
+	--pdfkeywords "RPG,TTRPG,roleplaying" \
+	$^ \
+	--outfile $@
+endif
 
 $(DBOOK): main.tex $(DEPS)
 	$(COMPILER) -jobname=$(BOOK) $<
