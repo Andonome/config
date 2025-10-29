@@ -1,3 +1,4 @@
+MAKEFLAGS=-j 3 -O
 VERSION != git tag | tail -1
 QR_TARGET != grep mailto: README.md | cut -d: -f2,3 | tail -c+2
 QR_CODE=\qrcode[height=.2\textwidth]{$(QR_TARGET)}
