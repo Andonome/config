@@ -229,11 +229,15 @@ screenz: $(screen_zines) ## Screen-readable booklets
 
 targets += $(pdfs)
 targets += $(zines)
-output += $(targets)
 
 .PHONY: all
 all: $(targets) ## All standard targets
 
 .PHONY: clean
 clean: ## Clean repo, including cross-reference files
-	$(RM) -r $(output) $(wildcard *.pdf)
+	$(RM) -r $(output)
+
+.PHONY: clean-full
+clean-full: clean
+	git submodule foreach make -s clean-full
+	$(RM) $(wildcard *.pdf)
