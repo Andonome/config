@@ -119,9 +119,15 @@ output += $(DROSS)/
 dependencies += git git-lfs lualatex latexmk inkscape
 
 .PHONY: check
-check: ## Check you have the project dependencies
+check: texcheck ## Check you have the project dependencies
+	$(info LaTeX packages are present)
 	@$(foreach program, $(dependencies), \
 	command -v $(program) >/dev/null || { echo install $(program) && exit 1 ;} ;)
+	$(info Dependency check complete)
+
+.PHONY: texcheck
+texcheck:
+	@./config/Docker/tlmgrDeps.sh check
 
 help: ## Print the help message
 	@awk 'BEGIN {FS = ":.*?## "} /^[0-9a-zA-Z._-]+:.*?## / {printf "\033[36m%s\033[0m : %s\n", $$1, $$2}' $(MAKEFILE_LIST) | \
