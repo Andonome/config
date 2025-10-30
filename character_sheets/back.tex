@@ -47,17 +47,18 @@
 
 {\scshape
   {\Large Code:} \hspace{1em} \ifdefempty{\code}{\lightDots \hspace{0.5\linewidth} }{ \code } \\
-  \textbf{Objectives:} \hfill {\tiny\hint{Spend \glsentryshortpl{sp} for extra \glsentryshortpl{xp}: 1 / 5 / total \glsentryshortpl{xp}}} \\
-  \ifStrSame{\code}{}{
-    \lightDots \\ \\
-    \lightDots \\ \\
-    \lightDots \\ \\
-    \lightDots \\ \\
-  }{
-    \begin{multicols}{2}
-      \showCodeValues
-    \end{multicols}
-  }
+  \textbf{Objectives:} \hfill {\tiny\hint{Spend \glsentryshortpl{sp} for extra \glsentryshortpl{xp}: 1 / 5 / total \glsentryshortpl{xp}}}
+}
+
+\ifStrSame{\code}{}{
+  \lightDots \\ \\
+  \lightDots \\ \\
+  \lightDots \\ \\
+  \lightDots \\ \\
+}{
+  \begin{multicols}{2}
+    \showCodeValues
+  \end{multicols}
 }
 
 \bigskip
