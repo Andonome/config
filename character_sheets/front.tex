@@ -158,37 +158,6 @@ circle label/.style = {
   }
 
 
-  \posterbox[
-  blankest,
-  ]{name=Derstats,column=4,
-  row=10,
-  span=3,
-  rowspan=2}{%
-    \vspace{\baselineskip}%
-    \scshape
-    \renewcommand{\arraystretch}{1}%
-    \begin{tabular}{lr}
-      \hline
-      \Glsfmtlongpl{ap} & \iftoggle{examplecharacter}{ \hspace{-3em} \arabic{ap}}{} \\
-      \pencilWriting{\footnotesize $3 + Speed$} \\
-      \hline
-      Attack & \iftoggle{examplecharacter}{ \hspace{-3em} \absNum{att}}{} \\
-      \pencilWriting{\footnotesize $Dexterity + Melee + Weapon$} \\
-      \hline
-      Damage & \iftoggle{examplecharacter}{ \hspace{-3em} \dmg{damage} }{} \\
-      \pencilWriting{\footnotesize $1D6 + Strength + Weapon$} \\
-      \hline
-      \Glsfmttext{covering} & \iftoggle{examplecharacter}{ \hspace{-3em} \arabic{covering}}{} \\
-      \\
-      \hline
-      \Glsfmtlong{dr} & \iftoggle{examplecharacter}{ \hspace{-3em} \arabic{armourDR}}{} \\
-      \\
-      \hline
-      Sprint & \iftoggle{examplecharacter}{ \hspace{-3em} \arabic{sprint}}{} \\
-      \pencilWriting{\footnotesize $(3 + Athletics) \times \Glsfmtplural{ap}$} \\
-    \end{tabular}
-  }
-
 %-----
 
   \posterbox[
@@ -277,6 +246,39 @@ circle label/.style = {
         }{
        \placeCScircle{}
     }
+
+%-----
+
+  \posterbox[
+  blankest,
+  ]{name=Derstats,column=4,
+  row=10,
+  span=3,
+  rowspan=2}{%
+    \vspace{\baselineskip}%
+    \scshape
+    \renewcommand{\arraystretch}{1}%
+    \begin{tabular}{lr}
+      \hline
+      \Glsfmtlongpl{ap} & \iftoggle{examplecharacter}{ \hspace{-3em} \arabic{ap}}{} \\
+      \pencilWriting{\footnotesize $3 + Speed$} \\
+      \hline
+      Attack & \iftoggle{examplecharacter}{ \hspace{-3em} \absNum{att}}{} \\
+      \pencilWriting{\footnotesize $Dexterity + Melee + Weapon$} \\
+      \hline
+      Damage & \iftoggle{examplecharacter}{ \hspace{-3em} \dmg{damage} }{} \\
+      \pencilWriting{\footnotesize $1D6 + Strength + Weapon$} \\
+      \hline
+      \Glsfmttext{covering} & \iftoggle{examplecharacter}{ \hspace{-3em} \arabic{covering}}{} \\
+      \\
+      \hline
+      \Glsfmtlong{dr} & \iftoggle{examplecharacter}{ \hspace{-3em} \arabic{armourDR}}{} \\
+      \\
+      \hline
+      Sprint & \iftoggle{examplecharacter}{ \hspace{-3em} \arabic{sprint}}{} \\
+      \pencilWriting{\footnotesize $(3 + Athletics) \times \Glsfmtplural{ap}$} \\
+    \end{tabular}
+  }
 
 %------
   \posterbox[
