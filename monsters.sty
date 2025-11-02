@@ -1141,7 +1141,11 @@
     {}% KNACKS
     {\ifnum\value{noAppearing}<3%
       \ifnum\theProjectiles>0%
-        \rock%
+        \ifodd\value{r3b}%
+          \rock%
+        \else%
+          \goblinLight%
+        \fi%
       \else%
         \lootGoblin%
       \fi%
