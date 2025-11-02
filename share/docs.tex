@@ -178,6 +178,43 @@ And you can list dice, with results, with the `\texttt{dlist}' environment.
   \item Gazebo
 \end{dlist}
 
+\subsection{\Glsfmtplural{action}}
+
+You can write standard actions like this:
+
+\begin{verbatim}
+
+When writing, goblins might roll
+\roll{Speed}{Academics},
+because they think more letters makes more smarts.
+
+\act{read the book}{Intelligence}{Academics}{3}
+
+\act[Anyone who knows what's inside]%
+{burn the book}{Intelligence}{Cultivation}{4}
+
+\humandiplomat
+
+\act{tell the diplomat about the book}%
+{Charisma}{Cultivation}{\roll{Intelligence}{Academics}}
+
+\act[Those who want brain-damage directly]%
+{eat the book}{Speed}{Athletics}{\roll{Strength}{Academics}}
+
+\end{verbatim}
+
+When writing, goblins might roll \roll{Speed}{Academics}, because they think more letters makes more smarts.
+
+\act{read the book}{Intelligence}{Academics}{3}
+
+\act[Anyone who knows what's inside]{burn the book}{Intelligence}{Cultivation}{4}
+
+\humandiplomat
+
+\act{tell the diplomat about the book}{Charisma}{Cultivation}{\roll{Intelligence}{Academics}}
+
+\act[Those who want brain-damage directly]{eat the book}{Speed}{Athletics}{\roll{Strength}{Academics}}
+
 \subsection{Magic}
 
 \subsubsection{Spells}

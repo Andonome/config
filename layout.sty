@@ -663,6 +663,23 @@ bookmarks=true]%
   \addtocounter{tn}{\value{#3}}%
 }
 
+\newcommand\act[5][]{%
+  \ifblank{#1}{%
+    \paragraph{To #2}
+    roll
+  }{%
+    \paragraph{#1 can #2}
+    with
+  }
+  \roll{#3}{#4}
+  \ifdefmacro{#5}{%
+    against %
+    \ifdefempty{\name}{their #5}{\name's #5 (\tn)}%
+  }%
+  {at \tn[#5]}.
+  \global\def\name{}%
+}
+
 %%% The dice-face (\dicef) command shows an actual die, or multiple
 %%% dice, equal to a number.  The optional argument lets it show
 %%% as \large or similar.
