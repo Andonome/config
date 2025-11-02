@@ -648,11 +648,12 @@ bookmarks=true]%
   \gls{tn}~#1%
 }
 
-\newcommand\roll[2]{%
+\newcommand\roll[3][]{%
   \setcounter{tn}{7}%
-  \addtocounter{tn}{\value{#1}}%
-  \ifltxcounter{#2}{\addtocounter{tn}{\value{#2}}}{}%
-  #1~+~#2%
+  \addtocounter{tn}{\value{#2}}%
+  \ifltxcounter{#3}{\addtocounter{tn}{\value{#3}}}{}%
+  \ifltxcounter{#1}{\addtocounter{tn}{\value{#1}}}{}%
+  {\scshape #2~+~#3\ifblank{#1}{}{ +~\ifglsentryexists{#1}{\glsfmttext{#1}}{#1}}}%
 }
 
 \newcommand\setTN[3][0]{%
