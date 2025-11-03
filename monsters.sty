@@ -803,21 +803,21 @@
     {}% ABILITIES
 }
 
-\newcommand{\humanthief}[1][\npc{\Hu\M}{Thief}]{
+\newcommand{\humanthief}[1][\npc{\Hu\ifodd\thehumanNameNo\F\else\M\fi}{Thief}]{
   \Person{#1}%
-    {{r2b}{r2c}{rn1t2}}% BODY
+    {{r2}{r2c}{rn1t2}}% BODY
     {{0}{-1}{0}}% MIND
     {%
-      \ifodd\value{r3}
+      \set{Athletics}{r0t3}
+      \ifnum\theStrength<2
         \set{Vigilance}{r2b}
         \set{Deceit}{r2}
       \else
         \set{Crafts}{r2c}
       \fi
-      \set{Melee}{r2c}
-      \set{Brawl}{r2b}
+      \set{Melee}{r2b}
+      \set{Brawl}{r0t3}
       \set{Projectiles}{rn1t2}
-      \set{Survival}{rn1t2}
       \set{Stealth}{rn3t3}
       \set{Larceny}{r2}
       \ifcase\value{Strength}\relax%
@@ -828,15 +828,23 @@
         \partialleather%
       \fi%
     }% SKILLS
-    {\ifodd\value{r3}%
-      \dodger%
+    {\ifnum\theAthletics>1
+      \specialist{\ifodd\theadf wood\else stone\fi-wall climbing}%
     \else%
-      \perfectsneakattack%
+      \ifodd\value{r3}%
+        \dodger%
+      \else%
+        \perfectsneakattack%
+      \fi%
     \fi, %
-    \ifodd\thehumanNameNo%
-      \adrenalinesurge%
+    \ifnum\theCrafts>1
+      \specialist{lock-picking}%
     \else%
-      \guardian%
+      \ifodd\thehumanNameNo%
+        \adrenalinesurge%
+      \else%
+        \guardian%
+      \fi%
     \fi}% KNACKS
     {\ifnum\value{Projectiles}>0%
       \arabic{r2t3}~throwing knives %
