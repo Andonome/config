@@ -855,7 +855,34 @@
     {}% ABILITIES
 }
 
-\newcommand{\humanbard}[1][\npc{\Hu\F}{Bard}]{
+\newcommand{\humanbard}[1][\NPC{\ifodd\thehumanNameNo\F\else\M\fi\Hu}% Symbol
+  {\composeHumanName, the %
+  \ifcase\value{r3b}\relax\or% (based on Performance)
+    astounding%
+  \or%
+    magnificent%
+  \else%
+    wayfarer%
+  \fi}% Name
+  {\ifcase\value{r3b}\relax\or%
+    red-striped%
+  \or%
+    bear-faces on%
+  \else%
+    scruffy, faded, %
+  \fi\ %
+  \ifcase\value{r3}\relax\or%
+    facial tattoos%
+  \or%
+    vest%
+  \else%
+    shoes%
+  \fi%
+  }% Description
+  {\ifcase\value{r0t3} clicks fingers\or shoulders sway\or rasping voice\else sentences start with `lo!'\fi}% Mannerism
+  {to \ifodd\theStrength seek adventure \else become famous\fi\ %
+  \ifodd\value{r0t1}through stories\else and get rich\fi}% Wants
+  ]{
   \Person{#1}%
     {{r2b}{r2c}{rn1t2}}% BODY
     {{0}{-1}{r3c}}% MIND
