@@ -339,7 +339,7 @@
 \renewcommand\statblock[1]{
       \begin{figure*}[tb!]
       \begin{minipage}{\linewidth}
-      \small
+      \footnotesize
       #1%
       \colorlet{background}{white!25!black}%
       \setcounter{rownum}{0}% Reset row counter, so the first line is always white.
@@ -352,16 +352,15 @@
       }%
       \hfill\calculateXP \\\hline%
       \ent{\Glsfmtplural{attribute}} &
-        \footnotesize
-        {\scshape\footnotesize Str}~\arabic{Strength},
-        {\scshape\footnotesize Dex}~\arabic{Dexterity},
-        {\scshape\footnotesize Spd}~\arabic{Speed},
+        {\scshape Str}~\arabic{Strength},
+        {\scshape Dex}~\arabic{Dexterity},
+        {\scshape Spd}~\arabic{Speed},
         \ifnum\value{Intelligence}>-6%
-          {\scshape\footnotesize Int}~\arabic{Intelligence},
+          {\scshape Int}~\arabic{Intelligence},
         \fi%
-        {\scshape\footnotesize Wts}~\arabic{Wits}%
+        {\scshape Wts}~\arabic{Wits}%
         \ifnum\value{Charisma}>-6%
-          , {\scshape\footnotesize Cha}~\arabic{Charisma}
+          , {\scshape Cha}~\arabic{Charisma}
         \fi%
         %\foreach \s in {Strength,Dexterity,Speed,Intelligence,Wits,Charisma}%
         %  {\ifnum\value{\s}>-6\s~\arabic{\s}\quad\fi}
