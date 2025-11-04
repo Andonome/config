@@ -29,7 +29,7 @@ markets.pdf: market.sty $(wildcard markets/*.tex) ## Current price sheets
 rules.pdf: ## one-page copy of the rules
 cs.pdf: ## tiny character sheet
 
-statblocks.pdf: statblocks.tex ## statblocks generated from share/Monster.rec
+statblocks.pdf: statblocks.tex $(DROSS)/statblocks-switch-gls ## statblocks generated from share/Monster.rec
 statblocks.tex: recfiles/template_head.tex recfiles/animal.tex recfiles/person.tex recfiles/Monster.rec
 	cp $< $@
 	recsel -t Monster recfiles/Monster.rec | recfmt --file=recfiles/animal.tex >> $@
