@@ -500,22 +500,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   parent={travel},
   type={mech},
   category={rules},
-  description={means co\"ordinating the \glsentrytext{deep}, where long caverns spread like veins, the logistics of travel twist and invert, and the dangers change.
-
-    \sidebox{
-      \begin{boxtable}[YYY]
-        \textbf{Miles} & \textbf{\Glsfmttext{tn}} & \textbf{Dam.} \\
-        \hline
-                 3     &               ---        & ---             \\
-                 4     &               8          & \dmg{0}         \\
-                 5     &               9          & \dmg{1}         \\
-                 6     &               10         & \dmg{2}         \\
-      \end{boxtable}
-    }
-    The dim light, scattered rocks, and strange environment limits travel to 3~miles per \glsfmttext{interval}.
-    Marching faster presents the danger of falling off something high, or knocking your head on something.
-    Sprinting through a cavern is practically insane.
-    Whoever walks at the front needs to make the \roll{Wits}{Caving} roll; failure inflicts Damage and cuts the journey to a mile, while a tie just inflicts Damage (and requires the \glsfmttext{gm} to note the approaching Damage for later)},
+  description={means co\"ordinating the \glsentrytext{deep}, where long caverns spread like veins, the logistics of travel twist and invert, and the dangers change},
 }
 
 \longnewglossaryentry{blackWalking}{
@@ -526,7 +511,14 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   type={mech},
   category={rules},
   description={means walking through a cave in the darkness.
-  It reduces the standard travel rate by 2 miles, so characters can walk 1 mile over the \glsfmttext{interval}, or travel 3 miles and risk Damage},
+  Travel over the \glsfmttext{interval} requires a \roll{Dexterity}{Caving} roll at \glsfmttext{tn}~8.
+  Each \glsfmttext{torch} adds a +1~Bonus, and slowing down by 1 mile adds a -1~Bonus.
+  Walking an extra mile inflicts a -1~Penalty.
+
+    So walking 7 miles in the dark means \glsfmttext{tn}~9, but using 4~\glsfmtplural{torch} would decrease the \glsfmttext{tn} to 5.
+
+  Failure inflicts \dmg{-2}~Damage due to a twisted angle, bumping the head, or similar.
+  A tie inflicts \glsfmtplural{ep} instead of Damage},
 }
 
 \longnewglossaryentry{gagingCave}{
