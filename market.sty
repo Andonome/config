@@ -21,25 +21,16 @@
 \newcommand\mkPrice[2][sp]{%
   \randomize%
   \setcounter{gold}{#2}%
-  \ifnum\value{gold}<7%
-    \ifnum\value{temperature}=0%
-      \ifnum\value{gold}>0
-        \addtocounter{gold}{3}
-      \fi
-    \fi%
-  \else%
-    \addtocounter{gold}{\value{rn3t3}}%
-    \ifnum\value{gold}<14%
-      \addtocounter{gold}{\value{r3b}}%
-      \addtocounter{gold}{\value{rn1t2}}%
-    \else%
-      \addtocounter{gold}{\value{r6}}%
-      \ifnum\value{gold}<34%
-        \addtocounter{gold}{\value{r4t6}}%
-      \else%
-        \addtocounter{gold}{\value{r12}}%
-      \fi%
-    \fi%
+  \setcounter{track}{#2}%
+  \divide\value{track} by \value{r4t6}% Prices vary, so we add a percentage.
+  \addtocounter{gold}{\thetrack}%
+  \ifnum\thetemperature=0%        Over Sables, cheap goods, like rations,
+    \ifstrequal{#1}{cp}{\addtocounter{gold}{3}}{}% become more expensive.
+  \fi%
+  \ifnum\value{gold}>16%          Prices like '17sp', or '81sp' feel *wrong*.
+    \divide\value{gold} by 5%     LaTeX cannot divide properly - it will remove remainders.
+    \multiply\value{gold} by 5%   Prices over 16 become multiples of 5.
+    \addtocounter{gold}{0}%
   \fi%
   \ifnum0<\value{gold}%
     \arabic{gold}~\glspl{#1}%
