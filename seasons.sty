@@ -165,6 +165,58 @@
   \setCycle{\month}{\day}
 }
 
+\newcommand\seasonalActivities[1][\thecycle]{%
+  \ifcase#1%
+    \ifcase\value{r0t3}%
+      brushing leaves away%
+    \or%
+      having a screaming argument about the price of salt%
+    \else%
+      looking closely at the ground%
+    \fi%
+  \or%
+    \ifcase\value{r0t3}%
+      stirring a stew pot bigger big enough for a dozen halberds%
+    \or%
+      sewing \pgls{dawnDolly}%
+    \else%
+      shovelling snow away%
+    \fi%
+  \or%
+    \ifcase\value{r0t3}%
+      smoking meats%
+    \or%
+      spinning rope%
+    \else%
+      showing children how to sew seeds%
+    \fi%
+  \or%
+    \ifcase\value{r0t3}%
+      boiling milk%
+    \or%
+      drinking ale together%
+    \else%
+      throwing horseshoes over sticks%
+    \fi%
+  \or%
+    \ifcase\value{r0t3}%
+      hiding in the shade%
+    \or%
+      smoking pipes%
+    \else%
+      mixing dyes in buckets%
+    \fi%
+  \else%
+    \ifcase\value{r0t3}%
+      stuffing chickens%
+    \or%
+      drinking cider together%
+    \else%
+      debating whether or not a trader is still alive, or busy%
+    \fi%
+  \fi%
+}
+
 \newcommand\stepDate{%
     \ifnum\thefenestraDay>59%
       \stepcounter{cycle}%
