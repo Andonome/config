@@ -756,10 +756,9 @@
 
     \ifnum\value{r12}>8
       \marketItem{Orange Travelling Robes}{0}{20}
-      \ifnum\value{r12}>11
-        \marketItem{Red Travelling Robes}{0}{22}
-      \fi
+      \rareMarketItem[8]{Red Travelling Robes}{0}{94}%
     \fi
+    \rareMarketItem[12]{Raksilk Dress}{0}{62}%
     \ifnumcomp{\value{temperature}}{>}{0}{%
       \marketItem[cp]{Travellers clothes}{0}{60}
     }{%
@@ -1302,6 +1301,7 @@
     \rareMarketItem[10]{String (15~\glspl{step} long)}{0}{1}%
     \marketItem{Rope, 50'}{1}{2}
     \rareMarketItem[9]{Silk rope, 15~\glspl{step}}{0}{8}%
+    \rareMarketItem[10]{Raksilk Dress}{0}{94}%
     \rareMarketItem[7]{Green hat}{0}{4}%
     \rareMarketItem{Orange hat}{0}{5}%
     \rareMarketItem{Purple hat}{0}{7}%
