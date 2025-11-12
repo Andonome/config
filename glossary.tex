@@ -1748,10 +1748,13 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   Each temple functions as a guild, with a divine monopoly on their protection},
 }
 
+\providecommand\sylfsym{\ensuremath{\mathpalette\@sylfsmash{::}}}
+\def\@sylfsmash#1#2{\ooalign{\hfil$#1$\Aries\hfil\cr\hfil$#1#2$\hfil\cr}}
+
 \longnewglossaryentry{sylf}{
   name={Sylf},
   category={god},
-  symbol={\Aries},
+  symbol={\sylfsym},
   parent={ainumar},
   description={has \glsentrytext{griffin}-wings, with a writhing \glsentrytext{woodspy}'s head, an arachnid thorax, and human belly; both chambers are painfully bloated from pregnancy.
   She gives birth to monsters endlessly, and when they eat someone, she uses the devoured soul to birth another monster},
@@ -1903,7 +1906,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 \longnewglossaryentry{abderian}{
   name={Abderian},
   category={god},
-  symbol={$\Large\Circle$\hspace{-1em}\adfflowerleft},
+  symbol={\textcircled{\raisebox{-.3ex}{\adfflowerright}}},
   parent={ainumar},
   description={is the goddess of poison and rot.
   When she kills someone, she brings them to her banquet of pain, to see how long they can resist eating her rancid food},
@@ -2008,7 +2011,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 \longnewglossaryentry{eldren}{
   name={Eldren},
   category={god},
-  symbol={\Sun},
+  symbol={\textcircled{\adforn{27}}},
   parent={ainumar},
   description={takes those who die of sickness or age.
   Many people save up their whole lives to be allowed into the \glsentrytext{healersGuild} once they become old, so they can die in peace, and go to his realm},
@@ -2074,7 +2077,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 \longnewglossaryentry{grummel}{
   name={Grummel},
   category={god},
-  symbol={\lightning},
+  symbol={\textcircled{\lightning}},
   parent={ainumar},
   description={waits till \glsentrytext{fenestra} approaches the \glsentrytext{ainumar} and begins to shake it, causing earthquakes, volcanic erruptions, and tidal waves.
   These mark the end of each \glsentrytext{cycle}, and people call them \glsfmtname{storm}},
@@ -2149,7 +2152,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 \longnewglossaryentry{paik}{
   name={Paik},
   category={god},
-  symbol={$\Large\newmoon$},
+  symbol={\Sun\hspace{-.4ex}\Sun},
   parent={ainumar},
   description={is the god of death by justice.
   When bandits swing from the noose in the \glsentrytext{court}, Paik takes them to his realm, and taunts them forever},
@@ -2237,7 +2240,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 \longnewglossaryentry{sable}{
   name={Sable},
   category={god},
-  symbol={\Aquarius},
+  symbol={\textcircled{\adforn{11}}},
   parent={ainumar},
   description={releases cold into the world to watch people lay down and die in the snow, then takes them to his frigid realm, to place their frozen spirits there like an ornament},
 }
@@ -2289,7 +2292,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 \longnewglossaryentry{wrecan}{
   name={Wrecan},
   category={god},
-  symbol={\Amor},
+  symbol={\textcircled{\adforn{43}}},
   parent={ainumar},
   description={is the goddess of hatred, bigotry, and vengeance.
   When people fight each other, she takes their soul to her realm of eternal war},
@@ -2347,7 +2350,7 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 \longnewglossaryentry{yonder}{
   name={Yonder},
   category={god},
-  symbol={\bell},
+  symbol={\setcounter{track}{\value{rn3t3}}\multiply\value{track}by3\textcircled{\rotatebox{\value{track}}{\bell}}},
   parent={ainumar},
   description={is the god who kills by curiosity.
   When idiots go to investigate something which sensible people would leave alone, they say their soul goes to live with \glsentrytext{yonder}.
