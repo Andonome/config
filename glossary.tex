@@ -2951,7 +2951,7 @@ While floods occur, everyone gains a +1 Bonus to their Water \glsentrytext{spher
   type=symbols,
   nonumberlist,
   sort=W1,
-  name={\varhexagon},
+  name={\rotatebox[origin=c]{180}{\heartsuit}},
   description={Air},
 }
 
@@ -2975,7 +2975,7 @@ While floods occur, everyone gains a +1 Bonus to their Water \glsentrytext{spher
   type=symbols,
   nonumberlist,
   sort=W4,
-  name={\pentagon},
+  name={\triangle},
   description={Earth},
 }
 
@@ -2983,47 +2983,61 @@ While floods occur, everyone gains a +1 Bonus to their Water \glsentrytext{spher
   type=symbols,
   nonumberlist,
   sort=W5,
-  name={\Trine},
+  name={\pentagon},
   description={Fire},
 }
+
+
+\def\@getinabox#1#2{\ooalign{\hfil$#1$\glsentrytext{Fate}\hfil\cr\hfil$#1#2$\hfil\cr}}
+\def\deathsym{\protect{\ensuremath{\mathpalette\@getinabox{\glsentrytext{Air}}}}}
 
 \newglossaryentry{Death}{
   type=symbols,
   nonumberlist,
   sort=W6,
-  name={\glsentrytext{Fate}\llap{\glsentrytext{Air}\hspace{0.5pt}}},
+  name={\protect\deathsym},
   description={Death},
 }
+
+\providecommand\mindsym{\ensuremath{\mathpalette\@getinabox\Circle}}
 
 \newglossaryentry{Mind}{
   type=symbols,
   nonumberlist,
   sort=W7,
-  name={\glsentrytext{Water}\llap{\glsentrytext{Fate}\hspace{0.075em}}},
+  name={\protect\mindsym},
   description={Mind},
 }
+
+\def\@getinapent#1#2{\ooalign{\hfil$#1$\glsentrytext{Earth}\hfil\cr\hfil$#1#2$\hfil\cr}}
+\def\lifesym{\protect{\ensuremath{\mathpalette\@getinapent{\Circle}}}}
 
 \newglossaryentry{Life}{
   type=symbols,
   nonumberlist,
   sort=W8,
-  name={\glsentrytext{Water}\llap{\glsentrytext{Earth}}},
+  name={\protect\lifesym},
   description={Life},
 }
+
+\def\@getinatrine#1#2{\ooalign{\hfil$#1$\glsentrytext{Fire}\hfil\cr\hfil$#1#2$\hfil\cr}}
+\def\forcesym{\protect{\ensuremath{\mathpalette\@getinatrine{\glsentrytext{Earth}}}}}
 
 \newglossaryentry{Force}{
   type=symbols,
   nonumberlist,
   sort=W9,
-  name={\glsentrytext{Fire}\llap{\glsentrytext{Earth}\hspace{-0.18em}}},
+  name={\protect\forcesym},
   description={Force},
 }
+
+\def\lightsym{\protect{\ensuremath{\mathpalette\@getinatrine{\glsentrytext{Air}}}}}
 
 \newglossaryentry{Light}{
   type=symbols,
   nonumberlist,
   sort=WA,
-  name={\glsentrytext{Fire}\llap{\glsentrytext{Air}\hspace{-0.055em}}},
+  name={\protect\lightsym},
   description={Light},
 }
 
