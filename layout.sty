@@ -213,13 +213,13 @@
 
 %%%%% Add fancy page chapter sides %%%%%
 
+\newcommand\sectionList{}
+\newcommand\subsectionList{}
 
 \renewcommand\headrule{%
   \vspace{-6pt}%
-  \color{background}%
-  \hrulefill%
-  \raisebox{-2.1pt}%
-    {\quad\adfdoubleflourishleft\npcsymbol\adfdoubleflourishright\quad}%
+  \hrulefill\\*[-5.6pt]
+  \scshape\sectionList{\scriptsize\subsectionList} \\*[-2.37em]\par%
   \hrulefill%
 }
 
@@ -1037,8 +1037,9 @@
 \newcommand\showChapter{\textcolor{foreground}{\Roman{chapter}}}
 
 \titleformat{\chapter}[display]
-{\bfseries
-\titleFont
+{%
+  \bfseries%
+  \titleFont%
 }
 {%
   \hspace*{-1.5em}%
@@ -1050,8 +1051,11 @@
   \color{darkgray}% All text is a little feint, so that the black text pops.  This has not been tested yet.
 }
 {0pt}
-{\Huge#1}
-
+{\Huge#1}%
+[%
+  \gdef\sectionList{}%
+  \gdef\subsectionList{}%
+]
 
 \titleformat{\section}%
   {\needspace{16em}%
@@ -1063,19 +1067,27 @@
   {\Roman{section}}%
   {1em}%
   {#1}%
-  [\textcolor{background}{\large\titlerule\raisebox{-4pt}{\Large\hspace{-0.2em}\flourish}}%
-  \setcounter{list}{0}]%
+  [%
+    \gappto{\sectionList}{#1~\npcsymbol~}%
+    \gdef\subsectionList{}%
+    \setcounter{list}{0}%
+    \color{background}\large\titlerule\raisebox{-4pt}{\Large\hspace{-0.2em}\flourish}%
+  ]%
 
 \renewcommand*{\thesection}{\arabic{section}}
 
 \titleformat{\subsection}
   {\titleFont%
   \needspace{4\baselineskip}%
+  \appto{\sectionList}{#1}%
   \LARGE}%
   {\thesubsection}%
   {1em}%
   {\center#1}%
-  [\textcolor{background}{\titlerule}]
+  [%
+    \gappto{\subsectionList}{#1\quad}%
+    \textcolor{background}{\titlerule}%
+  ]
 
 \titleformat{\subsubsection}[wrap]
 {\needspace{3em}\filright%
