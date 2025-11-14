@@ -373,15 +373,19 @@
         \specialist{tragic-romance tales}%
       \else%
         \ifnum\value{Cultivation}>1%
-          \specialist{thorny plants}%
+          \specialist{brambles}%
         \else%
           \ifnum\value{Performance}>1%
             \specialist{wood-flutes}%
           \else%
-            \ifnum\value{Crafts}>0%
-              \specialist{silverworking}%
-            \else%
+            \ifcase\value{Crafts}%
               \specialist{bee-keeping}%
+            \or%
+              \specialist{silverworking}%
+            \or%
+              \specialist{doors}%
+            \else%
+              \specialist{wood joints}%
             \fi%
           \fi%
         \fi%
@@ -441,23 +445,27 @@
 
 \newcommand{\gnome}[1][\npc{\Gn\ifodd\value{r2}\M\else\F\fi}{Wandering Gnome}]{
   \set{track}{r3c}
-  \addtocounter{track}{-4}
+  \addtocounter{track}{-3}
   \Person{#1}%
-    {{track}{r2}{rn1t0}}% BODY
-    {{r3b}{1}{0}}% MIND
+    {{-1}{r2}{track}}% BODY
+    {{1}{r2b}{rn1t2}}% MIND
     {%
       \set{Academics}{r3}
-      \set{Empathy}{r2c}
+      \set{Empathy}{r0t1}
       \set{Cultivation}{rn1t2}
       \set{Caving}{r3b}
-      \ifodd\value{r4}
-        \set{Larceny}{r2b}
+      \randomize
+      \ifnum\theSpeed>0
+        \set{Athletics}{r2c}
       \else
-        \set{Athletics}{r2b}
+        \set{Larceny}{r2c}
       \fi
       \set{Survival}{rn3t3}
+      \ifodd\value{r3c}\else
+        \set{Fire}{r0t1}
+      \fi
     }% SKILLS
-    {\ifodd\value{r3}\specialist{cave navigation}\fi}% KNACKS
+    {\ifcase\theCaving\relax\or\specialist{obsidian}\or\specialist{underfarms}\else\specialist{cave navigation}\fi}% KNACKS
     {\ifodd\value{r12} \lootGoblin\ and \fi\ \rations.
     \lootMedium\ hidden in \ifodd\value{r2} hat\else boots\fi}% EQUIPMENT
     {}% ABILITIES
@@ -487,7 +495,9 @@
     }% SKILLS
     {%
       \adrenalinesurge, 
-      \ifodd\value{r2}%
+      \ifcase\value{r0t3}%
+        \specialist{furniture-based \glsfmtplural{ambush}}%
+      \or%
         \perfectsneakattack%
       \else%
         \charge%
