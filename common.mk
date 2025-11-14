@@ -108,10 +108,6 @@ qr.tex: README.md
 
 output += qr.tex svg-inkscape
 
-images/extracted/inclusion.tex: images/extracted/
-	printf '%s\n' '\externaldocument{$(BOOK)}' > $@
-	printf '%s\n' '\newcommand\bookTitle{$(TITLE)}' | tr '_' ' ' >> $@
-
 output += images/extracted/
 
 output += $(DROSS)/
@@ -153,6 +149,20 @@ report: $(text_shadows) ## Check for missing references and repetition in all pd
 	@test -f '$<' || exit 1
 	@! grep -F '??' $^
 	@grep --color=always -nE '(\b\S+\b)\s+\b\1\b' $^ || echo "No problems found."
+
+######## Cover ########
+# Not all books have a cover.  Some don't have the file
+# 'images/extracted/cover.jpg'.  Books which should have a cover need to add
+# the target '$(TITLE)_cover.pdf'.
+
+images/extracted/inclusion.tex: images/extracted/ $(DBOOK)
+	printf '%s\n' '\externaldocument{$(BOOK)}' > $@
+	printf '%s\n' '\newcommand\bookTitle{$(TITLE)}' | tr '_' ' ' >> $@
+
+$(DROSS)/$(BOOK)_cover.pdf: config/share/cover.tex cover.tex images/extracted/cover.jpg images/extracted/inclusion.tex
+	$(RUN) -jobname $(BOOK)_cover $<
+$(TITLE)_cover.pdf: $(DROSS)/$(BOOK)_cover.pdf
+	$(CP) $< $@
 
 ######## A3 12 signature pdfs ########
 %_A3_12_signature.pdf: %.pdf
