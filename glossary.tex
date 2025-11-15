@@ -616,9 +616,20 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   \else%
     \dwarvensoldier[\npc{\T[3]\Dw}{Dwarven Soldiers}]
   \fi%
+  \iftoggle{intro}{
+    \begin{boxtable}[rllll]
+      \Glsfmtplural{ap}        &  = 3 & +Speed \\
+      \ifnum\theheft>1
+        \Glsfmtplural{ap} Cost & = & \multicolumn{3}{l}{ \Glsfmttext{weapon} \Glsfmttext{weight} } \\
+      \fi
+      \underline{Att}ack       & = 7 & +Dexterity & +Melee & +\Glsfmttext{weapon} \\
+      \underline{Dam}age       & = D6 & +Strength & +\Glsfmttext{weapon} & \\
+      Move                   & = 3 & +Athletics & & \\
+    \end{boxtable}
+    }{}
 
   Each creature has tick-boxes to track \glsfmtplural{hp}, with \glsentrytext{weight} carried shown with the \glsentrytext{weight} symbol.
-  This \glsentrytext{npc} can take \arabic{freeHP} more \glsentrytext{weight} before receiving a -1 \glsfmtplural{attribute}~Penalty},
+  Once this \glsentrytext{npc} carries \arabic{freeHP} more \glsentrytext{weight}, they receive a -1 \glsfmtplural{attribute}~Penalty},
   }
 
 \longnewglossaryentry{retreat}{
