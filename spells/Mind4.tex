@@ -1,3 +1,5 @@
+\ifodd\value{diceNo}
+
 \spell{Keening}% Name
   {Distant, Detailed, Duplicated}% Enhancements
   {Wane}% Action
@@ -8,3 +10,27 @@
     The Penalty persists for each target until they gain \pgls{xp} for following their Code.
   }
 
+\else
+
+\spell{Pulling the Web Over Your Face}% Name
+  {Devious, Detailed, Duplicated}% Enhancements
+  {Wane}% Action
+  {Water, Fate}% Spheres
+  {\roll{Wits}{Academics}}% Resist with
+  {With a memory of walking through spider-webs on the road, the \gls{witch} instills distractions.
+  \set{track}{spellPlusOne}\addtocounter{track}{-2}%
+  \set{gold}{spellPlusOne}\addtocounter{track}{-3}%
+  Whenever the target attempts a completely normal action (\tn[2] or less) they receive a~Penalty.
+  After \pgls{interval},~-\arabic{track}; after a day,~-\arabic{gold}; after a week,~-\arabic{spellPlusOne}}% Description
+  {%
+  	If the target might fail a roll, they must roll, because spiders now crawl around their peripheral vision.
+
+	The \gls{spell} does not affect normal \glspl{action}, so the character can still climb a castle and fight, but may not be able to remove their shoes or search a room for `the table in the middle of the room'.
+	\Glspl{action} which drunk people struggle with (writing, speaking politely, walking downhill) default to \tn[2].
+	\Glspl{action} which drunk people don't usually struggle with (opening doors, dropping an item, drinking liquid) default to \tn[0].
+
+	The \gls{spell} ends once the target goes home and completes their normal routine \arabic{spellPlusOne} days in a row.
+  }
+
+\fi
+\stepcounter{diceNo}
