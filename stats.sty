@@ -622,6 +622,7 @@
   \else%
     \setcounter{freeHP}{\value{hp}}%
     \addtocounter{freeHP}{-\value{weight}}%
+    \addtocounter{freeHP}{-\value{wounds}}%
   \fi%
   \addtocounter{ap}{-\value{encumbrance}}%
   \addtocounter{toHit}{-\value{encumbrance}}%
