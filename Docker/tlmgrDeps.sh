@@ -72,7 +72,8 @@ pdfcol
 epstopdf-pkg
 environ
 pdfjam pdflscape pdfpages
-collection-fontsrecommended'
+collection-fontsrecommended
+cm-unicode'
 
 check_packages(){
     for p in $packages; do
