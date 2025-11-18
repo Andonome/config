@@ -247,6 +247,7 @@ screenz: $(screen_zines) ## Screen-readable booklets
 
 targets += $(pdfs)
 targets += $(zines)
+targets += $(screen_zines)
 
 .PHONY: all
 all: $(targets) ## All standard targets
