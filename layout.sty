@@ -221,8 +221,6 @@ bookmarks=true]%
   \hrulefill%
 }
 
-%\if@mainmatter\randomfourB\hspace{1em}\textcolor{background}{\Repeat{\value{r4b}}{\flourish\hspace{-.2em}}}\fi
-
 \newcommand\seasonSym{%
   \ifcase\thecycle%
     \ifodd\value{r3}%
@@ -264,7 +262,6 @@ bookmarks=true]%
 }
 
 \newcommand\foliage{%
-  %\thetemperature/\thecycle:%
   {%
     \ifnum\thefenestraDay>57%
       \glsentrysymbol{storm}%
@@ -1114,8 +1111,6 @@ bookmarks=true]%
 }
 
 \newcommand\rightLine{%
-  %\hrulefill\\%
-  %\vspace{-0.5\baselineskip}%
   \noindent\hrulefill\raisebox{-3pt}{\Large\hspace{-0.1em}\foliage}\\%
   \noindent\hrulefill\raisebox{-3pt}\\%
 }
@@ -1557,21 +1552,8 @@ bookmarks=true]%
 
 %%%%%%%%%%%%%%%%%%% COMMANDS %%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\story}[2]{%
-  \subsubsection[#2]{The #2\\\hint{Cost: #1}}%
-  \index{#2 (Story)}%
-}
-
-\newcommand{\startingCondition}[1]{
-  \ifnum\value{list}<95
-    \item
-    #1
-  \fi
-}
-
 \newcommand{\mapentry}[2][]{
   \needspace{2em}
-  %\vspace{1em}%
   \refstepcounter{list}
   \subsubsection[#2]{%
     \arabic{list}: \textbf{\ifdefmacro{#2}{#2}{\MakeUppercase#2}}%
@@ -1690,10 +1672,6 @@ bookmarks=true]%
               {}%
               { \enspace\titlerule*[1pc]{.}\bfseries\large\contentspage }%
               []%
-
-%\titlecontents*{lsubsection}[0pt]
-%{\adforn{10}~\large\raggedright}{}{}
-%{}[][]
 
 \newcommand\printThreadsInRegion[1]{
   \label{threadList:#1}
