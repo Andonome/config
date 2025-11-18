@@ -252,10 +252,10 @@ targets += $(zines)
 all: $(targets) ## All standard targets
 
 .PHONY: clean
-clean: ## Clean repo, including cross-reference files
+clean: ## Clean cross-reference files
 	$(RM) -r $(output)
 
 .PHONY: clean-full
-clean-full: clean
+clean-full: clean ## Remove all generated files
 	git submodule foreach make -s clean-full
 	$(RM) $(wildcard *.pdf)
