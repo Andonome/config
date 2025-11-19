@@ -1,0 +1,40 @@
+
+\filledCS%
+  {{{Name}}}% NAME
+  {{{Race}}}% RACE
+  {{{Concept}}}% CONCEPT
+  {{{Code}}}% CODE
+  {{{{Strength}}}{{{Dexterity}}}{{{Speed}}}}% BODY
+  {{{{Intelligence}}}{{{Wits}}}{{{Charisma}}}}% MIND
+  {%
+    \renewcommand\rank{Fodder}
+    \renewcommand\characterDebt{100 \glspl{sp}}
+    \setcounter{Earth}{{{Earth}}}
+    \setcounter{Air}{{{Air}}}
+    \setcounter{Fire}{{{Fire}}}
+    \setcounter{Water}{{{Water}}}
+    \setcounter{Fate}{{{Fate}}}
+    \setcounter{Projectiles}{{{Projectiles}}}
+    \setcounter{Melee}{{{Melee}}}
+    \setcounter{Brawl}{{{Brawl}}}
+    \setcounter{Academics}{{{Academics}}}
+    \setcounter{Athletics}{{{Athletics}}}
+    \setcounter{Caving}{{{Caving}}}
+    \setcounter{Crafts}{{{Crafts}}}
+    \setcounter{Cultivation}{{{Cultivation}}}
+    \setcounter{Deceit}{{{Deceit}}}
+    \setcounter{Empathy}{{{Empathy}}}
+    \setcounter{Flight}{{{Flight}}}
+    \setcounter{Medicine}{{{Medicine}}}
+    \setcounter{Performance}{{{Performance}}}
+    \setcounter{Larceny}{{{Larceny}}}
+    \setcounter{Seafaring}{{{Seafaring}}}
+    \setcounter{Stealth}{{{Stealth}}}
+    \setcounter{Survival}{{{Survival}}}
+    \setcounter{Vigilance}{{{Vigilance}}}
+    {{Weapon}}
+  }% SKILLS
+  {{{Knacks}}}% KNACKS
+  {\protect{{Equipment}}}% EQUIPMENT
+
+
