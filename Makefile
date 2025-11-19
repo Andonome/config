@@ -3,7 +3,6 @@ pdfs += docs.pdf
 zines += rules.pdf
 zines += spells.pdf
 targets += cs.pdf
-pdfs += statblocks.pdf
 
 dependencies += magick# from the imagemagick package
 dependencies += pstops ps2pdf pdftops# usually in cups or psutils
@@ -34,20 +33,14 @@ markets.pdf: market.sty $(wildcard markets/*.tex) ## Current price sheets
 rules.pdf: ## one-page copy of the rules
 cs.pdf: ## tiny character sheet
 
-generated/statblocks.tex: recfiles/template_head.tex recfiles/animal.tex recfiles/person.tex recfiles/Monster.rec | generated/ $(DROSS)/
-	cp $< $@
-	recsel -t Monster recfiles/Monster.rec | recfmt --file=recfiles/animal.tex >> $@
-	recsel -t NPC recfiles/Monster.rec | recfmt --file=recfiles/person.tex >> $@
-	printf '%s\n' '\end{multicols}' >> $@
-	printf '%s\n' '\end{document}' >> $@
-
-generated/pc.tex: recfiles/Monster.rec recfiles/pc.template | generated/ $(DROSS)
-	cp recfiles/pc_head.tex $@
-	recsel -t PC $<  | recfmt -f recfiles/pc.template >> $@
+generated/%.tex: recfiles/Monster.rec recfiles/%.template | generated/ $(DROSS)/
+	cp recfiles/$(basename $(@F))_head.tex $@
+	recsel -t $(basename $(@F)) $<  | recfmt -f recfiles/$(basename $(@F)).template >> $@
+	! grep -q "multicols" $@ || printf '%s\n' '\end{multicols}' >> $@
 	printf '%s\n' '\end{document}' >> $@
 
 .PHONY: statblocks
-statblocks: statblocks.pdf ## Statblocks generated from recfiles/Monster.rec
+statblocks: Monster.pdf NPC.pdf PC.pdf ## Statblocks generated from recfiles/Monster.rec
 
 $(DROSS)/%.pdf: generated/%.tex
 	$(COMPILER) $<
