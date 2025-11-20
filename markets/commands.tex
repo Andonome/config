@@ -1094,6 +1094,10 @@
 
       \textbf{Cure} & \textbf{\Glsentrytext{weight}} & \textbf{Cost} \\\hline
 
+      \ifodd\thetrack
+        \marketItem[cp]{Bottle of whiskey}{1}{14}
+      \fi
+
       \rareMarketItem{Fate \Glsentrytext{elixir} (only \arabic{r3} left)}{1}{24}%
 
       \rareMarketItem[9]{Air \Glsentrytext{elixir} (only \arabic{r3} left)}{1}{24}%
@@ -1109,13 +1113,21 @@
       \rareMarketItem[7]{Medical box {\footnotesize (everything included: +3~Bonus)}}{2}{9}%
 
       \marketItem{Medical kit {\footnotesize (balms and ointments: +2~Bonus)}}{1}{3}
-
+      \hline
+      \bf Service \\
+      \hline
+      Haircut, Nail trim, or Tooth out & & 2~\glspl{cp} \\
     \end{nametable}
 
     \vspace{-1\baselineskip}
     \begin{speechtext}
-      \footnotesize
-      \Glsfmttext{mixer} \marketMixer\ says to tell you that we'll purchase any \glsfmtplural{ingredient} for \mkPrice{12} if we're out of stock.
+      \footnotesize%
+      \ifodd\thefenestraDay%
+        \Glsfmttext{mixer} \marketMixer\ says to tell you that we'll purchase any \glsfmtplural{ingredient} for \mkPrice{12} if we're out of stock.
+      \else%
+        We got a three-for-two deal on hair, tooth, and nails.
+        4~\glspl{cp} for all three.
+      \fi%
     \end{speechtext}
   \end{minipage}
   \null\par
