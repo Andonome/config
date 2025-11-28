@@ -76,6 +76,7 @@
     \setcounter{encnum}{#5}% Reload time is set to, e.g. '15' (meaning '5').
     \addtocounter{encnum}{-10}% Let's make 15 --> 5
     \addtocounter{encnum}{#1}% Weight adds to AP.
+    \addtocounter{encnum}{-\value{Strength}}%
     reload: \arabic{encnum}~\glsfmtplural{round}%
   \else%
     \glsfmtplural{ap}~Cost:~{#5}%
@@ -90,11 +91,18 @@
   {2}% AP Cost
 }
 
-\newcommand\smolCrossBow{%
-  \rangedWeapon[2]{crossbow}%
-  {2}% Att
-  {0}% Dam
-  {15}% AP Cost
+\newcommand\crossbow[1][2]{%
+  \setcounter{encnum}{4}% Attack
+    \addtocounter{encnum}{-#1}%
+  \setcounter{enc}{#1}% Weight
+    \addtocounter{enc}{2}%
+  \setcounter{age}{#1}%
+  \addtocounter{age}{12}%
+  \addtocounter{age}{-\value{Strength}}%
+  \rangedWeapon[\value{enc}]{crossbow}%
+  {\arabic{encnum}}% Att
+  {#1}% Dam
+  {\arabic{age}}% AP Cost
 }
 
 % RANGED WEAPONS
