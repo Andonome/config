@@ -113,6 +113,9 @@ output += images/extracted/
 output += $(DROSS)/
 
 dependencies += git git-lfs lualatex latexmk inkscape
+dependencies += magick# from the imagemagick package
+dependencies += pstops ps2pdf pdftops# usually in cups or psutils
+dependencies += recsel# from recutils
 
 .PHONY: check
 check: ## Check you have the project dependencies

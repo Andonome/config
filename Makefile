@@ -4,10 +4,6 @@ zines += rules.pdf
 zines += spells.pdf
 targets += cs.pdf
 
-dependencies += magick# from the imagemagick package
-dependencies += pstops ps2pdf pdftops# usually in cups or psutils
-dependencies += recsel# from recutils
-
 vpath a7%.tex generated
 output += generated/
 
