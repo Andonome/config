@@ -1,14 +1,15 @@
 \ifodd\value{diceNo}
 
-\spell{Acid Bath}% Name
-  {Duplicated}% Enhancements
+\spell{Web}% Name
+  {Detailed}% Enhancements
   {Warp}% Action
   {Water}% Spheres
-  {water's speed}% Resist with
-  {`Disgusting', the caster shouts, and \arabic{spellTargets} barrels' worth of water become acidic (\showDam~Damage per \gls{round} of total submersion)}% Description
+  {\roll{Speed}{Vigilance}}% Resist with
+  {`Disgusting', the caster shouts while chucking liquid at someone.
+  It forms a web mid-air and any target caught receives a -\arabic{spellPlusTwo}~Penalty to their Body~\glspl{attribute} until free}% Description
   {
-    Fast rivers, or wide waters dissipate the acid and reduce the Damage.
-	Splitting it into small receptacles reduces it by even more.%
+    Any liquid will work.
+    The web counts as having a Strength of \absNum{spellPlusTwo}, so stuck targets can try to resist with their own \roll{Strength}{Athletics} to break free.
   }
 
 \else
