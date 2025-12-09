@@ -67,10 +67,11 @@
       \stepcounter{Speed}
     \fi
     \setcounter{Survival}{\value{r3}}%
-    \setcounter{age}{3}% DR is determined by age counter.
-    \addtocounter{age}{-\value{rn1t2}}% Reduce DR by Speed.
-    \set{Stealth}{age}%
-    \addtocounter{age}{-2}%
+    \setcounter{Stealth}{2}%
+    \addtocounter{Stealth}{-\value{rn1t2}}%
+    \set{age}{Stealth}%
+    \addtocounter{age}{7}%
+    \roundUp{age}
     \label{\jobname:harvestCrawler}% See gls entry 'harvesting'
   }% SKILLS
   {}% KNACKS
