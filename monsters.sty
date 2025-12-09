@@ -543,7 +543,34 @@
     {}% ABILITIES
 }
 
-\newcommand{\humanfarmer}[1][\npc{\Hu\M}{Farmer}]{
+\newcommand{\humanfarmer}[1][\NPC{\M\Hu}% Symbol
+  {\composeHumanName}% Name
+  {\ifcase\value{r3}\relax\or%
+    brown%
+  \or%
+    beige%
+  \else%
+    green%
+  \fi\ %
+  \ifcase\thetemperature%
+    gloves%
+  \or%
+    cloak%
+  \or%
+    boots%
+  \else%
+    hat%
+  \fi%
+  }% Description
+  {\ifodd\value{r2} whittles\else adjusts hat\fi\ while %
+  \ifcase\value{r3c}\relax\or humming\or whistling\else chewing bark\fi}% Mannerism
+  {to find %
+  \ifodd\value{r3c}
+    a career \ifodd\value{r2c} for his son\else that pays better\fi%
+  \else%
+    \ifodd\theMelee\pgls{doula}\else better cooking herbs\fi%
+  \fi}% Wants
+  ]{
   \Person{#1}%
     {{r3}{0}{0}}% BODY
     {{rn1t2}{-1}{0}}% MIND
