@@ -46,7 +46,9 @@
 \RequirePackage{wasysym} % for segment checkboxes
 \RequirePackage{appendix}
 \RequirePackage{geometry} % changes page borders
-  \geometry{margin=50pt}
+  \geometry{margin=50pt,
+  %showframe,
+  }
 \RequirePackage{svg}
 \RequirePackage{alltt}
   \svgsetup{width=\textwidth}
@@ -217,8 +219,17 @@
 \newcommand\subsectionList{}
 
 \renewcommand\headrule{%
-  \hrulefill\\*[-5.6pt]
-  \scshape\small\sectionList{\scriptsize\subsectionList} \\*[-2.37em]\par%
+  \vspace{-6pt}%
+  \color{background}%
+  \hrulefill%
+  \raisebox{-2.1pt}%
+    {\quad\adfdoubleflourishleft\npcsymbol\adfdoubleflourishright\quad}%
+  \hrulefill%
+}
+
+\newcommand\sectionSummary{%
+  \hrulefill\\*[-0.15em]
+  \ifodd\thepage\else\hfill\fi\scshape\small\sectionList{\scriptsize\subsectionList} \\*[-0.6em]\par%
   \hrulefill%
 }
 
@@ -307,13 +318,50 @@
   }%
 }
 
+\newif\iffancy
+\fancyfalse
+
 \fancypagestyle{plain}{
   \fancyhf{}% clear all header and footer fields
-  \fancyfoot[LE]{\hspace{-2em}\titleFont{\large\thepage\if@mainmatter\foliage\fi}}
-  \fancyfoot[RO]{\hspace{-2em}\titleFont{\if@mainmatter\foliage\fi\large\thepage}}
+  \fancyfoot[LE]{\hspace{-2em}\titleFont{\large\thepage\if@mainmatter\foliage\fi}}%
+  \fancyfoot[RO]{\hspace{-2em}\titleFont{\if@mainmatter\foliage\fi\large\thepage}}%
+  \fancytrue
 } 
 
-\pagestyle{plain}
+
+\AddToHook{shipout/background}{%
+  \iffancy%
+  \ifodd\value{page}
+    \def\BGpageanchor{current page.north east}
+    \def\BGanchor{north west}
+    \def\BGoffset{+2ex, -4ex}
+    \def\BGrotate{-90}
+  \else
+    \def\BGpageanchor{current page.north west}
+    \def\BGanchor{north east}
+    \def\BGoffset{-2ex, -4ex}
+    \def\BGrotate{90}
+  \fi\typeout{Underfed goblins (badness \thepage0000)}
+  \begin{tikzpicture}[overlay,remember picture]
+    \path 
+      ++(\BGpageanchor)
+      +(\BGoffset)
+      node[
+        %text centered,
+        inner sep=2pt,
+        outer sep=6pt,
+        text height=4ex,
+        text depth=1ex,
+        text width=.9\pageheight,
+        text=foreground,
+        %fill=background,
+        anchor=\BGanchor,
+        rotate=\BGrotate,
+        font=\titleFont,
+      ] {\sectionSummary};
+  \end{tikzpicture}%
+  \fi%
+}%
 
 \newcounter{pageAlt}
 \setcounter{pageAlt}{100}
@@ -321,45 +369,6 @@
 \newtoggle{countedPage}
 \toggletrue{countedPage}
 
-\AddToHook{shipout/background}{%
-  \iftoggle{countedPage}{
-    \if@mainmatter
-      \ifnum\value{chapter}<14
-        \pgfmathsetmacro{\BGvadjust}{ -2 * (\value{chapter} - 1)}
-      \else
-        \pgfmathsetmacro{\BGvadjust}{ -1 * (\value{chapter} - 1)}
-      \fi
-      \ifodd\value{page}
-        \def\BGpageanchor{current page.north east}
-        \def\BGanchor{north west}
-        \def\BGmark{\textcolor{foreground}{\rightmark}}
-        \def\BGrotate{-90}
-      \else
-        \def\BGpageanchor{current page.north west}
-        \def\BGanchor{north east}
-        \def\BGmark{\textcolor{foreground}{\leftmark}}
-        \def\BGrotate{90}
-      \fi\typeout{Underfed goblins (badness \thepage0000)}
-      \begin{tikzpicture}[overlay,remember picture]
-        \path 
-          ++(\BGpageanchor)
-          +(0cm, \BGvadjust cm)
-          node[
-            text centered,
-            inner sep=4pt,
-            text height=4ex,
-            text depth=2.5ex,
-            text width=14em,
-            text=white,
-            fill=background,
-            anchor=\BGanchor,
-            rotate=\BGrotate,
-            font=\titleFont,
-          ] {\BGmark};
-      \end{tikzpicture}%
-    \fi
-  }{}
-}%
 
 % redefinition of \chaptermark to contain only the number and title (no 'Chapter 1: Pogs', just '1: Pogs')
 \renewcommand\chaptermark[1]{\markboth{\thechapter.~#1}{}}
