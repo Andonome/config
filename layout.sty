@@ -228,9 +228,8 @@
 }
 
 \newcommand\sectionSummary{%
-  \hrulefill\\*[-0.15em]
-  \ifodd\thepage\else\hfill\fi\scshape\small\sectionList{\scriptsize\subsectionList} \\*[-0.6em]\par%
-  \hrulefill%
+  \ifodd\c@page\else\hfill\fi\scshape\Roman{chapter}\quad\small\sectionList{\scriptsize\subsectionList} \\*[-0.6em]\par%
+  \hrulefill\relax%
 }
 
 \newcommand\seasonSym{%
@@ -330,37 +329,39 @@
 
 
 \AddToHook{shipout/background}{%
-  \iffancy%
-  \ifodd\value{page}
-    \def\BGpageanchor{current page.north east}
-    \def\BGanchor{north west}
-    \def\BGoffset{+2ex, -4ex}
-    \def\BGrotate{-90}
-  \else
-    \def\BGpageanchor{current page.north west}
-    \def\BGanchor{north east}
-    \def\BGoffset{-2ex, -4ex}
-    \def\BGrotate{90}
-  \fi\typeout{Underfed goblins (badness \thepage0000)}
-  \begin{tikzpicture}[overlay,remember picture]
-    \path 
-      ++(\BGpageanchor)
-      +(\BGoffset)
-      node[
-        %text centered,
-        inner sep=2pt,
-        outer sep=6pt,
-        text height=4ex,
-        text depth=1ex,
-        text width=.9\pageheight,
-        text=foreground,
-        %fill=background,
-        anchor=\BGanchor,
-        rotate=\BGrotate,
-        font=\titleFont,
-      ] {\sectionSummary};
-  \end{tikzpicture}%
+  \iftoggle{countedPage}{
+  \if@mainmatter
+    \ifodd\the\c@page
+      \def\BGpageanchor{current page.north east}
+      \def\BGanchor{north west}
+      \def\BGoffset{+2ex, -4ex}
+      \def\BGrotate{-90}
+    \else
+      \def\BGpageanchor{current page.north west}
+      \def\BGanchor{north east}
+      \def\BGoffset{-2ex, -4ex}
+      \def\BGrotate{90}
+    \fi
+    \begin{tikzpicture}[overlay,remember picture]
+      \path 
+        ++(\BGpageanchor)
+        +(\BGoffset)
+        node[
+          %text centered,
+          inner sep=2pt,
+          outer sep=6pt,
+          text height=4ex,
+          text depth=1ex,
+          text width=.9\pageheight,
+          text=foreground,
+          %fill=background,
+          anchor=\BGanchor,
+          rotate=\BGrotate,
+          font=\titleFont,
+        ] {\sectionSummary};
+    \end{tikzpicture}%
   \fi%
+  }
 }%
 
 \newcounter{pageAlt}
