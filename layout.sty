@@ -341,7 +341,7 @@
       \def\BGanchor{north east}
       \def\BGoffset{-2ex, -4ex}
       \def\BGrotate{90}
-    \fi
+    \fi\typeout{Underfed goblins (badness \thepage0000)}
     \begin{tikzpicture}[overlay,remember picture]
       \path 
         ++(\BGpageanchor)
@@ -1068,7 +1068,7 @@
 
 \titleformat{\section}%
   {\needspace{16em}%
-  \textcolor{background}{\large\raisebox{-4pt}{\Large\hspace{-0.2em}\flourish}\titlerule}%
+  \bigLine
   \center%
   \huge%
   \titleFont
@@ -1080,7 +1080,7 @@
     \gappto{\sectionList}{#1~\npcsymbol~}%
     \gdef\subsectionList{}%
     \setcounter{list}{0}%
-    \color{background}\large\titlerule\raisebox{-4pt}{\Large\hspace{-0.2em}\flourish}%
+    \bigLine%
   ]%
 
 \renewcommand*{\thesection}{\arabic{section}}
