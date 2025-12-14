@@ -1084,6 +1084,20 @@
     \bigLine%
   ]%
 
+\titleformat{name=\section,numberless}%
+  {\needspace{16em}%
+  \bigLine
+  \center%
+  \huge%
+  \titleFont
+  }%
+  {}%
+  {1em}%
+  {#1}%
+  [%
+    \gdef\subsectionList{}%
+  ]%
+
 \renewcommand*{\thesection}{\arabic{section}}
 
 \titleformat{\subsection}
