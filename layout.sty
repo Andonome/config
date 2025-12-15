@@ -150,48 +150,55 @@
 
 \ifpride
   \definecolor{backgroundOne}{cmyk}{0, 0.99, 0.99, 0.11}
-  \definecolor{backgroundTwo}{cmyk}{0, 0.99, 0.99, 0.11}
+  \definecolor{foregroundOne}{black}
   \definecolor{backgroundTwo}{cmyk}{0, 0.45, 1, 0}
+  \definecolor{foregroundTwo}{black}
   \definecolor{backgroundThree}{cmyk}{0, 0.7, 1, 0}
+  \definecolor{foregroundThree}{black}
   \definecolor{backgroundFour}{cmyk}{1, 0, 0.7, 0.2}
+  \definecolor{foregroundFour}{black!20!white!50}
   \definecolor{backgroundFive}{cmyk}{1, 0.7, 0, 0}
+  \definecolor{foregroundFive}{black!20!white!50}
   \definecolor{backgroundSix}{cmyk}{0.12, 0.69, 0, 0.49}
+  \definecolor{foregroundSix}{black!20!white!50}
+\else%
+  \definecolor{backgroundOne}{cmyk}{0, 0, 0, 0.9}
+  \definecolor{foregroundOne}{cmyk}{0, 0, 0, 0.3}
+  \definecolor{backgroundTwo}{cmyk}{0, 0, 0, 0.8}
+  \definecolor{foregroundTwo}{cmyk}{0, 0, 0, 0.2}
+  \definecolor{backgroundThree}{cmyk}{0, 0, 0, 0.7}
+  \definecolor{foregroundThree}{cmyk}{0, 0, 0, 0.15}
+  \definecolor{backgroundFour}{cmyk}{0, 0, 0, 0.65}
+  \definecolor{foregroundFour}{cmyk}{0, 0, 0, 0.1}
+  \definecolor{backgroundFive}{cmyk}{0, 0, 0, 0.53}
+  \definecolor{foregroundFive}{cmyk}{0, 0, 0, 0.08}
+  \definecolor{backgroundSix}{cmyk}{0, 0, 0, 0.42}
+  \definecolor{foregroundSix}{cmyk}{0, 0, 0, 0.07}
 \fi
 
 \newcommand*\shiftColours[1][\thechapter]{%
-  \ifpride%
-    \setcounter{track}{#1}%
-    \whileboolexpr{ test {\ifnumcomp{\value{track}}{>}{6}} }%
-      {\addtocounter{track}{-6}}
-    \ifcase\value{track}\relax%
-    \or%
-      \xglobal\colorlet{background}{backgroundOne}%
-      \xglobal\colorlet{foreground}{black}%
-    \or%
-      \xglobal\colorlet{background}{backgroundTwo}%
-      \xglobal\colorlet{foreground}{black}%
-    \or%
-      \xglobal\colorlet{background}{backgroundThree}%
-      \xglobal\colorlet{foreground}{black}%
-    \or%
-      \xglobal\colorlet{background}{backgroundFour}%
-      \xglobal\colorlet{foreground}{black!20!white!50}%
-    \or%
-      \xglobal\colorlet{background}{backgroundFive}%
-      \xglobal\colorlet{foreground}{black!20!white!50}%
-    \else%
-      \xglobal\colorlet{background}{backgroundSix}%
-      \xglobal\colorlet{foreground}{black!20!white!50}%
-    \fi%
+  \setcounter{track}{#1}%
+  \whileboolexpr{ test {\ifnumcomp{\value{track}}{>}{6}} }%
+    {\addtocounter{track}{-6}}
+  \ifcase\value{track}\relax%
+  \or%
+    \xglobal\colorlet{background}{backgroundOne}%
+    \xglobal\colorlet{foreground}{foregroundOne}%
+  \or%
+    \xglobal\colorlet{background}{backgroundTwo}%
+    \xglobal\colorlet{foreground}{foregroundTwo}%
+  \or%
+    \xglobal\colorlet{background}{backgroundThree}%
+    \xglobal\colorlet{foreground}{foregroundThree}%
+  \or%
+    \xglobal\colorlet{background}{backgroundFour}%
+    \xglobal\colorlet{foreground}{foregroundFour}%
+  \or%
+    \xglobal\colorlet{background}{backgroundFive}%
+    \xglobal\colorlet{foreground}{foregroundFive}%
   \else%
-    \setcounter{track}{100}%
-    \divide\value{track}by#1%
-    \xglobal\colorlet{background}{white!10!black!\arabic{track}}%
-    \ifnum\thechapter<4%
-      \xglobal\colorlet{foreground}{white!70!black!\thechapter}%
-    \else%
-      \xglobal\colorlet{foreground}{black}%
-    \fi%
+    \xglobal\colorlet{background}{backgroundSix}%
+    \xglobal\colorlet{foreground}{foregroundSix}%
   \fi%
 }
 
@@ -229,7 +236,7 @@
 
 \newcommand\sectionSummary{%
   \ifodd\c@page\Roman{chapter}\quad\else\hfill\fi\scshape\small\sectionList{\scriptsize\subsectionList} \\*[-0.6em]\par%
-  \hrulefill\relax%
+  \textcolor{background}{\hrulefill}%
 }
 
 \newcommand\seasonSym{%
@@ -1044,7 +1051,7 @@
   \stepcounter{adf}%
 }
 
-\newcommand\showChapter{\textcolor{foreground}{\Roman{chapter}}}
+\newcommand\showChapter{\Huge\textcolor{background}{\Roman{chapter}}}
 
 \titleformat{\chapter}[display]
 {%
@@ -1052,11 +1059,12 @@
   \titleFont%
 }
 {%
+  \shiftColours%
   \hspace*{-1.5em}%
   \begin{tikzpicture}
-    \node[minimum width=\linewidth+3em, text=foreground, fill=background, inner sep=1, outer sep=0, anchor=south] (rectinit) {\Huge \headingtype};
+    \node[minimum width=\linewidth+3em, text=background, fill=foreground, inner sep=1, outer sep=0, anchor=south] (rectinit) {\Huge \headingtype};
    \node[minimum width=.75\textwidth, text=white, inner sep=3, outer sep=0, anchor=south west, text width=.75\textwidth, align=right] at (rectinit.south west) (chapname) {};
-    \node[minimum width=.25\textwidth, inner sep=-5, outer sep=0, anchor=south west, text width=.25\textwidth, align=left] at (chapname.south east) {\chapnumfont\textcolor{chapnumcol}{\showChapter}};
+    \node[minimum width=.25\textwidth, inner sep=-5, outer sep=0, anchor=south west, text width=.25\textwidth, align=left] at (chapname.south east) {\showChapter};
   \end{tikzpicture}
   \color{darkgray}% All text is a little feint, so that the black text pops.  This has not been tested yet.
 }
