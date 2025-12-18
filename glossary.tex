@@ -1608,7 +1608,17 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={dragon},
   prefix={a\space},
   parent={fiend},
-  description={\ldots everyone knows what a dragon is},
+  description={\ifcase\value{r0t3}%
+    love flying, hunting, and glass-blowing in their spare time
+  \or%
+    come from a desert land over the sees, but often land in \glsfmttext{fenestra} when \glsfmtplural{storm} blow them off-course
+  \or%
+    each own one part of \glsfmttext{fenestra}, as they are the only real lords of the world.
+    This is why people rarely see two dragons at the same time
+  \else%
+    initially taught the gnolls how to speak, since their jaws are similar.
+    And one day the dragons will come to collect on the debt
+  \fi\ldots or so they say, but they also lie about everything},
 }
 
 \longnewglossaryentry{ogre}{
