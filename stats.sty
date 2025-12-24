@@ -922,14 +922,14 @@
 }
 
 \newcommand{\tentacles}{%
+  \setcounter{track}{2}%
+  \addtocounter{track}{\value{Strength}}%
+  \addtocounter{track}{\value{Dexterity}}%
+  \ifnum\value{track}<2\setcounter{track}{2}\fi%
+  \set{enc}{track}%
+  \roundUp{enc}%
+  \addtocounter{weight}{\value{enc}}%
   \addAbility{%
-    \setcounter{track}{2}%
-    \addtocounter{track}{\value{Strength}}%
-    \addtocounter{track}{\value{Dexterity}}%
-    \ifnum\value{track}<2\setcounter{track}{2}\fi%
-    \set{enc}{track}%
-    \roundUp{enc}%
-    \addtocounter{weight}{\value{enc}}%
     \arabic{track}~tentacles (grapple up to \arabic{enc} opponents without going prone)%
   }%
 }
