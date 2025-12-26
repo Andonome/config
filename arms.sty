@@ -148,10 +148,9 @@
   \setcounter{armourDR}{#3}%
   \setcounter{covering}{#4}%
   \setcounter{armourWeight}{#4}%
+  \roundUp{armourWeight}%
   \addtocounter{armourWeight}{#3}%
-  \addtocounter{armourWeight}{1}%
-  \divide\value{armourWeight} by 3%
-  \addtocounter{armourWeight}{0}%
+  \addtocounter{armourWeight}{-3}%
   #1% <- for adjustments.
 }
 
