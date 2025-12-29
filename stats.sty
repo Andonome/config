@@ -650,10 +650,11 @@
 %%
 %
 \newcommand{\derivedstats}{%
+  {%
   \setlength\topsep{0pt}%
   \setlength\parskip{0pt}%
     \iftoggle{intro}{\normalsize}{\small}%
-    \scshape AP \ifnum\value{ap}<1 $\frac{1}{2}$ \else \arabic{ap}\fi%
+    \scshape AP \arabic{ap}%
     \ifnumcomp{\value{heft}}{>}{1}{ (AP Cost: \arabic{heft})}{},
     Att %
     \iftoggle{allyCharacter}{$2D6$\absNum{att}}{\arabic{toHit}},\space%
@@ -688,6 +689,7 @@
       \fi%
     }{}
     {\hfil\small\textcolor{background}{\calculateXP}\par}%
+    }%
 }
 %
 %
