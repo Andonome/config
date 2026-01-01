@@ -575,11 +575,11 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 %%%%% Combat
 
 \newcommand\stackingDamageChart{
-  \begin{boxtable}[l|YYYYYYYYYYYY]
+  \begin{boxtable}[|l|ccc|Y|YYY|Y|YY|Y|Y|]
 
     \hline
-    \textbf{Damage}       & 1 & 2     & \dots & 4   & \dots &  7    &  8  & \dots & 11    & 12  & \dots & 14  \\
-    \textbf{Damage Roll}  & 1 & 1D6-2 & \dots & 1D6 & \dots & 1D6+3 & 2D6 & \dots & 2D6+3 & 3D6 & \dots & 3D6+2 \\
+    \textbf{Damage}       & 1 & 2     & 3       & \bf 4   &  5    &   6     & 7      & \bf 8   &  9    & \dots  & \bf 12  & 13  \\
+    \textbf{Damage Roll}  & 1 & 1D6-2 & 1D6-1   &     1D6 & 1D6+1 & 1D6+2   & 1D6+3  &     2D6 & 2D6+1 & \dots  &   3D6   & 3D6+1 \\
     \hline
 
   \end{boxtable}
