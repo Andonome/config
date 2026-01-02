@@ -129,7 +129,6 @@
   }{}%
 }
 
-\newcommand\spellSymbols{}
 
 \newcommand\calcSpell[7]{%
   \renewcommand\spellName{#1}%
@@ -138,6 +137,7 @@
   \togglefalse{Distant}%
   \togglefalse{Divergent}%
   \togglefalse{Duplicated}%
+  \def\spellSymbols{}%
   \foreach \d in {#2}{%
     \ifdefstring{\d}{Detailed}{\gappto{\spellSymbols}{\gls{Detailed}}}{}%
     \ifdefstring{\d}{Devious}{\global\toggletrue{Devious}\gappto{\spellSymbols}{\gls{Devious}}}{}%
