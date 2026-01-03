@@ -811,12 +811,7 @@
 }
 
 \newcommand{\acidSpray}{%
-  \set{track}{Strength}%
-  \setcounter{age}{7}%
-  \addtocounter{age}{\value{Dexterity}}%
-  \addtocounter{age}{\value{Projectiles}}%
-  \conDmg{track}%
-  \addAbility{Acid spray (\glsentrytext{tn}~\arabic{age} to dodge or \showDam~Damage)}%
+  \addAbility{Acid spray (1~Damage per \glsfmttext{round} for $1D3$ \glsfmtplural{round})}%
 }
 
 \newcommand{\acidBody}[1][Acidic]{%
