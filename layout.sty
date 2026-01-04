@@ -152,6 +152,8 @@
 \newcounter{pageDarkness}
 \setcounter{pageDarkness}{50}
 
+\color{darkgray}% All text is a little feint, so that the black text pops.  This has not been tested yet.
+
 \ifpride
   \definecolor{backgroundOne}{cmyk}{0, 0.99, 0.99, 0.11}
   \definecolor{foregroundOne}{black}
@@ -1070,7 +1072,6 @@
    \node[minimum width=.75\textwidth, text=white, inner sep=3, outer sep=0, anchor=south west, text width=.75\textwidth, align=right] at (rectinit.south west) (chapname) {};
     \node[minimum width=.25\textwidth, inner sep=-5, outer sep=0, anchor=south west, text width=.25\textwidth, align=left] at (chapname.south east) {\showChapter};
   \end{tikzpicture}
-  \color{darkgray}% All text is a little feint, so that the black text pops.  This has not been tested yet.
 }
 {0pt}
 {\Huge#1}%
