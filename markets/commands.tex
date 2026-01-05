@@ -853,6 +853,9 @@
 %%%%%%%%%% Town %%%%%%%%%%
 
 
+\setcounter{spellPlusTwo}{\value{r12}}%
+\addtocounter{spellPlusTwo}{5}%
+
 \newcommand\townPitOfJustice{
   \renewcommand\npcsymbol{\glsentrysymbol{paik}}
   \begin{nametable}[Lc]{\pinLocation[-1.2,0]{Pit}\Glsentrytext{court}}
@@ -867,8 +870,7 @@
 
     % Using this random counter just because nothing else is, and it won't change
     % when other numbers randomize.
-    \addtocounter{spellPlusTwo}{\value{r6}}%
-    `The Spectacular' & 1\arabic{spellPlusTwo}~\glspl{cp} \\
+    `The Spectacular' & \arabic{spellPlusTwo}~\glspl{cp} \\
 
     Bribery\footnote{Bribery is paid to \pgls{sunGuard}.}
     (petty crime) & \mkPrice{30} \\
