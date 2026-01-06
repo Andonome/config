@@ -33,6 +33,10 @@
   \fi%
   \ifnum#4>0%
     \addtocounter{weaponWeight}{#4}%
+  \else%
+    \setcounter{track}{#4}%
+    \roundUp{track}%
+    \addtocounter{weaponWeight}{\value{track}}%
   \fi%
   \roundUp{weaponWeight}%
   \addtocounter{weaponWeight}{#1}%
@@ -276,8 +280,8 @@
 
 % SHIELDS
 \newcommand{\buckler}{\weapon{Buckler}{2}{-4}}
-\newcommand{\roundshield}{\weapon{Round Shield}{3}{-2}}
-\newcommand{\kiteshield}{\weapon{Kite Shield}{4}{-4}}
+\newcommand{\roundshield}{\weapon{Round Shield}{3}{-3}}
+\newcommand{\kiteshield}{\weapon{Kite Shield}{4}{-3}}
 
 \newcommand{\shieldchart}{
   \begin{boxtable}[XYYY]
