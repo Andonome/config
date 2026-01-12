@@ -1120,9 +1120,20 @@
   \LARGE}%
   {\thesubsection}%
   {1em}%
-  {\center\textcolor{foreground}{\underline{\quad\textcolor{black}{#1\quad}}}}%
+  {%
+    \color{background}
+    \titlerule
+    \vspace{1pt}%
+    \titlerule
+    \quad\color{black}
+    #1
+  }%
   [%
     \gappto{\subsectionList}{#1~\textbullet~}%
+    \color{background}
+    \titlerule
+    \vspace{1pt}
+    \titlerule
   ]
 
 \titleformat{\subsubsection}[wrap]
