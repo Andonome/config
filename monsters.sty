@@ -1188,7 +1188,25 @@
 
 %%%%%%%%%% Goblinoids %%%%%%%%%%
 
-\newcommand{\goblin}[1][\npc{\T[\arabic{r12}]\N}{\arabic{noAppearing} Goblins}]{
+\newcommand{\goblin}[1][\NPC{\T[\arabic{r12}]\N}% Symbol
+  {\ifodd\theDexterity Hairy \else Sweaty\fi~Goblins}% Name
+  {\ifnum\theStrength<-1%
+    Skinny
+  \else%
+    Bulbous
+  \fi
+  \ifcase\theWits%
+    stomach%
+  \or%
+    fingers
+  \else%
+    face%
+  \fi%
+  \ifodd\value{r3}, long ears\fi%
+  }% Description
+  {\ifodd\value{r3} scratches \else rubs \fi \ifodd\value{r2} eyeballs \else chest\fi}% Mannerism
+  {\ifcase\value{r3} to find somewhere {\ifnum\thetemperature=0 warm \else to sleep \fi}\or to eat snails\else to collect rocks\fi}% Wants
+  ]{
   \Person{#1}%
     {{r3}{r2b}{rn1t2}}% BODY
     {{rn1t0}{rn3t3}{rn4tn1}}% MIND
