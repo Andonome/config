@@ -191,18 +191,23 @@
 }
 
 \newcommand{\dwarventrader}[1][\npc{\T[\arabic{r12}]\Dw\M}{\arabic{r12} Dwarven Traders}]{
+  \randomize%
   \Person{#1}%
     {{r2}{r2b}{0}}% BODY
-    {{0}{0}{-1}}% MIND
+    {{0}{0}{rn1t2}}% MIND
     {%
       \set{Caving}{r2c}
-      \set{Melee}{rn1t2}
+      \ifodd\thetrack
+        \set{Melee}{rn1t2}
+      \else
+        \set{Brawl}{rn1t2}
+      \fi
       \set{Crafts}{r2c}
       \ifodd\value{r2}
+        \Dagger
+      \else
         \shortsword
         \partialchain
-      \else
-        \Dagger
       \fi
     }% SKILLS
     {}% KNACKS
@@ -241,6 +246,11 @@
       \set{Academics}{r3b}
       \set{Caving}{r2}
       \set{Crafts}{rn1t2}
+      \set{Cultivation}{r2c}
+      \set{Air}{r2}
+      \set{Earth}{rn1t2}
+      \set{Fire}{r0t3}
+      \set{Fate}{rn3t3}
       \shortsword
     }% SKILLS
     {\ritualcaster}% KNACKS
