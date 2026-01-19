@@ -648,6 +648,47 @@
     {}% ABILITIES
 }
 
+\newcommand{\humanhealer}[1][\NPC{\glsentrysymbol{eldren}\ifodd\theage\F\else\M\fi\Hu}% Symbol
+  {\Glsfmttext{mixer}~\composeHumanName}% Name
+  {\ifnum\thetrack<-2%
+    peg leg%
+  \else%
+    \ifnum\thetrack<-1%
+      hunched back%
+    \else%
+      blind%
+    \fi%
+  \fi%
+  }% Description
+  {\ifodd\value{r2b} picks at\else cleans\fi\ %
+  \ifcase\value{r3c}\relax\or hair\or teeth\else nose\fi}% Mannerism
+  {to \ifodd\value{r3c} find \ifcase\value{r0t3} Earth\or Air\or Fire\else Fate\fi\space\glsfmtplural{ingredient}\else advertise a pension plan\fi}% Wants
+  ]{
+  \set{track}{rn4tn1}%
+  \set{age}{rn1t2}%
+  \Person{#1}%
+    {{age}{0}{track}}% BODY
+    {{rn1t2}{rn1t0}{rn3t3}}% MIND
+    {%
+      \ifodd\value{r3}
+        \set{Academics}{r2b}
+      \else
+        \set{Brawl}{1}
+      \fi
+      \set{Medicine}{r2}
+      \set{Cultivation}{r2c}
+      \ifodd\value{r3b}
+        \set{Vigilance}{rn1t2}
+      \else
+        \set{Brawl}{rn1t2}
+      \fi
+      \walkingStick
+    }% SKILLS
+    {\ifcase\value{rn1t2}\specialist{gout}\or\specialist{mindflash syndrome}\else\specialist{breathrot}\fi}% KNACKS
+    {knife, medical equipment (+\arabic{r2b}), writing equipment, \lootMedium}% EQUIPMENT
+    {}% ABILITIES
+}
+
 \newcommand{\humantrader}[1][\NPC{%
     \ifcase\value{rn3t3}\glsentrysymbol{sable}\or\glsentrysymbol{abderian}\else\fi%
     \ifodd\thepage\F\else\M\fi\Hu%
