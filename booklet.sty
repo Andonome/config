@@ -77,13 +77,8 @@
   \setcounter{page}{1}
   \setlength{\headwidth}{\textwidth}
   \fancyhf{} % Clear Everything.
-  \fancyfoot[LO]{\stateEquipment}
-  \fancyfoot[LE]{\stateEquipment}
-  \newgeometry{
-    footskip=12mm,
-    includefoot,
-    margin=5mm,
-  }%
+  \fancyfoot[LO]{}
+  \fancyfoot[LE]{}
   \AddToHook{shipout/background}{%
     \ifnum\value{page}=7%
       \begin{tikzpicture}[overlay, remember picture]%
@@ -106,45 +101,44 @@
   \iftoggle{examplecharacter}{ \pencilWriting{#2} }{ \lineDots }
 }
 
-\newcommand*\stateEquipment{%
-  \ifcase\value{page}\relax%
-  \or\relax%
+\newcommand\stateEquipment[1]{%
+  \ifcase#1%
+    \pencilWriting{Body:}\quad
+    \ifdefempty{\armourName}{\hspace{6em}\bigLine}{%
+      \pencilWriting{\expandafter\MakeUppercase\armourName\ (\Gls{dr}~\arabic{armourDR}, \glsentrysymbol{weight}~\arabic{armourWeight})}
+    }
   \or%
-    \underline{Left:}
-    \ifdefempty{\weaponName}{\lineDots}{%
+    \pencilWriting{Left:}
+    \ifdefempty{\weaponName}{\bigLine}{%
       \pencilWriting{\expandafter\MakeUppercase\weaponName~(\absNum{weaponBonus}/ \absNum{weaponDamage}: \glsentrysymbol{weight} \arabic{weaponWeight})}
     }
   \or%
-    \underline{Right:}
-    \ifdefempty{\armourName}{\lineDots}{%
-      \pencilWriting{\expandafter\MakeUppercase\armourName}
-    }
-  \or%
-    \underline{Pack:}\quad%
-    \ifdefempty{\equipi}{\lineDots}{%
+    \pencilWriting{Right:}
+    \ifdefempty{\equipi}{\bigLine}{%
       \pencilWriting{\equipi}
     }
   \or%
-    \underline{\hspace{4em}}
-    \ifdefempty{\equipii}{\lineDots}{%
+    \hspace{6em}%
+    \ifdefempty{\equipii}{\bigLine}{%
       \pencilWriting{\equipii}
     }
   \or%
-    \underline{\hspace{4em}}
-    \ifdefempty{\equipiii}{\lineDots}{%
+    \hspace{6em}%
+    \ifdefempty{\equipiii}{\bigLine}{%
       \pencilWriting{\equipiii}
     }
   \or%
-    \underline{\hspace{4em}}
-    \ifdefempty{\equipiv}{\lineDots}{%
+    \hspace{6em}%
+    \ifdefempty{\equipiv}{\bigLine}{%
       \pencilWriting{\equipiv}
     }
   \else%
     \ifnum\thepage>\value{hp}%
       \glsentrysymbol{weight}~\underline{\hspace{5em}}
     \fi%
-    \lineDots
+    \bigLine
   \fi%
+  \par%
 }
 
 \setcounter{bookLevel}{1}

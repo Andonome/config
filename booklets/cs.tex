@@ -200,6 +200,26 @@
 
 \pagebreak
 
+\setcounter{diceNo}{0}
+\Repeat{6}{%
+  \ifnum\thehp>\thediceNo%
+    \vspace{2em}%
+    \noindent\stateEquipment{\value{diceNo}}%
+    \stepcounter{diceNo}%
+  \fi%
+}
+
+\pagebreak
+
+\hspace{6em}\bigLine\par\vspace{2em}
+\hspace{6em}\bigLine\par\vspace{2em}
+\hspace{6em}\bigLine\par\vspace{2em}
+\hspace{6em}\bigLine\par\vspace{2em}
+\hspace{6em}\bigLine\par\vspace{2em}
+\hspace{6em}\bigLine\par\vspace{2em}
+
+\pagebreak
+
 \zineTitle{Abilities}
 \Abilities
 
@@ -227,16 +247,13 @@
 \pagebreak
 
 Notes
-\pagebreak
 
-\null
 \pagebreak
-
 \null
 
-\pagebreak
+\vfill
 
-\zineTitle{Cause of Death}
+\zineTitle{Cause of Death}\bigLine
 
 \clearpage
 
