@@ -1,3 +1,5 @@
+\ifodd\value{diceNo}
+
 \spell{Sky-Call}% Name
   {Distant, Detailed}% Enhancements
   {Wane}% Action
@@ -15,3 +17,22 @@
     Rolls with a high failure-margin might indicate that the rock failed to move entirely, and that anyone below the ceiling clearly understood that nothing could move or break it.
   }
 
+\else
+
+\spell{Undress the Hill}% Name
+  {Detailed, Duplicated}% Enhancements
+  {Wane}% Action
+  {Earth}% Spheres
+  {solidity of the earth}% Resist with
+  {The caster compliments the ground, comparing it to a palace.
+  A defined shape of \arabic{spellTargets}~\glspl{step} in total cracks, crumbles, or turns to sludge, leaving only the shape which the caster described standing.
+  Anyone standing on the collapsing exterior receives a -\arabic{spellPlusTwo}~Penalty to \glspl{action} involving balance}% Description
+  {
+	Destroying earth on a slope will send it sliding downhill.
+    Targeting soft earth during the rain has \tn[7], but the unblemished shape which remains will not have enough stability to remain upright if everything around it has washed downhill.
+
+    \Gls{casting} upon a mountain's stone top allows the caster to quickly carve out a properly defined space which remains standing once the surrounding rocks tumble downhill, but the \gls{tn} rises to 12 or more.
+  }
+
+\fi
+\stepcounter{diceNo}
