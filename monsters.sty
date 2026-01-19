@@ -869,11 +869,14 @@
       \set{Projectiles}{rn1t2}
       \set{Stealth}{rn3t3}
       \set{Larceny}{r2}
-      \ifcase\value{Strength}\relax%
+      \ifcase\theProjectiles%
+        \maul%
       \or%
         \Dagger%
       \else%
-        \maul%
+        \weapon{Walking stick (javelin with apple covering spike)}{2}{1}
+      \fi%
+      \ifnum\theStrength>1%
         \partialleather%
       \fi%
     }% SKILLS
