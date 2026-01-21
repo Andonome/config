@@ -206,22 +206,20 @@
     \vspace{2em}%
     \noindent\stateEquipment{\value{diceNo}}%
     \stepcounter{diceNo}%
+  \else%
+    \parLine
   \fi%
 }
 
 \pagebreak
 
-\hspace{6em}\bigLine\par\vspace{2em}
-\hspace{6em}\bigLine\par\vspace{2em}
-\hspace{6em}\bigLine\par\vspace{2em}
-\hspace{6em}\bigLine\par\vspace{2em}
-\hspace{6em}\bigLine\par\vspace{2em}
-\hspace{6em}\bigLine\par\vspace{2em}
+\Repeat{6}{\parLine}
 
 \pagebreak
 
 \zineTitle{Abilities}
 \Abilities
+
 
 
 \pagebreak
