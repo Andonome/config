@@ -194,7 +194,7 @@ $(TITLE)_cover.pdf: $(DROSS)/$(BOOK)_cover.pdf
 A3_pdfs = $(patsubst %.pdf, %_A3_12_signature.pdf, $(pdfs))
 
 .PHONY: printables
-printables: $(A3_pdfs)
+printables: $(A3_pdfs) ## Pre-press for self-binding
 
 ######## A7 pdf booklets ########
 
