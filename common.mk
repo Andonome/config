@@ -6,6 +6,7 @@ QR_CODE=\qrcode[height=.2\textwidth]{$(QR_TARGET)}
 COMPRESS = gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dNOPAUSE -dQUIET -dBATCH -dPrinted=false -sOutputFile=$@ $<
 
 CP := ln -f
+root_file ?= main.tex
 BOOK != basename "$(shell pwd)"
 TITLE != head -1 README.md | tail -c+3 | tr ' ' '_'
 DROSS = rubbish
@@ -147,13 +148,13 @@ vpath %.tex future
 
 output += future/
 
-future_months != seq 1 12
+future_months != seq 1 9
 
 future_tex = $(patsubst %, future/%.tex, $(future_months))
 future_tests = $(patsubst future/%.tex, $(DROSS)/%.pdf, $(future_tex))
 
-$(future_tex): future/%.tex: main.tex $(DBOOK) | future/
-	sed '2 i \ \\day=$(notdir $(basename $@)) \\month=$(notdir $(basename $@))' $< > $@
+$(future_tex): future/%.tex: $(root_file) $(DBOOK) | future/
+	sed '2 i \ \\day=1$(notdir $(basename $@)) \\month=$(notdir $(basename $@))' $< > $@
 
 .PHONY: test_future
 test_future: $(future_tests) ## Check compilation in future dates

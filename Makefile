@@ -7,6 +7,8 @@ targets += cs.pdf
 vpath a7%.tex generated
 output += generated/
 
+root_file = markets/main.tex
+
 include common.mk
 
 common.mk:
