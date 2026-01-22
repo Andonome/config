@@ -259,7 +259,7 @@ circle label/.style = {
     \vspace{\baselineskip}%
     \scshape
     \renewcommand{\arraystretch}{1}%
-    \begin{tabular}{lr}
+    \begin{tabular}{lr}\hiderowcolors
       \hline
       \Glsfmtlongpl{ap} & \iftoggle{examplecharacter}{ \hspace{-3em} \arabic{ap}}{} \\
       \pencilWriting{\footnotesize $3 + Speed$} \\
@@ -294,7 +294,7 @@ circle label/.style = {
     \vspace{-.85em}%
     \renewcommand{\arraystretch}{1.1}%
     \addtolength{\tabcolsep}{-0.55em}
-    \begin{tabular}{rcccccccccc}
+    \begin{tabular}{rcccccccccc}\hiderowcolors
       X: \Repeat{5}{&\Diamondblack }
       \Repeat{5}{&\glsentrysymbol{fp}}%
       \\
