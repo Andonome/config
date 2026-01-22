@@ -141,6 +141,25 @@ graph: ## Show a dependency graph (needs graph-easy and make2graph)
 
 ######## Automated Materials Check ########
 
+## Alt Date Test ##
+
+vpath %.tex future
+
+output += future/
+
+future_months != seq 1 12
+
+future_tex = $(patsubst %, future/%.tex, $(future_months))
+future_tests = $(patsubst future/%.tex, $(DROSS)/%.pdf, $(future_tex))
+
+$(future_tex): future/%.tex: main.tex $(DBOOK) | future/
+	sed '2 i \ \\day=$(notdir $(basename $@)) \\month=$(notdir $(basename $@))' $< > $@
+
+.PHONY: test_future
+test_future: $(future_tests) ## Check compilation in future dates
+
+## Repetition Check ##
+
 text_shadows = $(patsubst $(DROSS)/%.pdf, $(DROSS)/%.txt, $(wildcard $(DROSS)/*.pdf))
 
 $(text_shadows): $(DROSS)/%.txt: $(DROSS)/%.pdf
