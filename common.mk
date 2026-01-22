@@ -51,7 +51,7 @@ else
 	--outfile $@
 endif
 
-$(DBOOK): main.tex $(DEPS)
+$(DBOOK): main.tex $(DEPS) | $(DROSS)/
 	$(COMPILER) -jobname=$(BOOK) $<
 
 vpath %.tex config/share
