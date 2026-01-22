@@ -196,10 +196,12 @@ because they think more letters makes more smarts.
 \humandiplomat
 
 \act{tell the diplomat about the book}%
-{Charisma}{Cultivation}{\roll{Intelligence}{Academics}}
+{Charisma}{Cultivation}%
+{\roll{Intelligence}{Academics}}
 
 \act[Those who want brain-damage directly]%
-{eat the book}{Speed}{Athletics}{\roll{Strength}{Academics}}
+{eat the book}{Speed}{Athletics}%
+{\roll{Strength}{Academics}}
 
 \end{verbatim}
 
@@ -430,9 +432,12 @@ Vigilance]{Keeping Watch}
 \end{verbatim}
 
 This first argument in the square brackets is used as the subsection header when referenced, or in tables of contents.
-Since the subsection is never used in a table of contents, we can misused it to contain rules, and then reference the rule.
+Since the subsection is never used in a table of contents, we can misuse it to contain rules, and then reference the rule.
+Specifically, you can use
 
-Specifically, you can use \verb"\footnote{\nameref{keepingWatch}.}", which then produces a footnote with a summary of that rule, which will automatically update if the rule ever changes.
+\verb"\footnote{\nameref{keepingWatch}.}"
+
+This produces a footnote with a summary of that rule, which will automatically update if the rule ever changes.
 \footnote{The rule also appears in a miniature table of contents sometimes.}
 
 \subsubsection{External References}
