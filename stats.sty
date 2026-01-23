@@ -865,22 +865,24 @@
   \ifnum\value{Strength}>0%
     \addtocounter{weight}{\value{Strength}}%
   \fi%
-  \addAbility{Wings %
-  \setcounter{enc}{\value{Speed}}%
-  \addtocounter{enc}{\value{Flight}}%
-  \ifnum\value{enc}<\value{weight}%
-    \ifnum\value{Air}>0%
-      (can fly by spending \pgls{mp})
+  \addAbility{%
+    Wings (+6 to movement%
+    \setcounter{enc}{\value{Speed}}%
+    \addtocounter{enc}{\value{Flight}}%
+    \ifnum\value{enc}<\value{weight}%
+      \space%
+      \ifnum\value{Air}>0%
+        after spending \pgls{mp})
+      \else%
+        after jumping down to glide)
+      \fi%
     \else%
-      (can glide, but not fly)
+      \ifnum\value{enc}=\value{weight}%
+        \space after \glsfmttext{running} to take~off)%
+      \else%
+        )%
+      \fi%
     \fi%
-  \else%
-    \ifnum\value{enc}=\value{weight}%
-      (moves at x4 speed, must run before takeoff)%
-    \else%
-      (moves at x4 speed)%
-    \fi%
-  \fi%
   }%
 }
 
@@ -901,17 +903,17 @@
 
 \newcommand{\quadruped}{%
   \expandafter\stepcounter{sprint}%
-  \addAbility{Quadruped (double movement)}%
+  \addAbility{Quadruped (+3 movement)}%
 }
 
 \newcommand{\hexapod}{%
   \expandafter\stepcounter{sprint}%
-  \addAbility{Hexapod (double movement)}%
+  \addAbility{Hexapod (+3 movement)}%
 }
 
 \newcommand{\octopod}{%
   \expandafter\stepcounter{sprint}%
-  \addAbility{Octopod (double movement)}%
+  \addAbility{Octopod (+3 movement)}%
 }
 
 \newcommand{\teeth}{%
