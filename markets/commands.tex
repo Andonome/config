@@ -313,6 +313,11 @@
   \addtocounter{segNoSpare}{\value{r3}}
   \addChunkOfBailey
   \appto{\baileydesc}{People inside are \seasonalActivities.\space}%
+  \setcounter{humanNameNo}{\value{segNoSpare}}
+  \setcounter{humanNameSuffNo}{\value{segNoSpare}}
+  \multiply\value{humanNameNo} by 3
+  \setcounter{r3b}{1}
+  \setcounter{r3c}{1}
 
   \appto{\baileymarkets}{%
     \baileyWeaver\par%
