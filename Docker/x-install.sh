@@ -10,7 +10,6 @@ xbps-install -Sy git git-lfs \
 	make \
     recutils \
 	ImageMagick \
-	texlive-latexmk \
 	texlive-bin 
 
 git lfs install

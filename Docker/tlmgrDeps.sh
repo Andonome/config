@@ -7,6 +7,7 @@
 
 packages='
 latex-bin
+latexmk
 l3packages
 biber
 biblatex
