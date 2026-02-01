@@ -93,7 +93,6 @@
 
 \newacronym[
   description={a grunge-fantasy RPG, which has no house-rules, and never will},
-  sort={T0},
   nonumberlist,
   type={quiet},
 ]{bind}{BIND}{BIND Is Not DnD}
@@ -114,7 +113,6 @@
 % Time
 
 \longnewglossaryentry{campaign}{
-  sort={T3.1},
   name={Chronicles},
   text={Chronicle},
   prefix={a\space},
@@ -127,7 +125,6 @@
 \newacronym[
   description={-- one of the characters run by the people playing the game},
   parent={campaign},
-  sort={A1},
   prefix={a\space},
   ]{pc}{PC}{Player Character}
 
@@ -135,7 +132,6 @@
   prefix={a\space},
   name={The Judge},
   text={Judge},
-  sort={A2},
   type={mech},
   parent={campaign},
   nonumberlist,
@@ -145,7 +141,6 @@
 \newacronym[
   description={ -- anyone in the world played by the \glsentrytext{gm} rather than a player},
   prefix={an\space},
-  sort={A3},
   prefixfirst={a\space},
   parent={campaign},
   ]{npc}{NPC}{Non-Player Character}
@@ -201,7 +196,6 @@
   text={Interval},
   prefix={an\space},
   parent={campaign},
-  sort={Interval},
   type={mech},
   nonumberlist,
   description={divide the day into four parts -- morning (\showInterval{0}), afternoon (\showInterval{1}), evening (\showInterval{2}), and night (\showInterval{3}).
@@ -281,7 +275,6 @@
 % Actions
 
 \longnewglossaryentry{action}{
-  sort={T1.2},
   name={Actions},
   text={Action},
   type={mech},
@@ -293,7 +286,6 @@
 % Traits
 
 \longnewglossaryentry{trait}{
-  sort={T1.1},
   name={Traits},
   text={Trait},
   prefix={a\space},
@@ -358,7 +350,6 @@
     \end{boxtable}
     Rolling over the Tie Number means they have their prize, rolling under means some nasty outcome is upon them, and rolling a tie means both (or neither)},
   shortplural={TNs},
-  sort={S1},
   parent={action},
   prefix={a\space},
   ]{tn}{TN}{Tie Number}
@@ -366,9 +357,7 @@
 \longnewglossaryentry{natural}{
   name={Natural Rolls},
   text={Natural Roll},
-  sort={Natural Roll},
   prefix={a\space},
-  sort={S6},
   parent={action},
   type={mech},
   category={rules},
@@ -384,7 +373,6 @@
 \longnewglossaryentry{resistedaction}{
   name={Resisted Actions},
   text={Resisted Action},
-  sort={S3},
   parent={tn},
   type={mech},
   category={rules},
@@ -398,7 +386,6 @@
 \longnewglossaryentry{restingaction}{
   name={Resting Actions},
   text={Resting Action},
-  sort={S6},
   parent={action},
   type={mech},
   category={rules},
@@ -409,10 +396,8 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 
 \longnewglossaryentry{bandAct}{
   name={Banding Actions},
-  sort={Banding Action},
   text={Banding Action},
   prefix={a\space},
-  sort={S4},
   parent={action},
   type={mech},
   category={rules},
@@ -427,7 +412,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   name={Travel},
   text={travel},
   prefix={a\space},
-  sort={T2},
   type={mech},
   category={rules},
   description={journeys by road allow people to move 5~miles per \glsentrytext{interval}.
@@ -586,7 +570,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 }
 
 \longnewglossaryentry{combat}{
-  sort={T1.4},
   name={Combat},
   text={Combat},
   type={mech},
@@ -649,7 +632,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 
 \longnewglossaryentry{area}{
   name={Areas},
-  sort={Area},
   text={Area},
   prefix={an\space},
   parent={retreat},
@@ -686,7 +668,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   prefix={a\space},
   parent={combat},
   type={mech},
-  sort={0},
   description={start when everyone wants to speak at once.
   Everyone starts with a number of \glsfmtplural{ap} equal to \roll{Speed}{3}.
   The \glsentrytext{gm} goes round the table clockwise as players commit to actions by spending \glsfmtplural{ap}, and when nobody has positive \glsfmtplural{ap}, the round ends},
@@ -812,7 +793,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 \longnewglossaryentry{vitalShot}{
   name={Vitals Shots},
   text={Vitals Shot},
-  sort={Vitals Shot},
   prefix={a\space},
   nonumberlist,
   type={mech},
@@ -913,7 +893,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 % Equipment
 
 \longnewglossaryentry{equipment}{
-  sort={T1.7},
   name={Equipment},
   text={equipment},
   prefix={an\space},
@@ -992,7 +971,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   name={Coinage},
   text={coin},
   prefix={a\space},
-  sort={Y},
   type={mech},
   nonumberlist,
   parent={equipment},
@@ -1040,7 +1018,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 \longnewglossaryentry{witchcraft}{
   name={Witchcraft},
   text={witchcraft},
-  sort={T2.1},
   prefix={a\space},
   type={mech},
   description={Some speak their \glsentrytext{spell}, others construct it from \glsentrytext{monster} bodies.
@@ -1169,7 +1146,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 \longnewglossaryentry{alchemy}{
   name={Alchemy},
   text={alchemy},
-  sort={Alchemy},
   symbol={\Pentagram},
   prefix={an\space},
   type={mech},
@@ -1318,7 +1294,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   name={Concoctions},
   text={Concoction},
   prefix={a\space},
-  sort={concoction},
   parent={alchemy},
   category={indexed},
   type={mech},
@@ -1344,7 +1319,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
   text={Talisman},
   first={Talisman (a one-use alchemical item)},
   firstplural={Talismans (one-use alchemical items)},
-  sort={Talisman},
   category={indexed},
   type={mech},
   parent={alchemy},
@@ -1798,7 +1772,6 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 
 \longnewglossaryentry{guard}{
   name={Night Guards},
-  sort={Night Guard},
   text={night guard},
   prefix={a\space},
   parent={templeOfBeasts},
