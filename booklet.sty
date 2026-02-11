@@ -215,6 +215,9 @@
       \addtocounter{Intelligence}{-2}
       \addtocounter{Wits}{-1}
       %%%%%%%%%%%%%%
+      \set{Melee}{1}
+      \set{Brawl}{1}
+      \set{Vigilance}{1}
       \ifodd\value{fenestraDay}
         \set{Projectiles}{1}
         \set{Larceny}{2}
@@ -225,9 +228,6 @@
           \set{Caving}{1}
         \fi
       \else
-        \set{Melee}{1}
-        \set{Brawl}{1}
-        \set{Vigilance}{1}
         \ifodd\month
           \set{Crafts}{2}
           \set{Survival}{1}
