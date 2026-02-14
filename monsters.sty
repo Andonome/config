@@ -1008,7 +1008,27 @@
     {}% ABILITIES
 }
 
-\newcommand{\humanalchemist}[1][\npc{\M}{Alchemist}]{
+\newcommand{\humanalchemist}[1][\NPC{\glsentrysymbol{yonder}\M\Hu}% Symbol
+  {\Glsfmttext{seeker}~\composeHumanName}% Name
+  {\ifcase\value{r3}\relax\or%
+    long%
+  \or%
+    ornate%
+  \else%
+    red%
+  \fi\ %
+  \ifcase\value{r3b}\relax\or%
+    cloak%
+  \or%
+    nose%
+  \else%
+    ribbons in hair%
+  \fi%
+  }% Description
+  {\ifodd\value{r2b} twirls\else cleans\fi\ %
+  \ifcase\value{r3c}\relax\or writing equipment\or chalk\else flint-sparker\fi}% Mannerism
+  { \ifodd\value{r3c} {find powerful \ifodd\value{r2c} spells\else friends\fi }\else gold\fi}% Wants
+  ]{
   \Person{#1}%
     {{rn1t2}{0}{0}}% BODY
     {{r2}{rn1t2}{rn3t3}}% MIND
