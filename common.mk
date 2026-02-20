@@ -81,7 +81,7 @@ config/$(DROSS)/.count.tex: $(DBOOK)
 pdfs += $(RELEASE)
 
 %/:
-	mkdir $@
+	mkdir -p $@
 	echo '*' > $@.gitignore
 
 $(DROSS)/%-switch-gls:| $(DROSS)/
