@@ -225,9 +225,13 @@
     \or%
       gem-studded ring (worth~\arabic{r12}~\glspl{sp})%
     \or%
-      signet ring (worth~\arabic{r2}~\glspl{gp})%
+      \ifnum\thetemperature>1%
+        signet ring (worth~\arabic{r2}~\glspl{gp})%
+      \else%
+        silver arm-band (worth~\arabic{r6}~\glspl{sp})%
+      \fi%
     \else%
-      gem-studded ring (worth~\arabic{r12}~\glspl{sp})%
+      pendant with stirge-queen preserved in amber (worth~3~\glspl{gp})%
       \setcounter{treasure}{0}%
     \fi%
     \stepcounter{treasure}%
