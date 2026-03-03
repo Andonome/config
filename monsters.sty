@@ -313,7 +313,7 @@
       \manaWell%
     \fi%
     }% KNACKS
-    {\ifodd\value{r3}\lootGoblin\else\lootJewellery\fi, and \lootJewellery}% EQUIPMENT
+    {\lootJewellery\ifcase\value{r3}\relax\or\relax\or, \lootGoblin\else, \lootJewellery\fi}% EQUIPMENT
     {\mutation[3]{r4b}}% ABILITIES
 }
 
