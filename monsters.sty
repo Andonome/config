@@ -1865,7 +1865,7 @@
   {\quadruped}% ABILITIES
 }
 
-\newcommand{\huntingdog}[1][\npc{\A\ifodd\value{r2}\F\else\M\fi}{Hunting Dog}]{
+\newcommand{\huntingdog}[1][\npc{\T[\value{r3}]\A\ifodd\value{r2}\F\else\M\fi}{\ifnum\thenoAppearing>1 \arabic{noAppearing}Hunting Dogs\else Hunting Dog\fi}]{
   \Animal{#1}%
   {{rn4tn1}{rn1t0}{rn1t2}}% BODY
   {r2}% WITS
@@ -1879,7 +1879,7 @@
   {\quadruped \teeth}% ABILITIES
 }
 
-\newcommand{\wardog}[1][\npc{\A\ifodd\value{r2}\F\else\M\fi}{Wardog}]{
+\newcommand{\wardog}[1][\npc{\T[\value{r4}]\A\ifodd\value{r2}\F\else\M\fi}{\ifnum\thenoAppearing>1 \arabic{noAppearing}Wardogs\else Wardog\fi}]{
   \Animal{#1}%
   {{rn1t0}{0}{rn1t2}}% BODY
   {r3}% WITS
