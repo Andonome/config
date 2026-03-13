@@ -722,6 +722,7 @@
       \addtocounter{xp}{\value{defenceXPtotal}}%
       \addtocounter{xp}{-40}%
       \divide\value{xp} by 10%
+      \addtocounter{xp}{0}%
       \ifnum\value{xp}<0\setcounter{xp}{0}\fi%
       \glsentrytext{cr}~\arabic{xp}%
     }%
