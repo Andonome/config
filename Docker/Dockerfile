@@ -11,6 +11,6 @@ COPY gimme /usr/bin/
 RUN /x-install.sh && \
     echo a4 > /etc/papersize
 
-ENV PATH="/opt/texlive/2025/bin/x86_64-linux:${PATH}"
+ENV PATH="/opt/texlive/2026/bin/x86_64-linux:${PATH}"
 
 RUN /tlmgrDeps.sh

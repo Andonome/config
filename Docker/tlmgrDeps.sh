@@ -74,6 +74,7 @@ epstopdf-pkg
 environ
 pdfjam pdflscape pdfpages
 collection-fontsrecommended
+fixtounicode
 cm-unicode'
 
 check_packages(){
