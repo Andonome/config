@@ -437,17 +437,18 @@
   \rowcolors{2}{}{background!6}
   \ent{\normalsize\glsentrysymbol{swarm}} & \ent{\name} 
     \hfil\textcolor{background}{\scriptsize\calculateXP} \\\hline
-  \Gls{ap}: \arabic{ap} & Att: $\arabic{toHit} - HP$
-  \iftoggle{intro}{
+    & Dexterity: \arabic{Dexterity},
     \quad
     Speed: \arabic{Speed},
     \quad
     Wits: \arabic{Wits}
-  }{
+    \\
+  \Gls{ap}: \arabic{ap} & Att: $\arabic{toHit} - HP$,
     Dam: 1
-  }
   \\
-  \ent{Abilities} & \Abilities \\
+  \ifdefempty{\Abilities}{}{%
+    \ent{Abilities} & \Abilities \\
+  }
   \hline
   \end{tabularx}%
   \end{minipage}
