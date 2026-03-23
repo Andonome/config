@@ -74,8 +74,17 @@
 \newcommand\rangedWeapon[5][1]{%
   #2 %
   \addtocounter{equipmentWeight}{#1}%
-  \setTN[#3]{Dexterity}{Projectiles}%
-  (\glsentrytext{tn}~\arabic{tn}, \dmg{#4}, %
+  (%
+  \iftoggle{allyCharacter}{%
+    \setcounter{track}{\value{Dexterity}}%
+    \addtocounter{track}{\value{Projectiles}}%
+    \addtocounter{track}{#3}%
+    \absNum{track}%
+  }{%
+    \setTN[#3]{Dexterity}{Projectiles}%
+    \glsentrytext{tn}~\arabic{tn}%
+  }, %
+  \dmg{#4},
   \ifnum#5>10% Indicate a crossbow with a VERY high reload time.
     \setcounter{encnum}{#5}% Reload time is set to, e.g. '15' (meaning '5').
     \addtocounter{encnum}{-10}% Let's make 15 --> 5
