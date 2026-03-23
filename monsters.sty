@@ -893,7 +893,30 @@
     {}% ABILITIES
 }
 
-\newcommand{\humanthief}[1][\npc{\Hu\ifodd\thehumanNameNo\F\else\M\fi}{Thief}]{
+\newcommand{\humanthief}[1][\NPC%
+  {\Hu\ifodd\thehumanNameNo\F\else\M\fi}% Symbol
+  {\composeHumanName}% Name
+  {\ifodd\thehumanNameNo%
+    \ifcase\arabic{r3}\relax\or%
+      long, braided hair%
+    \or%
+      milky-white eye%
+    \else%
+      missing pinkie-finger%
+    \fi%
+  \else%
+    beard like a
+    \ifcase\arabic{r3}\relax\or%
+      horse's tail%
+    \or%
+      thorny bush%
+    \else%
+      badly knitted jumper%
+    \fi%
+  \fi}% Description
+  {\ifcase\theProjectiles flipping coins\or balancing dagger on finger\else whistling a happy tune\fi}% Mannerism
+  {\ifodd\theStrength gold\else to start a fight\fi}% Wants
+  ]{
   \Person{#1}%
     {{r2}{r2c}{rn1t2}}% BODY
     {{0}{-1}{0}}% MIND
