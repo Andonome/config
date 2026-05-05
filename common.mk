@@ -5,6 +5,10 @@ QR_CODE=\qrcode[height=.2\textwidth]{$(QR_TARGET)}
 
 COMPRESS = gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dNOPAUSE -dQUIET -dBATCH -dPrinted=false -sOutputFile=$@ $<
 
+ifeq "s" "$(findstring s,$(word 1, $(MAKEFLAGS)))"
+  TEX_ARGS += -silent
+endif
+
 CP := ln -f
 root_file ?= main.tex
 BOOK != basename "$(shell pwd)"
@@ -14,6 +18,7 @@ DBOOK ?= $(DROSS)/$(BOOK).pdf
 COMPILER = latexmk \
 	-e '$$max_repeat=6' \
 	-file-line-error \
+	$(TEX_ARGS) \
 	-output-directory=$(DROSS) \
 	-pdflua \
 	-interaction=nonstopmode \
