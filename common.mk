@@ -6,7 +6,7 @@ QR_CODE=\qrcode[height=.2\textwidth]{$(QR_TARGET)}
 COMPRESS = gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dNOPAUSE -dQUIET -dBATCH -dPrinted=false -sOutputFile=$@ $<
 
 ifeq "s" "$(findstring s,$(word 1, $(MAKEFLAGS)))"
-  TEX_ARGS += -silent
+  TEX_ARGS += --quiet
 endif
 
 CP := ln -f
@@ -52,6 +52,7 @@ ifeq (${backpages},)
 else
   $(RELEASE): $(DBOOK) $(backpages)
 	pdfjam --pdftitle $(TITLE) --pdfsubject "BIND RPG" \
+	$(TEX_ARGS) \
 	--pdfkeywords "RPG,TTRPG,roleplaying" \
 	$^ \
 	--outfile $@
