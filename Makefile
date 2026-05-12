@@ -5,6 +5,8 @@ zines += spells.pdf
 targets += cs.pdf character_sheets.pdf markets.pdf
 
 vpath a7%.tex generated
+vpath %.tex config/share
+
 output += generated/
 
 root_file = markets/main.tex
