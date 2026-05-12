@@ -563,12 +563,12 @@
   \addtocounter{hp}{\value{Strength}}%
   \addtocounter{hp}{-\value{wounds}}%
   % Stats for allies don't need to show Melee +1 as 'TN 8 to hit', they just need to show '+1'.
-  \ifnum\value{weaponBonus}>0%
+  \ifdefempty{\weaponName}{%
+    \set{att}{Brawl}%
+  }{
     \set{att}{Melee}%
     \iftoggle{weaponMaster}{\stepcounter{att}}{}%
-  \else%
-    \set{att}{Brawl}%
-  \fi%
+  }%
   \ifnum\value{att}<0\setcounter{att}{0}\fi%
   \addtocounter{att}{\value{Dexterity}}%
   \addtocounter{att}{\value{weaponBonus}}%
