@@ -6,18 +6,22 @@
 
 \randomize
 \randomize
-\ifodd\value{r4}
-  \set{Air}{r2}
+\randomize
+\randomize
+
+\set{Fate}{rn3t3}
+\ifodd\day
+  \set{Air}{r3}
 \else
-  \set{Fire}{r3}
+  \set{Earth}{r3}
 \fi
 
-\ifodd\value{r4b}
-  \set{Earth}{r3b}
+\ifnum\thetemperature>1
+  \set{Fire}{r3b}
 \else
-  \set{Water}{r2b}
+  \set{Water}{r3b}
 \fi
-\set{Fate}{r2c}
+
 
 \begin{document}
 
