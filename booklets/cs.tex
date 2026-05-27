@@ -24,8 +24,6 @@
     }{}%
     {\randomBirthday }
   &
-  \frontCSNote{Body \Glsfmttext{weight}}{ \set{track}{hp}\multiply\value{track} by 3 \thetrack }
-  \iftoggle{examplecharacter}{}{ \hint{$= \glsfmttext{hp} \times 3$} }
   \\
   Code: & \iftoggle{examplecharacter}{ \code }{ \lineDots }
   &
@@ -96,27 +94,9 @@
 
 \end{multicols}
 
-\begin{multicols}{2}
-
-\setcounter{track}{0}
-\begin{tabularx}{\linewidth}{Yc}
-  \hiderowcolors
-  \textbf{\Glsfmttext{weight} Limits} & \textbf{Penalty} \\\hline
-  \Repeat{4}{%
-    \stepcounter{track}%
-    \iftoggle{examplecharacter}%
-      {%
-        \multiply\value{hp} by \thetrack%
-        \pencilWriting{ \thehp }
-      }%
-      {}%
-    \hint{ = $\thetrack \times \glsentryplural{hp}$ }
-    & -\thetrack \\
-    \\
-  }
-\end{tabularx}
-
-\end{multicols}
+%\begin{multicols}{2}
+%
+%\end{multicols}
 
 \pagebreak
 \scshape
@@ -205,20 +185,69 @@
 
 \pagebreak
 
-\setcounter{diceNo}{0}
-\Repeat{6}{%
-  \ifnum\thehp>\thediceNo%
-    \vspace{2em}%
-    \noindent\stateEquipment{\value{diceNo}}%
-    \stepcounter{diceNo}%
-  \else%
-    \parLine
-  \fi%
-}
+\begin{tabularx}{\linewidth}{cccX|r}
+  \hiderowcolors
+  & &  & \quad\bf\Glsfmttext{equipment}          & \bf\Glsfmtplural{ep} \\
+  \hline
+  \setcounter{diceNo}{0}
+  \ifdefempty{\armourName}{}{
+    \csEquipment[\value{armourWeight}]{\expandafter\MakeUppercase\armourName}
+  }
+  \ifdefempty{\weaponName}{}{
+    \csEquipment[\value{weaponWeight}]{\weaponName}
+  }
+  \ifdefempty{\equipi}{}{
+    \csEquipment[\value{equipmentWeight}]{\expandafter\MakeUppercase\equipi}
+  }
+  \ifdefempty{\equipii}{}{ \csEquipment{ \equipii } }
+  \ifdefempty{\equipiii}{}{ \csEquipment{ \equipiii } }
+  \ifdefempty{\equipiv}{}{ \csEquipment{ \equipiv } }
+  \whileboolexpr{%
+    test {\ifnumcomp{\value{diceNo}}{<}{7}}%
+  }{%
+    \csEquipment[0]{ }
+  }%
+\end{tabularx}
 
 \pagebreak
 
-\Repeat{6}{\parLine}
+\begin{tabularx}{\linewidth}{cccX|r}
+  \hiderowcolors%
+  \setcounter{diceNo}{0}
+  \whileboolexpr{%
+    test {\ifnumcomp{\value{diceNo}}{<}{4}}%
+  }{%
+    \csEquipment[0]{ }
+  }%
+\end{tabularx}
+
+\begin{multicols}{2}
+\setcounter{track}{0}
+\begin{tabularx}{\linewidth}{Yc}
+  \showrowcolors
+  \textbf{\Glsfmttext{weight} Limits} & \textbf{Penalty} \\\hline
+  \Repeat{4}{%
+    \stepcounter{track}%
+    \iftoggle{examplecharacter}%
+      {%
+        \multiply\value{hp} by \thetrack%
+        \pencilWriting{ \thehp }
+      }%
+      {}%
+    \hint{ = $\thetrack \times \glsentryplural{hp}$ }
+    & -\thetrack \\
+  }
+\end{tabularx}
+
+\columnbreak
+
+\null\vfill
+
+\hfill\textbf{Body \Glsfmttext{weight}}
+\iftoggle{examplecharacter}{ \set{track}{hp}\multiply\value{track} by 3 \thetrack }{ \hint{$= \glsfmttext{hp} \times 3$} }
+
+\end{multicols}
+
 
 \pagebreak
 

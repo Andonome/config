@@ -101,45 +101,53 @@
   \iftoggle{examplecharacter}{ \pencilWriting{#2} }{ \lineDots }
 }
 
-\newcommand\stateEquipment[1]{%
-  \ifcase#1%
-    \pencilWriting{Body:}\quad
-    \ifdefempty{\armourName}{\hspace{6em}\bigLine}{%
-      \pencilWriting{\expandafter\MakeUppercase\armourName\ (\Gls{dr}~\arabic{armourDR}, \glsentrysymbol{weight}~\arabic{armourWeight})}
-    }
-  \or%
-    \pencilWriting{Left:}
-    \ifdefempty{\weaponName}{\bigLine}{%
-      \pencilWriting{\expandafter\MakeUppercase\weaponName~(\absNum{weaponBonus}/ \absNum{weaponDamage}: \glsentrysymbol{weight} \arabic{weaponWeight})}
-    }
-  \or%
-    \pencilWriting{Right:}
-    \ifdefempty{\equipi}{\bigLine}{%
-      \pencilWriting{\equipi}
-    }
-  \or%
-    \hspace{6em}%
-    \ifdefempty{\equipii}{\bigLine}{%
-      \pencilWriting{\equipii}
-    }
-  \or%
-    \hspace{6em}%
-    \ifdefempty{\equipiii}{\bigLine}{%
-      \pencilWriting{\equipiii}
-    }
-  \or%
-    \hspace{6em}%
-    \ifdefempty{\equipiv}{\bigLine}{%
-      \pencilWriting{\equipiv}
-    }
-  \else%
-    \ifnum\thepage>\value{hp}%
-      \glsentrysymbol{weight}~\underline{\hspace{5em}}
-    \fi%
-    \bigLine
-  \fi%
-  \par%
+\newcommand\csEquipment[2][1]{%
+    \stepcounter{diceNo}%
+    \setcounter{statDots}{3}%
+    \addtocounter{statDots}{-#1}%
+    & & & \quad\pencilWriting{ #2 } & \\
+    \Repeat{#1}{\statDot & } \Repeat{\value{statDots}}{\statCircle & } \bigLine & \quad\statCircle \\
 }
+
+%\newcommand\stateEquipment[1]{%
+%  \ifcase#1%
+%    \pencilWriting{Body:}\quad
+%    \ifdefempty{\armourName}{\hspace{6em}\bigLine}{%
+%      \pencilWriting{\expandafter\MakeUppercase\armourName\ (\Gls{dr}~\arabic{armourDR}, \glsentrysymbol{weight}~\arabic{armourWeight})}
+%    }
+%  \or%
+%    \pencilWriting{Left:}
+%    \ifdefempty{\weaponName}{\bigLine}{%
+%      \pencilWriting{\expandafter\MakeUppercase\weaponName~(\absNum{weaponBonus}/ \absNum{weaponDamage}: \glsentrysymbol{weight} \arabic{weaponWeight})}
+%    }
+%  \or%
+%    \pencilWriting{Right:}
+%    \ifdefempty{\equipi}{\bigLine}{%
+%      \pencilWriting{\equipi}
+%    }
+%  \or%
+%    \hspace{6em}%
+%    \ifdefempty{\equipii}{\bigLine}{%
+%      \pencilWriting{\equipii}
+%    }
+%  \or%
+%    \hspace{6em}%
+%    \ifdefempty{\equipiii}{\bigLine}{%
+%      \pencilWriting{\equipiii}
+%    }
+%  \or%
+%    \hspace{6em}%
+%    \ifdefempty{\equipiv}{\bigLine}{%
+%      \pencilWriting{\equipiv}
+%    }
+%  \else%
+%    \ifnum\thepage>\value{hp}%
+%      \glsentrysymbol{weight}~\underline{\hspace{5em}}
+%    \fi%
+%    \bigLine
+%  \fi%
+%  \par%
+%}
 
 \newcommand\parLine{% Used for empty equipment line
     \hspace{6em}\bigLine\par\vspace{2em}
