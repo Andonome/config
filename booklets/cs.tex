@@ -7,7 +7,7 @@
 }%
 
 \noindent
-\begin{tabularx}{.9\linewidth}{XlXX}
+\begin{tabularx}{.9\linewidth}{lXrX}
   \hiderowcolors
   \frontCSNote{Concept}{\concept} \\
   \frontCSNote{Race}{\race}
@@ -16,14 +16,14 @@
   \\
   \scshape\normalsize Birthday:
   &
-    \raggedright
-    \iftoggle{examplecharacter}{%
-      \set{track}{fenestraYear}%
-      \addtocounter{track}{-\value{age}}%
-      \small\arabic{track}, %
-    }{}%
-    {\randomBirthday }
-  &
+  \multicolumn{3}{l}{
+    {\randomBirthday}%
+  \iftoggle{examplecharacter}{%
+    \set{track}{fenestraYear}%
+    \addtocounter{track}{-\value{age}}%
+    , \arabic{track}%
+  }{}%
+  }
   \\
   Code: & \iftoggle{examplecharacter}{ \code }{ \lineDots }
   &
