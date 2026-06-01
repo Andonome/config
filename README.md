@@ -49,6 +49,7 @@ Edit 'main.tex', and input your tex files by writing `\include{my_file.tex}`.
 
 
 [docs]: https://gitlab.com/bindrpg/config/-/jobs/artifacts/master/raw/docs.pdf?job=build
+[bestiary]: https://gitlab.com/bindrpg/config/-/jobs/artifacts/master/raw/bestiary.pdf?job=build
 [rules]: https://gitlab.com/bindrpg/config/-/jobs/artifacts/master/raw/rules.pdf?job=build
 [markets]: https://gitlab.com/bindrpg/config/-/jobs/artifacts/master/raw/markets.pdf?job=build
 [cs]: https://gitlab.com/bindrpg/config/-/jobs/artifacts/master/raw/character_sheets.pdf?job=build

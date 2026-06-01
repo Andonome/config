@@ -2,6 +2,7 @@ pdfs += $(DROSS)/test.pdf
 pdfs += docs.pdf 
 zines += rules.pdf
 zines += spells.pdf
+zines += bestiary.pdf
 targets += cs.pdf character_sheets.pdf markets.pdf
 
 vpath a7%.tex generated

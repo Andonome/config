@@ -1,0 +1,119 @@
+\documentclass[10pt,twoside]{book}
+\usepackage{config/bind}
+\usepackage{config/booklet}
+\setcounter{bookLevel}{2}
+\externalReferent{core}
+\externalReferent{stories}
+\externalReferent{judgement}
+
+\begin{document}
+
+\frontmatter
+
+\miniCover{Miniature Bestiary}{
+  \par A reference booklet
+}
+
+\noindent
+Here's a collection of raw \glspl{statblock} for use with encounter tables.
+
+\clearpage
+\pagestyle{minizine}
+
+\subsection{Forest Beasts}
+
+\auroch
+
+\basilisk
+
+\basilisk
+
+\basilisk
+
+\bear
+
+\boar
+
+\ifodd\month
+  \cat
+\fi
+
+\griffin
+
+\griffin
+
+\griffin
+
+\horse
+
+\mouthdigger
+
+\mouthdigger
+
+\chitincrawler
+
+\chitincrawler
+
+\crawlerSwarm
+
+\crawlerSwarm
+
+\stirgeSwarm
+
+\wolf
+
+\woodspy
+
+\woodspy
+
+\clearpage
+
+\subsection{Underground Creatures}
+
+\umberhulk
+
+\umberhulk
+
+\jelly
+
+\jelly
+
+\jelly
+
+\olmSwarm
+
+\ifnum\thepage<13
+  \sporeFolk
+  \ifnum\value{Charisma}>0
+    {\small\showStdSpells[\stepcounter{enc}]}
+  \fi%
+\fi
+
+\ifnum\thepage<13
+  \sporeFolk
+  \ifnum\value{Charisma}>0
+    {\small\showStdSpells[\stepcounter{enc}]}
+  \fi%
+\fi
+
+\null
+
+\ifnum\thepage<13
+  \sporeFolk
+  \ifnum\value{Charisma}>0
+    {\small\showStdSpells[\stepcounter{enc}]}
+  \fi%
+  \clearpage
+\fi
+
+\ifnum\thepage<14
+  \watcher
+  \clearpage\null
+\fi
+
+\ifnum\thepage<15
+  \clearpage\null
+  \watcher
+\fi
+
+\end{document}
