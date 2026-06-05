@@ -8,7 +8,7 @@
 %                                               
 
 % This is a list of monster-commands.  You put in the command, like "\dragon", and a dragon will be conjured unto your pdf.
-% If you're unhapy with your dragon, copy-paste the bit where it says \dragon{blah}{blah}, then change those numbers.
+% If you're unhappy with your dragon, copy-paste the bit where it says \dragon{blah}{blah}, then change those numbers.
 
 
 \newcommand{\auroch}[1][\npc{\A\T}{\arabic{r12}0 Aurochs}]{
@@ -113,6 +113,11 @@
   {%
     \set{Athletics}{r2}%
     \set{Survival}{2}%
+    \ifnum\thenoAppearing<5
+      \set{Brawl}{r3}%
+    \else
+      \set{Brawl}{r2}%
+    \fi
   }% SKILLS
   {}% KNACKS
   {\teeth, \quadruped}% ABILITIES
@@ -1822,7 +1827,7 @@
 
 \newcommand{\horse}[1][\npc{\A}{Horse}]{
   \Animal{#1}%
-  {{r3b}{rn1t2}{r2b}}% BODY
+  {{r2t3}{rn1t2}{r0t3}}% BODY
   {r2c}% WITS
   {
     \set{Athletics}{rn1t2}
@@ -1834,7 +1839,7 @@
 
 \newcommand{\warhorse}[1][\npc{\A}{War Horse}]{
   \Animal{#1}%
-  {{r2t3}{rn1t2}{r3b}}% BODY
+  {{r2t4}{rn1t2}{r3b}}% BODY
   {r2c}% WITS
   {
     \set{Athletics}{2}
