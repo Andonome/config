@@ -1424,7 +1424,19 @@
     \fi}% ABILITIES
 }
 
-\newcommand{\hobgoblin}[1][\npc{\T[\arabic{r12}]\N}{\arabic{r12} Hobgoblins}]{
+\newcommand{\hobgoblin}[1][\NPC{\T[\arabic{r6}]\N}% Symbol
+  {\ifodd\theStrength Pig-faced \else Hunchback\fi~Hobgoblins}% Name
+  {\ifcase\theDexterity%
+    Snotty%
+  \or%
+    Swollen stomach%
+  \else%
+    Sunken-eyes%
+  \fi%
+  }% Description
+  {\ifodd\value{r3} ripping out \else picking at \fi \ifodd\value{r2} clumps of chest-hair \else rotten teeth\fi}% Mannerism
+  {to \ifcase\value{r3} find {\ifnum\thetemperature=0 somewhere warm \else fancy weapons\fi}\or find a missing companion\else collect rocks\fi}% Wants
+  ]{
   \Person{#1}%
     {{r3}{rn1t2}{r2}}% BODY
     {{rn1t0}{rn1t0}{rn4tn1}}% MIND
