@@ -1294,10 +1294,17 @@
 
 \newcommand{\goblin}[1][\NPC{\T[\arabic{r12}]\N}% Symbol
   {\ifodd\theCaving Hairy \else Sweaty\fi~Goblins}% Name
-  {\ifnum\theStrength<-1%
-    Skinny
+  {White as \ifcase\value{r0t3}%
+    maggots%
+  \or%
+    a blood-shot eye%
   \else%
-    Bulbous
+    new cheese%
+  \fi, %
+  \ifnum\theStrength<-1%
+    skinny
+  \else%
+    bulbous
   \fi
   \ifcase\theWits%
     stomach%
