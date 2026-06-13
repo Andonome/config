@@ -186,6 +186,11 @@ images/extracted/inclusion.tex: images/extracted/ $(DBOOK)
 	printf '%s\n' '\externaldocument{$(BOOK)}' > $@
 	printf '%s\n' '\newcommand\bookTitle{$(TITLE)}' | tr '_' ' ' >> $@
 
+images/extracted/badness.tex: images/extracted/ $(DBOOK)
+	printf '%s\n' '{\tt' > $@
+	grep -C 3 --no-group-separator bad $(DROSS)/$(BOOK).log | uniq | head -n 90 | sed 's#\\#&textbackslash{}#g' >> $@
+	printf '%s\n' '}' >> $@
+
 $(DROSS)/$(BOOK)_cover.pdf: config/share/cover.tex cover.tex images/extracted/cover.jpg images/extracted/inclusion.tex
 	$(RUN) -jobname $(BOOK)_cover $<
 $(TITLE)_cover.pdf: $(DROSS)/$(BOOK)_cover.pdf
