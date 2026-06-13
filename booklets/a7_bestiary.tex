@@ -70,26 +70,14 @@ Here's a collection of raw \glspl{statblock} for use with encounter tables.
 
 \subsection{Underground Creatures}
 
-\umberhulk
-
-\umberhulk
-
-\jelly
-
-\jelly
-
-\jelly
-
-\olmSwarm
-
-\ifnum\thepage<13
+\ifnum\thepage<10
   \sporeFolk
   \ifnum\value{Charisma}>0
     {\small\showStdSpells[\stepcounter{enc}]}
   \fi%
 \fi
 
-\ifnum\thepage<13
+\ifnum\thepage<10
   \sporeFolk
   \ifnum\value{Charisma}>0
     {\small\showStdSpells[\stepcounter{enc}]}
@@ -98,22 +86,50 @@ Here's a collection of raw \glspl{statblock} for use with encounter tables.
 
 \null
 
-\ifnum\thepage<13
+\ifnum\thepage<11
   \sporeFolk
   \ifnum\value{Charisma}>0
     {\small\showStdSpells[\stepcounter{enc}]}
   \fi%
+\fi
+
+\umberhulk
+
+\umberhulk
+
+\clearpage
+
+\jelly
+
+\null
+
+\ifnum\thepage<12
+  \jelly
+  \jelly
+
+  Suspended in the ooze, \lootJewellery\ and \lootMedium.
+\fi
+
+\null
+
+\ifnum\thepage<13
+  \jelly
+  \jelly
+  \olmSwarm
   \clearpage
 \fi
 
+\null
+
 \ifnum\thepage<14
   \watcher
-  \clearpage\null
+  Little bones litter the watcher's lair, among them \lootGoblin, \lootGoblin, and \lootGoblin.
 \fi
 
 \ifnum\thepage<15
-  \clearpage\null
   \watcher
 \fi
+
+\null
 
 \end{document}
