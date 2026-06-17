@@ -5,6 +5,7 @@ xbps-install -Sy git git-lfs \
 	inkscape \
 	psutils \
     recutils \
+    lowdown \
     biber \
 	tar \
 	bash \
