@@ -6,19 +6,25 @@
 
 \begin{exampletext}
 \ifcase\value{temperature}
-  This is a nice place, for nice people.
-  So turn back round, and find \pgls{basilisk} to hibernate with.
+  \ifodd\value{r3}
+    This is a nice place, for nice people.
+    So turn back round, and find \pgls{basilisk} to hibernate with.
+  \else
+    The town's been running low on all sorts, so I'm just letting any \glspl{guard} in as long as they have something to sell.
+  \fi
 \or
-  No \glspl{guard} allowed.
-  Go fuck \pgls{crawler}!
-\or
-  I'm feeling extra nice today.
-  10~\glspl{sp}, and the lot of you can get in.
-\else
-  G'day, {\tiny hic} sirs\ldots
-  Mum--ma'am.
-  {\tiny hic}
-\fi
+  Deposit any weapons at the little \gls{jotter}'s office before entering.
+  And get a letter of admittance or no pass!
+\else{%
+  \ifcase\value{r2b}%
+    G'day, {\tiny hic} sirs\ldots
+    Mum--ma'am.
+    {\tiny hic}
+  \else%
+    I'm feeling extra nice today.
+    10~\glspl{sp}, and the lot of you can get in.
+  \fi%
+}\fi%
 \pinLocation{guardgate}
 \end{exampletext}
 
