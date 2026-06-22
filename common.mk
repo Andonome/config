@@ -5,6 +5,8 @@ QR_CODE=\qrcode[height=.2\textwidth]{$(QR_TARGET)}
 
 COMPRESS = gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dNOPAUSE -dQUIET -dBATCH -dPrinted=false -sOutputFile=$@ $<
 
+export SELF_CALL = stop_inkscape_collisions
+
 ifeq "s" "$(findstring s,$(word 1, $(MAKEFLAGS)))"
   TEX_ARGS += --quiet
 endif
