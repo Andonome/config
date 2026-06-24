@@ -19,6 +19,19 @@
 \newtoggle{marketBeasts}
 \settoggle{marketBeasts}{false}
 
+
+\newtcolorbox{markettable}[4][\flourish]{
+  tabularx=#2,
+  empty,
+  before={\bigbreak\noindent\begin{minipage}{\linewidth}\begin{center}\bfseries #1~#3~#1\end{center}},
+  after={\begin{quotation}#4\end{quotation}\end{minipage}\medbreak},
+  bottom=1em,
+  top=-1pt,
+  left=3pt,
+  right=6pt,
+  code={\rowcolors{2}{}{background!6}\needspace{1em}}
+  }
+
 \newcommand\mkPrice[2][sp]{%
   \randomize%
   \setcounter{gold}{#2}%
