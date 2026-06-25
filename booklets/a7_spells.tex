@@ -9,17 +9,29 @@
 \randomize
 \randomize
 
-\set{Fate}{rn3t3}
-\ifodd\day
-  \set{Air}{r3}
-\else
-  \set{Earth}{r3}
+\ifodd\value{r3}
+  \set{Fate}{r2}
 \fi
 
-\ifnum\thetemperature>1
-  \set{Fire}{r3b}
+\ifodd\value{r3b}
+  \set{Water}{r2b}
+  \stepcounter{Fate}
+\fi
+
+\ifodd\value{r3c}
+  \set{Air}{r2c}
+  \stepcounter{Fate}
 \else
-  \set{Water}{r3b}
+  \stepcounter{Water}
+\fi
+
+\ifodd\value{r2t3}
+  \set{Fire}{r4}
+  \ifnum\theFire>2
+    \stepcounter{Air}
+  \else
+    \set{Earth}{rn3t3}
+  \fi
 \fi
 
 
@@ -42,16 +54,15 @@ The roll is \roll{Intelligence}{Crafts} at \tn[10], and a tie means the result i
 \setHighSpheres
 
 \foreach \x in {Air,Earth,Fire,Water,Fate,Mind,Death,Light,Force,Life}{%
-  \ifnum\value{\x}>0%
-    \input{config/spells/\x1.tex}%
-    \input{config/spells/\x1.tex}%
-    \ifnum\thepage<12
-      \input{config/spells/\x2.tex}%
-      \ifnum\value{\x}>1%
-        \input{config/spells/\x3.tex}%
+  \foreach \n in {1,2,3,4}{%
+    \ifnum\thepage<13{
+      \ifnum\n>\value{\x}\relax\else%
+        \ifnum\value{r6}>3\stepcounter{diceNo}\fi
+        \input{config/spells/\x\n.tex}%
       \fi%
+    }
     \fi
-  \fi%
+  }
 }
 
 \foreach \x in {2,3,4,5,6,7,8,9,10,11,12,13}{%
