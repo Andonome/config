@@ -290,7 +290,7 @@
 \newcommand{\dryad}[1][\npc{\E\El}{Dryad}]{
   \Person{#1}%
     {{rn3t3}{r3}{r3c}}% BODY
-    {{r2t3}{r0t3}{r3t4}}% MIND
+    {{r2t3}{r3t4}{r0t3}}% MIND
     {%
       \set{Brawl}{r3b}
       \set{Melee}{r2}
@@ -314,6 +314,16 @@
     }% SKILLS
     {\ifnum\value{Wits}>\value{Charisma}%
       \snapcaster%
+    \else%
+      \specialist{ghost apples}%
+    \fi, %
+    \ifodd\value{r4}%
+      \vengeful%
+    \else%
+      \specialist{honey-dew}
+    \fi, %
+    \ifnum\theAir>1%
+      \specialist{\Glsfmtplural{storm}}%
     \else%
       \manaWell%
     \fi%
