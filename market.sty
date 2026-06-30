@@ -41,7 +41,10 @@
   \ifnum\thetemperature=0%        Over Sables, cheap goods, like rations,
     \ifstrequal{#1}{cp}{\addtocounter{gold}{3}}{}% become more expensive.
   \fi%
-  \ifnum\value{gold}>16%          Prices like '17sp', or '81sp' feel *wrong*.
+  \ifnum\value{gold}>5% More variation
+    \addtocounter{gold}{\value{rn3t3}}%
+  \fi%
+  \ifnum\value{gold}>22%          Prices like '17sp', or '81sp' feel *wrong*.
     \divide\value{gold} by 5%     LaTeX cannot divide properly - it will remove remainders.
     \multiply\value{gold} by 5%   Prices over 16 become multiples of 5.
     \addtocounter{gold}{0}%
