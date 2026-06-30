@@ -416,9 +416,10 @@
   {\ifodd\value{diceNo}\else
     \ifodd\value{fenestraDay}
       \ifnum\thefootnote<3%
-        \footnotetext{\it Need something in town?  If yous can fit in the barrels, I can drop yous off inside for \pgls{sp} each.}%
+        Need something in town?
+        \marketBoatman\ says if yous can fit in the barrels then yous can sneak in for \pgls{sp} each.
       \else%
-        \footnotetext{\it Free for \glspl{guard}.}%
+        \marketBoatman\ takes \glspl{guard} for free if it's official business.
       \fi%
     \fi%
   \fi}% Quote
@@ -428,10 +429,6 @@
     \composeHumanName, local guide & 20~\glspl{cp} per mile, 2~\glspl{gp} deposit. \\
     \ifodd\value{diceNo}\else
       Boat-ride down-river with \marketBoatman%
-      \ifodd\value{fenestraDay}%
-        \stepcounter{footnote}
-        \footnotemark[\thefootnote]
-      \fi
       & \mkPrice[cp]{6} per mile \\
       Boat-ride up-river with \composeHumanName\  & \mkPrice[cp]{16} per mile \\
     \fi
