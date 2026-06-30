@@ -10,9 +10,6 @@
   \ifcase\value{segNoSpare}\relax\or%
     \appto{\name}{copper}%
     \appto{\baileydesc}{Copper spikes crown the outer wall.  }%
-    \ifnum\thecycle>2%
-      \appto{\baileymarkets}{\baileyRations}%
-    \fi%
   \or%
     \ifodd\thefenestraDay
       \appto{\name}{what}%
@@ -35,7 +32,7 @@
   \or%
     \appto{\name}{broch}%
     \appto{\baileydesc}{The \gls{village} retains the \gls{broch} which founded the area, though nowadays a retired \gls{thane} lives there.  }%
-    \appto{\baileymarkets}{\baileyThane\par}
+    \appto{\baileymarketsWide}{\baileyThane\par}
   \or%
     \appto{\name}{mill}%
     \appto{\baileymarketsWide}{\baileyArms}%
@@ -338,6 +335,7 @@
       \appto{\baileydesc}{A deep river runs through a wicker fence in the wall.  }
     \fi
   \fi
+  \appto{\baileymarkets}{\baileyRations}%
 
   \edef\baileyname{\expandafter\MakeUppercase\name}
 
