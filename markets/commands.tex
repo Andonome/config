@@ -444,23 +444,23 @@
   {Got anything interesting for the shop?}% Quote
     \textbf{Rations} & \textbf{Weight} & \textbf{Cost} \\\hline
     \ifnum\value{r12}>8%
-      \marketItem[cp]{Smoked auroch}{1}{20}%
+      \marketItem[cp]{Smoked auroch}{1}{8}%
     \else%
-      \marketItem[cp]{Boar ears}{1}{17}%
+      \marketItem[cp]{Boar ears}{1}{7}%
     \fi%
     \ifodd\thediceNo
       \marketItem[cp]{Fresh fish \small(keeps~for a~day)}{1}{6}%
     \else
-      \marketItem[cp]{Fishcakes}{1}{17}%
+      \marketItem[cp]{Fishcakes}{1}{8}%
     \fi%
     \ifcase\thetemperature%
       \marketItem[cp]{Kale salad}{1}{14}%
     \or%
-      \marketItem[cp]{\small\Glsfmttext{crawler} pat\'e \& crackers }{1}{17}%
+      \marketItem[cp]{\small\Glsfmttext{crawler} pat\'e \& crackers }{1}{4}%
     \or%
-      \marketItem[cp]{\small\Gls{digger} \ifodd\thefenestraDay feet\else liver\fi}{1}{9}%
+      \marketItem[cp]{\small\Gls{digger} \ifodd\thefenestraDay feet\else liver\fi}{1}{5}%
     \else%
-      \marketItem[cp]{Smoked \gls{basilisk} strips}{1}{18}%
+      \marketItem[cp]{Smoked \gls{basilisk} strips}{1}{2}%
     \fi
   \end{markettable}
 }
@@ -512,9 +512,9 @@
       \marketItem[cp]{Fresh \rations}{1}{15}
     \fi%
 
-    \marketItem[cp]{Hardened \rations}{1}{15}
+    \marketItem[cp]{Hardened \rations}{1}{10}
 
-    \marketItem[cp]{Salty \rations}{1}{15}
+    \marketItem[cp]{Salty \rations}{1}{10}
   \end{markettable}
 }
 
@@ -1293,7 +1293,7 @@
     \fi
   }% Quote
     \hline
-    Shop sign & \mkPrice[cp]{9} +2 per letter \\
+    Shop sign & \mkPrice{2} +30~\glsfmtplural{cp} per letter \\
 
     Send a letter  & \mkPrice[cp]{3} per mile \\
 
