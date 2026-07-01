@@ -622,8 +622,8 @@
     {}% ABILITIES
 }
 
-\newcommand{\humanmaid}[1][\NPC{\F\Hu}% Symbol
-  {\composeHumanName, maid}% Name
+\newcommand{\humanweaver}[1][\NPC{\glsentrysymbol{sable}\F\Hu}% Symbol
+  {\composeHumanName, \Glsfmttext{weaver}}% Name
   {\ifcase\value{r3}\relax\or%
     brown%
   \or%
@@ -641,7 +641,7 @@
   }% Description
   {\ifodd\value{r2b} picks at\else cleans\fi\ %
   \ifcase\value{r3c}\relax\or hair\or teeth\else nose\fi}% Mannerism
-  {to \ifodd\value{r3c} find better \ifodd\value{r2c} knives\else salt\fi\else marry well\fi}% Wants
+  {to \ifodd\value{r3c} find better \ifodd\value{r2c} patterns\else salt\fi\else marry well\fi}% Wants
   ]{
   \Person{#1}%
     {{r2}{1}{0}}% BODY
@@ -651,7 +651,8 @@
         \set{Brawl}{1}
       \fi
       \set{Crafts}{r2b}
-      \set{Empathy}{r2c}
+      \set{Empathy}{rn3t3}
+      \set{Cultivation}{r2c}
       \ifodd\value{r3b}
         \set{Vigilance}{rn1t2}
       \else
@@ -659,8 +660,12 @@
       \fi
     }% SKILLS
     {\ifodd\value{r4}\specialist{dyes}\else\specialist{knots}\fi}% KNACKS
-    {\lootSmall}% EQUIPMENT
+    {\ifodd\value{r4b}rushlights\else\lootSmall\fi}% EQUIPMENT
     {}% ABILITIES
+}
+
+\newcommand\humanmaid{%
+  \humanweaver[\npc{\glsentrysymbol{paik}\Hu\F}{\composeHumanName, Maid}]%
 }
 
 \newcommand{\humanhealer}[1][\NPC{\glsentrysymbol{eldren}\ifodd\theage\F\else\M\fi\Hu}% Symbol
