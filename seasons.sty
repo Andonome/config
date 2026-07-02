@@ -265,3 +265,33 @@
   \index[history]{{\titleFont C. \Large\arabic{track}}!{\scshape\showCycle[#2]}\nobreak\\~{#3}|textbf~page~}%
 }
 
+\ifcase\thetemperature%
+  \newcommand\seasonalMannerism{%
+    dusting snow from the leaves%
+  }%
+\or%
+  \newcommand\seasonalMannerism{%
+    squeezing water from scarf%
+  }%
+\or%
+  \newcommand\seasonalMannerism{%
+    swatting flies away%
+  }%
+\else%
+  \newcommand\seasonalMannerism{%
+    mopping forehead sweat%
+  }%
+\fi%
+
+
+\ifcase\thetemperature%
+  \newcommand\seasonColour{blue}%
+\or%
+  \newcommand\seasonColour{yellow}%
+\or%
+  \newcommand\seasonColour{green}%
+\else%
+  \newcommand\seasonColour{white}%
+\fi%
+
+
