@@ -1116,6 +1116,7 @@
       \ritualcaster%
     \fi}% KNACKS
     {%
+    \ifcase\value{r3c}\relax\or writing equipment\or chalk\else flint-sparker\fi,
       \ifodd\value{r4}%
         \lootBig%
         \ifodd\value{r4b}%
@@ -1759,7 +1760,7 @@
       \fi
     }% SKILLS
     {\snapcaster, \ritualcaster, \vengeful, \laststand}% KNACKS
-    {\lootMagic, \lootMedium, \lootJewellery, \lootJewellery}% EQUIPMENT
+    {\lootMagic, \lootJewellery, \lootJewellery, \lootJewellery}% EQUIPMENT
     {\undead}% ABILITIES
 }
 
