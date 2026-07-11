@@ -479,10 +479,14 @@
     {%
       \set{Academics}{r3}
       \set{Empathy}{r0t1}
-      \set{Cultivation}{rn1t2}
+      \ifodd\value{r6}
+        \set{Cultivation}{rn1t2}
+      \else
+        \set{Crafts}{rn1t2}
+      \fi
       \set{Caving}{r3b}
       \randomize
-      \ifnum\theSpeed>0
+      \ifnum\theSpeed=0
         \set{Athletics}{r2c}
       \else
         \set{Larceny}{r2c}
@@ -492,7 +496,7 @@
         \set{Fire}{r0t1}
       \fi
     }% SKILLS
-    {\ifcase\theCaving\relax\or\specialist{obsidian}\or\specialist{underfarms}\else\specialist{cave navigation}\fi}% KNACKS
+    {\ifcase\value{r4b}\relax\or\specialist{obsidian blades}\or\specialist{underfarms}\or\specialist{\ifodd\theLarceny bronze\else rope\fi~locks}\else\specialist{cave navigation}\fi}% KNACKS
     {\ifodd\value{r12} \lootGoblin\ and \fi\ \rations.
     \lootMedium\ hidden in \ifodd\value{r2} hat\else boots\fi}% EQUIPMENT
     {}% ABILITIES
