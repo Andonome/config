@@ -32,7 +32,7 @@
   \or%
     \appto{\name}{broch}%
     \appto{\baileydesc}{The \gls{village} retains the \gls{broch} which founded the area, though nowadays a retired \gls{thane} lives there.  }%
-    \appto{\baileymarketsWide}{\baileyThane\par}
+    \appto{\baileymarkets}{\baileyThane\par}
   \or%
     \appto{\name}{mill}%
     \appto{\baileymarketsWide}{\baileyArms}%
@@ -316,7 +316,7 @@
   \setcounter{r6}{1}
   \setcounter{r3c}{1}
 
-  \appto{\baileymarkets}{%
+  \appto{\baileymarketsWide}{%
     \baileyWeaver\par%
   }
 
@@ -324,6 +324,8 @@
     \baileyHospitality\par%
     \baileySalvage\par%
   }
+
+  \appto{\baileymarkets}{\baileyRations}%
 
   % Baileys without a river should have a well.
   \ifodd\thediceNo
@@ -335,7 +337,6 @@
       \appto{\baileydesc}{A deep river runs through a wicker fence in the wall.  }
     \fi
   \fi
-  \appto{\baileymarkets}{\baileyRations}%
 
   \edef\baileyname{\expandafter\MakeUppercase\name}
 

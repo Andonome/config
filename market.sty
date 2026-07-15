@@ -23,8 +23,9 @@
 \newtcolorbox{markettable}[4][\flourish]{
   tabularx=#2,
   empty,
-  before={\bigbreak\noindent\begin{minipage}{\linewidth}\begin{center}\bfseries #1~#3~#1\end{center}},
-  after={\begin{quotation}#4\end{quotation}\end{minipage}\medbreak},
+  before={\smallskip\noindent\begin{minipage}{\linewidth}\setlength{\parskip}{0pt}%
+  \begin{center}\bfseries #1~#3~#1\end{center}},
+  after={\begin{quotation}#4\end{quotation}\end{minipage}\smallskip},
   bottom=1em,
   top=-1pt,
   left=3pt,
