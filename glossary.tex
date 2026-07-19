@@ -831,17 +831,18 @@ Set the darker die to `\dicef{6}' and roll the other.  If this roll fails, it fa
 }
 
 \longnewglossaryentry{projectile}{
-  name={Projectiles},
+  name={Projectile},
   text={Projectile},
   plural={Projectiles},
   type={mech},
   category={rules},
   prefix={a\space},
   parent={combat},
-  description={rolls use \roll{Dexterity}{Projectiles} at \glsentrytext{tn}~7 plus 1 for every 5~\glsfmtplural{step} distance.
-  On a tie, the character fumbles; the shot misses, but the characters retains the projectile and spends no more than 1~\glsentrytext{ap}.
+  description={rolls use \roll{Dexterity}{Projectiles} versus whatever the target does to resist (e.g. \roll{Speed}{Vigilance} to run, or \roll{Dexterity}{Melee} to attack).
+    For every 5~\glsfmtplural{step}' distance, the \glsentrytext{tn} increases by 1.
+    On a tie, both succeed, or neither.
 
-  Targets can resist with \roll{Speed}{Vigilance} by spending \pgls{ap}},
+    Targets who don't try to avoid the projectile have \glsentrytext{tn}~7, and don't need to spend \glsfmtplural{ap} to avoid the missile},
 }
 
 \longnewglossaryentry{crossbow}{
