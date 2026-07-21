@@ -94,12 +94,12 @@ $(DROSS)/%-switch-gls:| $(DROSS)/
 	touch $@
 
 $(DROSS)/%.pdf: %.tex $(wildcard config/*.sty) | $(DROSS)/
-	$(COMPILER) -jobname=$(basename $(@F)) $<
+	$(COMPILER) -jobname=$* $<
 %.pdf: $(DROSS)/%.pdf
 	$(CP) $(DROSS)/$@ $@
 
 $(DROSS)/%.pdf: %/main.tex %/ $(DEPS) | $(DROSS)/
-	$(COMPILER) -jobname=$(<D) $<
+	$(COMPILER) -jobname=$* $<
 
 $(AUX_REFERENCES): $(DROSS)/%.aux: $(AUX_DIR)/%.aux | $(DROSS)/
 	cp $< $@
@@ -160,7 +160,7 @@ future_tex = $(patsubst %, future/%.tex, $(future_months))
 future_tests = $(patsubst future/%.tex, $(DROSS)/%.pdf, $(future_tex))
 
 $(future_tex): future/%.tex: $(root_file) $(DBOOK) | future/
-	sed '2 i \ \\day=1$(notdir $(basename $@)) \\month=$(notdir $(basename $@))' $< > $@
+	sed '2 i \ \\day=1$* \\month=$*' $< > $@
 
 .PHONY: test_future
 test_future: $(future_tests) ## Check compilation in future dates

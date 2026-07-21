@@ -35,8 +35,8 @@ rules.pdf: ## one-page copy of the rules
 cs.pdf: ## tiny character sheet
 
 generated/%.tex: recfiles/Monster.rec recfiles/%.template | generated/ $(DROSS)/
-	cp recfiles/$(basename $(@F))_head.tex $@
-	recsel -t $(basename $(@F)) $<  | recfmt -f recfiles/$(basename $(@F)).template >> $@
+	cp recfiles/$*_head.tex $@
+	recsel -t $* $<  | recfmt -f recfiles/$*.template >> $@
 	! grep -q "multicols" $@ || printf '%s\n' '\end{multicols}' >> $@
 	printf '%s\n' '\end{document}' >> $@
 
