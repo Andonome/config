@@ -8,7 +8,7 @@ COMPRESS = gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dNOPAUSE -dQUIET -dBAT
 export SELF_CALL = stop_inkscape_collisions
 
 ifeq "s" "$(findstring s,$(word 1, $(MAKEFLAGS)))"
-  TEX_ARGS += --quiet
+  TEX_ARGS += > $(DROSS)/$*_log.txt 2> $(DROSS)/$*_log.txt
 endif
 
 CP := ln -f
@@ -20,13 +20,13 @@ DBOOK ?= $(DROSS)/$(BOOK).pdf
 COMPILER = latexmk \
 	-e '$$max_repeat=6' \
 	-file-line-error \
-	$(TEX_ARGS) \
 	-output-directory=$(DROSS) \
 	-pdflua \
 	-interaction=nonstopmode \
 	-halt-on-error \
 	-shell-escape \
-	-r config/.latexmkrc
+	-r config/.latexmkrc \
+	$(TEX_ARGS)
 
 RELEASE = $(TITLE).pdf
 GLOS := makeglossaries -d $(DROSS)
@@ -56,10 +56,10 @@ else
   $(RELEASE): $(DBOOK) $(backpages)
 	$(info Created $@ with back-pages: $(backpages))
 	pdfjam --pdftitle $(TITLE) --pdfsubject "BIND RPG" \
-	$(TEX_ARGS) \
 	--pdfkeywords "RPG,TTRPG,roleplaying" \
 	$^ \
-	--outfile $@
+	--outfile $@ \
+	$(TEX_ARGS)
 endif
 
 $(DBOOK): main.tex $(DEPS) | $(DROSS)/
@@ -106,7 +106,7 @@ $(DROSS)/%.pdf: %/main.tex %/ $(DEPS) | $(DROSS)/
 	$(COMPILER) -jobname=$* $<
 
 $(AUX_REFERENCES): $(DROSS)/%.aux: $(AUX_DIR)/%.aux | $(DROSS)/
-	$(info Importing page references fo $*)
+	$(info Importing page references for $*)
 	cp $< $@
 
 .PHONY: refs
