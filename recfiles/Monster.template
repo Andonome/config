@@ -2,15 +2,15 @@
   {{{{Strength}}}{{{Dexterity}}}{{{Speed}}}}% BODY
   {{{Wits}}}% WITS
   {
-    \setcounter{Projectiles}{{{Projectiles}}}
-    \setcounter{Brawl}{{{Brawl}}}
-    \setcounter{Athletics}{{{Athletics}}}
-    \setcounter{Deceit}{{{Deceit}}}
-    \setcounter{Empathy}{{{Empathy}}}
-    \setcounter{Flight}{{{Flight}}}
-    \setcounter{Stealth}{{{Flight}}}
-    \setcounter{Survival}{{{Survival}}}
-    \setcounter{Vigilance}{{{Vigilance}}}
+    \set{Projectiles}{{{Projectiles}}}
+    \set{Brawl}{{{Brawl}}}
+    \set{Athletics}{{{Athletics}}}
+    \set{Deceit}{{{Deceit}}}
+    \set{Empathy}{{{Empathy}}}
+    \set{Flight}{{{Flight}}}
+    \set{Stealth}{{{Flight}}}
+    \set{Survival}{{{Survival}}}
+    \set{Vigilance}{{{Vigilance}}}
   }% SKILLS
   {{{Knacks}}}% KNACKS
   {{{Abilities}}}% ABILITIES

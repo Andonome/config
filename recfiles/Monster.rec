@@ -12,7 +12,7 @@
 %type: Projectiles,Brawl,Athletics,Caving,Deceit,Empathy,Flight,Stealth,Survival,Vigilance skill
 
 Name: auroch
-Strength: 2
+Strength: r4t5
 Dexterity: -2
 Speed: 1
 Wits: 1
@@ -117,9 +117,9 @@ Speed: 0
 Intelligence: 1
 Wits: 0
 Charisma: 0
-Earth: 0
-Air: 2
-Fire: 2
+Earth: r3
+Air: r3b
+Fire: r3c
 Water: 0
 Fate: 0
 Projectiles: 0
