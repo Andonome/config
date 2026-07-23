@@ -50,9 +50,11 @@ DEPS += $(wildcard *.tex)
 book: $(RELEASE) ## Compile the pdf
 ifeq (${backpages},)
   $(RELEASE): $(DBOOK)
+	$(info Created $@)
 	@$(CP) $< $@
 else
   $(RELEASE): $(DBOOK) $(backpages)
+	$(info Created $@ with back-pages: $(backpages))
 	pdfjam --pdftitle $(TITLE) --pdfsubject "BIND RPG" \
 	$(TEX_ARGS) \
 	--pdfkeywords "RPG,TTRPG,roleplaying" \
@@ -61,6 +63,7 @@ else
 endif
 
 $(DBOOK): main.tex $(DEPS) | $(DROSS)/
+	$(info Created $@)
 	$(COMPILER) -jobname=$(BOOK) $<
 
 # Story time!
@@ -99,9 +102,11 @@ $(DROSS)/%.pdf: %.tex $(wildcard config/*.sty) | $(DROSS)/
 	$(CP) $(DROSS)/$@ $@
 
 $(DROSS)/%.pdf: %/main.tex %/ $(DEPS) | $(DROSS)/
+	$(info Using $< to make $*.pdf)
 	$(COMPILER) -jobname=$* $<
 
 $(AUX_REFERENCES): $(DROSS)/%.aux: $(AUX_DIR)/%.aux | $(DROSS)/
+	$(info Importing page references fo $*)
 	cp $< $@
 
 .PHONY: refs
@@ -111,6 +116,7 @@ $(AUX_DIR)/$(BOOK).aux: $(DROSS)/$(BOOK).aux | $(AUX_DIR)/
 $(DROSS)/$(BOOK).aux: $(DBOOK)
 
 qr.tex: README.md
+	$(info Created QR code for $(QR_TARGET))
 	printf '%s' '\qrcode[height=.2\textwidth]{$(QR_TARGET)}' > qr.tex
 
 output += qr.tex svg-inkscape
@@ -160,6 +166,7 @@ future_tex = $(patsubst %, future/%.tex, $(future_months))
 future_tests = $(patsubst future/%.tex, $(DROSS)/%.pdf, $(future_tex))
 
 $(future_tex): future/%.tex: $(root_file) $(DBOOK) | future/
+	$(info Checking compile for $(root_file) on month $*, day 1$*)
 	sed '2 i \ \\day=1$* \\month=$*' $< > $@
 
 .PHONY: test_future
@@ -170,6 +177,7 @@ test_future: $(future_tests) ## Check compilation in future dates
 text_shadows = $(patsubst $(DROSS)/%.pdf, $(DROSS)/%.txt, $(wildcard $(DROSS)/*.pdf))
 
 $(text_shadows): $(DROSS)/%.txt: $(DROSS)/%.pdf
+	$(info Converting $* to text)
 	pdftotext $< $@
 
 .PHONY: report
@@ -234,9 +242,11 @@ $(DROSS)/a7%.ps: $(DROSS)/a7%.pdf
 	pdftops $< $@
 
 $(DROSS)/onepage_%.ps: $(DROSS)/a7_%.ps
+	$(info Composing $* booklet in portrait)
 	pstops -pa4 '$(a7_layout)' $< $@
 
 $(DROSS)/onepage_%.ps: $(DROSS)/a7l_%.ps
+	$(info Composing $* booklet in landscape)
 	pstops -pa4 '$(a7_landscape_layout)' $< $@
 
 $(DROSS)/onepage_%.pdf: $(DROSS)/onepage_%.ps
