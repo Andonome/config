@@ -1,3 +1,5 @@
+\ifodd\value{diceNo}
+
 \spell{Atrophy}% Name
   {Duplicated}% Enhancements
   {Wane}% Action
@@ -9,3 +11,19 @@
 
     The \gls{attribute} Penalty returns at the same rate as lost \glspl{hp}, but only once all \glspl{hp} heal.}
 
+\else
+
+\spell{Oil \& Water}% Name
+  {Detailed}% Enhancements
+  {Wax}% Action
+  {Earth,Water}% Spheres
+  {target's \glspl{ep} +7}% Resist with
+  {The caster gives a quick pep-talk about things which rhyme with `speed' and the target's Speed \gls{attribute} becomes +\arabic{spellPlusOne}, plus half their current Speed.
+  However, every strenuous activity inflicts +\arabic{spellPlusOne}~\glspl{ep}}% Description
+  {
+  	For example, a target with Speed +1 would gain a total of +\arabic{spellPlusTwo}~Speed.
+	Targets who already have a higher Speed \gls{attribute} than the spell's take half the spell's boon as a Bonus.
+  }
+
+\fi
+\stepcounter{diceNo}
