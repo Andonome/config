@@ -224,9 +224,13 @@
     \ifnum\thefenestraDay>50
       \Gls{grummel}'s on his way, brewing up some mischief as usual and we're all underprepared.
     \fi
-    \ifodd\value{r3}
+    \ifcase\value{r3}\or\relax%
+    \or%
       \rotatebox{\value{rn1t2}}{Any news from town?}
       \rotatebox{\value{rn1t2}}{\footnotesize Sorry\ldots I forgot yous can't go in\ldots}
+    \or%
+      \rotatebox{\value{rn1t2}}{\hspace{-2em}See any goats on the road?  Goats are a good omen.}
+      \rotatebox{\value{rn1t2}}{\hspace{-3em}If you see goats it means nothing's eaten them.}
     \else
       \rotatebox{\value{rn1t2}}{Remember and buy some rope.}
       \rotatebox{\value{rn1t2}}{If you don' have it, you'll need it.}
