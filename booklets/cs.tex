@@ -74,29 +74,7 @@
 
 \null
 
-\vspace{1em}
-
-\Glsfmtplural{fp}:
-\iftoggle{examplecharacter}{\quad\arabic{fp}}{\lineDots}
-
-\vspace{-1em}
-\hspace{3em}
-\hint{$\frac{\glsentrytext{xp}}{10}+Cha$}
-
-\vspace{1em}
-
-\Glsfmtplural{mp}:
-\iftoggle{examplecharacter}{\quad\arabic{mp}}{\lineDots}
-
-\vspace{-1em}
-\hspace{3em}
-\hint{\glsentryplural{sphere} $\times 3$}
-
 \end{multicols}
-
-%\begin{multicols}{2}
-%
-%\end{multicols}
 
 \pagebreak
 \scshape
@@ -124,16 +102,31 @@
   \multicolumn{6}{r}{\hint{XP Costs: 10/ 20/ 30}}
 \end{tabularx}
 
+
 \begin{tikzpicture}[remember picture,overlay]
 % draw image
     \path ++(current page.north)+(-1em,-1em) node {\textcolor{lightgray}{\quad\Glspl{ap}:\quad V \qquad\qquad\qquad IV \qquad\qquad\qquad III \qquad\qquad\qquad II\qquad\qquad\qquad I}};
     % Minutes
 \end{tikzpicture}
-\pagebreak
 
 \pagebreak
 
 \begin{multicols}{2}
+
+\noindent
+\renewcommand{\arraystretch}{.5}%
+\begin{tabularx}{\linewidth}{XX}
+\Glsfmtplural{fp}:
+\iftoggle{examplecharacter}{\quad\arabic{fp}}{\lineDots}
+\hint{$\frac{\glsentrytext{xp}}{10}+Cha$}
+&
+\Glsfmtplural{mp}:
+\iftoggle{examplecharacter}{\quad\arabic{mp}}{\lineDots}
+\hint{\glsentryplural{sphere} $\times 3$} \\
+\end{tabularx}
+
+\vspace{1em}
+
 \renewcommand{\arraystretch}{1}%
 \footnotesize
 \noindent
