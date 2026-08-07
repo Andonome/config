@@ -6,23 +6,45 @@
 
 \begin{exampletext}
 \ifcase\value{temperature}
-  \ifodd\value{r3}
+  \ifcase\value{r0t3}%
     This is a nice place, for nice people.
     So turn back round, and find \pgls{basilisk} to hibernate with.
-  \else
+  \or%
+    Hey, guess what?
+    Today's `\emph{Spectacular}'?
+    I thought of it, and the \gls{warden} said I have a good sense of justice and that I'm hilarious.
+  \else%
     The town's been running low on all sorts, so I'm just letting any \glspl{guard} in as long as they have something to sell.
   \fi
-\or
-  Deposit any weapons at the little \gls{jotter}'s office before entering.
-  And get a letter of admittance or no pass!
+\or%
+  \ifcase\value{r0t3}%
+    Hang on there --- I know your face.
+    Are you that one that was involved in that whole thing a while back?
+  \or%
+    New law just passed.
+    No \glspl{guard} allowed within a hundred \glspl{step} of the \gls{templeOfCuriosity} or it's straight to the \gls{court}.
+  \else%
+    Deposit any weapons at the little \gls{jotter}'s office outside the walls before entering.
+    And get a letter of admittance or no pass!
+  \fi%
 \else{%
-  \ifcase\value{r2b}%
+  \ifcase\value{r0t3}%
     G'day, {\tiny hic} sirs\ldots
     Mum--ma'am.
     {\tiny hic}
+  \or%
+    New law just passed.
+    No notivagay\ldots noctiva-gate\ldots
+    No getting up to stuff at night or it's the \gls{court} for yous, okay?
+  \or%
+    New law just passed.
+    Deposit any \glspl{ingredient} you have in this box.
+    If you want to make a sale, both parties come here.
+    Anything in those bags or boots?
+    Show me!
   \else%
     I'm feeling extra nice today.
-    10~\glspl{sp}, and the lot of you can get in.
+    \arabic{r12}~\glspl{sp}, and the lot of you can get in.
   \fi%
 }\fi%
 \pinLocation{guardgate}
