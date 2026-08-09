@@ -1770,8 +1770,15 @@
 
 \newcommand\jelly[1][\value{r4}]{%
   \swarm[\gloopy%
-  \ifnum#1=3%
+  \ifcase#1\relax\or%
     \acidSpray%
+    \set{Stealth}{r3t4}%
+    \set{Projectiles}{r0t1}%
+  \or%
+    \set{Stealth}{r3}%
+  \or%
+    \set{Stealth}{r0t1}%
+  \else%
   \fi]{\ifcase#1\relax\or%
     Translucent%
   \or%
@@ -2069,7 +2076,11 @@
 }
 
 \newcommand\stirgeSwarm{
-  \swarm[\flight\label{\jobname:harvestStirge}]{Stirges}% Name
+  \swarm[%
+    \flight%
+    \label{\jobname:harvestStirge}%
+    \set{Flight}{r2}%
+  ]{Stirges}% Name
   {\arabic{r12}}%
   {r2}%
   {3}%
@@ -2077,7 +2088,9 @@
 }
 
 \newcommand\olmSwarm{%
-  \swarm{\arabic{r12} \Glsfmtplural{olm}}% Name
+  \swarm[%
+    \set{Athletics}{r2}%
+  ]{\arabic{r12} \Glsfmtplural{olm}}% Name
   {r12}%
   {1}%
   {2}%

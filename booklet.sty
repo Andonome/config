@@ -436,6 +436,11 @@
   \addtocounter{ap}{3}
   \setcounter{dr}{8}
   \set{Wits}{#6}
+  \setcounter{diceNo}{0}%
+  \foreach \s in {Projectiles,Athletics,Flight,Stealth,Vigilance}%
+    {\ifnum\value{\s}>0%
+      \stepcounter{diceNo}%
+    \fi}%
   #1
   \set{freeHP}{hp}
   \setcounter{freeHP}{\value{hp}}%
@@ -457,6 +462,14 @@
   \ifdefempty{\Abilities}{}{%
     \ent{Abilities} & \Abilities \\
   }
+  \ifnum\thetrack>0%
+    \ent{Skills} & 
+    \foreach \s in {Projectiles,Athletics,Flight,Stealth,Vigilance}%
+      {\ifnum\value{\s}>0%
+        \s~\arabic{\s}, %
+      \fi}%
+  \\
+  \fi%
   \hline
   \end{tabularx}%
   \end{minipage}

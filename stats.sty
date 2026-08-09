@@ -775,10 +775,22 @@
   HP:~\iftoggle{genExamples}%
     {\arabic{hp}}%
     {\hpStat}%
+  \normalfont
   \ifdefempty{\Abilities}{}{%
-    \normalfont
-    \par\textbf{Abilities:} \Abilities
+    \par\noindent\textbf{Abilities:} \Abilities
   }%
+  \setcounter{diceNo}{0}%
+  \foreach \s in {Projectiles,Athletics,Flight,Stealth,Vigilance}%
+    {\ifnum\value{\s}>0%
+      \stepcounter{diceNo}%
+    \fi}%
+  \ifnum\thediceNo>0%
+    \par\noindent\textbf{Skills:} 
+    \foreach \s in {Projectiles,Athletics,Flight,Stealth,Vigilance}%
+      {\ifnum\value{\s}>0%
+        \s~\arabic{\s}, %
+      \fi}%
+  \fi%
   {\hfil\small\textcolor{background}{\calculateXP}}%
   \end{tcolorbox}%
 }
