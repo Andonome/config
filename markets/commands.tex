@@ -434,8 +434,9 @@
     \composeHumanName, local guide & 20~\glspl{cp} per mile, 2~\glspl{gp} deposit. \\
     \ifodd\value{diceNo}\else
       Boat-ride down-river with \marketBoatman%
-      & \mkPrice[cp]{6} per mile \\
-      Boat-ride up-river with \composeHumanName\  & \mkPrice[cp]{16} per mile \\
+      & \ifnum\thetemperature=0 \mkPrice[cp]{8} \else \mkPrice[cp]{3} \fi per mile \\
+      Boat-ride up-river with \composeHumanName
+      & \ifnum\thetemperature=0 \mkPrice[cp]{11} \else \mkPrice[cp]{6} \fi per mile \\
     \fi
   \end{markettable}
 }
