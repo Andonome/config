@@ -1515,7 +1515,33 @@
     {\undead}% ABILITIES
 }
 
-\newcommand{\ogre}[1][\npc{\N\M}{Ogre}]{
+\newcommand{\ogre}[1][\NPC{\N\ifodd\thehumanNameNo\F\else\M\fi}% Symbol
+  {\ifodd\thehumanNameNo Blank-eyed \else Jubilant\fi~\Glsfmttext{ogre}}% Name
+  {\ifodd\thehumanNameNo%
+    \ifnum\theStrength>5%
+      swollen face and forearms%
+    \else%
+      sunken-eyes%
+    \fi%
+  \else%
+    \ifnum\theStrength<5%
+      painfully emaciated%
+    \else%
+      beard growing into chest-hair%
+    \fi%
+  \fi%
+  }% Description
+  {\ifcase\theSpeed%
+    slowly blowing snot-bubbles%
+  \or%
+    itching between toes%
+  \or%
+    shaking head side-to-side%
+  \else%
+    violent judders%
+  \fi}% Mannerism
+  {to \ifcase\value{r3} find {\ifnum\thetemperature=0 somewhere warm \else a big weapon\fi}\or find a missing companion\else build {\ifnum\thetemperature=0 an ice house\else a larder\fi}\fi}% Wants
+  ]{
   \Person{#1}%
     {{r4t6}{rn1t2}{r0t3}}% BODY
     {{rn4tn1}{rn3t3}{r3c}}% MIND
