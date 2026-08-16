@@ -5,18 +5,8 @@
     {Fire, Air}% Spheres
     {\roll{Wits}{Vigilance}}% Resistance
     {The scroll, once burnt, creates \arabic{spellTargets} copies of the illusionist, all around them}% Summary
-    {}% Details
-}
-
-\newcommand\hoofHandle{%
-  \talisman{Hoof Handle}% Name
-    {Detailed, Divergent}% Enhancements
-    {Wax}% Action
-    {Earth, Air}% Spheres
-    {solidity of the ice}% Resistance
-    {This sword handle wants to craft a sword-blade from ice, while blessing the bearer with four +1 Bonuses to the Melee Skill.
-    The sword shatters once it deals 4 or more Damage}% Summary
-    {It has only \pgls{weight} of 1, but will it will produce a great sword with the standard \gls{weight} once fully-formed}% Details
+    {The scroll itself is made from three \gls{griffin} wings.
+    The writing speaks about recursion (and forms its own index); the ink comes from a stirge queen mixed with \glspl{glowshroom}.}% Details
 }
 
 \newcommand\verdantBerries{%
@@ -25,8 +15,8 @@
     {Wax}% Action
     {Earth, Water}% Spheres
     {edibility of the plant}% Resistance
-    {This stinking mess of moss and organic matter comes wrapped in wax.
-    Once opened by a plant, it makes the plant grow, making edible plants produce an extra 3 meals after one \showOnset}% Summary
+    {This stinking mess of \glspl{marchingMushroom} and \glspl{boneCandle} comes wrapped in wax.
+    Once burried, any nearby plant grows and becomes tasty (or at least edible) producing an extra 3 meals after one \showOnset}% Summary
     {This kind of forced growth is not sustainable; it depletes the soil, and little will grow there for at least a year.}% Details
 }
 
@@ -66,29 +56,17 @@
     }% Details
 }
 
-\newcommand\oceanPhial{%
-  \talisman{Ocean's Phial}% Name
-    {Duplicated, Distant}% Enhancements
-    {Wax}% Action
-    {Water}% Spheres
-    {water's movement}% Resistance
-    {
-      Drop it in any large body of water, and watch the water whirl.
-      Anyone in or near the water gets dragged down or thrown back, depending on the body of water's magnitude}% Summary
-    {
-    The phial will take a -3 penalty for use next to small bodies of water, such as puddles, or a +3 Bonus when used on people \emph{inside} a raging river.
-    }% Details
-}
-
 \newcommand\hagFinger{%
   \talisman{Hag's Finger}% Name
     {Detailed}% Enhancements
-    {Wane}% Action
+    {Warp}% Action
     {Water}% Spheres
     {\roll{Charisma}{Stealth}}% Resistance
-    {Point the mummified finger at a cretin, then crack the finger's knuckle till it breaks.
-      The cretin will suffer \arabic{spellPlusTwo} encounters before the next day's light}% Summary
-    {}% Details
+    {Point this fat, mummified finger at a cretin, then crack the finger's knuckle till it breaks.
+      The nearest person with \glspl{fp} has their maximum \glspl{fp} reduce by \arabic{spellPlusTwo} until something reduces their \glspl{fp} to zero}% Summary
+    {
+      Despite appearances, this oversized-sausage is made from two dried \gls{crawler} spinnerets.
+    }% Details
 }
 
 \newcommand\homeScroll{%
@@ -124,39 +102,42 @@
     {Wane}% Action
     {Water, Earth}% Spheres
     {\roll{Strength}{Athletics}}% Resistance
-    {The item is a baby mouth-digger, suspended in its mother's birthing sack.
+    {The item is a baby mouth-digger, suspended in its mother's birthing sack and mixed with \pgls{boneCandle}.
     Eating one requires a \roll{Strength}{Cultivation} check, to crunch the creature's bones without breaking any teeth (\tn[6]), and once eaten, the consumer begins to shrink, losing \arabic{spellCost} Strength}% Summary
     {
-    Underground travellers occasionally travel with a few of these creatures, in order to fit through small underground tunnels.}% Details
+      Underground travellers occasionally travel with a few of these creatures, in order to fit through small underground tunnels.}% Details
 }
 
 \newcommand\labyrinthScroll{%
   \talisman{Labyrinth Scroll}% Name
-    {Distant, Duplicated}% Enhancements
+    {Distant, Duplicated, Detailed}% Enhancements
     {Warp}% Action
     {Fire, Earth}% Spheres
-    {movement of any kind}% Resistance
-    {A rift in space covers an opening (e.g. a door, corridor, or window) which leads to the goblin realm, far below the \gls{deep}}% Summary
+    {inappropriate surfaces}% Resistance
+    {Each scroll has a different riddle.
+    Once someone speaks the answer (intentionally or not) a rift in space covers an opening (e.g. a door, corridor, or window) which leads to the goblin realm, far below the \gls{deep}}% Summary
     {On the other side, stagnant, humid air spills out of a fungal garden which emanates with mana.
-    In the distance, a pale red light glows, forming a twisted silhouette of the jungle.
+    In the distance, a pale red light glows, forming a twisted silhouette of a jungle.
 
     The gateway degrades as things move through it.
-    It can handle up to \arabic{spellTargets} \glspl{hp} of creature, or equivalent weight, before it starts to collapse.
+    It can handle up to \arabic{spellTargets} \gls{weight}, before it collapses.
+
+    If used while deep underground, the gateway goes up, granting \emph{escape} from the \gls{deep}.
+
+    The scroll cannot hear, but it can lip-read.
     }% Details
 }
 
 \newcommand\crystalMaul{%
   \talisman{Crystal Maul}% Name
-    {Duplicated}% Enhancements
+    {}% Enhancements
     {Warp}% Action
     {Fire, Earth}% Spheres
-    {wind}% Resistance
+    {\roll{Wits}{Vigilance}}% Resistance
     {This javelin has a glass sphere blown over it, covering the spike.
       The ball has a swirling mixture of gasses inside, made from \pgls{basilisk}'s craw and watcher's gas-sack.
-    It handles like a maul until it deals 4~Damage or more, then explodes with a flash of light, blinding the nearest \arabic{spellTargets} people for \arabic{spellPlusOne}~\glspl{round} (resist with \pgls{ap} by rolling \roll{Wits}{Vigilance}, \tn[9])}% Summary
+    It handles like a maul until it deals 4~Damage or more, then explodes with a flash of light, possibly blinding the target for \arabic{spellPlusOne}~\glspl{round}}% Summary
     {%
-      The wielder can become blinded just like anyone else, which explains why so many of these weapons sit unused.
-
       Once used, the weapon functions as a normal javelin.
     }% Details
 }
