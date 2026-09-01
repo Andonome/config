@@ -178,40 +178,33 @@
 
 \pagebreak
 
-\begin{tabularx}{\linewidth}{cccX|r}
+\begin{tabularx}{\linewidth}{cccXcc}
   \hiderowcolors
-  & &  & \quad\bf\Glsfmttext{equipment}          & \bf\Glsfmtplural{ep} \\
+  & &  & \quad\bf\Glsfmttext{armour} & \Glsfmttext{covering}~~ & \Glsfmttext{dr} \\
   \hline
-  \setcounter{diceNo}{0}
-  \ifdefempty{\armourName}{}{
-    \csEquipment[\value{armourWeight}]{\expandafter\MakeUppercase\armourName}
-  }
-  \ifdefempty{\weaponName}{}{
-    \csEquipment[\value{weaponWeight}]{\weaponName}
-  }
-  \ifdefempty{\equipi}{}{
-    \csEquipment[\value{equipmentWeight}]{\expandafter\MakeUppercase\equipi}
-  }
-  \ifdefempty{\equipii}{}{ \csEquipment{ \equipii } }
-  \ifdefempty{\equipiii}{}{ \csEquipment{ \equipiii } }
-  \ifdefempty{\equipiv}{}{ \csEquipment{ \equipiv } }
-  \whileboolexpr{%
-    test {\ifnumcomp{\value{diceNo}}{<}{7}}%
-  }{%
-    \csEquipment[0]{ }
-  }%
-\end{tabularx}
 
-\pagebreak
+  \\
+  \ifdefempty{\armourName}{
+    \Repeat{3}{\statCircle & } \bigLine & \bigLine & \bigLine \\
+  }{
+    \setcounter{statDots}{3}%
+    \addtocounter{statDots}{-\value{armourWeight}}%
+    \Repeat{\value{armourWeight}}{\statDot & } \Repeat{\value{statDots}}{\statCircle & } \qquad\pencilWriting{ \expandafter\MakeUppercase\armourName } & \arabic{covering} & \arabic{armourDR} \\
+  } \\
 
-\begin{tabularx}{\linewidth}{cccX|r}
-  \hiderowcolors%
-  \setcounter{diceNo}{0}
-  \whileboolexpr{%
-    test {\ifnumcomp{\value{diceNo}}{<}{4}}%
-  }{%
-    \csEquipment[0]{ }
-  }%
+  \hline
+  & & & \quad\bf\Glsfmtplural{weapon} & Bonus & Damage \\
+  \hline
+  \\
+  \ifdefempty{\weaponName}{
+    \Repeat{3}{\statCircle & } \bigLine & \bigLine & \bigLine \\
+  }{
+    \setcounter{statDots}{3}%
+    \addtocounter{statDots}{-\value{weaponWeight}}%
+    \Repeat{\value{weaponWeight}}{\statDot & } \Repeat{\value{statDots}}{\statCircle & } \qquad\pencilWriting{ \expandafter\MakeUppercase\weaponName } & \arabic{weaponBonus} & \arabic{weaponDamage} \\
+  } \\
+  \Repeat{3}{\statCircle & } \bigLine & \bigLine & \bigLine \\
+
 \end{tabularx}
 
 \begin{multicols}{2}
@@ -240,6 +233,25 @@
 \iftoggle{examplecharacter}{ \set{track}{hp}\multiply\value{track} by 3 \thetrack }{ \hint{$= \glsfmttext{hp} \times 3$} }
 
 \end{multicols}
+
+
+\begin{tabularx}{\linewidth}{cccX|r}
+  \hiderowcolors
+  & &  & \quad\bf Backpack          & \bf\Glsfmtplural{ep} \\
+  \hline
+  \setcounter{diceNo}{0}
+  \ifdefempty{\equipi}{}{
+    \csEquipment[\value{equipmentWeight}]{\expandafter\MakeUppercase\equipi}
+  }
+  \ifdefempty{\equipii}{}{ \csEquipment{ \equipii } }
+  \ifdefempty{\equipiii}{}{ \csEquipment{ \equipiii } }
+  \ifdefempty{\equipiv}{}{ \csEquipment{ \equipiv } }
+  \whileboolexpr{%
+    test {\ifnumcomp{\value{diceNo}}{<}{7}}%
+  }{%
+    \csEquipment[0]{ }
+  }%
+\end{tabularx}
 
 
 \pagebreak
