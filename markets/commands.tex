@@ -229,7 +229,7 @@
       \rotatebox{\value{rn1t2}}{Any news from town?}
       \rotatebox{\value{rn1t2}}{\footnotesize Sorry\ldots I forgot yous can't go in\ldots}
     \or%
-      \rotatebox{\value{rn1t2}}{\hspace{-2em}See any goats on the road?  Goats are a good omen.}
+      \par\rotatebox{\value{rn1t2}}{\hspace{-2em}See any goats on the road?  Goats are a good omen.}
       \rotatebox{\value{rn1t2}}{\hspace{-3em}If you see goats it means nothing's eaten them.}
     \else
       \rotatebox{\value{rn1t2}}{Remember and buy some rope.}
@@ -1190,13 +1190,16 @@
   \or
     \footnotetext{There is no sale, just $1D6$ thugs who want your money.}
   \or
-    \footnotetext{\composeHumanName\ points out the obvious \gls{sunGuard} standing behind a bush, hoping to witness the illegal sale.
-    You'll have to come back tonight.}
+    \ifodd\value{r2c}
+      \footnotetext{\composeHumanName\ points out the obvious \gls{sunGuard} standing behind a bush, hoping to witness the illegal sale.
+      You'll have to come back tonight.}
+    \else
+      \footnotetext{$2D6$ \glspl{sunGuard} arrive to hunt for vagrant \glspl{fodder}.}
+    \fi
   \else
     \footnotetext{This item is illegal, and requires a \roll{Charisma}{Empathy} roll (\tn[10]), to gain trust along the line of people who lead to the real seller.
     The item requires one \glsfmttext{interval} to speak to everyone along the way.}
   \fi
-
 }
 
 \newcommand\townCuriosity{
@@ -1365,8 +1368,13 @@
       \pinLocation[0.5,0]{Armoury}%
       \pinLocation[3,0]{Alley}}% Header
   {\footnotesize%
-      \ifcase\value{r4}\relax\or%
+      \ifcase\value{r6}\relax\or%
         The \glsfmttext{templeOfHate} can pay \mkPrice{12} for Earth \glspl{ingredient}.
+      \or%
+        The \glsfmttext{templeOfHate} can pay \mkPrice{12} for Fire \glspl{ingredient}.
+      \or%
+        Careful round here.  There's a bunch of rogue \glspl{fodder} running about town, up to no good.
+        \Glspl{sunGuard} should be around shortly to stick them in the pit.
       \or%
         We can adjust the sizes for dwarves and larger elves, but it can take weeks, depending on how much the armour's covering.
       \or%
